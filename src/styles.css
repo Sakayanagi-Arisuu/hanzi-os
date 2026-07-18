@@ -3494,6 +3494,15 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
   font: 600 10px var(--mono);
 }
 
+.route-loader--fullscreen {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(81, 246, 193, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(81, 246, 193, 0.025) 1px, transparent 1px),
+    #030708;
+  background-size: 42px 42px;
+}
+
 .route-loader > span {
   width: 48px;
   height: 48px;

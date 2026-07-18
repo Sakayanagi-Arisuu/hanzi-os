@@ -13,7 +13,7 @@ Build production:
 
 ```bash
 npm run build
-npm run preview
+npm run start
 ```
 
 ## Những gì sản phẩm hiện có

@@ -2,7 +2,7 @@
 
 ## 1. Trạng thái hiện tại
 
-Foundation là React + TypeScript + Vite, dùng local storage để chạy trọn luồng không cần backend. `ts-fsrs` phụ trách scheduling và `hanzi-writer` phụ trách animation/quiz nét.
+Foundation là React + TypeScript chạy trên Vinext/Vite và Cloudflare Worker, dùng local storage để chạy trọn luồng không cần backend. `ts-fsrs` phụ trách scheduling và `hanzi-writer` phụ trách animation/quiz nét.
 
 ## 2. Kiến trúc production đề xuất
 

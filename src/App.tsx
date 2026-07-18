@@ -4,18 +4,18 @@ import { AppShell } from "./components/AppShell";
 import { SystemOnboarding } from "./components/SystemOnboarding";
 import { useLearning } from "./store/LearningStore";
 
-const AnalyticsPage = lazy(async () => ({ default: (await import("./pages/AnalyticsPage")).AnalyticsPage }));
-const AssessmentPage = lazy(async () => ({ default: (await import("./pages/AssessmentPage")).AssessmentPage }));
-const CharactersPage = lazy(async () => ({ default: (await import("./pages/CharactersPage")).CharactersPage }));
-const DashboardPage = lazy(async () => ({ default: (await import("./pages/DashboardPage")).DashboardPage }));
-const DictionaryPage = lazy(async () => ({ default: (await import("./pages/DictionaryPage")).DictionaryPage }));
-const LessonPage = lazy(async () => ({ default: (await import("./pages/LessonPage")).LessonPage }));
-const MistakesPage = lazy(async () => ({ default: (await import("./pages/MistakesPage")).MistakesPage }));
-const PathPage = lazy(async () => ({ default: (await import("./pages/PathPage")).PathPage }));
-const ProfilePage = lazy(async () => ({ default: (await import("./pages/ProfilePage")).ProfilePage }));
-const PronunciationPage = lazy(async () => ({ default: (await import("./pages/PronunciationPage")).PronunciationPage }));
-const ReaderPage = lazy(async () => ({ default: (await import("./pages/ReaderPage")).ReaderPage }));
-const ReviewPage = lazy(async () => ({ default: (await import("./pages/ReviewPage")).ReviewPage }));
+const AnalyticsPage = lazy(async () => ({ default: (await import("./screens/AnalyticsPage")).AnalyticsPage }));
+const AssessmentPage = lazy(async () => ({ default: (await import("./screens/AssessmentPage")).AssessmentPage }));
+const CharactersPage = lazy(async () => ({ default: (await import("./screens/CharactersPage")).CharactersPage }));
+const DashboardPage = lazy(async () => ({ default: (await import("./screens/DashboardPage")).DashboardPage }));
+const DictionaryPage = lazy(async () => ({ default: (await import("./screens/DictionaryPage")).DictionaryPage }));
+const LessonPage = lazy(async () => ({ default: (await import("./screens/LessonPage")).LessonPage }));
+const MistakesPage = lazy(async () => ({ default: (await import("./screens/MistakesPage")).MistakesPage }));
+const PathPage = lazy(async () => ({ default: (await import("./screens/PathPage")).PathPage }));
+const ProfilePage = lazy(async () => ({ default: (await import("./screens/ProfilePage")).ProfilePage }));
+const PronunciationPage = lazy(async () => ({ default: (await import("./screens/PronunciationPage")).PronunciationPage }));
+const ReaderPage = lazy(async () => ({ default: (await import("./screens/ReaderPage")).ReaderPage }));
+const ReviewPage = lazy(async () => ({ default: (await import("./screens/ReviewPage")).ReviewPage }));
 
 export default function App() {
   const { state } = useLearning();

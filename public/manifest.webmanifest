@@ -1,0 +1,19 @@
+{
+  "name": "HANZI.OS - Mandarin Awakening System",
+  "short_name": "HANZI.OS",
+  "description": "Hệ thống học tiếng Trung thích ứng từ con số 0.",
+  "lang": "vi",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#030708",
+  "background_color": "#030708",
+  "icons": [
+    {
+      "src": "/hanzi-os-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
