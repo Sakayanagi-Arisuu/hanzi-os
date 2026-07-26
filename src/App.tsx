@@ -1,8 +1,6 @@
 import { lazy, Suspense } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router";
 import { AppShell } from "./components/AppShell";
-import { SystemOnboarding } from "./components/SystemOnboarding";
-import { useLearning } from "./store/LearningStore";
 
 const AnalyticsPage = lazy(async () => ({ default: (await import("./screens/AnalyticsPage")).AnalyticsPage }));
 const AssessmentPage = lazy(async () => ({ default: (await import("./screens/AssessmentPage")).AssessmentPage }));
@@ -18,10 +16,6 @@ const ReaderPage = lazy(async () => ({ default: (await import("./screens/ReaderP
 const ReviewPage = lazy(async () => ({ default: (await import("./screens/ReviewPage")).ReviewPage }));
 
 export default function App() {
-  const { state } = useLearning();
-
-  if (!state.profile.onboarded) return <SystemOnboarding />;
-
   return (
     <AppShell>
       <Suspense fallback={<div className="route-loader"><span /><strong>Đang đồng bộ cảnh giới...</strong></div>}>

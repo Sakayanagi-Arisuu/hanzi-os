@@ -4,7 +4,9 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useId,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -68,6 +70,9 @@ type ConfirmModalProps = {
   title: string;
   description: string;
   confirmLabel: string;
+  cancelLabel?: string;
+  eyebrow?: string;
+  busy?: boolean;
   onConfirm: () => void;
   onCancel: () => void;
 };
@@ -77,36 +82,109 @@ export function ConfirmModal({
   title,
   description,
   confirmLabel,
+  cancelLabel = "Hủy thao tác",
+  eyebrow = "IRREVERSIBLE PROTOCOL",
+  busy = false,
   onConfirm,
   onCancel,
 }: ConfirmModalProps) {
+  const titleId = useId();
+  const descriptionId = useId();
+  const modalRef = useRef<HTMLElement | null>(null);
+  const cancelButtonRef = useRef<HTMLButtonElement | null>(null);
+  const onCancelRef = useRef(onCancel);
+
+  useEffect(() => {
+    onCancelRef.current = onCancel;
+  }, [onCancel]);
+
   useEffect(() => {
     if (!open) return;
+    const previouslyFocused = document.activeElement;
+    cancelButtonRef.current?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onCancel();
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onCancelRef.current();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const modal = modalRef.current;
+      if (!modal) return;
+      const focusable = [...modal.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      )].filter((element) =>
+        element.getAttribute("aria-hidden") !== "true"
+        && !element.hidden
+      );
+      if (focusable.length === 0) {
+        event.preventDefault();
+        modal.focus();
+        return;
+      }
+      const first = focusable[0]!;
+      const last = focusable[focusable.length - 1]!;
+      const activeElement = document.activeElement;
+      if (event.shiftKey) {
+        if (activeElement === first || !modal.contains(activeElement)) {
+          event.preventDefault();
+          last.focus();
+        }
+      } else if (
+        activeElement === last
+        || !modal.contains(activeElement)
+      ) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [open, onCancel]);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      if (
+        previouslyFocused instanceof HTMLElement
+        && previouslyFocused.isConnected
+      ) {
+        previouslyFocused.focus();
+      }
+    };
+  }, [open]);
 
   if (!open) return null;
 
   return (
     <div className="modal-scrim" onMouseDown={onCancel}>
       <section
+        ref={modalRef}
         className="system-confirm-modal"
         role="dialog"
         aria-modal="true"
-        aria-labelledby="confirm-modal-title"
+        aria-labelledby={titleId}
+        aria-describedby={descriptionId}
+        tabIndex={-1}
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className="confirm-sigil"><ShieldAlert size={28} /><span /></div>
-        <span className="system-kicker">IRREVERSIBLE PROTOCOL</span>
-        <h2 id="confirm-modal-title">{title}</h2>
-        <p>{description}</p>
+        <span className="system-kicker">{eyebrow}</span>
+        <h2 id={titleId}>{title}</h2>
+        <p id={descriptionId}>{description}</p>
         <div>
-          <button className="secondary-button" type="button" onClick={onCancel}>Hủy thao tác</button>
-          <button className="danger-button" type="button" onClick={onConfirm}>{confirmLabel}</button>
+          <button
+            ref={cancelButtonRef}
+            className="secondary-button"
+            type="button"
+            onClick={onCancel}
+          >
+            {cancelLabel}
+          </button>
+          <button
+            className="danger-button"
+            disabled={busy}
+            type="button"
+            onClick={onConfirm}
+          >
+            {confirmLabel}
+          </button>
         </div>
       </section>
     </div>

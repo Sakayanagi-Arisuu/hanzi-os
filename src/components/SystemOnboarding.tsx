@@ -13,6 +13,8 @@ import {
   Target,
 } from "lucide-react";
 import { useState } from "react";
+import { ResponsiveHeroBackdrop } from "./ResponsiveHeroBackdrop";
+import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { useLearning } from "../store/LearningStore";
 import type { LearningGoal, Profile, StartingLevel } from "../types";
 
@@ -23,7 +25,7 @@ const goals: Array<{
   icon: typeof MessageCircle;
 }> = [
   { id: "conversation", title: "Giao tiếp", description: "Nghe và nói tự nhiên trong đời sống.", icon: MessageCircle },
-  { id: "hsk", title: "Chinh phục HSK", description: "Lộ trình thi và kiểm tra định kỳ.", icon: Target },
+  { id: "hsk", title: "Hướng tới HSK", description: "Ưu tiên kỹ năng nền; chưa phải lộ trình luyện thi hoàn chỉnh.", icon: Target },
   { id: "career", title: "Công việc", description: "Họp, email và giao tiếp chuyên nghiệp.", icon: BriefcaseBusiness },
   { id: "travel", title: "Du lịch", description: "Sinh tồn nhanh trong tình huống thật.", icon: Plane },
 ];
@@ -35,9 +37,12 @@ const startingLevels: Array<{
 }> = [
   { id: "zero", title: "Khởi nguyên", description: "Bắt đầu từ thanh điệu và câu chào đầu tiên" },
   { id: "basic", title: "Đã khai âm", description: "Biết một số từ và mẫu câu đời sống" },
-  { id: "hsk1", title: "Nền HSK 1", description: "Có thể đọc và hiểu câu cơ bản" },
-  { id: "hsk2", title: "Nền HSK 2+", description: "Khảo nghiệm để đi thẳng vào phần phù hợp" },
+  { id: "hsk1", title: "Đã học HSK 1", description: "Tự khai báo; không tự mở khóa bài" },
+  { id: "hsk2", title: "Đã học HSK 2+", description: "Tự khai báo; khảo nghiệm chỉ đưa gợi ý" },
 ];
+
+const dailyMinuteOptions = [10, 20, 30] as const;
+const scriptOptions = ["simplified", "traditional"] as const;
 
 export function SystemOnboarding() {
   const { actions } = useLearning();
@@ -61,6 +66,7 @@ export function SystemOnboarding() {
 
   return (
     <main className="onboarding-shell">
+      <ResponsiveHeroBackdrop priority />
       <div className="onboarding-grid" aria-hidden="true" />
       <section className="onboarding-brand">
         <div className="boot-badge"><ScanLine size={16} /> AWAKENING PROTOCOL 0{step + 1}/03</div>
@@ -95,13 +101,29 @@ export function SystemOnboarding() {
         </header>
 
         {step === 0 && (
-          <div className="goal-grid">
-            {goals.map(({ id, title, description, icon: Icon }) => (
+          <div
+            className="goal-grid"
+            role="radiogroup"
+            aria-label="Mục tiêu thức tỉnh"
+          >
+            {goals.map(({ id, title, description, icon: Icon }, optionIndex) => (
               <button
                 className={profile.goal === id ? "selected" : ""}
+                data-radio-index={optionIndex}
                 key={id}
+                role="radio"
+                aria-checked={profile.goal === id}
+                tabIndex={profile.goal === id ? 0 : -1}
                 type="button"
                 onClick={() => setProfile((current) => ({ ...current, goal: id }))}
+                onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                  currentIndex: optionIndex,
+                  itemCount: goals.length,
+                  onSelect: (nextIndex) => setProfile((current) => ({
+                    ...current,
+                    goal: goals[nextIndex]!.id,
+                  })),
+                })}
               >
                 <Icon size={22} />
                 <span><strong>{title}</strong><small>{description}</small></span>
@@ -122,14 +144,30 @@ export function SystemOnboarding() {
               />
             </label>
             <fieldset>
-              <legend>Điểm xuất phát</legend>
-              <div className="starting-level-grid">
-                {startingLevels.map((level) => (
+              <legend id="onboarding-starting-level-legend">Điểm xuất phát</legend>
+              <div
+                className="starting-level-grid"
+                role="radiogroup"
+                aria-labelledby="onboarding-starting-level-legend"
+              >
+                {startingLevels.map((level, optionIndex) => (
                   <button
                     className={profile.startingLevel === level.id ? "selected" : ""}
+                    data-radio-index={optionIndex}
                     key={level.id}
+                    role="radio"
+                    aria-checked={profile.startingLevel === level.id}
+                    tabIndex={profile.startingLevel === level.id ? 0 : -1}
                     type="button"
                     onClick={() => setProfile((current) => ({ ...current, startingLevel: level.id }))}
+                    onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                      currentIndex: optionIndex,
+                      itemCount: startingLevels.length,
+                      onSelect: (nextIndex) => setProfile((current) => ({
+                        ...current,
+                        startingLevel: startingLevels[nextIndex]!.id,
+                      })),
+                    })}
                   >
                     <strong>{level.title}</strong>
                     <span>{level.description}</span>
@@ -139,14 +177,30 @@ export function SystemOnboarding() {
               </div>
             </fieldset>
             <fieldset>
-              <legend>Thời lượng mỗi ngày</legend>
-              <div className="segmented-options">
-                {([10, 20, 30] as const).map((minutes) => (
+              <legend id="onboarding-daily-minutes-legend">Thời lượng mỗi ngày</legend>
+              <div
+                className="segmented-options"
+                role="radiogroup"
+                aria-labelledby="onboarding-daily-minutes-legend"
+              >
+                {dailyMinuteOptions.map((minutes, optionIndex) => (
                   <button
                     className={profile.dailyMinutes === minutes ? "selected" : ""}
+                    data-radio-index={optionIndex}
                     key={minutes}
+                    role="radio"
+                    aria-checked={profile.dailyMinutes === minutes}
+                    tabIndex={profile.dailyMinutes === minutes ? 0 : -1}
                     type="button"
                     onClick={() => setProfile((current) => ({ ...current, dailyMinutes: minutes }))}
+                    onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                      currentIndex: optionIndex,
+                      itemCount: dailyMinuteOptions.length,
+                      onSelect: (nextIndex) => setProfile((current) => ({
+                        ...current,
+                        dailyMinutes: dailyMinuteOptions[nextIndex]!,
+                      })),
+                    })}
                   >
                     <strong>{minutes}</strong><span>phút</span>
                   </button>
@@ -154,12 +208,48 @@ export function SystemOnboarding() {
               </div>
             </fieldset>
             <fieldset>
-              <legend>Hệ chữ ưu tiên</legend>
-              <div className="segmented-options script-options">
-                <button className={profile.script === "simplified" ? "selected" : ""} type="button" onClick={() => setProfile((current) => ({ ...current, script: "simplified" }))}>
+              <legend id="onboarding-script-legend">Hệ chữ ưu tiên</legend>
+              <div
+                className="segmented-options script-options"
+                role="radiogroup"
+                aria-labelledby="onboarding-script-legend"
+              >
+                <button
+                  className={profile.script === "simplified" ? "selected" : ""}
+                  data-radio-index={0}
+                  role="radio"
+                  aria-checked={profile.script === "simplified"}
+                  tabIndex={profile.script === "simplified" ? 0 : -1}
+                  type="button"
+                  onClick={() => setProfile((current) => ({ ...current, script: "simplified" }))}
+                  onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                    currentIndex: 0,
+                    itemCount: scriptOptions.length,
+                    onSelect: (nextIndex) => setProfile((current) => ({
+                      ...current,
+                      script: scriptOptions[nextIndex]!,
+                    })),
+                  })}
+                >
                   <strong>简体</strong><span>Giản thể</span>
                 </button>
-                <button className={profile.script === "traditional" ? "selected" : ""} type="button" onClick={() => setProfile((current) => ({ ...current, script: "traditional" }))}>
+                <button
+                  className={profile.script === "traditional" ? "selected" : ""}
+                  data-radio-index={1}
+                  role="radio"
+                  aria-checked={profile.script === "traditional"}
+                  tabIndex={profile.script === "traditional" ? 0 : -1}
+                  type="button"
+                  onClick={() => setProfile((current) => ({ ...current, script: "traditional" }))}
+                  onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                    currentIndex: 1,
+                    itemCount: scriptOptions.length,
+                    onSelect: (nextIndex) => setProfile((current) => ({
+                      ...current,
+                      script: scriptOptions[nextIndex]!,
+                    })),
+                  })}
+                >
                   <strong>繁體</strong><span>Truyền thống</span>
                 </button>
               </div>

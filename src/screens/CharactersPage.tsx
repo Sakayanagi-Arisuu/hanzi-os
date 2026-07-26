@@ -13,7 +13,8 @@ import {
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { HanziCanvas } from "../components/HanziCanvas";
-import { VOCABULARY } from "../data/curriculum";
+import { CONTENT_VERSION, RELEASED_VOCABULARY } from "../data/curriculum";
+import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 
@@ -31,7 +32,7 @@ export function CharactersPage() {
   const { state, actions } = useLearning();
   const characterWords = useMemo(() => {
     const seen = new Set<string>();
-    return VOCABULARY.filter((word) => {
+    return RELEASED_VOCABULARY.filter((word) => {
       const character = (state.profile.script === "traditional" ? word.traditional : word.simplified)[0];
       if (seen.has(character)) return false;
       seen.add(character);
@@ -40,6 +41,15 @@ export function CharactersPage() {
   }, [state.profile.script]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const word = characterWords[selectedIndex];
+  if (!word) {
+    return (
+      <div className="lesson-state-screen">
+        <PenTool size={44} />
+        <h1>Chưa có dữ liệu Hán tự đã phát hành</h1>
+        <p>Nội dung luyện nét sẽ xuất hiện sau khi vượt cổng biên tập.</p>
+      </div>
+    );
+  }
   const fullWord = state.profile.script === "traditional" ? word.traditional : word.simplified;
   const character = fullWord[0];
   const note = characterNotes[character] ?? {
@@ -48,6 +58,37 @@ export function CharactersPage() {
     mnemonic: `Liên kết hình dạng ${character} với âm ${word.pinyin} và nghĩa “${word.meaning}”.`,
   };
   const saved = state.savedWords.includes(word.id);
+
+  const recordWritingEvidence = ({
+    mistakes,
+    durationMs,
+    usedHint,
+  }: {
+    mistakes: number;
+    durationMs: number;
+    usedHint: boolean;
+  }) => {
+    const score = Math.max(0, 100 - mistakes * 12);
+    actions.recordPracticeEvidence({
+      idempotencyKey: makeIdempotencyKey(`stroke-quiz:${word.id}:${character}`),
+      activityVersion: `${CONTENT_VERSION}:hanzi-writer:1`,
+      source: "writing",
+      method: "stroke-quiz",
+      activityId: `stroke-quiz:${word.id}:${character}`,
+      skill: "writing",
+      outcome: score >= 70 ? "correct" : "incorrect",
+      score,
+      metadata: {
+        character,
+        mistakes,
+        durationMs,
+        usedHint,
+        priorExposure: state.evidence.some((item) =>
+          item.activityId === `stroke-quiz:${word.id}:${character}`
+        ),
+      },
+    });
+  };
 
   const move = (direction: number) => {
     setSelectedIndex((current) => (current + direction + characterWords.length) % characterWords.length);
@@ -67,7 +108,7 @@ export function CharactersPage() {
       <div className="character-layout">
         <aside className="character-index">
           <header className="section-heading">
-            <div><span>GLYPH INDEX</span><h2>Kho chữ sơ cấp</h2></div>
+            <div><span>GLYPH INDEX</span><h2>Kho chữ đang phát hành</h2></div>
             <Grid3X3 size={20} />
           </header>
           <div className="character-search-status"><ScanLine size={15} /> {characterWords.length} chữ đã nạp</div>
@@ -92,7 +133,7 @@ export function CharactersPage() {
             <button className="icon-button" type="button" onClick={() => move(1)} aria-label="Chữ sau"><ChevronRight size={20} /></button>
           </div>
           <div className="forge-workbench">
-            <HanziCanvas character={character} />
+            <HanziCanvas character={character} onQuizComplete={recordWritingEvidence} />
             <div className="character-dossier">
               <div className="character-title">
                 <span>{character}</span>

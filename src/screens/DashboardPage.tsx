@@ -19,17 +19,26 @@ import {
   Target,
   Zap,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { COURSE_UNITS, LESSONS } from "../data/curriculum";
+import { Link } from "react-router";
+import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
+import { ResponsiveHeroBackdrop } from "../components/ResponsiveHeroBackdrop";
+import { COURSE_UNITS, RELEASED_LESSONS } from "../data/curriculum";
+import { resolveLearningPathAuthority } from "../learning/learningAuthority";
+import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
   buildDailyMissions,
-  getGoalReadiness,
   getRank,
   GOAL_CONFIG,
-  isLessonUnlocked,
+  isLessonReleased,
   type DailyMission,
 } from "../lib/adaptive";
+import {
+  formatObservedEstimate,
+  formatObservedEstimateCompact,
+  summarizeMasteryEligibleEvidence,
+} from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
+import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import type { Skill } from "../types";
 
 const skillLabels: Record<Skill, string> = {
@@ -57,31 +66,121 @@ const missionIcon = (mission: DailyMission) => {
   return Sparkles;
 };
 
+const releasedCourseUnits = COURSE_UNITS
+  .map((unit) => ({
+    ...unit,
+    lessons: unit.lessons.filter(isLessonReleased),
+  }))
+  .filter((unit) => unit.lessons.length > 0);
+
 export function DashboardPage() {
-  const { state, dueWordIds, level } = useLearning();
-  const completedCount = Object.values(state.completedLessons).filter((item) => item.bestScore >= 70).length;
-  const courseProgress = Math.round((completedCount / LESSONS.length) * 100);
-  const readiness = getGoalReadiness(state);
+  const { state, dueWordIds, level, sync } = useLearning();
+  const normalized = useNormalizedLearningProjection();
+  const authenticated = sync.session?.authenticated === true;
+  const authority = resolveLearningPathAuthority({
+    authenticated,
+    localState: state,
+    projection: normalized.projection,
+    authoritativeProgress: normalized.authoritativeProgress,
+  });
+  if (authority.state === "blocked") {
+    return (
+      <NormalizedLearningAuthorityGate
+        phase={normalized.phase}
+        reason={normalized.reason}
+        refresh={normalized.refresh}
+      />
+    );
+  }
+  const pathView = authority.view;
+  const {
+    completedCount,
+    totalCount,
+    progress: courseProgress,
+  } = pathView;
+  const normalizedEvidence = authenticated
+    ? summarizeNormalizedObjectiveEvidence(normalized.projection)
+    : null;
+  if (authenticated && !normalizedEvidence) {
+    return (
+      <NormalizedLearningAuthorityGate
+        phase="unavailable"
+        reason="invalid-response"
+        refresh={normalized.refresh}
+      />
+    );
+  }
+  const localEligibleEvidence = state.evidence.filter((item) => item.masteryEligible);
+  const observedEvidence = authenticated
+    ? normalizedEvidence!
+    : summarizeMasteryEligibleEvidence(state.evidence);
+  const eligibleEvidenceCount = normalizedEvidence?.masteryEligibleCount
+    ?? localEligibleEvidence.length;
+  const skillEvidence = (Object.keys(skillLabels) as Skill[]).map((skill) => {
+    const estimate = observedEvidence.skills[skill];
+    return {
+      skill,
+      count: estimate.n,
+      accuracy: estimate.observedAccuracy,
+      estimate,
+    };
+  });
+  const skillsWithEvidence = skillEvidence.filter((item) => item.count > 0).length;
+  const evidenceCoverage = Math.round((skillsWithEvidence / skillEvidence.length) * 100);
   const dailyTarget = state.profile.dailyMinutes * 6;
   const dailyProgress = Math.min(100, Math.round((state.dailyXp / dailyTarget) * 100));
-  const goal = GOAL_CONFIG[state.profile.goal];
+  const authoritativeGoal = normalized.projection?.enrollment?.goal;
+  const goal = GOAL_CONFIG[authoritativeGoal ?? state.profile.goal];
   const rank = getRank(state.xp);
-  const missions = buildDailyMissions(state, dueWordIds.length);
+  const authoritativeNextLesson = RELEASED_LESSONS.find(
+    (lesson) => lesson.id === pathView.nextLessonId,
+  );
+  const missions: DailyMission[] = authenticated
+    ? [
+        ...(authoritativeNextLesson ? [{
+          id: authoritativeNextLesson.id,
+          code: "ASCEND-01",
+          title: authoritativeNextLesson.title,
+          description: authoritativeNextLesson.objective,
+          to: `/lesson/${authoritativeNextLesson.id}`,
+          minutes: authoritativeNextLesson.minutes,
+          reward: `+${authoritativeNextLesson.xp} XP tương tác`,
+          kind: "lesson" as const,
+        }] : []),
+        {
+          id: "goal-focus",
+          code: "PRACTICE-02",
+          title: goal.practiceLabel,
+          description: `Luyện bổ trợ cho “${goal.label}”; chưa tự tạo mastery hoặc mở prerequisite.`,
+          to: goal.practicePath,
+          minutes: Math.max(4, state.profile.dailyMinutes),
+          reward: "Practice-only",
+          kind: "goal" as const,
+        },
+      ]
+    : buildDailyMissions(state, dueWordIds.length);
   const primaryMission = missions[0];
-  const primaryLesson = LESSONS.find((lesson) => lesson.id === primaryMission.id);
+  const primaryLesson = RELEASED_LESSONS.find((lesson) => lesson.id === primaryMission.id);
   const primarySigil = primaryMission.kind === "correction"
     ? "解"
     : primaryLesson?.chineseTitle.slice(0, 1) ?? "命";
-  const lowestSkill = Object.entries(state.skillMastery)
-    .sort((a, b) => a[1] - b[1])[0][0] as Skill;
+  const coverageGap = skillEvidence.find((item) => item.count === 0);
+  const lowestObserved = [...skillEvidence]
+    .filter((item) => item.count > 0)
+    .sort((a, b) =>
+      (a.estimate.confidence95?.lower ?? -1) - (b.estimate.confidence95?.lower ?? -1)
+      || a.count - b.count
+    )[0];
+  const priorityEvidence = coverageGap ?? lowestObserved ?? skillEvidence[0];
 
   return (
     <div className="dashboard-page">
       <section className="awakening-hero">
+        <ResponsiveHeroBackdrop priority />
         <div className="hero-scan" aria-hidden="true" />
         <div className="hero-coordinates" aria-hidden="true">
           <span>NODE 31.2304° N</span>
-          <span>DESTINY SYNC {String(readiness).padStart(2, "0")}%</span>
+          <span>EVIDENCE {eligibleEvidenceCount} · SKILLS {skillsWithEvidence}/7</span>
         </div>
         <div className="hero-copy">
           <div className="system-kicker"><Orbit size={15} /> DAILY DIRECTIVE · ONLINE</div>
@@ -103,7 +202,7 @@ export function DashboardPage() {
         <div className="hero-core-meter">
           <span className="core-orbit" aria-hidden="true" />
           <div><small>{rank.chinese}</small><strong>{String(level).padStart(2, "0")}</strong></div>
-          <p>{rank.title} · {state.xp % 500} / 500 XP đến bậc tiếp theo</p>
+          <p>{rank.title} · {state.xp % 500} / 500 XP tương tác đến bậc tiếp theo</p>
         </div>
       </section>
 
@@ -120,13 +219,15 @@ export function DashboardPage() {
         </div>
         <div className="status-cell">
           <span className="metric-icon cyan"><BrainCircuit size={18} /></span>
-          <span className="status-copy"><small>Ký ức đến hạn</small><strong>{dueWordIds.length} mục</strong></span>
-          <Link className="status-detail" to="/review">Ôn ngay <ChevronRight size={14} /></Link>
+          <span className="status-copy"><small>Ký ức đến hạn</small><strong>{authenticated ? "—" : dueWordIds.length} mục</strong></span>
+          {authenticated
+            ? <p className="status-detail">Lịch server chưa được kích hoạt</p>
+            : <Link className="status-detail" to="/review">Ôn ngay <ChevronRight size={14} /></Link>}
         </div>
         <div className="status-cell">
           <span className="metric-icon vermilion"><CircleGauge size={18} /></span>
-          <span className="status-copy"><small>Sẵn sàng mục tiêu</small><strong>{readiness}%</strong></span>
-          <p className="status-detail">{completedCount}/{LESSONS.length} cảnh giới đã vượt</p>
+          <span className="status-copy"><small>Kỹ năng có bằng chứng</small><strong>{skillsWithEvidence} / 7</strong></span>
+          <p className="status-detail">{eligibleEvidenceCount} lượt đủ chuẩn · {completedCount}/{totalCount} nút đạt ngưỡng</p>
         </div>
       </section>
 
@@ -136,13 +237,13 @@ export function DashboardPage() {
           <h2>{goal.label}</h2>
           <p>{goal.destination}</p>
         </div>
-        <div className="destiny-readiness" style={{ "--readiness": `${readiness * 3.6}deg` } as React.CSSProperties}>
-          <span><strong>{readiness}%</strong><small>READY</small></span>
+        <div className="destiny-readiness" style={{ "--readiness": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
+          <span><strong>{skillsWithEvidence}/7</strong><small>EVIDENCE</small></span>
         </div>
         <div className="destiny-actions">
-          <span><ShieldCheck size={16} /> Hệ thống đang bù năng lực yếu nhất: <strong>{skillLabels[lowestSkill]}</strong></span>
-          <Link to={state.diagnostic.completed ? "/analytics" : "/assessment"}>
-            {state.diagnostic.completed ? "Xem phân tích đích đến" : "Khảo nghiệm căn cơ"} <ChevronRight size={16} />
+          <span><ShieldCheck size={16} /> Hệ thống đang thu thêm bằng chứng cho: <strong>{skillLabels[priorityEvidence.skill]}</strong></span>
+          <Link to={authenticated || state.diagnostic.completed ? "/analytics" : "/assessment"}>
+            {authenticated || state.diagnostic.completed ? "Xem phân tích đích đến" : "Khảo nghiệm căn cơ"} <ChevronRight size={16} />
           </Link>
         </div>
       </section>
@@ -189,23 +290,23 @@ export function DashboardPage() {
 
         <section className="skill-matrix">
           <header className="section-heading">
-            <div><span>CAPABILITY MATRIX</span><h2>Ma trận năng lực</h2></div>
+            <div><span>EVIDENCE MATRIX</span><h2>Ma trận bằng chứng</h2></div>
             <Link to="/analytics">Phân tích <ChevronRight size={15} /></Link>
           </header>
           <div className="mastery-orbit">
-            <div className="mastery-dial" style={{ "--progress": `${readiness * 3.6}deg` } as React.CSSProperties}>
-              <span><strong>{readiness}%</strong><small>GOAL SYNC</small></span>
+            <div className="mastery-dial" style={{ "--progress": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
+              <span><strong>{eligibleEvidenceCount}</strong><small>VALID EVIDENCE</small></span>
             </div>
-            <p>Phiên kế tiếp ưu tiên <strong>{skillLabels[lowestSkill]}</strong> vì đây là năng lực đang giới hạn tốc độ tiến tới mục tiêu.</p>
+            <p>Phiên kế tiếp ưu tiên <strong>{skillLabels[priorityEvidence.skill]}</strong> vì {priorityEvidence.count === 0 ? "kỹ năng này chưa được đo" : `khoảng quan sát hiện tại là ${formatObservedEstimate(priorityEvidence.estimate)}`}.</p>
           </div>
           <div className="skill-bars">
-            {Object.entries(state.skillMastery).map(([key, value]) => {
-              const Icon = skillIcons[key as Skill] ?? Target;
+            {skillEvidence.map(({ skill, accuracy, estimate }) => {
+              const Icon = skillIcons[skill] ?? Target;
               return (
-                <div key={key}>
-                  <span><Icon size={15} /> {skillLabels[key as Skill]}</span>
-                  <div><i style={{ width: `${value}%` }} /></div>
-                  <strong>{value}%</strong>
+                <div key={skill}>
+                  <span><Icon size={15} /> {skillLabels[skill]}</span>
+                  <div><i style={{ width: `${accuracy ?? 0}%` }} /></div>
+                  <strong>{formatObservedEstimateCompact(estimate)}</strong>
                 </div>
               );
             })}
@@ -216,12 +317,16 @@ export function DashboardPage() {
       <section className="realm-progress">
         <header className="section-heading">
           <div><span>REALM PROGRESSION</span><h2>Lộ trình tổng thể</h2></div>
-          <strong>{courseProgress}% làm chủ</strong>
+          <strong>{courseProgress}% nút đạt ngưỡng</strong>
         </header>
         <div className="realm-line" style={{ "--course-progress": `${courseProgress}%` } as React.CSSProperties}>
-          {COURSE_UNITS.map((unit, index) => {
-            const unitCompleted = unit.lessons.every((item) => state.completedLessons[item.id]?.bestScore >= 70);
-            const locked = unit.lessons.every((item) => !isLessonUnlocked(item, state));
+          {releasedCourseUnits.map((unit, index) => {
+            const unitCompleted = unit.lessons.every((item) =>
+              pathView.lessons.get(item.id)?.passed === true
+            );
+            const locked = unit.lessons.every((item) =>
+              pathView.lessons.get(item.id)?.unlocked !== true
+            );
             return (
               <div className={`realm-node ${unit.color} ${unitCompleted ? "completed" : ""} ${locked ? "locked" : ""}`} key={unit.id}>
                 <span className="realm-marker">

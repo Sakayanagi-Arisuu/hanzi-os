@@ -20,251 +20,179 @@ import {
   Zap,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { LESSON_BY_ID, VOCABULARY, WORD_BY_ID } from "../data/curriculum";
+import { Link, useParams } from "react-router";
+import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
-import { isLessonUnlocked } from "../lib/adaptive";
+import {
+  buildLessonResumeExercises,
+  parseLessonResume,
+  summarizeLessonResumeAnswers,
+  type LessonResumeAnswer,
+  type LessonResumePhase,
+  type LessonResumeV5,
+} from "../learning/resumeProtocol";
+import { isLessonReleased, isLessonUnlocked } from "../lib/adaptive";
+import { answersMatch, type Exercise } from "../lib/exerciseGeneration";
+import { makeIdempotencyKey } from "../lib/evidence";
+import { removeLegacyLearningResumeStorage } from "../lib/storageKeys";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
-import type { ExerciseKind, Lesson, Skill, VocabularyItem } from "../types";
-
-type Exercise = {
-  id: string;
-  wordId?: string;
-  kind: ExerciseKind;
-  skill: Skill;
-  instruction: string;
-  prompt: string;
-  promptMeta?: string;
-  options: string[];
-  correct: string;
-  explanation: string;
-  spokenText?: string;
-};
-
-type LessonPhase = "briefing" | "exercise";
-
-type SavedLessonSession = {
-  version: 2;
-  lessonId: string;
-  script: "simplified" | "traditional";
-  phase: LessonPhase;
-  exercises: Exercise[];
-  index: number;
-  selected: string | null;
-  checked: boolean;
-  correctCount: number;
-  finished: boolean;
-  earnedXp: number;
-};
-
-const toneLabels = [
-  "Thanh nhẹ · không có đường thanh cố định",
-  "Thanh 1 · cao và ngang",
-  "Thanh 2 · đi lên",
-  "Thanh 3 · hạ rồi nhấc lên",
-  "Thanh 4 · rơi nhanh và dứt",
-];
-
-const shuffle = <T,>(items: T[]) => {
-  const copy = [...items];
-  for (let index = copy.length - 1; index > 0; index -= 1) {
-    const swapIndex = Math.floor(Math.random() * (index + 1));
-    [copy[index], copy[swapIndex]] = [copy[swapIndex], copy[index]];
-  }
-  return copy;
-};
-
-const makeOptions = (correct: string, candidates: string[], count = 4) => {
-  const distractors = shuffle(candidates.filter((item) => item !== correct))
-    .filter((item, index, values) => values.indexOf(item) === index)
-    .slice(0, count - 1);
-  return shuffle([correct, ...distractors]);
-};
+import {
+  deleteLessonResume,
+  readLessonResume,
+  writeLessonResume,
+  type OwnerScopedCacheScope,
+} from "../sync/indexedDb";
+import {
+  lessonResumeEntryKey,
+  ownerScopedResumeCacheScope,
+  reportLearningResumeStorageError,
+  resolveLearningResumeOwnerScope,
+} from "../sync/learningResumeStore";
+import type { VocabularyItem } from "../types";
+import { AuthenticatedLessonPage } from "./AuthenticatedLessonPage";
 
 const displayCharacter = (word: VocabularyItem, script: "simplified" | "traditional") =>
   script === "traditional" ? word.traditional : word.simplified;
 
-function buildExercises(lesson: Lesson, script: "simplified" | "traditional") {
-  const words = lesson.wordIds
-    .map((id) => WORD_BY_ID.get(id))
-    .filter((word): word is VocabularyItem => Boolean(word));
-  const allMeanings = VOCABULARY.map((word) => word.meaning);
-  const allPinyin = VOCABULARY.map((word) => word.pinyin);
-  const exercises: Exercise[] = [];
-
-  words.forEach((word) => {
-    const character = displayCharacter(word, script);
-    exercises.push({
-      id: `${word.id}-meaning`,
-      wordId: word.id,
-      kind: "meaning",
-      skill: "vocabulary",
-      instruction: "Giải mã ý nghĩa",
-      prompt: character,
-      promptMeta: word.partOfSpeech,
-      options: makeOptions(word.meaning, allMeanings),
-      correct: word.meaning,
-      explanation: `${character} đọc là ${word.pinyin}, là ${word.partOfSpeech} mang nghĩa “${word.meaning}”. Trong câu “${word.example}”, từ này được dùng với nghĩa “${word.exampleMeaning.toLowerCase()}”.`,
-    });
-    exercises.push({
-      id: `${word.id}-pinyin`,
-      wordId: word.id,
-      kind: "pinyin",
-      skill: "pronunciation",
-      instruction: "Chọn cách đọc chính xác",
-      prompt: character,
-      promptMeta: word.meaning,
-      options: makeOptions(word.pinyin, allPinyin),
-      correct: word.pinyin,
-      explanation: `${character} được ghi là ${word.pinyin}. Dấu trên nguyên âm thể hiện thanh ${word.tone === 0 ? "nhẹ" : word.tone}; đổi thanh có thể đổi nghĩa hoặc khiến người nghe khó nhận ra từ.`,
-      spokenText: character,
-    });
-  });
-
-  words.slice(0, 2).forEach((word) => {
-    const character = displayCharacter(word, script);
-    exercises.push({
-      id: `${word.id}-tone`,
-      wordId: word.id,
-      kind: "tone",
-      skill: "pronunciation",
-      instruction: "Nhận diện đường thanh",
-      prompt: word.pinyin,
-      promptMeta: character,
-      options: toneLabels,
-      correct: toneLabels[word.tone],
-      explanation: `${word.pinyin} mang ${toneLabels[word.tone].toLowerCase()}. Hãy bắt chước cả độ cao lẫn hướng chuyển động, thay vì chỉ đọc mạnh hơn.`,
-      spokenText: character,
-    });
-    exercises.push({
-      id: `${word.id}-listening`,
-      wordId: word.id,
-      kind: "listening",
-      skill: "listening",
-      instruction: "Nghe và chọn nghĩa",
-      prompt: "Tín hiệu âm thanh đã sẵn sàng",
-      promptMeta: "Bạn có thể nghe lại trước khi trả lời",
-      options: makeOptions(word.meaning, allMeanings),
-      correct: word.meaning,
-      explanation: `Bạn vừa nghe “${character}” (${word.pinyin}), nghĩa là “${word.meaning}”. Ví dụ: ${word.example} — ${word.exampleMeaning}.`,
-      spokenText: character,
-    });
-    exercises.push({
-      id: `${word.id}-recall`,
-      wordId: word.id,
-      kind: "recall",
-      skill: "writing",
-      instruction: "Tự gọi lại Hán tự",
-      prompt: word.meaning,
-      promptMeta: "Nhập chữ Hán tương ứng, không xem lại danh sách từ",
-      options: [],
-      correct: character,
-      explanation: `Đáp án là ${character} (${word.pinyin}). Hãy dựng lại chữ từ âm, nghĩa và các thành phần thay vì ghi nhớ như một hình ảnh liền khối.`,
-      spokenText: character,
-    });
-  });
-
-  words.slice(0, 2).forEach((word) => {
-    exercises.push({
-      id: `${word.id}-sentence`,
-      wordId: word.id,
-      kind: "sentence",
-      skill: "reading",
-      instruction: "Đọc trong ngữ cảnh",
-      prompt: word.example,
-      promptMeta: word.examplePinyin,
-      options: makeOptions(word.exampleMeaning, VOCABULARY.map((item) => item.exampleMeaning)),
-      correct: word.exampleMeaning,
-      explanation: `Câu “${word.example}” đọc là “${word.examplePinyin}” và có nghĩa “${word.exampleMeaning}”. Từ trọng tâm ${displayCharacter(word, script)} giữ vai trò ${word.partOfSpeech}.`,
-      spokenText: word.example,
-    });
-  });
-
-  return shuffle(exercises).slice(0, Math.min(10, exercises.length));
-}
-
-const exerciseIcon = (kind: ExerciseKind) => {
+const exerciseIcon = (kind: Exercise["kind"]) => {
   if (kind === "listening") return Headphones;
   if (kind === "sentence") return BookOpenText;
   if (kind === "recall") return PenLine;
   return Sparkles;
 };
 
-const normalizeAnswer = (value: string) =>
-  value.trim().toLocaleLowerCase("vi").replace(/[\s.,!?;:'"“”‘’]/g, "");
-
-const answersMatch = (answer: string | null, correct: string) =>
-  Boolean(answer && normalizeAnswer(answer) === normalizeAnswer(correct));
-
-const sessionKey = (lessonId: string) => `hanzi-os-lesson-session-v2:${lessonId}`;
-
-const readSession = (
-  lesson: Lesson | undefined,
-  script: "simplified" | "traditional",
-): SavedLessonSession | null => {
-  if (!lesson) return null;
-  try {
-    const raw = localStorage.getItem(sessionKey(lesson.id));
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as SavedLessonSession;
-    if (
-      parsed.version !== 2 ||
-      parsed.lessonId !== lesson.id ||
-      parsed.script !== script ||
-      !Array.isArray(parsed.exercises) ||
-      parsed.exercises.length === 0
-    ) return null;
-    return parsed;
-  } catch {
-    return null;
-  }
-};
-
 export function LessonPage() {
+  const { sync } = useLearning();
+  if (sync.session === null) {
+    return (
+      <div className="lesson-state-screen" role="status" aria-live="polite">
+        <BrainCircuit size={44} />
+        <h1>Đang xác nhận tài khoản học</h1>
+        <p>Danh tính phải được xác định trước khi chọn authority local hoặc server.</p>
+      </div>
+    );
+  }
+  return sync.session.authenticated
+    ? <AuthenticatedLessonPage />
+    : <LocalLessonPage />;
+}
+
+function LocalLessonPage() {
   const { lessonId } = useParams();
-  const lesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
-  const { state, actions } = useLearning();
-  const initialSession = useMemo(
-    () => readSession(lesson, state.profile.script),
-    [lesson, state.profile.script],
+  const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
+  const unavailableLesson = Boolean(requestedLesson && !isLessonReleased(requestedLesson));
+  const lesson = requestedLesson && isLessonReleased(requestedLesson) ? requestedLesson : undefined;
+  const { state, actions, sync } = useLearning();
+  const lessonUnlocked = Boolean(lesson && isLessonUnlocked(lesson, state));
+  const [resumeStatus, setResumeStatus] = useState<"loading" | "ready">("loading");
+  const [resumeScope, setResumeScope] = useState<OwnerScopedCacheScope | null>(null);
+  const [sessionId, setSessionId] = useState(() =>
+    makeIdempotencyKey(`lesson-session:${lesson?.id ?? "unknown"}`)
   );
-  const [activeLessonId, setActiveLessonId] = useState(lesson?.id ?? "");
-  const [phase, setPhase] = useState<LessonPhase>(initialSession?.phase ?? "briefing");
-  const [exercises, setExercises] = useState<Exercise[]>(
-    initialSession?.exercises ?? (lesson ? buildExercises(lesson, state.profile.script) : []),
-  );
-  const [index, setIndex] = useState(initialSession?.index ?? 0);
-  const [selected, setSelected] = useState<string | null>(initialSession?.selected ?? null);
-  const [checked, setChecked] = useState(initialSession?.checked ?? false);
-  const [correctCount, setCorrectCount] = useState(initialSession?.correctCount ?? 0);
-  const [finished, setFinished] = useState(initialSession?.finished ?? false);
-  const [earnedXp, setEarnedXp] = useState(initialSession?.earnedXp ?? 0);
+  const [phase, setPhase] = useState<LessonResumePhase>("briefing");
+  const [exercises, setExercises] = useState<Exercise[]>([]);
+  const [index, setIndex] = useState(0);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [checked, setChecked] = useState(false);
+  const [answers, setAnswers] = useState<LessonResumeAnswer[]>([]);
+  const [finished, setFinished] = useState(false);
+  const [earnedXp, setEarnedXp] = useState(0);
 
   const guide = useMemo(() => getLessonGuide(lesson?.id ?? ""), [lesson?.id]);
   const lessonWords = useMemo(
     () => lesson?.wordIds.map((id) => WORD_BY_ID.get(id)).filter((word): word is VocabularyItem => Boolean(word)) ?? [],
     [lesson],
   );
+  const { correctCount, requiredCorrectCount } = useMemo(
+    () => summarizeLessonResumeAnswers(exercises, answers),
+    [answers, exercises],
+  );
+
+  const resumeEntryKey = lesson ? lessonResumeEntryKey({
+    lessonId: lesson.id,
+    contentVersion: lesson.contentVersion,
+    script: state.profile.script,
+  }) : "";
 
   useEffect(() => {
-    if (!lesson || lesson.id === activeLessonId) return;
-    const restored = readSession(lesson, state.profile.script);
-    setActiveLessonId(lesson.id);
-    setPhase(restored?.phase ?? "briefing");
-    setExercises(restored?.exercises ?? buildExercises(lesson, state.profile.script));
-    setIndex(restored?.index ?? 0);
-    setSelected(restored?.selected ?? null);
-    setChecked(restored?.checked ?? false);
-    setCorrectCount(restored?.correctCount ?? 0);
-    setFinished(restored?.finished ?? false);
-    setEarnedXp(restored?.earnedXp ?? 0);
-  }, [activeLessonId, lesson, state.profile.script]);
+    let cancelled = false;
+    setResumeStatus("loading");
+    setResumeScope(null);
+    removeLegacyLearningResumeStorage();
+
+    if (!lesson || !lessonUnlocked) {
+      setResumeStatus("ready");
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    const applySession = (restored: LessonResumeV5 | null) => {
+      const nextSessionId = restored?.sessionId
+        ?? makeIdempotencyKey(`lesson-session:${lesson.id}`);
+      setSessionId(
+        nextSessionId,
+      );
+      setPhase(restored?.phase ?? "briefing");
+      setExercises(
+        restored?.exercises ?? buildLessonResumeExercises(
+          lesson,
+          state.profile.script,
+          nextSessionId,
+        ),
+      );
+      setIndex(restored?.index ?? 0);
+      setSelected(restored?.selected ?? null);
+      setChecked(restored?.checked ?? false);
+      setAnswers(restored?.answers ?? []);
+      setFinished(restored?.finished ?? false);
+      setEarnedXp(restored?.earnedXp ?? 0);
+    };
+
+    const loadSession = async () => {
+      try {
+        const ownerScope = await resolveLearningResumeOwnerScope(sync.ownerKey);
+        const cacheScope = ownerScopedResumeCacheScope(ownerScope, resumeEntryKey);
+        const record = await readLessonResume<unknown>(cacheScope);
+        const restored = parseLessonResume(
+          record?.value,
+          lesson,
+          state.profile.script,
+        );
+        if (record && !restored) await deleteLessonResume(cacheScope);
+        if (cancelled) return;
+        applySession(restored);
+        setResumeScope(cacheScope);
+      } catch (error) {
+        if (cancelled) return;
+        applySession(null);
+        reportLearningResumeStorageError(error);
+      } finally {
+        if (!cancelled) setResumeStatus("ready");
+      }
+    };
+
+    void loadSession();
+    return () => {
+      cancelled = true;
+    };
+  }, [lesson, lessonUnlocked, resumeEntryKey, state.profile.script, sync.ownerKey]);
 
   useEffect(() => {
-    if (!lesson || activeLessonId !== lesson.id || exercises.length === 0) return;
-    const snapshot: SavedLessonSession = {
-      version: 2,
+    if (
+      resumeStatus !== "ready"
+      || !lesson
+      || !lessonUnlocked
+      || !resumeScope
+      || resumeScope.entryKey !== resumeEntryKey
+      || resumeScope.expectedOwnerGeneration.ownerKey !== sync.ownerKey
+      || exercises.length === 0
+    ) return;
+    const snapshot: LessonResumeV5 = {
+      version: 5,
+      contentVersion: lesson.contentVersion,
+      sessionId,
       lessonId: lesson.id,
       script: state.profile.script,
       phase,
@@ -272,45 +200,67 @@ export function LessonPage() {
       index,
       selected,
       checked,
-      correctCount,
+      answers,
       finished,
       earnedXp,
     };
-    localStorage.setItem(sessionKey(lesson.id), JSON.stringify(snapshot));
-  }, [activeLessonId, checked, correctCount, earnedXp, exercises, finished, index, lesson, phase, selected, state.profile.script]);
+    void writeLessonResume({
+      ...resumeScope,
+      value: snapshot,
+    }).catch(reportLearningResumeStorageError);
+  }, [answers, checked, earnedXp, exercises, finished, index, lesson, lessonUnlocked, phase, resumeEntryKey, resumeScope, resumeStatus, selected, sessionId, state.profile.script, sync.ownerKey]);
 
   if (!lesson) {
     return (
       <div className="lesson-state-screen">
-        <CircleX size={44} />
-        <h1>Không tìm thấy thử luyện</h1>
+        {unavailableLesson ? <LockKeyhole size={44} /> : <CircleX size={44} />}
+        <h1>{unavailableLesson ? "Nội dung này chưa được phát hành" : "Không tìm thấy thử luyện"}</h1>
+        {unavailableLesson && <p>HANZI.OS chỉ mở các bài đã qua cổng phát hành; bản nháp không được tính vào tiến độ hay nhiệm vụ.</p>}
         <Link className="primary-button" to="/path"><ArrowLeft size={17} /> Trở về Thiên Lộ</Link>
       </div>
     );
   }
 
-  if (!isLessonUnlocked(lesson, state)) {
+  if (!lessonUnlocked) {
     return (
       <div className="lesson-state-screen locked-screen">
         <LockKeyhole size={44} />
-        <span>ACCESS DENIED · MASTERY REQUIRED</span>
-        <h1>Cảnh giới này chưa mở</h1>
-        <p>Đạt ít nhất 70% ở nút trước đó để hệ thống xác nhận năng lực nền.</p>
+        <span>LOCAL PROTOTYPE · SEQUENCE REQUIRED</span>
+        <h1>Bài tự luyện cục bộ này chưa mở</h1>
+        <p>Đạt 70% ở bài local trước để tiếp tục chuỗi prototype; đây không phải prerequisite do máy chủ xác nhận.</p>
         <Link className="primary-button" to="/path"><ArrowLeft size={17} /> Trở về Thiên Lộ</Link>
       </div>
     );
   }
 
-  const clearSession = () => localStorage.removeItem(sessionKey(lesson.id));
+  if (resumeStatus === "loading") {
+    return (
+      <div className="lesson-state-screen" role="status" aria-live="polite">
+        <BrainCircuit size={44} />
+        <h1>Đang khôi phục phiên thử luyện</h1>
+        <p>Hệ thống đang xác nhận đúng hồ sơ học và mốc đặt lại trước khi mở nội dung.</p>
+      </div>
+    );
+  }
+
+  const clearSession = () => {
+    if (!resumeScope) return;
+    void deleteLessonResume(resumeScope).catch(reportLearningResumeStorageError);
+  };
 
   const restart = () => {
-    clearSession();
+    const nextSessionId = makeIdempotencyKey(`lesson-session:${lesson.id}`);
+    setSessionId(nextSessionId);
     setPhase("briefing");
-    setExercises(buildExercises(lesson, state.profile.script));
+    setExercises(buildLessonResumeExercises(
+      lesson,
+      state.profile.script,
+      nextSessionId,
+    ));
     setIndex(0);
     setSelected(null);
     setChecked(false);
-    setCorrectCount(0);
+    setAnswers([]);
     setFinished(false);
     setEarnedXp(0);
   };
@@ -333,7 +283,7 @@ export function LessonPage() {
           </div>
           <div className="mastery-gate">
             <Target size={26} />
-            <span>Ngưỡng khai mở</span>
+            <span>Ngưỡng tự kiểm local</span>
             <strong>70%</strong>
             <small>Hiểu quy tắc rồi tự gọi lại, không học bằng đoán đáp án.</small>
           </div>
@@ -406,12 +356,19 @@ export function LessonPage() {
   }
 
   const score = Math.round((correctCount / Math.max(1, exercises.length)) * 100);
+  const requiredTotal = exercises.filter((exercise) => exercise.requiredForPass).length;
+  const requiredPassed = requiredTotal === 0
+    || requiredCorrectCount / requiredTotal >= 0.7;
+  const gateScore = requiredPassed ? score : Math.min(score, 69);
   const isCorrect = answersMatch(selected, current.correct);
 
   const checkAnswer = () => {
     if (!selected?.trim() || checked) return;
     setChecked(true);
-    if (isCorrect) setCorrectCount((count) => count + 1);
+    setAnswers((currentAnswers) => [...currentAnswers, {
+      exerciseId: current.id,
+      selectedAnswer: selected,
+    }]);
     actions.recordAnswer({
       lessonId: lesson.id,
       questionId: current.id,
@@ -423,6 +380,9 @@ export function LessonPage() {
       correctAnswer: current.correct,
       explanation: current.explanation,
       isCorrect,
+      idempotencyKey: `${sessionId}:answer:${current.id}`,
+      activityVersion: current.activityVersion,
+      requiredForPass: current.requiredForPass,
     });
   };
 
@@ -434,35 +394,40 @@ export function LessonPage() {
       return;
     }
     const previous = state.completedLessons[lesson.id];
-    const firstMastery = score >= 70 && (!previous || previous.bestScore < 70);
+    const firstMastery = gateScore >= 70 && (!previous || previous.bestScore < 70);
     const reward = firstMastery
       ? lesson.xp
       : previous
         ? Math.round(lesson.xp * 0.2)
         : Math.round(lesson.xp * 0.25);
     setEarnedXp(reward);
-    actions.completeLesson(lesson.id, score);
+    actions.completeLesson(
+      lesson.id,
+      score,
+      `${sessionId}:complete`,
+      exercises.length,
+    );
     setFinished(true);
   };
 
   if (finished) {
-    const passed = score >= 70;
-    const bestScore = Math.max(score, state.completedLessons[lesson.id]?.bestScore ?? 0);
+    const passed = gateScore >= 70;
+    const bestScore = Math.max(gateScore, state.completedLessons[lesson.id]?.bestScore ?? 0);
     return (
       <div className="lesson-result-screen">
         <div className={`result-sigil ${passed ? "passed" : "retry"}`}>
           {passed ? <CircleCheck size={38} /> : <RotateCcw size={38} />}
           <span />
         </div>
-        <span className="system-kicker">TRIAL COMPLETE · EVIDENCE SYNCHRONIZED</span>
-        <h1>{passed ? "Cảnh giới đã khai mở" : "Nghịch cảnh đã được ghi nhận"}</h1>
-        <p>{passed ? "Hệ thống đã xác nhận bạn vượt ngưỡng làm chủ và mở nút kế tiếp." : "Các câu sai đã vào Nghịch Cảnh Lục. Chữa đúng hai lần liên tiếp trước khi tái thử luyện."}</p>
+        <span className="system-kicker">LOCAL PROTOTYPE · NOT SERVER EVIDENCE</span>
+        <h1>{passed ? "Đã hoàn tất tự kiểm cục bộ" : "Phiên tự luyện đã được lưu local"}</h1>
+        <p>{passed ? "Kết quả local đã vượt ngưỡng 70% và chỉ mở bước tiếp theo trong chuỗi prototype ẩn danh; tài khoản server không dùng kết quả này làm mastery." : requiredPassed ? "Các câu sai được giữ trong nhật ký local để luyện lại; chúng chưa phải evidence có thẩm quyền." : "Checkpoint thanh điệu local chưa đạt 70%. Hãy ôn phần cốt lõi rồi thử lại; không có prerequisite server nào được mở."}</p>
         <div className="result-metrics">
-          <div><small>Độ chính xác</small><strong>{score}%</strong></div>
-          <div><small>Thành tích tốt nhất</small><strong>{bestScore}%</strong></div>
-          <div><small>Năng lượng nhận</small><strong>+{earnedXp} XP</strong></div>
+          <div><small>Điểm tự kiểm local</small><strong>{gateScore}%</strong></div>
+          <div><small>Tốt nhất trên máy này</small><strong>{bestScore}%</strong></div>
+          <div><small>XP tương tác local</small><strong>+{earnedXp} XP</strong></div>
         </div>
-        <div className="mastery-threshold"><span style={{ width: `${score}%` }} /><i style={{ left: "70%" }}>70% · KHAI MỞ</i></div>
+        <div className="mastery-threshold"><span style={{ width: `${gateScore}%` }} /><i style={{ left: "70%" }}>70% · TỰ KIỂM LOCAL</i></div>
         <div className="result-actions">
           <button className="secondary-button" type="button" onClick={restart}><RotateCcw size={17} /> Học và thử lại</button>
           {passed ? (

@@ -1,7 +1,10 @@
 import {
   createContext,
+  useCallback,
   useContext,
+  useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -14,29 +17,68 @@ import {
   type Card,
   type Grade,
 } from "ts-fsrs";
-import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
+import {
+  CONTENT_VERSION,
+  LESSON_BY_ID,
+  RELEASED_WORD_BY_ID,
+  WORD_BY_ID,
+} from "../data/curriculum";
+import { isLessonUnlocked } from "../lib/adaptive";
+import {
+  makeIdempotencyKey,
+  recordEvidenceInState,
+  scoreLessonSession,
+} from "../lib/evidence";
+import { commitDurableLearningState } from "../lib/durableLearningMutation";
+import { applyObservedDiagnosticCompletion } from "../lib/diagnosticCompletion";
+import {
+  canAdvanceMistakeFromEvidence,
+  canRecordLocalRemediationAttempt,
+  evaluateRemediationAttempt,
+} from "../lib/remediation";
+import { parsePersistedLearningState } from "../lib/learningStatePersistence";
+import {
+  selectStoredState,
+  type StoredStateSource,
+} from "../lib/stateStorageRecovery";
+import {
+  isHanziOsStorageKey,
+  LEARNING_CORRUPT_STORAGE_KEY,
+  LEARNING_OWNER_STORAGE_KEY,
+  LEARNING_RECOVERY_STORAGE_KEY,
+  LEARNING_STORAGE_KEY,
+  SYNC_DEVICE_STORAGE_KEY,
+  SYNC_INSTALLATION_STORAGE_KEY,
+  readLocalStorage,
+  writeLocalStorage,
+} from "../lib/storageKeys";
+import type {
+  LearningSyncCoordinator,
+  LearningSyncStatus,
+} from "../sync/coordinator";
 import type {
   AnswerEvidence,
+  EvidenceMethod,
   LearningState,
   MistakeRecord,
+  PracticeEvidenceInput,
   Profile,
-  Skill,
   StoredFsrsCard,
 } from "../types";
 
-const STORAGE_KEY = "hanzi-os-learning-state-v1";
-
 const defaultMastery: LearningState["skillMastery"] = {
-  pronunciation: 8,
-  listening: 6,
-  speaking: 4,
-  reading: 2,
+  pronunciation: 0,
+  listening: 0,
+  speaking: 0,
+  reading: 0,
   writing: 0,
-  vocabulary: 5,
+  vocabulary: 0,
   grammar: 0,
 };
 
-const initialState: LearningState = {
+export const INITIAL_LEARNING_STATE: LearningState = {
+  schemaVersion: 2,
+  contentVersion: CONTENT_VERSION,
   profile: {
     name: "Hành giả vô danh",
     goal: "conversation",
@@ -63,6 +105,7 @@ const initialState: LearningState = {
     recommendedLessonId: "boot-1",
     completedAt: null,
   },
+  evidence: [],
 };
 
 const scheduler = fsrs(
@@ -85,40 +128,70 @@ const yesterdayKey = () => {
   return localDateKey(date);
 };
 
-const loadState = (): LearningState => {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return initialState;
-    const parsed = JSON.parse(raw) as Partial<LearningState>;
-    const completedLessons = Object.fromEntries(
-      Object.entries(parsed.completedLessons ?? {}).map(([lessonId, result]) => {
-        const legacy = result as Partial<LearningState["completedLessons"][string]> & { score?: number; completedAt?: string };
-        const score = legacy.score ?? 0;
-        return [lessonId, {
-          score,
-          bestScore: legacy.bestScore ?? score,
-          attempts: legacy.attempts ?? 1,
-          completedAt: legacy.completedAt ?? new Date().toISOString(),
-        }];
-      }),
-    );
-    return {
-      ...initialState,
-      ...parsed,
-      profile: { ...initialState.profile, ...parsed.profile },
-      completedLessons,
-      savedWords: parsed.savedWords ?? [],
-      fsrsCards: parsed.fsrsCards ?? {},
-      skillMastery: { ...defaultMastery, ...parsed.skillMastery },
-      knowledge: parsed.knowledge ?? {},
-      mistakes: parsed.mistakes ?? [],
-      activityLog: parsed.activityLog ?? [],
-      diagnostic: { ...initialState.diagnostic, ...parsed.diagnostic },
-    };
-  } catch {
-    return initialState;
+const deserializeState = (raw: string): LearningState => {
+  const decoded = JSON.parse(raw) as unknown;
+  if (
+    typeof decoded !== "object"
+    || decoded === null
+    || Array.isArray(decoded)
+  ) {
+    throw new Error("Persisted learning state must be an object.");
   }
+  if ((decoded as { schemaVersion?: unknown }).schemaVersion === 2) {
+    const current = parsePersistedLearningState(
+      decoded,
+      INITIAL_LEARNING_STATE,
+    );
+    if (!current.ok) throw new Error(current.error);
+    return current.state;
+  }
+
+  const parsed = decoded as Partial<LearningState>;
+  const completedLessons = Object.fromEntries(
+    Object.entries(parsed.completedLessons ?? {}).map(([lessonId, result]) => {
+      const legacy = result as Partial<LearningState["completedLessons"][string]> & { score?: number; completedAt?: string };
+      const score = legacy.score ?? 0;
+      return [lessonId, {
+        score,
+        bestScore: legacy.bestScore ?? score,
+        attempts: legacy.attempts ?? 1,
+        completedAt: legacy.completedAt ?? new Date().toISOString(),
+      }];
+    }),
+  );
+  const migrated: LearningState = {
+    ...INITIAL_LEARNING_STATE,
+    ...parsed,
+    schemaVersion: 2,
+    contentVersion: CONTENT_VERSION,
+    profile: { ...INITIAL_LEARNING_STATE.profile, ...parsed.profile },
+    completedLessons,
+    savedWords: parsed.savedWords ?? [],
+    fsrsCards: parsed.fsrsCards ?? {},
+    skillMastery: defaultMastery,
+    knowledge: parsed.knowledge ?? {},
+    mistakes: parsed.mistakes ?? [],
+    activityLog: parsed.activityLog ?? [],
+    diagnostic: { ...INITIAL_LEARNING_STATE.diagnostic, ...parsed.diagnostic },
+    evidence: [],
+  };
+  const validated = parsePersistedLearningState(
+    migrated,
+    INITIAL_LEARNING_STATE,
+  );
+  if (!validated.ok) throw new Error(validated.error);
+  return validated.state;
 };
+
+const loadState = () => selectStoredState({
+  primaryRaw: readLocalStorage(LEARNING_STORAGE_KEY),
+  readRecoveryRaw: () => readLocalStorage(LEARNING_RECOVERY_STORAGE_KEY),
+  deserialize: deserializeState,
+  fallback: INITIAL_LEARNING_STATE,
+  onPrimaryCorrupt: (raw) => {
+    writeLocalStorage(LEARNING_CORRUPT_STORAGE_KEY, raw);
+  },
+});
 
 const serializeCard = (card: Card): StoredFsrsCard => ({
   due: card.due.toISOString(),
@@ -140,12 +213,22 @@ type LearningActions = {
   finishOnboarding: (profile: Profile) => void;
   updateProfile: (patch: Partial<Profile>) => void;
   recordAnswer: (evidence: AnswerEvidence) => void;
-  resolveMistake: (mistakeId: string, isCorrect: boolean) => void;
+  recordPracticeEvidence: (evidence: PracticeEvidenceInput) => void;
+  resolveMistake: (mistakeId: string, isCorrect: boolean, selectedAnswer?: string, idempotencyKey?: string, usedHint?: boolean) => void;
   completeDiagnostic: (score: number) => void;
-  completeLesson: (lessonId: string, score: number) => void;
+  completeLesson: (
+    lessonId: string,
+    score: number,
+    idempotencyKey: string,
+    expectedEvidenceCount: number,
+  ) => void;
   toggleSavedWord: (wordId: string) => void;
-  gradeReview: (wordId: string, rating: Grade) => void;
-  resetProgress: () => void;
+  gradeReview: (wordId: string, rating: Grade, idempotencyKey?: string) => void;
+  resetProgress: () => Promise<boolean>;
+  syncNow: () => Promise<void>;
+  prepareSignOut: () => Promise<void>;
+  deleteAccount: () => Promise<void>;
+  importProgress: (nextState: LearningState) => Promise<boolean>;
 };
 
 type LearningContextValue = {
@@ -153,12 +236,22 @@ type LearningContextValue = {
   actions: LearningActions;
   dueWordIds: string[];
   level: number;
+  sync: LearningSyncStatus;
+  stateLoadSource: StoredStateSource;
 };
 
 const LearningContext = createContext<LearningContextValue | null>(null);
 
 const clamp = (value: number, min = 0, max = 100) =>
   Math.max(min, Math.min(max, value));
+
+const evidenceMethodForAnswer = (evidence: AnswerEvidence): EvidenceMethod => {
+  if (evidence.kind === "meaning") return "meaning-selection";
+  if (evidence.kind === "listening") return "listening-selection";
+  if (evidence.kind === "sentence") return "reading-comprehension";
+  if (evidence.kind === "recall") return "typed-character-recall";
+  return "phonology-recognition";
+};
 
 const appendActivity = (
   current: LearningState["activityLog"],
@@ -172,49 +265,104 @@ const appendActivity = (
   },
 ].slice(-160);
 
-const startingMasteryBoost: Record<Profile["startingLevel"], number> = {
-  zero: 0,
-  basic: 8,
-  hsk1: 20,
-  hsk2: 36,
+const applyStudyDay = (current: LearningState) => {
+  const today = localDateKey();
+  if (current.lastStudyDate === today) {
+    return { streak: current.streak, dailyXp: current.dailyXp };
+  }
+  return {
+    streak: current.lastStudyDate === yesterdayKey() ? current.streak + 1 : 1,
+    dailyXp: 0,
+  };
 };
 
 export function LearningProvider({ children }: { children: ReactNode }) {
-  const [state, setState] = useState<LearningState>(loadState);
+  const [initialLoad] = useState(loadState);
+  const [state, setState] = useState<LearningState>(initialLoad.state);
+  const stateRef = useRef(state);
+  const coordinatorRef = useRef<LearningSyncCoordinator | null>(null);
+  const replacementInFlightRef = useRef(false);
+  const [sync, setSync] = useState<LearningSyncStatus>({
+    phase: "checking",
+    session: null,
+    ownerKey: "",
+    pendingCount: 0,
+    normalizedPendingCount: 0,
+    normalizedQuarantinedCount: 0,
+    lastSyncedAt: null,
+    error: null,
+  });
 
-  const persist = (updater: (current: LearningState) => LearningState) => {
-    setState((current) => {
-      const next = updater(current);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-      return next;
+  const applyDurableState = useCallback((next: LearningState) => {
+    if (!writeLocalStorage(LEARNING_STORAGE_KEY, JSON.stringify(next))) return false;
+    stateRef.current = next;
+    setState(next);
+    return true;
+  }, []);
+
+  const runExclusiveReplacement = useCallback(
+    async (work: () => Promise<boolean>) => {
+      if (replacementInFlightRef.current) return false;
+      replacementInFlightRef.current = true;
+      try {
+        return await work();
+      } finally {
+        replacementInFlightRef.current = false;
+      }
+    },
+    [],
+  );
+
+  useEffect(() => {
+    let disposed = false;
+    let coordinator: LearningSyncCoordinator | null = null;
+    void import("../sync/coordinator").then(({ LearningSyncCoordinator }) => {
+      if (disposed) return;
+      coordinator = new LearningSyncCoordinator({
+        initialState: INITIAL_LEARNING_STATE,
+        getState: () => stateRef.current,
+        applyState: applyDurableState,
+        onStatus: setSync,
+      });
+      coordinatorRef.current = coordinator;
+      void coordinator.initialize();
+    }).catch((cause: unknown) => {
+      if (disposed) return;
+      setSync((current) => ({
+        ...current,
+        phase: "error",
+        error: cause instanceof Error
+          ? cause.message
+          : "Không thể khởi tạo đồng bộ học tập.",
+      }));
     });
-  };
-
-  const applyStudyDay = (current: LearningState) => {
-    const today = localDateKey();
-    if (current.lastStudyDate === today) {
-      return { streak: current.streak, dailyXp: current.dailyXp };
-    }
-    return {
-      streak: current.lastStudyDate === yesterdayKey() ? current.streak + 1 : 1,
-      dailyXp: 0,
+    return () => {
+      disposed = true;
+      if (coordinatorRef.current === coordinator) {
+        coordinatorRef.current = null;
+      }
+      coordinator?.dispose();
     };
-  };
+  }, [applyDurableState]);
 
-  const actions: LearningActions = {
+  const persist = useCallback((updater: (current: LearningState) => LearningState) => {
+    if (replacementInFlightRef.current) return;
+    const current = stateRef.current;
+    const next = {
+      ...updater(current),
+      schemaVersion: 2 as const,
+      contentVersion: CONTENT_VERSION,
+    };
+    if (next === current || !applyDurableState(next)) return;
+    coordinatorRef.current?.queueMutation(current, next);
+  }, [applyDurableState]);
+
+  const actions = useMemo<LearningActions>(() => ({
     finishOnboarding: (profile) =>
-      persist((current) => {
-        const boost = startingMasteryBoost[profile.startingLevel];
-        const skillMastery = { ...current.skillMastery };
-        (Object.keys(skillMastery) as Skill[]).forEach((skill) => {
-          skillMastery[skill] = Math.max(skillMastery[skill], boost);
-        });
-        return {
-          ...current,
-          profile: { ...profile, onboarded: true },
-          skillMastery,
-        };
-      }),
+      persist((current) => ({
+        ...current,
+        profile: { ...profile, onboarded: true },
+      })),
     updateProfile: (patch) =>
       persist((current) => ({
         ...current,
@@ -223,8 +371,40 @@ export function LearningProvider({ children }: { children: ReactNode }) {
     recordAnswer: (evidence) =>
       persist((current) => {
         const now = new Date().toISOString();
-        const traceKey = `${evidence.lessonId}:${evidence.questionId}`;
-        const previousTrace = current.knowledge[traceKey] ?? {
+        const activityId = `${evidence.lessonId}:${evidence.questionId}`;
+        const activityVersion = evidence.activityVersion
+          ?? `${CONTENT_VERSION}:${evidence.lessonId}:1`;
+        const idempotencyKey = evidence.idempotencyKey
+          ?? makeIdempotencyKey(`lesson:${activityId}`);
+        const priorExposure = current.evidence.some((item) =>
+          item.activityId === activityId
+          && item.activityVersion === activityVersion
+        ) || current.mistakes.some((item) => item.id === activityId);
+        const evidenceResult = recordEvidenceInState(current, {
+          idempotencyKey,
+          activityVersion,
+          source: "lesson",
+          method: evidenceMethodForAnswer(evidence),
+          activityId,
+          skill: evidence.skill,
+          outcome: evidence.isCorrect ? "correct" : "incorrect",
+          score: evidence.isCorrect ? 100 : 0,
+          metadata: {
+            questionId: evidence.questionId,
+            wordId: evidence.wordId ?? null,
+            selectedAnswer: evidence.selectedAnswer,
+            correctAnswer: evidence.correctAnswer,
+            requiredForPass: evidence.requiredForPass ?? false,
+            priorExposure,
+          },
+        }, now);
+        if (!evidenceResult.inserted) return current;
+        const currentWithEvidence = evidenceResult.state;
+        const recordedEvidence = currentWithEvidence.evidence.find(
+          (item) => item.idempotencyKey === idempotencyKey,
+        );
+        const traceKey = activityId;
+        const previousTrace = currentWithEvidence.knowledge[traceKey] ?? {
           attempts: 0,
           correct: 0,
           currentStreak: 0,
@@ -237,14 +417,9 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           previousTrace.mastery * 0.68 + outcome * 0.32 + Math.min(6, currentStreak * 2),
         ));
 
-        const skillMastery = { ...current.skillMastery };
-        skillMastery[evidence.skill] = clamp(
-          skillMastery[evidence.skill] + (evidence.isCorrect ? 1 : -1),
-        );
-
-        const mistakeId = `${evidence.lessonId}:${evidence.questionId}`;
-        const existingIndex = current.mistakes.findIndex((item) => item.id === mistakeId);
-        const mistakes = [...current.mistakes];
+        const mistakeId = activityId;
+        const existingIndex = currentWithEvidence.mistakes.findIndex((item) => item.id === mistakeId);
+        const mistakes = [...currentWithEvidence.mistakes];
         if (!evidence.isCorrect) {
           const nextMistake: MistakeRecord = {
             id: mistakeId,
@@ -264,7 +439,11 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           };
           if (existingIndex >= 0) mistakes[existingIndex] = nextMistake;
           else mistakes.unshift(nextMistake);
-        } else if (existingIndex >= 0) {
+        } else if (
+          existingIndex >= 0
+          && recordedEvidence
+          && canAdvanceMistakeFromEvidence(recordedEvidence)
+        ) {
           const correctedStreak = mistakes[existingIndex].correctedStreak + 1;
           mistakes[existingIndex] = {
             ...mistakes[existingIndex],
@@ -275,10 +454,9 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         }
 
         return {
-          ...current,
-          skillMastery,
+          ...currentWithEvidence,
           knowledge: {
-            ...current.knowledge,
+            ...currentWithEvidence.knowledge,
             [traceKey]: {
               attempts: previousTrace.attempts + 1,
               correct: previousTrace.correct + (evidence.isCorrect ? 1 : 0),
@@ -290,119 +468,129 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           mistakes: mistakes.slice(0, 120),
         };
       }),
-    resolveMistake: (mistakeId, isCorrect) =>
+    recordPracticeEvidence: (evidence) =>
+      persist((current) => recordEvidenceInState(current, evidence).state),
+    resolveMistake: (mistakeId, isCorrect, selectedAnswer = "", idempotencyKey, usedHint = false) =>
       persist((current) => {
         const target = current.mistakes.find((mistake) => mistake.id === mistakeId);
-        if (!target) return current;
-        const day = applyStudyDay(current);
-        const mistakes = current.mistakes.map((mistake) => {
+        if (!canRecordLocalRemediationAttempt(target)) return current;
+        const evidenceResult = recordEvidenceInState(current, {
+          idempotencyKey: idempotencyKey ?? makeIdempotencyKey(`mistake:${mistakeId}`),
+          activityVersion: `${CONTENT_VERSION}:remediation:1`,
+          source: "mistake",
+          method: "remediation-recall",
+          activityId: mistakeId,
+          skill: target.skill,
+          outcome: isCorrect ? "correct" : "incorrect",
+          score: isCorrect ? 100 : 0,
+          metadata: {
+            selectedAnswer,
+            correctAnswer: target.correctAnswer,
+            originalKind: target.kind,
+            usedHint,
+          },
+        });
+        if (!evidenceResult.inserted) return current;
+        const currentWithEvidence = evidenceResult.state;
+        const day = applyStudyDay(currentWithEvidence);
+        const attempt = evaluateRemediationAttempt(
+          target.correctedStreak,
+          isCorrect,
+          usedHint,
+        );
+        const mistakes = currentWithEvidence.mistakes.map((mistake) => {
           if (mistake.id !== mistakeId) return mistake;
-          const correctedStreak = isCorrect ? mistake.correctedStreak + 1 : 0;
           return {
             ...mistake,
-            correctedStreak,
+            correctedStreak: attempt.correctedStreak,
             occurrences: mistake.occurrences + (isCorrect ? 0 : 1),
-            resolved: correctedStreak >= 2,
+            resolved: attempt.resolved,
             lastAttemptAt: new Date().toISOString(),
           };
         });
-        const earnedXp = isCorrect ? 8 : 0;
+        const earnedXp = attempt.unassistedCorrect ? 8 : 0;
         return {
-          ...current,
-          xp: current.xp + earnedXp,
+          ...currentWithEvidence,
+          xp: currentWithEvidence.xp + earnedXp,
           dailyXp: day.dailyXp + earnedXp,
-          streak: isCorrect ? day.streak : current.streak,
-          lastStudyDate: isCorrect ? localDateKey() : current.lastStudyDate,
+          streak: attempt.unassistedCorrect ? day.streak : currentWithEvidence.streak,
+          lastStudyDate: attempt.unassistedCorrect ? localDateKey() : currentWithEvidence.lastStudyDate,
           mistakes,
-          skillMastery: {
-            ...current.skillMastery,
-            [target.skill]: clamp(current.skillMastery[target.skill] + (isCorrect ? 2 : -1)),
-          },
-          activityLog: isCorrect
-            ? appendActivity(current.activityLog, { type: "correction", label: `Phá giải: ${target.prompt}`, xp: earnedXp })
-            : current.activityLog,
+          activityLog: attempt.unassistedCorrect
+            ? appendActivity(currentWithEvidence.activityLog, { type: "correction", label: `Phá giải: ${target.prompt}`, xp: earnedXp })
+            : currentWithEvidence.activityLog,
         };
       }),
     completeDiagnostic: (score) =>
-      persist((current) => {
-        const normalizedScore = clamp(Math.round(score));
-        const recommendedLessonId = normalizedScore >= 75
-          ? "characters-1"
-          : normalizedScore >= 50
-            ? "daily-1"
-            : normalizedScore >= 25
-              ? "survival-1"
-              : "boot-1";
-        const inferredLevel: Profile["startingLevel"] = normalizedScore >= 75
-          ? "hsk2"
-          : normalizedScore >= 50
-            ? "hsk1"
-            : normalizedScore >= 25
-              ? "basic"
-              : "zero";
-        const baseline = Math.round(normalizedScore * 0.55);
-        const skillMastery = { ...current.skillMastery };
-        (Object.keys(skillMastery) as Skill[]).forEach((skill) => {
-          skillMastery[skill] = Math.max(skillMastery[skill], baseline);
-        });
-        return {
-          ...current,
-          profile: { ...current.profile, startingLevel: inferredLevel },
-          skillMastery,
-          diagnostic: {
-            completed: true,
-            score: normalizedScore,
-            recommendedLessonId,
-            completedAt: new Date().toISOString(),
-          },
-          activityLog: appendActivity(current.activityLog, {
-            type: "diagnostic",
-            label: "Khảo nghiệm căn cơ",
-            xp: 0,
-          }),
-        };
-      }),
-    completeLesson: (lessonId, score) => {
+      persist((current) => applyObservedDiagnosticCompletion(current, score)),
+    completeLesson: (lessonId, score, idempotencyKey, expectedEvidenceCount) => {
       const lesson = LESSON_BY_ID.get(lessonId);
-      if (!lesson) return;
+      if (!lesson || expectedEvidenceCount <= 0 || !idempotencyKey.endsWith(":complete")) return;
       persist((current) => {
-        const day = applyStudyDay(current);
-        const previous = current.completedLessons[lessonId];
-        const firstMastery = score >= 70 && (!previous || previous.bestScore < 70);
+        if (!isLessonUnlocked(lesson, current)) return current;
+        const sessionPrefix = idempotencyKey.slice(0, -"complete".length);
+        const sessionAnswers = current.evidence.filter((item) =>
+          item.source === "lesson"
+          && item.contentVersion === lesson.contentVersion
+          && item.activityId.startsWith(`${lessonId}:`)
+          && item.idempotencyKey.startsWith(`${sessionPrefix}answer:`)
+        );
+        const sessionScore = scoreLessonSession(
+          sessionAnswers,
+          expectedEvidenceCount,
+        );
+        if (!sessionScore) return current;
+        const normalizedScore = sessionScore.gateScore;
+        const evidenceResult = recordEvidenceInState(current, {
+          idempotencyKey: idempotencyKey ?? makeIdempotencyKey(`lesson-complete:${lessonId}`),
+          activityVersion: `${lesson.contentVersion}:${lesson.id}:1`,
+          source: "lesson",
+          method: "lesson-completion",
+          activityId: lesson.id,
+          skill: lesson.skills[0] ?? "vocabulary",
+          outcome: "completed",
+          score: normalizedScore,
+          metadata: {
+            passed: normalizedScore >= 70,
+            clientScore: clamp(Math.round(score)),
+            rawScore: sessionScore.rawScore,
+            evidenceCount: sessionAnswers.length,
+            requiredEvidenceCount: sessionScore.requiredEvidenceCount,
+            requiredCorrect: sessionScore.requiredCorrect,
+          },
+        });
+        if (!evidenceResult.inserted) return current;
+        const currentWithEvidence = evidenceResult.state;
+        const day = applyStudyDay(currentWithEvidence);
+        const previous = currentWithEvidence.completedLessons[lessonId];
+        const firstMastery = normalizedScore >= 70 && (!previous || previous.bestScore < 70);
         const earnedXp = firstMastery
           ? lesson.xp
           : previous
             ? Math.round(lesson.xp * 0.2)
             : Math.round(lesson.xp * 0.25);
-        const increment = score >= 70 ? Math.max(1, Math.round(score / 35)) : 0;
-        const skillMastery = { ...current.skillMastery };
-        lesson.skills.forEach((skill: Skill) => {
-          skillMastery[skill] = Math.min(100, skillMastery[skill] + increment);
-        });
-
-        const fsrsCards = { ...current.fsrsCards };
+        const fsrsCards = { ...currentWithEvidence.fsrsCards };
         lesson.wordIds.forEach((wordId) => {
           if (!fsrsCards[wordId]) fsrsCards[wordId] = emptyStoredCard();
         });
 
         return {
-          ...current,
-          xp: current.xp + earnedXp,
+          ...currentWithEvidence,
+          xp: currentWithEvidence.xp + earnedXp,
           dailyXp: day.dailyXp + earnedXp,
           streak: day.streak,
           lastStudyDate: localDateKey(),
           completedLessons: {
-            ...current.completedLessons,
+            ...currentWithEvidence.completedLessons,
             [lessonId]: {
-              score,
-              bestScore: Math.max(score, current.completedLessons[lessonId]?.bestScore ?? 0),
-              attempts: (current.completedLessons[lessonId]?.attempts ?? 0) + 1,
+              score: normalizedScore,
+              bestScore: Math.max(normalizedScore, currentWithEvidence.completedLessons[lessonId]?.bestScore ?? 0),
+              attempts: (currentWithEvidence.completedLessons[lessonId]?.attempts ?? 0) + 1,
               completedAt: new Date().toISOString(),
             },
           },
           fsrsCards,
-          skillMastery,
-          activityLog: appendActivity(current.activityLog, {
+          activityLog: appendActivity(currentWithEvidence.activityLog, {
             type: "lesson",
             label: lesson.title,
             xp: earnedXp,
@@ -410,7 +598,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         };
       });
     },
-    toggleSavedWord: (wordId) =>
+    toggleSavedWord: (wordId) => {
+      if (!RELEASED_WORD_BY_ID.has(wordId)) return;
       persist((current) => ({
         ...current,
         savedWords: current.savedWords.includes(wordId)
@@ -419,11 +608,26 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         fsrsCards: current.fsrsCards[wordId]
           ? current.fsrsCards
           : { ...current.fsrsCards, [wordId]: emptyStoredCard() },
-      })),
-    gradeReview: (wordId, rating) =>
+      }));
+    },
+    gradeReview: (wordId, rating, idempotencyKey) => {
+      if (!RELEASED_WORD_BY_ID.has(wordId)) return;
       persist((current) => {
         const now = new Date();
-        const stored = current.fsrsCards[wordId] ?? emptyStoredCard(now);
+        const evidenceResult = recordEvidenceInState(current, {
+          idempotencyKey: idempotencyKey ?? makeIdempotencyKey(`review:${wordId}`),
+          activityVersion: `${CONTENT_VERSION}:fsrs:1`,
+          source: "review",
+          method: "fsrs-rating",
+          activityId: `review:${wordId}`,
+          skill: "vocabulary",
+          outcome: rating === Rating.Again ? "incorrect" : "unverified",
+          score: null,
+          metadata: { rating: Number(rating) },
+        }, now.toISOString());
+        if (!evidenceResult.inserted) return current;
+        const currentWithEvidence = evidenceResult.state;
+        const stored = currentWithEvidence.fsrsCards[wordId] ?? emptyStoredCard(now);
         const result = scheduler.next(
           {
             ...stored,
@@ -434,24 +638,13 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           now,
           rating,
         );
-        const day = applyStudyDay(current);
+        const day = applyStudyDay(currentWithEvidence);
         const word = WORD_BY_ID.get(wordId);
-        const previousTrace = current.knowledge[`review:${wordId}`] ?? {
-          attempts: 0,
-          correct: 0,
-          currentStreak: 0,
-          mastery: 0,
-          lastSeenAt: now.toISOString(),
-        };
         const recalled = rating !== Rating.Again;
-        const currentStreak = recalled ? previousTrace.currentStreak + 1 : 0;
-        const mastery = clamp(Math.round(
-          previousTrace.mastery * 0.72 + (recalled ? 100 : 0) * 0.28 + Math.min(6, currentStreak * 2),
-        ));
-        let mistakes = current.mistakes;
+        let mistakes = currentWithEvidence.mistakes;
         if (!recalled && word) {
           const mistakeId = `review:${wordId}`;
-          const existing = current.mistakes.find((item) => item.id === mistakeId);
+          const existing = currentWithEvidence.mistakes.find((item) => item.id === mistakeId);
           const reviewMistake: MistakeRecord = {
             id: mistakeId,
             lessonId: "review",
@@ -468,52 +661,109 @@ export function LearningProvider({ children }: { children: ReactNode }) {
             resolved: false,
             lastAttemptAt: now.toISOString(),
           };
-          mistakes = [reviewMistake, ...current.mistakes.filter((item) => item.id !== mistakeId)].slice(0, 120);
+          mistakes = [reviewMistake, ...currentWithEvidence.mistakes.filter((item) => item.id !== mistakeId)].slice(0, 120);
         }
         return {
-          ...current,
-          xp: current.xp + 5,
+          ...currentWithEvidence,
+          xp: currentWithEvidence.xp + 5,
           dailyXp: day.dailyXp + 5,
           streak: day.streak,
           lastStudyDate: localDateKey(),
-          reviewCount: current.reviewCount + 1,
+          reviewCount: currentWithEvidence.reviewCount + 1,
           fsrsCards: {
-            ...current.fsrsCards,
+            ...currentWithEvidence.fsrsCards,
             [wordId]: serializeCard(result.card),
           },
-          skillMastery: {
-            ...current.skillMastery,
-            vocabulary: clamp(current.skillMastery.vocabulary + (rating === Rating.Easy ? 2 : recalled ? 1 : -1)),
-          },
-          knowledge: {
-            ...current.knowledge,
-            [`review:${wordId}`]: {
-              attempts: previousTrace.attempts + 1,
-              correct: previousTrace.correct + (recalled ? 1 : 0),
-              currentStreak,
-              mastery,
-              lastSeenAt: now.toISOString(),
-            },
-          },
           mistakes,
-          activityLog: appendActivity(current.activityLog, {
+          activityLog: appendActivity(currentWithEvidence.activityLog, {
             type: "review",
             label: word ? `Ôn ${word.simplified}` : "Ôn ký ức",
             xp: 5,
           }),
         };
-      }),
-    resetProgress: () => {
-      localStorage.removeItem(STORAGE_KEY);
-      setState(initialState);
+      });
     },
-  };
+    resetProgress: () => runExclusiveReplacement(async () => {
+      const current = stateRef.current;
+      const coordinator = coordinatorRef.current;
+      if (!coordinator) return false;
+      let hanziOsKeys: string[];
+      try {
+        hanziOsKeys = Array.from({ length: localStorage.length }, (_, index) =>
+          localStorage.key(index)
+        ).filter((key): key is string => Boolean(
+          key
+          && isHanziOsStorageKey(key)
+          && key !== LEARNING_STORAGE_KEY
+          && key !== LEARNING_OWNER_STORAGE_KEY
+          && key !== SYNC_DEVICE_STORAGE_KEY
+          && key !== SYNC_INSTALLATION_STORAGE_KEY,
+        ));
+      } catch {
+        window.dispatchEvent(new CustomEvent("hanzi-storage-error"));
+        return false;
+      }
+
+      if (!await commitDurableLearningState({
+        nextState: INITIAL_LEARNING_STATE,
+        enqueue: () => coordinator.queueMutation(
+          current,
+          INITIAL_LEARNING_STATE,
+          "reset",
+        ),
+        apply: applyDurableState,
+      })) return false;
+      try {
+        hanziOsKeys.forEach((key) => localStorage.removeItem(key));
+      } catch {
+        window.dispatchEvent(new CustomEvent("hanzi-storage-error"));
+        // The learning reset is already durable; the global storage warning
+        // reports any ancillary key that the browser refused to remove.
+      }
+      try {
+        if ("caches" in window) {
+          const cacheKeys = await caches.keys();
+          await Promise.allSettled(
+            cacheKeys
+              .filter((key) => key.startsWith("hanzi-os-"))
+              .map((key) => caches.delete(key)),
+          );
+        }
+      } catch {
+        // Cache cleanup is recoverable and must not roll back learning-data reset.
+      }
+      return true;
+    }),
+    syncNow: () => coordinatorRef.current?.syncNow() ?? Promise.resolve(),
+    prepareSignOut: () => coordinatorRef.current?.prepareSignOut() ?? Promise.resolve(),
+    deleteAccount: () => coordinatorRef.current?.deleteAccount() ?? Promise.resolve(),
+    importProgress: (nextState) => runExclusiveReplacement(async () => {
+      const current = stateRef.current;
+      const coordinator = coordinatorRef.current;
+      if (!coordinator) return false;
+      if (!writeLocalStorage(
+        LEARNING_RECOVERY_STORAGE_KEY,
+        JSON.stringify(current),
+      )) return false;
+      const next = {
+        ...nextState,
+        schemaVersion: 2 as const,
+        contentVersion: CONTENT_VERSION,
+      };
+      return commitDurableLearningState({
+        nextState: next,
+        enqueue: () => coordinator.queueMutation(current, next, "local-import"),
+        apply: applyDurableState,
+      });
+    }),
+  }), [applyDurableState, persist, runExclusiveReplacement]);
 
   const dueWordIds = useMemo(() => {
     const now = Date.now();
     const activated = Object.keys(state.fsrsCards);
     return activated.filter((wordId) =>
-      new Date(state.fsrsCards[wordId].due).getTime() <= now,
+      RELEASED_WORD_BY_ID.has(wordId)
+      && new Date(state.fsrsCards[wordId].due).getTime() <= now,
     ).slice(0, 12);
   }, [state.fsrsCards]);
 
@@ -523,8 +773,10 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       actions,
       dueWordIds,
       level: Math.floor(state.xp / 500) + 1,
+      sync,
+      stateLoadSource: initialLoad.source,
     }),
-    [state, dueWordIds],
+    [state, dueWordIds, actions, sync, initialLoad.source],
   );
 
   return <LearningContext.Provider value={value}>{children}</LearningContext.Provider>;

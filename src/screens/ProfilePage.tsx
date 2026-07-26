@@ -2,26 +2,43 @@ import {
   BriefcaseBusiness,
   Check,
   CircleUserRound,
+  Cloud,
   Database,
   Download,
+  LogIn,
+  LogOut,
   Languages,
   MessageCircle,
   Plane,
   Radar,
   RotateCcw,
+  RefreshCw,
   Save,
   ShieldCheck,
   Target,
+  Trash2,
+  Upload,
 } from "lucide-react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link } from "react-router";
 import { ConfirmModal, useSystemFeedback } from "../components/SystemFeedback";
-import { useLearning } from "../store/LearningStore";
+import { RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { getReleasedLessonProgress } from "../lib/adaptive";
+import { chatGPTSignInPath, chatGPTSignOutPath } from "../lib/chatgptAuthPaths";
+import {
+  createLearningRecoveryBundle,
+  getAccountDeletionReadiness,
+  serializeLearningStateSnapshot,
+} from "../lib/learningRecoveryBundle";
+import { parseLearningStateImport } from "../lib/learningStateImport";
+import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
+import { INITIAL_LEARNING_STATE, useLearning } from "../store/LearningStore";
+import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import type { LearningGoal, Profile, StartingLevel } from "../types";
 
 const goals: Array<{ id: LearningGoal; label: string; description: string; icon: typeof Target }> = [
   { id: "conversation", label: "Giao tiếp", description: "Ưu tiên nghe và nói đời sống", icon: MessageCircle },
-  { id: "hsk", label: "HSK", description: "Ưu tiên chuẩn đầu ra và đề thi", icon: Target },
+  { id: "hsk", label: "Hướng tới HSK", description: "Ưu tiên kỹ năng nền, chưa cam kết luyện thi đầy đủ", icon: Target },
   { id: "career", label: "Công việc", description: "Ưu tiên ngôn ngữ chuyên nghiệp", icon: BriefcaseBusiness },
   { id: "travel", label: "Du lịch", description: "Ưu tiên tình huống sinh tồn", icon: Plane },
 ];
@@ -29,16 +46,38 @@ const goals: Array<{ id: LearningGoal; label: string; description: string; icon:
 const startingLevels: Array<{ id: StartingLevel; label: string }> = [
   { id: "zero", label: "Khởi nguyên" },
   { id: "basic", label: "Đã khai âm" },
-  { id: "hsk1", label: "Nền HSK 1" },
-  { id: "hsk2", label: "Nền HSK 2+" },
+  { id: "hsk1", label: "Đã học HSK 1" },
+  { id: "hsk2", label: "Đã học HSK 2+" },
 ];
 
+const dailyMinuteOptions = [10, 20, 30] as const;
+const scriptOptions = ["simplified", "traditional"] as const;
+const MAX_RECOVERY_FILE_BYTES = 8_000_000;
+
 export function ProfilePage() {
-  const { state, actions, level } = useLearning();
+  const { state, actions, level, sync } = useLearning();
+  const normalized = useNormalizedLearningProjection();
   const { notify } = useSystemFeedback();
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [exportedSnapshot, setExportedSnapshot] = useState<string | null>(null);
+  const importInputRef = useRef<HTMLInputElement>(null);
+  const localProgress = getReleasedLessonProgress(state);
+  const completedCount = sync.session?.authenticated
+    ? normalized.authoritativeProgress?.completedCount ?? null
+    : localProgress.completedCount;
+  const currentSnapshot = serializeLearningStateSnapshot(state);
+  const deletionReadiness = getAccountDeletionReadiness({
+    authenticated: sync.session?.authenticated === true,
+    syncPhase: sync.phase,
+    pendingCount: sync.pendingCount,
+    normalizedPendingCount: sync.normalizedPendingCount,
+    normalizedQuarantinedCount: sync.normalizedQuarantinedCount,
+    currentSnapshot,
+    exportedSnapshot,
+  });
 
   const updateDraft = (patch: Partial<Profile>) => {
     setDraft((current) => ({ ...current, ...patch }));
@@ -52,20 +91,153 @@ export function ProfilePage() {
   };
 
   const exportProgress = () => {
-    const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+    const bundle = createLearningRecoveryBundle({
+      state,
+      syncPhase: sync.phase,
+      pendingCount: sync.pendingCount,
+      normalizedPendingCount: sync.normalizedPendingCount,
+      normalizedQuarantinedCount: sync.normalizedQuarantinedCount,
+    });
+    const blob = new Blob([JSON.stringify(bundle, null, 2)], {
+      type: "application/json",
+    });
     const url = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = `hanzi-os-progress-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.download = `hanzi-os-recovery-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.append(anchor);
     anchor.click();
-    URL.revokeObjectURL(url);
+    anchor.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
+    setExportedSnapshot(currentSnapshot);
+    notify(
+      sync.normalizedQuarantinedCount > 0
+        ? `Đã tạo bản phục hồi; bản này chỉ ghi số lượng ${sync.normalizedQuarantinedCount} lệnh học bị cách ly và không tự xóa chúng.`
+        : sync.normalizedPendingCount > 0
+          ? `Đã tạo bản phục hồi; ${sync.normalizedPendingCount} lệnh học chuẩn hóa vẫn chờ máy chủ xác nhận.`
+          : sync.pendingCount > 0
+        ? `Đã tạo bản phục hồi gồm cả ${sync.pendingCount} thay đổi cục bộ đang chờ.`
+        : "Đã tạo bản phục hồi của trạng thái hiện tại trên thiết bị.",
+    );
   };
 
-  const reset = () => {
-    setShowResetConfirm(false);
-    actions.resetProgress();
-    notify("Dữ liệu cục bộ đã được xóa. Hệ thống trở về trạng thái khởi nguyên.", "warning");
+  const exportCloudSnapshot = () => {
+    window.location.assign("/api/account/export");
   };
+
+  const reset = async () => {
+    setShowResetConfirm(false);
+    if (await actions.resetProgress()) {
+      notify(
+        sync.session?.authenticated
+          ? "Lệnh đặt lại đã được lưu an toàn và sẽ đồng bộ với tài khoản."
+          : "Dữ liệu học trên thiết bị đã được đưa về trạng thái khởi nguyên.",
+        "warning",
+      );
+    } else {
+      notify("Không thể xác nhận lệnh đặt lại đã được lưu bền. Hãy kiểm tra trạng thái lưu trữ trước khi thử lại.", "warning");
+    }
+  };
+
+  const importProgress = async (file: File | undefined) => {
+    if (!file) return;
+    if (file.size > MAX_RECOVERY_FILE_BYTES) {
+      notify("Bản sao vượt giới hạn 8 MB của closed alpha.", "warning");
+      return;
+    }
+    try {
+      const parsed: unknown = JSON.parse(await file.text());
+      const result = parseLearningStateImport(parsed, INITIAL_LEARNING_STATE);
+      if (!result.ok) {
+        notify(result.error, "warning");
+        return;
+      }
+      if (!await actions.importProgress(result.state)) {
+        notify("Không thể xác nhận bản phục hồi đã được lưu bền. Hãy kiểm tra trạng thái đồng bộ trước khi thử lại.", "warning");
+        return;
+      }
+      setExportedSnapshot(null);
+      setDraft(result.state.profile);
+      notify(
+        sync.session?.authenticated
+          ? "Đã phục hồi bản sao và xếp hàng để hòa giải với tài khoản."
+          : "Đã phục hồi bản sao trên thiết bị này.",
+      );
+    } catch {
+      notify("Tệp không phải bản sao JSON hợp lệ của HANZI.OS.", "warning");
+    } finally {
+      if (importInputRef.current) importInputRef.current.value = "";
+    }
+  };
+
+  const syncNow = async () => {
+    await actions.syncNow();
+    notify("Đã kiểm tra hàng đợi đồng bộ.");
+  };
+
+  const signOut = async () => {
+    try {
+      await actions.prepareSignOut();
+      window.location.assign(chatGPTSignOutPath("/"));
+    } catch (error) {
+      notify(
+        error instanceof Error ? error.message : "Không thể đăng xuất an toàn lúc này.",
+        "warning",
+      );
+    }
+  };
+
+  const deleteAccount = async () => {
+    setShowDeleteConfirm(false);
+    if (!deletionReadiness.ready) {
+      notify(deletionReadinessLabel, "warning");
+      return;
+    }
+    try {
+      await actions.deleteAccount();
+      notify("Tài khoản cloud và dữ liệu máy chủ đã được xóa.", "warning");
+      window.location.assign(chatGPTSignOutPath("/"));
+    } catch (error) {
+      notify(
+        error instanceof Error ? error.message : "Không thể xóa tài khoản lúc này.",
+        "warning",
+      );
+    }
+  };
+
+  const syncLabel = sync.phase === "syncing"
+    ? "Đang đồng bộ"
+    : sync.phase === "synced"
+      ? "Đã đồng bộ"
+      : sync.phase === "offline"
+        ? "Ngoại tuyến · đang xếp hàng"
+        : sync.phase === "error"
+          ? "Đồng bộ cần thử lại"
+          : sync.phase === "checking"
+            ? "Đang kiểm tra phiên"
+            : "Chỉ lưu trên thiết bị";
+
+  const deletionReadinessLabel = deletionReadiness.ready
+    ? "Đã đồng bộ sạch và có bản phục hồi hiện tại."
+    : deletionReadiness.reason === "quarantined-normalized-commands"
+      ? `Có ${sync.normalizedQuarantinedCount} lệnh học chuẩn hóa bị cách ly. Chúng không bị tự bỏ; hãy xử lý hoặc đặt lại dữ liệu rõ ràng trước.`
+      : deletionReadiness.reason === "pending-normalized-commands"
+        ? `Còn ${sync.normalizedPendingCount} lệnh học chuẩn hóa chưa được máy chủ xác nhận.`
+        : deletionReadiness.reason === "pending-sync"
+      ? `Còn ${sync.pendingCount} thay đổi chưa lên cloud. Hãy đồng bộ trước.`
+      : deletionReadiness.reason === "not-synced"
+        ? "Cần hoàn tất đồng bộ cloud trước khi xóa tài khoản."
+        : "Hãy xuất bản phục hồi của trạng thái hiện tại trước khi xóa.";
+
+  const syncQueueLabel = [
+    sync.pendingCount > 0 ? `${sync.pendingCount} thay đổi tương thích đang chờ` : null,
+    sync.normalizedPendingCount > 0
+      ? `${sync.normalizedPendingCount} lệnh học chuẩn hóa đang chờ`
+      : null,
+    sync.normalizedQuarantinedCount > 0
+      ? `${sync.normalizedQuarantinedCount} lệnh học bị cách ly`
+      : null,
+  ].filter(Boolean).join(" · ");
 
   return (
     <div className="content-page profile-page">
@@ -86,67 +258,226 @@ export function ProfilePage() {
             <input value={draft.name} onChange={(event) => updateDraft({ name: event.target.value })} maxLength={40} />
           </label>
           <fieldset className="profile-fieldset">
-            <legend>Mục tiêu chính</legend>
-            <div className="goal-option-grid">
-              {goals.map(({ id, label, description, icon: Icon }) => (
-                <button className={draft.goal === id ? "active" : ""} key={id} type="button" onClick={() => updateDraft({ goal: id })}>
+            <legend id="profile-goal-legend">Mục tiêu chính</legend>
+            <div
+              className="goal-option-grid"
+              role="radiogroup"
+              aria-labelledby="profile-goal-legend"
+            >
+              {goals.map(({ id, label, description, icon: Icon }, optionIndex) => (
+                <button
+                  className={draft.goal === id ? "active" : ""}
+                  data-radio-index={optionIndex}
+                  key={id}
+                  role="radio"
+                  aria-checked={draft.goal === id}
+                  tabIndex={draft.goal === id ? 0 : -1}
+                  type="button"
+                  onClick={() => updateDraft({ goal: id })}
+                  onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                    currentIndex: optionIndex,
+                    itemCount: goals.length,
+                    onSelect: (nextIndex) => updateDraft({
+                      goal: goals[nextIndex]!.id,
+                    }),
+                  })}
+                >
                   <Icon size={19} /><span><strong>{label}</strong><small>{description}</small></span>{draft.goal === id && <Check size={17} />}
                 </button>
               ))}
             </div>
           </fieldset>
           <fieldset className="profile-fieldset inline-fieldset">
-            <legend>Thời lượng mỗi ngày</legend>
-            <div className="segmented-control">
-              {([10, 20, 30] as const).map((minutes) => <button className={draft.dailyMinutes === minutes ? "active" : ""} key={minutes} type="button" onClick={() => updateDraft({ dailyMinutes: minutes })}>{minutes} phút</button>)}
-            </div>
-          </fieldset>
-          <fieldset className="profile-fieldset inline-fieldset">
-            <legend>Căn cơ tự khai báo</legend>
-            <div className="segmented-control starting-control">
-              {startingLevels.map((item) => (
-                <button className={draft.startingLevel === item.id ? "active" : ""} key={item.id} type="button" onClick={() => updateDraft({ startingLevel: item.id })}>{item.label}</button>
+            <legend id="profile-daily-minutes-legend">Thời lượng mỗi ngày</legend>
+            <div
+              className="segmented-control"
+              role="radiogroup"
+              aria-labelledby="profile-daily-minutes-legend"
+            >
+              {dailyMinuteOptions.map((minutes, optionIndex) => (
+                <button
+                  className={draft.dailyMinutes === minutes ? "active" : ""}
+                  data-radio-index={optionIndex}
+                  key={minutes}
+                  role="radio"
+                  aria-checked={draft.dailyMinutes === minutes}
+                  tabIndex={draft.dailyMinutes === minutes ? 0 : -1}
+                  type="button"
+                  onClick={() => updateDraft({ dailyMinutes: minutes })}
+                  onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                    currentIndex: optionIndex,
+                    itemCount: dailyMinuteOptions.length,
+                    onSelect: (nextIndex) => updateDraft({
+                      dailyMinutes: dailyMinuteOptions[nextIndex]!,
+                    }),
+                  })}
+                >
+                  {minutes} phút
+                </button>
               ))}
             </div>
-            <Link className="assessment-inline-link" to="/assessment"><Radar size={16} /> Khảo nghiệm để hệ thống tự hiệu chỉnh</Link>
           </fieldset>
           <fieldset className="profile-fieldset inline-fieldset">
-            <legend>Hệ chữ ưu tiên</legend>
-            <div className="segmented-control script-control">
-              <button className={draft.script === "simplified" ? "active" : ""} type="button" onClick={() => updateDraft({ script: "simplified" })}>简体 · Giản thể</button>
-              <button className={draft.script === "traditional" ? "active" : ""} type="button" onClick={() => updateDraft({ script: "traditional" })}>繁體 · Phồn thể</button>
+            <legend id="profile-starting-level-legend">Căn cơ tự khai báo</legend>
+            <div
+              className="segmented-control starting-control"
+              role="radiogroup"
+              aria-labelledby="profile-starting-level-legend"
+            >
+              {startingLevels.map((item, optionIndex) => (
+                <button
+                  className={draft.startingLevel === item.id ? "active" : ""}
+                  data-radio-index={optionIndex}
+                  key={item.id}
+                  role="radio"
+                  aria-checked={draft.startingLevel === item.id}
+                  tabIndex={draft.startingLevel === item.id ? 0 : -1}
+                  type="button"
+                  onClick={() => updateDraft({ startingLevel: item.id })}
+                  onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                    currentIndex: optionIndex,
+                    itemCount: startingLevels.length,
+                    onSelect: (nextIndex) => updateDraft({
+                      startingLevel: startingLevels[nextIndex]!.id,
+                    }),
+                  })}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+            <Link className="assessment-inline-link" to="/assessment"><Radar size={16} /> Khảo sát để nhận gợi ý luyện</Link>
+          </fieldset>
+          <fieldset className="profile-fieldset inline-fieldset">
+            <legend id="profile-script-legend">Hệ chữ ưu tiên</legend>
+            <div
+              className="segmented-control script-control"
+              role="radiogroup"
+              aria-labelledby="profile-script-legend"
+            >
+              <button
+                className={draft.script === "simplified" ? "active" : ""}
+                data-radio-index={0}
+                role="radio"
+                aria-checked={draft.script === "simplified"}
+                tabIndex={draft.script === "simplified" ? 0 : -1}
+                type="button"
+                onClick={() => updateDraft({ script: "simplified" })}
+                onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                  currentIndex: 0,
+                  itemCount: scriptOptions.length,
+                  onSelect: (nextIndex) => updateDraft({
+                    script: scriptOptions[nextIndex]!,
+                  }),
+                })}
+              >
+                简体 · Giản thể
+              </button>
+              <button
+                className={draft.script === "traditional" ? "active" : ""}
+                data-radio-index={1}
+                role="radio"
+                aria-checked={draft.script === "traditional"}
+                tabIndex={draft.script === "traditional" ? 0 : -1}
+                type="button"
+                onClick={() => updateDraft({ script: "traditional" })}
+                onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                  currentIndex: 1,
+                  itemCount: scriptOptions.length,
+                  onSelect: (nextIndex) => updateDraft({
+                    script: scriptOptions[nextIndex]!,
+                  }),
+                })}
+              >
+                繁體 · Phồn thể
+              </button>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>
         </section>
 
         <aside className="data-control-panel">
-          <header className="section-heading"><div><span>LOCAL DATA VAULT</span><h2>Kho dữ liệu</h2></div><Database size={21} /></header>
+          <header className="section-heading"><div><span>DURABLE DATA VAULT</span><h2>Kho dữ liệu</h2></div><Database size={21} /></header>
+          <div className={`cloud-account-card ${sync.session?.authenticated ? "authenticated" : "anonymous"}`}>
+            <Cloud size={23} />
+            <div>
+              <strong>{sync.session?.authenticated ? sync.session.user.displayName : "Chưa kết nối tài khoản"}</strong>
+              <p>{sync.session?.authenticated ? sync.session.user.email : "Tiến độ vẫn hoạt động ngoại tuyến trên thiết bị này."}</p>
+              <small>{syncLabel}{syncQueueLabel ? ` · ${syncQueueLabel}` : ""}</small>
+            </div>
+            {sync.session?.authenticated ? (
+              <button type="button" onClick={signOut}><LogOut size={16} /> Đăng xuất</button>
+            ) : (
+              <a href={chatGPTSignInPath("/profile")}><LogIn size={16} /> Đăng nhập</a>
+            )}
+          </div>
           <div className="data-status">
             <ShieldCheck size={24} />
-            <div><strong>Dữ liệu nằm trên trình duyệt này</strong><p>Bài học, XP và lịch FSRS tự động ghi vào localStorage sau mỗi thao tác.</p></div>
+            <div>
+              <strong>{sync.session?.authenticated ? "Local-first và có bản sao cloud" : "Dữ liệu nằm trên trình duyệt này"}</strong>
+              <p>{sync.session?.authenticated ? "Mỗi thao tác được ghi cục bộ trước, xếp hàng khi mất mạng và hòa giải theo idempotency khi kết nối lại." : "Bài học, XP và lịch FSRS được lưu cục bộ; đăng nhập để phục hồi trên thiết bị khác."}</p>
+            </div>
           </div>
           <dl className="data-counters">
-            <div><dt>Cảnh giới đã vượt</dt><dd>{Object.values(state.completedLessons).filter((item) => item.bestScore >= 70).length}</dd></div>
-            <div><dt>Từ đã lưu</dt><dd>{state.savedWords.length}</dd></div>
-            <div><dt>Thẻ FSRS</dt><dd>{Object.keys(state.fsrsCards).length}</dd></div>
+            <div><dt>Cảnh giới đã vượt</dt><dd>{completedCount ?? "—"}</dd></div>
+            <div><dt>Từ đã lưu</dt><dd>{state.savedWords.filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
+            <div><dt>Thẻ FSRS</dt><dd>{Object.keys(state.fsrsCards).filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
             <div><dt>Lượt truy hồi</dt><dd>{state.reviewCount}</dd></div>
           </dl>
-          <button className="secondary-button full-button" type="button" onClick={exportProgress}><Download size={17} /> Xuất bản sao JSON</button>
+          {sync.session?.authenticated && (
+            <button className="secondary-button full-button" type="button" onClick={syncNow} disabled={sync.phase === "syncing"}>
+              <RefreshCw className={sync.phase === "syncing" ? "spin" : ""} size={17} /> {sync.phase === "syncing" ? "Đang đồng bộ..." : "Đồng bộ ngay"}
+            </button>
+          )}
+          <button className="secondary-button full-button" type="button" onClick={exportProgress}><Download size={17} /> Xuất bản phục hồi hiện tại</button>
+          {sync.session?.authenticated && (
+            <button className="secondary-button full-button" type="button" onClick={exportCloudSnapshot}><Cloud size={17} /> Xuất snapshot cloud đã xác nhận</button>
+          )}
+          <input
+            ref={importInputRef}
+            className="visually-hidden"
+            type="file"
+            accept="application/json,.json"
+            onChange={(event) => void importProgress(event.target.files?.[0])}
+          />
+          <button className="secondary-button full-button" type="button" onClick={() => importInputRef.current?.click()}><Upload size={17} /> Phục hồi từ bản sao JSON</button>
           <div className="danger-zone">
             <span>RESET PROTOCOL</span>
-            <p>Thao tác này đưa hệ thống về lần khởi tạo đầu tiên trên thiết bị hiện tại.</p>
-            <button type="button" onClick={() => setShowResetConfirm(true)}><RotateCcw size={17} /> Xóa tiến độ cục bộ</button>
+            <p>{sync.session?.authenticated ? "Đặt lại tiến độ học trên tài khoản; lệnh vẫn an toàn khi ngoại tuyến và sẽ gửi khi có mạng." : "Đưa tiến độ học trên thiết bị này về lần khởi tạo đầu tiên."}</p>
+            <button type="button" onClick={() => setShowResetConfirm(true)}><RotateCcw size={17} /> Xóa toàn bộ dữ liệu HANZI.OS</button>
+            {sync.session?.authenticated && (
+              <>
+                <small className="account-delete-readiness" role="status">
+                  {deletionReadinessLabel}
+                </small>
+                <button
+                  className="account-delete-button"
+                  type="button"
+                  disabled={!deletionReadiness.ready}
+                  onClick={() => setShowDeleteConfirm(true)}
+                >
+                  <Trash2 size={17} /> Xóa tài khoản và dữ liệu máy chủ
+                </button>
+              </>
+            )}
           </div>
         </aside>
       </div>
       <ConfirmModal
         open={showResetConfirm}
         title="Đưa hệ thống về khởi nguyên?"
-        description="Toàn bộ bài học, XP, lịch FSRS, lỗi sai và cấu hình đang lưu trên thiết bị này sẽ bị xóa vĩnh viễn."
+        description={sync.session?.authenticated ? "Tiến độ, phiên đang dở và cấu hình học sẽ được đặt lại trên tài khoản sau khi hàng đợi đồng bộ được xác nhận. Tài khoản đăng nhập không bị xóa." : "Tiến độ, phiên đang dở, cấu hình, đồng ý giọng nói và cache HANZI.OS trên thiết bị này sẽ bị xóa. Không thể hoàn tác."}
         confirmLabel="Xóa toàn bộ dữ liệu"
         onConfirm={reset}
         onCancel={() => setShowResetConfirm(false)}
+      />
+      <ConfirmModal
+        open={showDeleteConfirm}
+        title="Xóa vĩnh viễn tài khoản HANZI.OS?"
+        description="Dữ liệu học đã đồng bộ trên máy chủ sẽ bị xóa. Bản phục hồi hiện tại trên thiết bị đã được tạo; thao tác này không thể hoàn tác."
+        confirmLabel="Xóa tài khoản và dữ liệu"
+        onConfirm={deleteAccount}
+        onCancel={() => setShowDeleteConfirm(false)}
       />
     </div>
   );

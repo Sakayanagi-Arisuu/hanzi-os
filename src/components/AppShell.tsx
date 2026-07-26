@@ -19,8 +19,8 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState, type ReactNode } from "react";
+import { NavLink, useLocation } from "react-router";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { getRank } from "../lib/adaptive";
 import { useLearning } from "../store/LearningStore";
 
@@ -55,6 +55,9 @@ export function AppShell({ children }: { children: ReactNode }) {
   const rank = getRank(state.xp);
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileMenuCloseRef = useRef<HTMLButtonElement>(null);
   const dailyTarget = state.profile.dailyMinutes * 6;
 
   useEffect(() => setMobileMenuOpen(false), [location.pathname]);
@@ -62,8 +65,48 @@ export function AppShell({ children }: { children: ReactNode }) {
     ? { code: "TRIAL-LIVE", title: "Thử luyện đang tiến hành" }
     : (pageNames[location.pathname] ?? pageNames["/"]);
 
+  useEffect(() => {
+    mainRef.current?.focus({ preventScroll: true });
+    document.title = `${page.title} | HANZI.OS`;
+  }, [location.pathname, page.title]);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    mobileMenuCloseRef.current?.focus();
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleDialogKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+        mobileMenuButtonRef.current?.focus();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const menu = document.getElementById("mobile-system-menu");
+      const focusable = menu
+        ? [...menu.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])')]
+        : [];
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", handleDialogKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleDialogKey);
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <div className="app-frame">
+      <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
       <aside className="side-rail">
         <NavLink className="brand-core" to="/" aria-label="HANZI.OS - Trang chủ">
           <span className="brand-hex"><Languages size={24} /></span>
@@ -99,6 +142,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span>Cấu hình hệ thống</span>
           </NavLink>
           <p><ShieldCheck size={13} /> Tiến độ đã tự động lưu</p>
+          <div className="rail-legal"><a href="/privacy">Riêng tư</a><a href="/terms">Điều khoản</a></div>
         </div>
       </aside>
 
@@ -125,7 +169,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </NavLink>
         </header>
 
-        <main className="main-stage">{children}</main>
+        <main className="main-stage" id="main-content" ref={mainRef} tabIndex={-1}>{children}</main>
       </div>
 
       <nav className="mobile-nav" aria-label="Điều hướng di động">
@@ -135,18 +179,21 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span>{short}</span>
           </NavLink>
         ))}
-        <button className={mobileMenuOpen ? "active" : ""} type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-expanded={mobileMenuOpen} aria-controls="mobile-system-menu">
+        <button className={mobileMenuOpen ? "active" : ""} ref={mobileMenuButtonRef} type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-expanded={mobileMenuOpen} aria-controls="mobile-system-menu">
           <LayoutGrid size={19} />
           <span>Khác</span>
         </button>
       </nav>
 
       {mobileMenuOpen && (
-        <div className="mobile-menu-scrim" onMouseDown={() => setMobileMenuOpen(false)}>
-          <section id="mobile-system-menu" className="mobile-system-menu" onMouseDown={(event) => event.stopPropagation()} aria-label="Mở rộng điều hướng">
+        <div className="mobile-menu-scrim" onMouseDown={() => {
+          setMobileMenuOpen(false);
+          mobileMenuButtonRef.current?.focus();
+        }}>
+          <section id="mobile-system-menu" className="mobile-system-menu" onMouseDown={(event) => event.stopPropagation()} aria-label="Mở rộng điều hướng" aria-modal="true" role="dialog">
             <header>
               <div><small>SYSTEM MODULES</small><strong>Điện chức năng</strong></div>
-              <button type="button" onClick={() => setMobileMenuOpen(false)} aria-label="Đóng bảng chức năng"><X size={19} /></button>
+              <button ref={mobileMenuCloseRef} type="button" onClick={() => { setMobileMenuOpen(false); mobileMenuButtonRef.current?.focus(); }} aria-label="Đóng bảng chức năng"><X size={19} /></button>
             </header>
             <nav>
               {navItems.slice(4).map(({ to, label, icon: Icon }) => (

@@ -9,15 +9,50 @@ import {
   Sparkles,
   Zap,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { COURSE_UNITS, LESSONS } from "../data/curriculum";
-import { isLessonUnlocked } from "../lib/adaptive";
+import { Link } from "react-router";
+import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
+import { COURSE_UNITS } from "../data/curriculum";
+import { resolveLearningPathAuthority } from "../learning/learningAuthority";
+import {
+  isLessonReleased,
+} from "../lib/adaptive";
 import { useLearning } from "../store/LearningStore";
+import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+
+const releasedCourseUnits = COURSE_UNITS
+  .map((unit) => ({
+    ...unit,
+    lessons: unit.lessons.filter(isLessonReleased),
+  }))
+  .filter((unit) => unit.lessons.length > 0);
 
 export function PathPage() {
-  const { state } = useLearning();
-  const completedCount = Object.values(state.completedLessons).filter((item) => item.bestScore >= 70).length;
-  const progress = Math.round((completedCount / LESSONS.length) * 100);
+  const { state, sync } = useLearning();
+  const normalized = useNormalizedLearningProjection();
+  const authenticated = sync.session?.authenticated === true;
+  const authority = resolveLearningPathAuthority({
+    authenticated,
+    localState: state,
+    projection: normalized.projection,
+    authoritativeProgress: normalized.authoritativeProgress,
+  });
+
+  if (authority.state === "blocked") {
+    return (
+      <NormalizedLearningAuthorityGate
+        phase={normalized.phase}
+        reason={normalized.reason}
+        refresh={normalized.refresh}
+      />
+    );
+  }
+  const {
+    completedCount,
+    remainingCount,
+    progress,
+    lessons: lessonAuthority,
+    mode,
+  } = authority.view;
 
   return (
     <div className="content-page path-page">
@@ -25,21 +60,23 @@ export function PathPage() {
         <div>
           <span className="system-kicker"><Map size={15} /> PERSONAL LEARNING GRAPH</span>
           <h1>Thiên Lộ</h1>
-          <p>Mỗi nút chỉ khai mở khi bằng chứng truy hồi cho thấy bạn đã nắm vững năng lực nền.</p>
-          {!state.diagnostic.completed && <Link className="hero-inline-action" to="/assessment">Khảo nghiệm căn cơ <ChevronRight size={16} /></Link>}
+          <p>Mỗi nút chỉ khai mở khi kết quả truy hồi ở bài tiên quyết đạt ngưỡng 70%.</p>
+          {mode === "anonymous" && !state.diagnostic.completed && <Link className="hero-inline-action" to="/assessment">Khảo nghiệm căn cơ <ChevronRight size={16} /></Link>}
         </div>
         <div className="path-overview">
           <span><strong>{completedCount}</strong><small>đã hoàn tất</small></span>
-          <span><strong>{LESSONS.length - completedCount}</strong><small>đang chờ</small></span>
-          <span><strong>{progress}%</strong><small>đồng bộ</small></span>
+          <span><strong>{remainingCount}</strong><small>đang chờ</small></span>
+          <span><strong>{progress}%</strong><small>{mode === "authoritative" ? "máy chủ" : "trên máy"}</small></span>
         </div>
       </header>
 
       <div className="path-progress"><i style={{ width: `${progress}%` }} /><span>{progress}%</span></div>
 
       <div className="course-realms">
-        {COURSE_UNITS.map((unit, unitIndex) => {
-          const completedInUnit = unit.lessons.filter((item) => state.completedLessons[item.id]?.bestScore >= 70).length;
+        {releasedCourseUnits.map((unit, unitIndex) => {
+          const completedInUnit = unit.lessons.filter((item) =>
+            lessonAuthority.get(item.id)?.passed === true
+          ).length;
           return (
             <section className={`course-realm realm-${unit.color}`} key={unit.id}>
               <header className="realm-header">
@@ -57,9 +94,9 @@ export function PathPage() {
 
               <div className="lesson-track">
                 {unit.lessons.map((lesson, lessonIndex) => {
-                  const completion = state.completedLessons[lesson.id];
-                  const passed = Boolean(completion && completion.bestScore >= 70);
-                  const locked = !isLessonUnlocked(lesson, state);
+                  const access = lessonAuthority.get(lesson.id);
+                  const passed = access?.passed === true;
+                  const locked = access?.unlocked !== true;
                   const content = (
                     <>
                       <span className="lesson-node-icon">
@@ -73,7 +110,7 @@ export function PathPage() {
                       <span className="lesson-node-meta">
                         <span><Clock3 size={14} /> {lesson.minutes} phút</span>
                         <span><Zap size={14} /> {lesson.xp} XP</span>
-                        {completion && <b title={`Lần gần nhất: ${completion.score}%`}>BEST {completion.bestScore}%</b>}
+                        {access?.bestScore !== null && access?.bestScore !== undefined && <b>BEST {access.bestScore}%</b>}
                       </span>
                       {!locked && <ChevronRight size={20} />}
                     </>
@@ -82,7 +119,7 @@ export function PathPage() {
                   return locked ? (
                     <div className="lesson-node locked" key={lesson.id} aria-disabled="true">{content}</div>
                   ) : (
-                    <Link className={`lesson-node ${passed ? "completed" : completion ? "attempted" : ""}`} to={`/lesson/${lesson.id}`} key={lesson.id}>{content}</Link>
+                    <Link className={`lesson-node ${passed ? "completed" : access?.bestScore != null ? "attempted" : ""}`} to={`/lesson/${lesson.id}`} key={lesson.id}>{content}</Link>
                   );
                 })}
               </div>
@@ -93,7 +130,7 @@ export function PathPage() {
 
       <footer className="path-footer-note">
         <Orbit size={18} />
-        <p><strong>Các cảnh giới khóa sẽ mở theo dữ liệu thành thạo.</strong> Hãy củng cố các năng lực nền trước khi tiến sang vùng tiếp theo.</p>
+        <p><strong>Các cảnh giới khóa mở theo kết quả bài tiên quyết.</strong> Hãy củng cố phần còn sai trước khi tiến sang vùng tiếp theo.</p>
       </footer>
     </div>
   );

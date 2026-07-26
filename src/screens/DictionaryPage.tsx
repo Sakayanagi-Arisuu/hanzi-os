@@ -9,7 +9,7 @@ import {
   X,
 } from "lucide-react";
 import { useMemo, useState } from "react";
-import { VOCABULARY } from "../data/curriculum";
+import { RELEASED_VOCABULARY } from "../data/curriculum";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 
@@ -23,17 +23,17 @@ export function DictionaryPage() {
   const { state, actions } = useLearning();
   const [query, setQuery] = useState("");
   const [savedOnly, setSavedOnly] = useState(false);
-  const [selectedId, setSelectedId] = useState(VOCABULARY[0].id);
+  const [selectedId, setSelectedId] = useState(RELEASED_VOCABULARY[0]?.id ?? "");
   const results = useMemo(() => {
     const normalized = normalizeSearch(query);
-    return VOCABULARY.filter((word) => {
+    return RELEASED_VOCABULARY.filter((word) => {
       if (savedOnly && !state.savedWords.includes(word.id)) return false;
       if (!normalized) return true;
       const haystack = [word.simplified, word.traditional, word.pinyin, word.pinyinNumbered, word.meaning, ...word.tags].join(" ");
       return normalizeSearch(haystack).includes(normalized);
     });
   }, [query, savedOnly, state.savedWords]);
-  const selected = VOCABULARY.find((word) => word.id === selectedId) ?? results[0];
+  const selected = RELEASED_VOCABULARY.find((word) => word.id === selectedId) ?? results[0];
 
   return (
     <div className="content-page dictionary-page">
@@ -43,7 +43,7 @@ export function DictionaryPage() {
           <h1>Tàng Tự Khố</h1>
           <p>Tra chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt; lưu trực tiếp vào lịch ôn cá nhân.</p>
         </div>
-        <div className="lexicon-count"><strong>{VOCABULARY.length}</strong><span>mục từ đã kích hoạt</span></div>
+        <div className="lexicon-count"><strong>{RELEASED_VOCABULARY.length}</strong><span>mục từ đã phát hành</span></div>
       </header>
 
       <div className="dictionary-searchbar">
@@ -59,7 +59,11 @@ export function DictionaryPage() {
           <div className="dictionary-result-list">
             {results.map((word) => (
               <button className={selected?.id === word.id ? "active" : ""} key={word.id} type="button" onClick={() => setSelectedId(word.id)}>
-                <span className={`tone-mark tone-${word.tone}`}>{word.tone || "·"}</span>
+                <span className="tone-sequence" aria-label={`Thanh từ điển ${word.syllables.map((syllable) => syllable.lexicalTone || "nhẹ").join(", ")}`}>
+                  {word.syllables.map((syllable) => (
+                    <i className={`tone-mark tone-${syllable.lexicalTone}`} key={syllable.index}>{syllable.lexicalTone || "·"}</i>
+                  ))}
+                </span>
                 <strong>{state.profile.script === "traditional" ? word.traditional : word.simplified}</strong>
                 <span><b>{word.pinyin}</b><small>{word.meaning}</small></span>
                 {state.savedWords.includes(word.id) && <BookmarkCheck size={16} />}
@@ -73,7 +77,7 @@ export function DictionaryPage() {
           <aside className="dictionary-entry">
             <div className="entry-scanline" aria-hidden="true" />
             <header>
-              <span>LEXICON · HSK {selected.hsk}</span>
+              <span>LEXICON · CLOSED-ALPHA BETA</span>
               <div>
                 <h1>{state.profile.script === "traditional" ? selected.traditional : selected.simplified}</h1>
                 {selected.simplified !== selected.traditional && <small>{selected.simplified} / {selected.traditional}</small>}
@@ -81,7 +85,11 @@ export function DictionaryPage() {
               <button className="sound-button" type="button" onClick={() => speakMandarin(selected.simplified)} aria-label={`Nghe ${selected.simplified}`}><Volume2 size={22} /></button>
             </header>
             <div className="entry-pronunciation">
-              <span className={`tone-mark tone-${selected.tone}`}>{selected.tone || "·"}</span>
+              <span className="tone-sequence" aria-label={`Thanh từ điển ${selected.syllables.map((syllable) => syllable.lexicalTone || "nhẹ").join(", ")}`}>
+                {selected.syllables.map((syllable) => (
+                  <i className={`tone-mark tone-${syllable.lexicalTone}`} key={syllable.index}>{syllable.lexicalTone || "·"}</i>
+                ))}
+              </span>
               <strong>{selected.pinyin}</strong>
               <small>{selected.pinyinNumbered}</small>
             </div>

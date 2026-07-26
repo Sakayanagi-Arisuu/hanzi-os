@@ -17,10 +17,21 @@ import {
   TrendingUp,
   Zap,
 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { LESSONS } from "../data/curriculum";
-import { getGoalReadiness, GOAL_CONFIG } from "../lib/adaptive";
+import { Link } from "react-router";
+import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
+import { resolveLearningPathAuthority } from "../learning/learningAuthority";
+import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
+import {
+  GOAL_CONFIG,
+  isMistakeFromReleasedContent,
+} from "../lib/adaptive";
+import {
+  formatObservedEstimate,
+  formatObservedEstimateCompact,
+  summarizeMasteryEligibleEvidence,
+} from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
+import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import type { Skill } from "../types";
 
 const skillMeta: Record<Skill, { label: string; icon: typeof Mic2; color: string }> = {
@@ -41,9 +52,29 @@ const dateKey = (date: Date) => {
 };
 
 export function AnalyticsPage() {
-  const { state, dueWordIds, level } = useLearning();
-  const completions = Object.entries(state.completedLessons);
-  const passedCompletions = completions.filter(([, result]) => result.bestScore >= 70);
+  const { state, dueWordIds, level, sync } = useLearning();
+  const normalized = useNormalizedLearningProjection();
+  const authenticated = sync.session?.authenticated === true;
+  const authority = resolveLearningPathAuthority({
+    authenticated,
+    localState: state,
+    projection: normalized.projection,
+    authoritativeProgress: normalized.authoritativeProgress,
+  });
+  if (authority.state === "blocked") {
+    return (
+      <NormalizedLearningAuthorityGate
+        phase={normalized.phase}
+        reason={normalized.reason}
+        refresh={normalized.refresh}
+      />
+    );
+  }
+  const {
+    completedCount,
+    totalCount,
+    progress: completionRate,
+  } = authority.view;
   const week = Array.from({ length: 7 }, (_, offset) => {
     const date = new Date();
     date.setHours(0, 0, 0, 0);
@@ -59,33 +90,70 @@ export function AnalyticsPage() {
     };
   });
   const chartMax = Math.max(40, ...week.map((day) => day.xp));
-  const masteryEntries = Object.entries(state.skillMastery) as Array<[Skill, number]>;
-  const averageMastery = Math.round(masteryEntries.reduce((sum, [, value]) => sum + value, 0) / masteryEntries.length);
-  const weakest = [...masteryEntries].sort((a, b) => a[1] - b[1]).slice(0, 3);
-  const strongest = [...masteryEntries].sort((a, b) => b[1] - a[1])[0];
-  const completionRate = Math.round((passedCompletions.length / LESSONS.length) * 100);
-  const readiness = getGoalReadiness(state);
-  const goal = GOAL_CONFIG[state.profile.goal];
-  const unresolved = state.mistakes.filter((mistake) => !mistake.resolved).length;
+  const normalizedEvidence = authenticated
+    ? summarizeNormalizedObjectiveEvidence(normalized.projection)
+    : null;
+  if (authenticated && !normalizedEvidence) {
+    return (
+      <NormalizedLearningAuthorityGate
+        phase="unavailable"
+        reason="invalid-response"
+        refresh={normalized.refresh}
+      />
+    );
+  }
+  const localEligibleEvidence = state.evidence.filter((item) => item.masteryEligible);
+  const observedEvidence = authenticated
+    ? normalizedEvidence!
+    : summarizeMasteryEligibleEvidence(state.evidence);
+  const eligibleEvidenceCount = normalizedEvidence?.masteryEligibleCount
+    ?? localEligibleEvidence.length;
+  const skillEvidence = (Object.keys(skillMeta) as Skill[]).map((skill) => {
+    const estimate = observedEvidence.skills[skill];
+    return {
+      skill,
+      count: estimate.n,
+      accuracy: estimate.observedAccuracy,
+      estimate,
+    };
+  });
+  const evidenceAccuracy = observedEvidence.overall.observedAccuracy;
+  const skillsWithEvidence = skillEvidence.filter((item) => item.count > 0).length;
+  const weakest = [...skillEvidence]
+    .filter((item) => item.count > 0)
+    .sort((a, b) =>
+      (a.estimate.confidence95?.lower ?? -1) - (b.estimate.confidence95?.lower ?? -1)
+      || a.count - b.count
+    )
+    .slice(0, 3);
+  const strongest = [...skillEvidence]
+    .filter((item) => item.count > 0)
+    .sort((a, b) => (b.accuracy ?? 0) - (a.accuracy ?? 0) || b.count - a.count)[0];
+  const goal = GOAL_CONFIG[
+    normalized.projection?.enrollment?.goal ?? state.profile.goal
+  ];
+  const unresolved = state.mistakes.filter((mistake) =>
+    !mistake.resolved && isMistakeFromReleasedContent(mistake)
+  ).length;
 
   return (
     <div className="content-page analytics-page">
       <header className="page-hero analytics-hero">
         <div>
-          <span className="system-kicker"><BarChart3 size={15} /> COGNITIVE TELEMETRY</span>
+          <span className="system-kicker"><BarChart3 size={15} /> OBSERVED EVIDENCE · CALIBRATION PENDING</span>
           <h1>Thiên Cơ Kính</h1>
-          <p>Dữ liệu truy hồi được chuyển thành bản đồ năng lực, điểm nghẽn và độ sẵn sàng cho “{goal.label}”.</p>
+          <p>Hiển thị số bằng chứng cùng khoảng Wilson 95% theo từng kỹ năng cho mục tiêu “{goal.label}”; đây là mô tả quan sát, chưa phải calibrated mastery hay chứng nhận trình độ.</p>
         </div>
         <div className="analytics-rank">
-          <span>RANK</span><strong>{String(level).padStart(2, "0")}</strong><small>{state.xp} XP tích lũy</small>
+          <span>RANK</span><strong>{String(level).padStart(2, "0")}</strong><small>{state.xp} XP tương tác cục bộ</small>
         </div>
       </header>
 
       <section className="analytics-metrics">
-        <div><span className="metric-icon jade"><CircleGauge size={19} /></span><small>Sẵn sàng mục tiêu</small><strong>{readiness}%</strong><p><TrendingUp size={14} /> {strongest ? skillMeta[strongest[0]].label : "Đang khởi tạo"} dẫn đầu</p></div>
+        <div><span className="metric-icon jade"><CircleGauge size={19} /></span><small>Bằng chứng đủ chuẩn</small><strong>{eligibleEvidenceCount}</strong><p><TrendingUp size={14} /> {strongest ? skillMeta[strongest.skill].label : "Đang khởi tạo"} · {skillsWithEvidence}/7 kỹ năng có dữ liệu</p></div>
         <div><span className="metric-icon gold"><Flame size={19} /></span><small>Chuỗi hiện tại</small><strong>{state.streak} ngày</strong><p><Clock3 size={14} /> mục tiêu {state.profile.dailyMinutes} phút/ngày</p></div>
-        <div><span className="metric-icon cyan"><BrainCircuit size={19} /></span><small>Lượt truy hồi</small><strong>{state.reviewCount}</strong><p><Zap size={14} /> {dueWordIds.length} thẻ đến hạn</p></div>
-        <div><span className="metric-icon vermilion"><CheckCircle2 size={19} /></span><small>Nghịch cảnh mở</small><strong>{unresolved}</strong><p><Target size={14} /> Thiên Lộ {completionRate}% · {passedCompletions.length}/{LESSONS.length}</p></div>
+        <div><span className="metric-icon cyan"><BrainCircuit size={19} /></span><small>Lượt truy hồi</small><strong>{authenticated ? "—" : state.reviewCount}</strong><p><Zap size={14} /> {authenticated ? "Lịch server chưa kích hoạt" : `${dueWordIds.length} thẻ đến hạn`}</p></div>
+        <div><span className="metric-icon vermilion"><CheckCircle2 size={19} /></span><small>{authenticated ? "Lỗi practice cục bộ" : "Nghịch cảnh mở"}</small><strong>{unresolved}</strong><p><Target size={14} /> Thiên Lộ {completionRate}% · {completedCount}/{totalCount}</p></div>
       </section>
 
       <div className="analytics-grid">
@@ -111,20 +179,20 @@ export function AnalyticsPage() {
 
         <section className="mastery-map-panel">
           <header className="section-heading">
-            <div><span>SKILL MASTERY GRAPH</span><h2>Bản đồ năng lực</h2></div>
+            <div><span>SKILL EVIDENCE GRAPH</span><h2>Bản đồ bằng chứng</h2></div>
             <CircleGauge size={21} />
           </header>
           <div className="mastery-map">
-            <div className="mastery-core" style={{ "--progress": `${averageMastery * 3.6}deg` } as React.CSSProperties}><span><strong>{averageMastery}%</strong><small>SYNC</small></span></div>
+            <div className="mastery-core" style={{ "--progress": `${(evidenceAccuracy ?? 0) * 3.6}deg` } as React.CSSProperties}><span><strong>{evidenceAccuracy === null ? "—" : `${evidenceAccuracy}%`}</strong><small>{formatObservedEstimate(observedEvidence.overall)}</small></span></div>
             <div className="mastery-skill-list">
-              {masteryEntries.map(([skill, value]) => {
+              {skillEvidence.map(({ skill, accuracy, estimate }) => {
                 const meta = skillMeta[skill];
                 const Icon = meta.icon;
                 return (
                   <div className={meta.color} key={skill}>
                     <span><Icon size={15} /> {meta.label}</span>
-                    <div><i style={{ width: `${value}%` }} /></div>
-                    <strong>{value}%</strong>
+                    <div><i style={{ width: `${accuracy ?? 0}%` }} /></div>
+                    <strong>{formatObservedEstimateCompact(estimate)}</strong>
                   </div>
                 );
               })}
@@ -139,7 +207,10 @@ export function AnalyticsPage() {
           <Sparkles size={21} />
         </header>
         <div className="priority-list">
-          {weakest.map(([skill, value], index) => {
+          {weakest.length === 0 && (
+            <p>Chưa có bằng chứng đủ chuẩn để gọi kỹ năng nào là yếu. Hệ thống chỉ có thể ưu tiên thu thêm dữ liệu.</p>
+          )}
+          {weakest.map(({ skill, estimate }, index) => {
             const meta = skillMeta[skill];
             const Icon = meta.icon;
             const links: Partial<Record<Skill, string>> = { pronunciation: "/pronunciation", listening: "/pronunciation", speaking: "/pronunciation", reading: "/reader", writing: "/characters", vocabulary: "/review", grammar: "/path" };
@@ -147,7 +218,7 @@ export function AnalyticsPage() {
               <Link to={links[skill] ?? "/path"} key={skill}>
                 <span className="priority-index">0{index + 1}</span>
                 <span className={`priority-icon ${meta.color}`}><Icon size={20} /></span>
-                <span><strong>{meta.label}</strong><small>Năng lực hiện tại {value}% · ưu tiên {index === 0 ? "cao" : "bổ trợ"}</small></span>
+                <span><strong>{meta.label}</strong><small>{formatObservedEstimate(estimate)} · ưu tiên quan sát {index === 0 ? "cao" : "bổ trợ"}</small></span>
                 <ArrowUpRight size={19} />
               </Link>
             );
