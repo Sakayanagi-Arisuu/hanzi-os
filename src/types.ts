@@ -13,10 +13,32 @@ export type LearningGoal = "conversation" | "hsk" | "career" | "travel";
 
 export type StartingLevel = "zero" | "basic" | "hsk1" | "hsk2";
 
+export type ContentReleaseState =
+  | "draft"
+  | "review"
+  | "beta"
+  | "published"
+  | "retired";
+
+export type MandarinTone = 0 | 1 | 2 | 3 | 4;
+
+export type MandarinSyllable = {
+  index: number;
+  spelling: string;
+  marked: string;
+  numbered: string;
+  initial: string;
+  final: string;
+  lexicalTone: MandarinTone;
+  surfaceTone: MandarinTone;
+  neutralTone: boolean;
+};
+
 export type ExerciseKind =
   | "meaning"
   | "pinyin"
   | "tone"
+  | "tone-pair"
   | "listening"
   | "sentence"
   | "recall";
@@ -36,7 +58,7 @@ export type VocabularyItem = {
   traditional: string;
   pinyin: string;
   pinyinNumbered: string;
-  tone: 0 | 1 | 2 | 3 | 4;
+  syllables: MandarinSyllable[];
   meaning: string;
   partOfSpeech: string;
   example: string;
@@ -56,7 +78,9 @@ export type Lesson = {
   xp: number;
   skills: Skill[];
   wordIds: string[];
-  available: boolean;
+  prerequisiteIds: string[];
+  releaseState: ContentReleaseState;
+  contentVersion: string;
 };
 
 export type CourseUnit = {
@@ -77,11 +101,20 @@ export type Story = {
   chineseTitle: string;
   summary: string;
   estimatedMinutes: number;
+  releaseState: ContentReleaseState;
+  contentVersion: string;
   sentences: Array<{
     chinese: string;
     pinyin: string;
     translation: string;
     wordIds: string[];
+  }>;
+  comprehension: Array<{
+    id: string;
+    prompt: string;
+    options: string[];
+    correctAnswer: string;
+    explanation: string;
   }>;
 };
 
@@ -127,7 +160,7 @@ export type MistakeRecord = {
 
 export type StudyEvent = {
   id: string;
-  type: "lesson" | "review" | "correction" | "diagnostic";
+  type: "lesson" | "review" | "correction" | "diagnostic" | "practice";
   label: string;
   xp: number;
   occurredAt: string;
@@ -151,9 +184,72 @@ export type AnswerEvidence = {
   correctAnswer: string;
   explanation: string;
   isCorrect: boolean;
+  idempotencyKey?: string;
+  activityVersion?: string;
+  requiredForPass?: boolean;
+};
+
+export type EvidenceSource =
+  | "lesson"
+  | "reader"
+  | "writing"
+  | "pronunciation"
+  | "mistake"
+  | "review"
+  | "diagnostic";
+
+export type EvidenceOutcome =
+  | "correct"
+  | "incorrect"
+  | "completed"
+  | "unverified";
+
+export type EvidenceMethod =
+  | "meaning-selection"
+  | "phonology-recognition"
+  | "listening-selection"
+  | "typed-character-recall"
+  | "reading-comprehension"
+  | "stroke-quiz"
+  | "speech-transcript"
+  | "remediation-recall"
+  | "fsrs-rating"
+  | "diagnostic-selection"
+  | "lesson-completion";
+
+export type LearningEvidence = {
+  id: string;
+  idempotencyKey: string;
+  schemaVersion: 1;
+  contentVersion: string;
+  activityVersion: string;
+  source: EvidenceSource;
+  method: EvidenceMethod;
+  activityId: string;
+  skill: Skill;
+  outcome: EvidenceOutcome;
+  score: number | null;
+  verified: boolean;
+  masteryEligible: boolean;
+  occurredAt: string;
+  metadata?: Record<string, string | number | boolean | null>;
+};
+
+export type PracticeEvidenceInput = Omit<
+  LearningEvidence,
+  | "id"
+  | "schemaVersion"
+  | "occurredAt"
+  | "contentVersion"
+  | "verified"
+  | "masteryEligible"
+> & {
+  contentVersion?: string;
 };
 
 export type LearningState = {
+  schemaVersion: 2;
+  contentVersion: string;
   profile: Profile;
   xp: number;
   dailyXp: number;
@@ -173,4 +269,5 @@ export type LearningState = {
   mistakes: MistakeRecord[];
   activityLog: StudyEvent[];
   diagnostic: DiagnosticResult;
+  evidence: LearningEvidence[];
 };

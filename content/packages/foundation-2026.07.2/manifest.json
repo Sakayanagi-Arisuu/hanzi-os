@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "packageId": "foundation-2026.07.2",
+  "contentVersion": "foundation-2026.07.2",
+  "contentSchemaVersion": 1,
+  "audience": "closed-alpha",
+  "lifecycle": "candidate",
+  "createdAt": "2026-07-22T00:00:00.000Z",
+  "createdFromManifestSha256": "sha256:6c36eb8f90f2bd4b921240608d3d4833a7c6b38d8f85abf3c856554d84c91772",
+  "artifacts": {
+    "coverage-claims.json": "sha256:722c2dc2701acff01025c350b65ed269c7853b835df67c049ab6a713fd32dbd7",
+    "runtime-ids.json": "sha256:96d1efde40c45cb3e975aefd43e2dfcd7de13c2819e7dc79467c4f54108b62bb",
+    "src/data/assessment.ts": "sha256:8e492c3c817fb712bf9d74f7a9ea52f10668a32d59f2f7aa312d6d24f1c83da5",
+    "src/data/curriculum.ts": "sha256:c517ca240c1073390e792d2804dfed7b02aed956499f7f74c258685c45b8f01f",
+    "src/lib/exerciseGeneration.ts": "sha256:6f8862193f9c0e69c09e7201047b6cadb3bb262036c784e57e07df5ef5b89400",
+    "src/server/attemptScoring.ts": "sha256:7ca3f609fb723c7bde98a30de37c0ea66ca691329444fa08b227cd63c76931f9",
+    "src/server/authoritativeItemBank.ts": "sha256:33b0b77a82697dd13617aff5000e257a276070cf566798d1ada5b06217b0655d",
+    "src/server/lessonCompletionPolicy.ts": "sha256:16c0222ac4bc12d00459c5d33aaa769181d476c9c49d4b3015393a402a75d0d3"
+  },
+  "governance": {
+    "contentOwner": null,
+    "sourceLicense": null,
+    "nativeLinguisticReviewRequired": true,
+    "includesAudio": false,
+    "audioRights": null
+  }
+}

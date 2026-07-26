@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "currentContentVersion": "foundation-2026.07.3",
+  "packages": [
+    {
+      "packageId": "foundation-2026.07.1",
+      "contentVersion": "foundation-2026.07.1",
+      "relativePath": "packages/foundation-2026.07.1",
+      "manifestSha256": "sha256:6c36eb8f90f2bd4b921240608d3d4833a7c6b38d8f85abf3c856554d84c91772",
+      "audience": "closed-alpha",
+      "lifecycle": "candidate",
+      "closedAlphaEligible": false,
+      "productionEligible": false,
+      "promotion": null
+    },
+    {
+      "packageId": "foundation-2026.07.2",
+      "contentVersion": "foundation-2026.07.2",
+      "relativePath": "packages/foundation-2026.07.2",
+      "manifestSha256": "sha256:e719c409a6698067b43994d126333cea98c9f51d9e775b99978f9a16374c801f",
+      "audience": "closed-alpha",
+      "lifecycle": "candidate",
+      "closedAlphaEligible": false,
+      "productionEligible": false,
+      "promotion": null
+    },
+    {
+      "packageId": "foundation-2026.07.3",
+      "contentVersion": "foundation-2026.07.3",
+      "relativePath": "packages/foundation-2026.07.3",
+      "manifestSha256": "sha256:b05a9a9f5e37a295cac92e4ac8278ef7d88a0c340a002612c956b8a45a717628",
+      "audience": "closed-alpha",
+      "lifecycle": "candidate",
+      "closedAlphaEligible": false,
+      "productionEligible": false,
+      "promotion": null
+    }
+  ]
+}

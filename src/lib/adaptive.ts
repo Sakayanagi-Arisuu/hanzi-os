@@ -1,5 +1,46 @@
-import { LESSONS } from "../data/curriculum";
-import type { LearningGoal, LearningState, Lesson, Skill } from "../types";
+import { RELEASED_LESSONS, RELEASED_WORD_BY_ID } from "../data/curriculum";
+import type {
+  LearningGoal,
+  LearningState,
+  Lesson,
+  MistakeRecord,
+  Skill,
+} from "../types";
+
+const RELEASED_LESSON_BY_ID = new Map(
+  RELEASED_LESSONS.map((lesson) => [lesson.id, lesson]),
+);
+
+export const isLessonReleased = (lesson: Lesson) =>
+  lesson.releaseState === "beta" || lesson.releaseState === "published";
+
+export const isLessonIdReleased = (lessonId: string) =>
+  RELEASED_LESSON_BY_ID.has(lessonId);
+
+export const isMistakeFromReleasedContent = (
+  mistake: Pick<MistakeRecord, "lessonId" | "wordId">,
+) => mistake.lessonId === "review"
+  ? Boolean(mistake.wordId && RELEASED_WORD_BY_ID.has(mistake.wordId))
+  : isLessonIdReleased(mistake.lessonId);
+
+export const isLessonPassed = (lesson: Lesson, state: LearningState) =>
+  isLessonReleased(lesson) &&
+  RELEASED_LESSON_BY_ID.has(lesson.id) &&
+  (state.completedLessons[lesson.id]?.bestScore ?? 0) >= 70;
+
+export const getReleasedLessonProgress = (state: LearningState) => {
+  const completedCount = RELEASED_LESSONS.filter((lesson) =>
+    isLessonPassed(lesson, state)
+  ).length;
+  const totalCount = RELEASED_LESSONS.length;
+
+  return {
+    completedCount,
+    totalCount,
+    remainingCount: Math.max(0, totalCount - completedCount),
+    progress: totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100),
+  };
+};
 
 export const GOAL_CONFIG: Record<LearningGoal, {
   label: string;
@@ -13,28 +54,28 @@ export const GOAL_CONFIG: Record<LearningGoal, {
     destination: "Nghe hiểu và phản xạ trong hội thoại đời sống",
     weights: { pronunciation: 0.18, listening: 0.22, speaking: 0.24, reading: 0.08, writing: 0.04, vocabulary: 0.14, grammar: 0.1 },
     practicePath: "/pronunciation",
-    practiceLabel: "Hiệu chỉnh phản xạ nói",
+    practiceLabel: "Luyện nghe và đường thanh",
   },
   hsk: {
-    label: "Chinh phục HSK",
-    destination: "Đạt độ phủ từ vựng, ngữ pháp và kỹ năng làm bài",
+    label: "Hướng tới HSK",
+    destination: "Xây kỹ năng nền; kho hiện tại chưa tuyên bố độ phủ luyện thi",
     weights: { pronunciation: 0.08, listening: 0.17, speaking: 0.08, reading: 0.22, writing: 0.14, vocabulary: 0.19, grammar: 0.12 },
     practicePath: "/assessment",
-    practiceLabel: "Khảo nghiệm chuẩn HSK",
+    practiceLabel: "Khảo sát kỹ năng nền",
   },
   career: {
     label: "Tiếng Trung công việc",
     destination: "Đọc, viết và trao đổi rõ ràng trong môi trường chuyên nghiệp",
     weights: { pronunciation: 0.08, listening: 0.18, speaking: 0.2, reading: 0.18, writing: 0.14, vocabulary: 0.12, grammar: 0.1 },
     practicePath: "/reader",
-    practiceLabel: "Đọc ngữ cảnh chuyên môn",
+    practiceLabel: "Đọc hiểu nền tảng",
   },
   travel: {
     label: "Sinh tồn khi du lịch",
     destination: "Xử lý nhanh các tình huống di chuyển, mua sắm và dịch vụ",
     weights: { pronunciation: 0.16, listening: 0.24, speaking: 0.24, reading: 0.08, writing: 0.02, vocabulary: 0.17, grammar: 0.09 },
     practicePath: "/pronunciation",
-    practiceLabel: "Mô phỏng tình huống thật",
+    practiceLabel: "Luyện nghe và đường thanh",
   },
 };
 
@@ -54,40 +95,26 @@ export const getGoalReadiness = (state: LearningState) => {
   const config = GOAL_CONFIG[state.profile.goal];
   const skillScore = (Object.entries(config.weights) as Array<[Skill, number]>)
     .reduce((sum, [skill, weight]) => sum + state.skillMastery[skill] * weight, 0);
-  const completed = Object.values(state.completedLessons).filter((item) => item.bestScore >= 70).length;
-  const pathScore = Math.min(100, (completed / Math.max(1, LESSONS.length)) * 100);
+  const pathScore = getReleasedLessonProgress(state).progress;
   return Math.round(skillScore * 0.86 + pathScore * 0.14);
 };
 
-const startingUnlockIndex: Record<LearningState["profile"]["startingLevel"], number> = {
-  zero: 0,
-  basic: 3,
-  hsk1: 7,
-  hsk2: 11,
-};
-
 export const isLessonUnlocked = (lesson: Lesson, state: LearningState) => {
-  const index = LESSONS.findIndex((item) => item.id === lesson.id);
-  if (index <= 0 || state.completedLessons[lesson.id]) return true;
+  const releasedLesson = RELEASED_LESSON_BY_ID.get(lesson.id);
+  if (!releasedLesson || !isLessonReleased(releasedLesson)) return false;
+  if (!Array.isArray(releasedLesson.prerequisiteIds)) return false;
 
-  let unlockedThrough = startingUnlockIndex[state.profile.startingLevel];
-  if (state.diagnostic.completed) {
-    const recommendedIndex = LESSONS.findIndex(
-      (item) => item.id === state.diagnostic.recommendedLessonId,
-    );
-    unlockedThrough = Math.max(unlockedThrough, recommendedIndex);
-  }
-  if (index <= unlockedThrough) return true;
-
-  const previous = state.completedLessons[LESSONS[index - 1].id];
-  return Boolean(previous && previous.bestScore >= 70);
+  return releasedLesson.prerequisiteIds.every((prerequisiteId) => {
+    const prerequisite = RELEASED_LESSON_BY_ID.get(prerequisiteId);
+    return Boolean(prerequisite && isLessonPassed(prerequisite, state));
+  });
 };
 
 export const getNextLesson = (state: LearningState) =>
-  LESSONS.find((lesson) =>
+  RELEASED_LESSONS.find((lesson) =>
     isLessonUnlocked(lesson, state) &&
     (!state.completedLessons[lesson.id] || state.completedLessons[lesson.id].bestScore < 70),
-  ) ?? LESSONS.find((lesson) => isLessonUnlocked(lesson, state)) ?? LESSONS[0];
+  ) ?? RELEASED_LESSONS.find((lesson) => isLessonUnlocked(lesson, state));
 
 export type DailyMission = {
   id: string;
@@ -104,7 +131,10 @@ export const buildDailyMissions = (
   state: LearningState,
   dueCount: number,
 ): DailyMission[] => {
-  const unresolved = state.mistakes.filter((mistake) => !mistake.resolved);
+  const unresolved = state.mistakes.filter((mistake) =>
+    !mistake.resolved &&
+    isMistakeFromReleasedContent(mistake)
+  );
   const nextLesson = getNextLesson(state);
   const goal = GOAL_CONFIG[state.profile.goal];
   const minutes = state.profile.dailyMinutes;
@@ -121,7 +151,7 @@ export const buildDailyMissions = (
       reward: "+8 XP/lỗi",
       kind: "correction",
     });
-  } else {
+  } else if (nextLesson) {
     missions.push({
       id: nextLesson.id,
       code: "ASCEND-01",

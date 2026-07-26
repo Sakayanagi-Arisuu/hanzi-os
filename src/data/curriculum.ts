@@ -1,13 +1,17 @@
-import type { CourseUnit, Story, VocabularyItem } from "../types";
+import type { ContentReleaseState, CourseUnit, Story, VocabularyItem } from "../types";
+import { parseNumberedPinyin } from "../lib/pinyin";
+import { assertValidContentPackage } from "./contentValidation";
 
-export const VOCABULARY: VocabularyItem[] = [
+export const CONTENT_SCHEMA_VERSION = 1 as const;
+export const CONTENT_VERSION = "foundation-2026.07.3";
+
+const VOCABULARY_SOURCE: Array<Omit<VocabularyItem, "syllables">> = [
   {
     id: "ni",
     simplified: "你",
     traditional: "你",
     pinyin: "nǐ",
     pinyinNumbered: "ni3",
-    tone: 3,
     meaning: "bạn",
     partOfSpeech: "đại từ",
     example: "你好！",
@@ -22,7 +26,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "好",
     pinyin: "hǎo",
     pinyinNumbered: "hao3",
-    tone: 3,
     meaning: "tốt, khỏe",
     partOfSpeech: "tính từ",
     example: "我很好。",
@@ -37,7 +40,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "我",
     pinyin: "wǒ",
     pinyinNumbered: "wo3",
-    tone: 3,
     meaning: "tôi",
     partOfSpeech: "đại từ",
     example: "我是学生。",
@@ -52,7 +54,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "是",
     pinyin: "shì",
     pinyinNumbered: "shi4",
-    tone: 4,
     meaning: "là",
     partOfSpeech: "động từ",
     example: "她是老师。",
@@ -67,7 +68,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "學生",
     pinyin: "xuésheng",
     pinyinNumbered: "xue2sheng5",
-    tone: 2,
     meaning: "học sinh, sinh viên",
     partOfSpeech: "danh từ",
     example: "你是学生吗？",
@@ -82,7 +82,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "老師",
     pinyin: "lǎoshī",
     pinyinNumbered: "lao3shi1",
-    tone: 3,
     meaning: "giáo viên",
     partOfSpeech: "danh từ",
     example: "王老师，你好。",
@@ -97,7 +96,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "嗎",
     pinyin: "ma",
     pinyinNumbered: "ma5",
-    tone: 0,
     meaning: "trợ từ nghi vấn",
     partOfSpeech: "trợ từ",
     example: "你好吗？",
@@ -112,7 +110,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "不",
     pinyin: "bù",
     pinyinNumbered: "bu4",
-    tone: 4,
     meaning: "không",
     partOfSpeech: "phó từ",
     example: "我不是老师。",
@@ -127,7 +124,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "謝謝",
     pinyin: "xièxie",
     pinyinNumbered: "xie4xie5",
-    tone: 4,
     meaning: "cảm ơn",
     partOfSpeech: "động từ",
     example: "谢谢你。",
@@ -142,7 +138,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "再見",
     pinyin: "zàijiàn",
     pinyinNumbered: "zai4jian4",
-    tone: 4,
     meaning: "tạm biệt",
     partOfSpeech: "cụm từ",
     example: "老师，再见！",
@@ -157,7 +152,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "一",
     pinyin: "yī",
     pinyinNumbered: "yi1",
-    tone: 1,
     meaning: "một",
     partOfSpeech: "số từ",
     example: "一个人",
@@ -172,7 +166,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "二",
     pinyin: "èr",
     pinyinNumbered: "er4",
-    tone: 4,
     meaning: "hai",
     partOfSpeech: "số từ",
     example: "二月",
@@ -187,7 +180,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "三",
     pinyin: "sān",
     pinyinNumbered: "san1",
-    tone: 1,
     meaning: "ba",
     partOfSpeech: "số từ",
     example: "三个人",
@@ -202,7 +194,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "人",
     pinyin: "rén",
     pinyinNumbered: "ren2",
-    tone: 2,
     meaning: "người",
     partOfSpeech: "danh từ",
     example: "中国人",
@@ -217,7 +208,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "中國",
     pinyin: "Zhōngguó",
     pinyinNumbered: "Zhong1guo2",
-    tone: 1,
     meaning: "Trung Quốc",
     partOfSpeech: "danh từ riêng",
     example: "我来自中国。",
@@ -232,7 +222,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "越南",
     pinyin: "Yuènán",
     pinyinNumbered: "Yue4nan2",
-    tone: 4,
     meaning: "Việt Nam",
     partOfSpeech: "danh từ riêng",
     example: "我是越南人。",
@@ -247,7 +236,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "家",
     pinyin: "jiā",
     pinyinNumbered: "jia1",
-    tone: 1,
     meaning: "nhà, gia đình",
     partOfSpeech: "danh từ",
     example: "我家有四个人。",
@@ -262,7 +250,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "有",
     pinyin: "yǒu",
     pinyinNumbered: "you3",
-    tone: 3,
     meaning: "có",
     partOfSpeech: "động từ",
     example: "你有时间吗？",
@@ -277,7 +264,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "吃",
     pinyin: "chī",
     pinyinNumbered: "chi1",
-    tone: 1,
     meaning: "ăn",
     partOfSpeech: "động từ",
     example: "我吃米饭。",
@@ -292,7 +278,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "喝",
     pinyin: "hē",
     pinyinNumbered: "he1",
-    tone: 1,
     meaning: "uống",
     partOfSpeech: "động từ",
     example: "你喝茶吗？",
@@ -307,7 +292,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "茶",
     pinyin: "chá",
     pinyinNumbered: "cha2",
-    tone: 2,
     meaning: "trà",
     partOfSpeech: "danh từ",
     example: "我喜欢喝茶。",
@@ -322,7 +306,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "書",
     pinyin: "shū",
     pinyinNumbered: "shu1",
-    tone: 1,
     meaning: "sách",
     partOfSpeech: "danh từ",
     example: "这是我的书。",
@@ -337,7 +320,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "看",
     pinyin: "kàn",
     pinyinNumbered: "kan4",
-    tone: 4,
     meaning: "nhìn, xem, đọc",
     partOfSpeech: "động từ",
     example: "我看中文书。",
@@ -352,7 +334,6 @@ export const VOCABULARY: VocabularyItem[] = [
     traditional: "今天",
     pinyin: "jīntiān",
     pinyinNumbered: "jin1tian1",
-    tone: 1,
     meaning: "hôm nay",
     partOfSpeech: "danh từ thời gian",
     example: "今天天气很好。",
@@ -363,6 +344,11 @@ export const VOCABULARY: VocabularyItem[] = [
   },
 ];
 
+export const VOCABULARY: VocabularyItem[] = VOCABULARY_SOURCE.map((word) => ({
+  ...word,
+  syllables: parseNumberedPinyin(word.pinyinNumbered),
+}));
+
 const lesson = (
   id: string,
   unitId: string,
@@ -371,7 +357,7 @@ const lesson = (
   objective: string,
   wordIds: string[],
   skills: CourseUnit["lessons"][number]["skills"],
-  available = true,
+  releaseState: ContentReleaseState,
 ): CourseUnit["lessons"][number] => ({
   id,
   unitId,
@@ -382,110 +368,128 @@ const lesson = (
   xp: 40,
   wordIds,
   skills,
-  available,
+  prerequisiteIds: [],
+  releaseState,
+  contentVersion: CONTENT_VERSION,
 });
 
-export const COURSE_UNITS: CourseUnit[] = [
+const COURSE_UNIT_SOURCE: CourseUnit[] = [
   {
     id: "boot",
     code: "REALM-00",
-    stage: "Pre-HSK",
+    stage: "Khởi âm",
     title: "Khai âm nhập môn",
     chineseTitle: "语音觉醒",
     description: "Pinyin, khẩu hình và thanh điệu trước khi tích lũy từ.",
     color: "jade",
     lessons: [
-      lesson("boot-1", "boot", "Bốn thanh điệu", "四声", "Nghe và nhận diện đường cao độ của bốn thanh.", ["yi", "er", "san"], ["pronunciation", "listening"]),
-      lesson("boot-2", "boot", "Xin chào đầu tiên", "你好", "Nói lời chào và dùng đại từ ngôi một, ngôi hai.", ["ni", "hao", "wo"], ["speaking", "listening", "vocabulary"]),
-      lesson("boot-3", "boot", "Âm đầu khó", "声母", "Phân biệt j/q/x, zh/ch/sh và z/c/s.", ["xiexie", "zhongguo", "chi"], ["pronunciation", "listening"]),
-      lesson("boot-4", "boot", "Tone pairs", "声调组合", "Nối hai âm tiết mà không làm mất đường thanh.", ["ni", "hao", "xuesheng", "laoshi"], ["pronunciation", "speaking"]),
+      lesson("boot-1", "boot", "Bốn thanh điệu", "四声", "Nghe và nhận diện đường cao độ của bốn thanh.", ["yi", "ren", "ni", "er"], ["pronunciation", "listening"], "beta"),
+      lesson("boot-2", "boot", "Xin chào đầu tiên", "你好", "Nhận diện lời chào và đại từ ngôi một, ngôi hai.", ["ni", "hao", "wo"], ["listening", "vocabulary", "reading"], "beta"),
+      lesson("boot-3", "boot", "Âm đầu khó", "声母", "Phân biệt j/q/x, zh/ch/sh và z/c/s.", ["xiexie", "zhongguo", "chi"], ["pronunciation", "listening"], "beta"),
+      lesson("boot-4", "boot", "Tone pairs", "声调组合", "Phân biệt thanh từ điển và thanh bề mặt trong cụm hai âm tiết.", ["ni", "hao", "xuesheng", "laoshi"], ["pronunciation", "listening"], "beta"),
     ],
   },
   {
     id: "survival",
     code: "REALM-01",
-    stage: "HSK 1",
+    stage: "Nền tảng giao tiếp",
     title: "Sinh tồn giao tiếp",
     chineseTitle: "初见之境",
     description: "Giới thiệu, hỏi đáp, số đếm và những lượt thoại đầu tiên.",
     color: "gold",
     lessons: [
-      lesson("survival-1", "survival", "Tôi là sinh viên", "我是学生", "Tạo câu A là B và giới thiệu vai trò.", ["wo", "shi", "xuesheng", "laoshi"], ["grammar", "speaking", "reading"]),
-      lesson("survival-2", "survival", "Bạn khỏe không?", "你好吗", "Dùng 吗 để tạo câu hỏi yes/no.", ["ni", "hao", "ma", "bu"], ["grammar", "listening", "speaking"]),
-      lesson("survival-3", "survival", "Cảm ơn và tạm biệt", "谢谢，再见", "Kết thúc lượt thoại lịch sự.", ["xiexie", "zaijian", "ni"], ["speaking", "listening"]),
-      lesson("survival-4", "survival", "Tôi là người Việt Nam", "我是越南人", "Nói quốc tịch và nơi đến.", ["ren", "zhongguo", "yuenan", "shi"], ["vocabulary", "speaking", "reading"]),
+      lesson("survival-1", "survival", "Tôi là sinh viên", "我是学生", "Nhận diện cấu trúc A là B trong lời giới thiệu vai trò.", ["wo", "shi", "xuesheng", "laoshi"], ["grammar", "reading", "vocabulary"], "beta"),
+      lesson("survival-2", "survival", "Bạn khỏe không?", "你好吗", "Nhận diện 吗 trong câu hỏi có/không.", ["ni", "hao", "ma", "bu"], ["grammar", "listening", "reading"], "beta"),
+      lesson("survival-3", "survival", "Cảm ơn và tạm biệt", "谢谢，再见", "Chọn lời cảm ơn và kết thúc lượt thoại phù hợp.", ["xiexie", "zaijian", "ni"], ["listening", "vocabulary", "reading"], "beta"),
+      lesson("survival-4", "survival", "Tôi là người Việt Nam", "我是越南人", "Đọc và nhận diện mẫu giới thiệu quốc tịch.", ["ren", "zhongguo", "yuenan", "shi"], ["vocabulary", "listening", "reading"], "beta"),
     ],
   },
   {
     id: "daily",
     code: "REALM-02",
-    stage: "HSK 1",
+    stage: "Nền tảng đời sống",
     title: "Đời sống hằng ngày",
     chineseTitle: "日常回路",
     description: "Gia đình, ăn uống, thời gian và hoạt động thường ngày.",
     color: "vermilion",
     lessons: [
-      lesson("daily-1", "daily", "Nhà tôi", "我的家", "Nói gia đình có bao nhiêu người.", ["jia", "you", "ren", "san"], ["vocabulary", "grammar", "speaking"]),
-      lesson("daily-2", "daily", "Ăn và uống", "吃饭喝茶", "Nói nhu cầu ăn uống cơ bản.", ["chi", "he", "cha", "wo"], ["listening", "speaking", "vocabulary"]),
-      lesson("daily-3", "daily", "Hôm nay", "今天", "Đặt thời gian ở đầu câu.", ["jinri", "hao", "kan"], ["grammar", "reading"]),
-      lesson("daily-4", "daily", "Sách của tôi", "我的书", "Dùng 的 để thể hiện sở hữu.", ["shu", "kan", "wo"], ["grammar", "writing", "reading"]),
+      lesson("daily-1", "daily", "Nhà tôi", "我的家", "Nhận diện mẫu 有 để nói số người trong gia đình.", ["jia", "you", "ren", "san"], ["vocabulary", "grammar", "reading"], "beta"),
+      lesson("daily-2", "daily", "Ăn và uống", "吃饭喝茶", "Nghe và nhận diện nhu cầu ăn uống cơ bản.", ["chi", "he", "cha", "wo"], ["listening", "vocabulary", "reading"], "beta"),
+      lesson("daily-3", "daily", "Hôm nay", "今天", "Đặt thời gian ở đầu câu.", ["jinri", "hao", "kan"], ["grammar", "reading"], "beta"),
+      lesson("daily-4", "daily", "Sách của tôi", "我的书", "Dùng 的 để thể hiện sở hữu.", ["shu", "kan", "wo"], ["grammar", "writing", "reading"], "beta"),
     ],
   },
   {
     id: "characters",
     code: "REALM-03",
-    stage: "Hanzi Core",
+    stage: "Hán tự nền tảng",
     title: "Cấu tạo Hán tự",
     chineseTitle: "汉字铸造",
     description: "Nét, bộ phận, âm-nghĩa và khả năng viết từ trí nhớ.",
     color: "cyan",
     lessons: [
-      lesson("characters-1", "characters", "Nét cơ bản", "基本笔画", "Viết ngang, sổ, phẩy, mác đúng hướng.", ["yi", "ren", "san"], ["writing", "reading"]),
-      lesson("characters-2", "characters", "Người và nhà", "人和家", "Nhìn cấu kiện và nhớ ý nghĩa bằng cấu trúc.", ["ren", "jia", "hao"], ["writing", "vocabulary"]),
-      lesson("characters-3", "characters", "Nhìn chữ gần nhau", "形近字", "Phân biệt chữ bằng thành phần và vị trí nét.", ["shu", "kan", "chi"], ["reading", "writing"], false),
-      lesson("characters-4", "characters", "Viết từ trí nhớ", "默写", "Rút dần gợi ý và viết chữ không có khung.", ["wo", "ni", "shi"], ["writing"], false),
+      lesson("characters-1", "characters", "Nét cơ bản", "基本笔画", "Viết ngang, sổ, phẩy, mác đúng hướng.", ["yi", "ren", "san"], ["writing", "reading"], "beta"),
+      lesson("characters-2", "characters", "Người và nhà", "人和家", "Nhìn cấu kiện và nhớ ý nghĩa bằng cấu trúc.", ["ren", "jia", "hao"], ["writing", "vocabulary"], "beta"),
+      lesson("characters-3", "characters", "Nhìn chữ gần nhau", "形近字", "Phân biệt chữ bằng thành phần và vị trí nét.", ["shu", "kan", "chi"], ["reading", "writing"], "draft"),
+      lesson("characters-4", "characters", "Viết từ trí nhớ", "默写", "Rút dần gợi ý và viết chữ không có khung.", ["wo", "ni", "shi"], ["writing"], "draft"),
     ],
   },
   {
     id: "journey",
     code: "REALM-04",
-    stage: "HSK 2",
+    stage: "Chưa phát hành",
     title: "Hành trình đô thị",
     chineseTitle: "城市行者",
     description: "Di chuyển, mua sắm, hẹn giờ và xử lý tình huống.",
     color: "magenta",
     lessons: [
-      lesson("journey-1", "journey", "Hỏi đường", "怎么走", "Hỏi và hiểu chỉ dẫn cơ bản.", ["ni", "zhongguo", "jinri"], ["listening", "speaking"], false),
-      lesson("journey-2", "journey", "Mua đồ", "买东西", "Hỏi giá, số lượng và lựa chọn.", ["yi", "er", "san"], ["speaking", "vocabulary"], false),
-      lesson("journey-3", "journey", "Đặt lịch", "约时间", "Thương lượng thời gian gặp mặt.", ["jinri", "you", "ma"], ["listening", "grammar"], false),
-      lesson("journey-4", "journey", "Tình huống thật", "实战", "Hoàn thành roleplay không dùng tiếng Việt.", ["xiexie", "zaijian", "hao"], ["speaking", "listening"], false),
+      lesson("journey-1", "journey", "Hỏi đường", "怎么走", "Hỏi và hiểu chỉ dẫn cơ bản.", ["ni", "zhongguo", "jinri"], ["listening", "speaking"], "draft"),
+      lesson("journey-2", "journey", "Mua đồ", "买东西", "Hỏi giá, số lượng và lựa chọn.", ["yi", "er", "san"], ["speaking", "vocabulary"], "draft"),
+      lesson("journey-3", "journey", "Đặt lịch", "约时间", "Thương lượng thời gian gặp mặt.", ["jinri", "you", "ma"], ["listening", "grammar"], "draft"),
+      lesson("journey-4", "journey", "Tình huống thật", "实战", "Hoàn thành roleplay không dùng tiếng Việt.", ["xiexie", "zaijian", "hao"], ["speaking", "listening"], "draft"),
     ],
   },
   {
     id: "professional",
     code: "REALM-05",
-    stage: "HSK 3+",
+    stage: "Chưa phát hành",
     title: "Học thuật và công việc",
     chineseTitle: "专业领域",
     description: "Ngôn ngữ lớp học, email, họp và thuyết trình.",
     color: "jade",
     lessons: [
-      lesson("professional-1", "professional", "Trong lớp học", "课堂汉语", "Hỏi lại, xác nhận và trình bày ý kiến.", ["xuesheng", "laoshi", "shu"], ["speaking", "listening"], false),
-      lesson("professional-2", "professional", "Email chuyên nghiệp", "商务邮件", "Viết lời mở, yêu cầu và kết thư phù hợp.", ["xiexie", "ni", "hao"], ["writing", "grammar"], false),
-      lesson("professional-3", "professional", "Trong cuộc họp", "会议表达", "Đồng ý, phản biện và tóm tắt quyết định.", ["shi", "bu", "you"], ["speaking", "listening"], false),
-      lesson("professional-4", "professional", "Báo cáo ngắn", "简短汇报", "Trình bày một phút với cấu trúc rõ.", ["jinri", "kan", "zhongguo"], ["speaking", "writing"], false),
+      lesson("professional-1", "professional", "Trong lớp học", "课堂汉语", "Hỏi lại, xác nhận và trình bày ý kiến.", ["xuesheng", "laoshi", "shu"], ["speaking", "listening"], "draft"),
+      lesson("professional-2", "professional", "Email chuyên nghiệp", "商务邮件", "Viết lời mở, yêu cầu và kết thư phù hợp.", ["xiexie", "ni", "hao"], ["writing", "grammar"], "draft"),
+      lesson("professional-3", "professional", "Trong cuộc họp", "会议表达", "Đồng ý, phản biện và tóm tắt quyết định.", ["shi", "bu", "you"], ["speaking", "listening"], "draft"),
+      lesson("professional-4", "professional", "Báo cáo ngắn", "简短汇报", "Trình bày một phút với cấu trúc rõ.", ["jinri", "kan", "zhongguo"], ["speaking", "writing"], "draft"),
     ],
   },
 ];
 
+const LESSON_SOURCE = COURSE_UNIT_SOURCE.flatMap((unit) => unit.lessons);
+const LESSON_INDEX = new Map(LESSON_SOURCE.map((item, index) => [item.id, index]));
+
+export const COURSE_UNITS: CourseUnit[] = COURSE_UNIT_SOURCE.map((unit) => ({
+  ...unit,
+  lessons: unit.lessons.map((item) => {
+    const index = LESSON_INDEX.get(item.id) ?? 0;
+    return {
+      ...item,
+      prerequisiteIds: index === 0 ? [] : [LESSON_SOURCE[index - 1].id],
+    };
+  }),
+}));
+
 export const STORIES: Story[] = [
   {
     id: "first-day",
-    level: "A0 / HSK 1",
+    level: "Closed alpha · foundation slice",
     title: "Ngày đầu ở lớp tiếng Trung",
     chineseTitle: "中文课的第一天",
     summary: "Một cuộc gặp ngắn giữa Minh và giáo viên Vương.",
     estimatedMinutes: 4,
+    releaseState: "beta",
+    contentVersion: CONTENT_VERSION,
     sentences: [
       {
         chinese: "今天是中文课的第一天。",
@@ -512,9 +516,47 @@ export const STORIES: Story[] = [
         wordIds: ["laoshi", "wo", "yi", "shu", "xiexie"],
       },
     ],
+    comprehension: [
+      {
+        id: "first-day-main-idea",
+        prompt: "Trong ngày đầu đến lớp, người kể đã làm gì?",
+        options: [
+          "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+          "Hỏi đường đến trường rồi mua một quyển sách.",
+          "Giới thiệu mình là giáo viên tiếng Trung.",
+        ],
+        correctAnswer: "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+        explanation: "Người kể trả lời mình là người Việt Nam, nhận sách rồi nói 谢谢老师.",
+      },
+    ],
   },
 ];
 
 export const WORD_BY_ID = new Map(VOCABULARY.map((word) => [word.id, word]));
 export const LESSONS = COURSE_UNITS.flatMap((unit) => unit.lessons);
+export const RELEASED_LESSONS = LESSONS.filter((lesson) =>
+  lesson.releaseState === "beta" || lesson.releaseState === "published"
+);
 export const LESSON_BY_ID = new Map(LESSONS.map((item) => [item.id, item]));
+export const RELEASED_STORIES = STORIES.filter((story) =>
+  story.releaseState === "beta" || story.releaseState === "published"
+);
+const RELEASED_WORD_IDS = new Set([
+  ...RELEASED_LESSONS.flatMap((lesson) => lesson.wordIds),
+  ...RELEASED_STORIES.flatMap((story) =>
+    story.sentences.flatMap((sentence) => sentence.wordIds)
+  ),
+]);
+export const RELEASED_VOCABULARY = VOCABULARY.filter((word) =>
+  RELEASED_WORD_IDS.has(word.id)
+);
+export const RELEASED_WORD_BY_ID = new Map(
+  RELEASED_VOCABULARY.map((word) => [word.id, word]),
+);
+
+assertValidContentPackage({
+  contentVersion: CONTENT_VERSION,
+  vocabulary: VOCABULARY,
+  courseUnits: COURSE_UNITS,
+  stories: STORIES,
+});
