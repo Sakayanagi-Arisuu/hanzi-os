@@ -1,19 +1,24 @@
 {
+  "id": "/",
   "name": "HANZI.OS - Mandarin Awakening System",
   "short_name": "HANZI.OS",
-  "description": "Hệ thống học tiếng Trung thích ứng từ con số 0.",
+  "description": "Prototype học tiếng Trung với lộ trình, ôn tập FSRS và luyện kỹ năng trên thiết bị.",
   "lang": "vi",
+  "dir": "ltr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "theme_color": "#030708",
   "background_color": "#030708",
+  "categories": ["education"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/hanzi-os-mark.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

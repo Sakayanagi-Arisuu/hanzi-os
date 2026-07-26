@@ -1,0 +1,77 @@
+name: Quality gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "19 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CI: "true"
+    steps:
+      - name: Check out the exact revision
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Use the reviewed Node toolchain
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Activate the exact reviewed package manager
+        run: |
+          corepack enable npm
+          test "$(npm --version)" = "11.13.0"
+      - name: Verify lockfile sources before dependency code runs
+        run: node scripts/verify-lockfile-policy.mjs
+      - name: Audit the production dependency graph from the lockfile
+        run: npm audit --package-lock-only --omit=dev
+      - name: Install the locked dependency graph
+        run: npm ci
+      - name: Run local quality gates
+        run: npm run check
+      - name: Audit installed production dependencies
+        run: npm audit --omit=dev
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CI: "true"
+    steps:
+      - name: Check out the exact revision
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - name: Use the reviewed Node toolchain
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Activate the exact reviewed package manager
+        run: |
+          corepack enable npm
+          test "$(npm --version)" = "11.13.0"
+      - name: Verify lockfile sources before dependency code runs
+        run: node scripts/verify-lockfile-policy.mjs
+      - name: Install the locked dependency graph
+        run: npm ci
+      - name: Install the pinned Playwright browser
+        run: npm run e2e:install-browsers
+      - name: Run production-browser flows
+        run: npm run test:e2e
+      - name: Run Lighthouse budgets
+        run: npm run test:lighthouse

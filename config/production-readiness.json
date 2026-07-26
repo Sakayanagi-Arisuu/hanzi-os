@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 2,
+  "contentVersion": "foundation-2026.07.3",
+  "gates": {
+    "nativeLinguisticReview": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "NATIVE_LINGUISTIC_REVIEW_INCOMPLETE",
+          "summary": "A qualified native Mandarin reviewer has not approved the exact content package."
+        }
+      ],
+      "notes": "Technical phonology fixtures and automated tests are not substitutes for attributable human linguistic review."
+    },
+    "contentGovernanceReleaseActivation": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "CONTENT_OWNER_MISSING",
+          "summary": "The current content package does not identify an accountable content owner."
+        },
+        {
+          "code": "SOURCE_LICENSE_MISSING",
+          "summary": "The current content package does not record source-license provenance."
+        },
+        {
+          "code": "NATIVE_CONTENT_REVIEW_MISSING",
+          "summary": "The exact current package has no approved native linguistic review envelope."
+        },
+        {
+          "code": "PRODUCTION_CONTENT_NOT_PROMOTED",
+          "summary": "The current package is a closed-alpha candidate and has not been promoted to the production channel."
+        }
+      ],
+      "notes": "Schema validation and passing content tests do not activate a package for production."
+    },
+    "assessmentPilotCalibration": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "ASSESSMENT_PILOT_NOT_RUN",
+          "summary": "No real learner cohort pilot has established diagnostic reliability and routing accuracy."
+        },
+        {
+          "code": "ASSESSMENT_CALIBRATION_PENDING",
+          "summary": "Assessment items and score interpretation remain explicitly uncalibrated."
+        }
+      ],
+      "notes": "Unit tests and synthetic fixtures cannot substitute for pilot observations or calibration evidence."
+    },
+    "immutableIdentityRecovery": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "IMMUTABLE_PROVIDER_SUBJECT_UNAVAILABLE",
+          "summary": "The current identity adapter has no verified immutable provider subject."
+        },
+        {
+          "code": "PUBLIC_RECOVERY_FLOW_UNVERIFIED",
+          "summary": "Verified identity linking, public account recovery, and recent re-authentication have not been rehearsed end to end."
+        }
+      ],
+      "notes": "Normalized email identity is a closed-alpha limitation and is not an immutable production account identifier."
+    },
+    "hostedRestoreRehearsal": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "HOSTED_RESTORE_REHEARSAL_PENDING",
+          "summary": "A production-hosted backup restore with integrity and tenant-isolation checks has not been completed."
+        }
+      ],
+      "notes": "The local D1 restore rehearsal remains a technical gate, not evidence of a hosted production restore."
+    },
+    "independentSecurityPrivacyReview": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "INDEPENDENT_SECURITY_REVIEW_PENDING",
+          "summary": "No independent security review has closed all critical and high findings."
+        },
+        {
+          "code": "INDEPENDENT_PRIVACY_REVIEW_PENDING",
+          "summary": "No independent privacy review has approved the production data flows and retention controls."
+        }
+      ],
+      "notes": "Repository security tests and internal threat modelling do not replace independent review."
+    },
+    "operationalOwnershipSloIncidentResponse": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "OPERATIONAL_OWNER_UNASSIGNED",
+          "summary": "No accountable production service owner has accepted operational responsibility."
+        },
+        {
+          "code": "PRODUCTION_ON_CALL_UNVERIFIED",
+          "summary": "A production on-call rotation and continuous coverage have not been verified."
+        },
+        {
+          "code": "PRODUCTION_SLOS_UNAPPROVED",
+          "summary": "Production service-level indicators, objectives, and error budgets have not been approved."
+        },
+        {
+          "code": "ALERT_ROUTING_UNVERIFIED",
+          "summary": "Production alerts have not been proven to reach the accountable on-call route."
+        },
+        {
+          "code": "INCIDENT_RESPONSE_REHEARSAL_PENDING",
+          "summary": "A production incident-response rehearsal with recorded outcomes has not been completed."
+        }
+      ],
+      "notes": "Dashboards and local checks do not establish accountable ownership, on-call coverage, SLOs, alert delivery, or incident readiness."
+    },
+    "loadAccessibilityPerformanceQualification": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "LOAD_THRESHOLDS_NOT_PRE_REGISTERED",
+          "summary": "Production load, accessibility, and performance acceptance thresholds have not been pre-registered."
+        },
+        {
+          "code": "PRODUCTION_LOAD_QUALIFICATION_PENDING",
+          "summary": "No production-representative load report has demonstrated the registered thresholds."
+        },
+        {
+          "code": "ACCESSIBILITY_QUALIFICATION_PENDING",
+          "summary": "No production accessibility report has demonstrated zero critical and serious findings."
+        },
+        {
+          "code": "PERFORMANCE_QUALIFICATION_PENDING",
+          "summary": "No production performance report has demonstrated the registered budgets."
+        }
+      ],
+      "notes": "Unit, local Lighthouse, and component accessibility tests remain technical gates and do not substitute for production qualification reports."
+    },
+    "productionSitesOwnershipHosting": {
+      "status": "pending",
+      "approval": null,
+      "evidence": null,
+      "blockers": [
+        {
+          "code": "PRODUCTION_SITES_OWNERSHIP_UNVERIFIED",
+          "summary": "Production Sites project ownership has not been independently verified."
+        },
+        {
+          "code": "PRODUCTION_HOSTING_UNVERIFIED",
+          "summary": "No saved production version and deployment have been verified against the intended owner and URL."
+        }
+      ],
+      "notes": "A local build or preview URL is not production ownership or hosting evidence."
+    }
+  }
+}

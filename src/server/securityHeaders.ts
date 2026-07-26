@@ -1,0 +1,38 @@
+export const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "frame-src 'none'",
+  "frame-ancestors 'none'",
+  "form-action 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "script-src-attr 'none'",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self' data:",
+  "img-src 'self' data: blob:",
+  "media-src 'self' blob:",
+  "connect-src 'self'",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+export const SECURITY_HEADERS: Readonly<Record<string, string>> = {
+  "content-security-policy": CONTENT_SECURITY_POLICY,
+  "strict-transport-security": "max-age=31536000",
+  "x-content-type-options": "nosniff",
+  "x-frame-options": "DENY",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "permissions-policy": [
+    "accelerometer=()",
+    "camera=()",
+    "display-capture=()",
+    "geolocation=()",
+    "gyroscope=()",
+    "magnetometer=()",
+    "microphone=(self)",
+    "payment=()",
+    "usb=()",
+  ].join(", "),
+  "x-permitted-cross-domain-policies": "none",
+};

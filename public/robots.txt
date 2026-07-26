@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /analytics
+Disallow: /assessment
+Disallow: /characters
+Disallow: /dictionary
+Disallow: /lesson/
+Disallow: /mistakes
+Disallow: /offline.html
+Disallow: /path
+Disallow: /profile
+Disallow: /pronunciation
+Disallow: /reader
+Disallow: /review
+Disallow: /_vinext/
+
+Sitemap: https://hanzi-os-awakening.sopping-oboists-13ts.chatgpt.site/sitemap.xml
