@@ -145,11 +145,11 @@ gates in `AGENTS.md` and `docs/PHASE1_OPERATIONS.md` remain mandatory.
 
 ### Local verification snapshot — 26 July 2026
 
-- Vitest passed 130 files/999 tests; Playwright passed 18/18 flows.
+- Vitest passed 131 files/1,008 tests; Playwright passed 18/18 flows.
 - The conservative full-client-asset plus largest-hero ceiling is 403.7 KiB.
   It is not an actual initial-transfer measurement.
-- Three cold-profile Lighthouse runs scored Performance 99/98/98. The medians
-  were P98/A100/BP100/SEO100 with LCP 1,877 ms, CLS 0 and TBT 94 ms.
+- Three cold-profile Lighthouse runs scored Performance 98/97/98. The medians
+  were P98/A100/BP100/SEO100 with LCP 1,909 ms, CLS 0 and TBT 98 ms.
 - `npm audit --omit=dev` reported zero vulnerabilities.
 - Local release-evidence tooling produces an artifact manifest and CycloneDX
   1.5 SBOM. The default run is intentionally unattestable with

@@ -115,7 +115,7 @@ The 26 July 2026 local verification snapshot is technical evidence only; it is
 not linguistic approval and does not authorize a deployment.
 
 - `npm run check` passed typecheck, lint, Drizzle check, restore rehearsal,
-  130 files/999 Vitest tests and the production build.
+  131 files/1,008 Vitest tests and the production build.
 - The restore rehearsal applies 12 migrations `0000`–`0011`, finds 25 tables,
   verifies outbox epoch/lease, assessment terminal-reason and review-outbox epoch
   triggers, preserves the assessment and Review/FSRS graphs across reset
@@ -135,8 +135,8 @@ not linguistic approval and does not authorize a deployment.
   race that could recreate a partial cache after an essential fetch failed.
 - The conservative full-client-asset plus largest-hero ceiling is 403.7 KiB.
   This is deliberately not described as an actual initial-transfer measurement.
-  Three cold-profile Lighthouse runs scored Performance 99/98/98; medians were
-  P98/A100/BP100/SEO100 with LCP 1,877 ms, CLS 0 and TBT 94 ms.
+  Three cold-profile Lighthouse runs scored Performance 98/97/98; medians were
+  P98/A100/BP100/SEO100 with LCP 1,909 ms, CLS 0 and TBT 98 ms.
 - `npm audit --omit=dev` reported zero vulnerabilities.
 - `npm run release:evidence` produces a reproducible artifact manifest and
   CycloneDX 1.5 SBOM. Its default local manifest has `sourceRevision: null` and

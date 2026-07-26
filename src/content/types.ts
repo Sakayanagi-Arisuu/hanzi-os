@@ -4,6 +4,15 @@ export type ContentPackageAudience = "closed-alpha" | "public";
 export type ContentPackageLifecycle = "candidate" | "published" | "retired";
 export type ContentReleaseChannel = "closed-alpha" | "production";
 export type ContentReleaseState = "draft" | "review" | "beta" | "published" | "retired";
+export type ContentSourceArtifactName =
+  | "src/data/assessment.ts"
+  | "src/data/curriculum.ts"
+  | "src/lib/exerciseGeneration.ts"
+  | "src/server/attemptScoring.ts"
+  | "src/server/authoritativeItemBank.ts"
+  | "src/server/lessonCompletionPolicy.ts"
+  | "src/server/authoritativeAssessmentItemBank.ts"
+  | "src/server/assessmentScoring.ts";
 
 export type ContentOwner = {
   id: string;
@@ -143,6 +152,7 @@ export type ContentPackageBundle = {
   runtimeIds: RuntimeIdArtifact;
   coverageClaims: CoverageClaimsArtifact;
   reviews: ContentReviewArtifact;
+  immutableSourceTexts: Partial<Record<ContentSourceArtifactName, string | null>>;
   runtimeContentVersion: string | null;
   runtimeAssessmentSourceText: string | null;
   runtimeSourceText: string | null;

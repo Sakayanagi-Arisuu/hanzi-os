@@ -142,9 +142,9 @@ off administratively:
   gates. As of 26 July 2026, all nine remain pending and
   `verify:production` reports 23 blockers.
 
-Local 130-file/999-test Vitest, 18/18 Playwright, mobile accessibility and
-three-run Lighthouse evidence (Performance 99/98/98; medians
-P98/A100/BP100/SEO100, LCP 1,877 ms, CLS 0, TBT 94 ms) reduce regression risk
+Local 131-file/1,008-test Vitest, 18/18 Playwright, mobile accessibility and
+three-run Lighthouse evidence (Performance 98/97/98; medians
+P98/A100/BP100/SEO100, LCP 1,909 ms, CLS 0, TBT 98 ms) reduce regression risk
 but do not satisfy an independent review, production-representative load
 qualification or final Sites verification. The 403.7 KiB figure is a
 conservative full-client-asset plus largest-hero ceiling, not an actual

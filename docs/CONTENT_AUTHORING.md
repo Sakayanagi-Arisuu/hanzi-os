@@ -8,32 +8,51 @@ Package `foundation-2026.07.3` hiện là ứng viên `closed-alpha`, `productio
 
 ## Những gì được khóa bằng hash
 
-`content/registry.json` giữ SHA-256 của manifest. Manifest tiếp tục giữ SHA-256 chuẩn hóa của:
+`content/registry.json` giữ SHA-256 của manifest. Mỗi package giữ bản sao
+read-only tại `snapshots/<artifact-path>` và manifest giữ SHA-256 chuẩn hóa của:
 
 - `runtime-ids.json`: ID từ vựng, unit, lesson, story; word membership; release state; đồ thị prerequisite.
 - `coverage-claims.json`: các tuyên bố coverage có bằng chứng, hiện là mảng rỗng.
 - `src/data/assessment.ts`: item bank public cho flow anonymous/local, metadata đo lường và eligibility; đây là artifact answer-exposed nên không được phát hành như form authoritative.
-- `src/data/curriculum.ts`: toàn bộ source runtime, chuẩn hóa line ending trước khi hash nhưng không sao chép linguistic content vào registry.
+- `src/data/curriculum.ts`: toàn bộ source runtime, chuẩn hóa line ending trước khi hash.
+- `src/lib/exerciseGeneration.ts`, `src/server/attemptScoring.ts`,
+  `src/server/authoritativeItemBank.ts` và
+  `src/server/lessonCompletionPolicy.ts`: generation/scoring/release policy gắn
+  trực tiếp với bằng chứng học tập.
 - `src/server/authoritativeAssessmentItemBank.ts`: policy phát hành form assessment từ item server-confidential, trạng thái review và điều kiện measurement.
 - `src/server/assessmentScoring.ts`: scoring policy và aggregate result không hiệu chuẩn của assessment server-authoritative.
 
-Vì manifest chứa hash của các artifact, review chỉ cần bind đúng manifest hash là bind toàn bộ package. Bất kỳ thay đổi nào ở source, item bank, dependency, metadata hoặc claims đều làm review cũ trở nên stale. Không cập nhật digest của một package đã review để “đuổi theo” thay đổi; phải tạo version mới.
+Snapshot làm package lịch sử tự kiểm chứng được sau khi source runtime tiếp tục
+thay đổi. Validator luôn kiểm snapshot của package được chọn; package
+`currentContentVersion` hoặc candidate đang bind vào runtime còn phải khớp
+source đang check in và runtime version.
+`node scripts/content/validate.mjs` không có đối số kiểm toàn bộ registry, kể cả
+lineage và package không-current. Missing/tampered snapshot ở bất kỳ version nào
+đều làm gate thất bại.
+
+Vì manifest chứa hash của các artifact, review bind đúng manifest hash sẽ bind
+toàn bộ package. Bất kỳ thay đổi nào ở source, item bank, dependency, metadata
+hoặc claims đều làm review cũ trở nên stale. Không cập nhật digest của một
+package đã review để “đuổi theo” thay đổi; phải tạo version mới.
 
 ## Lệnh chỉ đọc
 
 Các lệnh dùng Node 22.22 trở lên và không cần package bổ sung:
 
 ```powershell
+node scripts/content/validate.mjs
 node scripts/content/hash.mjs foundation-2026.07.3
 node scripts/content/validate.mjs foundation-2026.07.3
 node scripts/content/report.mjs foundation-2026.07.3
 node scripts/content/verify-release.mjs foundation-2026.07.3
-node scripts/content/promote.mjs foundation-2026.07.3
+node scripts/content/promote.mjs foundation-2026.07.3 --channel closed-alpha
 ```
 
 Ý nghĩa exit code:
 
-- `validate`: `0` khi schema, ID graph và mọi hash nhất quán; `1` nếu package bị thay đổi hoặc hỏng.
+- `validate`: không có version thì kiểm mọi package; `0` khi schema, lineage,
+  snapshot, ID graph và mọi hash nhất quán; `1` nếu bất kỳ package nào bị thay
+  đổi, thiếu hoặc hỏng.
 - `report`: `0` khi có thể tạo báo cáo, kể cả khi còn blocker. Đây là báo cáo chất lượng, không phải release gate.
 - `verify-release`: chỉ trả `0` khi mọi gate phát hành có bằng chứng; package hiện tại phải trả `1`.
 - `promote` không có `--write`: chỉ kiểm tra policy. Nếu còn blocker, trả `1` và không sửa file.
@@ -41,19 +60,39 @@ node scripts/content/promote.mjs foundation-2026.07.3
 
 ## Tạo version mới
 
-Chỉ tạo version sau khi runtime source của thay đổi đã ổn định. Lệnh không sửa package nguồn, không sao chép approvals và mặc định xóa coverage claims:
+Hoàn thiện runtime source trước, rồi đổi cả
+`src/data/curriculum.ts` `CONTENT_VERSION` và
+`config/production-readiness.json` sang version đích. Worktree chuyển tiếp sẽ
+fail gate cho tới khi lệnh dưới đây đăng ký và chọn candidate mới. Lệnh chỉ cho
+phép branch từ `registry.currentContentVersion`, không sửa package nguồn, không
+sao chép approvals và mặc định xóa coverage claims:
 
 ```powershell
-node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.3 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --write
+node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.3 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --confirm-runtime-ids-unchanged true --write
 ```
 
-Nếu source runtime đã đổi nhưng IDs/graph/membership/release state không đổi, phải xác nhận rõ:
+Nếu IDs/graph/membership/release state cũng đổi, phải truyền snapshot JSON đã
+chuẩn bị và review trong repo thay vì dùng cờ xác nhận:
 
 ```powershell
-node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.3 --created-at 2026-08-01T00:00:00.000Z --confirm-runtime-ids-unchanged true --write
+node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.3 --created-at 2026-08-01T00:00:00.000Z --runtime-ids-file content/drafts/foundation-2026.08.1-runtime-ids.json --write
 ```
 
-Mỗi version mới luôn hash item bank client/public `src/data/assessment.ts`, item bank server-authoritative và assessment scoring policy đang được check in. Thay đổi item, đáp án, construct, modality, measurement eligibility hoặc scoring policy vì vậy được bind vào manifest mới và không kế thừa approval cũ.
+Mỗi version mới luôn chụp snapshot rồi hash item bank client/public
+`src/data/assessment.ts`, curriculum, lesson generation/scoring policy, item
+bank server-authoritative và assessment scoring policy đang được check in.
+Package directory được hoàn tất trong temporary directory rồi mới rename; các
+lệnh mutation dùng chung governance lock để không làm mất registry/review khi
+hai process chạy đồng thời. Trước mutation, mọi package lịch sử khác cũng phải
+tự validate được. Nếu registry write thông thường thất bại, candidate vừa tạo
+được rollback. Thay đổi item, đáp án, construct, modality, measurement
+eligibility hoặc scoring policy vì vậy được bind vào manifest mới và không kế
+thừa approval cũ.
+
+Nếu process bị kill hoặc máy mất điện, lock fail-closed có thể còn lại tại
+`content/.governance.lock`. Chỉ xóa đúng file này sau khi xác nhận PID ghi trong
+file không còn content command nào đang chạy; package directory orphan do crash
+vẫn phải được kiểm tra thủ công, không được coi là transaction đã commit.
 
 Nếu các ID hoặc dependency đổi, tạo một JSON snapshot mới trong repo rồi truyền `--runtime-ids-file PATH_TRONG_REPO`. Chỉ truyền `--coverage-claims-file PATH_TRONG_REPO` khi từng claim đã có `evidenceRef`; nếu không truyền, artifact mới luôn có `coverageClaims: []`.
 
@@ -65,9 +104,9 @@ Metadata governance có thể được gắn ngay lúc tạo version bằng các
 --includes-audio true --audio-owner-id ID --audio-license-id LICENSE_ID --audio-evidence EVIDENCE_REF
 ```
 
-Không có flag nào tự phê duyệt metadata này. `new-version` luôn tạo candidate, `productionEligible: false`, review rỗng và không thay `currentContentVersion`.
-
-Sau khi tạo package, cập nhật runtime `CONTENT_VERSION` và manifest readiness trong cùng thay đổi code. Release verification sẽ fail nếu package chưa bind đúng runtime version.
+Không có flag nào tự phê duyệt metadata này. `new-version` luôn tạo và chọn
+candidate, `productionEligible: false`, review rỗng; release verification vẫn
+fail nếu package chưa bind đúng runtime version hoặc thiếu bằng chứng.
 
 ## Gửi review có bằng chứng
 
@@ -79,7 +118,10 @@ node scripts/content/submit-review.mjs VERSION --review-id REVIEW_ID --role nati
 
 Role hợp lệ là `content-owner`, `native-linguistic`, `source-license` và `audio-rights`. Audio role chỉ trở thành gate khi manifest khai báo có audio. Mỗi review cần ID, reviewer, timestamp và evidence ref do người có thẩm quyền cung cấp. Native linguistic reviewer phải độc lập với content owner.
 
-`reviews.json` là file duy nhất bên trong package đã đăng ký mà workflow được phép nối thêm. Review ID không được ghi đè. Nếu review envelope hoặc manifest hash đã stale, lệnh từ chối rebinding và yêu cầu tạo version mới.
+`reviews.json` là file duy nhất bên trong **candidate** đã đăng ký mà workflow
+được phép nối thêm. Review ID không được ghi đè. Package đã published/retired,
+review envelope stale hoặc manifest hash stale đều bị từ chối; phải tạo version
+mới thay vì sửa lịch sử release.
 
 ## Promotion
 
@@ -94,7 +136,7 @@ Promotion là fail-closed. Policy yêu cầu tối thiểu:
 Chỉ khi dry run không còn blocker mới được ghi promotion provenance vào registry:
 
 ```powershell
-node scripts/content/promote.mjs VERSION --actor-id ACTOR_ID --promoted-at ISO_TIMESTAMP --write
+node scripts/content/promote.mjs VERSION --channel closed-alpha --actor-id ACTOR_ID --promoted-at ISO_TIMESTAMP --write
 ```
 
 Lệnh chỉ cập nhật registry; không sửa artifact hoặc tự tạo approval. Publish/deploy/Sites là một gate vận hành riêng ở cuối quy trình và không nằm trong lớp authoring này.

@@ -258,9 +258,12 @@ the client durably queues grades, and the resulting attempt/evidence stays
 unverified, mastery-ineligible and XP-free. Export schema v4, account deletion,
 reset invalidation with an explicit terminal reason and the restore rehearsal
 cover the assessment and Review/FSRS graphs. Candidate
-`foundation-2026.07.3` hashes the lesson and assessment item/scoring policies,
-but remains unpromoted with zero coverage claims, no owner/license and no native
-review. The real assessment bank therefore remains unissuable. No pilot,
+`foundation-2026.07.3` hashes the lesson and assessment item/scoring policies.
+Every registered package now retains exact source snapshots, historical
+validation no longer reads mutable HEAD source, and the mandatory content gate
+validates all registry entries plus lineage. The candidate remains unpromoted
+with zero coverage claims, no owner/license and no native review. The real
+assessment bank therefore remains unissuable. No pilot,
 calibration, item-quality dashboard, native audio, provider speech pipeline or
 100-person alpha evidence exists; the speech adapter stays disabled and
 mastery-ineligible.
@@ -284,11 +287,11 @@ fail-closed PWA shell installation, accessible destructive dialogs, aggregate
 `/api/health/live` and `/api/health/ready` endpoints, and a nine-gate readiness
 manifest that requires attributable evidence for operations, SLO/incident
 response, load/accessibility/performance and the external release gates.
-Local verification passes 130 files/999 Vitest and 18/18 E2E. The conservative
+Local verification passes 131 files/1,008 Vitest and 18/18 E2E. The conservative
 full-client-asset plus largest-hero ceiling is 403.7 KiB and is not an actual
 initial-transfer measurement. Three cold-profile Lighthouse runs score
-Performance 99/98/98, with medians P98/A100/BP100/SEO100, LCP 1,877 ms, CLS 0
-and TBT 94 ms; `npm audit --omit=dev` reports zero.
+Performance 98/97/98, with medians P98/A100/BP100/SEO100, LCP 1,909 ms, CLS 0
+and TBT 98 ms; `npm audit --omit=dev` reports zero.
 
 The local release-evidence workflow generates a reproducible artifact manifest
 and CycloneDX 1.5 SBOM. Its default invocation is deliberately unattestable

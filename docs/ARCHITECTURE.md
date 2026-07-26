@@ -16,10 +16,13 @@ là đích production khi quy mô, transaction/event ingestion và vận hành v
 giới hạn closed alpha.
 
 Ứng viên nội dung hiện tại là `foundation-2026.07.3`. Package này đã bind bằng
-hash tới curriculum, item bank/scoring của lesson và assessment, nhưng vẫn là
-candidate chưa có content owner, license, native linguistic approval hay
-promotion. Vì vậy UI authenticated đã nối vào command/projection chuẩn hóa
-nhưng các thao tác mở session thật tiếp tục fail closed theo release policy.
+hash tới snapshot bất biến của curriculum, item bank/scoring của lesson và
+assessment. Validator kiểm toàn registry từ snapshot riêng của từng version và
+so mutable runtime source với package hiện hành hoặc candidate runtime-bound.
+Package vẫn là candidate
+chưa có content owner, license, native linguistic approval hay promotion. Vì
+vậy UI authenticated đã nối vào command/projection chuẩn hóa nhưng các thao tác
+mở session thật tiếp tục fail closed theo release policy.
 
 ## 2. Kiến trúc production đề xuất
 
@@ -259,11 +262,11 @@ production chỉ được cân nhắc sau khi có:
   `attestable: false`; production
   evidence chỉ hợp lệ từ clean exact HEAD và khi mọi gate đã được phê duyệt cùng
   bind source revision, content manifest và build digest.
-- Snapshot kỹ thuật local ngày 26/07/2026 qua 130 file/999 Vitest và 18/18 E2E.
+- Snapshot kỹ thuật local ngày 26/07/2026 qua 131 file/1.008 Vitest và 18/18 E2E.
   Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 403.7 KiB; đây
   không phải đo lường initial transfer thực tế. Ba Lighthouse cold-profile đạt
-  Performance 99/98/98, median P98/A100/BP100/SEO100, LCP 1,877 ms, CLS 0 và
-  TBT 94 ms.
+  Performance 98/97/98, median P98/A100/BP100/SEO100, LCP 1,909 ms, CLS 0 và
+  TBT 98 ms.
   `npm audit --omit=dev` báo 0; các số này không thay thế qualification hosted.
 - Feature flags, experiment assignment ổn định, content-quality dashboard,
   central monitoring sink, accessibility/visual regression toàn diện và load

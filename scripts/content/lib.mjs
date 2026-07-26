@@ -1,17 +1,21 @@
 import {
+  closeSync,
   existsSync,
   mkdirSync,
+  openSync,
   readFileSync,
   renameSync,
-  rmdirSync,
+  rmSync,
   unlinkSync,
   writeFileSync,
 } from "node:fs";
+import { randomUUID } from "node:crypto";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   assessClosedAlphaEligibility,
   assessPublicationEligibility,
+  contentSourceArtifactNames,
   sha256Json,
   sha256NormalizedText,
   validateContentBundle,
@@ -20,6 +24,7 @@ import {
 export const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const contentRoot = join(repositoryRoot, "content");
 const registryPath = join(contentRoot, "registry.json");
+const governanceLockPath = join(contentRoot, ".governance.lock");
 const SAFE_ID_PATTERN = /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/;
 const REVIEW_ROLES = new Set([
   "content-owner",
@@ -28,9 +33,100 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
+const SOURCE_ARTIFACT_PATHS = {
+  "src/data/assessment.ts": join(repositoryRoot, "src", "data", "assessment.ts"),
+  "src/data/curriculum.ts": join(repositoryRoot, "src", "data", "curriculum.ts"),
+  "src/lib/exerciseGeneration.ts": join(
+    repositoryRoot,
+    "src",
+    "lib",
+    "exerciseGeneration.ts",
+  ),
+  "src/server/attemptScoring.ts": join(
+    repositoryRoot,
+    "src",
+    "server",
+    "attemptScoring.ts",
+  ),
+  "src/server/authoritativeItemBank.ts": join(
+    repositoryRoot,
+    "src",
+    "server",
+    "authoritativeItemBank.ts",
+  ),
+  "src/server/lessonCompletionPolicy.ts": join(
+    repositoryRoot,
+    "src",
+    "server",
+    "lessonCompletionPolicy.ts",
+  ),
+  "src/server/authoritativeAssessmentItemBank.ts": join(
+    repositoryRoot,
+    "src",
+    "server",
+    "authoritativeAssessmentItemBank.ts",
+  ),
+  "src/server/assessmentScoring.ts": join(
+    repositoryRoot,
+    "src",
+    "server",
+    "assessmentScoring.ts",
+  ),
+};
 
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 const formatJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
+const readTextIfPresent = (path) =>
+  existsSync(path) ? readFileSync(path, "utf8") : null;
+
+const readLiveSourceTexts = () =>
+  Object.fromEntries(
+    Object.entries(SOURCE_ARTIFACT_PATHS).map(([name, path]) => [
+      name,
+      readTextIfPresent(path),
+    ]),
+  );
+
+const immutableSnapshotPath = (packageDirectory, artifactName) =>
+  join(packageDirectory, "snapshots", ...artifactName.split("/"));
+
+const readImmutableSourceTexts = (packageDirectory, contentSchemaVersion) =>
+  Object.fromEntries(
+    contentSourceArtifactNames(contentSchemaVersion).map((name) => [
+      name,
+      readTextIfPresent(immutableSnapshotPath(packageDirectory, name)),
+    ]),
+  );
+
+const liveSourceTextsFromBundle = (bundle) => ({
+  "src/data/assessment.ts": bundle.runtimeAssessmentSourceText,
+  "src/data/curriculum.ts": bundle.runtimeSourceText,
+  "src/lib/exerciseGeneration.ts": bundle.runtimeExerciseGenerationSourceText,
+  "src/server/attemptScoring.ts": bundle.runtimeAttemptScoringSourceText,
+  "src/server/authoritativeItemBank.ts":
+    bundle.runtimeAuthoritativeItemBankSourceText,
+  "src/server/lessonCompletionPolicy.ts":
+    bundle.runtimeLessonCompletionPolicySourceText,
+  "src/server/authoritativeAssessmentItemBank.ts":
+    bundle.runtimeAuthoritativeAssessmentItemBankSourceText,
+  "src/server/assessmentScoring.ts": bundle.runtimeAssessmentScoringSourceText,
+});
+
+const writeImmutableSourceTexts = (
+  packageDirectory,
+  contentSchemaVersion,
+  sourceTexts,
+) => {
+  contentSourceArtifactNames(contentSchemaVersion).forEach((name) => {
+    const text = sourceTexts[name];
+    if (typeof text !== "string") {
+      throw new Error(`Cannot snapshot unavailable checked-in source: ${name}`);
+    }
+    const path = immutableSnapshotPath(packageDirectory, name);
+    mkdirSync(dirname(path), { recursive: true });
+    writeFileSync(path, text, { encoding: "utf8", flag: "wx" });
+  });
+};
 
 const assertPackageId = (value, label = "content version") => {
   if (!SAFE_ID_PATTERN.test(value ?? "")) {
@@ -69,6 +165,14 @@ const readRuntimeContentVersion = () => {
   return typeof readiness.contentVersion === "string" ? readiness.contentVersion : null;
 };
 
+const readCurriculumContentVersion = (sourceText) => {
+  if (typeof sourceText !== "string") return null;
+  const match = sourceText.match(
+    /export const CONTENT_VERSION = "([a-zA-Z0-9][a-zA-Z0-9._-]*)";/u,
+  );
+  return match?.[1] ?? null;
+};
+
 export const loadContentBundle = (requestedVersion) => {
   const registry = readJson(registryPath);
   const version = requestedVersion ?? registry.currentContentVersion;
@@ -76,50 +180,36 @@ export const loadContentBundle = (requestedVersion) => {
   const registryEntry = registry.packages.find((entry) => entry.contentVersion === version);
   if (!registryEntry) throw new Error(`Content version is not registered: ${version}`);
   const packageDirectory = resolvePackageDirectory(registryEntry.relativePath);
+  const manifest = readJson(join(packageDirectory, "manifest.json"));
+  const liveSourceTexts = readLiveSourceTexts();
   return {
     packageDirectory,
     bundle: {
       registry,
       registryEntry,
-      manifest: readJson(join(packageDirectory, "manifest.json")),
+      manifest,
       runtimeIds: readJson(join(packageDirectory, "runtime-ids.json")),
       coverageClaims: readJson(join(packageDirectory, "coverage-claims.json")),
       reviews: readJson(join(packageDirectory, "reviews.json")),
+      immutableSourceTexts: readImmutableSourceTexts(
+        packageDirectory,
+        manifest.contentSchemaVersion,
+      ),
       runtimeContentVersion: readRuntimeContentVersion(),
-      runtimeAssessmentSourceText: readFileSync(
-        join(repositoryRoot, "src", "data", "assessment.ts"),
-        "utf8",
-      ),
-      runtimeSourceText: readFileSync(join(repositoryRoot, "src", "data", "curriculum.ts"), "utf8"),
-      runtimeExerciseGenerationSourceText: readFileSync(
-        join(repositoryRoot, "src", "lib", "exerciseGeneration.ts"),
-        "utf8",
-      ),
-      runtimeAttemptScoringSourceText: readFileSync(
-        join(repositoryRoot, "src", "server", "attemptScoring.ts"),
-        "utf8",
-      ),
-      runtimeAuthoritativeItemBankSourceText: readFileSync(
-        join(repositoryRoot, "src", "server", "authoritativeItemBank.ts"),
-        "utf8",
-      ),
-      runtimeLessonCompletionPolicySourceText: readFileSync(
-        join(repositoryRoot, "src", "server", "lessonCompletionPolicy.ts"),
-        "utf8",
-      ),
-      runtimeAuthoritativeAssessmentItemBankSourceText: readFileSync(
-        join(
-          repositoryRoot,
-          "src",
-          "server",
-          "authoritativeAssessmentItemBank.ts",
-        ),
-        "utf8",
-      ),
-      runtimeAssessmentScoringSourceText: readFileSync(
-        join(repositoryRoot, "src", "server", "assessmentScoring.ts"),
-        "utf8",
-      ),
+      runtimeAssessmentSourceText: liveSourceTexts["src/data/assessment.ts"],
+      runtimeSourceText: liveSourceTexts["src/data/curriculum.ts"],
+      runtimeExerciseGenerationSourceText:
+        liveSourceTexts["src/lib/exerciseGeneration.ts"],
+      runtimeAttemptScoringSourceText:
+        liveSourceTexts["src/server/attemptScoring.ts"],
+      runtimeAuthoritativeItemBankSourceText:
+        liveSourceTexts["src/server/authoritativeItemBank.ts"],
+      runtimeLessonCompletionPolicySourceText:
+        liveSourceTexts["src/server/lessonCompletionPolicy.ts"],
+      runtimeAuthoritativeAssessmentItemBankSourceText:
+        liveSourceTexts["src/server/authoritativeAssessmentItemBank.ts"],
+      runtimeAssessmentScoringSourceText:
+        liveSourceTexts["src/server/assessmentScoring.ts"],
     },
   };
 };
@@ -134,6 +224,34 @@ const writeJsonAtomic = (path, value) => {
   }
 };
 
+const withContentWriteLock = async (callback) => {
+  const lockToken = `${process.pid}:${randomUUID()}`;
+  let descriptor;
+  try {
+    descriptor = openSync(governanceLockPath, "wx");
+  } catch (error) {
+    if (error && typeof error === "object" && error.code === "EEXIST") {
+      throw new Error(
+        "Another content governance mutation is in progress; refusing a concurrent write",
+        { cause: error },
+      );
+    }
+    throw error;
+  }
+  try {
+    writeFileSync(descriptor, `${lockToken}\n`, "utf8");
+    return await callback();
+  } finally {
+    closeSync(descriptor);
+    if (
+      existsSync(governanceLockPath)
+      && readFileSync(governanceLockPath, "utf8").trim() === lockToken
+    ) {
+      unlinkSync(governanceLockPath);
+    }
+  }
+};
+
 const parseArguments = (args) => {
   const positional = [];
   const flags = new Map();
@@ -144,7 +262,7 @@ const parseArguments = (args) => {
       continue;
     }
     const name = argument.slice(2);
-    if (name === "write") {
+    if (name === "write" || name === "all") {
       flags.set(name, true);
       continue;
     }
@@ -201,7 +319,43 @@ const printValidation = (version, validation) => {
 };
 
 const validateCommand = async (args) => {
-  const { positional } = parseArguments(args);
+  const { positional, flags } = parseArguments(args);
+  const validateAll = flags.get("all") === true || positional.length === 0;
+  if (validateAll) {
+    if (positional.length > 0) {
+      throw new Error("validate accepts either one content version or --all");
+    }
+    const registry = readJson(registryPath);
+    const packages = [];
+    for (const entry of registry.packages ?? []) {
+      try {
+        if (typeof entry?.contentVersion !== "string") {
+          throw new Error("Registry package entry is missing contentVersion");
+        }
+        const { bundle } = loadContentBundle(entry.contentVersion);
+        const validation = await validateContentBundle(bundle);
+        packages.push({
+          contentVersion: entry.contentVersion,
+          valid: validation.errors.length === 0,
+          errors: validation.errors,
+          warnings: validation.warnings,
+        });
+      } catch (error) {
+        packages.push({
+          contentVersion: entry?.contentVersion ?? null,
+          valid: false,
+          errors: [error instanceof Error ? error.message : String(error)],
+          warnings: [],
+        });
+      }
+    }
+    const valid = packages.length > 0 && packages.every((item) => item.valid);
+    console.log(JSON.stringify({ valid, packages }, null, 2));
+    return valid ? 0 : 1;
+  }
+  if (positional.length !== 1) {
+    throw new Error("validate requires exactly one content version");
+  }
   const { bundle } = loadContentBundle(positional[0]);
   const validation = await validateContentBundle(bundle);
   printValidation(bundle.manifest.contentVersion, validation);
@@ -211,30 +365,32 @@ const validateCommand = async (args) => {
 const hashCommand = async (args) => {
   const { positional } = parseArguments(args);
   const { bundle } = loadContentBundle(positional[0]);
+  const immutableHash = async (name) => {
+    const text = bundle.immutableSourceTexts[name];
+    return typeof text === "string" ? sha256NormalizedText(text) : null;
+  };
   const hashes = {
     manifest: await sha256Json(bundle.manifest),
     runtimeIds: await sha256Json(bundle.runtimeIds),
     coverageClaims: await sha256Json(bundle.coverageClaims),
     reviews: await sha256Json(bundle.reviews),
-    assessmentSource: await sha256NormalizedText(bundle.runtimeAssessmentSourceText),
-    runtimeSource: await sha256NormalizedText(bundle.runtimeSourceText),
-    exerciseGenerationSource: await sha256NormalizedText(
-      bundle.runtimeExerciseGenerationSourceText,
+    assessmentSource: await immutableHash("src/data/assessment.ts"),
+    runtimeSource: await immutableHash("src/data/curriculum.ts"),
+    exerciseGenerationSource: await immutableHash(
+      "src/lib/exerciseGeneration.ts",
     ),
-    attemptScoringSource: await sha256NormalizedText(
-      bundle.runtimeAttemptScoringSourceText,
+    attemptScoringSource: await immutableHash("src/server/attemptScoring.ts"),
+    authoritativeItemBankSource: await immutableHash(
+      "src/server/authoritativeItemBank.ts",
     ),
-    authoritativeItemBankSource: await sha256NormalizedText(
-      bundle.runtimeAuthoritativeItemBankSourceText,
+    lessonCompletionPolicySource: await immutableHash(
+      "src/server/lessonCompletionPolicy.ts",
     ),
-    lessonCompletionPolicySource: await sha256NormalizedText(
-      bundle.runtimeLessonCompletionPolicySourceText,
+    authoritativeAssessmentItemBankSource: await immutableHash(
+      "src/server/authoritativeAssessmentItemBank.ts",
     ),
-    authoritativeAssessmentItemBankSource: await sha256NormalizedText(
-      bundle.runtimeAuthoritativeAssessmentItemBankSourceText,
-    ),
-    assessmentScoringSource: await sha256NormalizedText(
-      bundle.runtimeAssessmentScoringSourceText,
+    assessmentScoringSource: await immutableHash(
+      "src/server/assessmentScoring.ts",
     ),
   };
   console.log(JSON.stringify({ contentVersion: bundle.manifest.contentVersion, hashes }, null, 2));
@@ -308,10 +464,19 @@ const verifyReleaseCommand = async (args) => {
 const submitReviewCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
   requireWrite(flags);
+  return withContentWriteLock(async () => {
   const { bundle, packageDirectory } = loadContentBundle(positional[0]);
   const validation = await validateContentBundle(bundle);
   if (validation.errors.length > 0) {
     throw new Error(`Cannot review an invalid package:\n${validation.errors.join("\n")}`);
+  }
+  if (
+    bundle.registryEntry.lifecycle !== "candidate"
+    || bundle.manifest.lifecycle !== "candidate"
+  ) {
+    throw new Error(
+      "Reviews may only be appended to a candidate package; create a new version instead",
+    );
   }
 
   const expectedManifestHash = requiredFlag(flags, "manifest-sha256");
@@ -354,21 +519,17 @@ const submitReviewCommand = async (args) => {
   writeJsonAtomic(join(packageDirectory, "reviews.json"), nextReviews);
   console.log(`Recorded ${decision} review ${reviewId} for ${validation.hashes.manifest}`);
   return 0;
+  });
 };
 
 const cleanupNewPackage = (directory) => {
-  ["manifest.json", "runtime-ids.json", "coverage-claims.json", "reviews.json"].forEach(
-    (fileName) => {
-      const path = join(directory, fileName);
-      if (existsSync(path)) unlinkSync(path);
-    },
-  );
-  if (existsSync(directory)) rmdirSync(directory);
+  if (existsSync(directory)) rmSync(directory, { recursive: true, force: true });
 };
 
 const newVersionCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
   requireWrite(flags);
+  return withContentWriteLock(async () => {
   const newVersion = positional[0];
   assertPackageId(newVersion, "new content version");
   const fromVersion = requiredFlag(flags, "from");
@@ -407,13 +568,61 @@ const newVersionCommand = async (args) => {
   }
 
   const { bundle: sourceBundle } = loadContentBundle(fromVersion);
+  if (sourceBundle.registry.currentContentVersion !== fromVersion) {
+    throw new Error("New versions must branch from registry.currentContentVersion");
+  }
   const sourceValidation = await validateContentBundle(sourceBundle);
+  const historicalPackageErrors = [];
+  for (const entry of sourceBundle.registry.packages) {
+    if (entry.contentVersion === fromVersion) continue;
+    try {
+      const { bundle } = loadContentBundle(entry.contentVersion);
+      const validation = await validateContentBundle(bundle);
+      validation.errors.forEach((error) => {
+        historicalPackageErrors.push(`${entry.contentVersion}: ${error}`);
+      });
+    } catch (error) {
+      historicalPackageErrors.push(
+        `${String(entry?.contentVersion)}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
+  }
+  if (historicalPackageErrors.length > 0) {
+    throw new Error(
+      `Cannot branch while the existing registry is invalid:\n${historicalPackageErrors.join("\n")}`,
+    );
+  }
+  const liveSourceTexts = liveSourceTextsFromBundle(sourceBundle);
+  if (sourceBundle.runtimeContentVersion !== newVersion) {
+    throw new Error(
+      `Update config/production-readiness.json contentVersion to ${newVersion} before creating the package`,
+    );
+  }
+  if (
+    readCurriculumContentVersion(liveSourceTexts["src/data/curriculum.ts"])
+    !== newVersion
+  ) {
+    throw new Error(
+      `Update src/data/curriculum.ts CONTENT_VERSION to ${newVersion} before creating the package`,
+    );
+  }
+  const liveRuntimeSourceHash =
+    typeof liveSourceTexts["src/data/curriculum.ts"] === "string"
+      ? await sha256NormalizedText(liveSourceTexts["src/data/curriculum.ts"])
+      : null;
+  const liveAssessmentSourceHash =
+    typeof liveSourceTexts["src/data/assessment.ts"] === "string"
+      ? await sha256NormalizedText(liveSourceTexts["src/data/assessment.ts"])
+      : null;
   const runtimeSourceChanged = sourceValidation.errors.includes(
     "src/data/curriculum.ts digest does not match manifest",
-  );
+  ) || sourceBundle.manifest.artifacts["src/data/curriculum.ts"] !== liveRuntimeSourceHash;
   const assessmentSourceChanged = sourceValidation.errors.includes(
     "src/data/assessment.ts digest does not match manifest",
-  );
+  ) || sourceBundle.manifest.artifacts["src/data/assessment.ts"]
+    !== liveAssessmentSourceHash;
   const packageBoundSourceErrors = new Set([
     "src/data/curriculum.ts digest does not match manifest",
     "src/data/assessment.ts digest does not match manifest",
@@ -541,6 +750,7 @@ const newVersionCommand = async (args) => {
   };
   const nextRegistry = {
     ...sourceBundle.registry,
+    currentContentVersion: newVersion,
     packages: [
       ...sourceBundle.registry.packages,
       {
@@ -564,6 +774,7 @@ const newVersionCommand = async (args) => {
     runtimeIds,
     coverageClaims,
     reviews,
+    immutableSourceTexts: liveSourceTexts,
     runtimeContentVersion: readRuntimeContentVersion(),
     runtimeAssessmentSourceText: sourceBundle.runtimeAssessmentSourceText,
     runtimeSourceText: sourceBundle.runtimeSourceText,
@@ -593,20 +804,32 @@ const newVersionCommand = async (args) => {
       "utf8",
     );
     writeFileSync(join(temporaryDirectory, "reviews.json"), formatJson(reviews), "utf8");
+    writeImmutableSourceTexts(
+      temporaryDirectory,
+      manifest.contentSchemaVersion,
+      liveSourceTexts,
+    );
     renameSync(temporaryDirectory, targetDirectory);
   } catch (error) {
     cleanupNewPackage(temporaryDirectory);
     throw error;
   }
-  writeJsonAtomic(registryPath, nextRegistry);
+  try {
+    writeJsonAtomic(registryPath, nextRegistry);
+  } catch (error) {
+    cleanupNewPackage(targetDirectory);
+    throw error;
+  }
   console.log(
-    `Created candidate ${newVersion} from ${fromVersion}; approvals and coverage claims were intentionally cleared`,
+    `Created and selected candidate ${newVersion} from ${fromVersion}; approvals were intentionally cleared${coverageClaimsInput === undefined ? " together with coverage claims" : ""}`,
   );
   return 0;
+  });
 };
 
 const promoteCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
+  const executePromotion = async () => {
   const { bundle } = loadContentBundle(positional[0]);
   const validation = await validateContentBundle(bundle);
   const channel = releaseChannel(flags, { required: true });
@@ -655,6 +878,10 @@ const promoteCommand = async (args) => {
     `Promoted ${bundle.manifest.contentVersion} to ${channel} with exact-hash provenance`,
   );
   return 0;
+  };
+  return flags.get("write") === true
+    ? withContentWriteLock(executePromotion)
+    : executePromotion();
 };
 
 const commands = {

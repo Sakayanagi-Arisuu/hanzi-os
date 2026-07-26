@@ -45,6 +45,13 @@ This is a local engineering checkpoint, not production release evidence.
   wording.
 - Reset E2E proves the injected cache and response are removed while allowing
   the active service worker to recreate public offline asset caches.
+- All three registered content packages now retain exact immutable source
+  snapshots, so historical validation no longer depends on mutable HEAD files.
+- The mandatory content gate validates every registry entry and lineage edge;
+  runtime-bound candidates also fail on live-source drift.
+- Content mutations serialize through a repository lock, new versions validate
+  the existing history before staged rename, and reviews cannot be appended
+  after publication.
 
 ## Local verification
 
@@ -56,15 +63,15 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 130 files, 999 tests passed
+  - Vitest: 131 files, 1,008 tests passed
   - production build and bundle policy passed
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 98 / 98, median 98
+  - Performance: 98 / 97 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,877 ms; CLS: 0; TBT: 94 ms
+  - Median LCP: 1,909 ms; CLS: 0; TBT: 98 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -90,10 +97,13 @@ ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Resume Phase 2 at WS2 only: content authoring/governance workflow and the honest
-   closed-alpha A0 package.
-3. Obtain attributable owner, license and native linguistic review evidence.
-4. Run pilot/calibration work before making assessment or coverage claims.
+2. Continue Phase 2 at WS2 only with item-level authoring envelopes: immutable
+   payload/version hashes, owner/license attribution, typed prerequisites and
+   scoped review state.
+3. Replace count-only A0/audio eligibility with reviewed item inventory and a
+   reachable evidence-backed coverage graph.
+4. Obtain attributable owner, license and native linguistic review evidence,
+   then run pilot/calibration work before making assessment or coverage claims.
 5. Leave Sites ownership, saved version and deployment until the final release
    step.
 

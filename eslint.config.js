@@ -10,6 +10,7 @@ export default tseslint.config(
       ".vite/**",
       ".wrangler/**",
       "build/**",
+      "content/packages/*/snapshots/**",
       "dist/**",
       "node_modules/**",
       "playwright-report/**",

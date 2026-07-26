@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import { CONTENT_VERSION, COURSE_UNITS, LESSONS, STORIES, VOCABULARY } from "../data/curriculum";
 import {
   canonicalJson,
+  contentSourceArtifactNames,
   sha256Json,
   sha256NormalizedText,
   validateContentBundle,
@@ -25,20 +26,32 @@ const readJson = <T>(relativePath: string): T =>
     readFileSync(new URL(`../../${relativePath}`, import.meta.url), "utf8"),
   ) as T;
 
-const loadCheckedInBundle = (): ContentPackageBundle => {
+const loadCheckedInBundle = (
+  version?: string,
+): ContentPackageBundle => {
   const registry = readJson<ContentRegistry>("content/registry.json");
   const registryEntry = registry.packages.find(
-    (entry) => entry.contentVersion === registry.currentContentVersion,
+    (entry) => entry.contentVersion === (version ?? registry.currentContentVersion),
   );
   if (!registryEntry) throw new Error("Current content registry entry is missing");
   const packagePath = `content/${registryEntry.relativePath}`;
+  const manifest = readJson<ContentPackageManifest>(`${packagePath}/manifest.json`);
   return {
     registry,
     registryEntry,
-    manifest: readJson<ContentPackageManifest>(`${packagePath}/manifest.json`),
+    manifest,
     runtimeIds: readJson<RuntimeIdArtifact>(`${packagePath}/runtime-ids.json`),
     coverageClaims: readJson<CoverageClaimsArtifact>(`${packagePath}/coverage-claims.json`),
     reviews: readJson<ContentReviewArtifact>(`${packagePath}/reviews.json`),
+    immutableSourceTexts: Object.fromEntries(
+      contentSourceArtifactNames(manifest.contentSchemaVersion).map((name) => [
+        name,
+        readFileSync(
+          new URL(`../../${packagePath}/snapshots/${name}`, import.meta.url),
+          "utf8",
+        ),
+      ]),
+    ),
     runtimeContentVersion: CONTENT_VERSION,
     runtimeAssessmentSourceText: readFileSync(
       new URL("../data/assessment.ts", import.meta.url),
@@ -236,6 +249,110 @@ describe("content package governance", () => {
         wordIds: [...new Set(story.sentences.flatMap((sentence) => sentence.wordIds))],
         releaseState: story.releaseState,
       })),
+    );
+  });
+
+  it.each([
+    "foundation-2026.07.1",
+    "foundation-2026.07.2",
+  ])("revalidates historical package %s from its own immutable snapshots", async (version) => {
+    const bundle = loadCheckedInBundle(version);
+    const validation = await validateContentBundle(bundle);
+
+    expect(bundle.runtimeSourceText).not.toBe(
+      bundle.immutableSourceTexts["src/data/curriculum.ts"],
+    );
+    expect(validation.errors).toEqual([]);
+  });
+
+  it("rejects live-source drift for a runtime-bound candidate before it becomes registry current", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    bundle.registryEntry = currentRegistryEntry(bundle.registry);
+    bundle.registry.currentContentVersion = "foundation-2026.07.2";
+    if (bundle.runtimeSourceText === null) {
+      throw new Error("Checked-in curriculum source is missing");
+    }
+    bundle.runtimeSourceText += "\n// runtime-bound candidate drift";
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      "src/data/curriculum.ts digest does not match manifest",
+    );
+  });
+
+  it("rejects a missing or tampered immutable source snapshot", async () => {
+    const missing = structuredClone(loadCheckedInBundle());
+    missing.registryEntry = currentRegistryEntry(missing.registry);
+    delete missing.immutableSourceTexts["src/data/assessment.ts"];
+
+    const missingValidation = await validateContentBundle(missing);
+    expect(missingValidation.errors).toContain(
+      "Immutable package snapshot for src/data/assessment.ts is unavailable",
+    );
+
+    const tampered = structuredClone(loadCheckedInBundle());
+    tampered.registryEntry = currentRegistryEntry(tampered.registry);
+    const assessmentSnapshot =
+      tampered.immutableSourceTexts["src/data/assessment.ts"];
+    if (typeof assessmentSnapshot !== "string") {
+      throw new Error("Assessment snapshot fixture is missing");
+    }
+    tampered.immutableSourceTexts["src/data/assessment.ts"] =
+      `${assessmentSnapshot}\n// tampered package snapshot`;
+
+    const tamperedValidation = await validateContentBundle(tampered);
+    expect(tamperedValidation.errors).toContain(
+      "src/data/assessment.ts snapshot digest does not match manifest",
+    );
+  });
+
+  it("fails closed for unsupported future content schema versions", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    bundle.registryEntry = currentRegistryEntry(bundle.registry);
+    bundle.manifest.contentSchemaVersion = 999;
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      "manifest.contentSchemaVersion must be a supported version (1 or 2)",
+    );
+  });
+
+  it("rejects malformed non-selected registry entries", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    bundle.registryEntry = currentRegistryEntry(bundle.registry);
+    bundle.registry.packages.push({} as ContentRegistry["packages"][number]);
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      "registry.packages[3]: registryEntry.contentVersion is not a safe content version",
+    );
+    expect(validation.errors).toContain(
+      "registry.packages[3]: registryEntry.manifestSha256 must be a SHA-256 digest",
+    );
+  });
+
+  it("rejects missing and forward package lineage parents", async () => {
+    const missingParent = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.2"),
+    );
+    missingParent.manifest.createdFromManifestSha256 =
+      `sha256:${"0".repeat(64)}`;
+    const missingValidation = await validateContentBundle(missingParent);
+    expect(missingValidation.errors).toContain(
+      "Package lineage parent manifest is not registered",
+    );
+
+    const forwardParent = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.2"),
+    );
+    forwardParent.manifest.createdFromManifestSha256 =
+      forwardParent.registry.packages[2].manifestSha256;
+    const forwardValidation = await validateContentBundle(forwardParent);
+    expect(forwardValidation.errors).toContain(
+      "Package lineage parent must precede the selected package",
     );
   });
 

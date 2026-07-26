@@ -8,9 +8,23 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
+const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2]);
+const CONTENT_SCHEMA_V1_SOURCE_ARTIFACTS = [
+  "src/data/assessment.ts",
+  "src/data/curriculum.ts",
+  "src/lib/exerciseGeneration.ts",
+  "src/server/attemptScoring.ts",
+  "src/server/authoritativeItemBank.ts",
+  "src/server/lessonCompletionPolicy.ts",
+];
 const CONTENT_SCHEMA_V2_POLICY_ARTIFACTS = [
   "src/server/authoritativeAssessmentItemBank.ts",
   "src/server/assessmentScoring.ts",
+];
+
+export const contentSourceArtifactNames = (contentSchemaVersion) => [
+  ...CONTENT_SCHEMA_V1_SOURCE_ARTIFACTS,
+  ...(contentSchemaVersion >= 2 ? CONTENT_SCHEMA_V2_POLICY_ARTIFACTS : []),
 ];
 
 const isRecord = (value) =>
@@ -38,6 +52,78 @@ const validateStringArray = (value, label, errors) => {
   if (strings.length !== value.length) errors.push(`${label} must contain non-empty strings`);
   pushDuplicateErrors(strings, label, errors);
   return strings;
+};
+
+const validateRegistryPackageEntry = (entry, errors, prefix = "") => {
+  const push = (message) => errors.push(`${prefix}${message}`);
+  if (!isRecord(entry)) {
+    push("Registry package entry must be an object");
+    return;
+  }
+  if (!SAFE_ID_PATTERN.test(entry.packageId ?? "")) {
+    push("registryEntry.packageId is not a safe immutable package id");
+  }
+  if (!SAFE_ID_PATTERN.test(entry.contentVersion ?? "")) {
+    push("registryEntry.contentVersion is not a safe content version");
+  }
+  if (entry.contentVersion !== entry.packageId) {
+    push("registryEntry.contentVersion must equal packageId");
+  }
+  if (entry.relativePath !== `packages/${entry.packageId}`) {
+    push("registryEntry.relativePath must be the package's direct registry path");
+  }
+  if (!DIGEST_PATTERN.test(entry.manifestSha256 ?? "")) {
+    push("registryEntry.manifestSha256 must be a SHA-256 digest");
+  }
+  if (!["closed-alpha", "public"].includes(entry.audience)) {
+    push("registryEntry.audience is invalid");
+  }
+  if (!["candidate", "published", "retired"].includes(entry.lifecycle)) {
+    push("registryEntry.lifecycle is invalid");
+  }
+  if (typeof entry.closedAlphaEligible !== "boolean") {
+    push("registryEntry.closedAlphaEligible must be boolean");
+  }
+  if (typeof entry.productionEligible !== "boolean") {
+    push("registryEntry.productionEligible must be boolean");
+  }
+  if (
+    (entry.closedAlphaEligible || entry.productionEligible)
+    && entry.lifecycle !== "published"
+  ) {
+    push("Only a published registry entry may be release eligible");
+  }
+  if (entry.productionEligible && !entry.closedAlphaEligible) {
+    push("A production-eligible registry entry must also be closedAlphaEligible");
+  }
+  if (entry.productionEligible && entry.audience !== "public") {
+    push("Only a public package may be productionEligible");
+  }
+  const releaseEligible = entry.closedAlphaEligible || entry.productionEligible;
+  if (releaseEligible && !isRecord(entry.promotion)) {
+    push("A release-eligible registry entry requires promotion provenance");
+  }
+  if (releaseEligible && isRecord(entry.promotion)) {
+    const expectedChannel = entry.productionEligible ? "production" : "closed-alpha";
+    if (entry.promotion.channel !== expectedChannel) {
+      push(`Promotion provenance channel must be ${expectedChannel}`);
+    }
+    if (!isNonEmptyString(entry.promotion.actorId)) {
+      push("Promotion provenance requires actorId");
+    }
+    if (!isValidDate(entry.promotion.promotedAt)) {
+      push("Promotion provenance requires a valid promotedAt date");
+    }
+    if (entry.promotion.packageManifestSha256 !== entry.manifestSha256) {
+      push("Promotion provenance must bind the registered manifest digest");
+    }
+    if (!DIGEST_PATTERN.test(entry.promotion.reviewEnvelopeSha256 ?? "")) {
+      push("Promotion provenance must bind a review envelope digest");
+    }
+  }
+  if (!releaseEligible && entry.promotion !== null) {
+    push("A release-ineligible registry entry cannot retain promotion provenance");
+  }
 };
 
 export const canonicalJson = (value) => {
@@ -94,72 +180,19 @@ const validateRegistry = (registry, registryEntry, errors) => {
   const packageIds = registry.packages.map((entry) => entry?.packageId).filter(isNonEmptyString);
   pushDuplicateErrors(versions, "registry contentVersion", errors);
   pushDuplicateErrors(packageIds, "registry packageId", errors);
+  if (!versions.includes(registry.currentContentVersion)) {
+    errors.push("registry.currentContentVersion must reference a registered package");
+  }
 
-  if (!isRecord(registryEntry) || !registry.packages.includes(registryEntry)) {
+  const selectedEntryIsRegistered =
+    isRecord(registryEntry) && registry.packages.includes(registryEntry);
+  if (!selectedEntryIsRegistered) {
     errors.push("Selected registry entry is not present in registry.packages");
-    return;
   }
-  if (!SAFE_ID_PATTERN.test(registryEntry.packageId ?? "")) {
-    errors.push("registryEntry.packageId is not a safe immutable package id");
-  }
-  if (registryEntry.contentVersion !== registryEntry.packageId) {
-    errors.push("registryEntry.contentVersion must equal packageId");
-  }
-  if (registryEntry.relativePath !== `packages/${registryEntry.packageId}`) {
-    errors.push("registryEntry.relativePath must be the package's direct registry path");
-  }
-  if (!DIGEST_PATTERN.test(registryEntry.manifestSha256 ?? "")) {
-    errors.push("registryEntry.manifestSha256 must be a SHA-256 digest");
-  }
-  if (!["closed-alpha", "public"].includes(registryEntry.audience)) {
-    errors.push("registryEntry.audience is invalid");
-  }
-  if (!["candidate", "published", "retired"].includes(registryEntry.lifecycle)) {
-    errors.push("registryEntry.lifecycle is invalid");
-  }
-  if (typeof registryEntry.closedAlphaEligible !== "boolean") {
-    errors.push("registryEntry.closedAlphaEligible must be boolean");
-  }
-  if (typeof registryEntry.productionEligible !== "boolean") {
-    errors.push("registryEntry.productionEligible must be boolean");
-  }
-  if (
-    (registryEntry.closedAlphaEligible || registryEntry.productionEligible)
-    && registryEntry.lifecycle !== "published"
-  ) {
-    errors.push("Only a published registry entry may be release eligible");
-  }
-  if (registryEntry.productionEligible && !registryEntry.closedAlphaEligible) {
-    errors.push("A production-eligible registry entry must also be closedAlphaEligible");
-  }
-  if (registryEntry.productionEligible && registryEntry.audience !== "public") {
-    errors.push("Only a public package may be productionEligible");
-  }
-  const releaseEligible = registryEntry.closedAlphaEligible || registryEntry.productionEligible;
-  if (releaseEligible && !isRecord(registryEntry.promotion)) {
-    errors.push("A release-eligible registry entry requires promotion provenance");
-  }
-  if (releaseEligible && isRecord(registryEntry.promotion)) {
-    const expectedChannel = registryEntry.productionEligible ? "production" : "closed-alpha";
-    if (registryEntry.promotion.channel !== expectedChannel) {
-      errors.push(`Promotion provenance channel must be ${expectedChannel}`);
-    }
-    if (!isNonEmptyString(registryEntry.promotion.actorId)) {
-      errors.push("Promotion provenance requires actorId");
-    }
-    if (!isValidDate(registryEntry.promotion.promotedAt)) {
-      errors.push("Promotion provenance requires a valid promotedAt date");
-    }
-    if (registryEntry.promotion.packageManifestSha256 !== registryEntry.manifestSha256) {
-      errors.push("Promotion provenance must bind the registered manifest digest");
-    }
-    if (!DIGEST_PATTERN.test(registryEntry.promotion.reviewEnvelopeSha256 ?? "")) {
-      errors.push("Promotion provenance must bind a review envelope digest");
-    }
-  }
-  if (!releaseEligible && registryEntry.promotion !== null) {
-    errors.push("A release-ineligible registry entry cannot retain promotion provenance");
-  }
+  registry.packages.forEach((entry, index) => {
+    const prefix = entry === registryEntry ? "" : `registry.packages[${index}]: `;
+    validateRegistryPackageEntry(entry, errors, prefix);
+  });
 };
 
 const validateManifest = (manifest, errors) => {
@@ -173,8 +206,8 @@ const validateManifest = (manifest, errors) => {
   if (manifest.contentVersion !== manifest.packageId) {
     errors.push("manifest.contentVersion must equal packageId");
   }
-  if (!Number.isInteger(manifest.contentSchemaVersion) || manifest.contentSchemaVersion < 1) {
-    errors.push("manifest.contentSchemaVersion must be a positive integer");
+  if (!SUPPORTED_CONTENT_SCHEMA_VERSIONS.has(manifest.contentSchemaVersion)) {
+    errors.push("manifest.contentSchemaVersion must be a supported version (1 or 2)");
   }
   if (!["closed-alpha", "public"].includes(manifest.audience)) {
     errors.push("manifest.audience is invalid");
@@ -195,15 +228,7 @@ const validateManifest = (manifest, errors) => {
     const requiredArtifacts = [
       "coverage-claims.json",
       "runtime-ids.json",
-      "src/data/assessment.ts",
-      "src/data/curriculum.ts",
-      "src/lib/exerciseGeneration.ts",
-      "src/server/attemptScoring.ts",
-      "src/server/authoritativeItemBank.ts",
-      "src/server/lessonCompletionPolicy.ts",
-      ...(manifest.contentSchemaVersion >= 2
-        ? CONTENT_SCHEMA_V2_POLICY_ARTIFACTS
-        : []),
+      ...contentSourceArtifactNames(manifest.contentSchemaVersion),
     ];
     requiredArtifacts.forEach((name) => {
       if (!DIGEST_PATTERN.test(manifest.artifacts[name] ?? "")) {
@@ -379,6 +404,49 @@ const validateReviews = (reviews, errors) => {
   pushDuplicateErrors(reviewIds, "review id", errors);
 };
 
+const SOURCE_ARTIFACT_BINDINGS = [
+  {
+    name: "src/data/assessment.ts",
+    liveField: "runtimeAssessmentSourceText",
+    hashField: "assessmentSource",
+  },
+  {
+    name: "src/data/curriculum.ts",
+    liveField: "runtimeSourceText",
+    hashField: "runtimeSource",
+  },
+  {
+    name: "src/lib/exerciseGeneration.ts",
+    liveField: "runtimeExerciseGenerationSourceText",
+    hashField: "exerciseGenerationSource",
+  },
+  {
+    name: "src/server/attemptScoring.ts",
+    liveField: "runtimeAttemptScoringSourceText",
+    hashField: "attemptScoringSource",
+  },
+  {
+    name: "src/server/authoritativeItemBank.ts",
+    liveField: "runtimeAuthoritativeItemBankSourceText",
+    hashField: "authoritativeItemBankSource",
+  },
+  {
+    name: "src/server/lessonCompletionPolicy.ts",
+    liveField: "runtimeLessonCompletionPolicySourceText",
+    hashField: "lessonCompletionPolicySource",
+  },
+  {
+    name: "src/server/authoritativeAssessmentItemBank.ts",
+    liveField: "runtimeAuthoritativeAssessmentItemBankSourceText",
+    hashField: "authoritativeAssessmentItemBankSource",
+  },
+  {
+    name: "src/server/assessmentScoring.ts",
+    liveField: "runtimeAssessmentScoringSourceText",
+    hashField: "assessmentScoringSource",
+  },
+];
+
 export const validateContentBundle = async (bundle) => {
   const errors = [];
   const warnings = [];
@@ -386,40 +454,25 @@ export const validateContentBundle = async (bundle) => {
   const runtimeIdsHash = await sha256Json(bundle.runtimeIds);
   const coverageClaimsHash = await sha256Json(bundle.coverageClaims);
   const reviewsHash = await sha256Json(bundle.reviews);
-  const assessmentSourceHash =
-    typeof bundle.runtimeAssessmentSourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeAssessmentSourceText)
-      : null;
-  const runtimeSourceHash =
-    typeof bundle.runtimeSourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeSourceText)
-      : null;
-  const exerciseGenerationSourceHash =
-    typeof bundle.runtimeExerciseGenerationSourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeExerciseGenerationSourceText)
-      : null;
-  const attemptScoringSourceHash =
-    typeof bundle.runtimeAttemptScoringSourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeAttemptScoringSourceText)
-      : null;
-  const authoritativeItemBankSourceHash =
-    typeof bundle.runtimeAuthoritativeItemBankSourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeAuthoritativeItemBankSourceText)
-      : null;
-  const lessonCompletionPolicySourceHash =
-    typeof bundle.runtimeLessonCompletionPolicySourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeLessonCompletionPolicySourceText)
-      : null;
-  const authoritativeAssessmentItemBankSourceHash =
-    typeof bundle.runtimeAuthoritativeAssessmentItemBankSourceText === "string"
-      ? await sha256NormalizedText(
-        bundle.runtimeAuthoritativeAssessmentItemBankSourceText,
-      )
-      : null;
-  const assessmentScoringSourceHash =
-    typeof bundle.runtimeAssessmentScoringSourceText === "string"
-      ? await sha256NormalizedText(bundle.runtimeAssessmentScoringSourceText)
-      : null;
+  const immutableSourceTexts = isRecord(bundle.immutableSourceTexts)
+    ? bundle.immutableSourceTexts
+    : {};
+  const immutableSourceHashes = {};
+  const liveSourceHashes = {};
+  await Promise.all(
+    SOURCE_ARTIFACT_BINDINGS.map(async ({ name, liveField }) => {
+      const immutableText = immutableSourceTexts[name];
+      const liveText = bundle[liveField];
+      immutableSourceHashes[name] =
+        typeof immutableText === "string"
+          ? await sha256NormalizedText(immutableText)
+          : null;
+      liveSourceHashes[name] =
+        typeof liveText === "string"
+          ? await sha256NormalizedText(liveText)
+          : null;
+    }),
+  );
 
   validateRegistry(bundle.registry, bundle.registryEntry, errors);
   validateManifest(bundle.manifest, errors);
@@ -439,6 +492,21 @@ export const validateContentBundle = async (bundle) => {
   if (bundle.registryEntry?.packageId !== bundle.manifest?.packageId) {
     errors.push("Registry packageId does not match manifest");
   }
+  const selectedRegistryIndex = bundle.registry?.packages?.indexOf(bundle.registryEntry) ?? -1;
+  const parentManifestHash = bundle.manifest?.createdFromManifestSha256;
+  if (selectedRegistryIndex === 0 && parentManifestHash !== null) {
+    errors.push("The first registered package must not declare a parent manifest");
+  }
+  if (selectedRegistryIndex > 0) {
+    const parentRegistryIndex = bundle.registry.packages.findIndex(
+      (entry) => entry.manifestSha256 === parentManifestHash,
+    );
+    if (parentRegistryIndex < 0) {
+      errors.push("Package lineage parent manifest is not registered");
+    } else if (parentRegistryIndex >= selectedRegistryIndex) {
+      errors.push("Package lineage parent must precede the selected package");
+    }
+  }
   if (bundle.registryEntry?.manifestSha256 !== manifestHash) {
     errors.push("Registry manifest digest does not match immutable manifest bytes");
   }
@@ -448,40 +516,24 @@ export const validateContentBundle = async (bundle) => {
   if (bundle.manifest?.artifacts?.["coverage-claims.json"] !== coverageClaimsHash) {
     errors.push("coverage-claims.json digest does not match manifest");
   }
-  if (assessmentSourceHash === null) {
-    errors.push("Checked-in src/data/assessment.ts source is unavailable");
-  } else if (bundle.manifest?.artifacts?.["src/data/assessment.ts"] !== assessmentSourceHash) {
-    errors.push("src/data/assessment.ts digest does not match manifest");
-  }
-  if (runtimeSourceHash === null) {
-    errors.push("Checked-in src/data/curriculum.ts source is unavailable");
-  } else if (bundle.manifest?.artifacts?.["src/data/curriculum.ts"] !== runtimeSourceHash) {
-    errors.push("src/data/curriculum.ts digest does not match manifest");
-  }
-  const policySources = [
-    [
-      "src/lib/exerciseGeneration.ts",
-      exerciseGenerationSourceHash,
-    ],
-    ["src/server/attemptScoring.ts", attemptScoringSourceHash],
-    ["src/server/authoritativeItemBank.ts", authoritativeItemBankSourceHash],
-    ["src/server/lessonCompletionPolicy.ts", lessonCompletionPolicySourceHash],
-    ...(
-      bundle.manifest?.contentSchemaVersion >= 2
-        ? [
-            [
-              "src/server/authoritativeAssessmentItemBank.ts",
-              authoritativeAssessmentItemBankSourceHash,
-            ],
-            ["src/server/assessmentScoring.ts", assessmentScoringSourceHash],
-          ]
-        : []
-    ),
-  ];
-  policySources.forEach(([name, sourceHash]) => {
-    if (sourceHash === null) {
+  const requiredSourceArtifacts = contentSourceArtifactNames(
+    bundle.manifest?.contentSchemaVersion,
+  );
+  const isRuntimeBoundPackage =
+    bundle.registry?.currentContentVersion === version
+    || bundle.runtimeContentVersion === version;
+  requiredSourceArtifacts.forEach((name) => {
+    const immutableHash = immutableSourceHashes[name];
+    if (immutableHash === null) {
+      errors.push(`Immutable package snapshot for ${name} is unavailable`);
+    } else if (bundle.manifest?.artifacts?.[name] !== immutableHash) {
+      errors.push(`${name} snapshot digest does not match manifest`);
+    }
+    if (!isRuntimeBoundPackage) return;
+    const liveHash = liveSourceHashes[name];
+    if (liveHash === null) {
       errors.push(`Checked-in ${name} source is unavailable`);
-    } else if (bundle.manifest?.artifacts?.[name] !== sourceHash) {
+    } else if (bundle.manifest?.artifacts?.[name] !== liveHash) {
       errors.push(`${name} digest does not match manifest`);
     }
   });
@@ -518,15 +570,12 @@ export const validateContentBundle = async (bundle) => {
       runtimeIds: runtimeIdsHash,
       coverageClaims: coverageClaimsHash,
       reviews: reviewsHash,
-      assessmentSource: assessmentSourceHash,
-      runtimeSource: runtimeSourceHash,
-      exerciseGenerationSource: exerciseGenerationSourceHash,
-      attemptScoringSource: attemptScoringSourceHash,
-      authoritativeItemBankSource: authoritativeItemBankSourceHash,
-      lessonCompletionPolicySource: lessonCompletionPolicySourceHash,
-      authoritativeAssessmentItemBankSource:
-        authoritativeAssessmentItemBankSourceHash,
-      assessmentScoringSource: assessmentScoringSourceHash,
+      ...Object.fromEntries(
+        SOURCE_ARTIFACT_BINDINGS.map(({ name, hashField }) => [
+          hashField,
+          immutableSourceHashes[name],
+        ]),
+      ),
     },
   };
 };
