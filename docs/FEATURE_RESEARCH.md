@@ -52,18 +52,23 @@ HANZI.OS được định vị ở giao điểm của:
 
 | Miền | Foundation hiện có | Production cần bổ sung |
 | --- | --- | --- |
-| Onboarding | mục tiêu, căn cơ, thời lượng, script, placement test | item-adaptive placement, timezone, nhắc học |
+| Onboarding | mục tiêu, căn cơ, thời lượng, script và screening chưa hiệu chỉnh | placement được hiệu chỉnh, timezone, nhắc học |
 | Curriculum | path và lesson graph | authoring CMS, prerequisite engine, A/B curriculum |
 | Vocabulary | từ, pinyin, nghĩa, ví dụ | licensed dictionary, frequency corpus, collocation |
-| SRS | FSRS local, chỉ ôn mục đã kích hoạt, knowledge trace theo câu | cloud sync, optimizer toàn quần thể |
+| SRS | FSRS local cho anonymous; authenticated queue/grade authority phía server bind đúng card/word/version/reset/release/session, dùng scheduler không fuzz và durable outbox, không phát XP | xác minh hosted sync/operations và hiệu chỉnh optimizer bằng dữ liệu thực |
 | Pronunciation | TTS, browser ASR, tone pairs | pitch contour, phoneme alignment, native audio |
 | Hanzi | animation và quiz nét | radicals, etymology, handwriting scoring, traditional |
 | Reading | graded reader, tap lookup | audio sync, content pipeline, news/story catalog |
 | Speaking | recognition demo | scenario engine, AI roleplay, rubric, safety |
-| Assessment | placement, mastery gate, best score, sổ lỗi và tái kiểm tra | HSK mocks, item calibration, certificates |
-| Motivation | XP theo mastery, streak, adaptive missions, rank | leagues, guilds, seasons, anti-cheat, economy |
+| Assessment | screening local và đường server closed-alpha cho thống kê mô tả `k/n` + Wilson 95%, không routing/mastery | hosted verification, pilot, item calibration, HSK mocks có review, certificates |
+| Motivation | XP/streak/rank local là lớp hỗ trợ hành vi, không phải mastery evidence | leagues, guilds, seasons, anti-cheat, economy có ledger authority |
 | Commerce | plan placeholder | subscriptions, family, school, regional pricing |
-| Operations | static content | admin, CMS, moderation, support, experimentation |
+| Operations | registry/version/hash content, readiness matrix, health checks và restore rehearsal cục bộ cho 12 migration `0000`–`0011`/graph 25 bảng | hosted CI/alerts/backup-restore, admin, CMS, moderation, support, experimentation |
+
+“Hiện có” trong bảng chỉ mô tả mã nguồn và phạm vi regression cục bộ, không xác
+nhận một dịch vụ hosted đang hoạt động. Ứng viên `foundation-2026.07.3` chưa
+được promote, chưa có linguistic approval và không được tính là coverage đã
+phát hành.
 
 ## Nguyên tắc sản phẩm
 

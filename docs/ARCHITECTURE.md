@@ -2,7 +2,24 @@
 
 ## 1. Trạng thái hiện tại
 
-Foundation là React + TypeScript chạy trên Vinext/Vite và Cloudflare Worker, dùng local storage để chạy trọn luồng không cần backend. `ts-fsrs` phụ trách scheduling và `hanzi-writer` phụ trách animation/quiz nét.
+Foundation là React + TypeScript chạy trên Vinext/Vite và Cloudflare Worker.
+Luồng học vẫn local-first; localStorage giữ projection tương thích và IndexedDB
+giữ checkpoint/outbox theo từng chủ dữ liệu. Mã nguồn có đường đăng nhập
+ChatGPT và API cùng-origin dùng logical D1 binding, nhưng đường này chỉ trở
+thành dịch vụ đồng bộ khi D1/hosting đã được provision và xác minh. `ts-fsrs`
+phụ trách scheduling và `hanzi-writer` phụ trách animation/quiz nét.
+
+Phase 1 closed alpha triển khai repository D1 như đường khôi phục durable theo
+[ADR 0001](./adr/0001-d1-closed-alpha.md); D1 chỉ là nguồn vận hành sau khi môi
+trường hosted được provision và kiểm chứng. PostgreSQL trong sơ đồ dưới đây vẫn
+là đích production khi quy mô, transaction/event ingestion và vận hành vượt
+giới hạn closed alpha.
+
+Ứng viên nội dung hiện tại là `foundation-2026.07.3`. Package này đã bind bằng
+hash tới curriculum, item bank/scoring của lesson và assessment, nhưng vẫn là
+candidate chưa có content owner, license, native linguistic approval hay
+promotion. Vì vậy UI authenticated đã nối vào command/projection chuẩn hóa
+nhưng các thao tác mở session thật tiếp tục fail closed theo release policy.
 
 ## 2. Kiến trúc production đề xuất
 
@@ -58,6 +75,117 @@ Mọi activity và content phải versioned. Attempt luôn trỏ vào version đ
 
 Event được ghi append-only, có idempotency key và schema version. Read models phục vụ dashboard, recommendation và analytics.
 
+### Protocol đồng bộ Phase 1
+
+- Mỗi thiết bị có installation ID, device ID và sequence tăng đơn điệu.
+- Mọi mutation được ghi cục bộ trước, sau đó đưa vào IndexedDB outbox bằng operation ID ổn định; retry không tạo khóa mới.
+- API chỉ lấy user từ identity header phía máy chủ, kiểm tra owner, origin, request hash và unique `(user, device, sequence)`.
+- API chỉ nhận đúng content version đang được server phát hành. Snapshot legacy có thể được đối chiếu lại với item bank để kiểm tra, nhưng mọi kết quả từ `/api/sync` vẫn là `unverified` và không tạo mastery/knowledge; chỉ command attempt chuẩn hóa gắn với session phía server mới có thể trở thành evidence có thẩm quyền.
+- Snapshot legacy không bao giờ materialize lesson completion hoặc mở prerequisite, kể cả khi tự khai đủ đáp án đúng và một completion. Lesson session chuẩn hóa phải nộp đủ form server-issued, chứng minh owner, enrollment, content/activity version và exposure, đồng thời đạt gate/required-item policy trước khi projection server có thể công nhận hoàn thành.
+- Evidence/activity hợp nhất theo ID; profile và diagnostic dùng Lamport LWW; saved word dùng tombstone; reset dùng epoch.
+- Reset là command tường minh, phải tăng đúng một epoch trên revision hiện tại. Trạng thái local rỗng/hỏng không bao giờ được suy diễn thành reset.
+- Cloud canonicalization xóa XP/streak baseline, mistake aggregate và FSRS
+  schedule do client tự khai khỏi snapshot legacy. XP, mastery và lesson
+  progress chỉ được materialize từ ledger/command chuẩn hóa có thẩm quyền.
+  Authenticated Review dùng scheduler `ts-fsrs` phía server với fuzz tắt; replay
+  FSRS local tương thích cũng tắt fuzz nhưng không được nâng thành cloud
+  authority.
+- `speech-transcript` là local-only, bị loại trước khi tạo document và bị API từ chối nếu xuất hiện trong payload.
+- Revision/cursor dùng compare-and-swap trong D1 batch. Idempotency có lease xử lý, unique operation marker và response canonical để response bị mất có thể retry mà không nhân đôi cursor/evidence.
+- Mỗi chuyển owner tăng một generation lưu trong IndexedDB. Checkpoint, enqueue,
+  acknowledge và adoption đều đối chiếu generation trong chính transaction;
+  một tab cũ không thể ghi sống lại outbox/checkpoint của owner đã bị chuyển.
+- Trước khi nhập dữ liệu anonymous vào account, client luôn tải canonical account
+  revision/reset epoch. Dữ liệu anonymous được rebase lên epoch hiện tại, còn
+  checkpoint account thuộc epoch trước reset bị loại thay vì hồi sinh.
+- Server giữ bản đã commit khi evidence/activity trùng khóa, và giữ lịch sử
+  exposure qua mọi lần tái chấm. Thay ID rồi backdate không biến lượt lặp thành
+  mastery mới; retry idempotent trả canonical snapshot hiện tại, không trả lại
+  snapshot trước reset.
+- Khi chưa giải quyết được identity, UI chỉ mở offline nếu persisted owner được
+  chứng minh là anonymous. Cache account tiếp tục bị che để tránh lộ chéo user.
+- Bootstrap learning state chọn primary/recovery snapshot đúng một lần bằng
+  lazy initializer trước khi runtime đồng bộ khởi động. Snapshot primary hỏng
+  được quarantine thay vì âm thầm ghi đè bằng state mặc định; reset/import chỉ
+  thay state sau khi durable mutation đã commit, tránh mất tiến độ khi storage
+  hoặc enqueue thất bại.
+
+### Projection học tập chuẩn hóa Phase 2
+
+- `POST /api/learning/lesson-sessions`, `/attempts`, `/submit` và `/abandon`
+  ghi marker tối thiểu vào `sync_changes` trong cùng transaction với dữ liệu
+  normalized. Marker có reset epoch và không chứa selected answer hay answer key.
+- Reader authenticated dùng cùng objective-attempt boundary để máy chủ chấm
+  câu đọc hiểu. Vì chưa có reader session versioned để chứng minh support và
+  exposure, evidence này vẫn `masteryEligible: false`.
+- `POST /api/assessment/sessions`, `/attempts`, `/sessions/submit` và
+  `/sessions/abandon` quản lý form khảo sát riêng. Form chỉ được cấp từ item
+  server-confidential đủ điều kiện; client không gửi correctness, score,
+  answer key, routing hay mastery.
+- `GET /api/learning/projection` dựng read model theo authenticated tenant,
+  current reset epoch, exact manifest và active released enrollment. API trả form
+  đang dở không có đáp án, submitted lesson summaries và các đếm objective
+  evidence; nó không trả mastery probability, XP, streak hay tuyên bố HSK.
+- Media type V2 giữ nguyên projection V1 và bổ sung một active assessment
+  session không có learner response, answer key hay item-level outcome, cùng
+  aggregate assessment gần nhất. Aggregate chỉ gồm `k/n`, trạng thái quan sát và
+  khoảng Wilson 95%; nó luôn uncalibrated, `masteryEligible: false`, không định
+  tuyến và không mở prerequisite.
+- Projection chỉ đọc evidence có attempt verified tương ứng. Aggregate
+  `lesson-completion`, evidence không kiểm chứng và row từ reset epoch cũ không
+  được dùng cho mastery hoặc prerequisite.
+- Cursor chỉ là invalidation token của normalized read model. Reset epoch vẫn
+  là boundary độc lập; client phải bỏ cache nếu epoch khác ngay cả khi cursor
+  trùng.
+- Projection và resume client được lưu trong IndexedDB theo
+  `(ownerKey, resetEpoch, entryKey)` và mọi read/write/delete đều CAS owner
+  generation. Reset, adoption và account deletion purge derived cache thay vì
+  reassign nó sang owner khác.
+- Lesson và assessment UI authenticated có thể nhận active session từ projection
+  cache của đúng owner/reset/manifest để tiếp tục trên thiết bị khác. Adoption
+  không tạo open receipt giả; anchor được refresh theo cursor tăng đơn điệu và
+  tập attempt bất biến. Cursor lùi, attempt bị rút lại hoặc terminal dependency
+  đều bị từ chối.
+- Active session của content version lịch sử không làm cạn quota form của
+  current version. Endpoint abandonment vẫn có thể kết thúc một session cũ
+  thuộc đúng tenant/current reset epoch vì thao tác này không tạo mastery.
+- `GET/HEAD /api/learning/reviews` chỉ trả thẻ đến hạn thuộc đúng owner, reset
+  epoch, enrollment, content release, scheduler và lesson session kích hoạt đã
+  pass. `POST /api/learning/reviews/grade` bind chính xác queue offer vào
+  card/revision, word/version, reset epoch, release và activation session trước
+  khi server chạy `ts-fsrs` không fuzz.
+- Review grade ghi atomically card revision, attempt/evidence không kiểm chứng
+  và không đủ điều kiện mastery, review log, `review.graded`, sync marker và
+  idempotency receipt. Client ghi grade vào owner-scoped durable outbox trước
+  khi chuyển thẻ; cache queue chỉ hỗ trợ resume/preview và phải được server xác
+  nhận lại trước khi grade. Đường này không ghi XP.
+
+`AuthenticatedLessonPage`, Reader authenticated,
+`AuthenticatedAssessmentPage` và `AuthenticatedReviewPage` hiện dùng command
+outbox/projection hoặc queue chuẩn hóa; anonymous lesson/Reader/Review vẫn giữ
+local flow, còn anonymous assessment dùng `LocalAssessmentPage`. Snapshot
+`/api/sync` vẫn chỉ là compatibility projection. Lesson/Reader/assessment
+command có thể tạo kết quả server-scored theo policy của từng mode; Review/FSRS
+có queue/grade authority riêng. XP vẫn chưa có ledger authority và không được
+phục hồi từ aggregate do client tự khai.
+
+Account export schema v4 bao gồm graph assessment, Reader và Review/FSRS thuộc
+tenant nhưng không biến export thành answer-key endpoint; account deletion
+cascade toàn bộ graph đó. Restore rehearsal cục bộ áp dụng 12 migration
+`0000`–`0011`, khôi phục 25 bảng và kiểm tra checksum của form/response
+assessment cùng Reader. Migration
+`0008` thêm `assessment_sessions.terminal_reason`, ràng buộc terminal state bằng
+trigger và chuyển session `started` thuộc reset epoch cũ sang `abandoned` với lý
+do `reset-invalidated`; đây là sửa lỗi tránh hồi sinh persisted assessment
+state, không phải bằng chứng hosted restore. Migration `0009` bind FSRS card vào
+lesson session kích hoạt; migration `0010` chỉ cho card có activation authority
+tham gia unique key theo scheduler version và thêm insert/update trigger buộc
+outbox `review_log` khớp đúng owner, aggregate và reset epoch.
+Migration `0011` thêm Reader session/exposure/attempt graph versioned, khóa
+terminal transition và ràng buộc Reader outbox vào đúng owner/reset epoch.
+
+SIWC hiện chỉ cung cấp email đã xác thực và tên hiển thị cho ứng dụng. Vì chưa có immutable provider subject hoặc luồng liên kết danh tính được xác minh, thay đổi email có thể tạo một identity mới. Đây là giới hạn closed-alpha và là release blocker cho public account recovery; không được mô tả email hash hiện tại như một account ID bất biến.
+
 ## 6. Adaptive learning
 
 `NextBestAction` kết hợp:
@@ -72,7 +200,9 @@ Mô hình phải trả về reason code có thể giải thích cho người h�
 
 ## 7. Speech stack
 
-Foundation dùng Web Speech API và luôn có fallback vì `SpeechRecognition` chưa đạt Baseline trên mọi trình duyệt. Production nên dùng pipeline server:
+Foundation dùng Web Speech API và luôn có fallback vì `SpeechRecognition` chưa đạt Baseline trên mọi trình duyệt. Transcript/điểm khớp này chỉ ở thiết bị,
+`unverified` và mastery-ineligible. Adapter pipeline server vẫn tắt mặc định;
+production chỉ được cân nhắc sau khi có:
 
 1. Client ghi âm và xin consent.
 2. Voice activity detection và noise checks.
@@ -91,7 +221,50 @@ Foundation dùng Web Speech API và luôn có fallback vì `SpeechRecognition` c
 
 ## 9. Vận hành
 
-- Feature flags và experiment assignment ổn định.
-- Content quality dashboard: item difficulty, distractor health, error rate.
-- SLO, tracing, structured logging, replayable dead-letter queue.
-- CI gồm typecheck, unit, contract, accessibility, visual regression và load test.
+- `GET/HEAD /api/health/live` chỉ xác nhận process liveness; nó không chạm D1.
+  `GET/HEAD /api/health/ready` chỉ kiểm tra aggregate runtime + D1 schema
+  sentinel. Cả hai dùng server-generated request ID, `no-store`, `noindex` và
+  không lộ binding, migration hay release blocker.
+- Readiness failure ghi envelope allow-listed gồm event, request ID, status,
+  retryability và failure class. Monitoring sink, retention owner, alert routing
+  và SLO production chưa được cấu hình.
+- `config/production-readiness.json` là ma trận fail-closed cho đúng content
+  version. Chín gate về linguistic review, content activation, assessment
+  calibration, immutable identity/recovery, hosted restore, independent
+  security/privacy review, operational ownership/SLO/incident response,
+  load/accessibility/performance và Sites ownership/hosting đều đang `pending`;
+  `verify:production` fail closed với 23 blocker. Sites được để đến bước release
+  cuối và chưa được xác minh.
+- Destructive actions trong profile, lesson và assessment dùng dialog chung có
+  focus ban đầu, Tab trap, Escape, mô tả accessible và focus restore; không dùng
+  native `alert()`/`confirm()`.
+- Runtime client được lazy-load từ bootstrap shell. Khi module này chạy,
+  `LearningProvider` khôi phục persisted state trong lazy initializer trước khi
+  sync và route có gate bắt đầu dùng state; các route chính tiếp tục lazy-load.
+  Radiogroup hỗ trợ roving focus/Arrow/Home/End; smoke mobile kiểm tra focus
+  trap/restore, điều hướng bàn phím, reduced motion và không tràn ngang.
+- Service worker chờ `Promise.allSettled` của toàn bộ shell write trước khi dọn
+  cache lỗi, nên một task chậm không thể tạo lại partial cache sau cleanup. Đây
+  mới là local regression evidence; final hosted cache/header behavior vẫn phải
+  được kiểm tra lại.
+- Server outbox đã có event contract allow-listed, D1 lease/CAS lifecycle,
+  bounded retry, dead-letter transition và tenant-scoped replay primitive được
+  kiểm thử cục bộ. Runtime import của publisher/repository bị gate tắt vì dedupe
+  không tự giải quyết race reset/delete qua hệ thống: sink thật phải kiểm tra
+  authoritative account/reset epoch tại downstream commit hoặc read boundary.
+  Chưa có scheduler, sink/dedup, operator-authenticated replay surface hay hosted
+  delivery evidence, nên đây chưa phải event-delivery service đang vận hành.
+- `release:evidence` tạo manifest build hash và CycloneDX 1.5 SBOM có thể tái
+  lập. Chạy local mặc định chủ ý ghi `sourceRevision: null` và
+  `attestable: false`; production
+  evidence chỉ hợp lệ từ clean exact HEAD và khi mọi gate đã được phê duyệt cùng
+  bind source revision, content manifest và build digest.
+- Snapshot kỹ thuật local ngày 26/07/2026 qua 130 file/999 Vitest và 18/18 E2E.
+  Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 403.7 KiB; đây
+  không phải đo lường initial transfer thực tế. Ba Lighthouse cold-profile đạt
+  Performance 99/98/98, median P98/A100/BP100/SEO100, LCP 1,877 ms, CLS 0 và
+  TBT 94 ms.
+  `npm audit --omit=dev` báo 0; các số này không thay thế qualification hosted.
+- Feature flags, experiment assignment ổn định, content-quality dashboard,
+  central monitoring sink, accessibility/visual regression toàn diện và load
+  test vẫn là target tiếp theo, không phải trạng thái production hiện tại.

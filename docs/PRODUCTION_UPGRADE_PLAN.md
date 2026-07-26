@@ -287,8 +287,8 @@ response, load/accessibility/performance and the external release gates.
 Local verification passes 130 files/999 Vitest and 18/18 E2E. The conservative
 full-client-asset plus largest-hero ceiling is 403.7 KiB and is not an actual
 initial-transfer measurement. Three cold-profile Lighthouse runs score
-Performance 96/98/95, with medians P96/A100/BP100/SEO100, LCP 1,915 ms, CLS 0
-and TBT 185 ms; `npm audit --omit=dev` reports zero.
+Performance 99/98/98, with medians P98/A100/BP100/SEO100, LCP 1,877 ms, CLS 0
+and TBT 94 ms; `npm audit --omit=dev` reports zero.
 
 The local release-evidence workflow generates a reproducible artifact manifest
 and CycloneDX 1.5 SBOM. Its default invocation is deliberately unattestable

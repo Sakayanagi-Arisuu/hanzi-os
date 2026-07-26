@@ -1,6 +1,12 @@
-# Roadmap thương mại hóa
+# Chân trời thương mại hóa (tài liệu tham khảo)
 
-## Phase 0 - Foundation hiện tại
+Tài liệu này mô tả các chân trời sản phẩm dài hạn, không phải phase release có
+thẩm quyền. Tên phase cũ đã được bỏ để tránh xung đột với
+[`PRODUCTION_UPGRADE_PLAN.md`](./PRODUCTION_UPGRADE_PLAN.md), nguồn chuẩn cho
+chín workstream, dependency order và release gate. Không dùng danh sách dưới đây
+để mở nội dung, thêm commerce hay tuyên bố production.
+
+## Nền prototype
 
 - Design system và navigation sản phẩm.
 - Onboarding, local profile và dashboard.
@@ -8,7 +14,7 @@
 - FSRS review, speech demo, Hanzi Writer, reader, dictionary, analytics.
 - PRD, kiến trúc và content model.
 
-## Phase 1 - Closed alpha (8-12 tuần)
+## Chân trời A - Closed alpha (phủ Production Phase 1-2)
 
 - Auth, cloud sync và event ingestion.
 - Bootcamp + A0 hoàn chỉnh, 300-500 lexeme đã biên tập.
@@ -18,7 +24,7 @@
 
 **Cổng ra:** 100 người dùng học 14 ngày; review không mất dữ liệu; D7 đủ để đánh giá.
 
-## Phase 2 - Public beta (12-16 tuần)
+## Chân trời B - Public beta (Production Phase 3)
 
 - HSK sơ cấp, graded reader, placement và mock test đầu tiên.
 - Speech scoring server beta, shadowing và tone-pair lab.
@@ -27,7 +33,7 @@
 
 **Cổng ra:** retention, learning gain và willingness-to-pay đạt ngưỡng đã định trước.
 
-## Phase 3 - Product-market fit
+## Chân trời C - Product-market fit (Production Phase 4)
 
 - AI roleplay có rubric và safety.
 - Nội dung theo mục tiêu du lịch/công việc/du học.
@@ -35,7 +41,7 @@
 - Experimentation platform và recommendation v2.
 - iOS/Android nếu PWA không đáp ứng speech/offline.
 
-## Phase 4 - Platform
+## Chân trời D - Platform (sau khi Phase 4 có bằng chứng)
 
 - Teacher dashboard, classroom, assignment và institution reporting.
 - Author marketplace có review và revenue share.
