@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "lockfileVersion": 3,
+  "allowedRegistryOrigins": [
+    "https://registry.npmjs.org"
+  ],
+  "requiredIntegrityAlgorithm": "sha512",
+  "installScriptAllowlist": [
+    {
+      "packagePath": "node_modules/@esbuild-kit/core-utils/node_modules/esbuild",
+      "version": "0.18.20",
+      "integrity": "sha512-ceqxoedUrcayh7Y7ZX6NdbbDzGROiyVBgC4PriJThBKSVPWnnFHZAkfI1lJT8QFkOwH4qOS2SJkS4wvpGl8BpA=="
+    },
+    {
+      "packagePath": "node_modules/drizzle-kit/node_modules/esbuild",
+      "version": "0.25.12",
+      "integrity": "sha512-bbPBYYrtZbkt6Os6FiTLCTFxvq4tt3JKall1vRwshA3fdVztsLAatFaZobhkBC8/BrPetoa0oksYoKXoG4ryJg=="
+    },
+    {
+      "packagePath": "node_modules/esbuild",
+      "version": "0.28.1",
+      "integrity": "sha512-HrJrvZv5ayxBzPfwphOoNzkzOIIlifzk0KJrGK2c8R4+LKpMtpYLQeUdjnwjWv/LZlkH2laZk+4w78pi99D4Vw=="
+    },
+    {
+      "packagePath": "node_modules/fsevents",
+      "version": "2.3.3",
+      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw=="
+    },
+    {
+      "packagePath": "node_modules/playwright/node_modules/fsevents",
+      "version": "2.3.2",
+      "integrity": "sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA=="
+    },
+    {
+      "packagePath": "node_modules/workerd",
+      "version": "1.20260714.1",
+      "integrity": "sha512-oIbQzfdyl9UQUnG6XLegcSq0Mgt/7WKDbFOoqGgOWCS+/fhyGB460uKEgdAQQ9RHCO/ttcNCX/KiMIQzdoeu3Q=="
+    }
+  ]
+}
