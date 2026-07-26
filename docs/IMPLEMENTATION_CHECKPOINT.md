@@ -11,6 +11,9 @@ This is a local engineering checkpoint, not production release evidence.
 - This branch contains a reviewed local engineering checkpoint split into
   auditable commits. No release tag, saved Sites version, deployment or
   production evidence was created.
+- Commit boundaries organize the reconstructed worktree by dependency layer
+  for review; intermediate commits are not a green-bisect guarantee. The full
+  verification below applies to the complete branch tip.
 - The committed source contains technical slices mapped to Phases 0-3; it does
   not satisfy any phase exit criterion.
 - Phase 4, commerce, reviewed A0/HSK coverage, pilot evidence, hosted
