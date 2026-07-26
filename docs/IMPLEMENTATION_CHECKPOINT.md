@@ -45,13 +45,22 @@ This is a local engineering checkpoint, not production release evidence.
   wording.
 - Reset E2E proves the injected cache and response are removed while allowing
   the active service worker to recreate public offline asset caches.
-- All three registered content packages now retain exact immutable source
+- All four registered content packages now retain exact immutable source
   snapshots, so historical validation no longer depends on mutable HEAD files.
 - The mandatory content gate validates every registry entry and lineage edge;
   runtime-bound candidates also fail on live-source drift.
 - Content mutations serialize through a repository lock, new versions validate
   the existing history before staged rename, and reviews cannot be appended
   after publication.
+- `foundation-2026.07.4` is the first schema-v3 item catalog. Runtime reads its
+  49 canonical payloads directly; item/runtime inventory is bijective, review
+  scopes name exact targets and coverage paths must be closed and reachable.
+- Release counts use distinct reviewed payloads, not raw IDs. Empty graded
+  texts, duplicate payload IDs, boolean-only audio, incomplete A0 graphs,
+  relabeled HSK paths and production that skips closed-alpha gates all fail
+  closed.
+- The candidate has no owner/license, scoped approval, coverage claim or audio;
+  24 cataloged lexemes therefore count as 0 reviewed lexemes.
 
 ## Local verification
 
@@ -63,15 +72,15 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 131 files, 1,008 tests passed
+  - Vitest: 131 files, 1,021 tests passed
   - production build and bundle policy passed
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 97 / 98, median 98
+  - Performance: 99 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,909 ms; CLS: 0; TBT: 98 ms
+  - Median LCP: 1,872 ms; CLS: 0; TBT: 92 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -90,21 +99,23 @@ commit claim.
 - production load, accessibility and performance qualification;
 - Sites ownership and production deployment verification.
 
-The production content channel separately remains blocked by 11 release
-requirements. Local tests cannot close any of these human, pilot, hosted or
-ownership gates.
+The production content channel separately remains blocked by 10 policy
+requirements plus registry activation. Local tests cannot close any of these
+human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Continue Phase 2 at WS2 only with item-level authoring envelopes: immutable
-   payload/version hashes, owner/license attribution, typed prerequisites and
-   scoped review state.
-3. Replace count-only A0/audio eligibility with reviewed item inventory and a
-   reachable evidence-backed coverage graph.
-4. Obtain attributable owner, license and native linguistic review evidence,
-   then run pilot/calibration work before making assessment or coverage claims.
-5. Leave Sites ownership, saved version and deployment until the final release
+2. Continue Phase 2 at WS2 only by adding first-class grammar, pronunciation,
+   character and communicative-function items with authored prerequisites.
+3. Add a sanitized runtime projection and an immutable audio importer with
+   codec, duration, transcript-alignment and rights checks; do not expose
+   governance references in the client bundle.
+4. Build the multi-user editorial assignment/review dashboard, then obtain
+   attributable owner, license and native linguistic review evidence.
+5. Only after those gates, expand a reviewed A0 inventory and run
+   pilot/calibration work before making assessment or coverage claims.
+6. Leave Sites ownership, saved version and deployment until the final release
    step.
 
 Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use

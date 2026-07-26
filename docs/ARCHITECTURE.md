@@ -15,14 +15,21 @@ trường hosted được provision và kiểm chứng. PostgreSQL trong sơ đ�
 là đích production khi quy mô, transaction/event ingestion và vận hành vượt
 giới hạn closed alpha.
 
-Ứng viên nội dung hiện tại là `foundation-2026.07.3`. Package này đã bind bằng
-hash tới snapshot bất biến của curriculum, item bank/scoring của lesson và
-assessment. Validator kiểm toàn registry từ snapshot riêng của từng version và
-so mutable runtime source với package hiện hành hoặc candidate runtime-bound.
-Package vẫn là candidate
-chưa có content owner, license, native linguistic approval hay promotion. Vì
-vậy UI authenticated đã nối vào command/projection chuẩn hóa nhưng các thao tác
-mở session thật tiếp tục fail closed theo release policy.
+Ứng viên nội dung hiện tại là `foundation-2026.07.4`, content schema v3.
+Runtime curriculum đọc 49 payload trực tiếp từ `item-catalog.json`; manifest
+bind catalog, runtime ID graph, coverage envelope và snapshot bất biến của item
+bank/scoring lesson + assessment. Mỗi lexeme, lesson và graded text có item
+version, canonical payload hash, release state, owner/license slot và
+prerequisite mapping slot. Validator kiểm toàn registry từ snapshot riêng của
+từng version, so mutable runtime source với package runtime-bound và từ chối
+catalog/runtime graph lệch nhau.
+
+Package vẫn là candidate: owner/license đều rỗng, review envelope v2 không có
+approval, coverage envelope v2 không có claim, audio catalog rỗng và chưa có
+promotion. Bởi vậy 24 lexeme hiện hữu vẫn đóng góp **0 reviewed lexeme** vào
+release gate. Grammar, pronunciation, character, communicative-function
+envelope và đường import audio bất biến chưa được triển khai; không được suy
+diễn rằng WS2 hoặc A0 đã hoàn tất.
 
 ## 2. Kiến trúc production đề xuất
 

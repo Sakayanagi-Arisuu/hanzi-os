@@ -9,7 +9,7 @@ import {
   unlinkSync,
   writeFileSync,
 } from "node:fs";
-import { randomUUID } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -98,6 +98,33 @@ const readImmutableSourceTexts = (packageDirectory, contentSchemaVersion) =>
     ]),
   );
 
+const readItemCatalog = (packageDirectory, contentSchemaVersion) =>
+  contentSchemaVersion >= 3
+    ? readJson(join(packageDirectory, "item-catalog.json"))
+    : null;
+
+const packageLocalPath = (packageDirectory, relativePath) => {
+  if (typeof relativePath !== "string") return null;
+  const path = resolve(packageDirectory, relativePath);
+  const relativeToPackage = relative(packageDirectory, path);
+  if (isAbsolute(relativeToPackage) || relativeToPackage.startsWith("..")) {
+    return null;
+  }
+  return path;
+};
+
+const readAudioAssetFileHashes = (packageDirectory, itemCatalog) =>
+  Object.fromEntries(
+    (itemCatalog?.audioAssets ?? []).map((asset) => {
+      const path = packageLocalPath(packageDirectory, asset?.fileRef);
+      const hash =
+        path !== null && existsSync(path)
+          ? `sha256:${createHash("sha256").update(readFileSync(path)).digest("hex")}`
+          : null;
+      return [asset?.fileRef ?? "", hash];
+    }),
+  );
+
 const liveSourceTextsFromBundle = (bundle) => ({
   "src/data/assessment.ts": bundle.runtimeAssessmentSourceText,
   "src/data/curriculum.ts": bundle.runtimeSourceText,
@@ -167,10 +194,22 @@ const readRuntimeContentVersion = () => {
 
 const readCurriculumContentVersion = (sourceText) => {
   if (typeof sourceText !== "string") return null;
-  const match = sourceText.match(
-    /export const CONTENT_VERSION = "([a-zA-Z0-9][a-zA-Z0-9._-]*)";/u,
-  );
-  return match?.[1] ?? null;
+  const matches = [
+    ...sourceText.matchAll(
+      /^export const CONTENT_VERSION = "([a-zA-Z0-9][a-zA-Z0-9._-]*)";$/gmu,
+    ),
+  ];
+  return matches.length === 1 ? matches[0][1] : null;
+};
+
+const readCurriculumCatalogVersion = (sourceText) => {
+  if (typeof sourceText !== "string") return null;
+  const matches = [
+    ...sourceText.matchAll(
+      /^import itemCatalogJson from "\.\.\/\.\.\/content\/packages\/([a-zA-Z0-9][a-zA-Z0-9._-]*)\/item-catalog\.json";$/gmu,
+    ),
+  ];
+  return matches.length === 1 ? matches[0][1] : null;
 };
 
 export const loadContentBundle = (requestedVersion) => {
@@ -181,6 +220,10 @@ export const loadContentBundle = (requestedVersion) => {
   if (!registryEntry) throw new Error(`Content version is not registered: ${version}`);
   const packageDirectory = resolvePackageDirectory(registryEntry.relativePath);
   const manifest = readJson(join(packageDirectory, "manifest.json"));
+  const itemCatalog = readItemCatalog(
+    packageDirectory,
+    manifest.contentSchemaVersion,
+  );
   const liveSourceTexts = readLiveSourceTexts();
   return {
     packageDirectory,
@@ -189,8 +232,13 @@ export const loadContentBundle = (requestedVersion) => {
       registryEntry,
       manifest,
       runtimeIds: readJson(join(packageDirectory, "runtime-ids.json")),
+      itemCatalog,
       coverageClaims: readJson(join(packageDirectory, "coverage-claims.json")),
       reviews: readJson(join(packageDirectory, "reviews.json")),
+      audioAssetFileHashes: readAudioAssetFileHashes(
+        packageDirectory,
+        itemCatalog,
+      ),
       immutableSourceTexts: readImmutableSourceTexts(
         packageDirectory,
         manifest.contentSchemaVersion,
@@ -262,6 +310,7 @@ const parseArguments = (args) => {
       continue;
     }
     const name = argument.slice(2);
+    if (flags.has(name)) throw new Error(`Duplicate flag: --${name}`);
     if (name === "write" || name === "all") {
       flags.set(name, true);
       continue;
@@ -274,12 +323,47 @@ const parseArguments = (args) => {
   return { positional, flags };
 };
 
+const assertCommandShape = (
+  positional,
+  flags,
+  { minPositionals = 0, maxPositionals = 0, allowedFlags = [] } = {},
+) => {
+  if (
+    positional.length < minPositionals
+    || positional.length > maxPositionals
+  ) {
+    const expected =
+      minPositionals === maxPositionals
+        ? String(minPositionals)
+        : `${minPositionals}-${maxPositionals}`;
+    throw new Error(`Expected ${expected} positional argument(s)`);
+  }
+  const allowed = new Set(allowedFlags);
+  [...flags.keys()].forEach((name) => {
+    if (!allowed.has(name)) throw new Error(`Unknown flag: --${name}`);
+  });
+};
+
 const requiredFlag = (flags, name) => {
   const value = flags.get(name);
   if (typeof value !== "string" || value.trim().length === 0) {
     throw new Error(`--${name} is required`);
   }
   return value;
+};
+
+const requireCanonicalTimestamp = (
+  value,
+  label,
+  { allowFuture = true } = {},
+) => {
+  const epoch = Date.parse(value);
+  if (Number.isNaN(epoch) || new Date(epoch).toISOString() !== value) {
+    throw new Error(`${label} must be a canonical UTC ISO timestamp`);
+  }
+  if (!allowFuture && epoch > Date.now() + 5 * 60 * 1000) {
+    throw new Error(`${label} cannot be in the future`);
+  }
 };
 
 const releaseChannel = (flags, { required = false } = {}) => {
@@ -320,6 +404,11 @@ const printValidation = (version, validation) => {
 
 const validateCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 0,
+    maxPositionals: 1,
+    allowedFlags: ["all"],
+  });
   const validateAll = flags.get("all") === true || positional.length === 0;
   if (validateAll) {
     if (positional.length > 0) {
@@ -363,7 +452,11 @@ const validateCommand = async (args) => {
 };
 
 const hashCommand = async (args) => {
-  const { positional } = parseArguments(args);
+  const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 0,
+    maxPositionals: 1,
+  });
   const { bundle } = loadContentBundle(positional[0]);
   const immutableHash = async (name) => {
     const text = bundle.immutableSourceTexts[name];
@@ -372,6 +465,8 @@ const hashCommand = async (args) => {
   const hashes = {
     manifest: await sha256Json(bundle.manifest),
     runtimeIds: await sha256Json(bundle.runtimeIds),
+    itemCatalog:
+      bundle.itemCatalog === null ? null : await sha256Json(bundle.itemCatalog),
     coverageClaims: await sha256Json(bundle.coverageClaims),
     reviews: await sha256Json(bundle.reviews),
     assessmentSource: await immutableHash("src/data/assessment.ts"),
@@ -398,7 +493,11 @@ const hashCommand = async (args) => {
 };
 
 const reportCommand = async (args) => {
-  const { positional } = parseArguments(args);
+  const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 0,
+    maxPositionals: 1,
+  });
   const { bundle } = loadContentBundle(positional[0]);
   const validation = await validateContentBundle(bundle);
   const closedAlpha = assessClosedAlphaEligibility(bundle, validation);
@@ -412,11 +511,29 @@ const reportCommand = async (args) => {
         closedAlphaEligible: bundle.registryEntry.closedAlphaEligible,
         productionEligible: bundle.registryEntry.productionEligible,
         inventory: {
-          vocabularyIds: bundle.runtimeIds.vocabularyIds.length,
-          unitIds: bundle.runtimeIds.unitIds.length,
-          lessons: bundle.runtimeIds.lessons.length,
-          stories: bundle.runtimeIds.stories.length,
-          coverageClaims: bundle.coverageClaims.coverageClaims.length,
+          vocabularyIds: Array.isArray(bundle.runtimeIds?.vocabularyIds)
+            ? bundle.runtimeIds.vocabularyIds.length
+            : 0,
+          unitIds: Array.isArray(bundle.runtimeIds?.unitIds)
+            ? bundle.runtimeIds.unitIds.length
+            : 0,
+          lessons: Array.isArray(bundle.runtimeIds?.lessons)
+            ? bundle.runtimeIds.lessons.length
+            : 0,
+          stories: Array.isArray(bundle.runtimeIds?.stories)
+            ? bundle.runtimeIds.stories.length
+            : 0,
+          coverageClaims: Array.isArray(
+            bundle.coverageClaims?.coverageClaims,
+          )
+            ? bundle.coverageClaims.coverageClaims.length
+            : 0,
+          catalogItems: Array.isArray(bundle.itemCatalog?.items)
+            ? bundle.itemCatalog.items.length
+            : 0,
+          catalogAudioAssets: Array.isArray(bundle.itemCatalog?.audioAssets)
+            ? bundle.itemCatalog.audioAssets.length
+            : 0,
         },
         validation,
         releaseAssessments: { closedAlpha, production },
@@ -430,6 +547,11 @@ const reportCommand = async (args) => {
 
 const verifyReleaseCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 0,
+    maxPositionals: 1,
+    allowedFlags: ["channel"],
+  });
   const { bundle } = loadContentBundle(positional[0]);
   const validation = await validateContentBundle(bundle);
   const channel = releaseChannel(flags);
@@ -463,6 +585,21 @@ const verifyReleaseCommand = async (args) => {
 
 const submitReviewCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 1,
+    maxPositionals: 1,
+    allowedFlags: [
+      "write",
+      "manifest-sha256",
+      "review-id",
+      "role",
+      "decision",
+      "reviewer-id",
+      "reviewed-at",
+      "evidence-ref",
+      "scope-file",
+    ],
+  });
   requireWrite(flags);
   return withContentWriteLock(async () => {
   const { bundle, packageDirectory } = loadContentBundle(positional[0]);
@@ -498,8 +635,28 @@ const submitReviewCommand = async (args) => {
   if (!REVIEW_DECISIONS.has(decision)) throw new Error(`Unsupported decision: ${decision}`);
   const reviewerId = requiredFlag(flags, "reviewer-id");
   const reviewedAt = requiredFlag(flags, "reviewed-at");
-  if (Number.isNaN(Date.parse(reviewedAt))) throw new Error("--reviewed-at must be an ISO date");
+  requireCanonicalTimestamp(reviewedAt, "--reviewed-at", {
+    allowFuture: false,
+  });
   const evidenceRef = requiredFlag(flags, "evidence-ref");
+  const scopeInput = flags.get("scope-file");
+  if (bundle.manifest.contentSchemaVersion >= 3 && typeof scopeInput !== "string") {
+    throw new Error("Schema-v3 reviews require --scope-file with explicit item/audio targets");
+  }
+  if (bundle.manifest.contentSchemaVersion < 3 && scopeInput !== undefined) {
+    throw new Error("--scope-file is only supported for schema-v3 packages");
+  }
+  const scope =
+    typeof scopeInput === "string"
+      ? (() => {
+          const input = readRepositoryJsonInput(scopeInput, "--scope-file");
+          return {
+            itemCatalogSha256: validation.hashes.itemCatalog,
+            itemKeys: input.itemKeys,
+            audioAssetIds: input.audioAssetIds ?? [],
+          };
+        })()
+      : undefined;
 
   const nextReviews = {
     ...bundle.reviews,
@@ -513,9 +670,19 @@ const submitReviewCommand = async (args) => {
         reviewedAt,
         evidenceRef,
         packageManifestSha256: validation.hashes.manifest,
+        ...(scope === undefined ? {} : { scope }),
       },
     ],
   };
+  const nextValidation = await validateContentBundle({
+    ...bundle,
+    reviews: nextReviews,
+  });
+  if (nextValidation.errors.length > 0) {
+    throw new Error(
+      `Refusing an invalid review scope:\n${nextValidation.errors.join("\n")}`,
+    );
+  }
   writeJsonAtomic(join(packageDirectory, "reviews.json"), nextReviews);
   console.log(`Recorded ${decision} review ${reviewId} for ${validation.hashes.manifest}`);
   return 0;
@@ -528,13 +695,36 @@ const cleanupNewPackage = (directory) => {
 
 const newVersionCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 1,
+    maxPositionals: 1,
+    allowedFlags: [
+      "write",
+      "from",
+      "created-at",
+      "audience",
+      "owner-id",
+      "owner-evidence",
+      "license-id",
+      "license-evidence",
+      "includes-audio",
+      "audio-owner-id",
+      "audio-license-id",
+      "audio-evidence",
+      "runtime-ids-file",
+      "confirm-runtime-ids-unchanged",
+      "coverage-claims-file",
+      "content-schema-version",
+      "item-catalog-file",
+    ],
+  });
   requireWrite(flags);
   return withContentWriteLock(async () => {
   const newVersion = positional[0];
   assertPackageId(newVersion, "new content version");
   const fromVersion = requiredFlag(flags, "from");
   const createdAt = requiredFlag(flags, "created-at");
-  if (Number.isNaN(Date.parse(createdAt))) throw new Error("--created-at must be an ISO date");
+  requireCanonicalTimestamp(createdAt, "--created-at");
   const audience = flags.get("audience") ?? "closed-alpha";
   if (!["closed-alpha", "public"].includes(audience)) {
     throw new Error("--audience must be closed-alpha or public");
@@ -568,6 +758,17 @@ const newVersionCommand = async (args) => {
   }
 
   const { bundle: sourceBundle } = loadContentBundle(fromVersion);
+  const requestedContentSchemaVersion = flags.get("content-schema-version");
+  const contentSchemaVersion =
+    requestedContentSchemaVersion === undefined
+      ? Math.max(sourceBundle.manifest.contentSchemaVersion, 2)
+      : Number(requestedContentSchemaVersion);
+  if (!Number.isInteger(contentSchemaVersion) || ![2, 3].includes(contentSchemaVersion)) {
+    throw new Error("--content-schema-version must be 2 or 3");
+  }
+  if (contentSchemaVersion < sourceBundle.manifest.contentSchemaVersion) {
+    throw new Error("A new package cannot downgrade contentSchemaVersion");
+  }
   if (sourceBundle.registry.currentContentVersion !== fromVersion) {
     throw new Error("New versions must branch from registry.currentContentVersion");
   }
@@ -606,6 +807,15 @@ const newVersionCommand = async (args) => {
   ) {
     throw new Error(
       `Update src/data/curriculum.ts CONTENT_VERSION to ${newVersion} before creating the package`,
+    );
+  }
+  if (
+    contentSchemaVersion >= 3
+    && readCurriculumCatalogVersion(liveSourceTexts["src/data/curriculum.ts"])
+      !== newVersion
+  ) {
+    throw new Error(
+      `Bind src/data/curriculum.ts to content/packages/${newVersion}/item-catalog.json before creating the package`,
     );
   }
   const liveRuntimeSourceHash =
@@ -672,20 +882,44 @@ const newVersionCommand = async (args) => {
       ? readRepositoryJsonInput(runtimeIdsInput, "--runtime-ids-file")
       : sourceBundle.runtimeIds;
   const runtimeIds = { ...runtimeIdsSource, contentVersion: newVersion };
+  const itemCatalogInput = flags.get("item-catalog-file");
+  if (contentSchemaVersion >= 3 && typeof itemCatalogInput !== "string") {
+    throw new Error("Schema-v3 packages require --item-catalog-file");
+  }
+  if (contentSchemaVersion < 3 && itemCatalogInput !== undefined) {
+    throw new Error("--item-catalog-file requires --content-schema-version 3");
+  }
+  const itemCatalog =
+    typeof itemCatalogInput === "string"
+      ? readRepositoryJsonInput(itemCatalogInput, "--item-catalog-file")
+      : null;
+  if (itemCatalog !== null && itemCatalog.contentVersion !== newVersion) {
+    throw new Error("--item-catalog-file contentVersion must equal the new version");
+  }
+  if ((itemCatalog?.audioAssets?.length ?? 0) > 0) {
+    throw new Error(
+      "Audio asset import is not implemented by new-version; refusing to create dangling catalog files",
+    );
+  }
+  const itemCatalogHash =
+    itemCatalog === null ? null : await sha256Json(itemCatalog);
   const coverageClaimsInput = flags.get("coverage-claims-file");
   const coverageClaimsSource =
     typeof coverageClaimsInput === "string"
       ? readRepositoryJsonInput(coverageClaimsInput, "--coverage-claims-file")
-      : { schemaVersion: 1, coverageClaims: [] };
+      : contentSchemaVersion >= 3
+        ? {
+            schemaVersion: 2,
+            itemCatalogSha256: itemCatalogHash,
+            coverageClaims: [],
+          }
+        : { schemaVersion: 1, coverageClaims: [] };
   const coverageClaims = { ...coverageClaimsSource, contentVersion: newVersion };
   const manifest = {
     schemaVersion: 1,
     packageId: newVersion,
     contentVersion: newVersion,
-    contentSchemaVersion: Math.max(
-      sourceBundle.manifest.contentSchemaVersion,
-      2,
-    ),
+    contentSchemaVersion,
     audience,
     lifecycle: "candidate",
     createdAt,
@@ -693,6 +927,9 @@ const newVersionCommand = async (args) => {
     artifacts: {
       "coverage-claims.json": await sha256Json(coverageClaims),
       "runtime-ids.json": await sha256Json(runtimeIds),
+      ...(itemCatalogHash === null
+        ? {}
+        : { "item-catalog.json": itemCatalogHash }),
       "src/data/assessment.ts": await sha256NormalizedText(
         sourceBundle.runtimeAssessmentSourceText,
       ),
@@ -743,9 +980,12 @@ const newVersionCommand = async (args) => {
   };
   const manifestHash = await sha256Json(manifest);
   const reviews = {
-    schemaVersion: 1,
+    schemaVersion: contentSchemaVersion >= 3 ? 2 : 1,
     contentVersion: newVersion,
     packageManifestSha256: manifestHash,
+    ...(itemCatalogHash === null
+      ? {}
+      : { itemCatalogSha256: itemCatalogHash }),
     reviews: [],
   };
   const nextRegistry = {
@@ -772,8 +1012,10 @@ const newVersionCommand = async (args) => {
     registryEntry: nextRegistryEntry,
     manifest,
     runtimeIds,
+    itemCatalog,
     coverageClaims,
     reviews,
+    audioAssetFileHashes: {},
     immutableSourceTexts: liveSourceTexts,
     runtimeContentVersion: readRuntimeContentVersion(),
     runtimeAssessmentSourceText: sourceBundle.runtimeAssessmentSourceText,
@@ -798,6 +1040,13 @@ const newVersionCommand = async (args) => {
   try {
     writeFileSync(join(temporaryDirectory, "manifest.json"), formatJson(manifest), "utf8");
     writeFileSync(join(temporaryDirectory, "runtime-ids.json"), formatJson(runtimeIds), "utf8");
+    if (itemCatalog !== null) {
+      writeFileSync(
+        join(temporaryDirectory, "item-catalog.json"),
+        formatJson(itemCatalog),
+        "utf8",
+      );
+    }
     writeFileSync(
       join(temporaryDirectory, "coverage-claims.json"),
       formatJson(coverageClaims),
@@ -829,6 +1078,11 @@ const newVersionCommand = async (args) => {
 
 const promoteCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 1,
+    maxPositionals: 1,
+    allowedFlags: ["write", "channel", "actor-id", "promoted-at"],
+  });
   const executePromotion = async () => {
   const { bundle } = loadContentBundle(positional[0]);
   const validation = await validateContentBundle(bundle);
@@ -851,7 +1105,7 @@ const promoteCommand = async (args) => {
   requireWrite(flags);
   const actorId = requiredFlag(flags, "actor-id");
   const promotedAt = requiredFlag(flags, "promoted-at");
-  if (Number.isNaN(Date.parse(promotedAt))) throw new Error("--promoted-at must be an ISO date");
+  requireCanonicalTimestamp(promotedAt, "--promoted-at");
 
   const nextEntry = {
     ...bundle.registryEntry,

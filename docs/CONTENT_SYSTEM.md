@@ -4,6 +4,22 @@
 
 Nội dung không được lưu như HTML tự do. Mỗi đơn vị phải có metadata để tái sử dụng trong lesson, SRS, reader, dictionary, assessment và AI tutor.
 
+## Lát triển khai hiện tại
+
+`foundation-2026.07.4` là package schema v3 đầu tiên. Runtime đọc payload
+lexeme, lesson và graded text trực tiếp từ catalog bất biến; từng item có
+canonical payload hash, item version, release state, owner/license slot và
+typed prerequisite slot. Review không được tự khai trong catalog mà được suy
+ra từ review envelope bind exact manifest + explicit item keys. Coverage claim
+phải nêu item scope, entry lessons và terminal lessons; gate kiểm prerequisite
+closure, root/sink, reachability và lexeme membership.
+
+Đây mới là authoring envelope kỹ thuật, chưa phải CMS hoàn chỉnh. 49 item hiện
+có chưa có owner/license hay approval; không có claim A0/HSK và không có audio.
+Grammar pattern, pronunciation target, character và communicative function
+chưa phải item type độc lập. Audio import/codec/alignment cũng chưa có workflow
+khả đạt, nên production tiếp tục fail closed.
+
 ## Knowledge item
 
 ### Lexeme

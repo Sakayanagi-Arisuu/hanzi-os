@@ -258,11 +258,20 @@ the client durably queues grades, and the resulting attempt/evidence stays
 unverified, mastery-ineligible and XP-free. Export schema v4, account deletion,
 reset invalidation with an explicit terminal reason and the restore rehearsal
 cover the assessment and Review/FSRS graphs. Candidate
-`foundation-2026.07.3` hashes the lesson and assessment item/scoring policies.
-Every registered package now retains exact source snapshots, historical
-validation no longer reads mutable HEAD source, and the mandatory content gate
-validates all registry entries plus lineage. The candidate remains unpromoted
-with zero coverage claims, no owner/license and no native review. The real
+`foundation-2026.07.4` adds a schema-v3 item catalog: 49 runtime payloads have
+canonical hashes, item versions, release state, owner/license slots and typed
+lesson prerequisites. Runtime reads the immutable catalog directly; review and
+coverage envelopes bind explicit item/path scopes, and release thresholds count
+only distinct, released, exact-scoped-reviewed payloads. Count padding, empty
+graded texts, boolean-only audio and relabeled HSK paths fail closed. Every
+registered package retains exact source snapshots, historical validation no
+longer reads mutable HEAD source, and the mandatory content gate validates all
+registry entries plus lineage.
+
+This remains a technical authoring envelope, not completed WS2. The candidate
+is unpromoted with zero coverage claims, no owner/license/native review and no
+audio. Grammar, pronunciation, character and communicative-function items,
+audio import/alignment and a multi-user CMS are still absent. The real
 assessment bank therefore remains unissuable. No pilot,
 calibration, item-quality dashboard, native audio, provider speech pipeline or
 100-person alpha evidence exists; the speech adapter stays disabled and
@@ -287,11 +296,11 @@ fail-closed PWA shell installation, accessible destructive dialogs, aggregate
 `/api/health/live` and `/api/health/ready` endpoints, and a nine-gate readiness
 manifest that requires attributable evidence for operations, SLO/incident
 response, load/accessibility/performance and the external release gates.
-Local verification passes 131 files/1,008 Vitest and 18/18 E2E. The conservative
-full-client-asset plus largest-hero ceiling is 403.7 KiB and is not an actual
+Local verification passes 131 files/1,021 Vitest and 18/18 E2E. The conservative
+full-client-asset plus largest-hero ceiling is 406.2 KiB and is not an actual
 initial-transfer measurement. Three cold-profile Lighthouse runs score
-Performance 98/97/98, with medians P98/A100/BP100/SEO100, LCP 1,909 ms, CLS 0
-and TBT 98 ms; `npm audit --omit=dev` reports zero.
+Performance 99/98/98, with medians P98/A100/BP100/SEO100, LCP 1,872 ms, CLS 0
+and TBT 92 ms; `npm audit --omit=dev` reports zero.
 
 The local release-evidence workflow generates a reproducible artifact manifest
 and CycloneDX 1.5 SBOM. Its default invocation is deliberately unattestable

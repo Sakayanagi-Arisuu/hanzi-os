@@ -128,7 +128,7 @@ transcript luôn local-only, `unverified` và mastery-ineligible. URL điều h�
 không mang owner state, nên việc chia sẻ URL không tự làm lộ tiến độ trong mô
 hình nguồn hiện tại; điều này chưa thay thế privacy test trên dịch vụ hosted.
 
-Ứng viên `foundation-2026.07.3` vẫn chưa được promote và không có linguistic
+Ứng viên `foundation-2026.07.4` vẫn chưa được promote và không có linguistic
 approval. Chưa được tuyên bố account recovery public cho đến khi SIWC cung cấp
 immutable subject hoặc có luồng liên kết danh tính đã xác minh; email hiện tại
 có thể thay đổi. Chưa được tuyên bố HSK/goal coverage, mastery confidence hay

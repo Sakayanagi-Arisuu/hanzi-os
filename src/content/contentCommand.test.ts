@@ -2,6 +2,7 @@ import { execFileSync, spawnSync } from "node:child_process";
 import {
   copyFileSync,
   cpSync,
+  existsSync,
   mkdirSync,
   mkdtempSync,
   readFileSync,
@@ -58,7 +59,32 @@ describe("content validation command", () => {
       { contentVersion: "foundation-2026.07.1", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.07.2", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.07.3", valid: true, errors: [], warnings: [] },
+      { contentVersion: "foundation-2026.07.4", valid: true, errors: [], warnings: [] },
     ]);
+  });
+
+  it("rejects ambiguous or unknown mutation arguments before writing", async () => {
+    const registryPath = join(repositoryRoot, "content/registry.json");
+    const registryBefore = readFileSync(registryPath, "utf8");
+    vi.spyOn(console, "error").mockImplementation(() => undefined);
+
+    await expect(
+      runContentCommand("new-version", [
+        "unsafe-fixture-version",
+        "--write",
+        "false",
+      ]),
+    ).resolves.toBe(2);
+    await expect(
+      runContentCommand("submit-review", [
+        "foundation-2026.07.4",
+        "--unexpected",
+        "value",
+        "--write",
+      ]),
+    ).resolves.toBe(2);
+
+    expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
   });
 
   it("stages and selects a candidate with exact live-source snapshots and no inherited approvals", async () => {
@@ -77,6 +103,7 @@ describe("content validation command", () => {
         "foundation-2026.07.1",
         "foundation-2026.07.2",
         "foundation-2026.07.3",
+        "foundation-2026.07.4",
       ]) {
         cpSync(
           join(repositoryRoot, `content/packages/${version}`),
@@ -98,28 +125,83 @@ describe("content validation command", () => {
       writeFileSync(
         curriculumPath,
         readFileSync(curriculumPath, "utf8").replace(
-          'export const CONTENT_VERSION = "foundation-2026.07.3";',
+          'export const CONTENT_VERSION = "foundation-2026.07.4";',
           `export const CONTENT_VERSION = "${targetVersion}";`,
         ),
       );
+      const catalogInputPath = join(
+        fixtureRoot,
+        "content/drafts/fixture-item-catalog.json",
+      );
+      mkdirSync(dirname(catalogInputPath), { recursive: true });
+      const catalogInput = JSON.parse(
+        readFileSync(
+          join(
+            fixtureRoot,
+            "content/packages/foundation-2026.07.4/item-catalog.json",
+          ),
+          "utf8",
+        ),
+      ) as {
+        contentVersion: string;
+        items: Array<{ itemVersion: string }>;
+      };
+      catalogInput.contentVersion = targetVersion;
+      catalogInput.items.forEach((item) => {
+        item.itemVersion = targetVersion;
+      });
+      writeFileSync(
+        catalogInputPath,
+        `${JSON.stringify(catalogInput, null, 2)}\n`,
+      );
 
-      execFileSync(
-        process.execPath,
-        [
+      const newVersionArguments = [
           join(fixtureRoot, "scripts/content/new-version.mjs"),
           targetVersion,
           "--from",
-          "foundation-2026.07.3",
+          "foundation-2026.07.4",
           "--created-at",
           "2026-08-01T00:00:00.000Z",
           "--audience",
           "closed-alpha",
+          "--content-schema-version",
+          "3",
+          "--item-catalog-file",
+          "content/drafts/fixture-item-catalog.json",
           "--confirm-runtime-ids-unchanged",
           "true",
           "--write",
-        ],
+      ];
+      const registryBeforeRejectedHandoff = readFileSync(
+        join(fixtureRoot, "content/registry.json"),
+        "utf8",
+      );
+      const rejectedHandoff = spawnSync(
+        process.execPath,
+        newVersionArguments,
         { cwd: fixtureRoot, encoding: "utf8" },
       );
+      expect(rejectedHandoff.status).toBe(2);
+      expect(rejectedHandoff.stderr).toContain(
+        `Bind src/data/curriculum.ts to content/packages/${targetVersion}/item-catalog.json`,
+      );
+      expect(
+        existsSync(join(fixtureRoot, `content/packages/${targetVersion}`)),
+      ).toBe(false);
+      expect(readFileSync(join(fixtureRoot, "content/registry.json"), "utf8"))
+        .toBe(registryBeforeRejectedHandoff);
+
+      writeFileSync(
+        curriculumPath,
+        readFileSync(curriculumPath, "utf8").replace(
+          'import itemCatalogJson from "../../content/packages/foundation-2026.07.4/item-catalog.json";',
+          `import itemCatalogJson from "../../content/packages/${targetVersion}/item-catalog.json";`,
+        ),
+      );
+      execFileSync(process.execPath, newVersionArguments, {
+        cwd: fixtureRoot,
+        encoding: "utf8",
+      });
 
       const packageDirectory = join(
         fixtureRoot,
@@ -135,14 +217,19 @@ describe("content validation command", () => {
       });
       expect(
         JSON.parse(readFileSync(join(packageDirectory, "reviews.json"), "utf8")),
-      ).toMatchObject({ contentVersion: targetVersion, reviews: [] });
+      ).toMatchObject({
+        schemaVersion: 2,
+        contentVersion: targetVersion,
+        reviews: [],
+      });
       expect(
         JSON.parse(
           readFileSync(join(packageDirectory, "coverage-claims.json"), "utf8"),
         ),
       ).toEqual({
-        schemaVersion: 1,
+        schemaVersion: 2,
         contentVersion: targetVersion,
+        itemCatalogSha256: expect.stringMatching(/^sha256:[a-f0-9]{64}$/u),
         coverageClaims: [],
       });
       const registry = JSON.parse(
@@ -168,6 +255,99 @@ describe("content validation command", () => {
       const manifestPath = join(packageDirectory, "manifest.json");
       const reviewsPath = join(packageDirectory, "reviews.json");
       const registryPath = join(fixtureRoot, "content/registry.json");
+      const candidateManifestHash = await sha256Json(
+        JSON.parse(readFileSync(manifestPath, "utf8")),
+      );
+      const reviewScopePath = join(
+        fixtureRoot,
+        "content/drafts/fixture-review-scope.json",
+      );
+      writeFileSync(
+        reviewScopePath,
+        `${JSON.stringify({
+          itemKeys: ["lexeme:ni"],
+          audioAssetIds: [],
+        }, null, 2)}\n`,
+      );
+      execFileSync(
+        process.execPath,
+        [
+          join(fixtureRoot, "scripts/content/submit-review.mjs"),
+          targetVersion,
+          "--review-id",
+          "scoped-owner-review",
+          "--role",
+          "content-owner",
+          "--decision",
+          "changes-requested",
+          "--reviewer-id",
+          "fixture-owner-reviewer",
+          "--reviewed-at",
+          "2026-07-26T06:05:00.000Z",
+          "--evidence-ref",
+          "fixture://scoped-owner-review",
+          "--manifest-sha256",
+          candidateManifestHash,
+          "--scope-file",
+          "content/drafts/fixture-review-scope.json",
+          "--write",
+        ],
+        { cwd: fixtureRoot, encoding: "utf8" },
+      );
+      expect(
+        JSON.parse(readFileSync(reviewsPath, "utf8")),
+      ).toMatchObject({
+        reviews: [
+          {
+            reviewId: "scoped-owner-review",
+            scope: {
+              itemKeys: ["lexeme:ni"],
+              audioAssetIds: [],
+            },
+          },
+        ],
+      });
+      writeFileSync(
+        reviewScopePath,
+        `${JSON.stringify({
+          itemKeys: ["lexeme:unknown"],
+          audioAssetIds: [],
+        }, null, 2)}\n`,
+      );
+      const reviewsBeforeInvalidScope = readFileSync(reviewsPath, "utf8");
+      const invalidScopeReview = spawnSync(
+        process.execPath,
+        [
+          join(fixtureRoot, "scripts/content/submit-review.mjs"),
+          targetVersion,
+          "--review-id",
+          "invalid-scope-review",
+          "--role",
+          "content-owner",
+          "--decision",
+          "approved",
+          "--reviewer-id",
+          "fixture-owner-reviewer",
+          "--reviewed-at",
+          "2026-07-26T06:06:00.000Z",
+          "--evidence-ref",
+          "fixture://invalid-scope",
+          "--manifest-sha256",
+          candidateManifestHash,
+          "--scope-file",
+          "content/drafts/fixture-review-scope.json",
+          "--write",
+        ],
+        { cwd: fixtureRoot, encoding: "utf8" },
+      );
+      expect(invalidScopeReview.status).toBe(2);
+      expect(invalidScopeReview.stderr).toContain(
+        "references unknown item lexeme:unknown",
+      );
+      expect(readFileSync(reviewsPath, "utf8")).toBe(
+        reviewsBeforeInvalidScope,
+      );
+
       const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as {
         lifecycle: string;
       };

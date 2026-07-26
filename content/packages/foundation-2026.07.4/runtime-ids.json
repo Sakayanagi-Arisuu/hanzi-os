@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "foundation-2026.07.4",
+  "vocabularyIds": [
+    "ni",
+    "hao",
+    "wo",
+    "shi",
+    "xuesheng",
+    "laoshi",
+    "ma",
+    "bu",
+    "xiexie",
+    "zaijian",
+    "yi",
+    "er",
+    "san",
+    "ren",
+    "zhongguo",
+    "yuenan",
+    "jia",
+    "you",
+    "chi",
+    "he",
+    "cha",
+    "shu",
+    "kan",
+    "jinri"
+  ],
+  "unitIds": [
+    "boot",
+    "survival",
+    "daily",
+    "characters",
+    "journey",
+    "professional"
+  ],
+  "lessons": [
+    {
+      "id": "boot-1",
+      "unitId": "boot",
+      "prerequisiteIds": [],
+      "wordIds": [
+        "yi",
+        "ren",
+        "ni",
+        "er"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "boot-2",
+      "unitId": "boot",
+      "prerequisiteIds": [
+        "boot-1"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "wo"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "boot-3",
+      "unitId": "boot",
+      "prerequisiteIds": [
+        "boot-2"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zhongguo",
+        "chi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "boot-4",
+      "unitId": "boot",
+      "prerequisiteIds": [
+        "boot-3"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "xuesheng",
+        "laoshi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-1",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "boot-4"
+      ],
+      "wordIds": [
+        "wo",
+        "shi",
+        "xuesheng",
+        "laoshi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-2",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "survival-1"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "ma",
+        "bu"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-3",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "survival-2"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zaijian",
+        "ni"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-4",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "survival-3"
+      ],
+      "wordIds": [
+        "ren",
+        "zhongguo",
+        "yuenan",
+        "shi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-1",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "survival-4"
+      ],
+      "wordIds": [
+        "jia",
+        "you",
+        "ren",
+        "san"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-2",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "daily-1"
+      ],
+      "wordIds": [
+        "chi",
+        "he",
+        "cha",
+        "wo"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-3",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "daily-2"
+      ],
+      "wordIds": [
+        "jinri",
+        "hao",
+        "kan"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-4",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "daily-3"
+      ],
+      "wordIds": [
+        "shu",
+        "kan",
+        "wo"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "characters-1",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "daily-4"
+      ],
+      "wordIds": [
+        "yi",
+        "ren",
+        "san"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "characters-2",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "characters-1"
+      ],
+      "wordIds": [
+        "ren",
+        "jia",
+        "hao"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "characters-3",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "characters-2"
+      ],
+      "wordIds": [
+        "shu",
+        "kan",
+        "chi"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "characters-4",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "characters-3"
+      ],
+      "wordIds": [
+        "wo",
+        "ni",
+        "shi"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-1",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "characters-4"
+      ],
+      "wordIds": [
+        "ni",
+        "zhongguo",
+        "jinri"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-2",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "journey-1"
+      ],
+      "wordIds": [
+        "yi",
+        "er",
+        "san"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-3",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "journey-2"
+      ],
+      "wordIds": [
+        "jinri",
+        "you",
+        "ma"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-4",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "journey-3"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zaijian",
+        "hao"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-1",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "journey-4"
+      ],
+      "wordIds": [
+        "xuesheng",
+        "laoshi",
+        "shu"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-2",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "professional-1"
+      ],
+      "wordIds": [
+        "xiexie",
+        "ni",
+        "hao"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-3",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "professional-2"
+      ],
+      "wordIds": [
+        "shi",
+        "bu",
+        "you"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-4",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "professional-3"
+      ],
+      "wordIds": [
+        "jinri",
+        "kan",
+        "zhongguo"
+      ],
+      "releaseState": "draft"
+    }
+  ],
+  "stories": [
+    {
+      "id": "first-day",
+      "wordIds": [
+        "jinri",
+        "shi",
+        "yi",
+        "laoshi",
+        "ni",
+        "hao",
+        "xuesheng",
+        "ma",
+        "wo",
+        "yuenan",
+        "ren",
+        "shu",
+        "xiexie"
+      ],
+      "releaseState": "beta"
+    }
+  ]
+}

@@ -1,13 +1,14 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { CONTENT_VERSION, COURSE_UNITS, LESSONS, STORIES, VOCABULARY } from "../data/curriculum";
 import {
   canonicalJson,
   contentSourceArtifactNames,
-  sha256Json,
   sha256NormalizedText,
+  sha256Json,
   validateContentBundle,
 } from "./packageLoader";
+import { projectItemCatalog } from "./itemCatalogProjection";
 import {
   assessClosedAlphaEligibility,
   assessPublicationEligibility,
@@ -18,6 +19,7 @@ import type {
   ContentRegistry,
   ContentReviewArtifact,
   CoverageClaimsArtifact,
+  ItemCatalogArtifact,
   RuntimeIdArtifact,
 } from "./types";
 
@@ -36,13 +38,21 @@ const loadCheckedInBundle = (
   if (!registryEntry) throw new Error("Current content registry entry is missing");
   const packagePath = `content/${registryEntry.relativePath}`;
   const manifest = readJson<ContentPackageManifest>(`${packagePath}/manifest.json`);
+  const itemCatalogPath = `${packagePath}/item-catalog.json`;
+  const itemCatalog = existsSync(
+    new URL(`../../${itemCatalogPath}`, import.meta.url),
+  )
+    ? readJson<ItemCatalogArtifact>(itemCatalogPath)
+    : null;
   return {
     registry,
     registryEntry,
     manifest,
     runtimeIds: readJson<RuntimeIdArtifact>(`${packagePath}/runtime-ids.json`),
+    itemCatalog,
     coverageClaims: readJson<CoverageClaimsArtifact>(`${packagePath}/coverage-claims.json`),
     reviews: readJson<ContentReviewArtifact>(`${packagePath}/reviews.json`),
+    audioAssetFileHashes: {},
     immutableSourceTexts: Object.fromEntries(
       contentSourceArtifactNames(manifest.contentSchemaVersion).map((name) => [
         name,
@@ -101,6 +111,9 @@ const makeEligibleFixture = async (
 ): Promise<ContentPackageBundle> => {
   const bundle = structuredClone(loadCheckedInBundle());
   bundle.registryEntry = currentRegistryEntry(bundle.registry);
+  if (bundle.itemCatalog === null) {
+    throw new Error("Fixture requires a schema-v3 item catalog");
+  }
   bundle.manifest.audience = audience;
   bundle.manifest.governance.contentOwner = {
     id: "owner-fixture",
@@ -109,6 +122,14 @@ const makeEligibleFixture = async (
   bundle.manifest.governance.sourceLicense = {
     licenseId: "LicenseRef-Fixture",
     evidenceRef: "fixture://license-evidence",
+  };
+  const owner = {
+    id: "owner-fixture",
+    evidenceRef: "fixture://item-owner",
+  };
+  const sourceLicense = {
+    licenseId: "LicenseRef-Fixture",
+    evidenceRef: "fixture://item-license",
   };
   const additionalVocabularyIds = Array.from(
     { length: Math.max(0, 300 - bundle.runtimeIds.vocabularyIds.length) },
@@ -123,33 +144,149 @@ const makeEligibleFixture = async (
   );
   if (!releasedLesson) throw new Error("Fixture requires a released lesson");
   releasedLesson.wordIds = [...releasedLesson.wordIds, ...additionalVocabularyIds];
-  bundle.coverageClaims.coverageClaims = audience === "closed-alpha"
-    ? [{
-        claimId: "a0-fixture",
-        framework: "CEFR",
-        level: "A0",
-        evidenceRef: "fixture://a0-coverage",
-      }]
-    : [
-        {
-          claimId: "hsk-1-fixture",
-          framework: "HSK",
-          level: "1",
-          evidenceRef: "fixture://hsk-1-coverage",
-        },
-        {
-          claimId: "hsk-2-fixture",
-          framework: "HSK",
-          level: "2",
-          evidenceRef: "fixture://hsk-2-coverage",
-        },
-      ];
+  const releasedLessonItem = bundle.itemCatalog.items.find(
+    (item) => item.itemKey === `lesson:${releasedLesson.id}`,
+  );
+  if (!releasedLessonItem || releasedLessonItem.itemType !== "lesson") {
+    throw new Error("Fixture released lesson catalog item is missing");
+  }
+  releasedLessonItem.payload.wordIds = [...releasedLesson.wordIds];
+  releasedLessonItem.payloadSha256 = await sha256Json({
+    itemType: releasedLessonItem.itemType,
+    payload: releasedLessonItem.payload,
+  });
+  const templateLexeme = bundle.itemCatalog.items.find(
+    (item) => item.itemType === "lexeme",
+  );
+  if (!templateLexeme || templateLexeme.itemType !== "lexeme") {
+    throw new Error("Fixture lexeme template is missing");
+  }
+  for (const [index, itemId] of additionalVocabularyIds.entries()) {
+    const payload = {
+      ...structuredClone(templateLexeme.payload),
+      simplified: `测试${index + 1}`,
+      traditional: `測試${index + 1}`,
+      pinyin: "cèshì",
+      pinyinNumbered: "ce4shi4",
+      meaning: `fixture ${index + 1}`,
+      example: `测试${index + 1}。`,
+      examplePinyin: `Cèshì ${index + 1}.`,
+      exampleMeaning: `Fixture ${index + 1}.`,
+      tags: ["fixture"],
+    };
+    bundle.itemCatalog.items.push({
+      itemKey: `lexeme:${itemId}`,
+      itemType: "lexeme",
+      itemId,
+      itemVersion: bundle.manifest.contentVersion,
+      releaseState: "beta",
+      payload,
+      payloadSha256: await sha256Json({
+        itemType: "lexeme",
+        payload,
+      }),
+      owner,
+      sourceLicense,
+      prerequisites: [],
+    });
+  }
   if (audience === "public") {
-    bundle.runtimeIds.stories = Array.from({ length: 40 }, (_, index) => ({
-      id: `graded-story-fixture-${index + 1}`,
-      wordIds: [],
-      releaseState: "published" as const,
-    }));
+    for (let index = 1; index < 40; index += 1) {
+      const itemId = `graded-story-fixture-${index}`;
+      const payload = {
+        level: "fixture",
+        title: `Fixture ${index}`,
+        chineseTitle: `测试故事${index}`,
+        summary: `Synthetic test story ${index}.`,
+        estimatedMinutes: 1,
+        sentences: [{
+          chinese: "你好。",
+          pinyin: "Nǐ hǎo.",
+          translation: "Xin chào.",
+          wordIds: ["ni", "hao"],
+        }],
+        comprehension: [{
+          id: `${itemId}-question`,
+          prompt: "Câu chuyện nói gì?",
+          options: ["Xin chào.", "Tạm biệt."],
+          correctAnswer: "Xin chào.",
+          explanation: "你好 là lời chào.",
+        }],
+      };
+      bundle.runtimeIds.stories.push({
+        id: itemId,
+        wordIds: ["ni", "hao"],
+        releaseState: "published",
+      });
+      bundle.itemCatalog.items.push({
+        itemKey: `graded-text:${itemId}`,
+        itemType: "graded-text",
+        itemId,
+        itemVersion: bundle.manifest.contentVersion,
+        releaseState: "published",
+        payload,
+        payloadSha256: await sha256Json({
+          itemType: "graded-text",
+          payload,
+        }),
+        owner,
+        sourceLicense,
+        prerequisites: [],
+      });
+    }
+  }
+
+  const activeWordIds = new Set([
+    ...bundle.runtimeIds.lessons
+      .filter((lesson) => lesson.releaseState === "beta" || lesson.releaseState === "published")
+      .flatMap((lesson) => lesson.wordIds),
+    ...bundle.runtimeIds.stories
+      .filter((story) => story.releaseState === "beta" || story.releaseState === "published")
+      .flatMap((story) => story.wordIds),
+  ]);
+  bundle.itemCatalog.items.forEach((item) => {
+    const isReleaseRelevant =
+      item.releaseState === "beta"
+      || item.releaseState === "published"
+      || (item.itemType === "lexeme" && activeWordIds.has(item.itemId));
+    if (!isReleaseRelevant) return;
+    if (item.itemType === "lexeme") item.releaseState = "beta";
+    item.owner = owner;
+    item.sourceLicense = sourceLicense;
+    item.prerequisites ??= [];
+  });
+
+  if (audience === "public") {
+    const fileHashes: ContentPackageBundle["audioAssetFileHashes"] = {};
+    for (const item of bundle.itemCatalog.items.filter(
+      (candidate) =>
+        candidate.releaseState === "beta" || candidate.releaseState === "published",
+    )) {
+      const assetId = `audio-${item.itemType}-${item.itemId}`;
+      const fileRef = `audio/${assetId}.mp3`;
+      const fileSha256 = await sha256Json({ fileRef });
+      const transcript = `Reviewed transcript for ${item.itemKey}`;
+      bundle.itemCatalog.audioAssets.push({
+        assetId,
+        targetItemKey: item.itemKey,
+        targetPayloadSha256: item.payloadSha256,
+        fileRef,
+        fileSha256,
+        transcript,
+        transcriptSha256: await sha256NormalizedText(transcript),
+        speaker: {
+          id: "native-speaker-fixture",
+          nativeSpeakerEvidenceRef: "fixture://native-speaker",
+        },
+        rights: {
+          ownerId: "audio-owner-fixture",
+          licenseId: "AudioLicenseRef-Fixture",
+          evidenceRef: "fixture://audio-rights",
+        },
+      });
+      fileHashes[fileRef] = fileSha256;
+    }
+    bundle.audioAssetFileHashes = fileHashes;
     bundle.manifest.governance.includesAudio = true;
     bundle.manifest.governance.audioRights = {
       ownerId: "audio-owner-fixture",
@@ -157,17 +294,101 @@ const makeEligibleFixture = async (
       evidenceRef: "fixture://audio-rights",
     };
   }
+
+  const itemCatalogHash = await sha256Json(bundle.itemCatalog);
+  const releasedItemKeys = bundle.itemCatalog.items
+    .filter((item) => item.releaseState === "beta" || item.releaseState === "published")
+    .map((item) => item.itemKey);
+  const pathClaimThrough = (terminalLessonId: string) => {
+    const includedLessonIds = new Set<string>();
+    const includeLesson = (lessonId: string) => {
+      if (includedLessonIds.has(lessonId)) return;
+      const lesson = bundle.runtimeIds.lessons.find(
+        (candidate) => candidate.id === lessonId,
+      );
+      if (!lesson) throw new Error(`Fixture lesson is missing: ${lessonId}`);
+      lesson.prerequisiteIds.forEach(includeLesson);
+      includedLessonIds.add(lessonId);
+    };
+    includeLesson(terminalLessonId);
+    const lexemeKeys = new Set(
+      bundle.runtimeIds.lessons
+        .filter((lesson) => includedLessonIds.has(lesson.id))
+        .flatMap((lesson) => lesson.wordIds)
+        .map((wordId) => `lexeme:${wordId}` as const),
+    );
+    return {
+      itemKeys: bundle.itemCatalog!.items
+        .map((item) => item.itemKey)
+        .filter(
+          (itemKey) =>
+            lexemeKeys.has(itemKey as `lexeme:${string}`)
+            || (
+              itemKey.startsWith("lesson:")
+              && includedLessonIds.has(itemKey.slice("lesson:".length))
+            ),
+        ),
+      entryLessonKeys: ["lesson:boot-1"],
+      terminalLessonKeys: [`lesson:${terminalLessonId}`],
+    };
+  };
+  const a0PathClaim = pathClaimThrough("boot-4");
+  const hskOnePathClaim = pathClaimThrough("daily-4");
+  const hskTwoPathClaim = pathClaimThrough("characters-2");
+  bundle.coverageClaims = {
+    schemaVersion: 2,
+    contentVersion: bundle.manifest.contentVersion,
+    itemCatalogSha256: itemCatalogHash,
+    coverageClaims: audience === "closed-alpha"
+      ? [{
+          claimId: "a0-fixture",
+          framework: "CEFR",
+          level: "A0",
+          evidenceRef: "fixture://a0-coverage",
+          ...a0PathClaim,
+        }]
+      : [
+          {
+            claimId: "a0-fixture",
+            framework: "CEFR",
+            level: "A0",
+            evidenceRef: "fixture://a0-coverage",
+            ...a0PathClaim,
+          },
+          {
+            claimId: "hsk-1-fixture",
+            framework: "HSK",
+            level: "1",
+            evidenceRef: "fixture://hsk-1-coverage",
+            ...hskOnePathClaim,
+          },
+          {
+            claimId: "hsk-2-fixture",
+            framework: "HSK",
+            level: "2",
+            evidenceRef: "fixture://hsk-2-coverage",
+            ...hskTwoPathClaim,
+          },
+        ],
+  };
   bundle.manifest.artifacts["runtime-ids.json"] = await sha256Json(bundle.runtimeIds);
+  bundle.manifest.artifacts["item-catalog.json"] = itemCatalogHash;
   bundle.manifest.artifacts["coverage-claims.json"] = await sha256Json(
     bundle.coverageClaims,
   );
   const manifestHash = await sha256Json(bundle.manifest);
   bundle.registryEntry.audience = audience;
   bundle.registryEntry.manifestSha256 = manifestHash;
+  const itemScope = {
+    itemCatalogSha256: itemCatalogHash,
+    itemKeys: releasedItemKeys,
+    audioAssetIds: bundle.itemCatalog.audioAssets.map((asset) => asset.assetId),
+  };
   bundle.reviews = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     contentVersion: bundle.manifest.contentVersion,
     packageManifestSha256: manifestHash,
+    itemCatalogSha256: itemCatalogHash,
     reviews: [
       {
         reviewId: "owner-review-fixture",
@@ -177,6 +398,7 @@ const makeEligibleFixture = async (
         reviewedAt: "2026-07-22T01:00:00.000Z",
         evidenceRef: "fixture://owner-review",
         packageManifestSha256: manifestHash,
+        scope: structuredClone(itemScope),
       },
       {
         reviewId: "linguistic-review-fixture",
@@ -186,6 +408,7 @@ const makeEligibleFixture = async (
         reviewedAt: "2026-07-22T01:01:00.000Z",
         evidenceRef: "fixture://linguistic-review",
         packageManifestSha256: manifestHash,
+        scope: structuredClone(itemScope),
       },
       {
         reviewId: "license-review-fixture",
@@ -195,6 +418,7 @@ const makeEligibleFixture = async (
         reviewedAt: "2026-07-22T01:02:00.000Z",
         evidenceRef: "fixture://license-review",
         packageManifestSha256: manifestHash,
+        scope: structuredClone(itemScope),
       },
       ...(audience === "public"
         ? [{
@@ -205,11 +429,41 @@ const makeEligibleFixture = async (
             reviewedAt: "2026-07-22T01:03:00.000Z",
             evidenceRef: "fixture://audio-review",
             packageManifestSha256: manifestHash,
+            scope: structuredClone(itemScope),
           }]
         : []),
     ],
   };
   return bundle;
+};
+
+const rebindMutableFixture = async (bundle: ContentPackageBundle) => {
+  if (
+    bundle.itemCatalog === null
+    || bundle.coverageClaims.schemaVersion !== 2
+    || bundle.reviews.schemaVersion !== 2
+  ) {
+    throw new Error("Fixture rebinding requires schema-v3 artifacts");
+  }
+  const itemCatalogHash = await sha256Json(bundle.itemCatalog);
+  bundle.coverageClaims.itemCatalogSha256 = itemCatalogHash;
+  bundle.reviews.itemCatalogSha256 = itemCatalogHash;
+  bundle.reviews.reviews.forEach((review) => {
+    review.scope.itemCatalogSha256 = itemCatalogHash;
+  });
+  bundle.manifest.artifacts["runtime-ids.json"] = await sha256Json(
+    bundle.runtimeIds,
+  );
+  bundle.manifest.artifacts["item-catalog.json"] = itemCatalogHash;
+  bundle.manifest.artifacts["coverage-claims.json"] = await sha256Json(
+    bundle.coverageClaims,
+  );
+  const manifestHash = await sha256Json(bundle.manifest);
+  bundle.registryEntry.manifestSha256 = manifestHash;
+  bundle.reviews.packageManifestSha256 = manifestHash;
+  bundle.reviews.reviews.forEach((review) => {
+    review.packageManifestSha256 = manifestHash;
+  });
 };
 
 describe("content package governance", () => {
@@ -250,11 +504,33 @@ describe("content package governance", () => {
         releaseState: story.releaseState,
       })),
     );
+    const projectedCatalog = await projectItemCatalog({
+      contentVersion: CONTENT_VERSION,
+      vocabulary: VOCABULARY,
+      lessons: LESSONS,
+      stories: STORIES,
+    });
+    const runtimeProjection = (catalog: ItemCatalogArtifact) =>
+      catalog.items.map((item) => ({
+        itemKey: item.itemKey,
+        itemType: item.itemType,
+        itemId: item.itemId,
+        itemVersion: item.itemVersion,
+        releaseState: item.releaseState,
+        payload: item.payload,
+        payloadSha256: item.payloadSha256,
+        lessonPrerequisites:
+          item.itemType === "lesson" ? item.prerequisites : undefined,
+      }));
+    expect(runtimeProjection(bundle.itemCatalog!)).toEqual(
+      runtimeProjection(projectedCatalog),
+    );
   });
 
   it.each([
     "foundation-2026.07.1",
     "foundation-2026.07.2",
+    "foundation-2026.07.3",
   ])("revalidates historical package %s from its own immutable snapshots", async (version) => {
     const bundle = loadCheckedInBundle(version);
     const validation = await validateContentBundle(bundle);
@@ -315,7 +591,7 @@ describe("content package governance", () => {
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "manifest.contentSchemaVersion must be a supported version (1 or 2)",
+      "manifest.contentSchemaVersion must be a supported version (1, 2, or 3)",
     );
   });
 
@@ -327,10 +603,10 @@ describe("content package governance", () => {
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "registry.packages[3]: registryEntry.contentVersion is not a safe content version",
+      "registry.packages[4]: registryEntry.contentVersion is not a safe content version",
     );
     expect(validation.errors).toContain(
-      "registry.packages[3]: registryEntry.manifestSha256 must be a SHA-256 digest",
+      "registry.packages[4]: registryEntry.manifestSha256 must be a SHA-256 digest",
     );
   });
 
@@ -415,20 +691,265 @@ describe("content package governance", () => {
     expect(publication.blockers).toEqual(
       expect.arrayContaining([
         "Package audience is closed-alpha, not public",
-        "Missing exact-hash approval: native-linguistic",
+        "Released catalog items missing item-level governance or exact scoped review: 39",
       ]),
     );
     expect(closedAlpha.eligible).toBe(false);
     expect(closedAlpha.blockers).toEqual(
       expect.arrayContaining([
-        "Closed alpha requires at least 300 exact-hash reviewed lexemes",
+        "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 0)",
         "Closed alpha requires an evidence-backed complete A0 coverage claim",
-        "Missing exact-hash approval: native-linguistic",
+        "Released catalog items missing item-level governance or exact scoped review: 39",
       ]),
     );
     expect(publication.warnings).toContain(
       "No framework, HSK, A0, or goal coverage claim is declared",
     );
+  });
+
+  it("rejects a missing or tampered schema-v3 item catalog", async () => {
+    const missing = structuredClone(loadCheckedInBundle());
+    missing.itemCatalog = null;
+    const missingValidation = await validateContentBundle(missing);
+    expect(missingValidation.errors).toContain(
+      "item-catalog.schemaVersion must be 1",
+    );
+    expect(missingValidation.errors).toContain(
+      "item-catalog.json digest does not match manifest",
+    );
+
+    const tampered = structuredClone(loadCheckedInBundle());
+    if (tampered.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    const lexeme = tampered.itemCatalog.items.find(
+      (item) => item.itemType === "lexeme",
+    );
+    if (!lexeme || lexeme.itemType !== "lexeme") {
+      throw new Error("Lexeme fixture is missing");
+    }
+    lexeme.payload.meaning = "tampered";
+    const tamperedValidation = await validateContentBundle(tampered);
+    expect(tamperedValidation.errors).toContain(
+      "item-catalog.items[0].payloadSha256 does not match its canonical payload",
+    );
+    expect(tamperedValidation.errors).toContain(
+      "item-catalog.json digest does not match manifest",
+    );
+  });
+
+  it("rejects unknown payload fields, cosmetic item versions, and malformed prerequisites without crashing", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    const lexeme = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "lexeme",
+    );
+    const lesson = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "lesson",
+    );
+    if (!lexeme || lexeme.itemType !== "lexeme" || !lesson) {
+      throw new Error("Catalog item fixture is missing");
+    }
+    (lexeme.payload as unknown as Record<string, unknown>).id = "override";
+    lexeme.itemVersion = "cosmetic-version";
+    lesson.prerequisites = [null] as unknown as typeof lesson.prerequisites;
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      "item-catalog.items[0].payload has unknown field id",
+    );
+    expect(validation.errors).toContain(
+      "item-catalog.items[0].itemVersion must match item-catalog.contentVersion",
+    );
+    expect(validation.errors).toContain(
+      "item-catalog.items[24].prerequisites[0].itemType is invalid",
+    );
+    expect(validation.errors).toContain(
+      "lesson:boot-1: prerequisites do not match runtime-ids.json",
+    );
+  });
+
+  it("returns fail-closed errors for malformed scoped claims instead of throwing", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.coverageClaims.schemaVersion !== 2) {
+      throw new Error("Scoped claim fixture is missing");
+    }
+    bundle.coverageClaims.coverageClaims = [null] as never;
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain("coverageClaims[0] must be an object");
+    expect(() =>
+      assessClosedAlphaEligibility(bundle, validation)).not.toThrow();
+    expect(assessClosedAlphaEligibility(bundle, validation).eligible).toBe(false);
+  });
+
+  it("does not count padded runtime IDs as reviewed lexemes", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    const additionalIds = Array.from(
+      { length: 300 },
+      (_, index) => `phantom-lexeme-${index + 1}`,
+    );
+    bundle.runtimeIds.vocabularyIds.push(...additionalIds);
+    bundle.runtimeIds.lessons[0].wordIds.push(...additionalIds);
+    bundle.manifest.artifacts["runtime-ids.json"] = await sha256Json(
+      bundle.runtimeIds,
+    );
+    const manifestHash = await sha256Json(bundle.manifest);
+    bundle.registryEntry.manifestSha256 = manifestHash;
+    bundle.reviews.packageManifestSha256 = manifestHash;
+
+    const validation = await validateContentBundle(bundle);
+    const assessment = assessClosedAlphaEligibility(bundle, validation);
+
+    expect(validation.errors).toContain(
+      "Catalog lexeme inventory must exactly match runtime-ids.json",
+    );
+    expect(assessment.blockers).toContain(
+      "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 0)",
+    );
+  });
+
+  it("does not treat an audio boolean as licensed native audio", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    bundle.manifest.governance.includesAudio = true;
+    bundle.manifest.governance.audioRights = {
+      ownerId: "fixture-owner",
+      licenseId: "fixture-license",
+      evidenceRef: "fixture://audio-rights",
+    };
+    const validation = await validateContentBundle(bundle);
+    const publication = assessPublicationEligibility(bundle, validation);
+
+    expect(validation.errors).toContain(
+      "manifest.governance.includesAudio must equal the presence of catalog audio assets",
+    );
+    expect(publication.blockers).toContain(
+      "Public beta requires licensed native audio for released core content (missing 39 targets)",
+    );
+  });
+
+  it("does not count empty graded-text envelopes", async () => {
+    const bundle = await makeEligibleFixture();
+    if (bundle.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    for (const item of bundle.itemCatalog.items.filter(
+      (candidate) => candidate.itemType === "graded-text",
+    )) {
+      if (item.itemType !== "graded-text") continue;
+      item.payload.sentences = [];
+      item.payload.comprehension = [];
+      item.payloadSha256 = await sha256Json({
+        itemType: item.itemType,
+        payload: item.payload,
+      });
+      const runtimeStory = bundle.runtimeIds.stories.find(
+        (story) => story.id === item.itemId,
+      );
+      if (runtimeStory) runtimeStory.wordIds = [];
+      bundle.itemCatalog.audioAssets
+        .filter((asset) => asset.targetItemKey === item.itemKey)
+        .forEach((asset) => {
+          asset.targetPayloadSha256 = item.payloadSha256;
+        });
+    }
+    await rebindMutableFixture(bundle);
+    const validation = await validateContentBundle(bundle);
+    const publication = assessPublicationEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(publication.blockers).toContain(
+      "Public beta requires at least 40 non-empty, reviewed graded texts (found 0)",
+    );
+    expect(publication.blockers).toContain(
+      "Released graded texts must contain sentences and comprehension: 40",
+    );
+  });
+
+  it("blocks one extra released empty text even when 40 valid texts remain", async () => {
+    const bundle = await makeEligibleFixture();
+    if (
+      bundle.itemCatalog === null
+      || bundle.reviews.schemaVersion !== 2
+    ) {
+      throw new Error("Scoped public fixture is missing");
+    }
+    const itemId = "empty-released-extra";
+    const itemKey = `graded-text:${itemId}` as const;
+    const payload = {
+      level: "fixture",
+      title: "Empty released fixture",
+      chineseTitle: "空",
+      summary: "Intentionally empty regression fixture.",
+      estimatedMinutes: 1,
+      sentences: [],
+      comprehension: [],
+    };
+    const payloadSha256 = await sha256Json({
+      itemType: "graded-text",
+      payload,
+    });
+    bundle.runtimeIds.stories.push({
+      id: itemId,
+      wordIds: [],
+      releaseState: "published",
+    });
+    bundle.itemCatalog.items.push({
+      itemKey,
+      itemType: "graded-text",
+      itemId,
+      itemVersion: bundle.manifest.contentVersion,
+      releaseState: "published",
+      payload,
+      payloadSha256,
+      owner: {
+        id: "owner-fixture",
+        evidenceRef: "fixture://item-owner",
+      },
+      sourceLicense: {
+        licenseId: "LicenseRef-Fixture",
+        evidenceRef: "fixture://item-license",
+      },
+      prerequisites: [],
+    });
+    const assetId = "audio-empty-released-extra";
+    const fileRef = `audio/${assetId}.mp3`;
+    const fileSha256 = await sha256Json({ fileRef });
+    const transcript = "Reviewed empty-text fixture transcript";
+    bundle.itemCatalog.audioAssets.push({
+      assetId,
+      targetItemKey: itemKey,
+      targetPayloadSha256: payloadSha256,
+      fileRef,
+      fileSha256,
+      transcript,
+      transcriptSha256: await sha256NormalizedText(transcript),
+      speaker: {
+        id: "native-speaker-fixture",
+        nativeSpeakerEvidenceRef: "fixture://native-speaker",
+      },
+      rights: {
+        ownerId: "audio-owner-fixture",
+        licenseId: "AudioLicenseRef-Fixture",
+        evidenceRef: "fixture://audio-rights",
+      },
+    });
+    bundle.audioAssetFileHashes[fileRef] = fileSha256;
+    bundle.reviews.reviews.forEach((review) => {
+      if (review.role !== "audio-rights") review.scope.itemKeys.push(itemKey);
+      review.scope.audioAssetIds.push(assetId);
+    });
+    await rebindMutableFixture(bundle);
+
+    const validation = await validateContentBundle(bundle);
+    const publication = assessPublicationEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(publication.blockers).toContain(
+      "Released graded texts must contain sentences and comprehension: 1",
+    );
+    expect(publication.blockers).not.toContain(
+      "Public beta requires at least 40 non-empty, reviewed graded texts (found 40)",
+    );
+    expect(publication.eligible).toBe(false);
   });
 
   it("allows closed alpha only after 300 released lexemes, A0 evidence, and exact-hash approvals", async () => {
@@ -443,6 +964,109 @@ describe("content package governance", () => {
     expect(closedAlpha.blockers).toEqual([]);
     expect(publication.eligible).toBe(false);
     expect(publication.blockers).toContain("Package audience is closed-alpha, not public");
+  });
+
+  it("counts distinct lexeme payloads instead of duplicated IDs", async () => {
+    const bundle = await makeEligibleFixture("closed-alpha");
+    if (bundle.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    const lexemes = bundle.itemCatalog.items.filter(
+      (item) => item.itemType === "lexeme",
+    );
+    const first = lexemes[0];
+    if (!first || first.itemType !== "lexeme") {
+      throw new Error("Lexeme fixture is missing");
+    }
+    for (const item of lexemes) {
+      if (item.itemType !== "lexeme") continue;
+      item.payload = structuredClone(first.payload);
+      item.payloadSha256 = await sha256Json({
+        itemType: item.itemType,
+        payload: item.payload,
+      });
+    }
+    await rebindMutableFixture(bundle);
+
+    const validation = await validateContentBundle(bundle);
+    const closedAlpha = assessClosedAlphaEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(closedAlpha.eligible).toBe(false);
+    expect(closedAlpha.blockers).toContain(
+      "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 1)",
+    );
+  });
+
+  it("rejects trivial, lexeme-omitting, and relabeled coverage paths", async () => {
+    const closedAlphaBundle = await makeEligibleFixture("closed-alpha");
+    if (closedAlphaBundle.coverageClaims.schemaVersion !== 2) {
+      throw new Error("Scoped claim fixture is missing");
+    }
+    const a0Claim = closedAlphaBundle.coverageClaims.coverageClaims[0];
+    a0Claim.itemKeys = ["lesson:boot-1"];
+    a0Claim.entryLessonKeys = ["lesson:boot-1"];
+    a0Claim.terminalLessonKeys = ["lesson:boot-1"];
+    await rebindMutableFixture(closedAlphaBundle);
+    const trivialValidation = await validateContentBundle(closedAlphaBundle);
+    const trivialAssessment = assessClosedAlphaEligibility(
+      closedAlphaBundle,
+      trivialValidation,
+    );
+    expect(trivialAssessment.blockers).toContain(
+      "Every declared coverage claim must bind a complete reachable reviewed item graph",
+    );
+    expect(trivialAssessment.blockers).toContain(
+      "Closed alpha requires an evidence-backed complete A0 coverage claim",
+    );
+
+    const publicBundle = await makeEligibleFixture();
+    if (publicBundle.coverageClaims.schemaVersion !== 2) {
+      throw new Error("Scoped public claims are missing");
+    }
+    const hskOne = publicBundle.coverageClaims.coverageClaims.find(
+      (claim) => claim.framework === "HSK" && claim.level === "1",
+    );
+    const hskTwo = publicBundle.coverageClaims.coverageClaims.find(
+      (claim) => claim.framework === "HSK" && claim.level === "2",
+    );
+    if (!hskOne || !hskTwo) throw new Error("HSK fixture claims are missing");
+    hskTwo.itemKeys = [...hskOne.itemKeys];
+    hskTwo.entryLessonKeys = [...hskOne.entryLessonKeys];
+    hskTwo.terminalLessonKeys = [...hskOne.terminalLessonKeys];
+    await rebindMutableFixture(publicBundle);
+    const relabeledValidation = await validateContentBundle(publicBundle);
+
+    expect(relabeledValidation.errors).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining("Duplicate coverage framework path scope: hsk|"),
+      ]),
+    );
+    expect(relabeledValidation.errors).toContain(
+      "HSK 2 coverage scope must be a strict superset of HSK 1",
+    );
+    expect(relabeledValidation.errors).toContain(
+      "HSK 2 lesson path must extend beyond HSK 1",
+    );
+  });
+
+  it("requires production eligibility to preserve the closed-alpha A0 gate", async () => {
+    const bundle = await makeEligibleFixture();
+    if (bundle.coverageClaims.schemaVersion !== 2) {
+      throw new Error("Scoped public claims are missing");
+    }
+    bundle.coverageClaims.coverageClaims =
+      bundle.coverageClaims.coverageClaims.filter(
+        (claim) => !(claim.framework === "CEFR" && claim.level === "A0"),
+      );
+    await rebindMutableFixture(bundle);
+
+    const validation = await validateContentBundle(bundle);
+    const publication = assessPublicationEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(publication.eligible).toBe(false);
+    expect(publication.blockers).toContain(
+      "Closed alpha requires an evidence-backed complete A0 coverage claim",
+    );
   });
 
   it("binds an activated release to both the manifest and exact review envelope", async () => {
@@ -510,6 +1134,13 @@ describe("content package governance", () => {
   it("lets the newest exact-hash changes-requested review override an earlier approval", async () => {
     const bundle = await makeEligibleFixture();
     const manifestHash = await sha256Json(bundle.manifest);
+    if (bundle.itemCatalog === null || bundle.reviews.schemaVersion !== 2) {
+      throw new Error("Fixture requires scoped schema-v3 reviews");
+    }
+    const revokedItemKey = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "lexeme",
+    )?.itemKey;
+    if (!revokedItemKey) throw new Error("Fixture lexeme is missing");
     bundle.reviews.reviews.push({
       reviewId: "linguistic-changes-fixture",
       role: "native-linguistic",
@@ -518,13 +1149,37 @@ describe("content package governance", () => {
       reviewedAt: "2026-07-22T02:00:00.000Z",
       evidenceRef: "fixture://linguistic-changes",
       packageManifestSha256: manifestHash,
+      scope: {
+        itemCatalogSha256: bundle.reviews.itemCatalogSha256,
+        itemKeys: [revokedItemKey],
+        audioAssetIds: [],
+      },
     });
     const validation = await validateContentBundle(bundle);
     const publication = assessPublicationEligibility(bundle, validation);
 
     expect(validation.errors).toEqual([]);
     expect(publication.eligible).toBe(false);
-    expect(publication.blockers).toContain("Latest native-linguistic review is not approved");
+    expect(publication.blockers).toContain(
+      "Released catalog items missing item-level governance or exact scoped review: 1",
+    );
+  });
+
+  it("rejects non-canonical and future review timestamps", async () => {
+    const nonCanonical = await makeEligibleFixture("closed-alpha");
+    nonCanonical.reviews.reviews[0].reviewedAt =
+      "2026-07-22T08:00:00+07:00";
+    const nonCanonicalValidation = await validateContentBundle(nonCanonical);
+    expect(nonCanonicalValidation.errors).toContain(
+      "reviews[0].reviewedAt is invalid",
+    );
+
+    const future = await makeEligibleFixture("closed-alpha");
+    future.reviews.reviews[0].reviewedAt = "2999-01-01T00:00:00.000Z";
+    const futureValidation = await validateContentBundle(future);
+    expect(futureValidation.errors).toContain(
+      "reviews[0].reviewedAt cannot be in the future",
+    );
   });
 
   it("marks every approval stale after even a metadata-only manifest edit", async () => {
@@ -546,6 +1201,8 @@ describe("content package governance", () => {
       "license-review-fixture",
       "audio-review-fixture",
     ]);
-    expect(publication.blockers).toContain("Missing exact-hash approval: native-linguistic");
+    expect(publication.blockers).toContain(
+      "Released catalog items missing item-level governance or exact scoped review: 354",
+    );
   });
 });

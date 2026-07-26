@@ -1,3 +1,5 @@
+import type { Skill } from "../types";
+
 export type Sha256Digest = `sha256:${string}`;
 
 export type ContentPackageAudience = "closed-alpha" | "public";
@@ -52,6 +54,8 @@ export type ContentPackageManifest = {
     "src/server/authoritativeAssessmentItemBank.ts"?: Sha256Digest;
     /** Required for contentSchemaVersion >= 2. */
     "src/server/assessmentScoring.ts"?: Sha256Digest;
+    /** Required for contentSchemaVersion >= 3. */
+    "item-catalog.json"?: Sha256Digest;
   };
   governance: {
     contentOwner: ContentOwner | null;
@@ -90,12 +94,145 @@ export type CoverageClaim = {
   framework: string;
   level: string;
   evidenceRef: string;
+  /** Required by coverage-claims schema v2. */
+  itemKeys?: string[];
+  /** Required by coverage-claims schema v2. */
+  entryLessonKeys?: string[];
+  /** Required by coverage-claims schema v2. */
+  terminalLessonKeys?: string[];
 };
 
-export type CoverageClaimsArtifact = {
+export type CoverageClaimsArtifact =
+  | {
+      schemaVersion: 1;
+      contentVersion: string;
+      coverageClaims: CoverageClaim[];
+    }
+  | {
+      schemaVersion: 2;
+      contentVersion: string;
+      itemCatalogSha256: Sha256Digest;
+      coverageClaims: Array<
+        CoverageClaim & {
+          itemKeys: string[];
+          entryLessonKeys: string[];
+          terminalLessonKeys: string[];
+        }
+      >;
+    };
+
+export type ContentItemType = "lexeme" | "lesson" | "graded-text";
+export type ContentItemKey = `${ContentItemType}:${string}`;
+
+export type ContentItemReference = {
+  itemType: ContentItemType;
+  itemId: string;
+};
+
+export type ContentItemOwner = {
+  id: string;
+  evidenceRef: string;
+};
+
+export type ContentItemSourceLicense = {
+  licenseId: string;
+  evidenceRef: string;
+};
+
+export type LexemeCatalogPayload = {
+  simplified: string;
+  traditional: string;
+  pinyin: string;
+  pinyinNumbered: string;
+  meaning: string;
+  partOfSpeech: string;
+  example: string;
+  examplePinyin: string;
+  exampleMeaning: string;
+  hsk: number;
+  tags: string[];
+};
+
+export type LessonCatalogPayload = {
+  unitId: string;
+  title: string;
+  chineseTitle: string;
+  objective: string;
+  minutes: number;
+  xp: number;
+  skills: Skill[];
+  wordIds: string[];
+};
+
+export type GradedTextCatalogPayload = {
+  level: string;
+  title: string;
+  chineseTitle: string;
+  summary: string;
+  estimatedMinutes: number;
+  sentences: Array<{
+    chinese: string;
+    pinyin: string;
+    translation: string;
+    wordIds: string[];
+  }>;
+  comprehension: Array<{
+    id: string;
+    prompt: string;
+    options: string[];
+    correctAnswer: string;
+    explanation: string;
+  }>;
+};
+
+type ContentCatalogItemBase = {
+  itemId: string;
+  itemVersion: string;
+  releaseState: ContentReleaseState;
+  payloadSha256: Sha256Digest;
+  owner: ContentItemOwner | null;
+  sourceLicense: ContentItemSourceLicense | null;
+  /** null means the prerequisite mapping still needs an editorial decision. */
+  prerequisites: ContentItemReference[] | null;
+};
+
+export type ContentCatalogItem =
+  | (ContentCatalogItemBase & {
+      itemKey: `lexeme:${string}`;
+      itemType: "lexeme";
+      payload: LexemeCatalogPayload;
+    })
+  | (ContentCatalogItemBase & {
+      itemKey: `lesson:${string}`;
+      itemType: "lesson";
+      payload: LessonCatalogPayload;
+    })
+  | (ContentCatalogItemBase & {
+      itemKey: `graded-text:${string}`;
+      itemType: "graded-text";
+      payload: GradedTextCatalogPayload;
+    });
+
+export type CatalogAudioAsset = {
+  assetId: string;
+  targetItemKey: ContentItemKey;
+  targetPayloadSha256: Sha256Digest;
+  fileRef: string;
+  fileSha256: Sha256Digest;
+  transcript: string;
+  transcriptSha256: Sha256Digest;
+  speaker: {
+    id: string;
+    nativeSpeakerEvidenceRef: string;
+  };
+  rights: AudioRights;
+};
+
+export type ItemCatalogArtifact = {
   schemaVersion: 1;
   contentVersion: string;
-  coverageClaims: CoverageClaim[];
+  items: ContentCatalogItem[];
+  audioAssets: CatalogAudioAsset[];
 };
 
 export type ReviewRole =
@@ -112,14 +249,36 @@ export type ContentReview = {
   reviewedAt: string;
   evidenceRef: string;
   packageManifestSha256: Sha256Digest;
+  /** Required by reviews schema v2. Wildcards are intentionally unsupported. */
+  scope?: {
+    itemCatalogSha256: Sha256Digest;
+    itemKeys: ContentItemKey[];
+    audioAssetIds: string[];
+  };
 };
 
-export type ContentReviewArtifact = {
-  schemaVersion: 1;
-  contentVersion: string;
-  packageManifestSha256: Sha256Digest;
-  reviews: ContentReview[];
-};
+export type ContentReviewArtifact =
+  | {
+      schemaVersion: 1;
+      contentVersion: string;
+      packageManifestSha256: Sha256Digest;
+      reviews: ContentReview[];
+    }
+  | {
+      schemaVersion: 2;
+      contentVersion: string;
+      packageManifestSha256: Sha256Digest;
+      itemCatalogSha256: Sha256Digest;
+      reviews: Array<
+        ContentReview & {
+          scope: {
+            itemCatalogSha256: Sha256Digest;
+            itemKeys: ContentItemKey[];
+            audioAssetIds: string[];
+          };
+        }
+      >;
+    };
 
 export type ContentRegistryEntry = {
   packageId: string;
@@ -150,8 +309,10 @@ export type ContentPackageBundle = {
   registryEntry: ContentRegistryEntry;
   manifest: ContentPackageManifest;
   runtimeIds: RuntimeIdArtifact;
+  itemCatalog: ItemCatalogArtifact | null;
   coverageClaims: CoverageClaimsArtifact;
   reviews: ContentReviewArtifact;
+  audioAssetFileHashes: Record<string, Sha256Digest | null>;
   immutableSourceTexts: Partial<Record<ContentSourceArtifactName, string | null>>;
   runtimeContentVersion: string | null;
   runtimeAssessmentSourceText: string | null;
@@ -170,6 +331,7 @@ export type ContentValidationResult = {
   hashes: {
     manifest: Sha256Digest;
     runtimeIds: Sha256Digest;
+    itemCatalog: Sha256Digest | null;
     coverageClaims: Sha256Digest;
     reviews: Sha256Digest;
     assessmentSource: Sha256Digest | null;

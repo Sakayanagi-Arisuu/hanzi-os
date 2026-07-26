@@ -8,7 +8,18 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
-const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2]);
+const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2, 3]);
+const ITEM_TYPES = new Set(["lexeme", "lesson", "graded-text"]);
+const RELEASED_STATES = new Set(["beta", "published"]);
+const LEARNING_SKILLS = new Set([
+  "pronunciation",
+  "listening",
+  "speaking",
+  "reading",
+  "writing",
+  "vocabulary",
+  "grammar",
+]);
 const CONTENT_SCHEMA_V1_SOURCE_ARTIFACTS = [
   "src/data/assessment.ts",
   "src/data/curriculum.ts",
@@ -32,8 +43,11 @@ const isRecord = (value) =>
 
 const isNonEmptyString = (value) => typeof value === "string" && value.trim().length > 0;
 
-const isValidDate = (value) =>
-  isNonEmptyString(value) && !Number.isNaN(Date.parse(value));
+const isValidDate = (value) => {
+  if (!isNonEmptyString(value)) return false;
+  const epoch = Date.parse(value);
+  return !Number.isNaN(epoch) && new Date(epoch).toISOString() === value;
+};
 
 const pushDuplicateErrors = (values, label, errors) => {
   const seen = new Set();
@@ -163,6 +177,17 @@ export const sha256NormalizedText = async (value) => {
   ).join("")}`;
 };
 
+export const sha256Bytes = async (value) => {
+  if (!(value instanceof Uint8Array)) {
+    throw new TypeError("SHA-256 binary input must be a Uint8Array");
+  }
+  if (!globalThis.crypto?.subtle) throw new Error("Web Crypto SHA-256 is unavailable");
+  const digest = await globalThis.crypto.subtle.digest("SHA-256", value);
+  return `sha256:${Array.from(new Uint8Array(digest), (byte) =>
+    byte.toString(16).padStart(2, "0"),
+  ).join("")}`;
+};
+
 const validateRegistry = (registry, registryEntry, errors) => {
   if (!isRecord(registry) || registry.schemaVersion !== 1) {
     errors.push("registry.schemaVersion must be 1");
@@ -207,7 +232,7 @@ const validateManifest = (manifest, errors) => {
     errors.push("manifest.contentVersion must equal packageId");
   }
   if (!SUPPORTED_CONTENT_SCHEMA_VERSIONS.has(manifest.contentSchemaVersion)) {
-    errors.push("manifest.contentSchemaVersion must be a supported version (1 or 2)");
+    errors.push("manifest.contentSchemaVersion must be a supported version (1, 2, or 3)");
   }
   if (!["closed-alpha", "public"].includes(manifest.audience)) {
     errors.push("manifest.audience is invalid");
@@ -229,6 +254,7 @@ const validateManifest = (manifest, errors) => {
       "coverage-claims.json",
       "runtime-ids.json",
       ...contentSourceArtifactNames(manifest.contentSchemaVersion),
+      ...(manifest.contentSchemaVersion >= 3 ? ["item-catalog.json"] : []),
     ];
     requiredArtifacts.forEach((name) => {
       if (!DIGEST_PATTERN.test(manifest.artifacts[name] ?? "")) {
@@ -343,15 +369,525 @@ const validateRuntimeIds = (runtimeIds, errors) => {
   });
 };
 
-const validateCoverageClaims = (coverageClaims, errors) => {
-  if (!isRecord(coverageClaims) || coverageClaims.schemaVersion !== 1) {
-    errors.push("coverage-claims.schemaVersion must be 1");
+const arraysEqual = (left, right) =>
+  Array.isArray(left)
+  && Array.isArray(right)
+  && left.length === right.length
+  && left.every((value, index) => value === right[index]);
+
+const sortedValues = (values) => [...values].sort((left, right) =>
+  left.localeCompare(right, "en-US"));
+
+const validateExactSet = (actual, expected, label, errors) => {
+  if (!arraysEqual(sortedValues(actual), sortedValues(expected))) {
+    errors.push(`${label} must exactly match runtime-ids.json`);
+  }
+};
+
+const validateEvidenceObject = (value, fields, label, errors) => {
+  if (value === null) return;
+  if (!isRecord(value)) {
+    errors.push(`${label} must be null or an object`);
     return;
+  }
+  fields.forEach((field) => {
+    if (!isNonEmptyString(value[field])) errors.push(`${label}.${field} is required`);
+  });
+};
+
+const validateAllowedKeys = (value, allowedKeys, label, errors) => {
+  if (!isRecord(value)) return;
+  const allowed = new Set(allowedKeys);
+  Object.keys(value).forEach((key) => {
+    if (!allowed.has(key)) errors.push(`${label} has unknown field ${key}`);
+  });
+};
+
+const validateCatalogPayload = (item, index, errors) => {
+  const prefix = `item-catalog.items[${index}]`;
+  const payload = item.payload;
+  if (!isRecord(payload)) {
+    errors.push(`${prefix}.payload must be an object`);
+    return;
+  }
+  if (item.itemType === "lexeme") {
+    const fields = [
+      "simplified",
+      "traditional",
+      "pinyin",
+      "pinyinNumbered",
+      "meaning",
+      "partOfSpeech",
+      "example",
+      "examplePinyin",
+      "exampleMeaning",
+    ];
+    validateAllowedKeys(
+      payload,
+      [...fields, "hsk", "tags"],
+      `${prefix}.payload`,
+      errors,
+    );
+    fields.forEach((field) => {
+      if (!isNonEmptyString(payload[field])) errors.push(`${prefix}.payload.${field} is required`);
+    });
+    if (!Number.isInteger(payload.hsk) || payload.hsk < 0) {
+      errors.push(`${prefix}.payload.hsk must be a non-negative integer`);
+    }
+    validateStringArray(payload.tags, `${prefix}.payload tag`, errors);
+    return;
+  }
+  if (item.itemType === "lesson") {
+    validateAllowedKeys(
+      payload,
+      [
+        "unitId",
+        "title",
+        "chineseTitle",
+        "objective",
+        "minutes",
+        "xp",
+        "skills",
+        "wordIds",
+      ],
+      `${prefix}.payload`,
+      errors,
+    );
+    ["unitId", "title", "chineseTitle", "objective"].forEach((field) => {
+      if (!isNonEmptyString(payload[field])) errors.push(`${prefix}.payload.${field} is required`);
+    });
+    if (!Number.isFinite(payload.minutes) || payload.minutes <= 0) {
+      errors.push(`${prefix}.payload.minutes must be positive`);
+    }
+    if (!Number.isFinite(payload.xp) || payload.xp < 0) {
+      errors.push(`${prefix}.payload.xp must be non-negative`);
+    }
+    validateStringArray(payload.skills, `${prefix}.payload skill`, errors)
+      .forEach((skill) => {
+        if (!LEARNING_SKILLS.has(skill)) {
+          errors.push(`${prefix}.payload has unknown skill ${skill}`);
+        }
+      });
+    validateStringArray(payload.wordIds, `${prefix}.payload word id`, errors);
+    return;
+  }
+  if (item.itemType === "graded-text") {
+    validateAllowedKeys(
+      payload,
+      [
+        "level",
+        "title",
+        "chineseTitle",
+        "summary",
+        "estimatedMinutes",
+        "sentences",
+        "comprehension",
+      ],
+      `${prefix}.payload`,
+      errors,
+    );
+    ["level", "title", "chineseTitle", "summary"].forEach((field) => {
+      if (!isNonEmptyString(payload[field])) errors.push(`${prefix}.payload.${field} is required`);
+    });
+    if (!Number.isFinite(payload.estimatedMinutes) || payload.estimatedMinutes <= 0) {
+      errors.push(`${prefix}.payload.estimatedMinutes must be positive`);
+    }
+    if (!Array.isArray(payload.sentences)) {
+      errors.push(`${prefix}.payload.sentences must be an array`);
+    } else {
+      payload.sentences.forEach((sentence, sentenceIndex) => {
+        if (!isRecord(sentence)) {
+          errors.push(`${prefix}.payload.sentences[${sentenceIndex}] must be an object`);
+          return;
+        }
+        validateAllowedKeys(
+          sentence,
+          ["chinese", "pinyin", "translation", "wordIds"],
+          `${prefix}.payload.sentences[${sentenceIndex}]`,
+          errors,
+        );
+        ["chinese", "pinyin", "translation"].forEach((field) => {
+          if (!isNonEmptyString(sentence[field])) {
+            errors.push(`${prefix}.payload.sentences[${sentenceIndex}].${field} is required`);
+          }
+        });
+        validateStringArray(
+          sentence.wordIds,
+          `${prefix}.payload.sentences[${sentenceIndex}] word id`,
+          errors,
+        );
+      });
+    }
+    if (!Array.isArray(payload.comprehension)) {
+      errors.push(`${prefix}.payload.comprehension must be an array`);
+    } else {
+      const comprehensionIds = [];
+      payload.comprehension.forEach((question, questionIndex) => {
+        if (!isRecord(question)) {
+          errors.push(`${prefix}.payload.comprehension[${questionIndex}] must be an object`);
+          return;
+        }
+        validateAllowedKeys(
+          question,
+          ["id", "prompt", "options", "correctAnswer", "explanation"],
+          `${prefix}.payload.comprehension[${questionIndex}]`,
+          errors,
+        );
+        ["id", "prompt", "correctAnswer", "explanation"].forEach((field) => {
+          if (!isNonEmptyString(question[field])) {
+            errors.push(`${prefix}.payload.comprehension[${questionIndex}].${field} is required`);
+          }
+        });
+        if (isNonEmptyString(question.id)) comprehensionIds.push(question.id);
+        const options = validateStringArray(
+          question.options,
+          `${prefix}.payload.comprehension[${questionIndex}] option`,
+          errors,
+        );
+        if (options.length < 2) {
+          errors.push(`${prefix}.payload.comprehension[${questionIndex}] requires at least two options`);
+        }
+        if (
+          isNonEmptyString(question.correctAnswer)
+          && !options.includes(question.correctAnswer)
+        ) {
+          errors.push(`${prefix}.payload.comprehension[${questionIndex}] correctAnswer must be an option`);
+        }
+      });
+      pushDuplicateErrors(comprehensionIds, `${prefix} comprehension id`, errors);
+    }
+  }
+};
+
+const validateItemCatalog = async (
+  itemCatalog,
+  runtimeIds,
+  audioAssetFileHashes,
+  errors,
+) => {
+  if (!isRecord(itemCatalog) || itemCatalog.schemaVersion !== 1) {
+    errors.push("item-catalog.schemaVersion must be 1");
+    return;
+  }
+  validateAllowedKeys(
+    itemCatalog,
+    ["schemaVersion", "contentVersion", "items", "audioAssets"],
+    "item-catalog",
+    errors,
+  );
+  if (!Array.isArray(itemCatalog.items)) {
+    errors.push("item-catalog.items must be an array");
+    return;
+  }
+  if (!Array.isArray(itemCatalog.audioAssets)) {
+    errors.push("item-catalog.audioAssets must be an array");
+    return;
+  }
+  if (!SAFE_ID_PATTERN.test(itemCatalog.contentVersion ?? "")) {
+    errors.push("item-catalog.contentVersion is invalid");
+  }
+  const runtimeVocabularyIds = Array.isArray(runtimeIds?.vocabularyIds)
+    ? runtimeIds.vocabularyIds
+    : [];
+  const runtimeUnitIds = Array.isArray(runtimeIds?.unitIds)
+    ? runtimeIds.unitIds
+    : [];
+  const runtimeLessons = Array.isArray(runtimeIds?.lessons)
+    ? runtimeIds.lessons
+    : [];
+  const runtimeStories = Array.isArray(runtimeIds?.stories)
+    ? runtimeIds.stories
+    : [];
+
+  const catalogItems = itemCatalog.items.filter(isRecord);
+  if (catalogItems.length !== itemCatalog.items.length) {
+    errors.push("item-catalog.items must contain objects");
+  }
+  const itemKeys = [];
+  const itemMap = new Map();
+  for (const [index, item] of catalogItems.entries()) {
+    const prefix = `item-catalog.items[${index}]`;
+    validateAllowedKeys(
+      item,
+      [
+        "itemKey",
+        "itemType",
+        "itemId",
+        "itemVersion",
+        "releaseState",
+        "payload",
+        "payloadSha256",
+        "owner",
+        "sourceLicense",
+        "prerequisites",
+      ],
+      prefix,
+      errors,
+    );
+    if (!ITEM_TYPES.has(item.itemType)) errors.push(`${prefix}.itemType is invalid`);
+    if (!SAFE_ID_PATTERN.test(item.itemId ?? "")) errors.push(`${prefix}.itemId is invalid`);
+    if (!SAFE_ID_PATTERN.test(item.itemVersion ?? "")) errors.push(`${prefix}.itemVersion is invalid`);
+    else if (item.itemVersion !== itemCatalog.contentVersion) {
+      errors.push(`${prefix}.itemVersion must match item-catalog.contentVersion`);
+    }
+    const expectedKey = `${String(item.itemType)}:${String(item.itemId)}`;
+    if (item.itemKey !== expectedKey) errors.push(`${prefix}.itemKey must be ${expectedKey}`);
+    if (isNonEmptyString(item.itemKey)) {
+      itemKeys.push(item.itemKey);
+      itemMap.set(item.itemKey, item);
+    }
+    if (!RELEASE_STATES.has(item.releaseState)) {
+      errors.push(`${prefix}.releaseState is invalid`);
+    }
+    validateCatalogPayload(item, index, errors);
+    if (!DIGEST_PATTERN.test(item.payloadSha256 ?? "")) {
+      errors.push(`${prefix}.payloadSha256 is invalid`);
+    } else if (
+      item.payloadSha256
+      !== await sha256Json({
+        itemType: item.itemType,
+        payload: item.payload,
+      })
+    ) {
+      errors.push(`${prefix}.payloadSha256 does not match its canonical payload`);
+    }
+    validateEvidenceObject(item.owner, ["id", "evidenceRef"], `${prefix}.owner`, errors);
+    validateEvidenceObject(
+      item.sourceLicense,
+      ["licenseId", "evidenceRef"],
+      `${prefix}.sourceLicense`,
+      errors,
+    );
+    if (item.prerequisites !== null && !Array.isArray(item.prerequisites)) {
+      errors.push(`${prefix}.prerequisites must be null or an array`);
+    }
+  }
+  pushDuplicateErrors(itemKeys, "item catalog key", errors);
+
+  const prerequisiteGraph = new Map();
+  catalogItems.forEach((item, index) => {
+    if (!Array.isArray(item.prerequisites)) return;
+    const keys = [];
+    item.prerequisites.forEach((reference, referenceIndex) => {
+      const prefix = `item-catalog.items[${index}].prerequisites[${referenceIndex}]`;
+      if (!isRecord(reference) || !ITEM_TYPES.has(reference.itemType)) {
+        errors.push(`${prefix}.itemType is invalid`);
+        return;
+      }
+      if (!SAFE_ID_PATTERN.test(reference.itemId ?? "")) {
+        errors.push(`${prefix}.itemId is invalid`);
+        return;
+      }
+      const key = `${reference.itemType}:${reference.itemId}`;
+      keys.push(key);
+      if (!itemMap.has(key)) errors.push(`${prefix} references unknown item ${key}`);
+      if (key === item.itemKey) errors.push(`${prefix} cannot reference itself`);
+    });
+    pushDuplicateErrors(keys, `${item.itemKey} prerequisite`, errors);
+    prerequisiteGraph.set(item.itemKey, keys);
+  });
+  const visiting = new Set();
+  const visited = new Set();
+  const visit = (itemKey) => {
+    if (visiting.has(itemKey)) {
+      errors.push(`Item prerequisite cycle detected at ${itemKey}`);
+      return;
+    }
+    if (visited.has(itemKey)) return;
+    visiting.add(itemKey);
+    (prerequisiteGraph.get(itemKey) ?? []).forEach((dependencyKey) => {
+      if (prerequisiteGraph.has(dependencyKey)) visit(dependencyKey);
+    });
+    visiting.delete(itemKey);
+    visited.add(itemKey);
+  };
+  itemKeys.forEach(visit);
+
+  const lexemeItems = catalogItems.filter((item) => item.itemType === "lexeme");
+  const lessonItems = catalogItems.filter((item) => item.itemType === "lesson");
+  const gradedTextItems = catalogItems.filter((item) => item.itemType === "graded-text");
+  validateExactSet(
+    lexemeItems.map((item) => item.itemId),
+    runtimeVocabularyIds,
+    "Catalog lexeme inventory",
+    errors,
+  );
+  validateExactSet(
+    lessonItems.map((item) => item.itemId),
+    runtimeLessons.map((lesson) => lesson?.id).filter(isNonEmptyString),
+    "Catalog lesson inventory",
+    errors,
+  );
+  validateExactSet(
+    gradedTextItems.map((item) => item.itemId),
+    runtimeStories.map((story) => story?.id).filter(isNonEmptyString),
+    "Catalog graded-text inventory",
+    errors,
+  );
+  validateExactSet(
+    [
+      ...new Set(
+        lessonItems.map((item) => item.payload?.unitId).filter(isNonEmptyString),
+      ),
+    ],
+    runtimeUnitIds,
+    "Catalog unit inventory",
+    errors,
+  );
+
+  const runtimeLessonMap = new Map(
+    runtimeLessons.filter(isRecord).map((lesson) => [lesson.id, lesson]),
+  );
+  lessonItems.forEach((item) => {
+    const runtimeLesson = runtimeLessonMap.get(item.itemId);
+    if (!runtimeLesson || !isRecord(item.payload)) return;
+    if (item.payload.unitId !== runtimeLesson.unitId) {
+      errors.push(`${item.itemKey}: unitId does not match runtime-ids.json`);
+    }
+    if (!arraysEqual(item.payload.wordIds, runtimeLesson.wordIds)) {
+      errors.push(`${item.itemKey}: wordIds do not match runtime-ids.json`);
+    }
+    if (item.releaseState !== runtimeLesson.releaseState) {
+      errors.push(`${item.itemKey}: releaseState does not match runtime-ids.json`);
+    }
+    if (!Array.isArray(item.prerequisites)) {
+      errors.push(`${item.itemKey}: lesson prerequisites require an explicit mapping`);
+    } else {
+      const lessonPrerequisites = item.prerequisites
+        .filter(isRecord)
+        .filter((reference) => reference.itemType === "lesson")
+        .map((reference) => reference.itemId);
+      if (
+        item.prerequisites.some(
+          (reference) => !isRecord(reference) || reference.itemType !== "lesson",
+        )
+        || !arraysEqual(lessonPrerequisites, runtimeLesson.prerequisiteIds)
+      ) {
+        errors.push(`${item.itemKey}: prerequisites do not match runtime-ids.json`);
+      }
+    }
+  });
+
+  const runtimeStoryMap = new Map(
+    runtimeStories.filter(isRecord).map((story) => [story.id, story]),
+  );
+  gradedTextItems.forEach((item) => {
+    const runtimeStory = runtimeStoryMap.get(item.itemId);
+    if (!runtimeStory || !isRecord(item.payload)) return;
+    const wordIds = [
+      ...new Set(
+        Array.isArray(item.payload.sentences)
+          ? item.payload.sentences.flatMap((sentence) =>
+              Array.isArray(sentence?.wordIds) ? sentence.wordIds : [])
+          : [],
+      ),
+    ];
+    if (!arraysEqual(wordIds, runtimeStory.wordIds)) {
+      errors.push(`${item.itemKey}: sentence wordIds do not match runtime-ids.json`);
+    }
+    if (item.releaseState !== runtimeStory.releaseState) {
+      errors.push(`${item.itemKey}: releaseState does not match runtime-ids.json`);
+    }
+  });
+
+  const audioAssets = itemCatalog.audioAssets.filter(isRecord);
+  if (audioAssets.length !== itemCatalog.audioAssets.length) {
+    errors.push("item-catalog.audioAssets must contain objects");
+  }
+  const assetIds = [];
+  const fileRefs = [];
+  for (const [index, asset] of audioAssets.entries()) {
+    const prefix = `item-catalog.audioAssets[${index}]`;
+    if (!SAFE_ID_PATTERN.test(asset.assetId ?? "")) errors.push(`${prefix}.assetId is invalid`);
+    else assetIds.push(asset.assetId);
+    if (!isNonEmptyString(asset.targetItemKey) || !itemMap.has(asset.targetItemKey)) {
+      errors.push(`${prefix}.targetItemKey is unknown`);
+    }
+    const target = itemMap.get(asset.targetItemKey);
+    if (
+      !DIGEST_PATTERN.test(asset.targetPayloadSha256 ?? "")
+      || asset.targetPayloadSha256 !== target?.payloadSha256
+    ) {
+      errors.push(`${prefix}.targetPayloadSha256 does not match the target item`);
+    }
+    if (
+      !isNonEmptyString(asset.fileRef)
+      || !asset.fileRef.startsWith("audio/")
+      || asset.fileRef.includes("\\")
+      || asset.fileRef.split("/").some((part) => part === "" || part === "." || part === "..")
+    ) {
+      errors.push(`${prefix}.fileRef must be a safe package-local audio path`);
+    } else {
+      fileRefs.push(asset.fileRef);
+      const fileHash = audioAssetFileHashes?.[asset.fileRef] ?? null;
+      if (fileHash === null) errors.push(`${prefix}.fileRef is unavailable`);
+      else if (fileHash !== asset.fileSha256) {
+        errors.push(`${prefix}.fileSha256 does not match package bytes`);
+      }
+    }
+    if (!DIGEST_PATTERN.test(asset.fileSha256 ?? "")) {
+      errors.push(`${prefix}.fileSha256 is invalid`);
+    }
+    const transcriptHash = typeof asset.transcript === "string"
+      ? await sha256NormalizedText(asset.transcript)
+      : null;
+    if (!isNonEmptyString(asset.transcript)) errors.push(`${prefix}.transcript is required`);
+    if (
+      !DIGEST_PATTERN.test(asset.transcriptSha256 ?? "")
+      || asset.transcriptSha256 !== transcriptHash
+    ) {
+      errors.push(`${prefix}.transcriptSha256 does not match transcript`);
+    }
+    if (asset.speaker === null) errors.push(`${prefix}.speaker is required`);
+    else {
+      validateEvidenceObject(
+        asset.speaker,
+        ["id", "nativeSpeakerEvidenceRef"],
+        `${prefix}.speaker`,
+        errors,
+      );
+    }
+    if (asset.rights === null) errors.push(`${prefix}.rights is required`);
+    else {
+      validateEvidenceObject(
+        asset.rights,
+        ["ownerId", "licenseId", "evidenceRef"],
+        `${prefix}.rights`,
+        errors,
+      );
+    }
+  }
+  pushDuplicateErrors(assetIds, "audio asset id", errors);
+  pushDuplicateErrors(fileRefs, "audio fileRef", errors);
+};
+
+const validateCoverageClaims = (
+  coverageClaims,
+  itemCatalog,
+  itemCatalogHash,
+  requiresScopedClaims,
+  errors,
+) => {
+  const supportedSchema = requiresScopedClaims ? 2 : 1;
+  if (!isRecord(coverageClaims) || coverageClaims.schemaVersion !== supportedSchema) {
+    errors.push(`coverage-claims.schemaVersion must be ${supportedSchema}`);
+    return;
+  }
+  if (
+    requiresScopedClaims
+    && coverageClaims.itemCatalogSha256 !== itemCatalogHash
+  ) {
+    errors.push("coverage-claims.itemCatalogSha256 does not match item-catalog.json");
   }
   if (!Array.isArray(coverageClaims.coverageClaims)) {
     errors.push("coverageClaims must be an array");
     return;
   }
+  const itemKeys = new Set(
+    (Array.isArray(itemCatalog?.items) ? itemCatalog.items : [])
+      .filter(isRecord)
+      .map((item) => item.itemKey),
+  );
   const claimIds = [];
   coverageClaims.coverageClaims.forEach((claim, index) => {
     if (!isRecord(claim)) {
@@ -362,23 +898,147 @@ const validateCoverageClaims = (coverageClaims, errors) => {
       if (!isNonEmptyString(claim[field])) errors.push(`coverageClaims[${index}].${field} is required`);
     });
     if (isNonEmptyString(claim.claimId)) claimIds.push(claim.claimId);
+    if (!requiresScopedClaims) return;
+    const scopedItemKeys = validateStringArray(
+      claim.itemKeys,
+      `coverageClaims[${index}] item key`,
+      errors,
+    );
+    const entryLessonKeys = validateStringArray(
+      claim.entryLessonKeys,
+      `coverageClaims[${index}] entry lesson key`,
+      errors,
+    );
+    const terminalLessonKeys = validateStringArray(
+      claim.terminalLessonKeys,
+      `coverageClaims[${index}] terminal lesson key`,
+      errors,
+    );
+    if (
+      scopedItemKeys.length === 0
+      || entryLessonKeys.length === 0
+      || terminalLessonKeys.length === 0
+    ) {
+      errors.push(`coverageClaims[${index}] requires non-empty item, entry, and terminal scopes`);
+    }
+    scopedItemKeys.forEach((key) => {
+      if (!itemKeys.has(key)) errors.push(`coverageClaims[${index}] references unknown item ${key}`);
+    });
+    [...entryLessonKeys, ...terminalLessonKeys].forEach((key) => {
+      if (!key.startsWith("lesson:") || !itemKeys.has(key)) {
+        errors.push(`coverageClaims[${index}] references unknown lesson ${key}`);
+      }
+      if (!scopedItemKeys.includes(key)) {
+        errors.push(`coverageClaims[${index}] lesson ${key} is outside itemKeys`);
+      }
+    });
   });
   pushDuplicateErrors(claimIds, "coverage claim id", errors);
+  if (requiresScopedClaims) {
+    const scopedClaims = coverageClaims.coverageClaims.filter(
+      (claim) =>
+        isRecord(claim)
+        && isNonEmptyString(claim.framework)
+        && isNonEmptyString(claim.level)
+        && Array.isArray(claim.itemKeys)
+        && claim.itemKeys.every(isNonEmptyString)
+        && Array.isArray(claim.entryLessonKeys)
+        && claim.entryLessonKeys.every(isNonEmptyString)
+        && Array.isArray(claim.terminalLessonKeys)
+        && claim.terminalLessonKeys.every(isNonEmptyString),
+    );
+    const frameworkScopeKeys = scopedClaims.map((claim) =>
+      [
+        claim.framework?.trim().toLocaleLowerCase("en-US"),
+        sortedValues(claim.itemKeys).join(","),
+        sortedValues(claim.entryLessonKeys).join(","),
+        sortedValues(claim.terminalLessonKeys).join(","),
+      ].join("|"));
+    pushDuplicateErrors(
+      frameworkScopeKeys,
+      "coverage framework path scope",
+      errors,
+    );
+    const hskOne = scopedClaims.find(
+      (claim) =>
+        typeof claim.framework === "string"
+        && claim.framework.trim().toLocaleLowerCase("en-US") === "hsk"
+        && typeof claim.level === "string"
+        && claim.level.trim().toLocaleUpperCase("en-US") === "1",
+    );
+    const hskTwo = scopedClaims.find(
+      (claim) =>
+        typeof claim.framework === "string"
+        && claim.framework.trim().toLocaleLowerCase("en-US") === "hsk"
+        && typeof claim.level === "string"
+        && claim.level.trim().toLocaleUpperCase("en-US") === "2",
+    );
+    if (hskOne && hskTwo) {
+      const hskOneItems = new Set(hskOne.itemKeys);
+      const hskTwoItems = new Set(hskTwo.itemKeys);
+      const hskOneLessons = new Set(
+        hskOne.itemKeys.filter((itemKey) => itemKey.startsWith("lesson:")),
+      );
+      const hskTwoLessons = new Set(
+        hskTwo.itemKeys.filter((itemKey) => itemKey.startsWith("lesson:")),
+      );
+      if (
+        hskTwoItems.size <= hskOneItems.size
+        || [...hskOneItems].some((itemKey) => !hskTwoItems.has(itemKey))
+      ) {
+        errors.push("HSK 2 coverage scope must be a strict superset of HSK 1");
+      }
+      if (
+        hskTwoLessons.size <= hskOneLessons.size
+        || [...hskOneLessons].some(
+          (itemKey) => !hskTwoLessons.has(itemKey),
+        )
+        || hskTwo.terminalLessonKeys.every((itemKey) =>
+          hskOne.terminalLessonKeys.includes(itemKey))
+      ) {
+        errors.push("HSK 2 lesson path must extend beyond HSK 1");
+      }
+    }
+  }
 };
 
-const validateReviews = (reviews, errors) => {
-  if (!isRecord(reviews) || reviews.schemaVersion !== 1) {
-    errors.push("reviews.schemaVersion must be 1");
+const validateReviews = (
+  reviews,
+  itemCatalog,
+  itemCatalogHash,
+  requiresScopedReviews,
+  errors,
+) => {
+  const supportedSchema = requiresScopedReviews ? 2 : 1;
+  if (!isRecord(reviews) || reviews.schemaVersion !== supportedSchema) {
+    errors.push(`reviews.schemaVersion must be ${supportedSchema}`);
     return;
   }
   if (!DIGEST_PATTERN.test(reviews.packageManifestSha256 ?? "")) {
     errors.push("reviews.packageManifestSha256 must be a SHA-256 digest");
   }
+  if (
+    requiresScopedReviews
+    && reviews.itemCatalogSha256 !== itemCatalogHash
+  ) {
+    errors.push("reviews.itemCatalogSha256 does not match item-catalog.json");
+  }
   if (!Array.isArray(reviews.reviews)) {
     errors.push("reviews.reviews must be an array");
     return;
   }
+  const itemKeys = new Set(
+    (Array.isArray(itemCatalog?.items) ? itemCatalog.items : [])
+      .filter(isRecord)
+      .map((item) => item.itemKey),
+  );
+  const audioAssetIds = new Set(
+    (Array.isArray(itemCatalog?.audioAssets) ? itemCatalog.audioAssets : [])
+      .filter(isRecord)
+      .map((asset) => asset.assetId),
+  );
   const reviewIds = [];
+  const precedenceKeys = [];
   reviews.reviews.forEach((review, index) => {
     if (!isRecord(review)) {
       errors.push(`reviews[${index}] must be an object`);
@@ -394,14 +1054,59 @@ const validateReviews = (reviews, errors) => {
       errors.push(`reviews[${index}].reviewerId is required`);
     }
     if (!isValidDate(review.reviewedAt)) errors.push(`reviews[${index}].reviewedAt is invalid`);
+    else if (Date.parse(review.reviewedAt) > Date.now() + 5 * 60 * 1000) {
+      errors.push(`reviews[${index}].reviewedAt cannot be in the future`);
+    }
     if (!isNonEmptyString(review.evidenceRef)) {
       errors.push(`reviews[${index}].evidenceRef is required`);
     }
     if (!DIGEST_PATTERN.test(review.packageManifestSha256 ?? "")) {
       errors.push(`reviews[${index}].packageManifestSha256 is invalid`);
     }
+    if (!requiresScopedReviews) return;
+    if (!isRecord(review.scope)) {
+      errors.push(`reviews[${index}].scope is required`);
+      return;
+    }
+    if (review.scope.itemCatalogSha256 !== itemCatalogHash) {
+      errors.push(`reviews[${index}].scope.itemCatalogSha256 does not match item-catalog.json`);
+    }
+    const scopedItemKeys = validateStringArray(
+      review.scope.itemKeys,
+      `reviews[${index}] item key`,
+      errors,
+    );
+    const scopedAudioAssetIds = validateStringArray(
+      review.scope.audioAssetIds,
+      `reviews[${index}] audio asset id`,
+      errors,
+    );
+    if (scopedItemKeys.length + scopedAudioAssetIds.length === 0) {
+      errors.push(`reviews[${index}].scope cannot be empty`);
+    }
+    if (review.role === "audio-rights" && scopedAudioAssetIds.length === 0) {
+      errors.push(`reviews[${index}] audio-rights review requires audioAssetIds`);
+    }
+    if (review.role !== "audio-rights" && scopedItemKeys.length === 0) {
+      errors.push(`reviews[${index}] ${String(review.role)} review requires itemKeys`);
+    }
+    scopedItemKeys.forEach((key) => {
+      if (!itemKeys.has(key)) errors.push(`reviews[${index}] references unknown item ${key}`);
+      precedenceKeys.push(
+        `${String(review.role)}:item:${key}:${String(Date.parse(review.reviewedAt))}`,
+      );
+    });
+    scopedAudioAssetIds.forEach((assetId) => {
+      if (!audioAssetIds.has(assetId)) {
+        errors.push(`reviews[${index}] references unknown audio asset ${assetId}`);
+      }
+      precedenceKeys.push(
+        `${String(review.role)}:audio:${assetId}:${String(Date.parse(review.reviewedAt))}`,
+      );
+    });
   });
   pushDuplicateErrors(reviewIds, "review id", errors);
+  pushDuplicateErrors(precedenceKeys, "review role/target/timestamp", errors);
 };
 
 const SOURCE_ARTIFACT_BINDINGS = [
@@ -452,6 +1157,9 @@ export const validateContentBundle = async (bundle) => {
   const warnings = [];
   const manifestHash = await sha256Json(bundle.manifest);
   const runtimeIdsHash = await sha256Json(bundle.runtimeIds);
+  const itemCatalogHash = isRecord(bundle.itemCatalog)
+    ? await sha256Json(bundle.itemCatalog)
+    : null;
   const coverageClaimsHash = await sha256Json(bundle.coverageClaims);
   const reviewsHash = await sha256Json(bundle.reviews);
   const immutableSourceTexts = isRecord(bundle.immutableSourceTexts)
@@ -477,13 +1185,37 @@ export const validateContentBundle = async (bundle) => {
   validateRegistry(bundle.registry, bundle.registryEntry, errors);
   validateManifest(bundle.manifest, errors);
   validateRuntimeIds(bundle.runtimeIds, errors);
-  validateCoverageClaims(bundle.coverageClaims, errors);
-  validateReviews(bundle.reviews, errors);
+  const requiresItemCatalog = bundle.manifest?.contentSchemaVersion === 3;
+  if (requiresItemCatalog) {
+    await validateItemCatalog(
+      bundle.itemCatalog,
+      bundle.runtimeIds,
+      bundle.audioAssetFileHashes,
+      errors,
+    );
+  }
+  validateCoverageClaims(
+    bundle.coverageClaims,
+    bundle.itemCatalog,
+    itemCatalogHash,
+    requiresItemCatalog,
+    errors,
+  );
+  validateReviews(
+    bundle.reviews,
+    bundle.itemCatalog,
+    itemCatalogHash,
+    requiresItemCatalog,
+    errors,
+  );
 
   const version = bundle.manifest?.contentVersion;
   [
     ["registry entry", bundle.registryEntry?.contentVersion],
     ["runtime ids", bundle.runtimeIds?.contentVersion],
+    ...(requiresItemCatalog
+      ? [["item catalog", bundle.itemCatalog?.contentVersion]]
+      : []),
     ["coverage claims", bundle.coverageClaims?.contentVersion],
     ["reviews", bundle.reviews?.contentVersion],
   ].forEach(([label, artifactVersion]) => {
@@ -513,8 +1245,23 @@ export const validateContentBundle = async (bundle) => {
   if (bundle.manifest?.artifacts?.["runtime-ids.json"] !== runtimeIdsHash) {
     errors.push("runtime-ids.json digest does not match manifest");
   }
+  if (
+    requiresItemCatalog
+    && bundle.manifest?.artifacts?.["item-catalog.json"] !== itemCatalogHash
+  ) {
+    errors.push("item-catalog.json digest does not match manifest");
+  }
   if (bundle.manifest?.artifacts?.["coverage-claims.json"] !== coverageClaimsHash) {
     errors.push("coverage-claims.json digest does not match manifest");
+  }
+  if (
+    requiresItemCatalog
+    && bundle.manifest?.governance?.includesAudio
+      !== ((bundle.itemCatalog?.audioAssets?.length ?? 0) > 0)
+  ) {
+    errors.push(
+      "manifest.governance.includesAudio must equal the presence of catalog audio assets",
+    );
   }
   const requiredSourceArtifacts = contentSourceArtifactNames(
     bundle.manifest?.contentSchemaVersion,
@@ -537,6 +1284,26 @@ export const validateContentBundle = async (bundle) => {
       errors.push(`${name} digest does not match manifest`);
     }
   });
+  if (requiresItemCatalog) {
+    const curriculumSnapshot =
+      immutableSourceTexts["src/data/curriculum.ts"];
+    const catalogImportMatches =
+      typeof curriculumSnapshot === "string"
+        ? [
+            ...curriculumSnapshot.matchAll(
+              /^import itemCatalogJson from "\.\.\/\.\.\/content\/packages\/([a-zA-Z0-9][a-zA-Z0-9._-]*)\/item-catalog\.json";$/gmu,
+            ),
+          ]
+        : [];
+    if (
+      catalogImportMatches.length !== 1
+      || catalogImportMatches[0][1] !== version
+    ) {
+      errors.push(
+        "src/data/curriculum.ts must import the selected package item-catalog.json",
+      );
+    }
+  }
   if (bundle.reviews?.packageManifestSha256 !== manifestHash) {
     warnings.push("Review envelope is stale for the current manifest digest");
   }
@@ -546,7 +1313,10 @@ export const validateContentBundle = async (bundle) => {
   ) {
     errors.push("Promotion provenance does not bind the current review envelope");
   }
-  (bundle.reviews?.reviews ?? []).forEach((review) => {
+  const reviewEntries = Array.isArray(bundle.reviews?.reviews)
+    ? bundle.reviews.reviews
+    : [];
+  reviewEntries.forEach((review) => {
     if (review.packageManifestSha256 !== manifestHash) {
       warnings.push(`Review ${review.reviewId} is stale for the current manifest digest`);
     }
@@ -568,6 +1338,7 @@ export const validateContentBundle = async (bundle) => {
     hashes: {
       manifest: manifestHash,
       runtimeIds: runtimeIdsHash,
+      itemCatalog: itemCatalogHash,
       coverageClaims: coverageClaimsHash,
       reviews: reviewsHash,
       ...Object.fromEntries(
@@ -591,6 +1362,120 @@ const latestReviewByRole = (reviews, manifestHash) => {
       }
     });
   return latest;
+};
+
+const latestScopedReview = (
+  reviews,
+  manifestHash,
+  role,
+  scopeField,
+  target,
+) => {
+  let latest = null;
+  reviews
+    .filter(
+      (review) =>
+        review.packageManifestSha256 === manifestHash
+        && review.role === role
+        && Array.isArray(review.scope?.[scopeField])
+        && review.scope[scopeField].includes(target),
+    )
+    .forEach((review) => {
+      if (!latest || Date.parse(review.reviewedAt) > Date.parse(latest.reviewedAt)) {
+        latest = review;
+      }
+    });
+  return latest;
+};
+
+const itemMapFor = (bundle) =>
+  new Map(
+    (Array.isArray(bundle.itemCatalog?.items) ? bundle.itemCatalog.items : [])
+      .filter(isRecord)
+      .map((item) => [item.itemKey, item]),
+  );
+
+const gradedTextPayloadIsNonEmpty = (item) => {
+  if (item?.itemType !== "graded-text") return false;
+  const sentences = item.payload?.sentences;
+  const comprehension = item.payload?.comprehension;
+  return Array.isArray(sentences)
+    && sentences.length > 0
+    && sentences.every(
+      (sentence) =>
+        isNonEmptyString(sentence?.chinese)
+        && isNonEmptyString(sentence?.pinyin)
+        && isNonEmptyString(sentence?.translation),
+    )
+    && sentences.some(
+      (sentence) => Array.isArray(sentence?.wordIds) && sentence.wordIds.length > 0,
+    )
+    && Array.isArray(comprehension)
+    && comprehension.length > 0
+    && comprehension.every(
+      (question) =>
+        isNonEmptyString(question?.prompt)
+        && Array.isArray(question?.options)
+        && new Set(question.options).size >= 2
+        && question.options.includes(question.correctAnswer)
+        && isNonEmptyString(question.explanation),
+    );
+};
+
+const releasedCatalogItems = (bundle) => {
+  const items = Array.isArray(bundle.itemCatalog?.items)
+    ? bundle.itemCatalog.items.filter(isRecord)
+    : [];
+  const activeItems = items.filter((item) => RELEASED_STATES.has(item.releaseState));
+  const exposedLexemeKeys = new Set(
+    activeItems
+      .filter((item) => item.itemType === "lesson" || item.itemType === "graded-text")
+      .flatMap((item) =>
+        item.itemType === "lesson"
+          ? Array.isArray(item.payload?.wordIds) ? item.payload.wordIds : []
+          : Array.isArray(item.payload?.sentences)
+            ? item.payload.sentences.flatMap((sentence) =>
+                Array.isArray(sentence?.wordIds) ? sentence.wordIds : [])
+            : [],
+      )
+      .map((wordId) => `lexeme:${wordId}`),
+  );
+  const relevantKeys = new Set([
+    ...activeItems.map((item) => item.itemKey),
+    ...exposedLexemeKeys,
+  ]);
+  return items.filter((item) => relevantKeys.has(item.itemKey));
+};
+
+const itemIsReleaseReady = (bundle, manifestHash, item) => {
+  if (!item || !RELEASED_STATES.has(item.releaseState)) return false;
+  if (!item.owner?.id || !item.owner?.evidenceRef) return false;
+  if (!item.sourceLicense?.licenseId || !item.sourceLicense?.evidenceRef) return false;
+  if (!Array.isArray(item.prerequisites)) return false;
+  const itemMap = itemMapFor(bundle);
+  if (
+    item.prerequisites.some((reference) => {
+      if (!isRecord(reference)) return true;
+      const dependency = itemMap.get(`${reference.itemType}:${reference.itemId}`);
+      return !dependency || !RELEASED_STATES.has(dependency.releaseState);
+    })
+  ) {
+    return false;
+  }
+  for (const role of ["content-owner", "native-linguistic", "source-license"]) {
+    const review = latestScopedReview(
+      Array.isArray(bundle.reviews?.reviews) ? bundle.reviews.reviews : [],
+      manifestHash,
+      role,
+      "itemKeys",
+      item.itemKey,
+    );
+    if (!review || review.decision !== "approved") return false;
+    if (role === "native-linguistic" && review.reviewerId === item.owner.id) {
+      return false;
+    }
+  }
+  return true;
 };
 
 const assessBaseReleaseEligibility = (bundle, validation, channel) => {
@@ -626,26 +1511,55 @@ const assessBaseReleaseEligibility = (bundle, validation, channel) => {
     blockers.push("Review envelope does not bind the current manifest digest");
   }
 
-  const staleReviewIds = bundle.reviews.reviews
+  const reviewEntries = Array.isArray(bundle.reviews?.reviews)
+    ? bundle.reviews.reviews
+    : [];
+  const staleReviewIds = reviewEntries
     .filter((review) => review.packageManifestSha256 !== manifestHash)
     .map((review) => review.reviewId);
-  const latestReviews = latestReviewByRole(bundle.reviews.reviews, manifestHash);
-  const requiredRoles = ["content-owner", "native-linguistic", "source-license"];
-  if (governance.includesAudio) requiredRoles.push("audio-rights");
-  requiredRoles.forEach((role) => {
-    const review = latestReviews.get(role);
-    if (!review) blockers.push(`Missing exact-hash approval: ${role}`);
-    else if (review.decision !== "approved") blockers.push(`Latest ${role} review is not approved`);
-  });
-
-  const linguisticReview = latestReviews.get("native-linguistic");
-  if (
-    linguisticReview?.decision === "approved" &&
-    linguisticReview.reviewerId === governance.contentOwner?.id
-  ) {
-    blockers.push("Native linguistic reviewer must be independent from the content owner");
+  if (bundle.manifest.contentSchemaVersion < 3 || bundle.itemCatalog === null) {
+    blockers.push("Release eligibility requires a schema-v3 item catalog");
+    const latestReviews = latestReviewByRole(reviewEntries, manifestHash);
+    const requiredRoles = ["content-owner", "native-linguistic", "source-license"];
+    if (governance.includesAudio) requiredRoles.push("audio-rights");
+    requiredRoles.forEach((role) => {
+      const review = latestReviews.get(role);
+      if (!review) blockers.push(`Missing exact-hash approval: ${role}`);
+      else if (review.decision !== "approved") {
+        blockers.push(`Latest ${role} review is not approved`);
+      }
+    });
+    const linguisticReview = latestReviews.get("native-linguistic");
+    if (
+      linguisticReview?.decision === "approved"
+      && linguisticReview.reviewerId === governance.contentOwner?.id
+    ) {
+      blockers.push("Native linguistic reviewer must be independent from the content owner");
+    }
+  } else {
+    const relevantItems = releasedCatalogItems(bundle);
+    const unreadyItems = relevantItems.filter(
+      (item) => !itemIsReleaseReady(bundle, manifestHash, item),
+    );
+    if (unreadyItems.length > 0) {
+      blockers.push(
+        `Released catalog items missing item-level governance or exact scoped review: ${unreadyItems.length}`,
+      );
+    }
+    const emptyReleasedGradedTexts = relevantItems.filter(
+      (item) =>
+        item.itemType === "graded-text" && !gradedTextPayloadIsNonEmpty(item),
+    );
+    if (emptyReleasedGradedTexts.length > 0) {
+      blockers.push(
+        `Released graded texts must contain sentences and comprehension: ${emptyReleasedGradedTexts.length}`,
+      );
+    }
   }
-  if (bundle.coverageClaims.coverageClaims.length === 0) {
+  if (
+    !Array.isArray(bundle.coverageClaims?.coverageClaims)
+    || bundle.coverageClaims.coverageClaims.length === 0
+  ) {
     warnings.push("No framework, HSK, A0, or goal coverage claim is declared");
   }
   return {
@@ -665,54 +1579,273 @@ const withAdditionalBlockers = (assessment, blockers, warnings = []) => ({
   warnings: [...new Set([...assessment.warnings, ...warnings])],
 });
 
-const normalizedCoverageClaims = (bundle) => bundle.coverageClaims.coverageClaims.map(
-  (claim) => ({
-    framework: claim.framework.trim().toLocaleLowerCase("en-US"),
-    level: claim.level.trim().toLocaleUpperCase("en-US"),
-  }),
-);
+const coverageClaimHasReachableReviewedPath = (
+  bundle,
+  manifestHash,
+  claim,
+) => {
+  if (
+    bundle.coverageClaims?.schemaVersion !== 2
+    || !isRecord(claim)
+    || !isNonEmptyString(claim.framework)
+    || !isNonEmptyString(claim.level)
+    || !isNonEmptyString(claim.evidenceRef)
+    || !Array.isArray(claim.itemKeys)
+    || !claim.itemKeys.every(isNonEmptyString)
+    || !Array.isArray(claim.entryLessonKeys)
+    || !claim.entryLessonKeys.every(isNonEmptyString)
+    || !Array.isArray(claim.terminalLessonKeys)
+    || !claim.terminalLessonKeys.every(isNonEmptyString)
+    || claim.itemKeys.length === 0
+    || claim.entryLessonKeys.length === 0
+    || claim.terminalLessonKeys.length === 0
+  ) {
+    return false;
+  }
+  const itemMap = itemMapFor(bundle);
+  if (
+    claim.itemKeys.some(
+      (itemKey) => !itemIsReleaseReady(bundle, manifestHash, itemMap.get(itemKey)),
+    )
+  ) {
+    return false;
+  }
+  const scopedLessonKeys = new Set(
+    claim.itemKeys.filter((itemKey) => itemKey.startsWith("lesson:")),
+  );
+  if (scopedLessonKeys.size < 2) return false;
+  const adjacency = new Map(
+    [...scopedLessonKeys].map((itemKey) => [itemKey, []]),
+  );
+  const prerequisiteKeysByLesson = new Map();
+  scopedLessonKeys.forEach((itemKey) => {
+    const item = itemMap.get(itemKey);
+    const prerequisites = Array.isArray(item?.prerequisites)
+      ? item.prerequisites
+      : [];
+    const prerequisiteKeys = prerequisites
+      .filter(
+        (reference) => isRecord(reference) && reference.itemType === "lesson",
+      )
+      .map((reference) => `lesson:${reference.itemId}`);
+    prerequisiteKeysByLesson.set(itemKey, prerequisiteKeys);
+    prerequisiteKeys.forEach((prerequisiteKey) => {
+      if (scopedLessonKeys.has(prerequisiteKey)) {
+        adjacency.get(prerequisiteKey)?.push(itemKey);
+      }
+    });
+  });
+  if (
+    [...prerequisiteKeysByLesson.values()]
+      .flat()
+      .some((prerequisiteKey) => !scopedLessonKeys.has(prerequisiteKey))
+  ) {
+    return false;
+  }
+  const roots = [...scopedLessonKeys].filter(
+    (itemKey) => (prerequisiteKeysByLesson.get(itemKey)?.length ?? 0) === 0,
+  );
+  const sinks = [...scopedLessonKeys].filter(
+    (itemKey) => (adjacency.get(itemKey)?.length ?? 0) === 0,
+  );
+  if (
+    !arraysEqual(sortedValues(roots), sortedValues(claim.entryLessonKeys))
+    || !arraysEqual(sortedValues(sinks), sortedValues(claim.terminalLessonKeys))
+  ) {
+    return false;
+  }
+  const reachable = new Set();
+  const queue = [...claim.entryLessonKeys];
+  while (queue.length > 0) {
+    const itemKey = queue.shift();
+    if (reachable.has(itemKey) || !scopedLessonKeys.has(itemKey)) continue;
+    reachable.add(itemKey);
+    queue.push(...(adjacency.get(itemKey) ?? []));
+  }
+  if (reachable.size !== scopedLessonKeys.size) return false;
+  const referencedLexemeKeys = new Set(
+    claim.itemKeys.flatMap((itemKey) => {
+      const item = itemMap.get(itemKey);
+      if (item?.itemType === "lesson") {
+        return Array.isArray(item.payload?.wordIds)
+          ? item.payload.wordIds.map((wordId) => `lexeme:${wordId}`)
+          : [];
+      }
+      if (item?.itemType === "graded-text") {
+        return Array.isArray(item.payload?.sentences)
+          ? item.payload.sentences.flatMap((sentence) =>
+              Array.isArray(sentence?.wordIds)
+                ? sentence.wordIds.map((wordId) => `lexeme:${wordId}`)
+                : [])
+          : [];
+      }
+      return [];
+    }),
+  );
+  const claimedLexemeKeys = new Set(
+    claim.itemKeys.filter((itemKey) => itemKey.startsWith("lexeme:")),
+  );
+  return arraysEqual(
+    sortedValues(claimedLexemeKeys),
+    sortedValues(referencedLexemeKeys),
+  );
+};
+
+const claimHasReachableReviewedPath = (
+  bundle,
+  manifestHash,
+  framework,
+  level,
+) => {
+  const normalizedFramework = framework.toLocaleLowerCase("en-US");
+  const normalizedLevel = level.toLocaleUpperCase("en-US");
+  const coverageClaims = Array.isArray(bundle.coverageClaims?.coverageClaims)
+    ? bundle.coverageClaims.coverageClaims
+    : [];
+  return coverageClaims.some(
+    (claim) =>
+      isRecord(claim)
+      && isNonEmptyString(claim.framework)
+      && claim.framework.trim().toLocaleLowerCase("en-US") === normalizedFramework
+      && isNonEmptyString(claim.level)
+      && claim.level.trim().toLocaleUpperCase("en-US") === normalizedLevel
+      && coverageClaimHasReachableReviewedPath(bundle, manifestHash, claim),
+  );
+};
+
+const isNonEmptyReviewedGradedText = (bundle, manifestHash, item) => {
+  if (
+    item?.itemType !== "graded-text"
+    || !itemIsReleaseReady(bundle, manifestHash, item)
+  ) {
+    return false;
+  }
+  return gradedTextPayloadIsNonEmpty(item);
+};
+
+const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
+  const target = itemMapFor(bundle).get(asset.targetItemKey);
+  if (
+    !target
+    || asset.targetPayloadSha256 !== target.payloadSha256
+    || bundle.audioAssetFileHashes?.[asset.fileRef] !== asset.fileSha256
+    || !asset.speaker?.nativeSpeakerEvidenceRef
+    || !asset.rights?.ownerId
+    || !asset.rights?.licenseId
+    || !asset.rights?.evidenceRef
+  ) {
+    return false;
+  }
+  for (const role of ["native-linguistic", "audio-rights"]) {
+    const review = latestScopedReview(
+      Array.isArray(bundle.reviews?.reviews) ? bundle.reviews.reviews : [],
+      manifestHash,
+      role,
+      "audioAssetIds",
+      asset.assetId,
+    );
+    if (!review || review.decision !== "approved") return false;
+    if (role === "native-linguistic" && review.reviewerId === target.owner?.id) {
+      return false;
+    }
+  }
+  return true;
+};
 
 export const assessClosedAlphaEligibility = (bundle, validation) => {
   const base = assessBaseReleaseEligibility(bundle, validation, "closed-alpha");
   const blockers = [];
-  const claims = normalizedCoverageClaims(bundle);
-  const releasedLexemeIds = new Set([
-    ...bundle.runtimeIds.lessons
-      .filter((lesson) => lesson.releaseState === "beta" || lesson.releaseState === "published")
-      .flatMap((lesson) => lesson.wordIds),
-    ...bundle.runtimeIds.stories
-      .filter((story) => story.releaseState === "beta" || story.releaseState === "published")
-      .flatMap((story) => story.wordIds),
-  ]);
-  if (releasedLexemeIds.size < 300) {
-    blockers.push("Closed alpha requires at least 300 exact-hash reviewed lexemes");
+  const declaredClaims = Array.isArray(bundle.coverageClaims?.coverageClaims)
+    ? bundle.coverageClaims.coverageClaims
+    : [];
+  if (
+    declaredClaims.some(
+      (claim) =>
+        !coverageClaimHasReachableReviewedPath(
+          bundle,
+          validation.hashes.manifest,
+          claim,
+        ),
+    )
+  ) {
+    blockers.push(
+      "Every declared coverage claim must bind a complete reachable reviewed item graph",
+    );
   }
-  if (!claims.some((claim) => claim.level === "A0")) {
+  const reviewedLexemeHashes = new Set(
+    releasedCatalogItems(bundle)
+      .filter(
+        (item) =>
+          item.itemType === "lexeme"
+          && itemIsReleaseReady(bundle, validation.hashes.manifest, item),
+      )
+      .map((item) => item.payloadSha256),
+  );
+  if (reviewedLexemeHashes.size < 300) {
+    blockers.push(
+      `Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found ${reviewedLexemeHashes.size})`,
+    );
+  }
+  if (
+    !claimHasReachableReviewedPath(
+      bundle,
+      validation.hashes.manifest,
+      "CEFR",
+      "A0",
+    )
+  ) {
     blockers.push("Closed alpha requires an evidence-backed complete A0 coverage claim");
   }
   return withAdditionalBlockers(base, blockers);
 };
 
 export const assessPublicationEligibility = (bundle, validation) => {
-  const base = assessBaseReleaseEligibility(bundle, validation, "production");
+  const closedAlpha = assessClosedAlphaEligibility(bundle, validation);
+  const base = {
+    ...closedAlpha,
+    channel: "production",
+  };
   const blockers = [];
-  const claims = normalizedCoverageClaims(bundle);
   if (bundle.manifest.audience !== "public") {
     blockers.push("Package audience is closed-alpha, not public");
   }
   for (const level of ["1", "2"]) {
-    if (!claims.some((claim) => claim.framework === "hsk" && claim.level === level)) {
+    if (
+      !claimHasReachableReviewedPath(
+        bundle,
+        validation.hashes.manifest,
+        "HSK",
+        level,
+      )
+    ) {
       blockers.push(`Public beta requires an evidence-backed HSK ${level} coverage claim`);
     }
   }
-  const releasedStoryCount = bundle.runtimeIds.stories.filter(
-    (story) => story.releaseState === "beta" || story.releaseState === "published",
-  ).length;
+  const releasedStoryCount = new Set(
+    (bundle.itemCatalog?.items ?? [])
+      .filter((item) =>
+        isNonEmptyReviewedGradedText(bundle, validation.hashes.manifest, item))
+      .map((item) => item.payloadSha256),
+  ).size;
   if (releasedStoryCount < 40) {
-    blockers.push("Public beta requires at least 40 versioned graded texts");
+    blockers.push(
+      `Public beta requires at least 40 non-empty, reviewed graded texts (found ${releasedStoryCount})`,
+    );
   }
-  if (!bundle.manifest.governance.includesAudio) {
-    blockers.push("Public beta requires licensed native audio for released core content");
+  const coreItems = releasedCatalogItems(bundle);
+  const readyAudioTargets = new Set(
+    (bundle.itemCatalog?.audioAssets ?? [])
+      .filter((asset) =>
+        audioAssetIsReleaseReady(bundle, validation.hashes.manifest, asset))
+      .map((asset) => asset.targetItemKey),
+  );
+  const missingAudioTargets = coreItems.filter(
+    (item) => !readyAudioTargets.has(item.itemKey),
+  );
+  if (missingAudioTargets.length > 0 || coreItems.length === 0) {
+    blockers.push(
+      `Public beta requires licensed native audio for released core content (missing ${missingAudioTargets.length} targets)`,
+    );
   }
   return withAdditionalBlockers(base, blockers);
 };

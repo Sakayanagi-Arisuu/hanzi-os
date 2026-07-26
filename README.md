@@ -60,5 +60,5 @@ bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần c
 production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
 đường D1.
 
-Ứng viên nội dung `foundation-2026.07.3` chưa được promote và chưa có linguistic
+Ứng viên nội dung `foundation-2026.07.4` chưa được promote và chưa có linguistic
 approval; vì vậy README không tuyên bố nội dung này đã sẵn sàng production.

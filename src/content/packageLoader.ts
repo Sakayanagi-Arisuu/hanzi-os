@@ -1,6 +1,7 @@
 import {
   canonicalJson as canonicalJsonRuntime,
   contentSourceArtifactNames as contentSourceArtifactNamesRuntime,
+  sha256Bytes as sha256BytesRuntime,
   sha256NormalizedText as sha256NormalizedTextRuntime,
   sha256Json as sha256JsonRuntime,
   validateContentBundle as validateContentBundleRuntime,
@@ -18,6 +19,10 @@ export const sha256Json = sha256JsonRuntime as (value: unknown) => Promise<Sha25
 
 export const sha256NormalizedText = sha256NormalizedTextRuntime as (
   value: string,
+) => Promise<Sha256Digest>;
+
+export const sha256Bytes = sha256BytesRuntime as (
+  value: Uint8Array,
 ) => Promise<Sha256Digest>;
 
 export const contentSourceArtifactNames = contentSourceArtifactNamesRuntime as (
