@@ -14,6 +14,7 @@ import {
   assessPublicationEligibility,
 } from "./publicationPolicy";
 import type {
+  ContentCatalogItem,
   ContentPackageBundle,
   ContentPackageManifest,
   ContentRegistry,
@@ -159,12 +160,13 @@ const bindRuntimeToImmutableSchemaV3Sources = (
 
 const makeEligibleFixture = async (
   audience: "closed-alpha" | "public" = "public",
+  audioSchema: "validated-v5" | "legacy" = "validated-v5",
 ): Promise<ContentPackageBundle> => {
   const bundle = structuredClone(
     loadCheckedInBundle("foundation-2026.07.4"),
   );
   bindRuntimeToImmutableSchemaV3Sources(bundle);
-  if (bundle.itemCatalog === null) {
+  if (bundle.itemCatalog === null || bundle.itemCatalog.schemaVersion !== 1) {
     throw new Error("Fixture requires a schema-v3 item catalog");
   }
   bundle.manifest.audience = audience;
@@ -348,6 +350,126 @@ const makeEligibleFixture = async (
     };
   }
 
+  if (audience === "public" && audioSchema === "validated-v5") {
+    const items = bundle.itemCatalog.items.map((item) =>
+      item.itemType === "lesson"
+        ? {
+            ...item,
+            knowledgeItems: item.payload.wordIds.map((itemId) => ({
+              itemType: "lexeme" as const,
+              itemId,
+            })),
+          }
+        : item);
+    const audioTargetText = (item: ContentCatalogItem) => {
+      if (item.itemType === "lexeme") return item.payload.simplified;
+      if (item.itemType === "lesson") return item.payload.chineseTitle;
+      if (item.itemType === "graded-text") {
+        const text = item.payload.sentences[0]?.chinese;
+        if (typeof text === "string" && text.length > 0) return text;
+      }
+      throw new Error(`Fixture item has no deterministic audio target: ${item.itemKey}`);
+    };
+    const media = {
+      container: "wav" as const,
+      codec: "pcm-s16le" as const,
+      sampleRateHz: 16_000,
+      channels: 1 as const,
+      bitDepth: 16 as const,
+      frameCount: 16_000,
+      durationMs: 1_000,
+      byteLength: 32_044,
+    };
+    const fileHashes: ContentPackageBundle["audioAssetFileHashes"] = {};
+    const fileInspections: NonNullable<
+      ContentPackageBundle["audioAssetFileInspections"]
+    > = {};
+    const audioAssets = await Promise.all(
+      items
+        .filter((item) =>
+          item.releaseState === "beta" || item.releaseState === "published")
+        .map(async (item) => {
+          const assetId = `audio-${item.itemType}-${item.itemId}`;
+          const fileRef = `audio/${assetId}.wav`;
+          const fileSha256 = await sha256Json({
+            fixture: "canonical-pcm-wav",
+            fileRef,
+            byteLength: media.byteLength,
+          });
+          const transcript = audioTargetText(item);
+          const transcriptSha256 = await sha256NormalizedText(transcript);
+          fileHashes[fileRef] = fileSha256;
+          fileInspections[fileRef] = {
+            ok: true,
+            media: structuredClone(media),
+          };
+          return {
+            assetId,
+            targetItemKey: item.itemKey,
+            targetPayloadSha256: item.payloadSha256,
+            fileRef,
+            fileSha256,
+            transcript,
+            transcriptSha256,
+            speaker: {
+              id: "native-speaker-fixture",
+              nativeSpeakerEvidenceRef: "fixture://native-speaker",
+            },
+            rights: {
+              ownerId: "audio-owner-fixture",
+              licenseId: "AudioLicenseRef-Fixture",
+              evidenceRef: "fixture://audio-rights",
+            },
+            media: structuredClone(media),
+            alignment: {
+              schemaVersion: 1 as const,
+              targetTextSha256: transcriptSha256,
+              segments: [{ startMs: 0, endMs: 1_000, text: transcript }],
+            },
+          };
+        }),
+    );
+    bundle.itemCatalog = {
+      schemaVersion: 3,
+      contentVersion: bundle.itemCatalog.contentVersion,
+      items,
+      audioAssets,
+    };
+    bundle.audioAssetFileHashes = fileHashes;
+    bundle.audioAssetFileInspections = fileInspections;
+    bundle.runtimeCatalog = projectRuntimeCatalog(bundle.itemCatalog);
+    bundle.manifest.contentSchemaVersion = 5;
+    bundle.manifest.artifacts["runtime-catalog.json"] = await sha256Json(
+      bundle.runtimeCatalog,
+    );
+
+    const curriculumSource = readFileSync(
+      new URL("../data/curriculum.ts", import.meta.url),
+      "utf8",
+    ).replaceAll(CONTENT_VERSION, bundle.manifest.contentVersion);
+    const knowledgeBlueprintsSource = readFileSync(
+      new URL("../data/knowledgeItemBlueprints.ts", import.meta.url),
+      "utf8",
+    );
+    const lessonGuidesSource = readFileSync(
+      new URL("../data/lessonGuides.ts", import.meta.url),
+      "utf8",
+    );
+    bundle.immutableSourceTexts["src/data/curriculum.ts"] = curriculumSource;
+    bundle.immutableSourceTexts["src/data/knowledgeItemBlueprints.ts"] =
+      knowledgeBlueprintsSource;
+    bundle.immutableSourceTexts["src/data/lessonGuides.ts"] = lessonGuidesSource;
+    bundle.runtimeSourceText = curriculumSource;
+    bundle.runtimeKnowledgeItemBlueprintsSourceText = knowledgeBlueprintsSource;
+    bundle.runtimeLessonGuidesSourceText = lessonGuidesSource;
+    bundle.manifest.artifacts["src/data/curriculum.ts"] =
+      await sha256NormalizedText(curriculumSource);
+    bundle.manifest.artifacts["src/data/knowledgeItemBlueprints.ts"] =
+      await sha256NormalizedText(knowledgeBlueprintsSource);
+    bundle.manifest.artifacts["src/data/lessonGuides.ts"] =
+      await sha256NormalizedText(lessonGuidesSource);
+  }
+
   const itemCatalogHash = await sha256Json(bundle.itemCatalog);
   const releasedItemKeys = bundle.itemCatalog.items
     .filter((item) => item.releaseState === "beta" || item.releaseState === "published")
@@ -426,6 +548,12 @@ const makeEligibleFixture = async (
   };
   bundle.manifest.artifacts["runtime-ids.json"] = await sha256Json(bundle.runtimeIds);
   bundle.manifest.artifacts["item-catalog.json"] = itemCatalogHash;
+  if (bundle.manifest.contentSchemaVersion >= 4) {
+    bundle.runtimeCatalog = projectRuntimeCatalog(bundle.itemCatalog);
+    bundle.manifest.artifacts["runtime-catalog.json"] = await sha256Json(
+      bundle.runtimeCatalog,
+    );
+  }
   bundle.manifest.artifacts["coverage-claims.json"] = await sha256Json(
     bundle.coverageClaims,
   );
@@ -517,6 +645,81 @@ const rebindMutableFixture = async (bundle: ContentPackageBundle) => {
   bundle.reviews.reviews.forEach((review) => {
     review.packageManifestSha256 = manifestHash;
   });
+};
+
+const makeSchemaV5AudioFixture = async (
+  targetKind: "lexeme" | "graded-text-crlf" = "lexeme",
+): Promise<ContentPackageBundle> => {
+  const bundle = structuredClone(loadCheckedInBundle());
+  if (bundle.itemCatalog?.schemaVersion !== 2) {
+    throw new Error("Schema-v4 catalog fixture is missing");
+  }
+  const target = bundle.itemCatalog.items.find((item) =>
+    targetKind === "lexeme"
+      ? item.itemType === "lexeme"
+      : item.itemType === "graded-text");
+  if (!target) throw new Error("Audio target fixture is missing");
+  const transcript = target.itemType === "graded-text"
+    ? target.payload.sentences.map((sentence) => sentence.chinese).join("\r\n")
+    : target.itemType === "lexeme"
+      ? target.payload.simplified
+      : "";
+  const transcriptSha256 = await sha256NormalizedText(transcript);
+  const rights = {
+    ownerId: "audio-owner-fixture",
+    licenseId: "AudioLicenseRef-Fixture",
+    evidenceRef: "fixture://audio-rights",
+  };
+  const media = {
+    container: "wav" as const,
+    codec: "pcm-s16le" as const,
+    sampleRateHz: 16_000,
+    channels: 1 as const,
+    bitDepth: 16 as const,
+    frameCount: 16_000,
+    durationMs: 1_000,
+    byteLength: 32_044,
+  };
+  const assetId = `audio-${target.itemType}-${target.itemId}`;
+  const fileRef = `audio/${assetId}.wav`;
+  const fileSha256 = await sha256Json({
+    fixture: "canonical-pcm-wav",
+    fileRef,
+    byteLength: media.byteLength,
+  });
+  bundle.itemCatalog = {
+    ...bundle.itemCatalog,
+    schemaVersion: 3,
+    audioAssets: [{
+      assetId,
+      targetItemKey: target.itemKey,
+      targetPayloadSha256: target.payloadSha256,
+      fileRef,
+      fileSha256,
+      transcript,
+      transcriptSha256,
+      speaker: {
+        id: "native-speaker-fixture",
+        nativeSpeakerEvidenceRef: "fixture://native-speaker",
+      },
+      rights,
+      media,
+      alignment: {
+        schemaVersion: 1,
+        targetTextSha256: transcriptSha256,
+        segments: [{ startMs: 0, endMs: 1_000, text: transcript }],
+      },
+    }],
+  };
+  bundle.audioAssetFileHashes = { [fileRef]: fileSha256 };
+  bundle.audioAssetFileInspections = {
+    [fileRef]: { ok: true, media: structuredClone(media) },
+  };
+  bundle.manifest.contentSchemaVersion = 5;
+  bundle.manifest.governance.includesAudio = true;
+  bundle.manifest.governance.audioRights = structuredClone(rights);
+  await rebindMutableFixture(bundle);
+  return bundle;
 };
 
 describe("content package governance", () => {
@@ -645,7 +848,7 @@ describe("content package governance", () => {
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "manifest.contentSchemaVersion must be a supported version (1, 2, 3, or 4)",
+      "manifest.contentSchemaVersion must be a supported version (1, 2, 3, 4, or 5)",
     );
   });
 
@@ -808,6 +1011,178 @@ describe("content package governance", () => {
     const schemaV3Validation = await validateContentBundle(schemaV3);
     expect(schemaV3Validation.errors).toContain(
       "item-catalog.schemaVersion must be 1",
+    );
+
+    const schemaV5 = await makeSchemaV5AudioFixture();
+    if (schemaV5.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    schemaV5.itemCatalog.schemaVersion = 2 as never;
+    const schemaV5Validation = await validateContentBundle(schemaV5);
+    expect(schemaV5Validation.errors).toContain(
+      "item-catalog.schemaVersion must be 3",
+    );
+  });
+
+  it("accepts inspected schema-v5 PCM WAV audio without leaking it to runtime", async () => {
+    const bundle = await makeSchemaV5AudioFixture();
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toEqual([]);
+    expect(projectRuntimeCatalog(bundle.itemCatalog!)).toEqual(bundle.runtimeCatalog);
+    const runtimeJson = JSON.stringify(projectRuntimeCatalog(bundle.itemCatalog!));
+    expect(runtimeJson).not.toContain("audio-lexeme");
+    expect(runtimeJson).not.toContain("pcm-s16le");
+    expect(runtimeJson).not.toContain("native-speaker-fixture");
+    expect(runtimeJson).not.toContain("fixture://audio-rights");
+  });
+
+  it("normalizes newline spelling only across transcript, alignment, and target text", async () => {
+    const bundle = await makeSchemaV5AudioFixture("graded-text-crlf");
+    if (bundle.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    const asset = bundle.itemCatalog.audioAssets[0];
+    asset.alignment.segments[0].text = asset.transcript.replace(/\r\n/g, "\n");
+    await rebindMutableFixture(bundle);
+
+    await expect(validateContentBundle(bundle)).resolves.toMatchObject({ errors: [] });
+  });
+
+  it("requires a successful byte-derived WAV inspection matching catalog media", async () => {
+    const missing = await makeSchemaV5AudioFixture();
+    if (missing.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    const fileRef = missing.itemCatalog.audioAssets[0].fileRef;
+    missing.audioAssetFileInspections = {};
+    const missingValidation = await validateContentBundle(missing);
+    expect(missingValidation.errors).toContain(
+      "item-catalog.audioAssets[0].fileRef requires a successful WAV inspection",
+    );
+
+    const failed = await makeSchemaV5AudioFixture();
+    failed.audioAssetFileInspections = {
+      [fileRef]: { ok: false, error: "truncated RIFF payload" },
+    };
+    const failedValidation = await validateContentBundle(failed);
+    expect(failedValidation.errors).toContain(
+      "item-catalog.audioAssets[0].fileRef WAV inspection failed",
+    );
+
+    const mismatched = await makeSchemaV5AudioFixture();
+    const inspection = mismatched.audioAssetFileInspections?.[fileRef];
+    if (!inspection || !inspection.ok) throw new Error("WAV inspection fixture is missing");
+    inspection.media.frameCount += 1;
+    const mismatchedValidation = await validateContentBundle(mismatched);
+    expect(mismatchedValidation.errors).toContain(
+      "item-catalog.audioAssets[0].media does not match inspected package bytes",
+    );
+  });
+
+  it("rejects invalid PCM metadata, duration, alignment, and deterministic target text", async () => {
+    const codec = await makeSchemaV5AudioFixture();
+    if (codec.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    codec.itemCatalog.audioAssets[0].media.codec = "mp3" as never;
+    const codecValidation = await validateContentBundle(codec);
+    expect(codecValidation.errors).toContain(
+      "item-catalog.audioAssets[0].media.codec must be pcm-s16le",
+    );
+
+    const duration = await makeSchemaV5AudioFixture();
+    if (duration.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    duration.itemCatalog.audioAssets[0].media.durationMs = 999;
+    const durationValidation = await validateContentBundle(duration);
+    expect(durationValidation.errors).toContain(
+      "item-catalog.audioAssets[0].media.durationMs must match frameCount and sampleRateHz",
+    );
+
+    const alignment = await makeSchemaV5AudioFixture();
+    if (alignment.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    const alignmentAsset = alignment.itemCatalog.audioAssets[0];
+    alignmentAsset.alignment.segments = [
+      { startMs: 0, endMs: 800, text: alignmentAsset.transcript },
+      { startMs: 700, endMs: 1_000, text: "x" },
+    ];
+    alignmentAsset.alignment.targetTextSha256 = `sha256:${"0".repeat(64)}`;
+    alignmentAsset.transcript = "not a Mandarin target";
+    const alignmentValidation = await validateContentBundle(alignment);
+    expect(alignmentValidation.errors).toEqual(expect.arrayContaining([
+      "item-catalog.audioAssets[0].alignment.targetTextSha256 must match transcript",
+      "item-catalog.audioAssets[0].alignment.segments[1] overlaps or precedes the previous segment",
+      "item-catalog.audioAssets[0].transcript must equal a deterministic Mandarin target text",
+    ]));
+  });
+
+  it("binds schema-v5 audio to payload, bytes, package rights, and strict fields", async () => {
+    const bundle = await makeSchemaV5AudioFixture();
+    if (
+      bundle.itemCatalog?.schemaVersion !== 3
+      || bundle.manifest.governance.audioRights === null
+    ) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    const asset = bundle.itemCatalog.audioAssets[0];
+    asset.targetPayloadSha256 = `sha256:${"1".repeat(64)}`;
+    bundle.audioAssetFileHashes[asset.fileRef] = `sha256:${"2".repeat(64)}`;
+    asset.media.byteLength = 10;
+    asset.rights.ownerId = "different-owner";
+    (asset as unknown as Record<string, unknown>).privateNotes = "must reject";
+    (asset.media as unknown as Record<string, unknown>).peakAmplitude = 1;
+    (asset.alignment.segments[0] as unknown as Record<string, unknown>).confidence = 1;
+    (bundle.manifest.governance.audioRights as unknown as Record<string, unknown>)
+      .contractName = "must reject";
+
+    const validation = await validateContentBundle(bundle);
+    expect(validation.errors).toEqual(expect.arrayContaining([
+      "manifest.governance.audioRights has unknown field contractName",
+      "item-catalog.audioAssets[0] has unknown field privateNotes",
+      "item-catalog.audioAssets[0].targetPayloadSha256 does not match the target item",
+      "item-catalog.audioAssets[0].fileSha256 does not match package bytes",
+      "item-catalog.audioAssets[0].media has unknown field peakAmplitude",
+      "item-catalog.audioAssets[0].media.byteLength is too small for mono PCM WAV frames",
+      "item-catalog.audioAssets[0].alignment.segments[0] has unknown field confidence",
+      "item-catalog.audioAssets[0].rights must exactly match manifest.governance.audioRights",
+    ]));
+  });
+
+  it("requires lowercase non-reserved asset IDs and their exact WAV path", async () => {
+    const reserved = await makeSchemaV5AudioFixture();
+    if (reserved.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    reserved.itemCatalog.audioAssets[0].assetId = "con";
+    reserved.itemCatalog.audioAssets[0].fileRef = "audio/con.wav";
+    const reservedValidation = await validateContentBundle(reserved);
+    expect(reservedValidation.errors).toContain(
+      "item-catalog.audioAssets[0].assetId must be a lowercase non-reserved safe id",
+    );
+
+    const wrongPath = await makeSchemaV5AudioFixture();
+    if (wrongPath.itemCatalog?.schemaVersion !== 3) {
+      throw new Error("Schema-v5 audio fixture is missing");
+    }
+    wrongPath.itemCatalog.audioAssets[0].fileRef = "audio/wrong-name.wav";
+    const wrongPathValidation = await validateContentBundle(wrongPath);
+    expect(wrongPathValidation.errors).toContain(
+      "item-catalog.audioAssets[0].fileRef must equal audio/<assetId>.wav",
+    );
+  });
+
+  it("requires manifest audio rights evidence whenever audio is declared", async () => {
+    const bundle = await makeSchemaV5AudioFixture();
+    bundle.manifest.governance.audioRights = null;
+
+    const validation = await validateContentBundle(bundle);
+    expect(validation.errors).toContain(
+      "audioRights must be an object when the package includes audio artifacts",
+    );
+    expect(validation.errors).toContain(
+      "item-catalog.audioAssets[0].rights must exactly match manifest.governance.audioRights",
     );
   });
 
@@ -1035,8 +1410,37 @@ describe("content package governance", () => {
     );
   });
 
-  it("does not count empty graded-text envelopes", async () => {
+  it("keeps legacy hash-only MP3 assets valid but release-ineligible", async () => {
+    const bundle = await makeEligibleFixture("public", "legacy");
+    const validation = await validateContentBundle(bundle);
+    const publication = assessPublicationEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(publication.eligible).toBe(false);
+    expect(publication.blockers).toEqual([
+      "Public beta requires licensed native audio for released core content (missing 354 targets)",
+    ]);
+  });
+
+  it("fails closed without throwing on malformed raw audio assets", async () => {
     const bundle = await makeEligibleFixture();
+    if (bundle.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    bundle.itemCatalog.audioAssets = [null] as never;
+
+    const validation = await validateContentBundle(bundle);
+    expect(validation.errors).toContain(
+      "item-catalog.audioAssets must contain objects",
+    );
+    expect(() => assessPublicationEligibility(bundle, validation)).not.toThrow();
+    const publication = assessPublicationEligibility(bundle, validation);
+    expect(publication.eligible).toBe(false);
+    expect(publication.blockers).toContain(
+      "Public beta requires licensed native audio for released core content (missing 354 targets)",
+    );
+  });
+
+  it("does not count empty graded-text envelopes", async () => {
+    const bundle = await makeEligibleFixture("public", "legacy");
     if (bundle.itemCatalog === null) throw new Error("Catalog fixture is missing");
     for (const item of bundle.itemCatalog.items.filter(
       (candidate) => candidate.itemType === "graded-text",
@@ -1072,9 +1476,10 @@ describe("content package governance", () => {
   });
 
   it("blocks one extra released empty text even when 40 valid texts remain", async () => {
-    const bundle = await makeEligibleFixture();
+    const bundle = await makeEligibleFixture("public", "legacy");
     if (
       bundle.itemCatalog === null
+      || bundle.itemCatalog.schemaVersion !== 1
       || bundle.reviews.schemaVersion !== 2
     ) {
       throw new Error("Scoped public fixture is missing");
@@ -1336,6 +1741,91 @@ describe("content package governance", () => {
     expect(publication.blockers).toEqual([]);
     expect(publication.channel).toBe("production");
     expect(publication.warnings).toEqual([]);
+  });
+
+  it("requires exact scoped audio approvals for every schema-v5 asset at closed alpha", async () => {
+    const bundle = await makeEligibleFixture();
+    if (bundle.reviews.schemaVersion !== 2) {
+      throw new Error("Fixture requires scoped schema-v5 reviews");
+    }
+    bundle.manifest.audience = "closed-alpha";
+    bundle.registryEntry.audience = "closed-alpha";
+    const linguisticReview = bundle.reviews.reviews.find(
+      (review) => review.role === "native-linguistic",
+    );
+    if (!linguisticReview) throw new Error("Fixture linguistic review is missing");
+    linguisticReview.scope.audioAssetIds = [];
+    await rebindMutableFixture(bundle);
+
+    const validation = await validateContentBundle(bundle);
+    const closedAlpha = assessClosedAlphaEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(closedAlpha.eligible).toBe(false);
+    expect(closedAlpha.blockers).toContain(
+      "Schema-v5 audio requires every declared asset to be release-ready "
+        + "with exact scoped native-linguistic and audio-rights approvals "
+        + "(unready 354)",
+    );
+  });
+
+  it("blocks production when an extra audio asset has a newer exact-scope rejection", async () => {
+    const bundle = await makeEligibleFixture();
+    if (
+      bundle.itemCatalog?.schemaVersion !== 3
+      || bundle.reviews.schemaVersion !== 2
+      || bundle.audioAssetFileInspections === undefined
+    ) {
+      throw new Error("Fixture requires schema-v5 audio governance");
+    }
+    const sourceAsset = bundle.itemCatalog.audioAssets[0];
+    if (!sourceAsset) throw new Error("Fixture audio asset is missing");
+    const extraAsset = structuredClone(sourceAsset);
+    extraAsset.assetId = "audio-extra-rejected-duplicate-target";
+    extraAsset.fileRef = `audio/${extraAsset.assetId}.wav`;
+    extraAsset.fileSha256 = await sha256Json({
+      fixture: "extra-canonical-pcm-wav",
+      fileRef: extraAsset.fileRef,
+      byteLength: extraAsset.media.byteLength,
+    });
+    bundle.itemCatalog.audioAssets.push(extraAsset);
+    bundle.audioAssetFileHashes[extraAsset.fileRef] = extraAsset.fileSha256;
+    bundle.audioAssetFileInspections[extraAsset.fileRef] = {
+      ok: true,
+      media: structuredClone(extraAsset.media),
+    };
+    bundle.reviews.reviews.forEach((review) => {
+      review.scope.audioAssetIds.push(extraAsset.assetId);
+    });
+    bundle.reviews.reviews.push({
+      reviewId: "audio-extra-rights-rejection-fixture",
+      role: "audio-rights",
+      decision: "changes-requested",
+      reviewerId: "audio-reviewer-fixture",
+      reviewedAt: "2026-07-22T02:00:00.000Z",
+      evidenceRef: "fixture://audio-extra-rights-rejection",
+      packageManifestSha256: bundle.reviews.packageManifestSha256,
+      scope: {
+        itemCatalogSha256: bundle.reviews.itemCatalogSha256,
+        itemKeys: [],
+        audioAssetIds: [extraAsset.assetId],
+      },
+    });
+    await rebindMutableFixture(bundle);
+
+    const validation = await validateContentBundle(bundle);
+    const publication = assessPublicationEligibility(bundle, validation);
+
+    expect(validation.errors).toEqual([]);
+    expect(publication.eligible).toBe(false);
+    expect(publication.blockers).toContain(
+      "Schema-v5 audio requires every declared asset to be release-ready "
+        + "with exact scoped native-linguistic and audio-rights approvals "
+        + "(unready 1)",
+    );
+    expect(publication.blockers).not.toContain(
+      "Public beta requires licensed native audio for released core content (missing 1 targets)",
+    );
   });
 
   it("lets a newer exact-hash rejection invalidate the item and its dependent release graph", async () => {

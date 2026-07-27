@@ -106,6 +106,78 @@ Mutation dùng `content/.governance.lock`. Sau crash/mất điện, chỉ xóa s
 lock khi PID bên trong không còn chạy; orphan directory vẫn phải audit thủ
 công. Không có tuyên bố crash-atomic.
 
+## Nhập audio bất biến (schema v5)
+
+`content:audio:import` là đường duy nhất tạo candidate có audio. Lệnh nhận một
+catalog draft schema v2 có `audioAssets: []`, nâng output thành content schema
+v5 / item catalog v3 và tự tạo `fileRef`, hash, media metadata cùng alignment.
+Nó không thu âm, sinh audio, suy diễn speaker hay tạo evidence thay người biên
+tập.
+
+Policy v1 cố ý hẹp và deterministic:
+
+- RIFF/WAVE PCM format 1, mono, 16-bit little-endian;
+- sample rate 16 kHz, 24 kHz, 44.1 kHz hoặc 48 kHz;
+- thời lượng từ 250 ms đến 600.000 ms và tối đa 64 MiB mỗi file;
+- `assetId` lowercase, an toàn trên Windows; đích luôn là
+  `audio/<assetId>.wav`;
+- source là regular non-symlink file bằng đường dẫn tương đối trong repo;
+- transcript phải khớp chính xác một text tiếng Trung canonical của payload;
+  segment phải có timestamp nguyên, theo thứ tự, không overlap và không vượt
+  duration;
+- speaker evidence và rights của từng asset phải có thật và khớp chính xác
+  package-level audio rights.
+
+Descriptor schema v1 mẫu (các evidence/hash chỉ là placeholder định dạng, phải
+được thay bằng dữ liệu thật trước khi chạy):
+
+```json
+{
+  "schemaVersion": 1,
+  "contentVersion": "foundation-2026.08.1",
+  "assets": [
+    {
+      "assetId": "ni-headword-native-01",
+      "targetItemKey": "lexeme:ni",
+      "sourceFile": "content/drafts/audio/ni-headword.wav",
+      "expectedFileSha256": "sha256:<64-lowercase-hex>",
+      "transcript": "你",
+      "segments": [
+        { "startMs": 0, "endMs": 620, "text": "你" }
+      ],
+      "speaker": {
+        "id": "<speaker-id>",
+        "nativeSpeakerEvidenceRef": "<attributable-evidence-ref>"
+      },
+      "rights": {
+        "ownerId": "<audio-owner-id>",
+        "licenseId": "<audio-license-id>",
+        "evidenceRef": "<rights-evidence-ref>"
+      }
+    }
+  ]
+}
+```
+
+Sau khi đổi runtime binding/config sang version đích giống flow `new-version`,
+chạy:
+
+```powershell
+npm run content:audio:import -- foundation-2026.08.1 --from foundation-2026.07.5 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 5 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --audio-descriptor-file content/drafts/foundation-2026.08.1-audio.json --audio-owner-id AUDIO_OWNER_ID --audio-license-id AUDIO_LICENSE_ID --audio-evidence AUDIO_EVIDENCE_REF --confirm-runtime-ids-unchanged true --write
+```
+
+Importer validate history trước mutation, kiểm hash/codec từ bytes thay vì tên
+file, copy exclusive vào package tạm, đọc và validate lại toàn package rồi mới
+rename/update registry. Lỗi ở bất kỳ asset nào xóa package tạm, giữ nguyên
+registry và không overwrite target. Reviews luôn được xóa. Mặc định coverage
+claims cũng được xóa và không kế thừa từ package nguồn; khi truyền explicit
+`--coverage-claims-file`, chỉ các claim trong file đó được giữ trong envelope
+candidate mới (và file phải bind đúng hash của target item catalog). Audio vừa
+import chưa đủ điều kiện release cho tới khi có exact scoped
+`native-linguistic` và `audio-rights` approval. Catalog schema v1/v2 cũ vẫn
+validate để giữ lịch sử, kể cả hash-only asset lớn hơn giới hạn import 64 MiB;
+audio legacy không cần WAV inspection và không được tính vào production gate.
+
 ## Review item có scope
 
 Tạo file scope trong repo, không dùng wildcard:
@@ -153,9 +225,9 @@ audio cho released core content.
 - Grammar, pronunciation, character và communicative function đã có envelope
   typed nhưng mới là source-derived review candidates, chưa phải nội dung đã
   được linguistic review hay phát hành.
-- `new-version` hiện từ chối catalog có audio assets vì chưa có importer copy
-  bytes + kiểm codec/duration/alignment. Đây là blocker, không phải tính năng đã
-  hoàn tất.
+- `new-version` vẫn từ chối catalog có audio; workflow schema v5 phải đi qua
+  `content:audio:import`. Importer kỹ thuật đã có nhưng candidate hiện tại chưa
+  chứa audio thật, speaker/right evidence hay scoped approval.
 - Runtime projection đã được tách khỏi governance catalog và allow-list từng
   field. Không được đổi client trở lại import `item-catalog.json`.
 - Catalog draft exporter là bootstrap workflow, không phải multi-user CMS,

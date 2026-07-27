@@ -1,9 +1,13 @@
 import {
   closeSync,
+  constants,
+  copyFileSync,
   existsSync,
+  lstatSync,
   mkdirSync,
   openSync,
   readFileSync,
+  realpathSync,
   renameSync,
   rmSync,
   unlinkSync,
@@ -21,12 +25,26 @@ import {
   sha256NormalizedText,
   validateContentBundle,
 } from "../../src/content/governance.mjs";
+import {
+  AUDIO_IMPORT_POLICY,
+  inspectCanonicalWave,
+} from "../../src/content/audioInspection.mjs";
 
 export const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const contentRoot = join(repositoryRoot, "content");
 const registryPath = join(contentRoot, "registry.json");
 const governanceLockPath = join(contentRoot, ".governance.lock");
 const SAFE_ID_PATTERN = /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/;
+const SAFE_AUDIO_ASSET_ID_PATTERN = /^[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?$/;
+const SHA256_DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
+const WINDOWS_RESERVED_FILE_STEMS = new Set([
+  "con",
+  "prn",
+  "aux",
+  "nul",
+  ...Array.from({ length: 9 }, (_, index) => `com${index + 1}`),
+  ...Array.from({ length: 9 }, (_, index) => `lpt${index + 1}`),
+]);
 const REVIEW_ROLES = new Set([
   "content-owner",
   "native-linguistic",
@@ -79,17 +97,99 @@ const packageLocalPath = (packageDirectory, relativePath) => {
   return path;
 };
 
-const readAudioAssetFileHashes = (packageDirectory, itemCatalog) =>
-  Object.fromEntries(
-    (itemCatalog?.audioAssets ?? []).map((asset) => {
-      const path = packageLocalPath(packageDirectory, asset?.fileRef);
-      const hash =
-        path !== null && existsSync(path)
-          ? `sha256:${createHash("sha256").update(readFileSync(path)).digest("hex")}`
-          : null;
-      return [asset?.fileRef ?? "", hash];
-    }),
-  );
+const pathIsContained = (root, candidate) => {
+  const relativePath = relative(root, candidate);
+  return !isAbsolute(relativePath)
+    && relativePath !== ".."
+    && !relativePath.startsWith("..\\")
+    && !relativePath.startsWith("../");
+};
+
+export const inspectAudioAssetFiles = (
+  packageDirectory,
+  itemCatalog,
+  contentSchemaVersion,
+) => {
+  const hashes = {};
+  const inspections = {};
+  const requiresCanonicalInspection = contentSchemaVersion >= 5;
+  const audioAssets = Array.isArray(itemCatalog?.audioAssets)
+    ? itemCatalog.audioAssets
+    : [];
+  const realPackageDirectory = realpathSync(packageDirectory);
+  audioAssets.forEach((asset) => {
+    const fileRef = asset?.fileRef ?? "";
+    const path = packageLocalPath(packageDirectory, fileRef);
+    if (path === null || !existsSync(path)) {
+      hashes[fileRef] = null;
+      inspections[fileRef] = null;
+      return;
+    }
+    try {
+      let currentPath = packageDirectory;
+      for (const part of relative(packageDirectory, path).split(/[\\/]/u)) {
+        currentPath = join(currentPath, part);
+        if (lstatSync(currentPath).isSymbolicLink()) {
+          hashes[fileRef] = null;
+          inspections[fileRef] = {
+            ok: false,
+            error: "Audio asset path must not contain symlinks or junctions",
+          };
+          return;
+        }
+      }
+      if (!pathIsContained(realPackageDirectory, realpathSync(path))) {
+        hashes[fileRef] = null;
+        inspections[fileRef] = {
+          ok: false,
+          error: "Audio asset resolves outside its immutable package",
+        };
+        return;
+      }
+      const metadata = lstatSync(path);
+      if (!metadata.isFile() || metadata.isSymbolicLink()) {
+        hashes[fileRef] = null;
+        inspections[fileRef] = {
+          ok: false,
+          error: "Audio asset is not a regular non-symlink file",
+        };
+        return;
+      }
+      if (
+        requiresCanonicalInspection
+        && metadata.size > AUDIO_IMPORT_POLICY.maxByteLength
+      ) {
+        hashes[fileRef] = null;
+        inspections[fileRef] = {
+          ok: false,
+          error: `Audio asset exceeds ${AUDIO_IMPORT_POLICY.maxByteLength} bytes`,
+        };
+        return;
+      }
+      const bytes = readFileSync(path);
+      hashes[fileRef] = `sha256:${createHash("sha256").update(bytes).digest("hex")}`;
+      if (!requiresCanonicalInspection) return;
+      try {
+        inspections[fileRef] = {
+          ok: true,
+          media: inspectCanonicalWave(bytes),
+        };
+      } catch (error) {
+        inspections[fileRef] = {
+          ok: false,
+          error: error instanceof Error ? error.message : String(error),
+        };
+      }
+    } catch (error) {
+      hashes[fileRef] = null;
+      inspections[fileRef] = {
+        ok: false,
+        error: error instanceof Error ? error.message : String(error),
+      };
+    }
+  });
+  return { hashes, inspections };
+};
 
 const writeImmutableSourceTexts = (
   packageDirectory,
@@ -199,13 +299,11 @@ const readCurriculumCatalogVersion = (sourceText, contentSchemaVersion) => {
   return matches.length === 1 ? matches[0][1] : null;
 };
 
-export const loadContentBundle = (requestedVersion) => {
-  const registry = readJson(registryPath);
-  const version = requestedVersion ?? registry.currentContentVersion;
-  assertPackageId(version);
-  const registryEntry = registry.packages.find((entry) => entry.contentVersion === version);
-  if (!registryEntry) throw new Error(`Content version is not registered: ${version}`);
-  const packageDirectory = resolvePackageDirectory(registryEntry.relativePath);
+const readContentBundleFromDirectory = (
+  packageDirectory,
+  registry,
+  registryEntry,
+) => {
   const manifest = readJson(join(packageDirectory, "manifest.json"));
   const itemCatalog = readItemCatalog(
     packageDirectory,
@@ -216,9 +314,12 @@ export const loadContentBundle = (requestedVersion) => {
     manifest.contentSchemaVersion,
   );
   const liveSourceTexts = readLiveSourceTexts(manifest.contentSchemaVersion);
-  return {
+  const audioAssetFiles = inspectAudioAssetFiles(
     packageDirectory,
-    bundle: {
+    itemCatalog,
+    manifest.contentSchemaVersion,
+  );
+  return {
       registry,
       registryEntry,
       manifest,
@@ -227,10 +328,8 @@ export const loadContentBundle = (requestedVersion) => {
       runtimeCatalog,
       coverageClaims: readJson(join(packageDirectory, "coverage-claims.json")),
       reviews: readJson(join(packageDirectory, "reviews.json")),
-      audioAssetFileHashes: readAudioAssetFileHashes(
-        packageDirectory,
-        itemCatalog,
-      ),
+      audioAssetFileHashes: audioAssetFiles.hashes,
+      audioAssetFileInspections: audioAssetFiles.inspections,
       immutableSourceTexts: readImmutableSourceTexts(
         packageDirectory,
         manifest.contentSchemaVersion,
@@ -254,7 +353,23 @@ export const loadContentBundle = (requestedVersion) => {
       runtimeLessonGuidesSourceText: liveSourceTexts["src/data/lessonGuides.ts"],
       runtimeKnowledgeItemBlueprintsSourceText:
         liveSourceTexts["src/data/knowledgeItemBlueprints.ts"],
-    },
+  };
+};
+
+export const loadContentBundle = (requestedVersion) => {
+  const registry = readJson(registryPath);
+  const version = requestedVersion ?? registry.currentContentVersion;
+  assertPackageId(version);
+  const registryEntry = registry.packages.find((entry) => entry.contentVersion === version);
+  if (!registryEntry) throw new Error(`Content version is not registered: ${version}`);
+  const packageDirectory = resolvePackageDirectory(registryEntry.relativePath);
+  return {
+    packageDirectory,
+    bundle: readContentBundleFromDirectory(
+      packageDirectory,
+      registry,
+      registryEntry,
+    ),
   };
 };
 
@@ -346,6 +461,82 @@ const requiredFlag = (flags, name) => {
     throw new Error(`--${name} is required`);
   }
   return value;
+};
+
+const isRecord = (value) =>
+  typeof value === "object" && value !== null && !Array.isArray(value);
+
+const assertExactObjectKeys = (value, allowedKeys, label) => {
+  if (!isRecord(value)) throw new Error(`${label} must be an object`);
+  const allowed = new Set(allowedKeys);
+  Object.keys(value).forEach((key) => {
+    if (!allowed.has(key)) throw new Error(`${label}.${key} is not allowed`);
+  });
+};
+
+const requireNonEmptyString = (value, label) => {
+  if (typeof value !== "string" || value.trim().length === 0) {
+    throw new Error(`${label} is required`);
+  }
+  return value;
+};
+
+const sha256Bytes = (bytes) =>
+  `sha256:${createHash("sha256").update(bytes).digest("hex")}`;
+
+const resolveRepositoryAudioSource = (sourceFile, label) => {
+  requireNonEmptyString(sourceFile, label);
+  if (isAbsolute(sourceFile) || sourceFile.includes(":")) {
+    throw new Error(`${label} must be a relative repository path`);
+  }
+  const pathParts = sourceFile.split(/[\\/]/u);
+  if (
+    pathParts.some((part) => part === "" || part === "." || part === "..")
+  ) {
+    throw new Error(`${label} must not contain empty or traversal segments`);
+  }
+  const path = resolve(repositoryRoot, sourceFile);
+  const relativeToRepository = relative(repositoryRoot, path);
+  if (
+    isAbsolute(relativeToRepository)
+    || relativeToRepository === ".."
+    || relativeToRepository.startsWith("..\\")
+    || relativeToRepository.startsWith("../")
+  ) {
+    throw new Error(`${label} must stay inside the repository`);
+  }
+  if (!existsSync(path)) throw new Error(`${label} does not exist: ${sourceFile}`);
+  const metadata = lstatSync(path);
+  if (!metadata.isFile() || metadata.isSymbolicLink()) {
+    throw new Error(`${label} must be a regular non-symlink file`);
+  }
+  if (metadata.size > AUDIO_IMPORT_POLICY.maxByteLength) {
+    throw new Error(
+      `${label} exceeds the ${AUDIO_IMPORT_POLICY.maxByteLength}-byte import limit`,
+    );
+  }
+  const realRepositoryRoot = realpathSync(repositoryRoot);
+  const realPath = realpathSync(path);
+  const relativeRealPath = relative(realRepositoryRoot, realPath);
+  if (
+    isAbsolute(relativeRealPath)
+    || relativeRealPath === ".."
+    || relativeRealPath.startsWith("..\\")
+    || relativeRealPath.startsWith("../")
+  ) {
+    throw new Error(`${label} resolves outside the repository`);
+  }
+  return realPath;
+};
+
+const assertSafeAudioAssetId = (assetId, label) => {
+  if (!SAFE_AUDIO_ASSET_ID_PATTERN.test(assetId ?? "")) {
+    throw new Error(`${label} must be a lowercase safe file id`);
+  }
+  const fileStem = assetId.split(".", 1)[0];
+  if (WINDOWS_RESERVED_FILE_STEMS.has(fileStem)) {
+    throw new Error(`${label} is reserved by Windows`);
+  }
 };
 
 const requireCanonicalTimestamp = (
@@ -711,6 +902,335 @@ const cleanupNewPackage = (directory) => {
   if (existsSync(directory)) rmSync(directory, { recursive: true, force: true });
 };
 
+const writeCandidatePackage = async ({
+  temporaryDirectory,
+  targetDirectory,
+  nextRegistry,
+  manifest,
+  runtimeIds,
+  itemCatalog,
+  runtimeCatalog,
+  coverageClaims,
+  reviews,
+  sourceTexts,
+  writeAdditionalArtifacts,
+  validateStaged = false,
+}) => {
+  mkdirSync(temporaryDirectory);
+  try {
+    writeFileSync(
+      join(temporaryDirectory, "manifest.json"),
+      formatJson(manifest),
+      { encoding: "utf8", flag: "wx" },
+    );
+    writeFileSync(
+      join(temporaryDirectory, "runtime-ids.json"),
+      formatJson(runtimeIds),
+      { encoding: "utf8", flag: "wx" },
+    );
+    if (itemCatalog !== null) {
+      writeFileSync(
+        join(temporaryDirectory, "item-catalog.json"),
+        formatJson(itemCatalog),
+        { encoding: "utf8", flag: "wx" },
+      );
+    }
+    if (runtimeCatalog !== null) {
+      writeFileSync(
+        join(temporaryDirectory, "runtime-catalog.json"),
+        formatJson(runtimeCatalog),
+        { encoding: "utf8", flag: "wx" },
+      );
+    }
+    writeFileSync(
+      join(temporaryDirectory, "coverage-claims.json"),
+      formatJson(coverageClaims),
+      { encoding: "utf8", flag: "wx" },
+    );
+    writeFileSync(
+      join(temporaryDirectory, "reviews.json"),
+      formatJson(reviews),
+      { encoding: "utf8", flag: "wx" },
+    );
+    writeImmutableSourceTexts(
+      temporaryDirectory,
+      manifest.contentSchemaVersion,
+      sourceTexts,
+    );
+    if (writeAdditionalArtifacts) {
+      await writeAdditionalArtifacts(temporaryDirectory);
+    }
+    if (validateStaged) {
+      const stagedRegistryEntry = nextRegistry.packages.at(-1);
+      const stagedBundle = readContentBundleFromDirectory(
+        temporaryDirectory,
+        nextRegistry,
+        stagedRegistryEntry,
+      );
+      const stagedValidation = await validateContentBundle(stagedBundle);
+      if (stagedValidation.errors.length > 0) {
+        throw new Error(
+          `Generated staged candidate is invalid:\n${stagedValidation.errors.join("\n")}`,
+        );
+      }
+    }
+    renameSync(temporaryDirectory, targetDirectory);
+  } catch (error) {
+    cleanupNewPackage(temporaryDirectory);
+    throw error;
+  }
+  try {
+    writeJsonAtomic(registryPath, nextRegistry);
+  } catch (error) {
+    cleanupNewPackage(targetDirectory);
+    throw error;
+  }
+};
+
+const prepareCandidateBranch = async ({
+  newVersion,
+  fromVersion,
+  contentSchemaVersion,
+  flags,
+  sourceBundle: suppliedSourceBundle,
+  currentVersionError = "New versions must branch from registry.currentContentVersion",
+}) => {
+  const sourceBundle = suppliedSourceBundle
+    ?? loadContentBundle(fromVersion).bundle;
+  if (contentSchemaVersion < sourceBundle.manifest.contentSchemaVersion) {
+    throw new Error("A new package cannot downgrade contentSchemaVersion");
+  }
+  if (sourceBundle.registry.currentContentVersion !== fromVersion) {
+    throw new Error(currentVersionError);
+  }
+  const sourceValidation = await validateContentBundle(sourceBundle);
+  const historicalPackageErrors = [];
+  for (const entry of sourceBundle.registry.packages) {
+    if (entry.contentVersion === fromVersion) continue;
+    try {
+      const { bundle } = loadContentBundle(entry.contentVersion);
+      const validation = await validateContentBundle(bundle);
+      validation.errors.forEach((error) => {
+        historicalPackageErrors.push(`${entry.contentVersion}: ${error}`);
+      });
+    } catch (error) {
+      historicalPackageErrors.push(
+        `${String(entry?.contentVersion)}: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      );
+    }
+  }
+  if (historicalPackageErrors.length > 0) {
+    throw new Error(
+      `Cannot branch while the existing registry is invalid:\n${historicalPackageErrors.join("\n")}`,
+    );
+  }
+  const liveSourceTexts = readLiveSourceTexts(contentSchemaVersion);
+  if (sourceBundle.runtimeContentVersion !== newVersion) {
+    throw new Error(
+      `Update config/production-readiness.json contentVersion to ${newVersion} before creating the package`,
+    );
+  }
+  if (
+    readCurriculumContentVersion(liveSourceTexts["src/data/curriculum.ts"])
+    !== newVersion
+  ) {
+    throw new Error(
+      `Update src/data/curriculum.ts CONTENT_VERSION to ${newVersion} before creating the package`,
+    );
+  }
+  if (
+    contentSchemaVersion >= 3
+    && readCurriculumCatalogVersion(
+      liveSourceTexts["src/data/curriculum.ts"],
+      contentSchemaVersion,
+    ) !== newVersion
+  ) {
+    const catalogArtifact = contentSchemaVersion >= 4
+      ? "runtime-catalog.json"
+      : "item-catalog.json";
+    throw new Error(
+      `Bind src/data/curriculum.ts to content/packages/${newVersion}/${catalogArtifact} before creating the package`,
+    );
+  }
+  const liveRuntimeSourceHash =
+    typeof liveSourceTexts["src/data/curriculum.ts"] === "string"
+      ? await sha256NormalizedText(liveSourceTexts["src/data/curriculum.ts"])
+      : null;
+  const liveAssessmentSourceHash =
+    typeof liveSourceTexts["src/data/assessment.ts"] === "string"
+      ? await sha256NormalizedText(liveSourceTexts["src/data/assessment.ts"])
+      : null;
+  const runtimeSourceChanged = sourceValidation.errors.includes(
+    "src/data/curriculum.ts digest does not match manifest",
+  ) || sourceBundle.manifest.artifacts["src/data/curriculum.ts"]
+    !== liveRuntimeSourceHash;
+  const assessmentSourceChanged = sourceValidation.errors.includes(
+    "src/data/assessment.ts digest does not match manifest",
+  ) || sourceBundle.manifest.artifacts["src/data/assessment.ts"]
+    !== liveAssessmentSourceHash;
+  const packageBoundSourceErrors = new Set(
+    contentSourceArtifactNames(sourceBundle.manifest.contentSchemaVersion).map(
+      (name) => `${name} digest does not match manifest`,
+    ),
+  );
+  const runtimeVersionHandoffError =
+    "Current registry package is not bound to the checked-in runtime contentVersion";
+  const nonSourceErrors = sourceValidation.errors.filter(
+    (error) => !packageBoundSourceErrors.has(error)
+      && !(
+        error === runtimeVersionHandoffError
+        && sourceBundle.runtimeContentVersion === newVersion
+      ),
+  );
+  if (nonSourceErrors.length > 0) {
+    throw new Error(
+      `Cannot branch an invalid package:\n${nonSourceErrors.join("\n")}`,
+    );
+  }
+  const runtimeIdsInput = flags.get("runtime-ids-file");
+  if (
+    runtimeSourceChanged
+    && runtimeIdsInput === undefined
+    && flags.get("confirm-runtime-ids-unchanged") !== "true"
+  ) {
+    throw new Error(
+      "Runtime source changed: provide --runtime-ids-file or --confirm-runtime-ids-unchanged true",
+    );
+  }
+  if (
+    assessmentSourceChanged
+    && typeof sourceBundle.runtimeAssessmentSourceText !== "string"
+  ) {
+    throw new Error(
+      "Assessment source changed but the checked-in source is unavailable",
+    );
+  }
+  if (
+    sourceBundle.registry.packages.some(
+      (entry) => entry.contentVersion === newVersion,
+    )
+  ) {
+    throw new Error(`Content version already registered: ${newVersion}`);
+  }
+  const targetDirectory = resolvePackageDirectory(`packages/${newVersion}`);
+  if (existsSync(targetDirectory)) {
+    throw new Error(`Target package directory already exists: ${newVersion}`);
+  }
+  const temporaryDirectory = `${targetDirectory}.${process.pid}.tmp`;
+  if (existsSync(temporaryDirectory)) {
+    throw new Error("Temporary package path already exists");
+  }
+  const runtimeIdsSource = typeof runtimeIdsInput === "string"
+    ? readRepositoryJsonInput(runtimeIdsInput, "--runtime-ids-file")
+    : sourceBundle.runtimeIds;
+  return {
+    sourceBundle,
+    sourceValidation,
+    liveSourceTexts,
+    targetDirectory,
+    temporaryDirectory,
+    runtimeIds: { ...runtimeIdsSource, contentVersion: newVersion },
+  };
+};
+
+const buildCandidateEnvelope = async ({
+  sourceBundle,
+  sourceManifestHash,
+  newVersion,
+  contentSchemaVersion,
+  audience,
+  createdAt,
+  runtimeIds,
+  itemCatalog,
+  runtimeCatalog,
+  coverageClaimsSource,
+  liveSourceTexts,
+  contentOwner,
+  sourceLicense,
+  audioRights,
+}) => {
+  const itemCatalogHash = itemCatalog === null
+    ? null
+    : await sha256Json(itemCatalog);
+  const runtimeCatalogHash = runtimeCatalog === null
+    ? null
+    : await sha256Json(runtimeCatalog);
+  const coverageClaims = {
+    ...(coverageClaimsSource ?? (contentSchemaVersion >= 3
+      ? {
+          schemaVersion: 2,
+          itemCatalogSha256: itemCatalogHash,
+          coverageClaims: [],
+        }
+      : { schemaVersion: 1, coverageClaims: [] })),
+    contentVersion: newVersion,
+  };
+  const manifest = {
+    schemaVersion: 1,
+    packageId: newVersion,
+    contentVersion: newVersion,
+    contentSchemaVersion,
+    audience,
+    lifecycle: "candidate",
+    createdAt,
+    createdFromManifestSha256: sourceManifestHash,
+    artifacts: {
+      "coverage-claims.json": await sha256Json(coverageClaims),
+      "runtime-ids.json": await sha256Json(runtimeIds),
+      ...(itemCatalogHash === null
+        ? {}
+        : { "item-catalog.json": itemCatalogHash }),
+      ...(runtimeCatalogHash === null
+        ? {}
+        : { "runtime-catalog.json": runtimeCatalogHash }),
+      ...await hashSourceTexts(contentSchemaVersion, liveSourceTexts),
+    },
+    governance: {
+      contentOwner,
+      sourceLicense,
+      nativeLinguisticReviewRequired: true,
+      includesAudio: (itemCatalog?.audioAssets?.length ?? 0) > 0,
+      audioRights,
+    },
+  };
+  const manifestHash = await sha256Json(manifest);
+  const reviews = {
+    schemaVersion: contentSchemaVersion >= 3 ? 2 : 1,
+    contentVersion: newVersion,
+    packageManifestSha256: manifestHash,
+    ...(itemCatalogHash === null ? {} : { itemCatalogSha256: itemCatalogHash }),
+    reviews: [],
+  };
+  const nextRegistry = {
+    ...sourceBundle.registry,
+    currentContentVersion: newVersion,
+    packages: [
+      ...sourceBundle.registry.packages,
+      {
+        packageId: newVersion,
+        contentVersion: newVersion,
+        relativePath: `packages/${newVersion}`,
+        manifestSha256: manifestHash,
+        audience,
+        lifecycle: "candidate",
+        closedAlphaEligible: false,
+        productionEligible: false,
+        promotion: null,
+      },
+    ],
+  };
+  return {
+    itemCatalogHash,
+    runtimeCatalogHash,
+    coverageClaims,
+    manifest,
+    reviews,
+    nextRegistry,
+  };
+};
+
 const newVersionCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
   assertCommandShape(positional, flags, {
@@ -757,25 +1277,18 @@ const newVersionCommand = async (args) => {
   if ((licenseId === undefined) !== (licenseEvidence === undefined)) {
     throw new Error("--license-id and --license-evidence must be supplied together");
   }
-  const includesAudioFlag = flags.get("includes-audio") ?? "false";
-  if (!["true", "false"].includes(includesAudioFlag)) {
-    throw new Error("--includes-audio must be true or false");
-  }
-  const includesAudio = includesAudioFlag === "true";
-  const audioOwnerId = flags.get("audio-owner-id");
-  const audioLicenseId = flags.get("audio-license-id");
-  const audioEvidence = flags.get("audio-evidence");
-  const audioMetadataValues = [audioOwnerId, audioLicenseId, audioEvidence];
-  if (includesAudio && audioMetadataValues.some((value) => value === undefined)) {
-    throw new Error(
-      "Audio packages require --audio-owner-id, --audio-license-id, and --audio-evidence",
-    );
-  }
-  if (!includesAudio && audioMetadataValues.some((value) => value !== undefined)) {
-    throw new Error("Audio rights metadata requires --includes-audio true");
+  if (
+    (flags.has("includes-audio") && flags.get("includes-audio") !== "false")
+    || [
+      "audio-owner-id",
+      "audio-license-id",
+      "audio-evidence",
+    ].some((name) => flags.has(name))
+  ) {
+    throw new Error("new-version does not import audio; use import-audio");
   }
 
-  const { bundle: sourceBundle } = loadContentBundle(fromVersion);
+  const sourceBundle = loadContentBundle(fromVersion).bundle;
   const requestedContentSchemaVersion = flags.get("content-schema-version");
   const contentSchemaVersion =
     requestedContentSchemaVersion === undefined
@@ -787,123 +1300,19 @@ const newVersionCommand = async (args) => {
   ) {
     throw new Error("--content-schema-version must be 2, 3, or 4");
   }
-  if (contentSchemaVersion < sourceBundle.manifest.contentSchemaVersion) {
-    throw new Error("A new package cannot downgrade contentSchemaVersion");
-  }
-  if (sourceBundle.registry.currentContentVersion !== fromVersion) {
-    throw new Error("New versions must branch from registry.currentContentVersion");
-  }
-  const sourceValidation = await validateContentBundle(sourceBundle);
-  const historicalPackageErrors = [];
-  for (const entry of sourceBundle.registry.packages) {
-    if (entry.contentVersion === fromVersion) continue;
-    try {
-      const { bundle } = loadContentBundle(entry.contentVersion);
-      const validation = await validateContentBundle(bundle);
-      validation.errors.forEach((error) => {
-        historicalPackageErrors.push(`${entry.contentVersion}: ${error}`);
-      });
-    } catch (error) {
-      historicalPackageErrors.push(
-        `${String(entry?.contentVersion)}: ${
-          error instanceof Error ? error.message : String(error)
-        }`,
-      );
-    }
-  }
-  if (historicalPackageErrors.length > 0) {
-    throw new Error(
-      `Cannot branch while the existing registry is invalid:\n${historicalPackageErrors.join("\n")}`,
-    );
-  }
-  const liveSourceTexts = readLiveSourceTexts(contentSchemaVersion);
-  if (sourceBundle.runtimeContentVersion !== newVersion) {
-    throw new Error(
-      `Update config/production-readiness.json contentVersion to ${newVersion} before creating the package`,
-    );
-  }
-  if (
-    readCurriculumContentVersion(liveSourceTexts["src/data/curriculum.ts"])
-    !== newVersion
-  ) {
-    throw new Error(
-      `Update src/data/curriculum.ts CONTENT_VERSION to ${newVersion} before creating the package`,
-    );
-  }
-  if (
-    contentSchemaVersion >= 3
-    && readCurriculumCatalogVersion(
-      liveSourceTexts["src/data/curriculum.ts"],
-      contentSchemaVersion,
-    )
-      !== newVersion
-  ) {
-    const catalogArtifact = contentSchemaVersion >= 4
-      ? "runtime-catalog.json"
-      : "item-catalog.json";
-    throw new Error(
-      `Bind src/data/curriculum.ts to content/packages/${newVersion}/${catalogArtifact} before creating the package`,
-    );
-  }
-  const liveRuntimeSourceHash =
-    typeof liveSourceTexts["src/data/curriculum.ts"] === "string"
-      ? await sha256NormalizedText(liveSourceTexts["src/data/curriculum.ts"])
-      : null;
-  const liveAssessmentSourceHash =
-    typeof liveSourceTexts["src/data/assessment.ts"] === "string"
-      ? await sha256NormalizedText(liveSourceTexts["src/data/assessment.ts"])
-      : null;
-  const runtimeSourceChanged = sourceValidation.errors.includes(
-    "src/data/curriculum.ts digest does not match manifest",
-  ) || sourceBundle.manifest.artifacts["src/data/curriculum.ts"] !== liveRuntimeSourceHash;
-  const assessmentSourceChanged = sourceValidation.errors.includes(
-    "src/data/assessment.ts digest does not match manifest",
-  ) || sourceBundle.manifest.artifacts["src/data/assessment.ts"]
-    !== liveAssessmentSourceHash;
-  const packageBoundSourceErrors = new Set(
-    contentSourceArtifactNames(sourceBundle.manifest.contentSchemaVersion).map(
-      (name) => `${name} digest does not match manifest`,
-    ),
-  );
-  const runtimeVersionHandoffError =
-    "Current registry package is not bound to the checked-in runtime contentVersion";
-  const nonSourceErrors = sourceValidation.errors.filter(
-    (error) => !packageBoundSourceErrors.has(error)
-      && !(
-        error === runtimeVersionHandoffError
-        && sourceBundle.runtimeContentVersion === newVersion
-      ),
-  );
-  if (nonSourceErrors.length > 0) {
-    throw new Error(`Cannot branch an invalid package:\n${nonSourceErrors.join("\n")}`);
-  }
-  const runtimeIdsInput = flags.get("runtime-ids-file");
-  if (
-    runtimeSourceChanged &&
-    runtimeIdsInput === undefined &&
-    flags.get("confirm-runtime-ids-unchanged") !== "true"
-  ) {
-    throw new Error(
-      "Runtime source changed: provide --runtime-ids-file or --confirm-runtime-ids-unchanged true",
-    );
-  }
-  if (assessmentSourceChanged && typeof sourceBundle.runtimeAssessmentSourceText !== "string") {
-    throw new Error("Assessment source changed but the checked-in source is unavailable");
-  }
-  if (sourceBundle.registry.packages.some((entry) => entry.contentVersion === newVersion)) {
-    throw new Error(`Content version already registered: ${newVersion}`);
-  }
-
-  const targetDirectory = resolvePackageDirectory(`packages/${newVersion}`);
-  if (existsSync(targetDirectory)) throw new Error(`Target package directory already exists: ${newVersion}`);
-  const temporaryDirectory = `${targetDirectory}.${process.pid}.tmp`;
-  if (existsSync(temporaryDirectory)) throw new Error(`Temporary package path already exists`);
-
-  const runtimeIdsSource =
-    typeof runtimeIdsInput === "string"
-      ? readRepositoryJsonInput(runtimeIdsInput, "--runtime-ids-file")
-      : sourceBundle.runtimeIds;
-  const runtimeIds = { ...runtimeIdsSource, contentVersion: newVersion };
+  const {
+    sourceValidation,
+    liveSourceTexts,
+    targetDirectory,
+    temporaryDirectory,
+    runtimeIds,
+  } = await prepareCandidateBranch({
+    newVersion,
+    fromVersion,
+    contentSchemaVersion,
+    flags,
+    sourceBundle,
+  });
   const itemCatalogInput = flags.get("item-catalog-file");
   if (contentSchemaVersion >= 3 && typeof itemCatalogInput !== "string") {
     throw new Error("Schema-v3+ packages require --item-catalog-file");
@@ -932,51 +1341,370 @@ const newVersionCommand = async (args) => {
       "Audio asset import is not implemented by new-version; refusing to create dangling catalog files",
     );
   }
-  const itemCatalogHash =
-    itemCatalog === null ? null : await sha256Json(itemCatalog);
   const runtimeCatalog = contentSchemaVersion >= 4
     ? projectSanitizedRuntimeCatalog(itemCatalog)
     : null;
-  const runtimeCatalogHash = runtimeCatalog === null
-    ? null
-    : await sha256Json(runtimeCatalog);
   const coverageClaimsInput = flags.get("coverage-claims-file");
   const coverageClaimsSource =
     typeof coverageClaimsInput === "string"
       ? readRepositoryJsonInput(coverageClaimsInput, "--coverage-claims-file")
-      : contentSchemaVersion >= 3
-        ? {
-            schemaVersion: 2,
-            itemCatalogSha256: itemCatalogHash,
-            coverageClaims: [],
-          }
-        : { schemaVersion: 1, coverageClaims: [] };
-  const coverageClaims = { ...coverageClaimsSource, contentVersion: newVersion };
-  const sourceArtifactHashes = await hashSourceTexts(
-    contentSchemaVersion,
-    liveSourceTexts,
-  );
-  const manifest = {
-    schemaVersion: 1,
-    packageId: newVersion,
-    contentVersion: newVersion,
+      : undefined;
+  const {
+    coverageClaims,
+    manifest,
+    reviews,
+    nextRegistry,
+  } = await buildCandidateEnvelope({
+    sourceBundle,
+    sourceManifestHash: sourceValidation.hashes.manifest,
+    newVersion,
     contentSchemaVersion,
     audience,
-    lifecycle: "candidate",
     createdAt,
-    createdFromManifestSha256: sourceValidation.hashes.manifest,
-    artifacts: {
-      "coverage-claims.json": await sha256Json(coverageClaims),
-      "runtime-ids.json": await sha256Json(runtimeIds),
-      ...(itemCatalogHash === null
-        ? {}
-        : { "item-catalog.json": itemCatalogHash }),
-      ...(runtimeCatalogHash === null
-        ? {}
-        : { "runtime-catalog.json": runtimeCatalogHash }),
-      ...sourceArtifactHashes,
-    },
-    governance: {
+    runtimeIds,
+    itemCatalog,
+    runtimeCatalog,
+    coverageClaimsSource,
+    liveSourceTexts,
+    contentOwner:
+      typeof ownerId === "string" && typeof ownerEvidence === "string"
+        ? { id: ownerId, evidenceRef: ownerEvidence }
+        : null,
+    sourceLicense:
+      typeof licenseId === "string" && typeof licenseEvidence === "string"
+        ? { licenseId, evidenceRef: licenseEvidence }
+        : null,
+    audioRights: null,
+  });
+  await writeCandidatePackage({
+    temporaryDirectory,
+    targetDirectory,
+    nextRegistry,
+    manifest,
+    runtimeIds,
+    itemCatalog,
+    runtimeCatalog,
+    coverageClaims,
+    reviews,
+    sourceTexts: liveSourceTexts,
+    validateStaged: true,
+  });
+  console.log(
+    `Created and selected candidate ${newVersion} from ${fromVersion}; approvals were intentionally cleared${coverageClaimsInput === undefined ? " together with coverage claims" : ""}`,
+  );
+  return 0;
+  });
+};
+
+const importAudioCommand = async (args) => {
+  const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 1,
+    maxPositionals: 1,
+    allowedFlags: [
+      "write",
+      "from",
+      "created-at",
+      "audience",
+      "owner-id",
+      "owner-evidence",
+      "license-id",
+      "license-evidence",
+      "audio-owner-id",
+      "audio-license-id",
+      "audio-evidence",
+      "runtime-ids-file",
+      "confirm-runtime-ids-unchanged",
+      "coverage-claims-file",
+      "content-schema-version",
+      "item-catalog-file",
+      "audio-descriptor-file",
+    ],
+  });
+  requireWrite(flags);
+  return withContentWriteLock(async () => {
+    const newVersion = positional[0];
+    assertPackageId(newVersion, "new content version");
+    const fromVersion = requiredFlag(flags, "from");
+    const createdAt = requiredFlag(flags, "created-at");
+    requireCanonicalTimestamp(createdAt, "--created-at");
+    const audience = flags.get("audience") ?? "closed-alpha";
+    if (!["closed-alpha", "public"].includes(audience)) {
+      throw new Error("--audience must be closed-alpha or public");
+    }
+    const requestedContentSchemaVersion = requiredFlag(
+      flags,
+      "content-schema-version",
+    );
+    if (requestedContentSchemaVersion !== "5") {
+      throw new Error("import-audio requires --content-schema-version 5");
+    }
+    const ownerId = flags.get("owner-id");
+    const ownerEvidence = flags.get("owner-evidence");
+    if ((ownerId === undefined) !== (ownerEvidence === undefined)) {
+      throw new Error("--owner-id and --owner-evidence must be supplied together");
+    }
+    const licenseId = flags.get("license-id");
+    const licenseEvidence = flags.get("license-evidence");
+    if ((licenseId === undefined) !== (licenseEvidence === undefined)) {
+      throw new Error("--license-id and --license-evidence must be supplied together");
+    }
+    const audioOwnerId = requiredFlag(flags, "audio-owner-id");
+    const audioLicenseId = requiredFlag(flags, "audio-license-id");
+    const audioEvidence = requiredFlag(flags, "audio-evidence");
+    const itemCatalogInput = requiredFlag(flags, "item-catalog-file");
+    const descriptorInput = requiredFlag(flags, "audio-descriptor-file");
+
+    const contentSchemaVersion = 5;
+    const {
+      sourceBundle,
+      sourceValidation,
+      liveSourceTexts,
+      targetDirectory,
+      temporaryDirectory,
+      runtimeIds,
+    } = await prepareCandidateBranch({
+      newVersion,
+      fromVersion,
+      contentSchemaVersion,
+      flags,
+      currentVersionError:
+        "Audio imports must branch from registry.currentContentVersion",
+    });
+    const baseItemCatalog = readRepositoryJsonInput(
+      itemCatalogInput,
+      "--item-catalog-file",
+    );
+    if (baseItemCatalog.schemaVersion !== 2) {
+      throw new Error(
+        "import-audio requires a schema-v2 --item-catalog-file",
+      );
+    }
+    if (baseItemCatalog.contentVersion !== newVersion) {
+      throw new Error(
+        "--item-catalog-file contentVersion must equal the new version",
+      );
+    }
+    if (!Array.isArray(baseItemCatalog.audioAssets)) {
+      throw new Error("--item-catalog-file audioAssets must be an array");
+    }
+    if (baseItemCatalog.audioAssets.length > 0) {
+      throw new Error(
+        "--item-catalog-file must have empty audioAssets; import-audio owns asset derivation",
+      );
+    }
+    if (!Array.isArray(baseItemCatalog.items)) {
+      throw new Error("--item-catalog-file items must be an array");
+    }
+    const itemMap = new Map(
+      baseItemCatalog.items
+        .filter(isRecord)
+        .map((item) => [item.itemKey, item]),
+    );
+
+    const descriptor = readRepositoryJsonInput(
+      descriptorInput,
+      "--audio-descriptor-file",
+    );
+    assertExactObjectKeys(
+      descriptor,
+      ["schemaVersion", "contentVersion", "assets"],
+      "audio descriptor",
+    );
+    if (descriptor.schemaVersion !== 1) {
+      throw new Error("audio descriptor.schemaVersion must be 1");
+    }
+    if (descriptor.contentVersion !== newVersion) {
+      throw new Error(
+        "audio descriptor.contentVersion must equal the new version",
+      );
+    }
+    if (!Array.isArray(descriptor.assets) || descriptor.assets.length === 0) {
+      throw new Error("audio descriptor.assets must be a non-empty array");
+    }
+    if (descriptor.assets.length > 10_000) {
+      throw new Error("audio descriptor.assets exceeds the 10000-asset import limit");
+    }
+
+    const importedAssets = [];
+    const sourceFilesByAssetId = new Map();
+    const assetIds = new Set();
+    for (const [index, descriptorAsset] of descriptor.assets.entries()) {
+      const prefix = `audio descriptor.assets[${index}]`;
+      assertExactObjectKeys(
+        descriptorAsset,
+        [
+          "assetId",
+          "targetItemKey",
+          "sourceFile",
+          "expectedFileSha256",
+          "transcript",
+          "segments",
+          "speaker",
+          "rights",
+        ],
+        prefix,
+      );
+      assertSafeAudioAssetId(descriptorAsset.assetId, `${prefix}.assetId`);
+      if (assetIds.has(descriptorAsset.assetId)) {
+        throw new Error(`Duplicate audio asset id: ${descriptorAsset.assetId}`);
+      }
+      assetIds.add(descriptorAsset.assetId);
+      const targetItem = itemMap.get(descriptorAsset.targetItemKey);
+      if (!isRecord(targetItem)) {
+        throw new Error(
+          `${prefix}.targetItemKey references unknown item ${String(descriptorAsset.targetItemKey)}`,
+        );
+      }
+      if (!SHA256_DIGEST_PATTERN.test(descriptorAsset.expectedFileSha256 ?? "")) {
+        throw new Error(`${prefix}.expectedFileSha256 must be a SHA-256 digest`);
+      }
+      const sourcePath = resolveRepositoryAudioSource(
+        descriptorAsset.sourceFile,
+        `${prefix}.sourceFile`,
+      );
+      const sourceBytes = readFileSync(sourcePath);
+      const actualFileSha256 = sha256Bytes(sourceBytes);
+      if (actualFileSha256 !== descriptorAsset.expectedFileSha256) {
+        throw new Error(
+          `${prefix}.expectedFileSha256 does not match source bytes`,
+        );
+      }
+      let media;
+      try {
+        media = inspectCanonicalWave(sourceBytes);
+      } catch (error) {
+        throw new Error(
+          `${prefix}.sourceFile is not canonical audio: ${
+            error instanceof Error ? error.message : String(error)
+          }`,
+          { cause: error },
+        );
+      }
+      const transcript = requireNonEmptyString(
+        descriptorAsset.transcript,
+        `${prefix}.transcript`,
+      );
+      const transcriptSha256 = await sha256NormalizedText(transcript);
+      assertExactObjectKeys(
+        descriptorAsset.speaker,
+        ["id", "nativeSpeakerEvidenceRef"],
+        `${prefix}.speaker`,
+      );
+      requireNonEmptyString(descriptorAsset.speaker.id, `${prefix}.speaker.id`);
+      requireNonEmptyString(
+        descriptorAsset.speaker.nativeSpeakerEvidenceRef,
+        `${prefix}.speaker.nativeSpeakerEvidenceRef`,
+      );
+      assertExactObjectKeys(
+        descriptorAsset.rights,
+        ["ownerId", "licenseId", "evidenceRef"],
+        `${prefix}.rights`,
+      );
+      requireNonEmptyString(
+        descriptorAsset.rights.ownerId,
+        `${prefix}.rights.ownerId`,
+      );
+      requireNonEmptyString(
+        descriptorAsset.rights.licenseId,
+        `${prefix}.rights.licenseId`,
+      );
+      requireNonEmptyString(
+        descriptorAsset.rights.evidenceRef,
+        `${prefix}.rights.evidenceRef`,
+      );
+      if (
+        descriptorAsset.rights.ownerId !== audioOwnerId
+        || descriptorAsset.rights.licenseId !== audioLicenseId
+        || descriptorAsset.rights.evidenceRef !== audioEvidence
+      ) {
+        throw new Error(
+          `${prefix}.rights must exactly match the CLI audio rights metadata`,
+        );
+      }
+      if (!Array.isArray(descriptorAsset.segments)) {
+        throw new Error(`${prefix}.segments must be an array`);
+      }
+      const segments = descriptorAsset.segments.map((segment, segmentIndex) => {
+        const segmentPrefix = `${prefix}.segments[${segmentIndex}]`;
+        assertExactObjectKeys(
+          segment,
+          ["startMs", "endMs", "text"],
+          segmentPrefix,
+        );
+        if (!Number.isInteger(segment.startMs) || segment.startMs < 0) {
+          throw new Error(`${segmentPrefix}.startMs must be a non-negative integer`);
+        }
+        if (!Number.isInteger(segment.endMs) || segment.endMs <= segment.startMs) {
+          throw new Error(`${segmentPrefix}.endMs must be after startMs`);
+        }
+        requireNonEmptyString(segment.text, `${segmentPrefix}.text`);
+        return {
+          startMs: segment.startMs,
+          endMs: segment.endMs,
+          text: segment.text,
+        };
+      });
+      importedAssets.push({
+        assetId: descriptorAsset.assetId,
+        targetItemKey: descriptorAsset.targetItemKey,
+        targetPayloadSha256: targetItem.payloadSha256,
+        fileRef: `audio/${descriptorAsset.assetId}.wav`,
+        fileSha256: actualFileSha256,
+        transcript,
+        transcriptSha256,
+        speaker: {
+          id: descriptorAsset.speaker.id,
+          nativeSpeakerEvidenceRef:
+            descriptorAsset.speaker.nativeSpeakerEvidenceRef,
+        },
+        rights: {
+          ownerId: descriptorAsset.rights.ownerId,
+          licenseId: descriptorAsset.rights.licenseId,
+          evidenceRef: descriptorAsset.rights.evidenceRef,
+        },
+        media,
+        alignment: {
+          schemaVersion: 1,
+          targetTextSha256: transcriptSha256,
+          segments,
+        },
+      });
+      sourceFilesByAssetId.set(descriptorAsset.assetId, sourcePath);
+    }
+    importedAssets.sort((left, right) =>
+      left.assetId < right.assetId ? -1 : left.assetId > right.assetId ? 1 : 0
+    );
+    const itemCatalog = {
+      ...baseItemCatalog,
+      schemaVersion: 3,
+      audioAssets: importedAssets,
+    };
+    const runtimeCatalog = projectSanitizedRuntimeCatalog(itemCatalog);
+    const coverageClaimsInput = flags.get("coverage-claims-file");
+    const coverageClaimsSource = typeof coverageClaimsInput === "string"
+      ? readRepositoryJsonInput(
+          coverageClaimsInput,
+          "--coverage-claims-file",
+        )
+      : undefined;
+    const {
+      coverageClaims,
+      manifest,
+      reviews,
+      nextRegistry,
+    } = await buildCandidateEnvelope({
+      sourceBundle,
+      sourceManifestHash: sourceValidation.hashes.manifest,
+      newVersion,
+      contentSchemaVersion,
+      audience,
+      createdAt,
+      runtimeIds,
+      itemCatalog,
+      runtimeCatalog,
+      coverageClaimsSource,
+      liveSourceTexts,
       contentOwner:
         typeof ownerId === "string" && typeof ownerEvidence === "string"
           ? { id: ownerId, evidenceRef: ownerEvidence }
@@ -985,129 +1713,45 @@ const newVersionCommand = async (args) => {
         typeof licenseId === "string" && typeof licenseEvidence === "string"
           ? { licenseId, evidenceRef: licenseEvidence }
           : null,
-      nativeLinguisticReviewRequired: true,
-      includesAudio,
-      audioRights:
-        includesAudio &&
-        typeof audioOwnerId === "string" &&
-        typeof audioLicenseId === "string" &&
-        typeof audioEvidence === "string"
-          ? {
-              ownerId: audioOwnerId,
-              licenseId: audioLicenseId,
-              evidenceRef: audioEvidence,
-            }
-          : null,
-    },
-  };
-  const manifestHash = await sha256Json(manifest);
-  const reviews = {
-    schemaVersion: contentSchemaVersion >= 3 ? 2 : 1,
-    contentVersion: newVersion,
-    packageManifestSha256: manifestHash,
-    ...(itemCatalogHash === null
-      ? {}
-      : { itemCatalogSha256: itemCatalogHash }),
-    reviews: [],
-  };
-  const nextRegistry = {
-    ...sourceBundle.registry,
-    currentContentVersion: newVersion,
-    packages: [
-      ...sourceBundle.registry.packages,
-      {
-        packageId: newVersion,
-        contentVersion: newVersion,
-        relativePath: `packages/${newVersion}`,
-        manifestSha256: manifestHash,
-        audience,
-        lifecycle: "candidate",
-        closedAlphaEligible: false,
-        productionEligible: false,
-        promotion: null,
+      audioRights: {
+        ownerId: audioOwnerId,
+        licenseId: audioLicenseId,
+        evidenceRef: audioEvidence,
       },
-    ],
-  };
-  const nextRegistryEntry = nextRegistry.packages[nextRegistry.packages.length - 1];
-  const candidateValidation = await validateContentBundle({
-    registry: nextRegistry,
-    registryEntry: nextRegistryEntry,
-    manifest,
-    runtimeIds,
-    itemCatalog,
-    runtimeCatalog,
-    coverageClaims,
-    reviews,
-    audioAssetFileHashes: {},
-    immutableSourceTexts: liveSourceTexts,
-    runtimeContentVersion: readRuntimeContentVersion(),
-    liveSourceTexts,
-    runtimeAssessmentSourceText: liveSourceTexts["src/data/assessment.ts"],
-    runtimeSourceText: liveSourceTexts["src/data/curriculum.ts"],
-    runtimeExerciseGenerationSourceText:
-      liveSourceTexts["src/lib/exerciseGeneration.ts"],
-    runtimeAttemptScoringSourceText:
-      liveSourceTexts["src/server/attemptScoring.ts"],
-    runtimeAuthoritativeItemBankSourceText:
-      liveSourceTexts["src/server/authoritativeItemBank.ts"],
-    runtimeLessonCompletionPolicySourceText:
-      liveSourceTexts["src/server/lessonCompletionPolicy.ts"],
-    runtimeAuthoritativeAssessmentItemBankSourceText:
-      liveSourceTexts["src/server/authoritativeAssessmentItemBank.ts"],
-    runtimeAssessmentScoringSourceText:
-      liveSourceTexts["src/server/assessmentScoring.ts"],
-    runtimeLessonGuidesSourceText: liveSourceTexts["src/data/lessonGuides.ts"],
-    runtimeKnowledgeItemBlueprintsSourceText:
-      liveSourceTexts["src/data/knowledgeItemBlueprints.ts"],
-  });
-  if (candidateValidation.errors.length > 0) {
-    throw new Error(`Generated candidate is invalid:\n${candidateValidation.errors.join("\n")}`);
-  }
+    });
 
-  mkdirSync(temporaryDirectory);
-  try {
-    writeFileSync(join(temporaryDirectory, "manifest.json"), formatJson(manifest), "utf8");
-    writeFileSync(join(temporaryDirectory, "runtime-ids.json"), formatJson(runtimeIds), "utf8");
-    if (itemCatalog !== null) {
-      writeFileSync(
-        join(temporaryDirectory, "item-catalog.json"),
-        formatJson(itemCatalog),
-        "utf8",
-      );
-    }
-    if (runtimeCatalog !== null) {
-      writeFileSync(
-        join(temporaryDirectory, "runtime-catalog.json"),
-        formatJson(runtimeCatalog),
-        "utf8",
-      );
-    }
-    writeFileSync(
-      join(temporaryDirectory, "coverage-claims.json"),
-      formatJson(coverageClaims),
-      "utf8",
-    );
-    writeFileSync(join(temporaryDirectory, "reviews.json"), formatJson(reviews), "utf8");
-    writeImmutableSourceTexts(
+    await writeCandidatePackage({
       temporaryDirectory,
-      manifest.contentSchemaVersion,
-      liveSourceTexts,
+      targetDirectory,
+      nextRegistry,
+      manifest,
+      runtimeIds,
+      itemCatalog,
+      runtimeCatalog,
+      coverageClaims,
+      reviews,
+      sourceTexts: liveSourceTexts,
+      validateStaged: true,
+      writeAdditionalArtifacts: (stagedDirectory) => {
+        const audioDirectory = join(stagedDirectory, "audio");
+        mkdirSync(audioDirectory);
+        importedAssets.forEach((asset) => {
+          copyFileSync(
+            sourceFilesByAssetId.get(asset.assetId),
+            join(stagedDirectory, ...asset.fileRef.split("/")),
+            constants.COPYFILE_EXCL,
+          );
+        });
+      },
+    });
+    console.log(
+      `Imported ${importedAssets.length} canonical audio asset(s) into candidate ${newVersion} from ${fromVersion}; ${
+        coverageClaimsInput === undefined
+          ? "approvals and coverage claims were intentionally cleared"
+          : "approvals were intentionally cleared; supplied coverage claims were retained in the new candidate envelope"
+      }`,
     );
-    renameSync(temporaryDirectory, targetDirectory);
-  } catch (error) {
-    cleanupNewPackage(temporaryDirectory);
-    throw error;
-  }
-  try {
-    writeJsonAtomic(registryPath, nextRegistry);
-  } catch (error) {
-    cleanupNewPackage(targetDirectory);
-    throw error;
-  }
-  console.log(
-    `Created and selected candidate ${newVersion} from ${fromVersion}; approvals were intentionally cleared${coverageClaimsInput === undefined ? " together with coverage claims" : ""}`,
-  );
-  return 0;
+    return 0;
   });
 };
 
@@ -1180,6 +1824,7 @@ const commands = {
   "verify-release": verifyReleaseCommand,
   "submit-review": submitReviewCommand,
   "new-version": newVersionCommand,
+  "import-audio": importAudioCommand,
   promote: promoteCommand,
 };
 

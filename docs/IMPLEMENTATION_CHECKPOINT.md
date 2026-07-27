@@ -79,6 +79,20 @@ This is a local engineering checkpoint, not production release evidence.
 - The candidate has no owner/license, scoped approval, coverage claim or audio;
   24 cataloged lexemes therefore count as 0 reviewed lexemes and 64 transitive
   release-relevant items remain unready.
+- A separate `content:audio:import` mutation can create future content-schema-v5
+  / item-catalog-v3 candidates from a schema-v2 authoring catalog plus an exact
+  descriptor. It derives canonical target/file/transcript hashes, speaker and
+  rights bindings, byte-inspected WAV media metadata and timestamp alignment.
+- Audio policy v1 accepts only bounded RIFF/WAVE PCM mono 16-bit bytes at an
+  allow-listed sample rate. Repository-relative non-symlink source files are
+  copied exclusively into a temporary package and re-read/revalidated before
+  rename and registry mutation; errors clean the temporary package and retain
+  the previous registry/target.
+- Historical catalog schemas remain validation-compatible, but their
+  uninspected audio can no longer satisfy the production audio gate. Malformed
+  audio collections also fail policy assessment without throwing.
+- This is tooling only: no real audio, speaker identity, license evidence,
+  review, release promotion or runtime playback was added to `.07.5`.
 
 ## Local verification
 
@@ -90,15 +104,15 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 133 files, 1,039 tests passed
+  - Vitest: 134 files, 1,077 tests passed
   - production build and bundle policy passed
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 98 / 98, median 98
+  - Performance: 97 / 95 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,912 ms; CLS: 0; TBT: 71 ms
+  - Median LCP: 1,894 ms; CLS: 0; TBT: 169 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -124,16 +138,13 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Continue Phase 2 at WS2 with one bounded immutable audio-import slice:
-   validate codec, duration, transcript alignment, speaker evidence, rights and
-   package-local bytes without fabricating or publishing audio.
-3. Complete sourced character radical/component/stroke metadata through the
+2. Complete sourced character radical/component/stroke metadata through the
    editorial workflow; do not infer it from glyph shape or unreviewed sources.
-4. Build the multi-user editorial assignment/review dashboard, then obtain
+3. Build the multi-user editorial assignment/review dashboard, then obtain
    attributable owner, license and native linguistic review evidence.
-5. Only after those gates, expand a reviewed A0 inventory and run
+4. Only after those gates, expand a reviewed A0 inventory and run
    pilot/calibration work before making assessment or coverage claims.
-6. Leave Sites ownership, saved version and deployment until the final release
+5. Leave Sites ownership, saved version and deployment until the final release
    step.
 
 Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use

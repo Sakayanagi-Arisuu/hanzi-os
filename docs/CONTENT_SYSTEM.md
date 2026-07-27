@@ -27,6 +27,16 @@ review thật. Package không có approval, claim A0/HSK hay audio. Release gate
 transitive dependency closure nên không thể dùng lesson đã phát hành để lách
 review của knowledge item. Production tiếp tục fail closed.
 
+Tooling đã có đường nhập audio bất biến cho candidate tương lai bằng content
+schema v5 / item catalog v3. Policy v1 đọc trực tiếp RIFF/WAVE bytes và chỉ nhận
+PCM mono 16-bit trong allow-list sample rate/duration/size; catalog bind exact
+target payload, normalized transcript, timestamp segments, speaker evidence,
+rights, media metadata và file hash. Bytes được copy package-local rồi inspect
+và validate lại trước registry mutation. Catalog schema cũ vẫn đọc được để giữ
+lịch sử, nhưng audio legacy/uninspected không bao giờ thỏa production audio
+gate. Đây chỉ là workflow kỹ thuật: `foundation-2026.07.5` vẫn có audio catalog
+rỗng và không có evidence hay approval thật.
+
 ## Knowledge item
 
 ### Lexeme
@@ -80,9 +90,12 @@ Mỗi activity định nghĩa prompt, modality, accepted answers, scoring rubric
 1. Curriculum designer tạo objective và blueprint.
 2. Linguist tạo/duyệt language content.
 3. Native speaker thu audio theo script version.
-4. Assessment editor kiểm tra distractor và rubric.
-5. QA kiểm tra locale, accessibility và thiết bị.
-6. Pilot cohort; phân tích item rồi mới general release.
+4. Editor tạo descriptor bind exact payload/transcript, speaker và rights;
+   importer kiểm bytes/alignment rồi tạo candidate mới.
+5. Reviewer bản ngữ và reviewer quyền audio duyệt exact manifest/catalog scope.
+6. Assessment editor kiểm tra distractor và rubric.
+7. QA kiểm tra locale, accessibility và thiết bị.
+8. Pilot cohort; phân tích item rồi mới general release.
 
 ## Chất lượng
 

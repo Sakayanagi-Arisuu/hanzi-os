@@ -378,9 +378,15 @@ export type ItemCatalogArtifact =
       contentVersion: string;
       items: ContentCatalogItemV2[];
       audioAssets: CatalogAudioAsset[];
+    }
+  | {
+      schemaVersion: 3;
+      contentVersion: string;
+      items: ContentCatalogItemV2[];
+      audioAssets: ValidatedCatalogAudioAsset[];
     };
 
-export type CatalogAudioAsset = {
+export type CatalogAudioAssetCommon = {
   assetId: string;
   targetItemKey: ContentItemKey;
   targetPayloadSha256: Sha256Digest;
@@ -394,6 +400,48 @@ export type CatalogAudioAsset = {
   };
   rights: AudioRights;
 };
+
+/** Legacy catalog schemas bind bytes and editorial evidence, but not media inspection. */
+export type CatalogAudioAsset = CatalogAudioAssetCommon;
+
+export type AudioAssetMedia = {
+  container: "wav";
+  codec: "pcm-s16le";
+  sampleRateHz: number;
+  channels: 1;
+  bitDepth: 16;
+  frameCount: number;
+  durationMs: number;
+  byteLength: number;
+};
+
+export type AudioAlignmentSegment = {
+  startMs: number;
+  endMs: number;
+  text: string;
+};
+
+export type AudioAssetAlignment = {
+  schemaVersion: 1;
+  targetTextSha256: Sha256Digest;
+  segments: AudioAlignmentSegment[];
+};
+
+/** Catalog schema v3 audio is accepted only after deterministic WAV inspection. */
+export type ValidatedCatalogAudioAsset = CatalogAudioAssetCommon & {
+  media: AudioAssetMedia;
+  alignment: AudioAssetAlignment;
+};
+
+export type AudioAssetFileInspection =
+  | {
+      ok: true;
+      media: AudioAssetMedia;
+    }
+  | {
+      ok: false;
+      error: string;
+    };
 
 export type ReviewRole =
   | "content-owner"
@@ -474,6 +522,11 @@ export type ContentPackageBundle = {
   coverageClaims: CoverageClaimsArtifact;
   reviews: ContentReviewArtifact;
   audioAssetFileHashes: Record<string, Sha256Digest | null>;
+  /** Optional for legacy packages; content schema v5 requires one result per audio file. */
+  audioAssetFileInspections?: Record<
+    string,
+    AudioAssetFileInspection | null
+  >;
   immutableSourceTexts: Partial<Record<ContentSourceArtifactName, string | null>>;
   runtimeContentVersion: string | null;
   runtimeAssessmentSourceText: string | null;

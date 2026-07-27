@@ -271,11 +271,15 @@ This remains a technical authoring envelope, not completed WS2. The candidate
   is unpromoted with zero coverage claims, no owner/license/native review and no
   audio. The 25 new knowledge items are source-derived `review` candidates, not
   publishable Mandarin content; character stroke/radical metadata, audio
-  import/alignment and a multi-user CMS are still absent. The real
-assessment bank therefore remains unissuable. No pilot,
-calibration, item-quality dashboard, native audio, provider speech pipeline or
-100-person alpha evidence exists; the speech adapter stays disabled and
-mastery-ineligible.
+  assets/review and a multi-user CMS are still absent. A bounded schema-v5
+  importer now validates package-local canonical WAV bytes, duration,
+  deterministic transcript alignment, speaker evidence and rights before an
+  atomic candidate handoff; legacy/uninspected audio is release-ineligible. No
+  real audio or evidence was fabricated or added to the current candidate.
+  The real assessment bank therefore remains unissuable. No pilot,
+  calibration, item-quality dashboard, native audio, provider speech pipeline
+  or 100-person alpha evidence exists; the speech adapter stays disabled and
+  mastery-ineligible.
 
 Exit criteria:
 

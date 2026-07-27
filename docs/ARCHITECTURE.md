@@ -34,8 +34,11 @@ Package vẫn là candidate: owner/license đều rỗng, review envelope v2 kh�
 approval, coverage envelope v2 không có claim, audio catalog rỗng và chưa có
 promotion. Bởi vậy 24 lexeme hiện hữu vẫn đóng góp **0 reviewed lexeme** vào
 release gate. 25 knowledge item mới đều ở state `review`; character enrichment
-chưa có dữ liệu nguồn đã duyệt và đường import audio bất biến chưa được triển
-khai. Không được suy diễn rằng WS2 hoặc A0 đã hoàn tất.
+chưa có dữ liệu nguồn đã duyệt. Tooling đã có đường import audio bất biến cho
+schema v5/catalog v3 với byte-derived WAV metadata, transcript alignment,
+speaker/rights binding và staged validation; audio legacy không được tính vào
+release gate. Candidate hiện tại chưa dùng đường này và vẫn không có audio hay
+evidence thật. Không được suy diễn rằng WS2 hoặc A0 đã hoàn tất.
 
 ## 2. Kiến trúc production đề xuất
 
@@ -275,11 +278,11 @@ production chỉ được cân nhắc sau khi có:
   `attestable: false`; production
   evidence chỉ hợp lệ từ clean exact HEAD và khi mọi gate đã được phê duyệt cùng
   bind source revision, content manifest và build digest.
-- Snapshot kỹ thuật local ngày 27/07/2026 qua 133 file/1.039 Vitest và 18/18 E2E.
+- Snapshot kỹ thuật local ngày 27/07/2026 qua 134 file/1.077 Vitest và 18/18 E2E.
   Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 403.5 KiB; đây
   không phải đo lường initial transfer thực tế. Ba Lighthouse cold-profile đạt
-  Performance 97/98/98, median P98/A100/BP100/SEO100, LCP 1,912 ms, CLS 0 và
-  TBT 71 ms.
+  Performance 97/95/97, median P97/A100/BP100/SEO100, LCP 1,894 ms, CLS 0 và
+  TBT 169 ms.
   `npm audit --omit=dev` báo 0; các số này không thay thế qualification hosted.
 - Feature flags, experiment assignment ổn định, content-quality dashboard,
   central monitoring sink, accessibility/visual regression toàn diện và load

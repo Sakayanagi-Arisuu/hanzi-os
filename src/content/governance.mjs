@@ -1,5 +1,7 @@
 const DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
 const SAFE_ID_PATTERN = /^[a-zA-Z0-9][a-zA-Z0-9._-]*$/;
+const LOWERCASE_AUDIO_ASSET_ID_PATTERN = /^[a-z0-9][a-z0-9._-]*$/;
+const WINDOWS_RESERVED_FILE_STEM_PATTERN = /^(?:con|prn|aux|nul|com[1-9]|lpt[1-9])(?:\.|$)/i;
 const RELEASE_STATES = new Set(["draft", "review", "beta", "published", "retired"]);
 const REVIEW_ROLES = new Set([
   "content-owner",
@@ -8,7 +10,7 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
-const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2, 3, 4]);
+const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5]);
 const ITEM_TYPES_V1 = new Set(["lexeme", "lesson", "graded-text"]);
 const KNOWLEDGE_ITEM_TYPES = new Set([
   "lexeme",
@@ -506,7 +508,7 @@ const validateManifest = (manifest, errors) => {
     errors.push("manifest.contentVersion must equal packageId");
   }
   if (!SUPPORTED_CONTENT_SCHEMA_VERSIONS.has(manifest.contentSchemaVersion)) {
-    errors.push("manifest.contentSchemaVersion must be a supported version (1, 2, 3, or 4)");
+    errors.push("manifest.contentSchemaVersion must be a supported version (1, 2, 3, 4, or 5)");
   }
   if (!["closed-alpha", "public"].includes(manifest.audience)) {
     errors.push("manifest.audience is invalid");
@@ -546,6 +548,24 @@ const validateManifest = (manifest, errors) => {
   }
   if (typeof manifest.governance.includesAudio !== "boolean") {
     errors.push("manifest.governance.includesAudio must be boolean");
+  }
+  if (manifest.governance.includesAudio) {
+    if (!isRecord(manifest.governance.audioRights)) {
+      errors.push("audioRights must be an object when the package includes audio artifacts");
+    } else {
+      validateAllowedKeys(
+        manifest.governance.audioRights,
+        ["ownerId", "licenseId", "evidenceRef"],
+        "manifest.governance.audioRights",
+        errors,
+      );
+      validateEvidenceObject(
+        manifest.governance.audioRights,
+        ["ownerId", "licenseId", "evidenceRef"],
+        "manifest.governance.audioRights",
+        errors,
+      );
+    }
   }
   if (!manifest.governance.includesAudio && manifest.governance.audioRights !== null) {
     errors.push("audioRights must be null when the package has no audio artifacts");
@@ -1014,19 +1034,117 @@ const validateCatalogPayload = (item, index, errors) => {
   }
 };
 
+const AUDIO_MEDIA_FIELDS = [
+  "container",
+  "codec",
+  "sampleRateHz",
+  "channels",
+  "bitDepth",
+  "frameCount",
+  "durationMs",
+  "byteLength",
+];
+
+// Keep transcript, alignment, and target comparison identical to the canonical
+// text hash normalization: newline spelling changes, no trimming or Unicode folding.
+const normalizeAudioText = (value) => value.replace(/\r\n?/g, "\n");
+
+const audioMediaEquals = (left, right) =>
+  isRecord(left)
+  && isRecord(right)
+  && AUDIO_MEDIA_FIELDS.every((field) => left[field] === right[field]);
+
+const validateAudioMedia = (media, prefix, errors) => {
+  if (!isRecord(media)) {
+    errors.push(`${prefix} must be an object`);
+    return;
+  }
+  validateAllowedKeys(media, AUDIO_MEDIA_FIELDS, prefix, errors);
+  if (media.container !== "wav") errors.push(`${prefix}.container must be wav`);
+  if (media.codec !== "pcm-s16le") errors.push(`${prefix}.codec must be pcm-s16le`);
+  if (media.channels !== 1) errors.push(`${prefix}.channels must be 1`);
+  if (media.bitDepth !== 16) errors.push(`${prefix}.bitDepth must be 16`);
+  for (const field of ["sampleRateHz", "frameCount", "durationMs", "byteLength"]) {
+    if (!Number.isSafeInteger(media[field]) || media[field] <= 0) {
+      errors.push(`${prefix}.${field} must be a positive integer`);
+    }
+  }
+  if (
+    Number.isSafeInteger(media.sampleRateHz)
+    && media.sampleRateHz > 0
+    && Number.isSafeInteger(media.frameCount)
+    && media.frameCount > 0
+    && Number.isSafeInteger(media.durationMs)
+    && media.durationMs !== Math.round((media.frameCount * 1_000) / media.sampleRateHz)
+  ) {
+    errors.push(`${prefix}.durationMs must match frameCount and sampleRateHz`);
+  }
+  if (
+    Number.isSafeInteger(media.frameCount)
+    && media.frameCount > 0
+    && Number.isSafeInteger(media.byteLength)
+    && media.byteLength < media.frameCount * 2 + 44
+  ) {
+    errors.push(`${prefix}.byteLength is too small for mono PCM WAV frames`);
+  }
+};
+
+const deterministicMandarinTargetTexts = (item) => {
+  if (!isRecord(item?.payload)) return [];
+  if (item.itemType === "lexeme") {
+    return [item.payload.simplified, item.payload.example].filter(isNonEmptyString);
+  }
+  if (item.itemType === "lesson") {
+    return [item.payload.chineseTitle].filter(isNonEmptyString);
+  }
+  if (item.itemType === "graded-text") {
+    const sentenceTexts = (Array.isArray(item.payload.sentences)
+      ? item.payload.sentences
+      : [])
+      .map((sentence) => sentence?.chinese)
+      .filter(isNonEmptyString);
+    return [
+      ...sentenceTexts,
+      ...(sentenceTexts.length > 0 ? [sentenceTexts.join("\n")] : []),
+    ];
+  }
+  if (["grammar", "pronunciation", "communicative-function"].includes(item.itemType)) {
+    return (Array.isArray(item.payload.examples) ? item.payload.examples : [])
+      .map((example) => example?.chinese)
+      .filter(isNonEmptyString);
+  }
+  if (item.itemType === "character") {
+    return [item.payload.character].filter(isNonEmptyString);
+  }
+  return [];
+};
+
+const audioRightsEqual = (left, right) =>
+  isRecord(left)
+  && isRecord(right)
+  && left.ownerId === right.ownerId
+  && left.licenseId === right.licenseId
+  && left.evidenceRef === right.evidenceRef;
+
 const validateItemCatalog = async (
   itemCatalog,
   runtimeIds,
   audioAssetFileHashes,
+  audioAssetFileInspections,
+  manifestAudioRights,
   contentSchemaVersion,
   errors,
 ) => {
-  const expectedSchemaVersion = contentSchemaVersion >= 4 ? 2 : 1;
+  const expectedSchemaVersion = contentSchemaVersion >= 5
+    ? 3
+    : contentSchemaVersion >= 4
+      ? 2
+      : 1;
   if (!isRecord(itemCatalog) || itemCatalog.schemaVersion !== expectedSchemaVersion) {
     errors.push(`item-catalog.schemaVersion must be ${expectedSchemaVersion}`);
     return;
   }
-  const itemTypes = expectedSchemaVersion === 2 ? ITEM_TYPES_V2 : ITEM_TYPES_V1;
+  const itemTypes = expectedSchemaVersion >= 2 ? ITEM_TYPES_V2 : ITEM_TYPES_V1;
   validateAllowedKeys(
     itemCatalog,
     ["schemaVersion", "contentVersion", "items", "audioAssets"],
@@ -1078,7 +1196,7 @@ const validateItemCatalog = async (
         "owner",
         "sourceLicense",
         "prerequisites",
-        ...(expectedSchemaVersion === 2 && item.itemType === "lesson"
+        ...(expectedSchemaVersion >= 2 && item.itemType === "lesson"
           ? ["knowledgeItems"]
           : []),
       ],
@@ -1169,7 +1287,7 @@ const validateItemCatalog = async (
   const lessonItems = catalogItems.filter((item) => item.itemType === "lesson");
   const gradedTextItems = catalogItems.filter((item) => item.itemType === "graded-text");
 
-  if (expectedSchemaVersion === 2) {
+  if (expectedSchemaVersion >= 2) {
     lessonItems.forEach((item) => {
       const index = catalogItems.indexOf(item);
       const prefix = `item-catalog.items[${index}].knowledgeItems`;
@@ -1373,8 +1491,38 @@ const validateItemCatalog = async (
   const fileRefs = [];
   for (const [index, asset] of audioAssets.entries()) {
     const prefix = `item-catalog.audioAssets[${index}]`;
-    if (!SAFE_ID_PATTERN.test(asset.assetId ?? "")) errors.push(`${prefix}.assetId is invalid`);
-    else assetIds.push(asset.assetId);
+    validateAllowedKeys(
+      asset,
+      [
+        "assetId",
+        "targetItemKey",
+        "targetPayloadSha256",
+        "fileRef",
+        "fileSha256",
+        "transcript",
+        "transcriptSha256",
+        "speaker",
+        "rights",
+        ...(expectedSchemaVersion === 3 ? ["media", "alignment"] : []),
+      ],
+      prefix,
+      errors,
+    );
+    const validAssetId = expectedSchemaVersion === 3
+      ? typeof asset.assetId === "string"
+        && LOWERCASE_AUDIO_ASSET_ID_PATTERN.test(asset.assetId)
+        && !asset.assetId.endsWith(".")
+        && !WINDOWS_RESERVED_FILE_STEM_PATTERN.test(asset.assetId)
+      : SAFE_ID_PATTERN.test(asset.assetId ?? "");
+    if (!validAssetId) {
+      errors.push(
+        expectedSchemaVersion === 3
+          ? `${prefix}.assetId must be a lowercase non-reserved safe id`
+          : `${prefix}.assetId is invalid`,
+      );
+    } else {
+      assetIds.push(asset.assetId);
+    }
     if (!isNonEmptyString(asset.targetItemKey) || !itemMap.has(asset.targetItemKey)) {
       errors.push(`${prefix}.targetItemKey is unknown`);
     }
@@ -1385,13 +1533,20 @@ const validateItemCatalog = async (
     ) {
       errors.push(`${prefix}.targetPayloadSha256 does not match the target item`);
     }
-    if (
-      !isNonEmptyString(asset.fileRef)
-      || !asset.fileRef.startsWith("audio/")
-      || asset.fileRef.includes("\\")
-      || asset.fileRef.split("/").some((part) => part === "" || part === "." || part === "..")
-    ) {
-      errors.push(`${prefix}.fileRef must be a safe package-local audio path`);
+    const validFileRef = expectedSchemaVersion === 3
+      ? validAssetId && asset.fileRef === `audio/${asset.assetId}.wav`
+      : isNonEmptyString(asset.fileRef)
+        && asset.fileRef.startsWith("audio/")
+        && !asset.fileRef.includes("\\")
+        && !asset.fileRef.split("/").some(
+          (part) => part === "" || part === "." || part === "..",
+        );
+    if (!validFileRef) {
+      errors.push(
+        expectedSchemaVersion === 3
+          ? `${prefix}.fileRef must equal audio/<assetId>.wav`
+          : `${prefix}.fileRef must be a safe package-local audio path`,
+      );
     } else {
       fileRefs.push(asset.fileRef);
       const fileHash = audioAssetFileHashes?.[asset.fileRef] ?? null;
@@ -1415,6 +1570,12 @@ const validateItemCatalog = async (
     }
     if (asset.speaker === null) errors.push(`${prefix}.speaker is required`);
     else {
+      validateAllowedKeys(
+        asset.speaker,
+        ["id", "nativeSpeakerEvidenceRef"],
+        `${prefix}.speaker`,
+        errors,
+      );
       validateEvidenceObject(
         asset.speaker,
         ["id", "nativeSpeakerEvidenceRef"],
@@ -1424,12 +1585,148 @@ const validateItemCatalog = async (
     }
     if (asset.rights === null) errors.push(`${prefix}.rights is required`);
     else {
+      validateAllowedKeys(
+        asset.rights,
+        ["ownerId", "licenseId", "evidenceRef"],
+        `${prefix}.rights`,
+        errors,
+      );
       validateEvidenceObject(
         asset.rights,
         ["ownerId", "licenseId", "evidenceRef"],
         `${prefix}.rights`,
         errors,
       );
+    }
+    if (expectedSchemaVersion === 3) {
+      if (!audioRightsEqual(asset.rights, manifestAudioRights)) {
+        errors.push(`${prefix}.rights must exactly match manifest.governance.audioRights`);
+      }
+      validateAudioMedia(asset.media, `${prefix}.media`, errors);
+
+      if (!isRecord(asset.alignment)) {
+        errors.push(`${prefix}.alignment must be an object`);
+      } else {
+        validateAllowedKeys(
+          asset.alignment,
+          ["schemaVersion", "targetTextSha256", "segments"],
+          `${prefix}.alignment`,
+          errors,
+        );
+        if (asset.alignment.schemaVersion !== 1) {
+          errors.push(`${prefix}.alignment.schemaVersion must be 1`);
+        }
+        if (
+          !DIGEST_PATTERN.test(asset.alignment.targetTextSha256 ?? "")
+          || asset.alignment.targetTextSha256 !== transcriptHash
+          || asset.alignment.targetTextSha256 !== asset.transcriptSha256
+        ) {
+          errors.push(`${prefix}.alignment.targetTextSha256 must match transcript`);
+        }
+        if (!Array.isArray(asset.alignment.segments)) {
+          errors.push(`${prefix}.alignment.segments must be an array`);
+        } else {
+          if (asset.alignment.segments.length === 0) {
+            errors.push(`${prefix}.alignment.segments must not be empty`);
+          }
+          let previousEndMs = null;
+          const segmentTexts = [];
+          asset.alignment.segments.forEach((segment, segmentIndex) => {
+            const segmentPrefix = `${prefix}.alignment.segments[${segmentIndex}]`;
+            if (!isRecord(segment)) {
+              errors.push(`${segmentPrefix} must be an object`);
+              return;
+            }
+            validateAllowedKeys(
+              segment,
+              ["startMs", "endMs", "text"],
+              segmentPrefix,
+              errors,
+            );
+            if (!Number.isSafeInteger(segment.startMs) || segment.startMs < 0) {
+              errors.push(`${segmentPrefix}.startMs must be a non-negative integer`);
+            }
+            if (
+              !Number.isSafeInteger(segment.endMs)
+              || !Number.isSafeInteger(segment.startMs)
+              || segment.endMs <= segment.startMs
+            ) {
+              errors.push(`${segmentPrefix}.endMs must be an integer after startMs`);
+            }
+            if (
+              previousEndMs !== null
+              && Number.isSafeInteger(segment.startMs)
+              && segment.startMs < previousEndMs
+            ) {
+              errors.push(`${segmentPrefix} overlaps or precedes the previous segment`);
+            }
+            if (
+              Number.isSafeInteger(segment.endMs)
+              && Number.isSafeInteger(asset.media?.durationMs)
+              && segment.endMs > asset.media.durationMs
+            ) {
+              errors.push(`${segmentPrefix}.endMs exceeds media duration`);
+            }
+            if (!isNonEmptyString(segment.text)) {
+              errors.push(`${segmentPrefix}.text is required`);
+            } else {
+              segmentTexts.push(segment.text);
+            }
+            if (Number.isSafeInteger(segment.endMs)) previousEndMs = segment.endMs;
+          });
+          if (
+            typeof asset.transcript === "string"
+            && normalizeAudioText(segmentTexts.join(""))
+              !== normalizeAudioText(asset.transcript)
+          ) {
+            errors.push(`${prefix}.alignment segment text must concatenate to transcript`);
+          }
+        }
+        const targetTexts = deterministicMandarinTargetTexts(target);
+        if (
+          typeof asset.transcript === "string"
+          && !targetTexts.some(
+            (text) => normalizeAudioText(text) === normalizeAudioText(asset.transcript),
+          )
+        ) {
+          errors.push(`${prefix}.transcript must equal a deterministic Mandarin target text`);
+        }
+      }
+
+      const inspection = isNonEmptyString(asset.fileRef)
+        ? audioAssetFileInspections?.[asset.fileRef] ?? null
+        : null;
+      if (!isRecord(inspection)) {
+        errors.push(`${prefix}.fileRef requires a successful WAV inspection`);
+      } else if (inspection.ok === true) {
+        validateAllowedKeys(
+          inspection,
+          ["ok", "media"],
+          `${prefix}.fileInspection`,
+          errors,
+        );
+        validateAudioMedia(
+          inspection.media,
+          `${prefix}.fileInspection.media`,
+          errors,
+        );
+        if (!audioMediaEquals(asset.media, inspection.media)) {
+          errors.push(`${prefix}.media does not match inspected package bytes`);
+        }
+      } else if (inspection.ok === false) {
+        validateAllowedKeys(
+          inspection,
+          ["ok", "error"],
+          `${prefix}.fileInspection`,
+          errors,
+        );
+        if (!isNonEmptyString(inspection.error)) {
+          errors.push(`${prefix}.fileInspection.error is required`);
+        }
+        errors.push(`${prefix}.fileRef WAV inspection failed`);
+      } else {
+        errors.push(`${prefix}.fileInspection.ok must be boolean`);
+      }
     }
   }
   pushDuplicateErrors(assetIds, "audio asset id", errors);
@@ -1835,6 +2132,8 @@ export const validateContentBundle = async (bundle) => {
       bundle.itemCatalog,
       bundle.runtimeIds,
       bundle.audioAssetFileHashes,
+      bundle.audioAssetFileInspections,
+      bundle.manifest?.governance?.audioRights,
       bundle.manifest.contentSchemaVersion,
       errors,
     );
@@ -2430,15 +2729,75 @@ const isNonEmptyReviewedGradedText = (bundle, manifestHash, item) => {
 };
 
 const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
+  if (
+    bundle.manifest?.contentSchemaVersion < 5
+    || bundle.itemCatalog?.schemaVersion !== 3
+    || bundle.manifest?.governance?.includesAudio !== true
+    || !isRecord(asset)
+  ) {
+    return false;
+  }
   const target = itemMapFor(bundle).get(asset.targetItemKey);
+  const inspection = isNonEmptyString(asset.fileRef)
+    ? bundle.audioAssetFileInspections?.[asset.fileRef]
+    : null;
+  const mediaErrors = [];
+  validateAudioMedia(asset.media, "audio asset media", mediaErrors);
+  const alignment = asset.alignment;
+  const segments = Array.isArray(alignment?.segments)
+    ? alignment.segments
+    : [];
+  let previousEndMs = null;
+  const segmentTexts = [];
+  const alignmentSegmentsAreValid = segments.length > 0 && segments.every((segment) => {
+    if (
+      !isRecord(segment)
+      || !Number.isSafeInteger(segment.startMs)
+      || segment.startMs < 0
+      || !Number.isSafeInteger(segment.endMs)
+      || segment.endMs <= segment.startMs
+      || (previousEndMs !== null && segment.startMs < previousEndMs)
+      || !Number.isSafeInteger(asset.media?.durationMs)
+      || segment.endMs > asset.media.durationMs
+      || !isNonEmptyString(segment.text)
+    ) {
+      return false;
+    }
+    previousEndMs = segment.endMs;
+    segmentTexts.push(segment.text);
+    return true;
+  });
+  const transcriptMatchesTarget = isNonEmptyString(asset.transcript)
+    && deterministicMandarinTargetTexts(target).some(
+      (text) => normalizeAudioText(text) === normalizeAudioText(asset.transcript),
+    );
   if (
     !target
+    || typeof asset.assetId !== "string"
+    || !LOWERCASE_AUDIO_ASSET_ID_PATTERN.test(asset.assetId)
+    || asset.assetId.endsWith(".")
+    || WINDOWS_RESERVED_FILE_STEM_PATTERN.test(asset.assetId)
+    || asset.fileRef !== `audio/${asset.assetId}.wav`
     || asset.targetPayloadSha256 !== target.payloadSha256
+    || !DIGEST_PATTERN.test(asset.fileSha256 ?? "")
     || bundle.audioAssetFileHashes?.[asset.fileRef] !== asset.fileSha256
-    || !asset.speaker?.nativeSpeakerEvidenceRef
-    || !asset.rights?.ownerId
-    || !asset.rights?.licenseId
-    || !asset.rights?.evidenceRef
+    || !isRecord(inspection)
+    || inspection.ok !== true
+    || !audioMediaEquals(asset.media, inspection.media)
+    || mediaErrors.length > 0
+    || !isRecord(alignment)
+    || alignment.schemaVersion !== 1
+    || !DIGEST_PATTERN.test(asset.transcriptSha256 ?? "")
+    || alignment.targetTextSha256 !== asset.transcriptSha256
+    || !alignmentSegmentsAreValid
+    || !transcriptMatchesTarget
+    || normalizeAudioText(segmentTexts.join("")) !== normalizeAudioText(asset.transcript)
+    || !audioRightsEqual(asset.rights, bundle.manifest?.governance?.audioRights)
+    || !isNonEmptyString(asset.speaker?.id)
+    || !isNonEmptyString(asset.speaker?.nativeSpeakerEvidenceRef)
+    || !isNonEmptyString(asset.rights?.ownerId)
+    || !isNonEmptyString(asset.rights?.licenseId)
+    || !isNonEmptyString(asset.rights?.evidenceRef)
   ) {
     return false;
   }
@@ -2458,9 +2817,31 @@ const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
   return true;
 };
 
+const schemaV5AudioReleaseBlockers = (bundle, manifestHash) => {
+  const audioAssets = Array.isArray(bundle.itemCatalog?.audioAssets)
+    ? bundle.itemCatalog.audioAssets
+    : [];
+  if (bundle.manifest?.contentSchemaVersion < 5 || audioAssets.length === 0) {
+    return [];
+  }
+  const unreadyAssetCount = audioAssets.filter(
+    (asset) => !audioAssetIsReleaseReady(bundle, manifestHash, asset),
+  ).length;
+  return unreadyAssetCount === 0
+    ? []
+    : [
+        "Schema-v5 audio requires every declared asset to be release-ready "
+          + "with exact scoped native-linguistic and audio-rights approvals "
+          + `(unready ${unreadyAssetCount})`,
+      ];
+};
+
 export const assessClosedAlphaEligibility = (bundle, validation) => {
   const base = assessBaseReleaseEligibility(bundle, validation, "closed-alpha");
-  const blockers = [];
+  const blockers = schemaV5AudioReleaseBlockers(
+    bundle,
+    validation.hashes.manifest,
+  );
   const declaredClaims = Array.isArray(bundle.coverageClaims?.coverageClaims)
     ? bundle.coverageClaims.coverageClaims
     : [];
@@ -2539,8 +2920,11 @@ export const assessPublicationEligibility = (bundle, validation) => {
     );
   }
   const coreItems = releasedCatalogItems(bundle);
+  const audioAssets = Array.isArray(bundle.itemCatalog?.audioAssets)
+    ? bundle.itemCatalog.audioAssets
+    : [];
   const readyAudioTargets = new Set(
-    (bundle.itemCatalog?.audioAssets ?? [])
+    audioAssets
       .filter((asset) =>
         audioAssetIsReleaseReady(bundle, validation.hashes.manifest, asset))
       .map((asset) => asset.targetItemKey),
