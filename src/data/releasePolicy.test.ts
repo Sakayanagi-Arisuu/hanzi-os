@@ -30,6 +30,18 @@ const stateWithScores = (scores: Record<string, number> = {}) => ({
   ])),
 }) as LearningState;
 
+const makeUnavailableLesson = (releaseState: "draft" | "review" | "retired") => {
+  const source = RELEASED_LESSONS.find((lesson) => lesson.prerequisiteIds.length === 0);
+  if (!source) throw new Error("Missing released root lesson fixture");
+
+  return {
+    ...source,
+    id: `fixture-${releaseState}`,
+    prerequisiteIds: [],
+    releaseState,
+  } satisfies Lesson;
+};
+
 describe("release policy", () => {
   it("exposes only beta and published lessons as released", () => {
     expect(RELEASED_LESSONS).toEqual(
@@ -59,29 +71,36 @@ describe("release policy", () => {
   });
 
   it("requires every released prerequisite to be passed at 70 percent", () => {
-    const first = RELEASED_LESSONS[0];
-    const second = RELEASED_LESSONS[1];
-    expect(first.prerequisiteIds).toEqual([]);
-    expect(second.prerequisiteIds).toEqual([first.id]);
+    const root = RELEASED_LESSONS.find((lesson) => lesson.prerequisiteIds.length === 0);
+    const dependent = RELEASED_LESSONS.find((lesson) => lesson.prerequisiteIds.length > 0);
+    if (!root || !dependent) throw new Error("Missing prerequisite-chain fixtures");
 
-    expect(isLessonUnlocked(first, stateWithScores())).toBe(true);
-    expect(isLessonUnlocked(second, stateWithScores({ [first.id]: 69 }))).toBe(false);
-    expect(isLessonUnlocked(second, stateWithScores({ [first.id]: 70 }))).toBe(true);
+    const passedPrerequisites = Object.fromEntries(
+      dependent.prerequisiteIds.map((lessonId) => [lessonId, 70]),
+    );
+    const belowThreshold = {
+      ...passedPrerequisites,
+      [dependent.prerequisiteIds[0]]: 69,
+    };
+
+    expect(isLessonUnlocked(root, stateWithScores())).toBe(true);
+    expect(isLessonUnlocked(dependent, stateWithScores(belowThreshold))).toBe(false);
+    expect(isLessonUnlocked(dependent, stateWithScores(passedPrerequisites))).toBe(true);
   });
 
   it("never unlocks or passes draft content even with historical scores", () => {
-    const draft = LESSONS.find((lesson) => lesson.releaseState === "draft");
-    expect(draft).toBeDefined();
-    const state = stateWithScores({ [draft!.id]: 100 });
-    expect(isLessonReleased(draft!)).toBe(false);
-    expect(isLessonUnlocked(draft!, state)).toBe(false);
-    expect(isLessonPassed(draft!, state)).toBe(false);
+    const draft = makeUnavailableLesson("draft");
+    const state = stateWithScores({ [draft.id]: 100 });
+    expect(isLessonReleased(draft)).toBe(false);
+    expect(isLessonUnlocked(draft, state)).toBe(false);
+    expect(isLessonPassed(draft, state)).toBe(false);
   });
 
   it("excludes draft lessons from progress and recommendations", () => {
-    const draft = LESSONS.find((lesson) => lesson.releaseState === "draft")!;
-    const first = RELEASED_LESSONS[0];
-    const state = stateWithScores({ [draft.id]: 100, [first.id]: 100 });
+    const draft = makeUnavailableLesson("draft");
+    const released = RELEASED_LESSONS.find((lesson) => lesson.prerequisiteIds.length === 0);
+    if (!released) throw new Error("Missing released root lesson fixture");
+    const state = stateWithScores({ [draft.id]: 100, [released.id]: 100 });
     const progress = getReleasedLessonProgress(state);
 
     expect(progress).toMatchObject({
@@ -89,14 +108,13 @@ describe("release policy", () => {
       totalCount: RELEASED_LESSONS.length,
       remainingCount: RELEASED_LESSONS.length - 1,
     });
-    expect(getNextLesson(state)?.releaseState).not.toBe("draft");
+    expect(getNextLesson(state)?.id).not.toBe(draft.id);
   });
 
   it.each(["draft", "review", "retired"] as const)(
     "treats %s as unavailable",
     (releaseState) => {
-      const released = RELEASED_LESSONS[0];
-      const candidate: Lesson = { ...released, id: `fixture-${releaseState}`, releaseState };
+      const candidate = makeUnavailableLesson(releaseState);
       expect(isLessonReleased(candidate)).toBe(false);
       expect(LESSON_BY_ID.has(candidate.id)).toBe(false);
     },

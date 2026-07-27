@@ -7,7 +7,7 @@ without replacing the Phase 1 compatibility snapshot. Authenticated learner
 screens are connected to a command outbox plus normalized projection or review
 queue; anonymous assessment and Review continue in separate local-only flows.
 The real release policy still rejects session/card activation because
-`foundation-2026.07.4` is an unpromoted closed-alpha candidate. Passing
+`foundation-2026.07.5` is an unpromoted closed-alpha candidate. Passing
 injected-fixture tests does not authorize deployment or any mastery, HSK,
 writing or speaking claim.
 
@@ -391,7 +391,7 @@ stale unlock state.
 The normalized command/projection/queue adapters are connected to authenticated
 learner screens but remain governed by the real release policy. They do not
 make the current candidate package releasable and do not prove that production
-calls succeed: `foundation-2026.07.4` remains fail-closed. Owner-scoped resume,
+calls succeed: `foundation-2026.07.5` remains fail-closed. Owner-scoped resume,
 projection and review-queue caches are recovery mechanisms, not independent
 proof of mastery.
 

@@ -1,6 +1,6 @@
 # HANZI.OS implementation checkpoint
 
-Date: 26 July 2026
+Date: 27 July 2026
 
 This is a local engineering checkpoint, not production release evidence.
 
@@ -45,22 +45,40 @@ This is a local engineering checkpoint, not production release evidence.
   wording.
 - Reset E2E proves the injected cache and response are removed while allowing
   the active service worker to recreate public offline asset caches.
-- All four registered content packages now retain exact immutable source
+- All five registered content packages now retain exact immutable source
   snapshots, so historical validation no longer depends on mutable HEAD files.
 - The mandatory content gate validates every registry entry and lineage edge;
   runtime-bound candidates also fail on live-source drift.
 - Content mutations serialize through a repository lock, new versions validate
   the existing history before staged rename, and reviews cannot be appended
   after publication.
-- `foundation-2026.07.4` is the first schema-v3 item catalog. Runtime reads its
-  49 canonical payloads directly; item/runtime inventory is bijective, review
-  scopes name exact targets and coverage paths must be closed and reachable.
+- `foundation-2026.07.5` is the first schema-v4 / item-catalog-v2 candidate.
+  Its full authoring inventory has 74 canonical payloads: 24 lexemes, 24
+  lessons, 1 graded text, 5 grammar items, 5 pronunciation items, 7 character
+  items and 8 communicative-function items.
+- The four new knowledge-item types are source-derived from immutable lesson
+  guides, lexemes and explicit blueprints. They remain `review`, have no
+  owner/license/review evidence, and character radical/stroke metadata remains
+  null rather than being guessed.
+- Lesson knowledge membership, typed prerequisite references/cycles, source
+  reciprocity, runtime-representable lesson closure and graded-text prerequisite
+  limits fail closed. Review scopes name exact targets and coverage paths must
+  equal the full typed transitive dependency closure.
+- Client curriculum imports a separate canonical `runtime-catalog.json` with
+  24 used lexemes, 14 released lessons and 1 released story. Field allowlists
+  strip item governance, review/audio metadata, hashes, draft/review payloads
+  and all four new knowledge types; schema-v4 source may not import any other
+  package JSON artifact.
+- Catalog export rehydrates the complete immutable authoring inventory instead
+  of reading sanitized runtime, preventing the 10 draft lessons from being
+  dropped in the next version.
 - Release counts use distinct reviewed payloads, not raw IDs. Empty graded
   texts, duplicate payload IDs, boolean-only audio, incomplete A0 graphs,
   relabeled HSK paths and production that skips closed-alpha gates all fail
   closed.
 - The candidate has no owner/license, scoped approval, coverage claim or audio;
-  24 cataloged lexemes therefore count as 0 reviewed lexemes.
+  24 cataloged lexemes therefore count as 0 reviewed lexemes and 64 transitive
+  release-relevant items remain unready.
 
 ## Local verification
 
@@ -72,15 +90,15 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 131 files, 1,021 tests passed
+  - Vitest: 133 files, 1,039 tests passed
   - production build and bundle policy passed
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 98 / 98, median 98
+  - Performance: 97 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,872 ms; CLS: 0; TBT: 92 ms
+  - Median LCP: 1,912 ms; CLS: 0; TBT: 71 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -106,11 +124,11 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Continue Phase 2 at WS2 only by adding first-class grammar, pronunciation,
-   character and communicative-function items with authored prerequisites.
-3. Add a sanitized runtime projection and an immutable audio importer with
-   codec, duration, transcript-alignment and rights checks; do not expose
-   governance references in the client bundle.
+2. Continue Phase 2 at WS2 with one bounded immutable audio-import slice:
+   validate codec, duration, transcript alignment, speaker evidence, rights and
+   package-local bytes without fabricating or publishing audio.
+3. Complete sourced character radical/component/stroke metadata through the
+   editorial workflow; do not infer it from glyph shape or unreviewed sources.
 4. Build the multi-user editorial assignment/review dashboard, then obtain
    attributable owner, license and native linguistic review evidence.
 5. Only after those gates, expand a reviewed A0 inventory and run

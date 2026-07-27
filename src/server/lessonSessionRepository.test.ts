@@ -4,7 +4,6 @@ import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
-  LESSONS,
   RELEASED_LESSONS,
 } from "../data/curriculum";
 import type { OpenLessonSessionCommandV1 } from "../learning/lessonSessionProtocol";
@@ -113,7 +112,25 @@ class SQLiteD1 implements D1Database {
 
 const firstLesson = RELEASED_LESSONS[0];
 const secondLesson = RELEASED_LESSONS[1];
-const draftLesson = LESSONS.find((lesson) => lesson.releaseState === "draft")!;
+
+type AuthoringLessonFixture = {
+  itemId: string;
+  itemType: "lesson";
+  releaseState: "draft" | "review" | "beta" | "published" | "retired";
+  payload: { wordIds: string[] };
+};
+
+const authoringCatalog = JSON.parse(readFileSync(
+  new URL(
+    `../../content/packages/${CONTENT_VERSION}/item-catalog.json`,
+    import.meta.url,
+  ),
+  "utf8",
+)) as { items: AuthoringLessonFixture[] };
+const draftLesson = authoringCatalog.items.find(
+  (item) => item.itemType === "lesson" && item.releaseState === "draft",
+);
+if (!draftLesson) throw new Error("Missing authoring-only draft lesson fixture.");
 const promotedPolicy: LessonSessionPublicationPolicy = {
   manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
   audience: "closed-alpha",
@@ -334,12 +351,14 @@ describe("server-owned lesson-session repository", () => {
     )).rejects.toBeInstanceOf(LessonSessionEnrollmentUnavailableError);
   });
 
-  it("rejects draft lessons and course versions that are still in review", async () => {
+  it("rejects authoring-only draft lessons and course versions that are still in review", async () => {
+    expect(RELEASED_LESSONS.some((lesson) => lesson.id === draftLesson.itemId))
+      .toBe(false);
     const draftDatabase = new SQLiteD1();
     seedUser(draftDatabase, "user-a");
     await expect(repository(draftDatabase).open(
       "user-a",
-      command("user-a", { lessonId: draftLesson.id }),
+      command("user-a", { lessonId: draftLesson.itemId }),
     )).rejects.toBeInstanceOf(LessonSessionContentUnavailableError);
 
     const reviewDatabase = new SQLiteD1();

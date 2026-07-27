@@ -21,10 +21,10 @@ test("onboards a new learner into the released path", async ({ page }) => {
   await expect(page.getByRole("heading", { name: /Thiên Lộ/u })).toBeVisible();
 });
 
-test("blocks a draft lesson opened by direct URL", async ({ page }) => {
+test("does not expose a historical draft lesson opened by direct URL", async ({ page }) => {
   await finishOnboarding(page);
   await page.goto("/lesson/characters-3");
-  await expect(page.getByRole("heading", { name: "Nội dung này chưa được phát hành" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Không tìm thấy thử luyện" })).toBeVisible();
   await expect(page.getByText("ACCESS DENIED", { exact: false })).toHaveCount(0);
 });
 

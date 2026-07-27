@@ -2,7 +2,6 @@ import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
-  LESSONS,
   RELEASED_LESSONS,
 } from "../data/curriculum";
 import type { Lesson } from "../types";
@@ -201,11 +200,13 @@ describe("authoritative released-lesson progress", () => {
     });
   });
 
-  it("never counts or exposes current draft lessons", () => {
-    const draft = LESSONS.find((lesson) => lesson.releaseState === "draft");
-    expect(draft).toBeDefined();
+  it("never counts or exposes a submitted historical draft lesson", () => {
+    const historicalDraft = {
+      id: "characters-3",
+      contentVersion: CONTENT_VERSION,
+    };
     const input = projection();
-    input.submittedLessons = [submitted(draft!)];
+    input.submittedLessons = [submitted(historicalDraft)];
 
     const result = deriveAuthoritativeReleasedLessonProgress(input);
 
@@ -214,7 +215,9 @@ describe("authoritative released-lesson progress", () => {
       totalCount: RELEASED_LESSONS.length,
       nextLesson: { lessonId: firstLesson.id },
     });
-    expect(result?.lessons.some((lesson) => lesson.lessonId === draft!.id))
+    expect(result?.lessons.some((lesson) =>
+      lesson.lessonId === historicalDraft.id
+    ))
       .toBe(false);
   });
 

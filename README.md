@@ -60,5 +60,8 @@ bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần c
 production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
 đường D1.
 
-Ứng viên nội dung `foundation-2026.07.4` chưa được promote và chưa có linguistic
-approval; vì vậy README không tuyên bố nội dung này đã sẵn sàng production.
+Ứng viên nội dung `foundation-2026.07.5` dùng schema v4 với governance catalog
+74 item và sanitized runtime catalog chỉ chứa nội dung đã phát hành. 25 grammar,
+pronunciation, character và communicative-function item mới vẫn ở state
+`review`; package chưa được promote và chưa có linguistic approval. Vì vậy
+README không tuyên bố nội dung này đã sẵn sàng production.

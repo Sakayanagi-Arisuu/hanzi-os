@@ -6,19 +6,26 @@ Nội dung không được lưu như HTML tự do. Mỗi đơn vị phải có m
 
 ## Lát triển khai hiện tại
 
-`foundation-2026.07.4` là package schema v3 đầu tiên. Runtime đọc payload
-lexeme, lesson và graded text trực tiếp từ catalog bất biến; từng item có
-canonical payload hash, item version, release state, owner/license slot và
-typed prerequisite slot. Review không được tự khai trong catalog mà được suy
-ra từ review envelope bind exact manifest + explicit item keys. Coverage claim
-phải nêu item scope, entry lessons và terminal lessons; gate kiểm prerequisite
-closure, root/sink, reachability và lexeme membership.
+`foundation-2026.07.5` là package schema v4 đầu tiên, dùng item catalog v2. Full
+authoring inventory có 74 payload: 24 lexeme, 24 lesson, 1 graded text, 5
+grammar pattern, 5 pronunciation target, 7 character và 8 communicative
+function. Lesson khai báo `knowledgeItems` tường minh; lexeme membership phải
+khớp chính xác `wordIds`. Typed prerequisite được kiểm dangling reference,
+duplicate, self-reference và cycle trên toàn bộ loại item.
 
-Đây mới là authoring envelope kỹ thuật, chưa phải CMS hoàn chỉnh. 49 item hiện
-có chưa có owner/license hay approval; không có claim A0/HSK và không có audio.
-Grammar pattern, pronunciation target, character và communicative function
-chưa phải item type độc lập. Audio import/codec/alignment cũng chưa có workflow
-khả đạt, nên production tiếp tục fail closed.
+Runtime không đọc governance catalog. `runtime-catalog.json` là projection
+allow-list chỉ chứa 24 lexeme đang được dùng, 14 lesson beta/published và 1
+graded text published. Nó loại draft/review item, owner/license, review scope,
+payload hash, audio metadata và cả bốn loại knowledge item mới. Exporter tạo
+candidate từ full immutable authoring catalog, không lấy sanitized runtime làm
+nguồn, nên 10 lesson draft không bị mất khi tạo version kế tiếp.
+
+Đây vẫn chỉ là authoring envelope kỹ thuật, chưa phải CMS hoàn chỉnh. 25 item
+mới đều ở state `review`, owner/license đều `null`; character metadata về bộ,
+nét, cấu kiện và stroke asset cố ý để trống cho tới khi có nguồn và linguistic
+review thật. Package không có approval, claim A0/HSK hay audio. Release gate xét
+transitive dependency closure nên không thể dùng lesson đã phát hành để lách
+review của knowledge item. Production tiếp tục fail closed.
 
 ## Knowledge item
 

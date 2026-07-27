@@ -4,7 +4,7 @@ import {
   LESSON_BY_ID,
   RELEASED_LESSONS,
 } from "../data/curriculum";
-import type { LearningState } from "../types";
+import type { LearningState, Lesson } from "../types";
 import {
   getNextLesson,
   getReleasedLessonProgress,
@@ -69,7 +69,11 @@ const lesson = (lessonId: string) => {
 
 describe("lesson release and prerequisite policy", () => {
   it("fails closed for an unreleased lesson even with prerequisite and own completion records", () => {
-    const draft = lesson("characters-3");
+    const draft = {
+      ...lesson("characters-2"),
+      id: "characters-3",
+      releaseState: "draft",
+    } satisfies Lesson;
     const state = makeState({
       "characters-2": completion(100),
       "characters-3": completion(100),
@@ -118,6 +122,9 @@ describe("lesson release and prerequisite policy", () => {
     const nextLesson = getNextLesson(makeState(completedLessons));
 
     expect(nextLesson).toBeDefined();
-    expect(nextLesson?.releaseState === "beta" || nextLesson?.releaseState === "published").toBe(true);
+    expect(
+      nextLesson?.releaseState === "beta" ||
+      nextLesson?.releaseState === "published",
+    ).toBe(true);
   });
 });

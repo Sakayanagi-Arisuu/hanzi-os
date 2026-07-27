@@ -15,21 +15,27 @@ trường hosted được provision và kiểm chứng. PostgreSQL trong sơ đ�
 là đích production khi quy mô, transaction/event ingestion và vận hành vượt
 giới hạn closed alpha.
 
-Ứng viên nội dung hiện tại là `foundation-2026.07.4`, content schema v3.
-Runtime curriculum đọc 49 payload trực tiếp từ `item-catalog.json`; manifest
-bind catalog, runtime ID graph, coverage envelope và snapshot bất biến của item
-bank/scoring lesson + assessment. Mỗi lexeme, lesson và graded text có item
-version, canonical payload hash, release state, owner/license slot và
-prerequisite mapping slot. Validator kiểm toàn registry từ snapshot riêng của
-từng version, so mutable runtime source với package runtime-bound và từ chối
-catalog/runtime graph lệch nhau.
+Ứng viên nội dung hiện tại là `foundation-2026.07.5`, content schema v4. Full
+governance catalog có 74 payload thuộc 7 item type và giữ cả 24 lesson authoring;
+manifest bind catalog, runtime ID graph, sanitized runtime catalog, coverage
+envelope cùng snapshot bất biến của blueprint/lesson guide và item bank/scoring
+lesson + assessment. Validator kiểm strict payload schema, typed prerequisite
+graph, lesson knowledge membership, toàn registry/lineage và live-source drift
+của package runtime-bound.
+
+Client chỉ import `runtime-catalog.json`: allow-listed projection gồm 24 lexeme,
+14 lesson beta/published và 1 graded text. Draft/review content, owner/license,
+review/evidence, audio governance, item hash và payload grammar/pronunciation/
+character/communicative-function không đi vào runtime bundle. Full authoring
+inventory được tái dựng từ immutable item catalog trong tooling, không từ
+runtime projection.
 
 Package vẫn là candidate: owner/license đều rỗng, review envelope v2 không có
 approval, coverage envelope v2 không có claim, audio catalog rỗng và chưa có
 promotion. Bởi vậy 24 lexeme hiện hữu vẫn đóng góp **0 reviewed lexeme** vào
-release gate. Grammar, pronunciation, character, communicative-function
-envelope và đường import audio bất biến chưa được triển khai; không được suy
-diễn rằng WS2 hoặc A0 đã hoàn tất.
+release gate. 25 knowledge item mới đều ở state `review`; character enrichment
+chưa có dữ liệu nguồn đã duyệt và đường import audio bất biến chưa được triển
+khai. Không được suy diễn rằng WS2 hoặc A0 đã hoàn tất.
 
 ## 2. Kiến trúc production đề xuất
 
@@ -269,11 +275,11 @@ production chỉ được cân nhắc sau khi có:
   `attestable: false`; production
   evidence chỉ hợp lệ từ clean exact HEAD và khi mọi gate đã được phê duyệt cùng
   bind source revision, content manifest và build digest.
-- Snapshot kỹ thuật local ngày 26/07/2026 qua 131 file/1.008 Vitest và 18/18 E2E.
-  Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 403.7 KiB; đây
+- Snapshot kỹ thuật local ngày 27/07/2026 qua 133 file/1.039 Vitest và 18/18 E2E.
+  Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 403.5 KiB; đây
   không phải đo lường initial transfer thực tế. Ba Lighthouse cold-profile đạt
-  Performance 98/97/98, median P98/A100/BP100/SEO100, LCP 1,909 ms, CLS 0 và
-  TBT 98 ms.
+  Performance 97/98/98, median P98/A100/BP100/SEO100, LCP 1,912 ms, CLS 0 và
+  TBT 71 ms.
   `npm audit --omit=dev` báo 0; các số này không thay thế qualification hosted.
 - Feature flags, experiment assignment ổn định, content-quality dashboard,
   central monitoring sink, accessibility/visual regression toàn diện và load

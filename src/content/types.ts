@@ -9,6 +9,8 @@ export type ContentReleaseState = "draft" | "review" | "beta" | "published" | "r
 export type ContentSourceArtifactName =
   | "src/data/assessment.ts"
   | "src/data/curriculum.ts"
+  | "src/data/knowledgeItemBlueprints.ts"
+  | "src/data/lessonGuides.ts"
   | "src/lib/exerciseGeneration.ts"
   | "src/server/attemptScoring.ts"
   | "src/server/authoritativeItemBank.ts"
@@ -56,6 +58,12 @@ export type ContentPackageManifest = {
     "src/server/assessmentScoring.ts"?: Sha256Digest;
     /** Required for contentSchemaVersion >= 3. */
     "item-catalog.json"?: Sha256Digest;
+    /** Required for contentSchemaVersion >= 4. */
+    "runtime-catalog.json"?: Sha256Digest;
+    /** Required for contentSchemaVersion >= 4. */
+    "src/data/knowledgeItemBlueprints.ts"?: Sha256Digest;
+    /** Required for contentSchemaVersion >= 4. */
+    "src/data/lessonGuides.ts"?: Sha256Digest;
   };
   governance: {
     contentOwner: ContentOwner | null;
@@ -121,11 +129,28 @@ export type CoverageClaimsArtifact =
       >;
     };
 
-export type ContentItemType = "lexeme" | "lesson" | "graded-text";
+export type ContentItemType =
+  | "lexeme"
+  | "lesson"
+  | "graded-text"
+  | "grammar"
+  | "pronunciation"
+  | "character"
+  | "communicative-function";
 export type ContentItemKey = `${ContentItemType}:${string}`;
+
+export type KnowledgeContentItemType = Exclude<
+  ContentItemType,
+  "lesson" | "graded-text"
+>;
 
 export type ContentItemReference = {
   itemType: ContentItemType;
+  itemId: string;
+};
+
+export type KnowledgeContentItemReference = {
+  itemType: KnowledgeContentItemType;
   itemId: string;
 };
 
@@ -185,6 +210,53 @@ export type GradedTextCatalogPayload = {
   }>;
 };
 
+export type CatalogExample = {
+  chinese: string;
+  pinyin: string;
+  meaning: string;
+};
+
+export type GrammarCatalogPayload = {
+  concept: string;
+  rule: string;
+  examples: CatalogExample[];
+  pitfall: string;
+  checkpoint: string;
+  sourceLessonIds: string[];
+};
+
+export type PronunciationCatalogPayload = {
+  targetKind: "tone-system" | "initial-contrast" | "tone-sandhi";
+  targets: string[];
+  concept: string;
+  rule: string;
+  examples: CatalogExample[];
+  pitfall: string;
+  checkpoint: string;
+  sourceLessonIds: string[];
+};
+
+export type CharacterCatalogPayload = {
+  character: string;
+  traditional: string;
+  pinyin: string;
+  meaning: string;
+  sourceLexemeIds: string[];
+  radical: string | null;
+  strokeCount: number | null;
+  components: string[] | null;
+  structure: string | null;
+  strokeDataRef: string | null;
+  strokeDataSha256: Sha256Digest | null;
+};
+
+export type CommunicativeFunctionCatalogPayload = {
+  canDo: string;
+  context: string;
+  examples: CatalogExample[];
+  sourceLessonIds: string[];
+};
+
 type ContentCatalogItemBase = {
   itemId: string;
   itemVersion: string;
@@ -196,22 +268,117 @@ type ContentCatalogItemBase = {
   prerequisites: ContentItemReference[] | null;
 };
 
-export type ContentCatalogItem =
+export type LexemeCatalogItem = ContentCatalogItemBase & {
+  itemKey: `lexeme:${string}`;
+  itemType: "lexeme";
+  payload: LexemeCatalogPayload;
+};
+
+export type LessonCatalogItemV1 = ContentCatalogItemBase & {
+  itemKey: `lesson:${string}`;
+  itemType: "lesson";
+  payload: LessonCatalogPayload;
+  knowledgeItems?: never;
+};
+
+export type LessonCatalogItemV2 = ContentCatalogItemBase & {
+  itemKey: `lesson:${string}`;
+  itemType: "lesson";
+  payload: LessonCatalogPayload;
+  knowledgeItems: KnowledgeContentItemReference[];
+};
+
+export type GradedTextCatalogItem = ContentCatalogItemBase & {
+  itemKey: `graded-text:${string}`;
+  itemType: "graded-text";
+  payload: GradedTextCatalogPayload;
+};
+
+export type KnowledgeContentCatalogItem =
   | (ContentCatalogItemBase & {
-      itemKey: `lexeme:${string}`;
-      itemType: "lexeme";
-      payload: LexemeCatalogPayload;
+      itemKey: `grammar:${string}`;
+      itemType: "grammar";
+      payload: GrammarCatalogPayload;
     })
   | (ContentCatalogItemBase & {
-      itemKey: `lesson:${string}`;
-      itemType: "lesson";
-      payload: LessonCatalogPayload;
+      itemKey: `pronunciation:${string}`;
+      itemType: "pronunciation";
+      payload: PronunciationCatalogPayload;
     })
   | (ContentCatalogItemBase & {
-      itemKey: `graded-text:${string}`;
-      itemType: "graded-text";
-      payload: GradedTextCatalogPayload;
+      itemKey: `character:${string}`;
+      itemType: "character";
+      payload: CharacterCatalogPayload;
+    })
+  | (ContentCatalogItemBase & {
+      itemKey: `communicative-function:${string}`;
+      itemType: "communicative-function";
+      payload: CommunicativeFunctionCatalogPayload;
     });
+
+export type ContentCatalogItemV1 =
+  | LexemeCatalogItem
+  | LessonCatalogItemV1
+  | GradedTextCatalogItem;
+
+export type ContentCatalogItemV2 =
+  | LexemeCatalogItem
+  | LessonCatalogItemV2
+  | GradedTextCatalogItem
+  | KnowledgeContentCatalogItem;
+
+export type ContentCatalogItem =
+  | ContentCatalogItemV1
+  | ContentCatalogItemV2;
+
+export type ReleasedContentState = Extract<
+  ContentReleaseState,
+  "beta" | "published"
+>;
+
+export type RuntimeCatalogVocabularyItem = LexemeCatalogPayload & {
+  id: string;
+};
+
+export type RuntimeCatalogLesson = LessonCatalogPayload & {
+  id: string;
+  prerequisiteIds: string[];
+  releaseState: ReleasedContentState;
+  contentVersion: string;
+};
+
+export type RuntimeCatalogStory = GradedTextCatalogPayload & {
+  id: string;
+  releaseState: ReleasedContentState;
+  contentVersion: string;
+};
+
+export type RuntimeCatalogArtifact = {
+  schemaVersion: 1;
+  contentVersion: string;
+  vocabulary: RuntimeCatalogVocabularyItem[];
+  lessons: RuntimeCatalogLesson[];
+  stories: RuntimeCatalogStory[];
+};
+
+/*
+ * Keep the schema-version relationship explicit: schema v1 contains only the
+ * original core item types, while schema v2 requires every lesson to declare
+ * its first-class knowledge-item references.
+ */
+export type ItemCatalogArtifact =
+  | {
+      schemaVersion: 1;
+      contentVersion: string;
+      items: ContentCatalogItemV1[];
+      audioAssets: CatalogAudioAsset[];
+    }
+  | {
+      schemaVersion: 2;
+      contentVersion: string;
+      items: ContentCatalogItemV2[];
+      audioAssets: CatalogAudioAsset[];
+    };
 
 export type CatalogAudioAsset = {
   assetId: string;
@@ -226,13 +393,6 @@ export type CatalogAudioAsset = {
     nativeSpeakerEvidenceRef: string;
   };
   rights: AudioRights;
-};
-
-export type ItemCatalogArtifact = {
-  schemaVersion: 1;
-  contentVersion: string;
-  items: ContentCatalogItem[];
-  audioAssets: CatalogAudioAsset[];
 };
 
 export type ReviewRole =
@@ -310,6 +470,7 @@ export type ContentPackageBundle = {
   manifest: ContentPackageManifest;
   runtimeIds: RuntimeIdArtifact;
   itemCatalog: ItemCatalogArtifact | null;
+  runtimeCatalog: RuntimeCatalogArtifact | null;
   coverageClaims: CoverageClaimsArtifact;
   reviews: ContentReviewArtifact;
   audioAssetFileHashes: Record<string, Sha256Digest | null>;
@@ -317,6 +478,8 @@ export type ContentPackageBundle = {
   runtimeContentVersion: string | null;
   runtimeAssessmentSourceText: string | null;
   runtimeSourceText: string | null;
+  runtimeKnowledgeItemBlueprintsSourceText: string | null;
+  runtimeLessonGuidesSourceText: string | null;
   runtimeExerciseGenerationSourceText: string | null;
   runtimeAttemptScoringSourceText: string | null;
   runtimeAuthoritativeItemBankSourceText: string | null;
@@ -332,10 +495,13 @@ export type ContentValidationResult = {
     manifest: Sha256Digest;
     runtimeIds: Sha256Digest;
     itemCatalog: Sha256Digest | null;
+    runtimeCatalog: Sha256Digest | null;
     coverageClaims: Sha256Digest;
     reviews: Sha256Digest;
     assessmentSource: Sha256Digest | null;
     runtimeSource: Sha256Digest | null;
+    knowledgeItemBlueprintsSource: Sha256Digest | null;
+    lessonGuidesSource: Sha256Digest | null;
     exerciseGenerationSource: Sha256Digest | null;
     attemptScoringSource: Sha256Digest | null;
     authoritativeItemBankSource: Sha256Digest | null;

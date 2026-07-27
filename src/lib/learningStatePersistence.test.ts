@@ -388,7 +388,7 @@ describe("trusted persisted learning state", () => {
     expect(result.state.completedLessons).toEqual({});
   });
 
-  it("does not revive draft or unknown content from a valid local snapshot", () => {
+  it("does not revive historical draft or unknown content from a valid local snapshot", () => {
     const state = persistedFixture();
     const releasedEvidenceKeys = state.evidence.map((item) =>
       item.idempotencyKey
@@ -444,7 +444,7 @@ describe("trusted persisted learning state", () => {
     state.activityLog.push({
       id: "activity:characters-3",
       type: "lesson",
-      label: LESSON_BY_ID.get("characters-3")!.title,
+      label: "Historical draft: character recognition III",
       xp: 40,
       occurredAt: TIME,
     });

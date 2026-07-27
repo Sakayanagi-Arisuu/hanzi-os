@@ -4,7 +4,6 @@ import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
-  LESSONS,
   RELEASED_LESSONS,
   RELEASED_WORD_BY_ID,
 } from "../data/curriculum";
@@ -113,6 +112,21 @@ class SQLiteD1 implements D1Database {
 
 const NOW = Date.parse("2026-07-26T08:00:00.000Z");
 const FORM_HASH = `sha256:${"a".repeat(64)}`;
+
+type AuthoringLessonFixture = {
+  itemId: string;
+  itemType: "lesson";
+  releaseState: "draft" | "review" | "beta" | "published" | "retired";
+  payload: { wordIds: string[] };
+};
+
+const authoringCatalog = JSON.parse(readFileSync(
+  new URL(
+    `../../content/packages/${CONTENT_VERSION}/item-catalog.json`,
+    import.meta.url,
+  ),
+  "utf8",
+)) as { items: AuthoringLessonFixture[] };
 
 const promotedPolicy: ContentReleasePolicy = {
   manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
@@ -480,12 +494,17 @@ describe("review queue repository", () => {
   });
 
   it("excludes draft activation and legacy cards with no activation session", async () => {
-    const draftLesson = LESSONS.find((lesson) =>
-      lesson.releaseState === "draft"
-      && lesson.wordIds.some((wordId) => RELEASED_WORD_BY_ID.has(wordId))
+    const draftLesson = authoringCatalog.items.find((item) =>
+      item.itemType === "lesson"
+      && item.releaseState === "draft"
+      && item.payload.wordIds.some((wordId) => RELEASED_WORD_BY_ID.has(wordId))
     );
-    if (!draftLesson) throw new Error("Missing draft activation fixture.");
-    const draftWordId = draftLesson.wordIds.find((wordId) =>
+    if (!draftLesson) {
+      throw new Error("Missing authoring-only draft activation fixture.");
+    }
+    expect(RELEASED_LESSONS.some((lesson) => lesson.id === draftLesson.itemId))
+      .toBe(false);
+    const draftWordId = draftLesson.payload.wordIds.find((wordId) =>
       RELEASED_WORD_BY_ID.has(wordId)
     );
     if (!draftWordId) throw new Error("Missing released draft word fixture.");
@@ -496,7 +515,7 @@ describe("review queue repository", () => {
     seedPassedSession(database, {
       userId: "user-a",
       sessionId: "draft-activation",
-      lessonId: draftLesson.id,
+      lessonId: draftLesson.itemId,
     });
     seedCard(database, {
       id: "draft-card",

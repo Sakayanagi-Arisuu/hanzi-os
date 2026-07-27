@@ -246,7 +246,7 @@ Exit criteria:
 - Deliver WS4 skill-specific diagnostic and confidence-aware mastery.
 - Complete unified evidence and speech pipeline beta under WS6.
 
-Implementation status (26/07/2026): the technical assessment slice is
+Implementation status (27/07/2026): the technical assessment slice is
 server-authoritative and skill-specific. Authenticated lesson, Reader and
 assessment screens use owner-scoped command outboxes; projection V2 adds an
 answer-free assessment resume and uncalibrated aggregate result; cross-device
@@ -257,21 +257,21 @@ activation session at commit. Server-side `ts-fsrs` runs with fuzz disabled;
 the client durably queues grades, and the resulting attempt/evidence stays
 unverified, mastery-ineligible and XP-free. Export schema v4, account deletion,
 reset invalidation with an explicit terminal reason and the restore rehearsal
-cover the assessment and Review/FSRS graphs. Candidate
-`foundation-2026.07.4` adds a schema-v3 item catalog: 49 runtime payloads have
-canonical hashes, item versions, release state, owner/license slots and typed
-lesson prerequisites. Runtime reads the immutable catalog directly; review and
-coverage envelopes bind explicit item/path scopes, and release thresholds count
-only distinct, released, exact-scoped-reviewed payloads. Count padding, empty
-graded texts, boolean-only audio and relabeled HSK paths fail closed. Every
-registered package retains exact source snapshots, historical validation no
-longer reads mutable HEAD source, and the mandatory content gate validates all
-registry entries plus lineage.
+  cover the assessment and Review/FSRS graphs. Candidate
+  `foundation-2026.07.5` adds content schema v4 / item catalog v2: the full
+  authoring inventory contains 74 payloads across lexeme, lesson, graded-text,
+  grammar, pronunciation, character and communicative-function types. Typed
+  prerequisites, lesson knowledge membership and transitive release/coverage
+  closure fail closed. Client runtime reads a separate allow-listed catalog with
+  only 24 used lexemes, 14 released lessons and 1 released story; draft/review
+  content and governance metadata are excluded. Every registered package keeps
+  exact source snapshots and the mandatory gate validates history plus lineage.
 
 This remains a technical authoring envelope, not completed WS2. The candidate
-is unpromoted with zero coverage claims, no owner/license/native review and no
-audio. Grammar, pronunciation, character and communicative-function items,
-audio import/alignment and a multi-user CMS are still absent. The real
+  is unpromoted with zero coverage claims, no owner/license/native review and no
+  audio. The 25 new knowledge items are source-derived `review` candidates, not
+  publishable Mandarin content; character stroke/radical metadata, audio
+  import/alignment and a multi-user CMS are still absent. The real
 assessment bank therefore remains unissuable. No pilot,
 calibration, item-quality dashboard, native audio, provider speech pipeline or
 100-person alpha evidence exists; the speech adapter stays disabled and

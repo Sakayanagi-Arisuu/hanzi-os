@@ -6,10 +6,13 @@
 chỉnh và không tự tạo nội dung tiếng Trung, owner, license, audio, approval bản
 ngữ hay coverage claim.
 
-Candidate hiện tại là `foundation-2026.07.4`, schema v3:
+Candidate hiện tại là `foundation-2026.07.5`, schema v4 / item catalog v2:
 
-- 24 lexeme, 24 lesson và 1 graded text có canonical payload + hash;
-- runtime đọc payload trực tiếp từ catalog package hiện hành;
+- 24 lexeme, 24 lesson, 1 graded text, 5 grammar, 5 pronunciation, 7 character
+  và 8 communicative-function item có canonical payload + hash;
+- 25 knowledge item mới ở state `review`, không có owner/license hay approval;
+- runtime chỉ đọc sanitized catalog gồm 24 lexeme, 14 lesson đã phát hành và 1
+  graded text; draft/review/governance payload không đi vào client;
 - owner/license của mọi item là `null`, review envelope rỗng;
 - coverage claims và audio assets đều rỗng;
 - 0 lexeme được tính là reviewed; package chưa được promote.
@@ -24,12 +27,14 @@ Registry bind SHA-256 manifest. Manifest bind:
 
 - `item-catalog.json`: payload authored, payload hash, item version, state,
   owner/license slot và typed prerequisites;
+- `runtime-catalog.json`: projection allow-list chỉ chứa payload runtime đã phát
+  hành, không chứa governance, review hoặc item draft;
 - `runtime-ids.json`: inventory, unit membership, word membership, state và
   lesson prerequisite graph;
 - `coverage-claims.json`: schema v2 bind catalog hash và explicit item/path
   scope; hiện rỗng;
-- snapshot của curriculum, assessment bank, generation/scoring và lesson
-  completion policy.
+- snapshot của curriculum, knowledge-item blueprint, lesson guide, assessment
+  bank, generation/scoring và lesson completion policy.
 
 `reviews.json` không nằm trong manifest để tránh hash cycle. Review envelope
 bind exact manifest + catalog hash; từng review bind explicit `itemKeys` và
@@ -49,22 +54,24 @@ lineage và live source của package runtime-bound.
 
 ```powershell
 node scripts/content/validate.mjs
-node scripts/content/hash.mjs foundation-2026.07.4
-node scripts/content/report.mjs foundation-2026.07.4
-node scripts/content/verify-release.mjs foundation-2026.07.4 --channel closed-alpha
-node scripts/content/promote.mjs foundation-2026.07.4 --channel closed-alpha
+node scripts/content/hash.mjs foundation-2026.07.5
+node scripts/content/report.mjs foundation-2026.07.5
+node scripts/content/verify-release.mjs foundation-2026.07.5 --channel closed-alpha
+node scripts/content/promote.mjs foundation-2026.07.5 --channel closed-alpha
 ```
 
 `validate` trả `0` chỉ khi mọi package hợp lệ. `report` vẫn trả `0` khi có
 release blocker. `verify-release` trả `1` cho candidate hiện tại. `promote`
 không có `--write` chỉ dry-run policy.
 
-## Tạo candidate schema v3
+## Tạo candidate schema v4
 
-Tạo catalog draft từ payload runtime hiện hành:
+Tạo catalog draft từ full authoring inventory của package nguồn. Tooling tái
+dựng core items từ immutable governance catalog; không dùng sanitized runtime,
+vì runtime cố ý không chứa 10 lesson draft:
 
 ```powershell
-npm run content:catalog:export -- --content-version foundation-2026.08.1 --output content/drafts/foundation-2026.08.1-item-catalog.json --write
+npm run content:catalog:export -- --from foundation-2026.07.5 --content-version foundation-2026.08.1 --catalog-schema-version 2 --output content/drafts/foundation-2026.08.1-item-catalog.json --write
 ```
 
 Exporter chỉ được ghi dưới `content/drafts`, không overwrite file và cố ý tạo
@@ -73,14 +80,14 @@ chủ ý; không điền evidence giả.
 
 Trước `new-version`, đổi đồng thời:
 
-1. import catalog trong `src/data/curriculum.ts` sang package đích;
+1. import `runtime-catalog.json` trong `src/data/curriculum.ts` sang package đích;
 2. literal `CONTENT_VERSION` trong file đó;
 3. `config/production-readiness.json.contentVersion`.
 
 Nếu runtime IDs/graph không đổi:
 
 ```powershell
-node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.4 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 3 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --confirm-runtime-ids-unchanged true --write
+node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.5 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 4 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --confirm-runtime-ids-unchanged true --write
 ```
 
 Nếu IDs, membership, state hoặc graph đổi, cung cấp thêm
@@ -88,7 +95,8 @@ Nếu IDs, membership, state hoặc graph đổi, cung cấp thêm
 
 - chỉ branch từ `registry.currentContentVersion`;
 - validate toàn history trước mutation;
-- yêu cầu runtime version và catalog import trỏ đúng version đích;
+- yêu cầu runtime version và sanitized catalog import trỏ đúng version đích;
+- tạo `runtime-catalog.json` canonical từ item catalog và từ chối mọi mismatch;
 - stage package rồi validate trước registry write;
 - tạo coverage schema v2 rỗng và review schema v2 rỗng;
 - không kế thừa approval/claim;
@@ -142,14 +150,14 @@ audio cho released core content.
 
 ## Giới hạn còn chủ ý
 
-- Catalog mới có item type `lexeme`, `lesson`, `graded-text`; grammar,
-  pronunciation, character và communicative function vẫn cần envelope riêng.
+- Grammar, pronunciation, character và communicative function đã có envelope
+  typed nhưng mới là source-derived review candidates, chưa phải nội dung đã
+  được linguistic review hay phát hành.
 - `new-version` hiện từ chối catalog có audio assets vì chưa có importer copy
   bytes + kiểm codec/duration/alignment. Đây là blocker, không phải tính năng đã
   hoàn tất.
-- Runtime hiện import catalog khi mọi governance field đều rỗng. Trước khi thêm
-  evidence ref không công khai, phải tạo sanitized runtime projection để tránh
-  bundle metadata quản trị ra client.
+- Runtime projection đã được tách khỏi governance catalog và allow-list từng
+  field. Không được đổi client trở lại import `item-catalog.json`.
 - Catalog draft exporter là bootstrap workflow, không phải multi-user CMS,
   assignment queue hay dashboard SLA.
 

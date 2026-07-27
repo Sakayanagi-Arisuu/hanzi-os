@@ -16,6 +16,7 @@ import {
   assessClosedAlphaEligibility,
   assessPublicationEligibility,
   contentSourceArtifactNames,
+  projectSanitizedRuntimeCatalog,
   sha256Json,
   sha256NormalizedText,
   validateContentBundle,
@@ -33,57 +34,17 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
-const SOURCE_ARTIFACT_PATHS = {
-  "src/data/assessment.ts": join(repositoryRoot, "src", "data", "assessment.ts"),
-  "src/data/curriculum.ts": join(repositoryRoot, "src", "data", "curriculum.ts"),
-  "src/lib/exerciseGeneration.ts": join(
-    repositoryRoot,
-    "src",
-    "lib",
-    "exerciseGeneration.ts",
-  ),
-  "src/server/attemptScoring.ts": join(
-    repositoryRoot,
-    "src",
-    "server",
-    "attemptScoring.ts",
-  ),
-  "src/server/authoritativeItemBank.ts": join(
-    repositoryRoot,
-    "src",
-    "server",
-    "authoritativeItemBank.ts",
-  ),
-  "src/server/lessonCompletionPolicy.ts": join(
-    repositoryRoot,
-    "src",
-    "server",
-    "lessonCompletionPolicy.ts",
-  ),
-  "src/server/authoritativeAssessmentItemBank.ts": join(
-    repositoryRoot,
-    "src",
-    "server",
-    "authoritativeAssessmentItemBank.ts",
-  ),
-  "src/server/assessmentScoring.ts": join(
-    repositoryRoot,
-    "src",
-    "server",
-    "assessmentScoring.ts",
-  ),
-};
 
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 const formatJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const readTextIfPresent = (path) =>
   existsSync(path) ? readFileSync(path, "utf8") : null;
 
-const readLiveSourceTexts = () =>
+const readLiveSourceTexts = (contentSchemaVersion) =>
   Object.fromEntries(
-    Object.entries(SOURCE_ARTIFACT_PATHS).map(([name, path]) => [
+    contentSourceArtifactNames(contentSchemaVersion).map((name) => [
       name,
-      readTextIfPresent(path),
+      readTextIfPresent(join(repositoryRoot, ...name.split("/"))),
     ]),
   );
 
@@ -101,6 +62,11 @@ const readImmutableSourceTexts = (packageDirectory, contentSchemaVersion) =>
 const readItemCatalog = (packageDirectory, contentSchemaVersion) =>
   contentSchemaVersion >= 3
     ? readJson(join(packageDirectory, "item-catalog.json"))
+    : null;
+
+const readRuntimeCatalog = (packageDirectory, contentSchemaVersion) =>
+  contentSchemaVersion >= 4
+    ? readJson(join(packageDirectory, "runtime-catalog.json"))
     : null;
 
 const packageLocalPath = (packageDirectory, relativePath) => {
@@ -125,20 +91,6 @@ const readAudioAssetFileHashes = (packageDirectory, itemCatalog) =>
     }),
   );
 
-const liveSourceTextsFromBundle = (bundle) => ({
-  "src/data/assessment.ts": bundle.runtimeAssessmentSourceText,
-  "src/data/curriculum.ts": bundle.runtimeSourceText,
-  "src/lib/exerciseGeneration.ts": bundle.runtimeExerciseGenerationSourceText,
-  "src/server/attemptScoring.ts": bundle.runtimeAttemptScoringSourceText,
-  "src/server/authoritativeItemBank.ts":
-    bundle.runtimeAuthoritativeItemBankSourceText,
-  "src/server/lessonCompletionPolicy.ts":
-    bundle.runtimeLessonCompletionPolicySourceText,
-  "src/server/authoritativeAssessmentItemBank.ts":
-    bundle.runtimeAuthoritativeAssessmentItemBankSourceText,
-  "src/server/assessmentScoring.ts": bundle.runtimeAssessmentScoringSourceText,
-});
-
 const writeImmutableSourceTexts = (
   packageDirectory,
   contentSchemaVersion,
@@ -153,6 +105,32 @@ const writeImmutableSourceTexts = (
     mkdirSync(dirname(path), { recursive: true });
     writeFileSync(path, text, { encoding: "utf8", flag: "wx" });
   });
+};
+
+const hashSourceTexts = async (contentSchemaVersion, sourceTexts) =>
+  Object.fromEntries(
+    await Promise.all(
+      contentSourceArtifactNames(contentSchemaVersion).map(async (name) => {
+        const text = sourceTexts[name];
+        if (typeof text !== "string") {
+          throw new Error(`Cannot hash unavailable checked-in source: ${name}`);
+        }
+        return [name, await sha256NormalizedText(text)];
+      }),
+    ),
+  );
+
+const countCatalogItemsByType = (itemCatalog) => {
+  const counts = new Map();
+  if (!Array.isArray(itemCatalog?.items)) return {};
+  itemCatalog.items.forEach((item) => {
+    const itemType = item?.itemType;
+    if (typeof itemType !== "string" || !SAFE_ID_PATTERN.test(itemType)) return;
+    counts.set(itemType, (counts.get(itemType) ?? 0) + 1);
+  });
+  return Object.fromEntries([...counts.entries()].sort(([left], [right]) =>
+    left.localeCompare(right)
+  ));
 };
 
 const assertPackageId = (value, label = "content version") => {
@@ -202,11 +180,20 @@ const readCurriculumContentVersion = (sourceText) => {
   return matches.length === 1 ? matches[0][1] : null;
 };
 
-const readCurriculumCatalogVersion = (sourceText) => {
+const readCurriculumCatalogVersion = (sourceText, contentSchemaVersion) => {
   if (typeof sourceText !== "string") return null;
+  const catalogArtifact = contentSchemaVersion >= 4
+    ? "runtime-catalog"
+    : "item-catalog";
+  const importName = contentSchemaVersion >= 4
+    ? "runtimeCatalogJson"
+    : "itemCatalogJson";
   const matches = [
     ...sourceText.matchAll(
-      /^import itemCatalogJson from "\.\.\/\.\.\/content\/packages\/([a-zA-Z0-9][a-zA-Z0-9._-]*)\/item-catalog\.json";$/gmu,
+      new RegExp(
+        `^import ${importName} from "\\.\\.\\/\\.\\.\\/content\\/packages\\/([a-zA-Z0-9][a-zA-Z0-9._-]*)\\/${catalogArtifact}\\.json";$`,
+        "gmu",
+      ),
     ),
   ];
   return matches.length === 1 ? matches[0][1] : null;
@@ -224,7 +211,11 @@ export const loadContentBundle = (requestedVersion) => {
     packageDirectory,
     manifest.contentSchemaVersion,
   );
-  const liveSourceTexts = readLiveSourceTexts();
+  const runtimeCatalog = readRuntimeCatalog(
+    packageDirectory,
+    manifest.contentSchemaVersion,
+  );
+  const liveSourceTexts = readLiveSourceTexts(manifest.contentSchemaVersion);
   return {
     packageDirectory,
     bundle: {
@@ -233,6 +224,7 @@ export const loadContentBundle = (requestedVersion) => {
       manifest,
       runtimeIds: readJson(join(packageDirectory, "runtime-ids.json")),
       itemCatalog,
+      runtimeCatalog,
       coverageClaims: readJson(join(packageDirectory, "coverage-claims.json")),
       reviews: readJson(join(packageDirectory, "reviews.json")),
       audioAssetFileHashes: readAudioAssetFileHashes(
@@ -244,6 +236,7 @@ export const loadContentBundle = (requestedVersion) => {
         manifest.contentSchemaVersion,
       ),
       runtimeContentVersion: readRuntimeContentVersion(),
+      liveSourceTexts,
       runtimeAssessmentSourceText: liveSourceTexts["src/data/assessment.ts"],
       runtimeSourceText: liveSourceTexts["src/data/curriculum.ts"],
       runtimeExerciseGenerationSourceText:
@@ -258,6 +251,9 @@ export const loadContentBundle = (requestedVersion) => {
         liveSourceTexts["src/server/authoritativeAssessmentItemBank.ts"],
       runtimeAssessmentScoringSourceText:
         liveSourceTexts["src/server/assessmentScoring.ts"],
+      runtimeLessonGuidesSourceText: liveSourceTexts["src/data/lessonGuides.ts"],
+      runtimeKnowledgeItemBlueprintsSourceText:
+        liveSourceTexts["src/data/knowledgeItemBlueprints.ts"],
     },
   };
 };
@@ -462,11 +458,23 @@ const hashCommand = async (args) => {
     const text = bundle.immutableSourceTexts[name];
     return typeof text === "string" ? sha256NormalizedText(text) : null;
   };
+  const sourceArtifacts = Object.fromEntries(
+    await Promise.all(
+      contentSourceArtifactNames(bundle.manifest.contentSchemaVersion).map(
+        async (name) => [name, await immutableHash(name)],
+      ),
+    ),
+  );
   const hashes = {
     manifest: await sha256Json(bundle.manifest),
     runtimeIds: await sha256Json(bundle.runtimeIds),
     itemCatalog:
       bundle.itemCatalog === null ? null : await sha256Json(bundle.itemCatalog),
+    runtimeCatalog:
+      bundle.runtimeCatalog === null
+        ? null
+        : await sha256Json(bundle.runtimeCatalog),
+    sourceArtifacts,
     coverageClaims: await sha256Json(bundle.coverageClaims),
     reviews: await sha256Json(bundle.reviews),
     assessmentSource: await immutableHash("src/data/assessment.ts"),
@@ -531,8 +539,18 @@ const reportCommand = async (args) => {
           catalogItems: Array.isArray(bundle.itemCatalog?.items)
             ? bundle.itemCatalog.items.length
             : 0,
+          catalogItemsByType: countCatalogItemsByType(bundle.itemCatalog),
           catalogAudioAssets: Array.isArray(bundle.itemCatalog?.audioAssets)
             ? bundle.itemCatalog.audioAssets.length
+            : 0,
+          runtimeVocabulary: Array.isArray(bundle.runtimeCatalog?.vocabulary)
+            ? bundle.runtimeCatalog.vocabulary.length
+            : 0,
+          runtimeLessons: Array.isArray(bundle.runtimeCatalog?.lessons)
+            ? bundle.runtimeCatalog.lessons.length
+            : 0,
+          runtimeStories: Array.isArray(bundle.runtimeCatalog?.stories)
+            ? bundle.runtimeCatalog.stories.length
             : 0,
         },
         validation,
@@ -763,8 +781,11 @@ const newVersionCommand = async (args) => {
     requestedContentSchemaVersion === undefined
       ? Math.max(sourceBundle.manifest.contentSchemaVersion, 2)
       : Number(requestedContentSchemaVersion);
-  if (!Number.isInteger(contentSchemaVersion) || ![2, 3].includes(contentSchemaVersion)) {
-    throw new Error("--content-schema-version must be 2 or 3");
+  if (
+    !Number.isInteger(contentSchemaVersion)
+    || ![2, 3, 4].includes(contentSchemaVersion)
+  ) {
+    throw new Error("--content-schema-version must be 2, 3, or 4");
   }
   if (contentSchemaVersion < sourceBundle.manifest.contentSchemaVersion) {
     throw new Error("A new package cannot downgrade contentSchemaVersion");
@@ -795,7 +816,7 @@ const newVersionCommand = async (args) => {
       `Cannot branch while the existing registry is invalid:\n${historicalPackageErrors.join("\n")}`,
     );
   }
-  const liveSourceTexts = liveSourceTextsFromBundle(sourceBundle);
+  const liveSourceTexts = readLiveSourceTexts(contentSchemaVersion);
   if (sourceBundle.runtimeContentVersion !== newVersion) {
     throw new Error(
       `Update config/production-readiness.json contentVersion to ${newVersion} before creating the package`,
@@ -811,11 +832,17 @@ const newVersionCommand = async (args) => {
   }
   if (
     contentSchemaVersion >= 3
-    && readCurriculumCatalogVersion(liveSourceTexts["src/data/curriculum.ts"])
+    && readCurriculumCatalogVersion(
+      liveSourceTexts["src/data/curriculum.ts"],
+      contentSchemaVersion,
+    )
       !== newVersion
   ) {
+    const catalogArtifact = contentSchemaVersion >= 4
+      ? "runtime-catalog.json"
+      : "item-catalog.json";
     throw new Error(
-      `Bind src/data/curriculum.ts to content/packages/${newVersion}/item-catalog.json before creating the package`,
+      `Bind src/data/curriculum.ts to content/packages/${newVersion}/${catalogArtifact} before creating the package`,
     );
   }
   const liveRuntimeSourceHash =
@@ -833,16 +860,11 @@ const newVersionCommand = async (args) => {
     "src/data/assessment.ts digest does not match manifest",
   ) || sourceBundle.manifest.artifacts["src/data/assessment.ts"]
     !== liveAssessmentSourceHash;
-  const packageBoundSourceErrors = new Set([
-    "src/data/curriculum.ts digest does not match manifest",
-    "src/data/assessment.ts digest does not match manifest",
-    "src/lib/exerciseGeneration.ts digest does not match manifest",
-    "src/server/attemptScoring.ts digest does not match manifest",
-    "src/server/authoritativeItemBank.ts digest does not match manifest",
-    "src/server/lessonCompletionPolicy.ts digest does not match manifest",
-    "src/server/authoritativeAssessmentItemBank.ts digest does not match manifest",
-    "src/server/assessmentScoring.ts digest does not match manifest",
-  ]);
+  const packageBoundSourceErrors = new Set(
+    contentSourceArtifactNames(sourceBundle.manifest.contentSchemaVersion).map(
+      (name) => `${name} digest does not match manifest`,
+    ),
+  );
   const runtimeVersionHandoffError =
     "Current registry package is not bound to the checked-in runtime contentVersion";
   const nonSourceErrors = sourceValidation.errors.filter(
@@ -884,10 +906,10 @@ const newVersionCommand = async (args) => {
   const runtimeIds = { ...runtimeIdsSource, contentVersion: newVersion };
   const itemCatalogInput = flags.get("item-catalog-file");
   if (contentSchemaVersion >= 3 && typeof itemCatalogInput !== "string") {
-    throw new Error("Schema-v3 packages require --item-catalog-file");
+    throw new Error("Schema-v3+ packages require --item-catalog-file");
   }
   if (contentSchemaVersion < 3 && itemCatalogInput !== undefined) {
-    throw new Error("--item-catalog-file requires --content-schema-version 3");
+    throw new Error("--item-catalog-file requires --content-schema-version 3 or 4");
   }
   const itemCatalog =
     typeof itemCatalogInput === "string"
@@ -896,6 +918,15 @@ const newVersionCommand = async (args) => {
   if (itemCatalog !== null && itemCatalog.contentVersion !== newVersion) {
     throw new Error("--item-catalog-file contentVersion must equal the new version");
   }
+  const expectedItemCatalogSchemaVersion = contentSchemaVersion >= 4 ? 2 : 1;
+  if (
+    itemCatalog !== null
+    && itemCatalog.schemaVersion !== expectedItemCatalogSchemaVersion
+  ) {
+    throw new Error(
+      `Content schema v${contentSchemaVersion} requires item-catalog.schemaVersion ${expectedItemCatalogSchemaVersion}`,
+    );
+  }
   if ((itemCatalog?.audioAssets?.length ?? 0) > 0) {
     throw new Error(
       "Audio asset import is not implemented by new-version; refusing to create dangling catalog files",
@@ -903,6 +934,12 @@ const newVersionCommand = async (args) => {
   }
   const itemCatalogHash =
     itemCatalog === null ? null : await sha256Json(itemCatalog);
+  const runtimeCatalog = contentSchemaVersion >= 4
+    ? projectSanitizedRuntimeCatalog(itemCatalog)
+    : null;
+  const runtimeCatalogHash = runtimeCatalog === null
+    ? null
+    : await sha256Json(runtimeCatalog);
   const coverageClaimsInput = flags.get("coverage-claims-file");
   const coverageClaimsSource =
     typeof coverageClaimsInput === "string"
@@ -915,6 +952,10 @@ const newVersionCommand = async (args) => {
           }
         : { schemaVersion: 1, coverageClaims: [] };
   const coverageClaims = { ...coverageClaimsSource, contentVersion: newVersion };
+  const sourceArtifactHashes = await hashSourceTexts(
+    contentSchemaVersion,
+    liveSourceTexts,
+  );
   const manifest = {
     schemaVersion: 1,
     packageId: newVersion,
@@ -930,29 +971,10 @@ const newVersionCommand = async (args) => {
       ...(itemCatalogHash === null
         ? {}
         : { "item-catalog.json": itemCatalogHash }),
-      "src/data/assessment.ts": await sha256NormalizedText(
-        sourceBundle.runtimeAssessmentSourceText,
-      ),
-      "src/data/curriculum.ts": await sha256NormalizedText(sourceBundle.runtimeSourceText),
-      "src/lib/exerciseGeneration.ts": await sha256NormalizedText(
-        sourceBundle.runtimeExerciseGenerationSourceText,
-      ),
-      "src/server/attemptScoring.ts": await sha256NormalizedText(
-        sourceBundle.runtimeAttemptScoringSourceText,
-      ),
-      "src/server/authoritativeItemBank.ts": await sha256NormalizedText(
-        sourceBundle.runtimeAuthoritativeItemBankSourceText,
-      ),
-      "src/server/lessonCompletionPolicy.ts": await sha256NormalizedText(
-        sourceBundle.runtimeLessonCompletionPolicySourceText,
-      ),
-      "src/server/authoritativeAssessmentItemBank.ts":
-        await sha256NormalizedText(
-          sourceBundle.runtimeAuthoritativeAssessmentItemBankSourceText,
-        ),
-      "src/server/assessmentScoring.ts": await sha256NormalizedText(
-        sourceBundle.runtimeAssessmentScoringSourceText,
-      ),
+      ...(runtimeCatalogHash === null
+        ? {}
+        : { "runtime-catalog.json": runtimeCatalogHash }),
+      ...sourceArtifactHashes,
     },
     governance: {
       contentOwner:
@@ -1013,24 +1035,30 @@ const newVersionCommand = async (args) => {
     manifest,
     runtimeIds,
     itemCatalog,
+    runtimeCatalog,
     coverageClaims,
     reviews,
     audioAssetFileHashes: {},
     immutableSourceTexts: liveSourceTexts,
     runtimeContentVersion: readRuntimeContentVersion(),
-    runtimeAssessmentSourceText: sourceBundle.runtimeAssessmentSourceText,
-    runtimeSourceText: sourceBundle.runtimeSourceText,
+    liveSourceTexts,
+    runtimeAssessmentSourceText: liveSourceTexts["src/data/assessment.ts"],
+    runtimeSourceText: liveSourceTexts["src/data/curriculum.ts"],
     runtimeExerciseGenerationSourceText:
-      sourceBundle.runtimeExerciseGenerationSourceText,
-    runtimeAttemptScoringSourceText: sourceBundle.runtimeAttemptScoringSourceText,
+      liveSourceTexts["src/lib/exerciseGeneration.ts"],
+    runtimeAttemptScoringSourceText:
+      liveSourceTexts["src/server/attemptScoring.ts"],
     runtimeAuthoritativeItemBankSourceText:
-      sourceBundle.runtimeAuthoritativeItemBankSourceText,
+      liveSourceTexts["src/server/authoritativeItemBank.ts"],
     runtimeLessonCompletionPolicySourceText:
-      sourceBundle.runtimeLessonCompletionPolicySourceText,
+      liveSourceTexts["src/server/lessonCompletionPolicy.ts"],
     runtimeAuthoritativeAssessmentItemBankSourceText:
-      sourceBundle.runtimeAuthoritativeAssessmentItemBankSourceText,
+      liveSourceTexts["src/server/authoritativeAssessmentItemBank.ts"],
     runtimeAssessmentScoringSourceText:
-      sourceBundle.runtimeAssessmentScoringSourceText,
+      liveSourceTexts["src/server/assessmentScoring.ts"],
+    runtimeLessonGuidesSourceText: liveSourceTexts["src/data/lessonGuides.ts"],
+    runtimeKnowledgeItemBlueprintsSourceText:
+      liveSourceTexts["src/data/knowledgeItemBlueprints.ts"],
   });
   if (candidateValidation.errors.length > 0) {
     throw new Error(`Generated candidate is invalid:\n${candidateValidation.errors.join("\n")}`);
@@ -1044,6 +1072,13 @@ const newVersionCommand = async (args) => {
       writeFileSync(
         join(temporaryDirectory, "item-catalog.json"),
         formatJson(itemCatalog),
+        "utf8",
+      );
+    }
+    if (runtimeCatalog !== null) {
+      writeFileSync(
+        join(temporaryDirectory, "runtime-catalog.json"),
+        formatJson(runtimeCatalog),
         "utf8",
       );
     }

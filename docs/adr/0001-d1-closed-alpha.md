@@ -115,5 +115,5 @@ Authentication, sync APIs, a per-owner IndexedDB outbox, deterministic merge,
 export and delete workflows are implemented and have local regression coverage.
 Hosted provisioning, backup/restore drill, connector ownership recovery and
 native linguistic approval still block a production claim or deployment. The
-content candidate `foundation-2026.07.4` remains unpromoted and has no
+  content candidate `foundation-2026.07.5` remains unpromoted and has no
 linguistic approval.

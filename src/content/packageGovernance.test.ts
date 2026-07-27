@@ -8,7 +8,7 @@ import {
   sha256Json,
   validateContentBundle,
 } from "./packageLoader";
-import { projectItemCatalog } from "./itemCatalogProjection";
+import { projectRuntimeCatalog } from "./runtimeCatalogProjection";
 import {
   assessClosedAlphaEligibility,
   assessPublicationEligibility,
@@ -20,6 +20,7 @@ import type {
   ContentReviewArtifact,
   CoverageClaimsArtifact,
   ItemCatalogArtifact,
+  RuntimeCatalogArtifact,
   RuntimeIdArtifact,
 } from "./types";
 
@@ -44,12 +45,19 @@ const loadCheckedInBundle = (
   )
     ? readJson<ItemCatalogArtifact>(itemCatalogPath)
     : null;
+  const runtimeCatalogPath = `${packagePath}/runtime-catalog.json`;
+  const runtimeCatalog = existsSync(
+    new URL(`../../${runtimeCatalogPath}`, import.meta.url),
+  )
+    ? readJson<RuntimeCatalogArtifact>(runtimeCatalogPath)
+    : null;
   return {
     registry,
     registryEntry,
     manifest,
     runtimeIds: readJson<RuntimeIdArtifact>(`${packagePath}/runtime-ids.json`),
     itemCatalog,
+    runtimeCatalog,
     coverageClaims: readJson<CoverageClaimsArtifact>(`${packagePath}/coverage-claims.json`),
     reviews: readJson<ContentReviewArtifact>(`${packagePath}/reviews.json`),
     audioAssetFileHashes: {},
@@ -69,6 +77,14 @@ const loadCheckedInBundle = (
     ),
     runtimeSourceText: readFileSync(
       new URL("../data/curriculum.ts", import.meta.url),
+      "utf8",
+    ),
+    runtimeKnowledgeItemBlueprintsSourceText: readFileSync(
+      new URL("../data/knowledgeItemBlueprints.ts", import.meta.url),
+      "utf8",
+    ),
+    runtimeLessonGuidesSourceText: readFileSync(
+      new URL("../data/lessonGuides.ts", import.meta.url),
       "utf8",
     ),
     runtimeExerciseGenerationSourceText: readFileSync(
@@ -106,11 +122,48 @@ const currentRegistryEntry = (registry: ContentRegistry) => {
   return entry;
 };
 
+const bindRuntimeToImmutableSchemaV3Sources = (
+  bundle: ContentPackageBundle,
+) => {
+  const source = (name: keyof ContentPackageBundle["immutableSourceTexts"]) => {
+    const value = bundle.immutableSourceTexts[name];
+    if (typeof value !== "string") {
+      throw new Error(`Fixture source snapshot is missing: ${name}`);
+    }
+    return value;
+  };
+  bundle.registry.currentContentVersion = bundle.manifest.contentVersion;
+  bundle.registryEntry = currentRegistryEntry(bundle.registry);
+  bundle.runtimeContentVersion = bundle.manifest.contentVersion;
+  bundle.runtimeAssessmentSourceText = source("src/data/assessment.ts");
+  bundle.runtimeSourceText = source("src/data/curriculum.ts");
+  bundle.runtimeExerciseGenerationSourceText = source(
+    "src/lib/exerciseGeneration.ts",
+  );
+  bundle.runtimeAttemptScoringSourceText = source(
+    "src/server/attemptScoring.ts",
+  );
+  bundle.runtimeAuthoritativeItemBankSourceText = source(
+    "src/server/authoritativeItemBank.ts",
+  );
+  bundle.runtimeLessonCompletionPolicySourceText = source(
+    "src/server/lessonCompletionPolicy.ts",
+  );
+  bundle.runtimeAuthoritativeAssessmentItemBankSourceText = source(
+    "src/server/authoritativeAssessmentItemBank.ts",
+  );
+  bundle.runtimeAssessmentScoringSourceText = source(
+    "src/server/assessmentScoring.ts",
+  );
+};
+
 const makeEligibleFixture = async (
   audience: "closed-alpha" | "public" = "public",
 ): Promise<ContentPackageBundle> => {
-  const bundle = structuredClone(loadCheckedInBundle());
-  bundle.registryEntry = currentRegistryEntry(bundle.registry);
+  const bundle = structuredClone(
+    loadCheckedInBundle("foundation-2026.07.4"),
+  );
+  bindRuntimeToImmutableSchemaV3Sources(bundle);
   if (bundle.itemCatalog === null) {
     throw new Error("Fixture requires a schema-v3 item catalog");
   }
@@ -486,51 +539,30 @@ describe("content package governance", () => {
       bundle.manifest.artifacts["src/data/assessment.ts"],
     );
     expect(bundle.runtimeIds.contentVersion).toBe(CONTENT_VERSION);
-    expect(bundle.runtimeIds.vocabularyIds).toEqual(VOCABULARY.map((word) => word.id));
+    expect([...bundle.runtimeIds.vocabularyIds].sort()).toEqual(
+      VOCABULARY.map((word) => word.id).sort(),
+    );
     expect(bundle.runtimeIds.unitIds).toEqual(COURSE_UNITS.map((unit) => unit.id));
-    expect(bundle.runtimeIds.lessons).toEqual(
-      LESSONS.map((lesson) => ({
-        id: lesson.id,
-        unitId: lesson.unitId,
-        prerequisiteIds: lesson.prerequisiteIds,
-        wordIds: lesson.wordIds,
-        releaseState: lesson.releaseState,
-      })),
+    expect(bundle.runtimeCatalog).not.toBeNull();
+    expect(projectRuntimeCatalog(bundle.itemCatalog!)).toEqual(
+      bundle.runtimeCatalog,
     );
-    expect(bundle.runtimeIds.stories).toEqual(
-      STORIES.map((story) => ({
-        id: story.id,
-        wordIds: [...new Set(story.sentences.flatMap((sentence) => sentence.wordIds))],
-        releaseState: story.releaseState,
-      })),
+    expect(bundle.runtimeCatalog!.vocabulary.map((item) => item.id)).toEqual(
+      VOCABULARY.map((word) => word.id),
     );
-    const projectedCatalog = await projectItemCatalog({
-      contentVersion: CONTENT_VERSION,
-      vocabulary: VOCABULARY,
-      lessons: LESSONS,
-      stories: STORIES,
-    });
-    const runtimeProjection = (catalog: ItemCatalogArtifact) =>
-      catalog.items.map((item) => ({
-        itemKey: item.itemKey,
-        itemType: item.itemType,
-        itemId: item.itemId,
-        itemVersion: item.itemVersion,
-        releaseState: item.releaseState,
-        payload: item.payload,
-        payloadSha256: item.payloadSha256,
-        lessonPrerequisites:
-          item.itemType === "lesson" ? item.prerequisites : undefined,
-      }));
-    expect(runtimeProjection(bundle.itemCatalog!)).toEqual(
-      runtimeProjection(projectedCatalog),
-    );
+    expect(bundle.runtimeCatalog!.lessons).toEqual(LESSONS);
+    expect(bundle.runtimeCatalog!.stories).toEqual(STORIES);
+    expect(
+      bundle.itemCatalog!.items.filter((item) => item.itemType === "lesson"),
+    ).toHaveLength(24);
+    expect(bundle.runtimeCatalog!.lessons).toHaveLength(14);
   });
 
   it.each([
     "foundation-2026.07.1",
     "foundation-2026.07.2",
     "foundation-2026.07.3",
+    "foundation-2026.07.4",
   ])("revalidates historical package %s from its own immutable snapshots", async (version) => {
     const bundle = loadCheckedInBundle(version);
     const validation = await validateContentBundle(bundle);
@@ -554,6 +586,28 @@ describe("content package governance", () => {
 
     expect(validation.errors).toContain(
       "src/data/curriculum.ts digest does not match manifest",
+    );
+  });
+
+  it("allows schema-v4 runtime source to import only its selected sanitized catalog", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    const curriculum = bundle.immutableSourceTexts["src/data/curriculum.ts"];
+    if (typeof curriculum !== "string") {
+      throw new Error("Curriculum source fixture is missing");
+    }
+    const leakedCurriculum = `${curriculum}\nimport reviewsJson from "../../content/packages/${bundle.manifest.contentVersion}/reviews.json";\nvoid reviewsJson;\n`;
+    bundle.immutableSourceTexts["src/data/curriculum.ts"] = leakedCurriculum;
+    bundle.runtimeSourceText = leakedCurriculum;
+    bundle.manifest.artifacts["src/data/curriculum.ts"] =
+      await sha256NormalizedText(leakedCurriculum);
+    const manifestHash = await sha256Json(bundle.manifest);
+    bundle.registryEntry.manifestSha256 = manifestHash;
+    bundle.reviews.packageManifestSha256 = manifestHash;
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      "Schema-v4 runtime source may import only the selected runtime-catalog.json package artifact",
     );
   });
 
@@ -591,22 +645,23 @@ describe("content package governance", () => {
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "manifest.contentSchemaVersion must be a supported version (1, 2, or 3)",
+      "manifest.contentSchemaVersion must be a supported version (1, 2, 3, or 4)",
     );
   });
 
   it("rejects malformed non-selected registry entries", async () => {
     const bundle = structuredClone(loadCheckedInBundle());
     bundle.registryEntry = currentRegistryEntry(bundle.registry);
+    const invalidIndex = bundle.registry.packages.length;
     bundle.registry.packages.push({} as ContentRegistry["packages"][number]);
 
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "registry.packages[4]: registryEntry.contentVersion is not a safe content version",
+      `registry.packages[${invalidIndex}]: registryEntry.contentVersion is not a safe content version`,
     );
     expect(validation.errors).toContain(
-      "registry.packages[4]: registryEntry.manifestSha256 must be a SHA-256 digest",
+      `registry.packages[${invalidIndex}]: registryEntry.manifestSha256 must be a SHA-256 digest`,
     );
   });
 
@@ -691,7 +746,7 @@ describe("content package governance", () => {
     expect(publication.blockers).toEqual(
       expect.arrayContaining([
         "Package audience is closed-alpha, not public",
-        "Released catalog items missing item-level governance or exact scoped review: 39",
+        "Released catalog items missing item-level governance or exact scoped review: 64",
       ]),
     );
     expect(closedAlpha.eligible).toBe(false);
@@ -699,7 +754,7 @@ describe("content package governance", () => {
       expect.arrayContaining([
         "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 0)",
         "Closed alpha requires an evidence-backed complete A0 coverage claim",
-        "Released catalog items missing item-level governance or exact scoped review: 39",
+        "Released catalog items missing item-level governance or exact scoped review: 64",
       ]),
     );
     expect(publication.warnings).toContain(
@@ -707,12 +762,12 @@ describe("content package governance", () => {
     );
   });
 
-  it("rejects a missing or tampered schema-v3 item catalog", async () => {
+  it("rejects a missing or tampered schema-v4 item catalog", async () => {
     const missing = structuredClone(loadCheckedInBundle());
     missing.itemCatalog = null;
     const missingValidation = await validateContentBundle(missing);
     expect(missingValidation.errors).toContain(
-      "item-catalog.schemaVersion must be 1",
+      "item-catalog.schemaVersion must be 2",
     );
     expect(missingValidation.errors).toContain(
       "item-catalog.json digest does not match manifest",
@@ -733,6 +788,26 @@ describe("content package governance", () => {
     );
     expect(tamperedValidation.errors).toContain(
       "item-catalog.json digest does not match manifest",
+    );
+  });
+
+  it("keeps item-catalog schema versions paired with content schema versions", async () => {
+    const schemaV4 = structuredClone(loadCheckedInBundle());
+    if (schemaV4.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    schemaV4.itemCatalog.schemaVersion = 1 as never;
+    const schemaV4Validation = await validateContentBundle(schemaV4);
+    expect(schemaV4Validation.errors).toContain(
+      "item-catalog.schemaVersion must be 2",
+    );
+
+    const schemaV3 = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.4"),
+    );
+    if (schemaV3.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    schemaV3.itemCatalog.schemaVersion = 2 as never;
+    const schemaV3Validation = await validateContentBundle(schemaV3);
+    expect(schemaV3Validation.errors).toContain(
+      "item-catalog.schemaVersion must be 1",
     );
   });
 
@@ -763,8 +838,140 @@ describe("content package governance", () => {
     expect(validation.errors).toContain(
       "item-catalog.items[24].prerequisites[0].itemType is invalid",
     );
+  });
+
+  it("validates schema-v4 knowledge payloads and lesson membership fail-closed", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.itemCatalog?.schemaVersion !== 2) {
+      throw new Error("Schema-v4 catalog fixture is missing");
+    }
+    const grammarIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemType === "grammar",
+    );
+    const characterIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemType === "character",
+    );
+    const lessonIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemKey === "lesson:boot-1",
+    );
+    const grammar = bundle.itemCatalog.items[grammarIndex];
+    const character = bundle.itemCatalog.items[characterIndex];
+    const lesson = bundle.itemCatalog.items[lessonIndex];
+    if (
+      !grammar
+      || grammar.itemType !== "grammar"
+      || !character
+      || character.itemType !== "character"
+      || !lesson
+      || lesson.itemType !== "lesson"
+    ) {
+      throw new Error("Knowledge item fixtures are missing");
+    }
+    (grammar.payload as unknown as Record<string, unknown>).editorialNotes =
+      "must stay out of the schema";
+    grammar.payload.examples[0].meaning = "";
+    grammar.payload.sourceLessonIds = ["missing-lesson"];
+    character.payload.strokeDataRef = "private://stroke-data";
+    character.payload.strokeDataSha256 = null;
+    lesson.knowledgeItems = [
+      ...lesson.knowledgeItems.filter(
+        (reference) => reference.itemType !== "lexeme" || reference.itemId !== "ni",
+      ),
+      { itemType: "lesson", itemId: "boot-2" } as never,
+    ];
+
+    const validation = await validateContentBundle(bundle);
+
     expect(validation.errors).toContain(
-      "lesson:boot-1: prerequisites do not match runtime-ids.json",
+      `item-catalog.items[${grammarIndex}].payload has unknown field editorialNotes`,
+    );
+    expect(validation.errors).toContain(
+      `item-catalog.items[${grammarIndex}].payload.examples[0].meaning is required`,
+    );
+    expect(validation.errors).toContain(
+      `item-catalog.items[${grammarIndex}].payload source lesson id[0] references unknown item lesson:missing-lesson`,
+    );
+    expect(validation.errors).toContain(
+      `${grammar.itemKey}: payload.sourceLessonIds must exactly match lesson knowledgeItems membership`,
+    );
+    expect(validation.errors).toContain(
+      `item-catalog.items[${characterIndex}].payload strokeDataRef and strokeDataSha256 must be supplied together`,
+    );
+    expect(validation.errors).toContain(
+      `item-catalog.items[${lessonIndex}].knowledgeItems[${lesson.knowledgeItems.length - 1}].itemType is invalid`,
+    );
+    expect(validation.errors).toContain(
+      "lesson:boot-1: lexeme knowledgeItems must match payload.wordIds",
+    );
+  });
+
+  it("rejects dangling and cyclic cross-type prerequisites", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.itemCatalog?.schemaVersion !== 2) {
+      throw new Error("Schema-v4 catalog fixture is missing");
+    }
+    const grammar = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "grammar",
+    );
+    const pronunciation = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "pronunciation",
+    );
+    const communicativeIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemType === "communicative-function",
+    );
+    const communicative = bundle.itemCatalog.items[communicativeIndex];
+    if (
+      !grammar
+      || grammar.itemType !== "grammar"
+      || !pronunciation
+      || pronunciation.itemType !== "pronunciation"
+      || !communicative
+      || communicative.itemType !== "communicative-function"
+    ) {
+      throw new Error("Typed prerequisite fixtures are missing");
+    }
+    grammar.prerequisites = [{
+      itemType: "pronunciation",
+      itemId: pronunciation.itemId,
+    }];
+    pronunciation.prerequisites = [{
+      itemType: "grammar",
+      itemId: grammar.itemId,
+    }];
+    communicative.prerequisites = [{
+      itemType: "character",
+      itemId: "missing-character",
+    }];
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      `item-catalog.items[${communicativeIndex}].prerequisites[0] references unknown item character:missing-character`,
+    );
+    expect(validation.errors.some((error) =>
+      error.startsWith("Item prerequisite cycle detected at "))).toBe(true);
+  });
+
+  it("rejects runtime catalogs carrying governance fields or non-canonical content", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.runtimeCatalog === null) {
+      throw new Error("Runtime catalog fixture is missing");
+    }
+    (bundle.runtimeCatalog as unknown as Record<string, unknown>).reviews = [{
+      reviewerId: "must-not-reach-runtime",
+    }];
+    bundle.runtimeCatalog.lessons[0].title = "tampered runtime title";
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      "runtime-catalog has unknown field reviews",
+    );
+    expect(validation.errors).toContain(
+      "runtime-catalog.json must equal the sanitized released projection",
+    );
+    expect(validation.errors).toContain(
+      "runtime-catalog.json digest does not match manifest",
     );
   });
 
@@ -824,7 +1031,7 @@ describe("content package governance", () => {
       "manifest.governance.includesAudio must equal the presence of catalog audio assets",
     );
     expect(publication.blockers).toContain(
-      "Public beta requires licensed native audio for released core content (missing 39 targets)",
+      "Public beta requires licensed native audio for released core content (missing 64 targets)",
     );
   });
 
@@ -1131,7 +1338,7 @@ describe("content package governance", () => {
     expect(publication.warnings).toEqual([]);
   });
 
-  it("lets the newest exact-hash changes-requested review override an earlier approval", async () => {
+  it("lets a newer exact-hash rejection invalidate the item and its dependent release graph", async () => {
     const bundle = await makeEligibleFixture();
     const manifestHash = await sha256Json(bundle.manifest);
     if (bundle.itemCatalog === null || bundle.reviews.schemaVersion !== 2) {
@@ -1161,7 +1368,10 @@ describe("content package governance", () => {
     expect(validation.errors).toEqual([]);
     expect(publication.eligible).toBe(false);
     expect(publication.blockers).toContain(
-      "Released catalog items missing item-level governance or exact scoped review: 1",
+      "Released catalog items missing item-level governance or exact scoped review: 55",
+    );
+    expect(publication.blockers).toContain(
+      "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 299)",
     );
   });
 

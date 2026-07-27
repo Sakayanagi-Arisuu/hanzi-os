@@ -1,0 +1,2885 @@
+{
+  "schemaVersion": 2,
+  "contentVersion": "foundation-2026.07.5",
+  "items": [
+    {
+      "itemKey": "lexeme:ni",
+      "itemType": "lexeme",
+      "itemId": "ni",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "你",
+        "traditional": "你",
+        "pinyin": "nǐ",
+        "pinyinNumbered": "ni3",
+        "meaning": "bạn",
+        "partOfSpeech": "đại từ",
+        "example": "你好！",
+        "examplePinyin": "Nǐ hǎo!",
+        "exampleMeaning": "Xin chào!",
+        "hsk": 1,
+        "tags": [
+          "chào hỏi",
+          "đại từ"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:98b3af25e58a11c49d3a17d16ce7b0d41093a6ac42a6e79506a715c8d61ab365"
+    },
+    {
+      "itemKey": "lexeme:hao",
+      "itemType": "lexeme",
+      "itemId": "hao",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "好",
+        "traditional": "好",
+        "pinyin": "hǎo",
+        "pinyinNumbered": "hao3",
+        "meaning": "tốt, khỏe",
+        "partOfSpeech": "tính từ",
+        "example": "我很好。",
+        "examplePinyin": "Wǒ hěn hǎo.",
+        "exampleMeaning": "Tôi rất khỏe.",
+        "hsk": 1,
+        "tags": [
+          "chào hỏi",
+          "trạng thái"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:625d2d23f488d082e97d63e24413219a494a9b21d931907c724f5e4a6b0457c8"
+    },
+    {
+      "itemKey": "lexeme:wo",
+      "itemType": "lexeme",
+      "itemId": "wo",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "我",
+        "traditional": "我",
+        "pinyin": "wǒ",
+        "pinyinNumbered": "wo3",
+        "meaning": "tôi",
+        "partOfSpeech": "đại từ",
+        "example": "我是学生。",
+        "examplePinyin": "Wǒ shì xuésheng.",
+        "exampleMeaning": "Tôi là học sinh.",
+        "hsk": 1,
+        "tags": [
+          "đại từ",
+          "giới thiệu"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:a1d9c08e8a1ed0175adda85fc57be26873989bad5a06921fa592a5d5740e62b6"
+    },
+    {
+      "itemKey": "lexeme:shi",
+      "itemType": "lexeme",
+      "itemId": "shi",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "是",
+        "traditional": "是",
+        "pinyin": "shì",
+        "pinyinNumbered": "shi4",
+        "meaning": "là",
+        "partOfSpeech": "động từ",
+        "example": "她是老师。",
+        "examplePinyin": "Tā shì lǎoshī.",
+        "exampleMeaning": "Cô ấy là giáo viên.",
+        "hsk": 1,
+        "tags": [
+          "câu cơ bản",
+          "giới thiệu"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:3b0d71600f68d841e686b9de152341bdde0b2914053b04f6d1fc54643893805f"
+    },
+    {
+      "itemKey": "lexeme:xuesheng",
+      "itemType": "lexeme",
+      "itemId": "xuesheng",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "学生",
+        "traditional": "學生",
+        "pinyin": "xuésheng",
+        "pinyinNumbered": "xue2sheng5",
+        "meaning": "học sinh, sinh viên",
+        "partOfSpeech": "danh từ",
+        "example": "你是学生吗？",
+        "examplePinyin": "Nǐ shì xuésheng ma?",
+        "exampleMeaning": "Bạn là sinh viên phải không?",
+        "hsk": 1,
+        "tags": [
+          "trường học",
+          "giới thiệu"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:f956cd9504ecccc233fc4adeb35880dd5274ba666021a58fb4353cb9a5310406"
+    },
+    {
+      "itemKey": "lexeme:laoshi",
+      "itemType": "lexeme",
+      "itemId": "laoshi",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "老师",
+        "traditional": "老師",
+        "pinyin": "lǎoshī",
+        "pinyinNumbered": "lao3shi1",
+        "meaning": "giáo viên",
+        "partOfSpeech": "danh từ",
+        "example": "王老师，你好。",
+        "examplePinyin": "Wáng lǎoshī, nǐ hǎo.",
+        "exampleMeaning": "Thầy Vương, xin chào.",
+        "hsk": 1,
+        "tags": [
+          "trường học",
+          "xưng hô"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:c955ff7d14278c6479f3a1eb53bb59eaefdfa453fb014f00eb755a82166c2fe6"
+    },
+    {
+      "itemKey": "lexeme:ma",
+      "itemType": "lexeme",
+      "itemId": "ma",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "吗",
+        "traditional": "嗎",
+        "pinyin": "ma",
+        "pinyinNumbered": "ma5",
+        "meaning": "trợ từ nghi vấn",
+        "partOfSpeech": "trợ từ",
+        "example": "你好吗？",
+        "examplePinyin": "Nǐ hǎo ma?",
+        "exampleMeaning": "Bạn khỏe không?",
+        "hsk": 1,
+        "tags": [
+          "ngữ pháp",
+          "câu hỏi"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:0ee72fb95e5b310362f9008ff57a698fe2ed2d45b98a302ff95934140e57b054"
+    },
+    {
+      "itemKey": "lexeme:bu",
+      "itemType": "lexeme",
+      "itemId": "bu",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "不",
+        "traditional": "不",
+        "pinyin": "bù",
+        "pinyinNumbered": "bu4",
+        "meaning": "không",
+        "partOfSpeech": "phó từ",
+        "example": "我不是老师。",
+        "examplePinyin": "Wǒ bú shì lǎoshī.",
+        "exampleMeaning": "Tôi không phải giáo viên.",
+        "hsk": 1,
+        "tags": [
+          "phủ định",
+          "ngữ pháp"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:1607e25c0386632122c4c75c40db0238cb37d439f4a152d15a2768518dc2fee2"
+    },
+    {
+      "itemKey": "lexeme:xiexie",
+      "itemType": "lexeme",
+      "itemId": "xiexie",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "谢谢",
+        "traditional": "謝謝",
+        "pinyin": "xièxie",
+        "pinyinNumbered": "xie4xie5",
+        "meaning": "cảm ơn",
+        "partOfSpeech": "động từ",
+        "example": "谢谢你。",
+        "examplePinyin": "Xièxie nǐ.",
+        "exampleMeaning": "Cảm ơn bạn.",
+        "hsk": 1,
+        "tags": [
+          "lịch sự",
+          "giao tiếp"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:468219ade6808109a2920df513a2ead1ff01caba74720e99e0f004045e88ab33"
+    },
+    {
+      "itemKey": "lexeme:zaijian",
+      "itemType": "lexeme",
+      "itemId": "zaijian",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "再见",
+        "traditional": "再見",
+        "pinyin": "zàijiàn",
+        "pinyinNumbered": "zai4jian4",
+        "meaning": "tạm biệt",
+        "partOfSpeech": "cụm từ",
+        "example": "老师，再见！",
+        "examplePinyin": "Lǎoshī, zàijiàn!",
+        "exampleMeaning": "Tạm biệt thầy/cô!",
+        "hsk": 1,
+        "tags": [
+          "chào hỏi",
+          "giao tiếp"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:e49c70d6f95da32be048ac70058e756e027672db3302d0b6af9e19cb58bca6c9"
+    },
+    {
+      "itemKey": "lexeme:yi",
+      "itemType": "lexeme",
+      "itemId": "yi",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "一",
+        "traditional": "一",
+        "pinyin": "yī",
+        "pinyinNumbered": "yi1",
+        "meaning": "một",
+        "partOfSpeech": "số từ",
+        "example": "一个人",
+        "examplePinyin": "yí ge rén",
+        "exampleMeaning": "một người",
+        "hsk": 1,
+        "tags": [
+          "số đếm"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:791af720e150441ae330da6a5351b39c32b27cf2beda3aaf09ccf3f89a79c471"
+    },
+    {
+      "itemKey": "lexeme:er",
+      "itemType": "lexeme",
+      "itemId": "er",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "二",
+        "traditional": "二",
+        "pinyin": "èr",
+        "pinyinNumbered": "er4",
+        "meaning": "hai",
+        "partOfSpeech": "số từ",
+        "example": "二月",
+        "examplePinyin": "èryuè",
+        "exampleMeaning": "tháng hai",
+        "hsk": 1,
+        "tags": [
+          "số đếm",
+          "thời gian"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:e8cfbcf57f62dbcf9a9ad4a238ced9699afa98b6fe9451f4df9b92eea2fc5a36"
+    },
+    {
+      "itemKey": "lexeme:san",
+      "itemType": "lexeme",
+      "itemId": "san",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "三",
+        "traditional": "三",
+        "pinyin": "sān",
+        "pinyinNumbered": "san1",
+        "meaning": "ba",
+        "partOfSpeech": "số từ",
+        "example": "三个人",
+        "examplePinyin": "sān ge rén",
+        "exampleMeaning": "ba người",
+        "hsk": 1,
+        "tags": [
+          "số đếm"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:e30e0231945563abc04de0ecf4aa193e6cd480220c5fb5cc42d7576b39cea7dd"
+    },
+    {
+      "itemKey": "lexeme:ren",
+      "itemType": "lexeme",
+      "itemId": "ren",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "人",
+        "traditional": "人",
+        "pinyin": "rén",
+        "pinyinNumbered": "ren2",
+        "meaning": "người",
+        "partOfSpeech": "danh từ",
+        "example": "中国人",
+        "examplePinyin": "Zhōngguó rén",
+        "exampleMeaning": "người Trung Quốc",
+        "hsk": 1,
+        "tags": [
+          "con người",
+          "quốc gia"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:4259ee16fb8add516c54a86586ec5234fc6b5f8126e6246fc18f37e3ccceeaa7"
+    },
+    {
+      "itemKey": "lexeme:zhongguo",
+      "itemType": "lexeme",
+      "itemId": "zhongguo",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "中国",
+        "traditional": "中國",
+        "pinyin": "Zhōngguó",
+        "pinyinNumbered": "Zhong1guo2",
+        "meaning": "Trung Quốc",
+        "partOfSpeech": "danh từ riêng",
+        "example": "我来自中国。",
+        "examplePinyin": "Wǒ láizì Zhōngguó.",
+        "exampleMeaning": "Tôi đến từ Trung Quốc.",
+        "hsk": 1,
+        "tags": [
+          "quốc gia",
+          "giới thiệu"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:908ceb753050c75852f7d358bf8320b77757f1c9e36be25260832766c8237ace"
+    },
+    {
+      "itemKey": "lexeme:yuenan",
+      "itemType": "lexeme",
+      "itemId": "yuenan",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "越南",
+        "traditional": "越南",
+        "pinyin": "Yuènán",
+        "pinyinNumbered": "Yue4nan2",
+        "meaning": "Việt Nam",
+        "partOfSpeech": "danh từ riêng",
+        "example": "我是越南人。",
+        "examplePinyin": "Wǒ shì Yuènán rén.",
+        "exampleMeaning": "Tôi là người Việt Nam.",
+        "hsk": 1,
+        "tags": [
+          "quốc gia",
+          "giới thiệu"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:cbc61d155ed101dfe2a3a77f224eb7f390ac6f69d100e3bb75fe189b9ca9525c"
+    },
+    {
+      "itemKey": "lexeme:jia",
+      "itemType": "lexeme",
+      "itemId": "jia",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "家",
+        "traditional": "家",
+        "pinyin": "jiā",
+        "pinyinNumbered": "jia1",
+        "meaning": "nhà, gia đình",
+        "partOfSpeech": "danh từ",
+        "example": "我家有四个人。",
+        "examplePinyin": "Wǒ jiā yǒu sì ge rén.",
+        "exampleMeaning": "Nhà tôi có bốn người.",
+        "hsk": 1,
+        "tags": [
+          "gia đình",
+          "địa điểm"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:869e79183193430ae7464c1de85bbf13ce31125a9bc0e2a480b692eb62626396"
+    },
+    {
+      "itemKey": "lexeme:you",
+      "itemType": "lexeme",
+      "itemId": "you",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "有",
+        "traditional": "有",
+        "pinyin": "yǒu",
+        "pinyinNumbered": "you3",
+        "meaning": "có",
+        "partOfSpeech": "động từ",
+        "example": "你有时间吗？",
+        "examplePinyin": "Nǐ yǒu shíjiān ma?",
+        "exampleMeaning": "Bạn có thời gian không?",
+        "hsk": 1,
+        "tags": [
+          "tồn tại",
+          "ngữ pháp"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:ab4e44b95122e97468bc982fefb68a2de6df65ed31781985626d26f20662bb91"
+    },
+    {
+      "itemKey": "lexeme:chi",
+      "itemType": "lexeme",
+      "itemId": "chi",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "吃",
+        "traditional": "吃",
+        "pinyin": "chī",
+        "pinyinNumbered": "chi1",
+        "meaning": "ăn",
+        "partOfSpeech": "động từ",
+        "example": "我吃米饭。",
+        "examplePinyin": "Wǒ chī mǐfàn.",
+        "exampleMeaning": "Tôi ăn cơm.",
+        "hsk": 1,
+        "tags": [
+          "ăn uống",
+          "động từ"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:d4ec23543d89d85619d706823566e47fd9c411c889b9c2f50f738b473260cd8f"
+    },
+    {
+      "itemKey": "lexeme:he",
+      "itemType": "lexeme",
+      "itemId": "he",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "喝",
+        "traditional": "喝",
+        "pinyin": "hē",
+        "pinyinNumbered": "he1",
+        "meaning": "uống",
+        "partOfSpeech": "động từ",
+        "example": "你喝茶吗？",
+        "examplePinyin": "Nǐ hē chá ma?",
+        "exampleMeaning": "Bạn uống trà không?",
+        "hsk": 1,
+        "tags": [
+          "ăn uống",
+          "động từ"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:a6632133a20ea48e0fa2713f68632a0e7601d0e9f8ac352c70ab10d9c75c9106"
+    },
+    {
+      "itemKey": "lexeme:cha",
+      "itemType": "lexeme",
+      "itemId": "cha",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "茶",
+        "traditional": "茶",
+        "pinyin": "chá",
+        "pinyinNumbered": "cha2",
+        "meaning": "trà",
+        "partOfSpeech": "danh từ",
+        "example": "我喜欢喝茶。",
+        "examplePinyin": "Wǒ xǐhuan hē chá.",
+        "exampleMeaning": "Tôi thích uống trà.",
+        "hsk": 1,
+        "tags": [
+          "ăn uống",
+          "văn hóa"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:0c9fc37cbd43c401569bda3b048766348482b4e43e81a8df236524932e6a223f"
+    },
+    {
+      "itemKey": "lexeme:shu",
+      "itemType": "lexeme",
+      "itemId": "shu",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "书",
+        "traditional": "書",
+        "pinyin": "shū",
+        "pinyinNumbered": "shu1",
+        "meaning": "sách",
+        "partOfSpeech": "danh từ",
+        "example": "这是我的书。",
+        "examplePinyin": "Zhè shì wǒ de shū.",
+        "exampleMeaning": "Đây là sách của tôi.",
+        "hsk": 1,
+        "tags": [
+          "đồ vật",
+          "học tập"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:4836dbc3d9128b384a09feac46a4d39d892a34f47d70db87c4d27f53a6ab8119"
+    },
+    {
+      "itemKey": "lexeme:kan",
+      "itemType": "lexeme",
+      "itemId": "kan",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "看",
+        "traditional": "看",
+        "pinyin": "kàn",
+        "pinyinNumbered": "kan4",
+        "meaning": "nhìn, xem, đọc",
+        "partOfSpeech": "động từ",
+        "example": "我看中文书。",
+        "examplePinyin": "Wǒ kàn Zhōngwén shū.",
+        "exampleMeaning": "Tôi đọc sách tiếng Trung.",
+        "hsk": 1,
+        "tags": [
+          "hoạt động",
+          "học tập"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:9679f342db8a4fa33cb27de02bfde79bd83aff2d24a25832869001a24ec11cdc"
+    },
+    {
+      "itemKey": "lexeme:jinri",
+      "itemType": "lexeme",
+      "itemId": "jinri",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "simplified": "今天",
+        "traditional": "今天",
+        "pinyin": "jīntiān",
+        "pinyinNumbered": "jin1tian1",
+        "meaning": "hôm nay",
+        "partOfSpeech": "danh từ thời gian",
+        "example": "今天天气很好。",
+        "examplePinyin": "Jīntiān tiānqì hěn hǎo.",
+        "exampleMeaning": "Hôm nay thời tiết rất đẹp.",
+        "hsk": 1,
+        "tags": [
+          "thời gian",
+          "hằng ngày"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:4d05d4b25fcf7c54e24d6ecdf981454cb6a70eb4c8bb00b842c3c826f372c40d"
+    },
+    {
+      "itemKey": "lesson:boot-1",
+      "itemType": "lesson",
+      "itemId": "boot-1",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "boot",
+        "title": "Bốn thanh điệu",
+        "chineseTitle": "四声",
+        "objective": "Nghe và nhận diện đường cao độ của bốn thanh.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "yi",
+          "ren",
+          "ni",
+          "er"
+        ],
+        "skills": [
+          "pronunciation",
+          "listening"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [],
+      "payloadSha256": "sha256:4b5247d74e1bb7108e2377c4bfb4c668c084795b0c64b97b873a1b9d974695e8",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "yi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ren"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "er"
+        },
+        {
+          "itemType": "pronunciation",
+          "itemId": "mandarin-tone-system"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:boot-2",
+      "itemType": "lesson",
+      "itemId": "boot-2",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "boot",
+        "title": "Xin chào đầu tiên",
+        "chineseTitle": "你好",
+        "objective": "Nhận diện lời chào và đại từ ngôi một, ngôi hai.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "ni",
+          "hao",
+          "wo"
+        ],
+        "skills": [
+          "listening",
+          "vocabulary",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-1"
+        }
+      ],
+      "payloadSha256": "sha256:1eafb269ef04b17bb9fe295c47300f651f3204367b38ab9a9d4b342755041d8d",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "wo"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "greet-and-self-reference"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:boot-3",
+      "itemType": "lesson",
+      "itemId": "boot-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "boot",
+        "title": "Âm đầu khó",
+        "chineseTitle": "声母",
+        "objective": "Phân biệt j/q/x, zh/ch/sh và z/c/s.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "xiexie",
+          "zhongguo",
+          "chi"
+        ],
+        "skills": [
+          "pronunciation",
+          "listening"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-2"
+        }
+      ],
+      "payloadSha256": "sha256:b639f64deaa49f5d31a221dfa3f14bf15b4bf4985988565db272360ba1fb2006",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "xiexie"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "zhongguo"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "chi"
+        },
+        {
+          "itemType": "pronunciation",
+          "itemId": "initial-contrast-jqx-zhchsh-zcs"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:boot-4",
+      "itemType": "lesson",
+      "itemId": "boot-4",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "boot",
+        "title": "Tone pairs",
+        "chineseTitle": "声调组合",
+        "objective": "Phân biệt thanh từ điển và thanh bề mặt trong cụm hai âm tiết.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "ni",
+          "hao",
+          "xuesheng",
+          "laoshi"
+        ],
+        "skills": [
+          "pronunciation",
+          "listening"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-3"
+        }
+      ],
+      "payloadSha256": "sha256:764b2e5de9cb54376e75adfa89daeb5d9931b4d387a40791d2040562a38bde43",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "xuesheng"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "laoshi"
+        },
+        {
+          "itemType": "pronunciation",
+          "itemId": "sandhi-third-third"
+        },
+        {
+          "itemType": "pronunciation",
+          "itemId": "sandhi-bu-before-fourth"
+        },
+        {
+          "itemType": "pronunciation",
+          "itemId": "sandhi-yi-before-1-2-3"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:survival-1",
+      "itemType": "lesson",
+      "itemId": "survival-1",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "survival",
+        "title": "Tôi là sinh viên",
+        "chineseTitle": "我是学生",
+        "objective": "Nhận diện cấu trúc A là B trong lời giới thiệu vai trò.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "wo",
+          "shi",
+          "xuesheng",
+          "laoshi"
+        ],
+        "skills": [
+          "grammar",
+          "reading",
+          "vocabulary"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-4"
+        }
+      ],
+      "payloadSha256": "sha256:95c311812e643474d9e8219cba2e3f5eff0619523724ddfc9d5e8a04a3f9759f",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "wo"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "shi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "xuesheng"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "laoshi"
+        },
+        {
+          "itemType": "grammar",
+          "itemId": "shi-nominal-predicate"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "introduce-and-deny-role"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:survival-2",
+      "itemType": "lesson",
+      "itemId": "survival-2",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "survival",
+        "title": "Bạn khỏe không?",
+        "chineseTitle": "你好吗",
+        "objective": "Nhận diện 吗 trong câu hỏi có/không.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "ni",
+          "hao",
+          "ma",
+          "bu"
+        ],
+        "skills": [
+          "grammar",
+          "listening",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-1"
+        }
+      ],
+      "payloadSha256": "sha256:4dbab35014809746655362f7bb66f1114eee30900083815eb36e40ec35f34d7c",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ma"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "bu"
+        },
+        {
+          "itemType": "grammar",
+          "itemId": "ma-polar-question"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "ask-and-answer-polar-question"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:survival-3",
+      "itemType": "lesson",
+      "itemId": "survival-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "survival",
+        "title": "Cảm ơn và tạm biệt",
+        "chineseTitle": "谢谢，再见",
+        "objective": "Chọn lời cảm ơn và kết thúc lượt thoại phù hợp.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "xiexie",
+          "zaijian",
+          "ni"
+        ],
+        "skills": [
+          "listening",
+          "vocabulary",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-2"
+        }
+      ],
+      "payloadSha256": "sha256:38ecafff176621bd14e501ad0039972fea59b70ea2ab6bf9c0e3ec73ca6f3fb3",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "xiexie"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "zaijian"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "thank-and-close-turn"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:survival-4",
+      "itemType": "lesson",
+      "itemId": "survival-4",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "survival",
+        "title": "Tôi là người Việt Nam",
+        "chineseTitle": "我是越南人",
+        "objective": "Đọc và nhận diện mẫu giới thiệu quốc tịch.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "ren",
+          "zhongguo",
+          "yuenan",
+          "shi"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-3"
+        }
+      ],
+      "payloadSha256": "sha256:dd381656a9f00b5c24eb99f2f2058cfd026473982512fdb845120989d684a81b",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "ren"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "zhongguo"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "yuenan"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "shi"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "state-nationality-and-origin"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:daily-1",
+      "itemType": "lesson",
+      "itemId": "daily-1",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "daily",
+        "title": "Nhà tôi",
+        "chineseTitle": "我的家",
+        "objective": "Nhận diện mẫu 有 để nói số người trong gia đình.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "jia",
+          "you",
+          "ren",
+          "san"
+        ],
+        "skills": [
+          "vocabulary",
+          "grammar",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-4"
+        }
+      ],
+      "payloadSha256": "sha256:57b5eeab171c0673d57162b019492d7cf61005a6d2685122608033efbc56be06",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "jia"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "you"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ren"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "san"
+        },
+        {
+          "itemType": "grammar",
+          "itemId": "you-quantity-ge"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "state-and-ask-family-size"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:daily-2",
+      "itemType": "lesson",
+      "itemId": "daily-2",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "daily",
+        "title": "Ăn và uống",
+        "chineseTitle": "吃饭喝茶",
+        "objective": "Nghe và nhận diện nhu cầu ăn uống cơ bản.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "chi",
+          "he",
+          "cha",
+          "wo"
+        ],
+        "skills": [
+          "listening",
+          "vocabulary",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-1"
+        }
+      ],
+      "payloadSha256": "sha256:2df798ef2a3b6017fac2b79de70051d6f6fb083c82dbbb9e9c141f8f2d54df35",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "chi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "he"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "cha"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "wo"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "state-and-ask-food-drink"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:daily-3",
+      "itemType": "lesson",
+      "itemId": "daily-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "daily",
+        "title": "Hôm nay",
+        "chineseTitle": "今天",
+        "objective": "Đặt thời gian ở đầu câu.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "jinri",
+          "hao",
+          "kan"
+        ],
+        "skills": [
+          "grammar",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-2"
+        }
+      ],
+      "payloadSha256": "sha256:f10f9171306ebd5a5a92a47eafaf0e7ed220ea9de842c434e76e761c4f68086f",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "jinri"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "kan"
+        },
+        {
+          "itemType": "grammar",
+          "itemId": "time-expression-position"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:daily-4",
+      "itemType": "lesson",
+      "itemId": "daily-4",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "daily",
+        "title": "Sách của tôi",
+        "chineseTitle": "我的书",
+        "objective": "Dùng 的 để thể hiện sở hữu.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "shu",
+          "kan",
+          "wo"
+        ],
+        "skills": [
+          "grammar",
+          "writing",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-3"
+        }
+      ],
+      "payloadSha256": "sha256:1a2f10edff4380cb6dce436e9985f24d17baea5dceaedc3dc8a8333c5f565bd0",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "shu"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "kan"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "wo"
+        },
+        {
+          "itemType": "grammar",
+          "itemId": "de-possession"
+        },
+        {
+          "itemType": "communicative-function",
+          "itemId": "identify-possession"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:characters-1",
+      "itemType": "lesson",
+      "itemId": "characters-1",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "characters",
+        "title": "Nét cơ bản",
+        "chineseTitle": "基本笔画",
+        "objective": "Viết ngang, sổ, phẩy, mác đúng hướng.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "yi",
+          "ren",
+          "san"
+        ],
+        "skills": [
+          "writing",
+          "reading"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-4"
+        }
+      ],
+      "payloadSha256": "sha256:1572c464f9d47802d5f69d9d9063ad1b8b35c8971afa26bc7b510d0b24b400d3",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "yi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ren"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "san"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u4e00"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u4e8c"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u4e09"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u4eba"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:characters-2",
+      "itemType": "lesson",
+      "itemId": "characters-2",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "unitId": "characters",
+        "title": "Người và nhà",
+        "chineseTitle": "人和家",
+        "objective": "Nhìn cấu kiện và nhớ ý nghĩa bằng cấu trúc.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "ren",
+          "jia",
+          "hao"
+        ],
+        "skills": [
+          "writing",
+          "vocabulary"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-1"
+        }
+      ],
+      "payloadSha256": "sha256:6ec17f18e110482abe5e667ea1a24e9abb40c2711dd4ee8b4d1772df0979da85",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "ren"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "jia"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u4f60"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u597d"
+        },
+        {
+          "itemType": "character",
+          "itemId": "u5bb6"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:characters-3",
+      "itemType": "lesson",
+      "itemId": "characters-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "characters",
+        "title": "Nhìn chữ gần nhau",
+        "chineseTitle": "形近字",
+        "objective": "Phân biệt chữ bằng thành phần và vị trí nét.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "shu",
+          "kan",
+          "chi"
+        ],
+        "skills": [
+          "reading",
+          "writing"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-2"
+        }
+      ],
+      "payloadSha256": "sha256:8a7c2ec28e456bca53ba496c57c9c24e196aaeff9d7998c7010184f01f942921",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "shu"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "kan"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "chi"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:characters-4",
+      "itemType": "lesson",
+      "itemId": "characters-4",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "characters",
+        "title": "Viết từ trí nhớ",
+        "chineseTitle": "默写",
+        "objective": "Rút dần gợi ý và viết chữ không có khung.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "wo",
+          "ni",
+          "shi"
+        ],
+        "skills": [
+          "writing"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-3"
+        }
+      ],
+      "payloadSha256": "sha256:97cbdb0429d8b88bf202c480234e397fcb23d0d48b759ab6ae0cd0a855ae88a5",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "wo"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "shi"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:journey-1",
+      "itemType": "lesson",
+      "itemId": "journey-1",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "journey",
+        "title": "Hỏi đường",
+        "chineseTitle": "怎么走",
+        "objective": "Hỏi và hiểu chỉ dẫn cơ bản.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "ni",
+          "zhongguo",
+          "jinri"
+        ],
+        "skills": [
+          "listening",
+          "speaking"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-4"
+        }
+      ],
+      "payloadSha256": "sha256:6ff9580d6f1dcb645415a7397200dd4b5d6913eb822c9e4518350e009ee4e25a",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "zhongguo"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "jinri"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:journey-2",
+      "itemType": "lesson",
+      "itemId": "journey-2",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "journey",
+        "title": "Mua đồ",
+        "chineseTitle": "买东西",
+        "objective": "Hỏi giá, số lượng và lựa chọn.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "yi",
+          "er",
+          "san"
+        ],
+        "skills": [
+          "speaking",
+          "vocabulary"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "journey-1"
+        }
+      ],
+      "payloadSha256": "sha256:12130190a7933a36d7ff168272fc31868d5701944cd7b0c3983462581c1283b4",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "yi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "er"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "san"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:journey-3",
+      "itemType": "lesson",
+      "itemId": "journey-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "journey",
+        "title": "Đặt lịch",
+        "chineseTitle": "约时间",
+        "objective": "Thương lượng thời gian gặp mặt.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "jinri",
+          "you",
+          "ma"
+        ],
+        "skills": [
+          "listening",
+          "grammar"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "journey-2"
+        }
+      ],
+      "payloadSha256": "sha256:b882d89a7f435ada348ec55e0444e3d23e4c6df9239c49d916194c8c5a33a315",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "jinri"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "you"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ma"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:journey-4",
+      "itemType": "lesson",
+      "itemId": "journey-4",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "journey",
+        "title": "Tình huống thật",
+        "chineseTitle": "实战",
+        "objective": "Hoàn thành roleplay không dùng tiếng Việt.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "xiexie",
+          "zaijian",
+          "hao"
+        ],
+        "skills": [
+          "speaking",
+          "listening"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "journey-3"
+        }
+      ],
+      "payloadSha256": "sha256:3b6ab4201071ce5680ffa87c8a4027df3b60874f8bd27db5cefbb5252240646b",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "xiexie"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "zaijian"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:professional-1",
+      "itemType": "lesson",
+      "itemId": "professional-1",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "professional",
+        "title": "Trong lớp học",
+        "chineseTitle": "课堂汉语",
+        "objective": "Hỏi lại, xác nhận và trình bày ý kiến.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "xuesheng",
+          "laoshi",
+          "shu"
+        ],
+        "skills": [
+          "speaking",
+          "listening"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "journey-4"
+        }
+      ],
+      "payloadSha256": "sha256:e9b19a150abfb985ca87946018cca46a37d4aa2d99ed1a2873dd08a9b42bc3e1",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "xuesheng"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "laoshi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "shu"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:professional-2",
+      "itemType": "lesson",
+      "itemId": "professional-2",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "professional",
+        "title": "Email chuyên nghiệp",
+        "chineseTitle": "商务邮件",
+        "objective": "Viết lời mở, yêu cầu và kết thư phù hợp.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "xiexie",
+          "ni",
+          "hao"
+        ],
+        "skills": [
+          "writing",
+          "grammar"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "professional-1"
+        }
+      ],
+      "payloadSha256": "sha256:919616b27f9d6d564ad64b69b187f6b142753f086ce471c33fb363ffb39f0912",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "xiexie"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "ni"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hao"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:professional-3",
+      "itemType": "lesson",
+      "itemId": "professional-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "professional",
+        "title": "Trong cuộc họp",
+        "chineseTitle": "会议表达",
+        "objective": "Đồng ý, phản biện và tóm tắt quyết định.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "shi",
+          "bu",
+          "you"
+        ],
+        "skills": [
+          "speaking",
+          "listening"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "professional-2"
+        }
+      ],
+      "payloadSha256": "sha256:e4b5cafca35825faf82f9ad8e3ae5d39c41fec548e19053f9aca40ef062e446b",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "shi"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "bu"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "you"
+        }
+      ]
+    },
+    {
+      "itemKey": "lesson:professional-4",
+      "itemType": "lesson",
+      "itemId": "professional-4",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "draft",
+      "payload": {
+        "unitId": "professional",
+        "title": "Báo cáo ngắn",
+        "chineseTitle": "简短汇报",
+        "objective": "Trình bày một phút với cấu trúc rõ.",
+        "minutes": 8,
+        "xp": 40,
+        "wordIds": [
+          "jinri",
+          "kan",
+          "zhongguo"
+        ],
+        "skills": [
+          "speaking",
+          "writing"
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "professional-3"
+        }
+      ],
+      "payloadSha256": "sha256:cd1e22f441c3441d9c421d34bc5c5016d685b8942840975bbd9786c05fd62426",
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "jinri"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "kan"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "zhongguo"
+        }
+      ]
+    },
+    {
+      "itemKey": "graded-text:first-day",
+      "itemType": "graded-text",
+      "itemId": "first-day",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "beta",
+      "payload": {
+        "level": "Closed alpha · foundation slice",
+        "title": "Ngày đầu ở lớp tiếng Trung",
+        "chineseTitle": "中文课的第一天",
+        "summary": "Một cuộc gặp ngắn giữa Minh và giáo viên Vương.",
+        "estimatedMinutes": 4,
+        "sentences": [
+          {
+            "chinese": "今天是中文课的第一天。",
+            "pinyin": "Jīntiān shì Zhōngwén kè de dì-yī tiān.",
+            "translation": "Hôm nay là ngày đầu tiên của lớp tiếng Trung.",
+            "wordIds": [
+              "jinri",
+              "shi",
+              "yi"
+            ]
+          },
+          {
+            "chinese": "王老师说：“你好！你是学生吗？”",
+            "pinyin": "Wáng lǎoshī shuō: “Nǐ hǎo! Nǐ shì xuésheng ma?”",
+            "translation": "Giáo viên Vương nói: “Xin chào! Bạn là sinh viên phải không?”",
+            "wordIds": [
+              "laoshi",
+              "ni",
+              "hao",
+              "shi",
+              "xuesheng",
+              "ma"
+            ]
+          },
+          {
+            "chinese": "我说：“是，我是越南人。”",
+            "pinyin": "Wǒ shuō: “Shì, wǒ shì Yuènán rén.”",
+            "translation": "Tôi nói: “Vâng, tôi là người Việt Nam.”",
+            "wordIds": [
+              "wo",
+              "shi",
+              "yuenan",
+              "ren"
+            ]
+          },
+          {
+            "chinese": "老师给我一本书，我说：“谢谢老师！”",
+            "pinyin": "Lǎoshī gěi wǒ yì běn shū, wǒ shuō: “Xièxie lǎoshī!”",
+            "translation": "Giáo viên đưa tôi một quyển sách, tôi nói: “Cảm ơn thầy/cô!”",
+            "wordIds": [
+              "laoshi",
+              "wo",
+              "yi",
+              "shu",
+              "xiexie"
+            ]
+          }
+        ],
+        "comprehension": [
+          {
+            "id": "first-day-main-idea",
+            "prompt": "Trong ngày đầu đến lớp, người kể đã làm gì?",
+            "options": [
+              "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+              "Hỏi đường đến trường rồi mua một quyển sách.",
+              "Giới thiệu mình là giáo viên tiếng Trung."
+            ],
+            "correctAnswer": "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+            "explanation": "Người kể trả lời mình là người Việt Nam, nhận sách rồi nói 谢谢老师."
+          }
+        ]
+      },
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": null,
+      "payloadSha256": "sha256:04bea094791b36282e417a25958afe021db6e8a50bafb1e73b54cf42f2c8e224"
+    },
+    {
+      "itemKey": "pronunciation:mandarin-tone-system",
+      "itemType": "pronunciation",
+      "itemId": "mandarin-tone-system",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [],
+      "payload": {
+        "targetKind": "tone-system",
+        "targets": [
+          "neutral",
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "concept": "Thanh điệu là một phần của âm tiết, không phải cảm xúc khi nói.",
+        "rule": "Thanh 1 cao-ngang; thanh 2 đi lên; thanh 3 hạ rồi nhấc; thanh 4 rơi nhanh. Thanh nhẹ ngắn và phụ thuộc âm đứng trước.",
+        "examples": [
+          {
+            "chinese": "妈 / 麻 / 马 / 骂",
+            "pinyin": "mā / má / mǎ / mà",
+            "meaning": "mẹ / cây gai / ngựa / mắng"
+          },
+          {
+            "chinese": "一 · 二 · 三",
+            "pinyin": "yī · èr · sān",
+            "meaning": "một · hai · ba"
+          }
+        ],
+        "pitfall": "Đọc thanh 3 quá sâu trong mọi vị trí. Trong lời nói tự nhiên, thanh 3 thường chỉ hạ thấp khi không đứng cuối cụm.",
+        "checkpoint": "Nghe một âm tiết và nhận ra hướng cao độ trước khi nhìn pinyin.",
+        "sourceLessonIds": [
+          "boot-1"
+        ]
+      },
+      "payloadSha256": "sha256:a66cf74680bf0550e5148efb723905cda0ef7ccbe24dc7865a01261458606397"
+    },
+    {
+      "itemKey": "pronunciation:initial-contrast-jqx-zhchsh-zcs",
+      "itemType": "pronunciation",
+      "itemId": "initial-contrast-jqx-zhchsh-zcs",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-2"
+        }
+      ],
+      "payload": {
+        "targetKind": "initial-contrast",
+        "targets": [
+          "j/q/x",
+          "zh/ch/sh",
+          "z/c/s"
+        ],
+        "concept": "Âm đầu tiếng Trung thay đổi theo vị trí lưỡi và luồng hơi.",
+        "rule": "j/q/x đặt mặt lưỡi gần ngạc cứng; zh/ch/sh cuộn đầu lưỡi; z/c/s giữ đầu lưỡi gần răng. q, ch, c bật hơi rõ hơn cặp tương ứng.",
+        "examples": [
+          {
+            "chinese": "谢谢",
+            "pinyin": "xièxie",
+            "meaning": "cảm ơn"
+          },
+          {
+            "chinese": "中国",
+            "pinyin": "Zhōngguó",
+            "meaning": "Trung Quốc"
+          }
+        ],
+        "pitfall": "Thay q bằng âm 'ch' tiếng Việt hoặc đọc zh giống z. Hãy kiểm tra luồng hơi bằng lòng bàn tay.",
+        "checkpoint": "Phân biệt được x–sh và z–zh khi chỉ nghe âm thanh.",
+        "sourceLessonIds": [
+          "boot-3"
+        ]
+      },
+      "payloadSha256": "sha256:8f62d911bf108a31ebc8e674740800bde2d0d7aaaa11c35e380a1a0dbbe4f854"
+    },
+    {
+      "itemKey": "pronunciation:sandhi-third-third",
+      "itemType": "pronunciation",
+      "itemId": "sandhi-third-third",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-3"
+        }
+      ],
+      "payload": {
+        "targetKind": "tone-sandhi",
+        "targets": [
+          "3+3 -> 2+3"
+        ],
+        "concept": "Thanh điệu thay đổi hình thức trong chuỗi âm nhưng không đổi thanh gốc của từ.",
+        "rule": "Hai thanh 3 liên tiếp thường thành 2 + 3. 不 đọc bú trước thanh 4; 一 đổi thanh tùy âm đứng sau.",
+        "examples": [
+          {
+            "chinese": "你好",
+            "pinyin": "ní hǎo",
+            "meaning": "xin chào"
+          },
+          {
+            "chinese": "不是",
+            "pinyin": "bú shì",
+            "meaning": "không phải"
+          }
+        ],
+        "pitfall": "Viết pinyin theo biến điệu. Từ điển vẫn ghi thanh gốc nǐ hǎo và bù shì.",
+        "checkpoint": "Nói liền 你好 và 不是 mà không ngắt giữa hai âm tiết.",
+        "sourceLessonIds": [
+          "boot-4"
+        ]
+      },
+      "payloadSha256": "sha256:537aee756407cfcb0ca5d9a514243c6ebea0a1917733d7d236057ed230502637"
+    },
+    {
+      "itemKey": "pronunciation:sandhi-bu-before-fourth",
+      "itemType": "pronunciation",
+      "itemId": "sandhi-bu-before-fourth",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-3"
+        }
+      ],
+      "payload": {
+        "targetKind": "tone-sandhi",
+        "targets": [
+          "bu4+4 -> 2+4"
+        ],
+        "concept": "Thanh điệu thay đổi hình thức trong chuỗi âm nhưng không đổi thanh gốc của từ.",
+        "rule": "Hai thanh 3 liên tiếp thường thành 2 + 3. 不 đọc bú trước thanh 4; 一 đổi thanh tùy âm đứng sau.",
+        "examples": [
+          {
+            "chinese": "你好",
+            "pinyin": "ní hǎo",
+            "meaning": "xin chào"
+          },
+          {
+            "chinese": "不是",
+            "pinyin": "bú shì",
+            "meaning": "không phải"
+          }
+        ],
+        "pitfall": "Viết pinyin theo biến điệu. Từ điển vẫn ghi thanh gốc nǐ hǎo và bù shì.",
+        "checkpoint": "Nói liền 你好 và 不是 mà không ngắt giữa hai âm tiết.",
+        "sourceLessonIds": [
+          "boot-4"
+        ]
+      },
+      "payloadSha256": "sha256:c98a99de9d9bb530961842cf3dcfe3e812d9e87e9bd0510753c92856e1a8e59c"
+    },
+    {
+      "itemKey": "pronunciation:sandhi-yi-before-1-2-3",
+      "itemType": "pronunciation",
+      "itemId": "sandhi-yi-before-1-2-3",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-3"
+        }
+      ],
+      "payload": {
+        "targetKind": "tone-sandhi",
+        "targets": [
+          "yi1+1/2/3 -> 4+1/2/3"
+        ],
+        "concept": "Thanh điệu thay đổi hình thức trong chuỗi âm nhưng không đổi thanh gốc của từ.",
+        "rule": "Hai thanh 3 liên tiếp thường thành 2 + 3. 不 đọc bú trước thanh 4; 一 đổi thanh tùy âm đứng sau.",
+        "examples": [
+          {
+            "chinese": "你好",
+            "pinyin": "ní hǎo",
+            "meaning": "xin chào"
+          },
+          {
+            "chinese": "不是",
+            "pinyin": "bú shì",
+            "meaning": "không phải"
+          }
+        ],
+        "pitfall": "Viết pinyin theo biến điệu. Từ điển vẫn ghi thanh gốc nǐ hǎo và bù shì.",
+        "checkpoint": "Nói liền 你好 và 不是 mà không ngắt giữa hai âm tiết.",
+        "sourceLessonIds": [
+          "boot-4"
+        ]
+      },
+      "payloadSha256": "sha256:247d7af325e1c7a1b8af362cab61328d05c5a2b2c410f1b46db74392a8048dd5"
+    },
+    {
+      "itemKey": "grammar:shi-nominal-predicate",
+      "itemType": "grammar",
+      "itemId": "shi-nominal-predicate",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-4"
+        }
+      ],
+      "payload": {
+        "concept": "是 nối chủ thể với danh tính, nghề nghiệp hoặc phân loại.",
+        "rule": "Cấu trúc: A + 是 + B. Phủ định đặt 不 trước 是: A + 不是 + B.",
+        "examples": [
+          {
+            "chinese": "我是学生。",
+            "pinyin": "Wǒ shì xuésheng.",
+            "meaning": "Tôi là sinh viên."
+          },
+          {
+            "chinese": "她不是老师。",
+            "pinyin": "Tā bú shì lǎoshī.",
+            "meaning": "Cô ấy không phải giáo viên."
+          }
+        ],
+        "pitfall": "Dùng 是 trước tính từ: 我是很好. Với tính từ trạng thái, nói 我很好.",
+        "checkpoint": "Tự giới thiệu vai trò và phủ định một vai trò sai.",
+        "sourceLessonIds": [
+          "survival-1"
+        ]
+      },
+      "payloadSha256": "sha256:a68fa0bbf8d01c00be5c9a1a154e5cf632fdeb11292df4b5762056045402c93e"
+    },
+    {
+      "itemKey": "grammar:ma-polar-question",
+      "itemType": "grammar",
+      "itemId": "ma-polar-question",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-1"
+        }
+      ],
+      "payload": {
+        "concept": "吗 biến một câu trần thuật thành câu hỏi có/không.",
+        "rule": "Giữ nguyên trật tự câu rồi thêm 吗 ở cuối. Trả lời ngắn bằng động từ chính hoặc dạng phủ định của nó.",
+        "examples": [
+          {
+            "chinese": "你是学生吗？",
+            "pinyin": "Nǐ shì xuésheng ma?",
+            "meaning": "Bạn là sinh viên phải không?"
+          },
+          {
+            "chinese": "是。/ 不是。",
+            "pinyin": "Shì. / Bú shì.",
+            "meaning": "Phải. / Không phải."
+          }
+        ],
+        "pitfall": "Vừa dùng 吗 vừa đảo trật tự như tiếng Việt. Tiếng Trung không cần đảo chủ ngữ và động từ.",
+        "checkpoint": "Tạo được một câu hỏi 吗 và trả lời bằng đúng động từ.",
+        "sourceLessonIds": [
+          "survival-2"
+        ]
+      },
+      "payloadSha256": "sha256:4ec2e683ca7ad6476405e17578c0a9dc52734170d41b9a538fed1f8590c13df1"
+    },
+    {
+      "itemKey": "grammar:you-quantity-ge",
+      "itemType": "grammar",
+      "itemId": "you-quantity-ge",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-4"
+        }
+      ],
+      "payload": {
+        "concept": "有 diễn đạt sở hữu; số lượng cần lượng từ trước danh từ.",
+        "rule": "Cấu trúc: Chủ thể + 有 + số + 个 + 人. 个 là lượng từ phổ biến cho người trong mẫu cơ bản.",
+        "examples": [
+          {
+            "chinese": "我家有三个人。",
+            "pinyin": "Wǒ jiā yǒu sān ge rén.",
+            "meaning": "Nhà tôi có ba người."
+          },
+          {
+            "chinese": "你家有几个人？",
+            "pinyin": "Nǐ jiā yǒu jǐ ge rén?",
+            "meaning": "Nhà bạn có mấy người?"
+          }
+        ],
+        "pitfall": "Đặt số trực tiếp trước danh từ mà thiếu lượng từ 个.",
+        "checkpoint": "Nói được số người trong gia đình và hỏi lại người đối diện.",
+        "sourceLessonIds": [
+          "daily-1"
+        ]
+      },
+      "payloadSha256": "sha256:22107efd50c48cb88142ef9dcccab2306c1c2c4efcb7722a455743f22a32f042"
+    },
+    {
+      "itemKey": "grammar:time-expression-position",
+      "itemType": "grammar",
+      "itemId": "time-expression-position",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-2"
+        }
+      ],
+      "payload": {
+        "concept": "Từ chỉ thời gian thường đứng sau chủ ngữ hoặc ở đầu câu.",
+        "rule": "今天 có thể đứng đầu câu để đặt bối cảnh. Tiếng Trung không chia động từ theo thời.",
+        "examples": [
+          {
+            "chinese": "今天天气很好。",
+            "pinyin": "Jīntiān tiānqì hěn hǎo.",
+            "meaning": "Hôm nay thời tiết rất đẹp."
+          },
+          {
+            "chinese": "我今天看书。",
+            "pinyin": "Wǒ jīntiān kàn shū.",
+            "meaning": "Hôm nay tôi đọc sách."
+          }
+        ],
+        "pitfall": "Đổi hình thức động từ để biểu thị hiện tại như trong một số ngôn ngữ châu Âu.",
+        "checkpoint": "Đặt 今天 đúng vị trí trong hai mẫu câu khác nhau.",
+        "sourceLessonIds": [
+          "daily-3"
+        ]
+      },
+      "payloadSha256": "sha256:2eff08fc974ead43659f08bf181547b58b9bac6bda1e6bc404f2c94431d8d2e4"
+    },
+    {
+      "itemKey": "grammar:de-possession",
+      "itemType": "grammar",
+      "itemId": "de-possession",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-3"
+        }
+      ],
+      "payload": {
+        "concept": "的 nối người/vật sở hữu với danh từ được sở hữu.",
+        "rule": "Cấu trúc: người sở hữu + 的 + vật. Với quan hệ rất gần, 的 đôi khi được lược bỏ, nhưng người mới nên giữ để rõ cấu trúc.",
+        "examples": [
+          {
+            "chinese": "这是我的书。",
+            "pinyin": "Zhè shì wǒ de shū.",
+            "meaning": "Đây là sách của tôi."
+          },
+          {
+            "chinese": "老师的书",
+            "pinyin": "lǎoshī de shū",
+            "meaning": "sách của giáo viên"
+          }
+        ],
+        "pitfall": "Đảo thành 书的我. Thành phần sở hữu luôn đứng trước 的.",
+        "checkpoint": "Chỉ được ba đồ vật và nói chúng thuộc về ai.",
+        "sourceLessonIds": [
+          "daily-4"
+        ]
+      },
+      "payloadSha256": "sha256:f134365fd96f4cec1e5ff8d96675b3f57d403f3f7485a72f287c7a123d248e41"
+    },
+    {
+      "itemKey": "communicative-function:greet-and-self-reference",
+      "itemType": "communicative-function",
+      "itemId": "greet-and-self-reference",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-1"
+        }
+      ],
+      "payload": {
+        "canDo": "Chào một người và tự xưng bằng 我 mà không nhìn phiên âm.",
+        "context": "Lượt thoại đầu tiên chỉ cần đúng đại từ, lời chào và nhịp câu.",
+        "examples": [
+          {
+            "chinese": "你好！",
+            "pinyin": "Nǐ hǎo!",
+            "meaning": "Xin chào!"
+          },
+          {
+            "chinese": "我很好。",
+            "pinyin": "Wǒ hěn hǎo.",
+            "meaning": "Tôi rất khỏe."
+          }
+        ],
+        "sourceLessonIds": [
+          "boot-2"
+        ]
+      },
+      "payloadSha256": "sha256:d40ce7d435362774cda24bfca9be1f3cd0cd6699fce5ae52bd19c912423db820"
+    },
+    {
+      "itemKey": "communicative-function:introduce-and-deny-role",
+      "itemType": "communicative-function",
+      "itemId": "introduce-and-deny-role",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "boot-4"
+        }
+      ],
+      "payload": {
+        "canDo": "Tự giới thiệu vai trò và phủ định một vai trò sai.",
+        "context": "是 nối chủ thể với danh tính, nghề nghiệp hoặc phân loại.",
+        "examples": [
+          {
+            "chinese": "我是学生。",
+            "pinyin": "Wǒ shì xuésheng.",
+            "meaning": "Tôi là sinh viên."
+          },
+          {
+            "chinese": "她不是老师。",
+            "pinyin": "Tā bú shì lǎoshī.",
+            "meaning": "Cô ấy không phải giáo viên."
+          }
+        ],
+        "sourceLessonIds": [
+          "survival-1"
+        ]
+      },
+      "payloadSha256": "sha256:ffb4df1b265afbfe18d9ce4342fa1a8e0cac6fb44ad0a68a773e0b28144364c3"
+    },
+    {
+      "itemKey": "communicative-function:ask-and-answer-polar-question",
+      "itemType": "communicative-function",
+      "itemId": "ask-and-answer-polar-question",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-1"
+        }
+      ],
+      "payload": {
+        "canDo": "Tạo được một câu hỏi 吗 và trả lời bằng đúng động từ.",
+        "context": "吗 biến một câu trần thuật thành câu hỏi có/không.",
+        "examples": [
+          {
+            "chinese": "你是学生吗？",
+            "pinyin": "Nǐ shì xuésheng ma?",
+            "meaning": "Bạn là sinh viên phải không?"
+          },
+          {
+            "chinese": "是。/ 不是。",
+            "pinyin": "Shì. / Bú shì.",
+            "meaning": "Phải. / Không phải."
+          }
+        ],
+        "sourceLessonIds": [
+          "survival-2"
+        ]
+      },
+      "payloadSha256": "sha256:9638a098cb8446fe766db04ba7906f65859039ae0d8fd24437a676432ad795b8"
+    },
+    {
+      "itemKey": "communicative-function:thank-and-close-turn",
+      "itemType": "communicative-function",
+      "itemId": "thank-and-close-turn",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-2"
+        }
+      ],
+      "payload": {
+        "canDo": "Mở và kết thúc một lượt thoại lịch sự.",
+        "context": "Cụm xã giao cần đúng ngữ cảnh và ngữ điệu, không chỉ đúng nghĩa từ.",
+        "examples": [
+          {
+            "chinese": "谢谢你！",
+            "pinyin": "Xièxie nǐ!",
+            "meaning": "Cảm ơn bạn!"
+          },
+          {
+            "chinese": "老师，再见！",
+            "pinyin": "Lǎoshī, zàijiàn!",
+            "meaning": "Tạm biệt thầy/cô!"
+          }
+        ],
+        "sourceLessonIds": [
+          "survival-3"
+        ]
+      },
+      "payloadSha256": "sha256:5d49004e3823f325f67bbe72e9f9c4d05ae28adbc33807b90e46b0aaaa0661d0"
+    },
+    {
+      "itemKey": "communicative-function:state-nationality-and-origin",
+      "itemType": "communicative-function",
+      "itemId": "state-nationality-and-origin",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-3"
+        }
+      ],
+      "payload": {
+        "canDo": "Nói được quốc tịch và nơi đến bằng hai cấu trúc khác nhau.",
+        "context": "Quốc tịch thường được tạo bằng tên quốc gia + 人.",
+        "examples": [
+          {
+            "chinese": "我是越南人。",
+            "pinyin": "Wǒ shì Yuènán rén.",
+            "meaning": "Tôi là người Việt Nam."
+          },
+          {
+            "chinese": "我来自越南。",
+            "pinyin": "Wǒ láizì Yuènán.",
+            "meaning": "Tôi đến từ Việt Nam."
+          }
+        ],
+        "sourceLessonIds": [
+          "survival-4"
+        ]
+      },
+      "payloadSha256": "sha256:25257fe8de18d526f54df01a8ea23a69f38f86568e1e1bfeac7e3bbeae82d76e"
+    },
+    {
+      "itemKey": "communicative-function:state-and-ask-family-size",
+      "itemType": "communicative-function",
+      "itemId": "state-and-ask-family-size",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "survival-4"
+        }
+      ],
+      "payload": {
+        "canDo": "Nói được số người trong gia đình và hỏi lại người đối diện.",
+        "context": "有 diễn đạt sở hữu; số lượng cần lượng từ trước danh từ.",
+        "examples": [
+          {
+            "chinese": "我家有三个人。",
+            "pinyin": "Wǒ jiā yǒu sān ge rén.",
+            "meaning": "Nhà tôi có ba người."
+          },
+          {
+            "chinese": "你家有几个人？",
+            "pinyin": "Nǐ jiā yǒu jǐ ge rén?",
+            "meaning": "Nhà bạn có mấy người?"
+          }
+        ],
+        "sourceLessonIds": [
+          "daily-1"
+        ]
+      },
+      "payloadSha256": "sha256:6169414797108d9d6e1248511eb59ec8c3b9fa4043cc108f7dc65eb2e97af170"
+    },
+    {
+      "itemKey": "communicative-function:state-and-ask-food-drink",
+      "itemType": "communicative-function",
+      "itemId": "state-and-ask-food-drink",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-1"
+        }
+      ],
+      "payload": {
+        "canDo": "Nói một thứ bạn ăn, một thứ bạn uống và hỏi người khác.",
+        "context": "Động từ ăn/uống đứng trước món; chủ ngữ thường được giữ rõ ở giai đoạn đầu.",
+        "examples": [
+          {
+            "chinese": "我吃米饭。",
+            "pinyin": "Wǒ chī mǐfàn.",
+            "meaning": "Tôi ăn cơm."
+          },
+          {
+            "chinese": "你喝茶吗？",
+            "pinyin": "Nǐ hē chá ma?",
+            "meaning": "Bạn uống trà không?"
+          }
+        ],
+        "sourceLessonIds": [
+          "daily-2"
+        ]
+      },
+      "payloadSha256": "sha256:36c1779f43c57af6d01515a48e9e45b88d612423c2ca5184d75ec267ace0985e"
+    },
+    {
+      "itemKey": "communicative-function:identify-possession",
+      "itemType": "communicative-function",
+      "itemId": "identify-possession",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-3"
+        }
+      ],
+      "payload": {
+        "canDo": "Chỉ được ba đồ vật và nói chúng thuộc về ai.",
+        "context": "的 nối người/vật sở hữu với danh từ được sở hữu.",
+        "examples": [
+          {
+            "chinese": "这是我的书。",
+            "pinyin": "Zhè shì wǒ de shū.",
+            "meaning": "Đây là sách của tôi."
+          },
+          {
+            "chinese": "老师的书",
+            "pinyin": "lǎoshī de shū",
+            "meaning": "sách của giáo viên"
+          }
+        ],
+        "sourceLessonIds": [
+          "daily-4"
+        ]
+      },
+      "payloadSha256": "sha256:d3c56d38bc715f8927933936d29c130094f1c5270a0d98abac89dba1cac4c0cb"
+    },
+    {
+      "itemKey": "character:u4e00",
+      "itemType": "character",
+      "itemId": "u4e00",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-4"
+        }
+      ],
+      "payload": {
+        "character": "一",
+        "traditional": "一",
+        "pinyin": "yī",
+        "meaning": "một",
+        "sourceLexemeIds": [
+          "yi"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:31be96c14170ef69143bcd2a7316a8f13caa9fea9fb143e35405f386bef5a298"
+    },
+    {
+      "itemKey": "character:u4e8c",
+      "itemType": "character",
+      "itemId": "u4e8c",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-4"
+        }
+      ],
+      "payload": {
+        "character": "二",
+        "traditional": "二",
+        "pinyin": "èr",
+        "meaning": "hai",
+        "sourceLexemeIds": [
+          "er"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:75ae285ab5174a314abdf57fc19d199c3428cf41753036008305a9fbd37c8364"
+    },
+    {
+      "itemKey": "character:u4e09",
+      "itemType": "character",
+      "itemId": "u4e09",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-4"
+        }
+      ],
+      "payload": {
+        "character": "三",
+        "traditional": "三",
+        "pinyin": "sān",
+        "meaning": "ba",
+        "sourceLexemeIds": [
+          "san"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:e30d0d04ffef4aa14298d7a12c59457ffc850e4ea91d3fff9d9ef5b6ae800822"
+    },
+    {
+      "itemKey": "character:u4eba",
+      "itemType": "character",
+      "itemId": "u4eba",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-4"
+        }
+      ],
+      "payload": {
+        "character": "人",
+        "traditional": "人",
+        "pinyin": "rén",
+        "meaning": "người",
+        "sourceLexemeIds": [
+          "ren"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:9aa75237ec56bd8a2eb42774962e94d290c2e5c9153fc42e1299606f1aa1882d"
+    },
+    {
+      "itemKey": "character:u4f60",
+      "itemType": "character",
+      "itemId": "u4f60",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-1"
+        }
+      ],
+      "payload": {
+        "character": "你",
+        "traditional": "你",
+        "pinyin": "nǐ",
+        "meaning": "bạn",
+        "sourceLexemeIds": [
+          "ni"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:7fe26435d7f899f37df64fbf554e82ad14d90b63324d586ba14d70141b7d0b8a"
+    },
+    {
+      "itemKey": "character:u597d",
+      "itemType": "character",
+      "itemId": "u597d",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-1"
+        }
+      ],
+      "payload": {
+        "character": "好",
+        "traditional": "好",
+        "pinyin": "hǎo",
+        "meaning": "tốt, khỏe",
+        "sourceLexemeIds": [
+          "hao"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:28f2c31d882455b05e7bd14841fa1d21fc8923b5cc47a2262d75b33f851a03ba"
+    },
+    {
+      "itemKey": "character:u5bb6",
+      "itemType": "character",
+      "itemId": "u5bb6",
+      "itemVersion": "foundation-2026.07.5",
+      "releaseState": "review",
+      "owner": null,
+      "sourceLicense": null,
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "characters-1"
+        }
+      ],
+      "payload": {
+        "character": "家",
+        "traditional": "家",
+        "pinyin": "jiā",
+        "meaning": "nhà, gia đình",
+        "sourceLexemeIds": [
+          "jia"
+        ],
+        "radical": null,
+        "strokeCount": null,
+        "components": null,
+        "structure": null,
+        "strokeDataRef": null,
+        "strokeDataSha256": null
+      },
+      "payloadSha256": "sha256:c9e31ca92a1ca4f09c4da4d57926023d09c6661b10c91c518a994a96c9517427"
+    }
+  ],
+  "audioAssets": []
+}

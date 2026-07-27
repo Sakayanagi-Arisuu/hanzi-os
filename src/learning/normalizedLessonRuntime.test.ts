@@ -45,7 +45,13 @@ import {
 
 const ROOT_LESSON = LESSON_BY_ID.get("boot-1")!;
 const LOCKED_LESSON = LESSON_BY_ID.get("boot-2")!;
-const DRAFT_LESSON = LESSON_BY_ID.get("characters-3")!;
+const SYNTHETIC_DRAFT_LESSON: Lesson = {
+  ...ROOT_LESSON,
+  id: "synthetic-draft-lesson",
+  title: `${ROOT_LESSON.title} (draft fixture)`,
+  releaseState: "draft",
+  prerequisiteIds: [],
+};
 const ENROLLMENT_ID = "enrollment:runtime";
 const OPEN_COMMAND_ID = "lesson-open:runtime:test";
 const NOW = "2026-07-22T10:00:00.000Z";
@@ -99,6 +105,29 @@ const progress = (
   const result = deriveAuthoritativeReleasedLessonProgress(projection);
   if (!result) throw new Error("Test projection must yield exact progress.");
   return result;
+};
+
+const releasedPrerequisitesFor = (lesson: Lesson): Lesson[] => {
+  const prerequisites: Lesson[] = [];
+  const visited = new Set<string>();
+
+  const visit = (lessonId: string) => {
+    if (visited.has(lessonId)) return;
+    const prerequisite = LESSON_BY_ID.get(lessonId);
+    if (!prerequisite) {
+      throw new Error(`Released prerequisite ${lessonId} must exist.`);
+    }
+    for (const prerequisiteId of prerequisite.prerequisiteIds) {
+      visit(prerequisiteId);
+    }
+    visited.add(lessonId);
+    prerequisites.push(prerequisite);
+  };
+
+  for (const prerequisiteId of lesson.prerequisiteIds) {
+    visit(prerequisiteId);
+  }
+  return prerequisites;
 };
 
 const formFor = (
@@ -242,11 +271,8 @@ describe("normalized lesson server-form materializer", () => {
   it("resolves randomized forms for every released lesson from form-independent catalogs", async () => {
     const presentations = new Map<string, string>();
     let reusedPresentationCount = 0;
-    for (let lessonIndex = 0; lessonIndex < RELEASED_LESSONS.length; lessonIndex += 1) {
-      const lesson = RELEASED_LESSONS[lessonIndex];
-      const authoritativeProgress = progress(
-        RELEASED_LESSONS.slice(0, lessonIndex),
-      );
+    for (const lesson of RELEASED_LESSONS) {
+      const authoritativeProgress = progress(releasedPrerequisitesFor(lesson));
       for (const script of ["simplified", "traditional"] as const) {
         for (const randomValue of [0.05, 0.55]) {
           const serverForm = formFor(
@@ -481,7 +507,11 @@ describe("normalized lesson server-form materializer", () => {
 
   it("fails closed for draft lessons, locked prerequisites, and withdrawn progress", async () => {
     await expect(materializeNormalizedLessonRuntime(
-      await materializeInput(DRAFT_LESSON, progress(), formFor(DRAFT_LESSON)),
+      await materializeInput(
+        SYNTHETIC_DRAFT_LESSON,
+        progress(),
+        formFor(SYNTHETIC_DRAFT_LESSON),
+      ),
     )).resolves.toMatchObject({ ok: false, code: "lesson-unavailable" });
 
     await expect(materializeNormalizedLessonRuntime(
