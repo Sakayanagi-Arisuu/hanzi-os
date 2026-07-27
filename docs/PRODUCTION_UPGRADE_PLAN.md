@@ -279,8 +279,16 @@ This remains a technical authoring envelope, not completed WS2. The candidate
   character inventory, immutable linguistic source records and byte-inspected
   Hanzi Writer stroke data before atomic handoff. Target record keys,
   independent and compound invariants, source use and hash drift fail closed;
-  legacy character fields are release-ineligible. The Characters UI no longer
-  promotes vocabulary-derived or hard-coded character claims, and no stroke
+  legacy character fields are release-ineligible. Schema-v6 lifecycle tooling
+  now preserves and reinspects both audio and character artifacts across
+  routine versioning and specialized imports, permits only same-target audio
+  replacement, and rejects target removal without an explicit retirement
+  workflow. Package leaves/snapshots are captured through a trusted regular-file
+  boundary before staged validation. Dependency validation is iterative and
+  uses a bounded reachability index; a matched 10,000-lesson item/runtime graph
+  with a knowledge-item frontier is covered without quadratic closure scans. The
+  Characters UI no longer promotes vocabulary-derived or hard-coded character
+  claims, and no stroke
   geometry is copied to the public build yet. No real audio, character source
   candidate or human evidence was fabricated or added to the current
   candidate.

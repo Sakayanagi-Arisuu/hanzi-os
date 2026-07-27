@@ -50,6 +50,15 @@ Characters UI fail closed và public build không phát stroke JSON, nên toolin
 mới không làm nội dung chưa duyệt xuất hiện với người học. Candidate `.07.5`
 và registry hiện tại không bị thay đổi bởi lát triển khai tooling này.
 
+Lifecycle schema v6 bảo toàn cả audio lẫn character artifact qua routine
+versioning và hai importer chuyên biệt. Bytes kế thừa được capture một lần từ
+regular file trong trusted package tree, kiểm identity/realpath, ghi vào staging
+rồi inspect lại trước registry handoff. Audio target chỉ được rebind khi
+transcript vẫn canonical; thay asset phải giữ cùng target, còn xóa target đang
+bind bị từ chối vì retirement chưa được triển khai. Validation graph dùng
+iterative traversal và reachability bitset có giới hạn bộ nhớ/edge để tránh
+stack overflow và closure scan bậc hai nhưng vẫn fail closed khi vượt trần.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text

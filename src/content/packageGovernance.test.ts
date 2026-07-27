@@ -13,6 +13,7 @@ import {
   assessClosedAlphaEligibility,
   assessPublicationEligibility,
 } from "./publicationPolicy";
+import { projectSanitizedRuntimeCatalog } from "./governance.mjs";
 import type {
   CharacterCatalogPayloadV2,
   ContentCatalogItem,
@@ -20,10 +21,14 @@ import type {
   ContentPackageManifest,
   ContentRegistry,
   ContentReviewArtifact,
+  ContentValidationResult,
   CoverageClaimsArtifact,
   ItemCatalogArtifact,
+  LexemeCatalogItem,
+  LessonCatalogItemV2,
   RuntimeCatalogArtifact,
   RuntimeIdArtifact,
+  Sha256Digest,
 } from "./types";
 
 const readJson = <T>(relativePath: string): T =>
@@ -1709,6 +1714,72 @@ describe("content package governance", () => {
       error.startsWith("Item prerequisite cycle detected at "))).toBe(true);
   });
 
+  it("rejects a knowledge-item frontier that implies an unreachable lesson", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.itemCatalog?.schemaVersion !== 2) {
+      throw new Error("Schema-v4 catalog fixture is missing");
+    }
+    const grammar = bundle.itemCatalog.items.find(
+      (item) => item.itemKey === "grammar:shi-nominal-predicate",
+    );
+    const sourceLesson = bundle.itemCatalog.items.find(
+      (item) => item.itemKey === "lesson:survival-1",
+    );
+    if (
+      !grammar
+      || grammar.itemType !== "grammar"
+      || !sourceLesson
+      || sourceLesson.itemType !== "lesson"
+    ) {
+      throw new Error("Knowledge frontier fixture is missing");
+    }
+    const unreachableLessonId = "frontier-unreachable";
+    const unreachablePayload = {
+      ...sourceLesson.payload,
+      title: "Unreachable frontier fixture",
+      chineseTitle: "不可达前沿",
+      objective: "Exercise the indexed non-lesson frontier",
+      wordIds: [],
+    };
+    const unreachablePayloadSha256 = await sha256Json({
+      itemType: "lesson",
+      payload: unreachablePayload,
+    });
+    bundle.runtimeIds.lessons.push({
+      id: unreachableLessonId,
+      unitId: unreachablePayload.unitId,
+      releaseState: "draft",
+      prerequisiteIds: [],
+      wordIds: [],
+    });
+    bundle.itemCatalog.items.push({
+      itemKey: `lesson:${unreachableLessonId}`,
+      itemType: "lesson",
+      itemId: unreachableLessonId,
+      itemVersion: bundle.itemCatalog.contentVersion,
+      releaseState: "draft",
+      payload: unreachablePayload,
+      payloadSha256: unreachablePayloadSha256,
+      owner: null,
+      sourceLicense: null,
+      prerequisites: [],
+      knowledgeItems: [],
+    });
+    grammar.prerequisites = [{
+      itemType: "lesson",
+      itemId: unreachableLessonId,
+    }];
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toContain(
+      `lesson:survival-1: implied lesson prerequisites are absent from runtime-ids.json: ${unreachableLessonId}`,
+    );
+    expect(validation.errors).toContain(
+      `runtime-catalog projection failed: Released lesson survival-1 has implied lesson prerequisites absent from the runtime graph: ${unreachableLessonId}`,
+    );
+  });
+
   it("rejects runtime catalogs carrying governance fields or non-canonical content", async () => {
     const bundle = structuredClone(loadCheckedInBundle());
     if (bundle.runtimeCatalog === null) {
@@ -2287,4 +2358,375 @@ describe("content package governance", () => {
       "Released catalog items missing item-level governance or exact scoped review: 354",
     );
   });
+
+  it("fails closed before graph traversal above the 200,000-edge reachability bound", () => {
+    const catalog = structuredClone(loadCheckedInBundle().itemCatalog);
+    if (catalog?.schemaVersion !== 2) {
+      throw new Error("Reachability edge-limit fixture requires catalog schema v2");
+    }
+    const lessonTemplate = catalog.items.find(
+      (item) => item.itemType === "lesson",
+    );
+    const grammarTemplate = catalog.items.find(
+      (item) => item.itemType === "grammar",
+    );
+    if (
+      !lessonTemplate
+      || lessonTemplate.itemType !== "lesson"
+      || !grammarTemplate
+      || grammarTemplate.itemType !== "grammar"
+    ) {
+      throw new Error("Reachability edge-limit fixture is incomplete");
+    }
+    const targetReference = {
+      itemType: "grammar" as const,
+      itemId: "edge-limit-target",
+    };
+    catalog.items = [
+      {
+        ...lessonTemplate,
+        itemKey: "lesson:edge-limit-root",
+        itemId: "edge-limit-root",
+        releaseState: "beta",
+        payload: {
+          ...lessonTemplate.payload,
+          wordIds: [],
+        },
+        prerequisites: [],
+        knowledgeItems: [],
+      },
+      {
+        ...grammarTemplate,
+        itemKey: "grammar:edge-limit-source",
+        itemId: "edge-limit-source",
+        releaseState: "draft",
+        prerequisites: Array(200_001).fill(targetReference),
+      },
+      {
+        ...grammarTemplate,
+        itemKey: "grammar:edge-limit-target",
+        itemId: "edge-limit-target",
+        releaseState: "draft",
+        prerequisites: [],
+      },
+    ];
+
+    expect(() => projectSanitizedRuntimeCatalog(catalog)).toThrow(
+      /^Runtime projection lesson dependency reachability exceeds 200000 edges$/,
+    );
+  });
+
+  it("fails closed before allocating an index above the 32 MiB reachability bound", () => {
+    const catalog = structuredClone(loadCheckedInBundle().itemCatalog);
+    if (catalog?.schemaVersion !== 2) {
+      throw new Error("Reachability index-limit fixture requires catalog schema v2");
+    }
+    const lessonTemplate = catalog.items.find(
+      (item) => item.itemType === "lesson",
+    );
+    if (!lessonTemplate || lessonTemplate.itemType !== "lesson") {
+      throw new Error("Reachability index-limit fixture is incomplete");
+    }
+    const lessonCount = 16_385;
+    catalog.items = Array.from(
+      { length: lessonCount },
+      (_, index): LessonCatalogItemV2 => ({
+        ...lessonTemplate,
+        itemKey: `lesson:index-limit-${index}`,
+        itemId: `index-limit-${index}`,
+        releaseState: "beta",
+        payload: {
+          ...lessonTemplate.payload,
+          wordIds: [],
+        },
+        prerequisites: [],
+        knowledgeItems: [],
+      }),
+    );
+
+    expect(() => projectSanitizedRuntimeCatalog(catalog)).toThrow(
+      /^Runtime projection lesson dependency reachability index exceeds 33554432 bytes$/,
+    );
+  });
+
+  it.each([
+    ["acyclic", false],
+    ["cyclic", true],
+  ] as const)(
+    "validates a 10,000-node runtime forward chain without overflowing (%s)",
+    async (_variant, cyclic) => {
+      const bundle = structuredClone(loadCheckedInBundle());
+      const unitId = bundle.runtimeIds.unitIds[0];
+      if (!unitId) throw new Error("Runtime stress fixture requires a unit");
+      const nodeCount = 10_000;
+      bundle.runtimeIds.lessons = Array.from({ length: nodeCount }, (_, index) => ({
+        id: `runtime-stress-${index}`,
+        unitId,
+        releaseState: "draft",
+        prerequisiteIds: index === nodeCount - 1
+          ? (cyclic ? ["runtime-stress-0"] : [])
+          : [`runtime-stress-${index + 1}`],
+        wordIds: [],
+      }));
+
+      const validation = await validateContentBundle(bundle);
+
+      expect(
+        validation.errors.filter((error) =>
+          error.startsWith("Prerequisite cycle detected at ")),
+      ).toEqual(
+        cyclic ? ["Prerequisite cycle detected at runtime-stress-0"] : [],
+      );
+    },
+    20_000,
+  );
+
+  it.each([
+    ["acyclic", false],
+    ["cyclic", true],
+  ] as const)(
+    "validates a 10,000-node item forward chain without overflowing (%s)",
+    async (_variant, cyclic) => {
+      const bundle = structuredClone(loadCheckedInBundle());
+      if (bundle.itemCatalog === null) {
+        throw new Error("Item stress fixture requires a catalog");
+      }
+      const template = bundle.itemCatalog.items.find(
+        (item) => item.itemType === "lexeme",
+      );
+      if (!template || template.itemType !== "lexeme") {
+        throw new Error("Item stress fixture requires a lexeme");
+      }
+      const nodeCount = 10_000;
+      bundle.itemCatalog.items = Array.from(
+        { length: nodeCount },
+        (_, index): LexemeCatalogItem => ({
+          itemKey: `lexeme:item-stress-${index}`,
+          itemType: "lexeme",
+          itemId: `item-stress-${index}`,
+          itemVersion: bundle.itemCatalog!.contentVersion,
+          releaseState: "draft",
+          payload: template.payload,
+          payloadSha256: template.payloadSha256,
+          owner: null,
+          sourceLicense: null,
+          prerequisites: index === nodeCount - 1
+            ? (cyclic
+                ? [{ itemType: "lexeme", itemId: "item-stress-0" }]
+                : [])
+            : [{
+                itemType: "lexeme",
+                itemId: `item-stress-${index + 1}`,
+              }],
+        }),
+      );
+
+      const validation = await validateContentBundle(bundle);
+
+      expect(
+        validation.errors.filter((error) =>
+          error.startsWith("Item prerequisite cycle detected at ")),
+      ).toEqual(
+        cyclic
+          ? ["Item prerequisite cycle detected at lexeme:item-stress-0"]
+          : [],
+      );
+    },
+    20_000,
+  );
+
+  it("matches a 10,000-lesson item and runtime forward chain without quadratic closure scans", async () => {
+    const bundle = structuredClone(loadCheckedInBundle());
+    if (bundle.itemCatalog?.schemaVersion !== 2) {
+      throw new Error("Matched lesson stress fixture requires catalog schema v2");
+    }
+    const template = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "lesson",
+    );
+    const grammarTemplate = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "grammar",
+    );
+    const unitId = bundle.runtimeIds.unitIds[0];
+    if (
+      !template
+      || template.itemType !== "lesson"
+      || !grammarTemplate
+      || grammarTemplate.itemType !== "grammar"
+      || !unitId
+    ) {
+      throw new Error("Matched lesson stress fixture is incomplete");
+    }
+    const nodeCount = 10_000;
+    const knowledgeItemId = "matched-frontier";
+    const sourceLessonId = "matched-stress-0";
+    const prerequisiteLessonId = "matched-stress-5000";
+    const payload = {
+      ...template.payload,
+      unitId,
+      wordIds: [],
+    };
+    const payloadSha256 = await sha256Json({
+      itemType: "lesson",
+      payload,
+    });
+    const grammarPayload = {
+      ...grammarTemplate.payload,
+      sourceLessonIds: [sourceLessonId],
+    };
+    const grammarPayloadSha256 = await sha256Json({
+      itemType: "grammar",
+      payload: grammarPayload,
+    });
+    bundle.runtimeIds.vocabularyIds = [];
+    bundle.runtimeIds.unitIds = [unitId];
+    bundle.runtimeIds.stories = [];
+    bundle.runtimeIds.lessons = Array.from(
+      { length: nodeCount },
+      (_, index) => ({
+        id: `matched-stress-${index}`,
+        unitId,
+        releaseState: "beta",
+        prerequisiteIds: index === nodeCount - 1
+          ? []
+          : [`matched-stress-${index + 1}`],
+        wordIds: [],
+      }),
+    );
+    const lessonItems = Array.from(
+      { length: nodeCount },
+      (_, index): LessonCatalogItemV2 => ({
+        itemKey: `lesson:matched-stress-${index}`,
+        itemType: "lesson",
+        itemId: `matched-stress-${index}`,
+        itemVersion: bundle.itemCatalog!.contentVersion,
+        releaseState: "beta",
+        payload,
+        payloadSha256,
+        owner: null,
+        sourceLicense: null,
+        prerequisites: index === nodeCount - 1
+          ? []
+          : [{
+              itemType: "lesson",
+              itemId: `matched-stress-${index + 1}`,
+            }],
+        knowledgeItems: index === 0
+          ? [{ itemType: "grammar", itemId: knowledgeItemId }]
+          : [],
+      }),
+    );
+    const grammarItem: ContentCatalogItem = {
+      itemKey: `grammar:${knowledgeItemId}`,
+      itemType: "grammar",
+      itemId: knowledgeItemId,
+      itemVersion: bundle.itemCatalog.contentVersion,
+      releaseState: "beta",
+      payload: grammarPayload,
+      payloadSha256: grammarPayloadSha256,
+      owner: null,
+      sourceLicense: null,
+      prerequisites: [{
+        itemType: "lesson",
+        itemId: prerequisiteLessonId,
+      }],
+    };
+    bundle.itemCatalog.items = [...lessonItems, grammarItem];
+    bundle.itemCatalog.audioAssets = [];
+
+    const validation = await validateContentBundle(bundle);
+
+    expect(
+      validation.errors.filter((error) =>
+        error.includes("implied lesson prerequisites")
+        || error.includes("lesson dependency reachability")
+        || error.startsWith("runtime-catalog projection failed:")),
+    ).toEqual([]);
+  }, 30_000);
+
+  it("evaluates a reviewed 10,000-item dependency chain with shared indexes", async () => {
+    const bundle = await makeEligibleFixture("closed-alpha");
+    if (
+      bundle.itemCatalog === null
+      || bundle.reviews.schemaVersion !== 2
+    ) {
+      throw new Error("Release stress fixture requires scoped catalog reviews");
+    }
+    const template = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "lexeme",
+    );
+    if (!template || template.itemType !== "lexeme") {
+      throw new Error("Release stress fixture requires a lexeme");
+    }
+    const nodeCount = 10_000;
+    const itemKeys = Array.from(
+      { length: nodeCount },
+      (_, index): `lexeme:${string}` => `lexeme:release-stress-${index}`,
+    );
+    bundle.itemCatalog.items = itemKeys.map(
+      (itemKey, index): LexemeCatalogItem => ({
+        itemKey,
+        itemType: "lexeme",
+        itemId: `release-stress-${index}`,
+        itemVersion: bundle.itemCatalog!.contentVersion,
+        releaseState: "beta",
+        payload: template.payload,
+        payloadSha256:
+          `sha256:${index.toString(16).padStart(64, "0")}` as Sha256Digest,
+        owner: template.owner,
+        sourceLicense: template.sourceLicense,
+        prerequisites: index === nodeCount - 1
+          ? []
+          : [{
+              itemType: "lexeme",
+              itemId: `release-stress-${index + 1}`,
+            }],
+      }),
+    );
+    bundle.coverageClaims.coverageClaims = [];
+    bundle.reviews.reviews.forEach((review) => {
+      review.scope.itemKeys = itemKeys;
+      review.scope.audioAssetIds = [];
+    });
+    const manifestHash = bundle.reviews.packageManifestSha256;
+    const validation: ContentValidationResult = {
+      errors: [],
+      warnings: [],
+      hashes: {
+        manifest: manifestHash,
+        runtimeIds: manifestHash,
+        itemCatalog: manifestHash,
+        runtimeCatalog: manifestHash,
+        coverageClaims: manifestHash,
+        reviews: manifestHash,
+        assessmentSource: null,
+        runtimeSource: null,
+        knowledgeItemBlueprintsSource: null,
+        lessonGuidesSource: null,
+        exerciseGenerationSource: null,
+        attemptScoringSource: null,
+        authoritativeItemBankSource: null,
+        lessonCompletionPolicySource: null,
+        authoritativeAssessmentItemBankSource: null,
+        assessmentScoringSource: null,
+      },
+    };
+
+    const assessment = assessClosedAlphaEligibility(bundle, validation);
+
+    expect(
+      assessment.blockers.some((blocker) =>
+        blocker.startsWith(
+          "Released catalog items missing item-level governance or exact scoped review:",
+        )),
+    ).toBe(false);
+    expect(
+      assessment.blockers.some((blocker) =>
+        blocker.startsWith(
+          "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes",
+        )),
+    ).toBe(false);
+    expect(assessment.blockers).toContain(
+      "Closed alpha requires an evidence-backed complete A0 coverage claim",
+    );
+  }, 20_000);
 });

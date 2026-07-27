@@ -78,6 +78,14 @@ Exporter chỉ được ghi dưới `content/drafts`, không overwrite file và 
 pending envelope: không kế thừa owner/license/review. Editor phải sửa draft có
 chủ ý; không điền evidence giả.
 
+Khi nguồn đã là catalog v4, exporter tái chiếu core item và knowledge item từ
+lesson guide/blueprint hiện hành, rồi ghép lại nguyên vẹn character
+analysis/stroke artifact của package nguồn. Audio chỉ được bind sang payload
+hash mới khi transcript vẫn là một target text canonical. Nếu target text đổi,
+exporter giữ candidate ở trạng thái cố ý chưa hợp lệ để editor thay đúng asset
+qua `content:audio:import`; nếu target bị xóa thì export bị từ chối vì chưa có
+workflow retirement audio.
+
 Trước `new-version`, đổi đồng thời:
 
 1. import `runtime-catalog.json` trong `src/data/curriculum.ts` sang package đích;
@@ -102,17 +110,24 @@ Nếu IDs, membership, state hoặc graph đổi, cung cấp thêm
 - không kế thừa approval/claim;
 - rollback package khi registry write thông thường lỗi.
 
+Với content schema v6 / catalog v4, `new-version` giữ và inspect lại đúng bytes
+audio, linguistic source và stroke dataset từ package nguồn. Lệnh chỉ cho phép
+rebind audio sang payload hash mới khi transcript không đổi, không cho thêm hay
+thay character artifact, và từ chối target text đổi cho tới khi asset được thay
+qua importer chuyên biệt.
+
 Mutation dùng `content/.governance.lock`. Sau crash/mất điện, chỉ xóa stale
 lock khi PID bên trong không còn chạy; orphan directory vẫn phải audit thủ
 công. Không có tuyên bố crash-atomic.
 
-## Nhập audio bất biến (schema v5)
+## Nhập audio bất biến (schema v5-v6)
 
-`content:audio:import` là đường duy nhất tạo candidate có audio. Lệnh nhận một
-catalog draft schema v2 có `audioAssets: []`, nâng output thành content schema
-v5 / item catalog v3 và tự tạo `fileRef`, hash, media metadata cùng alignment.
-Nó không thu âm, sinh audio, suy diễn speaker hay tạo evidence thay người biên
-tập.
+`content:audio:import` là đường duy nhất thêm hoặc thay audio canonical. Lệnh có
+thể nâng catalog draft schema v2 không có audio thành content schema v5 /
+catalog v3, hoặc tiếp tục content schema v6 / catalog v4 mà vẫn giữ và inspect
+lại character artifact. Nó tự tạo `fileRef`, hash, media metadata cùng
+alignment; không thu âm, sinh audio, suy diễn speaker hay tạo evidence thay
+người biên tập.
 
 Policy v1 cố ý hẹp và deterministic:
 
@@ -126,7 +141,8 @@ Policy v1 cố ý hẹp và deterministic:
   segment phải có timestamp nguyên, theo thứ tự, không overlap và không vượt
   duration;
 - speaker evidence và rights của từng asset phải có thật và khớp chính xác
-  package-level audio rights.
+  package-level audio rights;
+- tối đa 10.000 asset và 512 MiB bytes audio được capture trong một mutation.
 
 Descriptor schema v1 mẫu (các evidence/hash chỉ là placeholder định dạng, phải
 được thay bằng dữ liệu thật trước khi chạy):
@@ -167,9 +183,12 @@ npm run content:audio:import -- foundation-2026.08.1 --from foundation-2026.07.5
 ```
 
 Importer validate history trước mutation, kiểm hash/codec từ bytes thay vì tên
-file, copy exclusive vào package tạm, đọc và validate lại toàn package rồi mới
-rename/update registry. Lỗi ở bất kỳ asset nào xóa package tạm, giữ nguyên
-registry và không overwrite target. Reviews luôn được xóa. Mặc định coverage
+file, capture artifact nguồn một lần, copy exclusive vào package tạm, đọc và
+validate lại toàn package rồi mới rename/update registry. Lỗi ở bất kỳ asset
+nào xóa package tạm, giữ nguyên registry và không overwrite target. Một
+`assetId` hiện hữu chỉ được dùng lại để thay đúng target cũ; đổi rights
+package-level chỉ hợp lệ khi toàn bộ asset cũ được thay trong cùng mutation.
+Reviews luôn được xóa. Mặc định coverage
 claims cũng được xóa và không kế thừa từ package nguồn; khi truyền explicit
 `--coverage-claims-file`, chỉ các claim trong file đó được giữ trong envelope
 candidate mới (và file phải bind đúng hash của target item catalog). Audio vừa
@@ -177,6 +196,17 @@ import chưa đủ điều kiện release cho tới khi có exact scoped
 `native-linguistic` và `audio-rights` approval. Catalog schema v1/v2 cũ vẫn
 validate để giữ lịch sử, kể cả hash-only asset lớn hơn giới hạn import 64 MiB;
 audio legacy không cần WAV inspection và không được tính vào production gate.
+
+## Nhập lại metadata Hán tự trong schema v6
+
+`content:character:import` nhận catalog draft cùng schema với package nguồn và
+một descriptor hoàn chỉnh cho toàn bộ character inventory, rồi tạo catalog v4.
+Lệnh giữ và inspect lại audio canonical hiện có. Nếu thay metadata nhưng target
+text của character không đổi, audio được rebind sang payload hash mới; nếu text
+đổi, mutation bị từ chối cho tới khi audio được thay qua `content:audio:import`.
+Mọi package control file và artifact kế thừa được đọc như regular file bên
+trong package thật, không đi qua symlink/junction, rồi kiểm lại identity sau
+khi capture trước atomic handoff.
 
 ## Review item có scope
 
@@ -225,9 +255,11 @@ audio cho released core content.
 - Grammar, pronunciation, character và communicative function đã có envelope
   typed nhưng mới là source-derived review candidates, chưa phải nội dung đã
   được linguistic review hay phát hành.
-- `new-version` vẫn từ chối catalog có audio; workflow schema v5 phải đi qua
-  `content:audio:import`. Importer kỹ thuật đã có nhưng candidate hiện tại chưa
-  chứa audio thật, speaker/right evidence hay scoped approval.
+- `new-version` bảo toàn audio/character artifact nhưng không được dùng để thay
+  asset hoặc thay sourced character analysis. Chưa có workflow retirement
+  audio; xóa một target đang được bind sẽ fail closed.
+- Các importer kỹ thuật đã có nhưng candidate hiện tại chưa chứa audio,
+  character source, speaker/right evidence hay scoped approval thật.
 - Runtime projection đã được tách khỏi governance catalog và allow-list từng
   field. Không được đổi client trở lại import `item-catalog.json`.
 - Catalog draft exporter là bootstrap workflow, không phải multi-user CMS,

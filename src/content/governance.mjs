@@ -280,13 +280,53 @@ const directDependencyKeys = (item) => [
   ...embeddedKnowledgeKeys(item),
 ];
 
+const pushDirectedCycleErrors = (
+  graph,
+  rootKeys,
+  errorMessage,
+  errors,
+) => {
+  const visiting = new Set();
+  const visited = new Set();
+  for (const rootKey of rootKeys) {
+    if (visited.has(rootKey)) continue;
+    visiting.add(rootKey);
+    const stack = [{ key: rootKey, nextDependencyIndex: 0 }];
+    while (stack.length > 0) {
+      const frame = stack[stack.length - 1];
+      const dependencies = graph.get(frame.key) ?? [];
+      let descended = false;
+      while (frame.nextDependencyIndex < dependencies.length) {
+        const dependencyKey = dependencies[frame.nextDependencyIndex];
+        frame.nextDependencyIndex += 1;
+        if (!graph.has(dependencyKey)) continue;
+        if (visiting.has(dependencyKey)) {
+          errors.push(errorMessage(dependencyKey));
+          continue;
+        }
+        if (visited.has(dependencyKey)) continue;
+        visiting.add(dependencyKey);
+        stack.push({ key: dependencyKey, nextDependencyIndex: 0 });
+        descended = true;
+        break;
+      }
+      if (descended) continue;
+      visiting.delete(frame.key);
+      visited.add(frame.key);
+      stack.pop();
+    }
+  }
+};
+
 const impliedLessonDependencies = (itemMap, rootItem) => {
   const lessonIds = new Set();
   const missingItemKeys = new Set();
   const visited = new Set();
   const queue = directDependencyKeys(rootItem);
-  while (queue.length > 0) {
-    const itemKey = queue.shift();
+  let queueIndex = 0;
+  while (queueIndex < queue.length) {
+    const itemKey = queue[queueIndex];
+    queueIndex += 1;
     if (visited.has(itemKey)) continue;
     visited.add(itemKey);
     const dependency = itemMap.get(itemKey);
@@ -309,8 +349,10 @@ const runtimeLessonPrerequisiteClosure = (runtimeLessonMap, lessonId) => {
       ? runtimeLessonMap.get(lessonId).prerequisiteIds
       : []),
   ];
-  while (queue.length > 0) {
-    const prerequisiteId = queue.shift();
+  let queueIndex = 0;
+  while (queueIndex < queue.length) {
+    const prerequisiteId = queue[queueIndex];
+    queueIndex += 1;
     if (closure.has(prerequisiteId)) continue;
     closure.add(prerequisiteId);
     const prerequisite = runtimeLessonMap.get(prerequisiteId);
@@ -319,6 +361,234 @@ const runtimeLessonPrerequisiteClosure = (runtimeLessonMap, lessonId) => {
     }
   }
   return closure;
+};
+
+const LESSON_REACHABILITY_POLICY = Object.freeze({
+  maxIndexBytes: 32 * 1024 * 1024,
+  maxEdges: 200_000,
+  maxExactFallbackNodes: 1_024,
+  maxExactFallbackEdges: 10_000,
+});
+
+const dependencyFirstOrder = (keys, dependenciesByKey) => {
+  const keySet = new Set(keys);
+  const remainingDependencyCount = new Map();
+  const dependentsByKey = new Map();
+  keys.forEach((key) => {
+    let knownDependencyCount = 0;
+    (dependenciesByKey.get(key) ?? []).forEach((dependencyKey) => {
+      if (!keySet.has(dependencyKey)) return;
+      knownDependencyCount += 1;
+      const dependents = dependentsByKey.get(dependencyKey) ?? [];
+      dependents.push(key);
+      dependentsByKey.set(dependencyKey, dependents);
+    });
+    remainingDependencyCount.set(key, knownDependencyCount);
+  });
+  const queue = keys.filter(
+    (key) => remainingDependencyCount.get(key) === 0,
+  );
+  const ordered = [];
+  let queueIndex = 0;
+  while (queueIndex < queue.length) {
+    const key = queue[queueIndex];
+    queueIndex += 1;
+    ordered.push(key);
+    (dependentsByKey.get(key) ?? []).forEach((dependentKey) => {
+      const remaining = remainingDependencyCount.get(dependentKey) - 1;
+      remainingDependencyCount.set(dependentKey, remaining);
+      if (remaining === 0) queue.push(dependentKey);
+    });
+  }
+  return ordered.length === keys.length ? ordered : null;
+};
+
+const buildLessonReachabilityIndex = (itemMap, runtimeLessonMap) => {
+  const itemKeys = [...itemMap.keys()];
+  const runtimeLessonIds = [...runtimeLessonMap.keys()];
+  const itemDependenciesByKey = new Map();
+  const runtimeDependenciesById = new Map();
+  let edgeCount = 0;
+  itemMap.forEach((item, itemKey) => {
+    const dependencies = directDependencyKeys(item);
+    itemDependenciesByKey.set(itemKey, dependencies);
+    edgeCount += dependencies.length;
+  });
+  runtimeLessonMap.forEach((lesson, lessonId) => {
+    const dependencies = Array.isArray(lesson?.prerequisiteIds)
+      ? lesson.prerequisiteIds
+      : [];
+    runtimeDependenciesById.set(lessonId, dependencies);
+    edgeCount += dependencies.length;
+  });
+  const withinExactFallbackBound =
+    itemKeys.length + runtimeLessonIds.length
+      <= LESSON_REACHABILITY_POLICY.maxExactFallbackNodes
+    && edgeCount <= LESSON_REACHABILITY_POLICY.maxExactFallbackEdges;
+  if (edgeCount > LESSON_REACHABILITY_POLICY.maxEdges) {
+    return {
+      ok: false,
+      exactFallbackAllowed: withinExactFallbackBound,
+      error:
+        `lesson dependency reachability exceeds ${LESSON_REACHABILITY_POLICY.maxEdges} edges`,
+    };
+  }
+  const itemOrder = dependencyFirstOrder(itemKeys, itemDependenciesByKey);
+  const runtimeOrder = dependencyFirstOrder(
+    runtimeLessonIds,
+    runtimeDependenciesById,
+  );
+  if (itemOrder === null || runtimeOrder === null) {
+    return {
+      ok: false,
+      exactFallbackAllowed: withinExactFallbackBound,
+      error: "lesson dependency reachability requires acyclic graphs",
+    };
+  }
+  const runtimeBitByLessonId = new Map(
+    runtimeLessonIds.map((lessonId, index) => [lessonId, index]),
+  );
+  const nonLessonItemKeys = itemKeys.filter(
+    (itemKey) => itemMap.get(itemKey)?.itemType !== "lesson",
+  );
+  const wordCount = Math.ceil(runtimeLessonIds.length / 32);
+  const rowCount = runtimeLessonIds.length + nonLessonItemKeys.length;
+  const indexBytes = rowCount * wordCount * Uint32Array.BYTES_PER_ELEMENT;
+  if (
+    !Number.isSafeInteger(indexBytes)
+    || indexBytes > LESSON_REACHABILITY_POLICY.maxIndexBytes
+  ) {
+    return {
+      ok: false,
+      exactFallbackAllowed: withinExactFallbackBound,
+      error:
+        `lesson dependency reachability index exceeds ${LESSON_REACHABILITY_POLICY.maxIndexBytes} bytes`,
+    };
+  }
+  const rows = new Uint32Array(rowCount * wordCount);
+  const runtimeRowByLessonId = new Map(
+    runtimeLessonIds.map((lessonId, index) => [lessonId, index]),
+  );
+  const nonLessonRowByItemKey = new Map(
+    nonLessonItemKeys.map(
+      (itemKey, index) => [itemKey, runtimeLessonIds.length + index],
+    ),
+  );
+  const setLessonBit = (rowIndex, lessonBit) => {
+    if (wordCount === 0) return;
+    const offset = rowIndex * wordCount + (lessonBit >>> 5);
+    rows[offset] |= 1 << (lessonBit & 31);
+  };
+  const rowHasLessonBit = (rowIndex, lessonBit) => {
+    if (wordCount === 0) return false;
+    const offset = rowIndex * wordCount + (lessonBit >>> 5);
+    return (rows[offset] & (1 << (lessonBit & 31))) !== 0;
+  };
+  const mergeRow = (targetRowIndex, sourceRowIndex) => {
+    const targetOffset = targetRowIndex * wordCount;
+    const sourceOffset = sourceRowIndex * wordCount;
+    for (let wordIndex = 0; wordIndex < wordCount; wordIndex += 1) {
+      rows[targetOffset + wordIndex] |= rows[sourceOffset + wordIndex];
+    }
+  };
+  const rowIsSubset = (subsetRowIndex, supersetRowIndex) => {
+    const subsetOffset = subsetRowIndex * wordCount;
+    const supersetOffset = supersetRowIndex * wordCount;
+    for (let wordIndex = 0; wordIndex < wordCount; wordIndex += 1) {
+      if (
+        (
+          rows[subsetOffset + wordIndex]
+          & ~rows[supersetOffset + wordIndex]
+        ) !== 0
+      ) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  runtimeOrder.forEach((lessonId) => {
+    const targetRow = runtimeRowByLessonId.get(lessonId);
+    (runtimeDependenciesById.get(lessonId) ?? []).forEach(
+      (dependencyId) => {
+        const dependencyBit = runtimeBitByLessonId.get(dependencyId);
+        const dependencyRow = runtimeRowByLessonId.get(dependencyId);
+        if (dependencyBit === undefined || dependencyRow === undefined) return;
+        setLessonBit(targetRow, dependencyBit);
+        mergeRow(targetRow, dependencyRow);
+      },
+    );
+  });
+
+  const hasMissingDependencyByItemKey = new Map();
+  const hasUnindexedLessonByNonLessonKey = new Map();
+  itemOrder.forEach((itemKey) => {
+    const item = itemMap.get(itemKey);
+    const dependencies = itemDependenciesByKey.get(itemKey) ?? [];
+    hasMissingDependencyByItemKey.set(
+      itemKey,
+      dependencies.some(
+        (dependencyKey) =>
+          !itemMap.has(dependencyKey)
+          || hasMissingDependencyByItemKey.get(dependencyKey) === true,
+      ),
+    );
+    if (item?.itemType === "lesson") return;
+    const targetRow = nonLessonRowByItemKey.get(itemKey);
+    let hasUnindexedLesson = false;
+    dependencies.forEach((dependencyKey) => {
+      const dependency = itemMap.get(dependencyKey);
+      if (!dependency) return;
+      if (dependency.itemType === "lesson") {
+        const lessonBit = runtimeBitByLessonId.get(dependency.itemId);
+        if (lessonBit === undefined) {
+          hasUnindexedLesson = true;
+        } else {
+          setLessonBit(targetRow, lessonBit);
+        }
+        return;
+      }
+      const dependencyRow = nonLessonRowByItemKey.get(dependencyKey);
+      if (dependencyRow !== undefined) mergeRow(targetRow, dependencyRow);
+      if (hasUnindexedLessonByNonLessonKey.get(dependencyKey) === true) {
+        hasUnindexedLesson = true;
+      }
+    });
+    hasUnindexedLessonByNonLessonKey.set(itemKey, hasUnindexedLesson);
+  });
+
+  return {
+    ok: true,
+    requiresExactTraversal(item, includeMissingDependencies) {
+      if (
+        includeMissingDependencies
+        && hasMissingDependencyByItemKey.get(item.itemKey) === true
+      ) {
+        return true;
+      }
+      const runtimeRow = runtimeRowByLessonId.get(item.itemId);
+      if (runtimeRow === undefined) return true;
+      return (itemDependenciesByKey.get(item.itemKey) ?? []).some(
+        (dependencyKey) => {
+          const dependency = itemMap.get(dependencyKey);
+          if (!dependency) return false;
+          if (dependency.itemType === "lesson") {
+            const lessonBit = runtimeBitByLessonId.get(dependency.itemId);
+            return lessonBit === undefined
+              || !rowHasLessonBit(runtimeRow, lessonBit);
+          }
+          if (
+            hasUnindexedLessonByNonLessonKey.get(dependencyKey) === true
+          ) {
+            return true;
+          }
+          const dependencyRow = nonLessonRowByItemKey.get(dependencyKey);
+          return dependencyRow !== undefined
+            && !rowIsSubset(dependencyRow, runtimeRow);
+        },
+      );
+    },
+  };
 };
 
 export const projectSanitizedRuntimeCatalog = (itemCatalog) => {
@@ -410,7 +680,23 @@ export const projectSanitizedRuntimeCatalog = (itemCatalog) => {
       },
     ]),
   );
+  const lessonReachability = lessonItems.length > 0
+    ? buildLessonReachabilityIndex(itemMap, runtimeLessonMap)
+    : null;
+  if (
+    lessonReachability !== null
+    && !lessonReachability.ok
+    && !lessonReachability.exactFallbackAllowed
+  ) {
+    throw new Error(`Runtime projection ${lessonReachability.error}`);
+  }
   for (const lesson of lessonItems) {
+    if (
+      lessonReachability?.ok
+      && !lessonReachability.requiresExactTraversal(lesson, true)
+    ) {
+      continue;
+    }
     const implied = impliedLessonDependencies(itemMap, lesson);
     if (implied.missingItemKeys.size > 0) {
       throw new Error(
@@ -663,22 +949,12 @@ const validateRuntimeIds = (runtimeIds, errors) => {
       Array.isArray(lesson.prerequisiteIds) ? lesson.prerequisiteIds : [],
     ]),
   );
-  const visiting = new Set();
-  const visited = new Set();
-  const visit = (lessonId) => {
-    if (visiting.has(lessonId)) {
-      errors.push(`Prerequisite cycle detected at ${lessonId}`);
-      return;
-    }
-    if (visited.has(lessonId)) return;
-    visiting.add(lessonId);
-    (graph.get(lessonId) ?? []).forEach((dependencyId) => {
-      if (graph.has(dependencyId)) visit(dependencyId);
-    });
-    visiting.delete(lessonId);
-    visited.add(lessonId);
-  };
-  lessonIds.forEach(visit);
+  pushDirectedCycleErrors(
+    graph,
+    lessonIds,
+    (lessonId) => `Prerequisite cycle detected at ${lessonId}`,
+    errors,
+  );
 
   if (!Array.isArray(runtimeIds.stories)) {
     errors.push("runtime-ids.stories must be an array");
@@ -1718,6 +1994,12 @@ const validateItemCatalog = async (
   if (catalogItems.length !== itemCatalog.items.length) {
     errors.push("item-catalog.items must contain objects");
   }
+  const catalogItemIndexByItem = new WeakMap();
+  catalogItems.forEach((item, index) => {
+    if (!catalogItemIndexByItem.has(item)) {
+      catalogItemIndexByItem.set(item, index);
+    }
+  });
   const itemKeys = [];
   const itemMap = new Map();
   for (const [index, item] of catalogItems.entries()) {
@@ -1813,22 +2095,12 @@ const validateItemCatalog = async (
     pushDuplicateErrors(keys, `${item.itemKey} prerequisite`, errors);
     prerequisiteGraph.set(item.itemKey, keys);
   });
-  const visiting = new Set();
-  const visited = new Set();
-  const visit = (itemKey) => {
-    if (visiting.has(itemKey)) {
-      errors.push(`Item prerequisite cycle detected at ${itemKey}`);
-      return;
-    }
-    if (visited.has(itemKey)) return;
-    visiting.add(itemKey);
-    (prerequisiteGraph.get(itemKey) ?? []).forEach((dependencyKey) => {
-      if (prerequisiteGraph.has(dependencyKey)) visit(dependencyKey);
-    });
-    visiting.delete(itemKey);
-    visited.add(itemKey);
-  };
-  itemKeys.forEach(visit);
+  pushDirectedCycleErrors(
+    prerequisiteGraph,
+    itemKeys,
+    (itemKey) => `Item prerequisite cycle detected at ${itemKey}`,
+    errors,
+  );
 
   const lexemeItems = catalogItems.filter((item) => item.itemType === "lexeme");
   const lessonItems = catalogItems.filter((item) => item.itemType === "lesson");
@@ -1836,7 +2108,7 @@ const validateItemCatalog = async (
 
   if (expectedSchemaVersion >= 2) {
     lessonItems.forEach((item) => {
-      const index = catalogItems.indexOf(item);
+      const index = catalogItemIndexByItem.get(item);
       const prefix = `item-catalog.items[${index}].knowledgeItems`;
       if (!Array.isArray(item.knowledgeItems)) {
         errors.push(`${prefix} must be an array`);
@@ -1959,6 +2231,41 @@ const validateItemCatalog = async (
   const runtimeLessonMap = new Map(
     runtimeLessons.filter(isRecord).map((lesson) => [lesson.id, lesson]),
   );
+  const lessonReachabilityInputsAreUnique =
+    itemMap.size === catalogItems.length
+    && runtimeLessonMap.size === runtimeLessons.filter(isRecord).length;
+  const exactDuplicateGraphFallbackAllowed =
+    catalogItems.length + runtimeLessons.length
+      <= LESSON_REACHABILITY_POLICY.maxExactFallbackNodes
+    && (
+      catalogItems.reduce(
+        (count, item) => count + directDependencyKeys(item).length,
+        0,
+      )
+      + runtimeLessons.reduce(
+        (count, lesson) =>
+          count
+          + (Array.isArray(lesson?.prerequisiteIds)
+            ? lesson.prerequisiteIds.length
+            : 0),
+        0,
+      )
+    ) <= LESSON_REACHABILITY_POLICY.maxExactFallbackEdges;
+  const lessonReachability = lessonItems.length === 0
+    ? {
+        ok: true,
+        requiresExactTraversal: () => false,
+      }
+    : lessonReachabilityInputsAreUnique
+      ? buildLessonReachabilityIndex(itemMap, runtimeLessonMap)
+      : {
+          ok: false,
+          exactFallbackAllowed: exactDuplicateGraphFallbackAllowed,
+          error: "lesson dependency reachability requires unique graph keys",
+        };
+  if (!lessonReachability.ok && !lessonReachability.exactFallbackAllowed) {
+    errors.push(`Item catalog ${lessonReachability.error}`);
+  }
   lessonItems.forEach((item) => {
     const runtimeLesson = runtimeLessonMap.get(item.itemId);
     if (!runtimeLesson || !isRecord(item.payload)) return;
@@ -1990,18 +2297,24 @@ const validateItemCatalog = async (
         errors.push(`${item.itemKey}: prerequisites do not match runtime-ids.json`);
       }
     }
-    const implied = impliedLessonDependencies(itemMap, item);
-    const runtimeClosure = runtimeLessonPrerequisiteClosure(
-      runtimeLessonMap,
-      item.itemId,
-    );
-    const unrepresentedLessonIds = [...implied.lessonIds].filter(
-      (lessonId) => !runtimeClosure.has(lessonId),
-    );
-    if (unrepresentedLessonIds.length > 0) {
-      errors.push(
-        `${item.itemKey}: implied lesson prerequisites are absent from runtime-ids.json: ${unrepresentedLessonIds.join(", ")}`,
+    const requiresExactReachability =
+      lessonReachability.ok
+        ? lessonReachability.requiresExactTraversal(item, false)
+        : lessonReachability.exactFallbackAllowed;
+    if (requiresExactReachability) {
+      const implied = impliedLessonDependencies(itemMap, item);
+      const runtimeClosure = runtimeLessonPrerequisiteClosure(
+        runtimeLessonMap,
+        item.itemId,
       );
+      const unrepresentedLessonIds = [...implied.lessonIds].filter(
+        (lessonId) => !runtimeClosure.has(lessonId),
+      );
+      if (unrepresentedLessonIds.length > 0) {
+        errors.push(
+          `${item.itemKey}: implied lesson prerequisites are absent from runtime-ids.json: ${unrepresentedLessonIds.join(", ")}`,
+        );
+      }
     }
   });
 
@@ -2877,49 +3190,91 @@ export const validateContentBundle = async (bundle) => {
   };
 };
 
-const latestReviewByRole = (reviews, manifestHash) => {
-  const latest = new Map();
-  reviews
-    .filter((review) => review.packageManifestSha256 === manifestHash)
-    .forEach((review) => {
-      const previous = latest.get(review.role);
-      if (!previous || Date.parse(review.reviewedAt) >= Date.parse(previous.reviewedAt)) {
-        latest.set(review.role, review);
+const REVIEW_SCOPE_FIELDS = ["itemKeys", "audioAssetIds"];
+
+const buildReviewIndexes = (reviews, manifestHash) => {
+  const latestByRole = new Map();
+  const latestByScope = new Map(
+    REVIEW_SCOPE_FIELDS.map((scopeField) => [scopeField, new Map()]),
+  );
+  reviews.forEach((review) => {
+    if (
+      !isRecord(review)
+      || review.packageManifestSha256 !== manifestHash
+    ) {
+      return;
+    }
+    const previousForRole = latestByRole.get(review.role);
+    if (
+      !previousForRole
+      || Date.parse(review.reviewedAt) >= Date.parse(previousForRole.reviewedAt)
+    ) {
+      latestByRole.set(review.role, review);
+    }
+    REVIEW_SCOPE_FIELDS.forEach((scopeField) => {
+      const targets = review.scope?.[scopeField];
+      if (!Array.isArray(targets)) return;
+      const byRole = latestByScope.get(scopeField);
+      let byTarget = byRole.get(review.role);
+      if (!byTarget) {
+        byTarget = new Map();
+        byRole.set(review.role, byTarget);
       }
+      targets.forEach((target) => {
+        const previous = byTarget.get(target);
+        if (
+          !previous
+          || Date.parse(review.reviewedAt) > Date.parse(previous.reviewedAt)
+        ) {
+          byTarget.set(target, review);
+        }
+      });
     });
-  return latest;
+  });
+  return { latestByRole, latestByScope };
+};
+
+const createReleaseEvaluationContext = (bundle, manifestHash) => {
+  const items = Array.isArray(bundle.itemCatalog?.items)
+    ? bundle.itemCatalog.items.filter(isRecord)
+    : [];
+  const itemMap = new Map(items.map((item) => [item.itemKey, item]));
+  const reviews = Array.isArray(bundle.reviews?.reviews)
+    ? bundle.reviews.reviews
+    : [];
+  const reviewIndexes = buildReviewIndexes(reviews, manifestHash);
+  return {
+    bundle,
+    manifestHash,
+    items,
+    itemMap,
+    itemKeysAreUnique: itemMap.size === items.length,
+    itemReadiness: new Map(),
+    directDependenciesByItem: new WeakMap(),
+    releasedItems: null,
+    ...reviewIndexes,
+  };
 };
 
 const latestScopedReview = (
-  reviews,
-  manifestHash,
+  context,
   role,
   scopeField,
   target,
-) => {
-  let latest = null;
-  reviews
-    .filter(
-      (review) =>
-        review.packageManifestSha256 === manifestHash
-        && review.role === role
-        && Array.isArray(review.scope?.[scopeField])
-        && review.scope[scopeField].includes(target),
-    )
-    .forEach((review) => {
-      if (!latest || Date.parse(review.reviewedAt) > Date.parse(latest.reviewedAt)) {
-        latest = review;
-      }
-    });
-  return latest;
-};
+) =>
+  context.latestByScope
+    .get(scopeField)
+    ?.get(role)
+    ?.get(target)
+  ?? null;
 
-const itemMapFor = (bundle) =>
-  new Map(
-    (Array.isArray(bundle.itemCatalog?.items) ? bundle.itemCatalog.items : [])
-      .filter(isRecord)
-      .map((item) => [item.itemKey, item]),
-  );
+const directDependenciesFor = (context, item) => {
+  const cached = context.directDependenciesByItem.get(item);
+  if (cached) return cached;
+  const dependencies = directDependencyKeys(item);
+  context.directDependenciesByItem.set(item, dependencies);
+  return dependencies;
+};
 
 const gradedTextPayloadIsNonEmpty = (item) => {
   if (item?.itemType !== "graded-text") return false;
@@ -2951,8 +3306,10 @@ const gradedTextPayloadIsNonEmpty = (item) => {
 const transitiveItemClosure = (itemMap, initialKeys) => {
   const closure = new Set();
   const queue = [...initialKeys];
-  while (queue.length > 0) {
-    const itemKey = queue.shift();
+  let queueIndex = 0;
+  while (queueIndex < queue.length) {
+    const itemKey = queue[queueIndex];
+    queueIndex += 1;
     if (closure.has(itemKey)) continue;
     closure.add(itemKey);
     const item = itemMap.get(itemKey);
@@ -2964,19 +3321,20 @@ const transitiveItemClosure = (itemMap, initialKeys) => {
   return closure;
 };
 
-const releasedCatalogItems = (bundle) => {
-  const items = Array.isArray(bundle.itemCatalog?.items)
-    ? bundle.itemCatalog.items.filter(isRecord)
-    : [];
-  const itemMap = new Map(items.map((item) => [item.itemKey, item]));
-  const activeKeys = items
+const releasedCatalogItems = (context) => {
+  if (context.releasedItems !== null) return context.releasedItems;
+  const activeKeys = context.items
     .filter((item) => RELEASED_STATES.has(item.releaseState))
     .map((item) => item.itemKey);
-  const relevantKeys = transitiveItemClosure(itemMap, activeKeys);
-  return items.filter((item) => relevantKeys.has(item.itemKey));
+  const relevantKeys = transitiveItemClosure(context.itemMap, activeKeys);
+  context.releasedItems = context.items.filter(
+    (item) => relevantKeys.has(item.itemKey),
+  );
+  return context.releasedItems;
 };
 
-const characterPayloadIsReleaseComplete = (bundle, item) => {
+const characterPayloadIsReleaseComplete = (context, item) => {
+  const { bundle } = context;
   if (item?.itemType !== "character") return true;
   if (
     bundle.manifest?.contentSchemaVersion !== 6
@@ -2996,22 +3354,12 @@ const characterPayloadIsReleaseComplete = (bundle, item) => {
   return errors.length === 0;
 };
 
-const itemIsReleaseReady = (
-  bundle,
-  manifestHash,
-  item,
-  memo = new Map(),
-  visiting = new Set(),
-) => {
-  if (!item || !RELEASED_STATES.has(item.releaseState)) return false;
-  if (memo.has(item.itemKey)) return memo.get(item.itemKey);
-  if (visiting.has(item.itemKey)) return false;
-  visiting.add(item.itemKey);
+const itemPassesLocalReleaseRequirements = (context, item) => {
   let ready = true;
   if (!item.owner?.id || !item.owner?.evidenceRef) ready = false;
   if (!item.sourceLicense?.licenseId || !item.sourceLicense?.evidenceRef) ready = false;
   if (!Array.isArray(item.prerequisites)) ready = false;
-  if (!characterPayloadIsReleaseComplete(bundle, item)) ready = false;
+  if (!characterPayloadIsReleaseComplete(context, item)) ready = false;
   if (
     item.itemType === "lesson"
     && Array.isArray(item.prerequisites)
@@ -3028,20 +3376,9 @@ const itemIsReleaseReady = (
   ) {
     ready = false;
   }
-  const itemMap = itemMapFor(bundle);
-  for (const dependencyKey of directDependencyKeys(item)) {
-    const dependency = itemMap.get(dependencyKey);
-    if (
-      !dependency
-      || !itemIsReleaseReady(bundle, manifestHash, dependency, memo, visiting)
-    ) {
-      ready = false;
-    }
-  }
   for (const role of ["content-owner", "native-linguistic", "source-license"]) {
     const review = latestScopedReview(
-      Array.isArray(bundle.reviews?.reviews) ? bundle.reviews.reviews : [],
-      manifestHash,
+      context,
       role,
       "itemKeys",
       item.itemKey,
@@ -3051,12 +3388,66 @@ const itemIsReleaseReady = (
       ready = false;
     }
   }
-  visiting.delete(item.itemKey);
-  memo.set(item.itemKey, ready);
   return ready;
 };
 
-const assessBaseReleaseEligibility = (bundle, validation, channel) => {
+const itemIsReleaseReady = (context, item) => {
+  if (!item || !RELEASED_STATES.has(item.releaseState)) return false;
+  const memo = context.itemKeysAreUnique
+    ? context.itemReadiness
+    : new Map();
+  if (memo.has(item.itemKey)) return memo.get(item.itemKey);
+  const visiting = new Set();
+  visiting.add(item.itemKey);
+  const stack = [{
+    item,
+    dependencies: directDependenciesFor(context, item),
+    nextDependencyIndex: 0,
+    ready: itemPassesLocalReleaseRequirements(context, item),
+  }];
+  while (stack.length > 0) {
+    const frame = stack[stack.length - 1];
+    if (frame.nextDependencyIndex < frame.dependencies.length) {
+      const dependencyKey = frame.dependencies[frame.nextDependencyIndex];
+      frame.nextDependencyIndex += 1;
+      const dependency = context.itemMap.get(dependencyKey);
+      if (!dependency || !RELEASED_STATES.has(dependency.releaseState)) {
+        frame.ready = false;
+        continue;
+      }
+      if (memo.has(dependency.itemKey)) {
+        if (!memo.get(dependency.itemKey)) frame.ready = false;
+        continue;
+      }
+      if (visiting.has(dependency.itemKey)) {
+        frame.ready = false;
+        continue;
+      }
+      visiting.add(dependency.itemKey);
+      stack.push({
+        item: dependency,
+        dependencies: directDependenciesFor(context, dependency),
+        nextDependencyIndex: 0,
+        ready: itemPassesLocalReleaseRequirements(context, dependency),
+      });
+      continue;
+    }
+    visiting.delete(frame.item.itemKey);
+    memo.set(frame.item.itemKey, frame.ready);
+    stack.pop();
+    if (stack.length > 0 && !frame.ready) {
+      stack[stack.length - 1].ready = false;
+    }
+  }
+  return memo.get(item.itemKey) ?? false;
+};
+
+const assessBaseReleaseEligibility = (
+  bundle,
+  validation,
+  channel,
+  context,
+) => {
   const blockers = [...validation.errors];
   const warnings = [...validation.warnings];
   const missingMetadata = [];
@@ -3097,7 +3488,7 @@ const assessBaseReleaseEligibility = (bundle, validation, channel) => {
     .map((review) => review.reviewId);
   if (bundle.manifest.contentSchemaVersion < 3 || bundle.itemCatalog === null) {
     blockers.push("Release eligibility requires a schema-v3+ item catalog");
-    const latestReviews = latestReviewByRole(reviewEntries, manifestHash);
+    const latestReviews = context.latestByRole;
     const requiredRoles = ["content-owner", "native-linguistic", "source-license"];
     if (governance.includesAudio) requiredRoles.push("audio-rights");
     requiredRoles.forEach((role) => {
@@ -3115,9 +3506,9 @@ const assessBaseReleaseEligibility = (bundle, validation, channel) => {
       blockers.push("Native linguistic reviewer must be independent from the content owner");
     }
   } else {
-    const relevantItems = releasedCatalogItems(bundle);
+    const relevantItems = releasedCatalogItems(context);
     const unreadyItems = relevantItems.filter(
-      (item) => !itemIsReleaseReady(bundle, manifestHash, item),
+      (item) => !itemIsReleaseReady(context, item),
     );
     if (unreadyItems.length > 0) {
       blockers.push(
@@ -3157,11 +3548,8 @@ const withAdditionalBlockers = (assessment, blockers, warnings = []) => ({
   warnings: [...new Set([...assessment.warnings, ...warnings])],
 });
 
-const coverageClaimHasReachableReviewedPath = (
-  bundle,
-  manifestHash,
-  claim,
-) => {
+const coverageClaimHasReachableReviewedPath = (context, claim) => {
+  const { bundle, itemMap } = context;
   if (
     bundle.coverageClaims?.schemaVersion !== 2
     || !isRecord(claim)
@@ -3180,10 +3568,9 @@ const coverageClaimHasReachableReviewedPath = (
   ) {
     return false;
   }
-  const itemMap = itemMapFor(bundle);
   if (
     claim.itemKeys.some(
-      (itemKey) => !itemIsReleaseReady(bundle, manifestHash, itemMap.get(itemKey)),
+      (itemKey) => !itemIsReleaseReady(context, itemMap.get(itemKey)),
     )
   ) {
     return false;
@@ -3234,8 +3621,10 @@ const coverageClaimHasReachableReviewedPath = (
   }
   const reachable = new Set();
   const queue = [...claim.entryLessonKeys];
-  while (queue.length > 0) {
-    const itemKey = queue.shift();
+  let queueIndex = 0;
+  while (queueIndex < queue.length) {
+    const itemKey = queue[queueIndex];
+    queueIndex += 1;
     if (reachable.has(itemKey) || !scopedLessonKeys.has(itemKey)) continue;
     reachable.add(itemKey);
     queue.push(...(adjacency.get(itemKey) ?? []));
@@ -3252,12 +3641,8 @@ const coverageClaimHasReachableReviewedPath = (
   );
 };
 
-const claimHasReachableReviewedPath = (
-  bundle,
-  manifestHash,
-  framework,
-  level,
-) => {
+const claimHasReachableReviewedPath = (context, framework, level) => {
+  const { bundle } = context;
   const normalizedFramework = framework.toLocaleLowerCase("en-US");
   const normalizedLevel = level.toLocaleUpperCase("en-US");
   const coverageClaims = Array.isArray(bundle.coverageClaims?.coverageClaims)
@@ -3270,21 +3655,22 @@ const claimHasReachableReviewedPath = (
       && claim.framework.trim().toLocaleLowerCase("en-US") === normalizedFramework
       && isNonEmptyString(claim.level)
       && claim.level.trim().toLocaleUpperCase("en-US") === normalizedLevel
-      && coverageClaimHasReachableReviewedPath(bundle, manifestHash, claim),
+      && coverageClaimHasReachableReviewedPath(context, claim),
   );
 };
 
-const isNonEmptyReviewedGradedText = (bundle, manifestHash, item) => {
+const isNonEmptyReviewedGradedText = (context, item) => {
   if (
     item?.itemType !== "graded-text"
-    || !itemIsReleaseReady(bundle, manifestHash, item)
+    || !itemIsReleaseReady(context, item)
   ) {
     return false;
   }
   return gradedTextPayloadIsNonEmpty(item);
 };
 
-const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
+const audioAssetIsReleaseReady = (context, asset) => {
+  const { bundle } = context;
   if (
     bundle.manifest?.contentSchemaVersion < 5
     || !isRecord(bundle.itemCatalog)
@@ -3294,7 +3680,7 @@ const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
   ) {
     return false;
   }
-  const target = itemMapFor(bundle).get(asset.targetItemKey);
+  const target = context.itemMap.get(asset.targetItemKey);
   const inspection = isNonEmptyString(asset.fileRef)
     ? bundle.audioAssetFileInspections?.[asset.fileRef]
     : null;
@@ -3360,8 +3746,7 @@ const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
   }
   for (const role of ["native-linguistic", "audio-rights"]) {
     const review = latestScopedReview(
-      Array.isArray(bundle.reviews?.reviews) ? bundle.reviews.reviews : [],
-      manifestHash,
+      context,
       role,
       "audioAssetIds",
       asset.assetId,
@@ -3374,7 +3759,8 @@ const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
   return true;
 };
 
-const schemaV5AudioReleaseBlockers = (bundle, manifestHash) => {
+const schemaV5AudioReleaseBlockers = (context) => {
+  const { bundle } = context;
   const audioAssets = Array.isArray(bundle.itemCatalog?.audioAssets)
     ? bundle.itemCatalog.audioAssets
     : [];
@@ -3382,7 +3768,7 @@ const schemaV5AudioReleaseBlockers = (bundle, manifestHash) => {
     return [];
   }
   const unreadyAssetCount = audioAssets.filter(
-    (asset) => !audioAssetIsReleaseReady(bundle, manifestHash, asset),
+    (asset) => !audioAssetIsReleaseReady(context, asset),
   ).length;
   return unreadyAssetCount === 0
     ? []
@@ -3393,12 +3779,18 @@ const schemaV5AudioReleaseBlockers = (bundle, manifestHash) => {
       ];
 };
 
-export const assessClosedAlphaEligibility = (bundle, validation) => {
-  const base = assessBaseReleaseEligibility(bundle, validation, "closed-alpha");
-  const blockers = schemaV5AudioReleaseBlockers(
+const assessClosedAlphaEligibilityWithContext = (
+  bundle,
+  validation,
+  context,
+) => {
+  const base = assessBaseReleaseEligibility(
     bundle,
-    validation.hashes.manifest,
+    validation,
+    "closed-alpha",
+    context,
   );
+  const blockers = schemaV5AudioReleaseBlockers(context);
   const declaredClaims = Array.isArray(bundle.coverageClaims?.coverageClaims)
     ? bundle.coverageClaims.coverageClaims
     : [];
@@ -3406,8 +3798,7 @@ export const assessClosedAlphaEligibility = (bundle, validation) => {
     declaredClaims.some(
       (claim) =>
         !coverageClaimHasReachableReviewedPath(
-          bundle,
-          validation.hashes.manifest,
+          context,
           claim,
         ),
     )
@@ -3417,11 +3808,11 @@ export const assessClosedAlphaEligibility = (bundle, validation) => {
     );
   }
   const reviewedLexemeHashes = new Set(
-    releasedCatalogItems(bundle)
+    releasedCatalogItems(context)
       .filter(
         (item) =>
           item.itemType === "lexeme"
-          && itemIsReleaseReady(bundle, validation.hashes.manifest, item),
+          && itemIsReleaseReady(context, item),
       )
       .map((item) => item.payloadSha256),
   );
@@ -3432,8 +3823,7 @@ export const assessClosedAlphaEligibility = (bundle, validation) => {
   }
   if (
     !claimHasReachableReviewedPath(
-      bundle,
-      validation.hashes.manifest,
+      context,
       "CEFR",
       "A0",
     )
@@ -3443,8 +3833,24 @@ export const assessClosedAlphaEligibility = (bundle, validation) => {
   return withAdditionalBlockers(base, blockers);
 };
 
+export const assessClosedAlphaEligibility = (bundle, validation) => {
+  const context = createReleaseEvaluationContext(
+    bundle,
+    validation.hashes.manifest,
+  );
+  return assessClosedAlphaEligibilityWithContext(bundle, validation, context);
+};
+
 export const assessPublicationEligibility = (bundle, validation) => {
-  const closedAlpha = assessClosedAlphaEligibility(bundle, validation);
+  const context = createReleaseEvaluationContext(
+    bundle,
+    validation.hashes.manifest,
+  );
+  const closedAlpha = assessClosedAlphaEligibilityWithContext(
+    bundle,
+    validation,
+    context,
+  );
   const base = {
     ...closedAlpha,
     channel: "production",
@@ -3456,8 +3862,7 @@ export const assessPublicationEligibility = (bundle, validation) => {
   for (const level of ["1", "2"]) {
     if (
       !claimHasReachableReviewedPath(
-        bundle,
-        validation.hashes.manifest,
+        context,
         "HSK",
         level,
       )
@@ -3468,7 +3873,7 @@ export const assessPublicationEligibility = (bundle, validation) => {
   const releasedStoryCount = new Set(
     (bundle.itemCatalog?.items ?? [])
       .filter((item) =>
-        isNonEmptyReviewedGradedText(bundle, validation.hashes.manifest, item))
+        isNonEmptyReviewedGradedText(context, item))
       .map((item) => item.payloadSha256),
   ).size;
   if (releasedStoryCount < 40) {
@@ -3476,14 +3881,14 @@ export const assessPublicationEligibility = (bundle, validation) => {
       `Public beta requires at least 40 non-empty, reviewed graded texts (found ${releasedStoryCount})`,
     );
   }
-  const coreItems = releasedCatalogItems(bundle);
+  const coreItems = releasedCatalogItems(context);
   const audioAssets = Array.isArray(bundle.itemCatalog?.audioAssets)
     ? bundle.itemCatalog.audioAssets
     : [];
   const readyAudioTargets = new Set(
     audioAssets
       .filter((asset) =>
-        audioAssetIsReleaseReady(bundle, validation.hashes.manifest, asset))
+        audioAssetIsReleaseReady(context, asset))
       .map((asset) => asset.targetItemKey),
   );
   const missingAudioTargets = coreItems.filter(

@@ -18,7 +18,10 @@ allow-list chỉ chứa 24 lexeme đang được dùng, 14 lesson beta/published
 graded text published. Nó loại draft/review item, owner/license, review scope,
 payload hash, audio metadata và cả bốn loại knowledge item mới. Exporter tạo
 candidate từ full immutable authoring catalog, không lấy sanitized runtime làm
-nguồn, nên 10 lesson draft không bị mất khi tạo version kế tiếp.
+nguồn, nên 10 lesson draft không bị mất khi tạo version kế tiếp. Với catalog
+v4, core/knowledge payload được tái chiếu từ authoring source hiện hành trong
+khi character source/stroke artifact được ghép lại nguyên vẹn; audio chỉ được
+rebind khi transcript vẫn khớp canonical target text.
 
 Đây vẫn chỉ là authoring envelope kỹ thuật, chưa phải CMS hoàn chỉnh. 25 item
 mới đều ở state `review`, owner/license đều `null`; character metadata về bộ,
@@ -48,6 +51,19 @@ stroke-dataset record đã được inspect từ bytes. Chữ độc lập hợp
 quá lớn và descriptor thiếu/thừa đều fail closed trước registry mutation.
 Schema cũ vẫn đọc được nhưng character metadata kiểu cũ không thể trở thành
 release evidence.
+
+Lifecycle schema v6 giờ giữ đồng thời hai loại artifact. `new-version` capture,
+copy và inspect lại audio/character bytes bất biến; audio importer có thể append
+hoặc thay cùng `assetId` trên đúng target mà không làm mất character data; và
+character importer giữ audio, chỉ rebind target digest khi target text không
+đổi. Package control file, snapshot và artifact kế thừa phải là regular file
+trong trusted package tree, giữ đúng identity trong suốt capture. Mọi đường
+không an toàn hoặc mutation dở dang đều fail trước registry handoff.
+
+Validation prerequisite dùng traversal lặp và một reachability index dạng
+bitset có trần 32 MiB/200.000 edge; graph nhỏ lỗi vẫn chạy exact traversal để
+giữ thông báo cụ thể, còn graph lớn vượt giới hạn fail closed. Vì vậy item graph
+và runtime graph khớp 10.000 lesson không còn kích hoạt closure scan bậc hai.
 
 Characters UI hiện không dùng vocabulary đang phát hành để suy diễn kho Hán tự
 hay hiển thị radical/mnemonic hard-code. Cho tới khi runtime projection có

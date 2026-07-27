@@ -1,7 +1,5 @@
 import {
   closeSync,
-  constants,
-  copyFileSync,
   existsSync,
   lstatSync,
   mkdirSync,
@@ -107,6 +105,12 @@ const CHARACTER_METADATA_IMPORT_POLICY = Object.freeze({
   maxSourceFileCount: 8_192,
   maxAggregateSourceByteLength: 64 * 1024 * 1024,
 });
+const AUDIO_CATALOG_MUTATION_POLICY = Object.freeze({
+  maxAssetCount: 10_000,
+  maxAggregateByteLength: 512 * 1024 * 1024,
+});
+const PACKAGE_CONTROL_FILE_MAX_BYTE_LENGTH = 64 * 1024 * 1024;
+const PACKAGE_SNAPSHOT_MAX_BYTE_LENGTH = 16 * 1024 * 1024;
 
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 const formatJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
@@ -124,22 +128,74 @@ const readLiveSourceTexts = (contentSchemaVersion) =>
 const immutableSnapshotPath = (packageDirectory, artifactName) =>
   join(packageDirectory, "snapshots", ...artifactName.split("/"));
 
+const readTrustedPackageText = (
+  packageDirectory,
+  fileRef,
+  label,
+  {
+    optional = false,
+    maxByteLength = PACKAGE_CONTROL_FILE_MAX_BYTE_LENGTH,
+  } = {},
+) => {
+  const bytes = captureImmutablePackageArtifact(
+    packageDirectory,
+    fileRef,
+    label,
+    maxByteLength,
+    { optional },
+  );
+  if (bytes === null) return null;
+  try {
+    return new TextDecoder("utf-8", {
+      fatal: true,
+      ignoreBOM: true,
+    }).decode(bytes);
+  } catch {
+    throw new Error(`${label} must contain valid UTF-8`);
+  }
+};
+
+const readTrustedPackageJson = (packageDirectory, fileRef, label) => {
+  const sourceText = readTrustedPackageText(packageDirectory, fileRef, label);
+  try {
+    return JSON.parse(sourceText);
+  } catch (error) {
+    throw new Error(`${label} must contain valid JSON`, { cause: error });
+  }
+};
+
 const readImmutableSourceTexts = (packageDirectory, contentSchemaVersion) =>
   Object.fromEntries(
     contentSourceArtifactNames(contentSchemaVersion).map((name) => [
       name,
-      readTextIfPresent(immutableSnapshotPath(packageDirectory, name)),
+      readTrustedPackageText(
+        packageDirectory,
+        `snapshots/${name}`,
+        `Immutable source snapshot ${name}`,
+        {
+          optional: true,
+          maxByteLength: PACKAGE_SNAPSHOT_MAX_BYTE_LENGTH,
+        },
+      ),
     ]),
   );
 
 const readItemCatalog = (packageDirectory, contentSchemaVersion) =>
   contentSchemaVersion >= 3
-    ? readJson(join(packageDirectory, "item-catalog.json"))
+    ? readTrustedPackageJson(
+        packageDirectory,
+        "item-catalog.json",
+        "Package item-catalog.json",
+      )
     : null;
 
 const readRuntimeCatalog = (packageDirectory, contentSchemaVersion) =>
   contentSchemaVersion >= 4
-    ? readJson(join(packageDirectory, "runtime-catalog.json"))
+    ? readTrustedPackageJson(
+        packageDirectory,
+        "runtime-catalog.json",
+        "Package runtime-catalog.json",
+      )
     : null;
 
 const packageLocalPath = (packageDirectory, relativePath) => {
@@ -158,6 +214,32 @@ const pathIsContained = (root, candidate) => {
     && relativePath !== ".."
     && !relativePath.startsWith("..\\")
     && !relativePath.startsWith("../");
+};
+
+const pathsAreIdentical = (left, right) => {
+  const normalizedLeft = resolve(left);
+  const normalizedRight = resolve(right);
+  return process.platform === "win32"
+    ? normalizedLeft.toLowerCase() === normalizedRight.toLowerCase()
+    : normalizedLeft === normalizedRight;
+};
+
+const assertTrustedPackageDirectory = (packageDirectory, label) => {
+  const metadata = lstatSync(packageDirectory);
+  if (!metadata.isDirectory() || metadata.isSymbolicLink()) {
+    throw new Error(`${label} must be a regular non-symlink directory`);
+  }
+  const realPackagesDirectory = realpathSync(join(contentRoot, "packages"));
+  const realPackageDirectory = realpathSync(packageDirectory);
+  if (!pathIsContained(realPackagesDirectory, realPackageDirectory)) {
+    throw new Error(`${label} resolves outside content/packages`);
+  }
+  if (!pathsAreIdentical(packageDirectory, realPackageDirectory)) {
+    throw new Error(
+      `${label} must not traverse a junction or other reparse point`,
+    );
+  }
+  return realPackageDirectory;
 };
 
 export const inspectAudioAssetFiles = (
@@ -468,7 +550,15 @@ const readContentBundleFromDirectory = (
   registry,
   registryEntry,
 ) => {
-  const manifest = readJson(join(packageDirectory, "manifest.json"));
+  assertTrustedPackageDirectory(
+    packageDirectory,
+    `Content package ${String(registryEntry?.contentVersion ?? "")}`,
+  );
+  const manifest = readTrustedPackageJson(
+    packageDirectory,
+    "manifest.json",
+    "Package manifest.json",
+  );
   const itemCatalog = readItemCatalog(
     packageDirectory,
     manifest.contentSchemaVersion,
@@ -492,11 +582,23 @@ const readContentBundleFromDirectory = (
       registry,
       registryEntry,
       manifest,
-      runtimeIds: readJson(join(packageDirectory, "runtime-ids.json")),
+      runtimeIds: readTrustedPackageJson(
+        packageDirectory,
+        "runtime-ids.json",
+        "Package runtime-ids.json",
+      ),
       itemCatalog,
       runtimeCatalog,
-      coverageClaims: readJson(join(packageDirectory, "coverage-claims.json")),
-      reviews: readJson(join(packageDirectory, "reviews.json")),
+      coverageClaims: readTrustedPackageJson(
+        packageDirectory,
+        "coverage-claims.json",
+        "Package coverage-claims.json",
+      ),
+      reviews: readTrustedPackageJson(
+        packageDirectory,
+        "reviews.json",
+        "Package reviews.json",
+      ),
       audioAssetFileHashes: audioAssetFiles.hashes,
       audioAssetFileInspections: audioAssetFiles.inspections,
       characterSourceFileHashes: characterSourceFiles.hashes,
@@ -679,6 +781,18 @@ const resolveRepositoryAudioSource = (sourceFile, label) => {
     throw new Error(`${label} must stay inside the repository`);
   }
   if (!existsSync(path)) throw new Error(`${label} does not exist: ${sourceFile}`);
+  let currentPath = repositoryRoot;
+  for (const part of pathParts) {
+    currentPath = join(currentPath, part);
+    if (lstatSync(currentPath).isSymbolicLink()) {
+      throw new Error(`${label} must not contain symlinks or junctions`);
+    }
+    if (!pathsAreIdentical(currentPath, realpathSync(currentPath))) {
+      throw new Error(
+        `${label} must not traverse junctions or other reparse points`,
+      );
+    }
+  }
   const metadata = lstatSync(path);
   if (!metadata.isFile() || metadata.isSymbolicLink()) {
     throw new Error(`${label} must be a regular non-symlink file`);
@@ -699,7 +813,20 @@ const resolveRepositoryAudioSource = (sourceFile, label) => {
   ) {
     throw new Error(`${label} resolves outside the repository`);
   }
-  return realPath;
+  const bytes = readFileSync(realPath);
+  const metadataAfterRead = lstatSync(path);
+  if (
+    metadataAfterRead.isSymbolicLink()
+    || !metadataAfterRead.isFile()
+    || metadataAfterRead.dev !== metadata.dev
+    || metadataAfterRead.ino !== metadata.ino
+    || metadataAfterRead.size !== metadata.size
+    || metadataAfterRead.mtimeMs !== metadata.mtimeMs
+    || realpathSync(path) !== realPath
+  ) {
+    throw new Error(`${label} changed while its bytes were being captured`);
+  }
+  return { path: realPath, bytes };
 };
 
 const resolveRepositoryCharacterSource = (sourceFile, label) => {
@@ -724,6 +851,11 @@ const resolveRepositoryCharacterSource = (sourceFile, label) => {
     if (lstatSync(currentPath).isSymbolicLink()) {
       throw new Error(`${label} must not contain symlinks or junctions`);
     }
+    if (!pathsAreIdentical(currentPath, realpathSync(currentPath))) {
+      throw new Error(
+        `${label} must not traverse junctions or other reparse points`,
+      );
+    }
   }
   const metadata = lstatSync(path);
   if (!metadata.isFile() || metadata.isSymbolicLink()) {
@@ -739,7 +871,536 @@ const resolveRepositoryCharacterSource = (sourceFile, label) => {
   if (!pathIsContained(realRepositoryRoot, realPath)) {
     throw new Error(`${label} resolves outside the repository`);
   }
-  return { path: realPath, bytes: readFileSync(realPath) };
+  const bytes = readFileSync(realPath);
+  const metadataAfterRead = lstatSync(path);
+  if (
+    metadataAfterRead.isSymbolicLink()
+    || !metadataAfterRead.isFile()
+    || !sameFileIdentity(metadata, metadataAfterRead)
+    || realpathSync(path) !== realPath
+  ) {
+    throw new Error(`${label} changed while its bytes were being captured`);
+  }
+  return { path: realPath, bytes };
+};
+
+const sameFileIdentity = (left, right) =>
+  left.dev === right.dev
+  && left.ino === right.ino
+  && left.size === right.size
+  && left.mtimeMs === right.mtimeMs;
+
+const captureImmutablePackageArtifact = (
+  packageDirectory,
+  fileRef,
+  label,
+  maxByteLength,
+  { optional = false } = {},
+) => {
+  requireNonEmptyString(fileRef, label);
+  if (
+    isAbsolute(fileRef)
+    || fileRef.includes(":")
+    || fileRef.includes("\\")
+  ) {
+    throw new Error(`${label} must be a forward-slash package-relative path`);
+  }
+  const pathParts = fileRef.split("/");
+  if (
+    pathParts.some((part) => part === "" || part === "." || part === "..")
+  ) {
+    throw new Error(`${label} must not contain empty or traversal segments`);
+  }
+
+  const realPackageDirectory = assertTrustedPackageDirectory(
+    packageDirectory,
+    `${label} source package`,
+  );
+
+  let currentPath = packageDirectory;
+  for (const part of pathParts) {
+    currentPath = join(currentPath, part);
+    let metadata;
+    try {
+      metadata = lstatSync(currentPath);
+    } catch (error) {
+      if (
+        error !== null
+        && typeof error === "object"
+        && "code" in error
+        && error.code === "ENOENT"
+      ) {
+        if (optional) return null;
+        throw new Error(
+          `${label} is missing from its immutable source package`,
+          { cause: error },
+        );
+      }
+      throw error;
+    }
+    if (metadata.isSymbolicLink()) {
+      throw new Error(`${label} must not contain symlinks or junctions`);
+    }
+    if (!pathsAreIdentical(currentPath, realpathSync(currentPath))) {
+      throw new Error(
+        `${label} must not traverse junctions or other reparse points`,
+      );
+    }
+  }
+  const artifactPath = packageLocalPath(packageDirectory, fileRef);
+  if (artifactPath === null || artifactPath !== currentPath) {
+    throw new Error(`${label} must stay inside its immutable source package`);
+  }
+  const metadataBeforeRead = lstatSync(artifactPath);
+  if (
+    !metadataBeforeRead.isFile()
+    || metadataBeforeRead.isSymbolicLink()
+  ) {
+    throw new Error(`${label} must be a regular non-symlink file`);
+  }
+  if (metadataBeforeRead.size > maxByteLength) {
+    throw new Error(
+      `${label} exceeds the ${maxByteLength}-byte inheritance limit`,
+    );
+  }
+  const realArtifactPath = realpathSync(artifactPath);
+  if (!pathIsContained(realPackageDirectory, realArtifactPath)) {
+    throw new Error(`${label} resolves outside its immutable source package`);
+  }
+
+  const bytes = readFileSync(artifactPath);
+  const metadataAfterRead = lstatSync(artifactPath);
+  if (
+    metadataAfterRead.isSymbolicLink()
+    || !metadataAfterRead.isFile()
+    || !sameFileIdentity(metadataBeforeRead, metadataAfterRead)
+    || !pathsAreIdentical(realpathSync(artifactPath), realArtifactPath)
+  ) {
+    throw new Error(`${label} changed while its bytes were being captured`);
+  }
+  return bytes;
+};
+
+const canonicalObjectsEqual = async (left, right) =>
+  await sha256Json(left) === await sha256Json(right);
+
+const normalizeAudioTargetText = (value) =>
+  typeof value === "string" ? value.replace(/\r\n?/gu, "\n") : "";
+
+const deterministicMandarinTargetTexts = (item) => {
+  if (!isRecord(item?.payload)) return [];
+  if (item.itemType === "lexeme") {
+    return [item.payload.simplified, item.payload.example]
+      .filter((value) => typeof value === "string" && value.trim().length > 0);
+  }
+  if (item.itemType === "lesson") {
+    return [item.payload.chineseTitle]
+      .filter((value) => typeof value === "string" && value.trim().length > 0);
+  }
+  if (item.itemType === "graded-text") {
+    const sentenceTexts = (
+      Array.isArray(item.payload.sentences) ? item.payload.sentences : []
+    )
+      .map((sentence) => sentence?.chinese)
+      .filter((value) => typeof value === "string" && value.trim().length > 0);
+    return [
+      ...sentenceTexts,
+      ...(sentenceTexts.length > 0 ? [sentenceTexts.join("\n")] : []),
+    ];
+  }
+  if (
+    ["grammar", "pronunciation", "communicative-function"]
+      .includes(item.itemType)
+  ) {
+    return (
+      Array.isArray(item.payload.examples) ? item.payload.examples : []
+    )
+      .map((example) => example?.chinese)
+      .filter((value) => typeof value === "string" && value.trim().length > 0);
+  }
+  if (item.itemType === "character") {
+    return [item.payload.character]
+      .filter((value) => typeof value === "string" && value.trim().length > 0);
+  }
+  return [];
+};
+
+const assertArtifactCatalogContinuity = async ({
+  sourceCatalog,
+  targetCatalog,
+  targetContentSchemaVersion,
+  commandLabel,
+  preserveCharacters = true,
+  requireTargetAudioBinding = true,
+}) => {
+  if (!isRecord(sourceCatalog) || !isRecord(targetCatalog)) {
+    throw new Error(`${commandLabel} requires source and target item catalogs`);
+  }
+  const sourceAudioAssets = Array.isArray(sourceCatalog.audioAssets)
+    ? sourceCatalog.audioAssets
+    : [];
+  const targetAudioAssets = Array.isArray(targetCatalog.audioAssets)
+    ? targetCatalog.audioAssets
+    : [];
+  if (targetContentSchemaVersion < 5 && targetAudioAssets.length > 0) {
+    throw new Error(
+      `${commandLabel} cannot carry audio before content schema v5`,
+    );
+  }
+  const sourceAudioById = new Map(
+    sourceAudioAssets
+      .filter(isRecord)
+      .map((asset) => [asset.assetId, asset]),
+  );
+  if (sourceAudioById.size !== sourceAudioAssets.length) {
+    throw new Error(`${commandLabel} source audio inventory is malformed`);
+  }
+  const targetAudioById = new Map(
+    targetAudioAssets
+      .filter(isRecord)
+      .map((asset) => [asset.assetId, asset]),
+  );
+  if (targetAudioById.size !== targetAudioAssets.length) {
+    throw new Error(`${commandLabel} target audio inventory is malformed`);
+  }
+  const sourceItemByKey = new Map(
+    (Array.isArray(sourceCatalog.items) ? sourceCatalog.items : [])
+      .filter(isRecord)
+      .map((item) => [item.itemKey, item]),
+  );
+  const targetItemByKey = new Map(
+    (Array.isArray(targetCatalog.items) ? targetCatalog.items : [])
+      .filter(isRecord)
+      .map((item) => [item.itemKey, item]),
+  );
+  for (const [assetId, sourceAsset] of sourceAudioById) {
+    const targetAsset = targetAudioById.get(assetId);
+    const {
+      targetPayloadSha256: _sourceTargetPayloadSha256,
+      ...sourceAssetWithoutTargetDigest
+    } = sourceAsset;
+    const {
+      targetPayloadSha256: _targetTargetPayloadSha256,
+      ...targetAssetWithoutTargetDigest
+    } = targetAsset ?? {};
+    if (
+      targetAsset === undefined
+      || !(await canonicalObjectsEqual(
+        sourceAssetWithoutTargetDigest,
+        targetAssetWithoutTargetDigest,
+      ))
+    ) {
+      throw new Error(
+        `${commandLabel} must preserve source audio asset ${String(assetId)} bytes and evidence; use import-audio to replace media`,
+      );
+    }
+    const sourceTarget = sourceItemByKey.get(sourceAsset.targetItemKey);
+    const targetTarget = targetItemByKey.get(targetAsset.targetItemKey);
+    if (
+      !isRecord(sourceTarget)
+      || sourceAsset.targetPayloadSha256 !== sourceTarget.payloadSha256
+      || !isRecord(targetTarget)
+    ) {
+      throw new Error(
+        `${commandLabel} source audio asset ${String(assetId)} has no valid stable target`,
+      );
+    }
+    if (
+      requireTargetAudioBinding
+      && (
+        targetAsset.targetPayloadSha256 !== targetTarget.payloadSha256
+        || !deterministicMandarinTargetTexts(targetTarget).some(
+          (text) =>
+            normalizeAudioTargetText(text)
+            === normalizeAudioTargetText(targetAsset.transcript),
+        )
+      )
+    ) {
+      throw new Error(
+        `${commandLabel} audio asset ${String(assetId)} target text changed; rebind only an unchanged deterministic transcript or replace it through import-audio`,
+      );
+    }
+  }
+  for (const assetId of targetAudioById.keys()) {
+    if (!sourceAudioById.has(assetId)) {
+      throw new Error(
+        `${commandLabel} cannot add audio asset ${String(assetId)}; use import-audio`,
+      );
+    }
+  }
+
+  const sourceCharacterItems = Array.isArray(sourceCatalog.items)
+    ? sourceCatalog.items.filter((item) => item?.itemType === "character")
+    : [];
+  const targetCharacterItems = Array.isArray(targetCatalog.items)
+    ? targetCatalog.items.filter((item) => item?.itemType === "character")
+    : [];
+  if (targetContentSchemaVersion < 6 || !preserveCharacters) return;
+  if (sourceCatalog.schemaVersion !== 4) {
+    throw new Error(
+      `${commandLabel} cannot synthesize catalog-v4 character metadata; use import-character-metadata`,
+    );
+  }
+  const sourceCharactersByKey = new Map(
+    sourceCharacterItems
+      .filter(isRecord)
+      .map((item) => [item.itemKey, item]),
+  );
+  const targetCharactersByKey = new Map(
+    targetCharacterItems
+      .filter(isRecord)
+      .map((item) => [item.itemKey, item]),
+  );
+  if (
+    sourceCharactersByKey.size !== sourceCharacterItems.length
+    || targetCharactersByKey.size !== targetCharacterItems.length
+  ) {
+    throw new Error(`${commandLabel} character inventory is malformed`);
+  }
+  for (const [itemKey, sourceItem] of sourceCharactersByKey) {
+    const targetItem = targetCharactersByKey.get(itemKey);
+    const sourceArtifactPayload = {
+      analysis: sourceItem.payload?.analysis,
+      strokeCount: sourceItem.payload?.strokeCount,
+      strokeData: sourceItem.payload?.strokeData,
+    };
+    const targetArtifactPayload = {
+      analysis: targetItem?.payload?.analysis,
+      strokeCount: targetItem?.payload?.strokeCount,
+      strokeData: targetItem?.payload?.strokeData,
+    };
+    if (
+      targetItem === undefined
+      || targetItem.payload?.character !== sourceItem.payload?.character
+      || !(await canonicalObjectsEqual(
+        targetArtifactPayload,
+        sourceArtifactPayload,
+      ))
+    ) {
+      throw new Error(
+        `${commandLabel} must preserve source character artifacts for ${String(itemKey)} exactly; use import-character-metadata to replace sourced analysis`,
+      );
+    }
+  }
+  for (const itemKey of targetCharactersByKey.keys()) {
+    if (!sourceCharactersByKey.has(itemKey)) {
+      throw new Error(
+        `${commandLabel} cannot add sourced character ${String(itemKey)}; use import-character-metadata`,
+      );
+    }
+  }
+};
+
+const assertInheritedAudioTargetsMatchCatalog = (items, audioAssets) => {
+  const itemByKey = new Map(
+    items.filter(isRecord).map((item) => [item.itemKey, item]),
+  );
+  audioAssets.forEach((asset) => {
+    const target = itemByKey.get(asset.targetItemKey);
+    if (
+      !isRecord(target)
+      || asset.targetPayloadSha256 !== target.payloadSha256
+    ) {
+      throw new Error(
+        `Inherited audio asset ${String(asset.assetId)} target text or payload changed; replace it through import-audio`,
+      );
+    }
+  });
+};
+
+const rebindAudioTargetsAfterCharacterImport = ({
+  previousItems,
+  nextItems,
+  audioAssets,
+}) => {
+  const previousItemByKey = new Map(
+    previousItems.filter(isRecord).map((item) => [item.itemKey, item]),
+  );
+  const nextItemByKey = new Map(
+    nextItems.filter(isRecord).map((item) => [item.itemKey, item]),
+  );
+  return audioAssets.map((asset) => {
+    const previousTarget = previousItemByKey.get(asset.targetItemKey);
+    const nextTarget = nextItemByKey.get(asset.targetItemKey);
+    if (!isRecord(previousTarget) || !isRecord(nextTarget)) {
+      throw new Error(
+        `Inherited audio asset ${String(asset.assetId)} has no stable target item`,
+      );
+    }
+    if (asset.targetPayloadSha256 !== previousTarget.payloadSha256) {
+      throw new Error(
+        `Inherited audio asset ${String(asset.assetId)} target text or payload changed; replace it through import-audio`,
+      );
+    }
+    if (nextTarget.payloadSha256 === previousTarget.payloadSha256) {
+      return structuredClone(asset);
+    }
+    if (
+      previousTarget.itemType !== "character"
+      || nextTarget.itemType !== "character"
+      || previousTarget.payload?.character !== nextTarget.payload?.character
+      || normalizeAudioTargetText(asset.transcript)
+        !== normalizeAudioTargetText(nextTarget.payload?.character)
+    ) {
+      throw new Error(
+        `Inherited audio asset ${String(asset.assetId)} target text changed; replace it through import-audio`,
+      );
+    }
+    return {
+      ...structuredClone(asset),
+      targetPayloadSha256: nextTarget.payloadSha256,
+    };
+  });
+};
+
+const captureInheritedCatalogArtifacts = async ({
+  sourcePackageDirectory,
+  itemCatalog,
+  contentSchemaVersion,
+  commandLabel,
+  includeCharacters = true,
+}) => {
+  const artifacts = new Map();
+  const addArtifact = (fileRef, bytes, expectedSha256, label) => {
+    const actualSha256 = sha256Bytes(bytes);
+    if (actualSha256 !== expectedSha256) {
+      throw new Error(`${label} digest does not match immutable source bytes`);
+    }
+    const previous = artifacts.get(fileRef);
+    if (previous !== undefined) {
+      if (previous.sha256 !== actualSha256) {
+        throw new Error(
+          `${commandLabel} has conflicting inherited artifact ${fileRef}`,
+        );
+      }
+      return;
+    }
+    artifacts.set(fileRef, { bytes, sha256: actualSha256 });
+  };
+
+  const audioAssets = Array.isArray(itemCatalog?.audioAssets)
+    ? itemCatalog.audioAssets
+    : [];
+  if (audioAssets.length > AUDIO_CATALOG_MUTATION_POLICY.maxAssetCount) {
+    throw new Error(
+      `${commandLabel} audio inventory exceeds the ${AUDIO_CATALOG_MUTATION_POLICY.maxAssetCount}-asset limit`,
+    );
+  }
+  const capturedAudioRefs = new Set();
+  let aggregateAudioByteLength = 0;
+  for (const [index, asset] of audioAssets.entries()) {
+    if (!isRecord(asset)) {
+      throw new Error(`${commandLabel} audioAssets[${index}] must be an object`);
+    }
+    const prefix = `${commandLabel} audioAssets[${index}]`;
+    const bytes = captureImmutablePackageArtifact(
+      sourcePackageDirectory,
+      asset.fileRef,
+      `${prefix}.fileRef`,
+      AUDIO_IMPORT_POLICY.maxByteLength,
+    );
+    if (!capturedAudioRefs.has(asset.fileRef)) {
+      capturedAudioRefs.add(asset.fileRef);
+      aggregateAudioByteLength += bytes.byteLength;
+      if (
+        aggregateAudioByteLength
+        > AUDIO_CATALOG_MUTATION_POLICY.maxAggregateByteLength
+      ) {
+        throw new Error(
+          `${commandLabel} inherited audio bytes exceed the ${AUDIO_CATALOG_MUTATION_POLICY.maxAggregateByteLength}-byte aggregate limit`,
+        );
+      }
+    }
+    addArtifact(asset.fileRef, bytes, asset.fileSha256, prefix);
+    if (contentSchemaVersion >= 5) {
+      const media = inspectCanonicalWave(bytes);
+      if (!(await canonicalObjectsEqual(media, asset.media))) {
+        throw new Error(
+          `${prefix}.media does not match re-inspected immutable source bytes`,
+        );
+      }
+    }
+  }
+
+  if (contentSchemaVersion < 6 || !includeCharacters) return artifacts;
+  const characterItems = Array.isArray(itemCatalog?.items)
+    ? itemCatalog.items.filter((item) => item?.itemType === "character")
+    : [];
+  const uniqueCharacterRefs = new Set();
+  let aggregateCharacterBytes = 0;
+  for (const [itemIndex, item] of characterItems.entries()) {
+    const sources = Array.isArray(item?.payload?.analysis?.sources)
+      ? item.payload.analysis.sources
+      : [];
+    for (const [sourceIndex, source] of sources.entries()) {
+      if (!isRecord(source)) {
+        throw new Error(
+          `${commandLabel} character ${String(item?.itemKey)} source ${sourceIndex} must be an object`,
+        );
+      }
+      const prefix =
+        `${commandLabel} character ${String(item.itemKey)} source ${sourceIndex}`;
+      const bytes = captureImmutablePackageArtifact(
+        sourcePackageDirectory,
+        source.recordRef,
+        `${prefix}.recordRef`,
+        CHARACTER_DATA_IMPORT_POLICY.maxByteLength,
+      );
+      if (!uniqueCharacterRefs.has(source.recordRef)) {
+        uniqueCharacterRefs.add(source.recordRef);
+        aggregateCharacterBytes += bytes.byteLength;
+      }
+      if (
+        uniqueCharacterRefs.size
+          > CHARACTER_METADATA_IMPORT_POLICY.maxSourceFileCount
+        || aggregateCharacterBytes
+          > CHARACTER_METADATA_IMPORT_POLICY.maxAggregateSourceByteLength
+      ) {
+        throw new Error(
+          `${commandLabel} inherited character artifacts exceed the import policy`,
+        );
+      }
+      addArtifact(source.recordRef, bytes, source.recordSha256, prefix);
+      if (source.kind === "stroke-dataset") {
+        const inspection = inspectHanziWriterCharacterData(bytes);
+        if (
+          item.payload?.strokeData?.fileRef !== source.recordRef
+          || item.payload?.strokeData?.fileSha256 !== source.recordSha256
+          || item.payload?.strokeData?.sourceId !== source.sourceId
+          || item.payload?.strokeCount !== inspection.strokeCount
+        ) {
+          throw new Error(
+            `${prefix} does not match the character stroke payload after re-inspection`,
+          );
+        }
+      } else if (source.kind === "linguistic-reference") {
+        const inspection = inspectCharacterLinguisticSourceRecord(bytes);
+        if (inspection.character !== item.payload?.character) {
+          throw new Error(
+            `${prefix} character does not match the target payload`,
+          );
+        }
+      } else {
+        throw new Error(`${prefix}.kind is unsupported`);
+      }
+    }
+    if (sources.length === 0) {
+      throw new Error(
+        `${commandLabel} character item ${itemIndex} has no inherited sources`,
+      );
+    }
+  }
+  return artifacts;
+};
+
+const writeCapturedArtifacts = (stagedDirectory, artifacts) => {
+  [...artifacts.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .forEach(([fileRef, artifact]) => {
+      const targetPath = join(stagedDirectory, ...fileRef.split("/"));
+      mkdirSync(dirname(targetPath), { recursive: true });
+      writeFileSync(targetPath, artifact.bytes, { flag: "wx" });
+    });
 };
 
 const assertSafeAudioAssetId = (assetId, label) => {
@@ -1240,10 +1901,21 @@ const prepareCandidateBranch = async ({
   contentSchemaVersion,
   flags,
   sourceBundle: suppliedSourceBundle,
+  sourcePackageDirectory: suppliedSourcePackageDirectory,
   currentVersionError = "New versions must branch from registry.currentContentVersion",
 }) => {
-  const sourceBundle = suppliedSourceBundle
-    ?? loadContentBundle(fromVersion).bundle;
+  const loadedSource = suppliedSourceBundle === undefined
+    ? loadContentBundle(fromVersion)
+    : {
+        bundle: suppliedSourceBundle,
+        packageDirectory:
+          suppliedSourcePackageDirectory
+          ?? resolvePackageDirectory(
+            suppliedSourceBundle.registryEntry.relativePath,
+          ),
+      };
+  const sourceBundle = loadedSource.bundle;
+  const sourcePackageDirectory = loadedSource.packageDirectory;
   if (contentSchemaVersion < sourceBundle.manifest.contentSchemaVersion) {
     throw new Error("A new package cannot downgrade contentSchemaVersion");
   }
@@ -1374,6 +2046,7 @@ const prepareCandidateBranch = async ({
     : sourceBundle.runtimeIds;
   return {
     sourceBundle,
+    sourcePackageDirectory,
     sourceValidation,
     liveSourceTexts,
     targetDirectory,
@@ -1535,7 +2208,8 @@ const newVersionCommand = async (args) => {
     throw new Error("new-version does not import audio; use import-audio");
   }
 
-  const sourceBundle = loadContentBundle(fromVersion).bundle;
+  const loadedSource = loadContentBundle(fromVersion);
+  const sourceBundle = loadedSource.bundle;
   const requestedContentSchemaVersion = flags.get("content-schema-version");
   const contentSchemaVersion =
     requestedContentSchemaVersion === undefined
@@ -1543,12 +2217,15 @@ const newVersionCommand = async (args) => {
       : Number(requestedContentSchemaVersion);
   if (
     !Number.isInteger(contentSchemaVersion)
-    || ![2, 3, 4].includes(contentSchemaVersion)
+    || ![2, 3, 4, 5, 6].includes(contentSchemaVersion)
   ) {
-    throw new Error("--content-schema-version must be 2, 3, or 4");
+    throw new Error(
+      "--content-schema-version must be 2, 3, 4, 5, or 6",
+    );
   }
   const {
     sourceValidation,
+    sourcePackageDirectory,
     liveSourceTexts,
     targetDirectory,
     temporaryDirectory,
@@ -1559,6 +2236,7 @@ const newVersionCommand = async (args) => {
     contentSchemaVersion,
     flags,
     sourceBundle,
+    sourcePackageDirectory: loadedSource.packageDirectory,
   });
   const itemCatalogInput = flags.get("item-catalog-file");
   if (contentSchemaVersion >= 3 && typeof itemCatalogInput !== "string") {
@@ -1574,7 +2252,13 @@ const newVersionCommand = async (args) => {
   if (itemCatalog !== null && itemCatalog.contentVersion !== newVersion) {
     throw new Error("--item-catalog-file contentVersion must equal the new version");
   }
-  const expectedItemCatalogSchemaVersion = contentSchemaVersion >= 4 ? 2 : 1;
+  const expectedItemCatalogSchemaVersion = contentSchemaVersion >= 6
+    ? 4
+    : contentSchemaVersion >= 5
+      ? 3
+      : contentSchemaVersion >= 4
+        ? 2
+        : 1;
   if (
     itemCatalog !== null
     && itemCatalog.schemaVersion !== expectedItemCatalogSchemaVersion
@@ -1583,9 +2267,35 @@ const newVersionCommand = async (args) => {
       `Content schema v${contentSchemaVersion} requires item-catalog.schemaVersion ${expectedItemCatalogSchemaVersion}`,
     );
   }
-  if ((itemCatalog?.audioAssets?.length ?? 0) > 0) {
+  const requiresArtifactContinuity =
+    contentSchemaVersion >= 6
+    || (itemCatalog?.audioAssets?.length ?? 0) > 0
+    || (sourceBundle.itemCatalog?.audioAssets?.length ?? 0) > 0;
+  if (itemCatalog !== null && requiresArtifactContinuity) {
+    await assertArtifactCatalogContinuity({
+      sourceCatalog: sourceBundle.itemCatalog,
+      targetCatalog: itemCatalog,
+      targetContentSchemaVersion: contentSchemaVersion,
+      commandLabel: "new-version",
+    });
+  }
+  const inheritedArtifacts = itemCatalog === null
+    ? new Map()
+    : await captureInheritedCatalogArtifacts({
+        sourcePackageDirectory,
+        itemCatalog,
+        contentSchemaVersion,
+        commandLabel: "new-version",
+      });
+  const inheritedAudioRights = (itemCatalog?.audioAssets?.length ?? 0) > 0
+    ? sourceBundle.manifest.governance.audioRights
+    : null;
+  if (
+    (itemCatalog?.audioAssets?.length ?? 0) > 0
+    && !isRecord(inheritedAudioRights)
+  ) {
     throw new Error(
-      "Audio asset import is not implemented by new-version; refusing to create dangling catalog files",
+      "new-version cannot preserve audio without source manifest audio rights",
     );
   }
   const runtimeCatalog = contentSchemaVersion >= 4
@@ -1621,7 +2331,7 @@ const newVersionCommand = async (args) => {
       typeof licenseId === "string" && typeof licenseEvidence === "string"
         ? { licenseId, evidenceRef: licenseEvidence }
         : null,
-    audioRights: null,
+    audioRights: inheritedAudioRights,
   });
   await writeCandidatePackage({
     temporaryDirectory,
@@ -1635,6 +2345,11 @@ const newVersionCommand = async (args) => {
     reviews,
     sourceTexts: liveSourceTexts,
     validateStaged: true,
+    writeAdditionalArtifacts: inheritedArtifacts.size === 0
+      ? undefined
+      : (stagedDirectory) => {
+          writeCapturedArtifacts(stagedDirectory, inheritedArtifacts);
+        },
   });
   console.log(
     `Created and selected candidate ${newVersion} from ${fromVersion}; approvals were intentionally cleared${coverageClaimsInput === undefined ? " together with coverage claims" : ""}`,
@@ -1679,12 +2394,23 @@ const importAudioCommand = async (args) => {
     if (!["closed-alpha", "public"].includes(audience)) {
       throw new Error("--audience must be closed-alpha or public");
     }
-    const requestedContentSchemaVersion = requiredFlag(
+    const requestedContentSchemaVersion = Number(requiredFlag(
       flags,
       "content-schema-version",
+    ));
+    const loadedSource = loadContentBundle(fromVersion);
+    const requiredContentSchemaVersion = Math.max(
+      loadedSource.bundle.manifest.contentSchemaVersion,
+      5,
     );
-    if (requestedContentSchemaVersion !== "5") {
-      throw new Error("import-audio requires --content-schema-version 5");
+    if (
+      !Number.isInteger(requestedContentSchemaVersion)
+      || requestedContentSchemaVersion !== requiredContentSchemaVersion
+      || ![5, 6].includes(requestedContentSchemaVersion)
+    ) {
+      throw new Error(
+        `import-audio requires --content-schema-version ${requiredContentSchemaVersion} when branching from ${fromVersion}`,
+      );
     }
     const ownerId = flags.get("owner-id");
     const ownerEvidence = flags.get("owner-evidence");
@@ -1702,9 +2428,10 @@ const importAudioCommand = async (args) => {
     const itemCatalogInput = requiredFlag(flags, "item-catalog-file");
     const descriptorInput = requiredFlag(flags, "audio-descriptor-file");
 
-    const contentSchemaVersion = 5;
+    const contentSchemaVersion = requestedContentSchemaVersion;
     const {
       sourceBundle,
+      sourcePackageDirectory,
       sourceValidation,
       liveSourceTexts,
       targetDirectory,
@@ -1715,6 +2442,8 @@ const importAudioCommand = async (args) => {
       fromVersion,
       contentSchemaVersion,
       flags,
+      sourceBundle: loadedSource.bundle,
+      sourcePackageDirectory: loadedSource.packageDirectory,
       currentVersionError:
         "Audio imports must branch from registry.currentContentVersion",
     });
@@ -1722,9 +2451,15 @@ const importAudioCommand = async (args) => {
       itemCatalogInput,
       "--item-catalog-file",
     );
-    if (baseItemCatalog.schemaVersion !== 2) {
+    const expectedBaseCatalogSchemaVersion =
+      sourceBundle.itemCatalog?.schemaVersion
+      ?? (contentSchemaVersion >= 6 ? 4 : 2);
+    if (
+      ![2, 3, 4].includes(expectedBaseCatalogSchemaVersion)
+      || baseItemCatalog.schemaVersion !== expectedBaseCatalogSchemaVersion
+    ) {
       throw new Error(
-        "import-audio requires a schema-v2 --item-catalog-file",
+        `import-audio requires a schema-v${expectedBaseCatalogSchemaVersion} --item-catalog-file when branching from ${fromVersion}`,
       );
     }
     if (baseItemCatalog.contentVersion !== newVersion) {
@@ -1735,14 +2470,37 @@ const importAudioCommand = async (args) => {
     if (!Array.isArray(baseItemCatalog.audioAssets)) {
       throw new Error("--item-catalog-file audioAssets must be an array");
     }
-    if (baseItemCatalog.audioAssets.length > 0) {
+    if (
+      baseItemCatalog.schemaVersion < 3
+      && baseItemCatalog.audioAssets.length > 0
+    ) {
       throw new Error(
-        "--item-catalog-file must have empty audioAssets; import-audio owns asset derivation",
+        "--item-catalog-file must not carry legacy uninspected audioAssets",
       );
     }
     if (!Array.isArray(baseItemCatalog.items)) {
       throw new Error("--item-catalog-file items must be an array");
     }
+    if (isRecord(sourceBundle.itemCatalog)) {
+      await assertArtifactCatalogContinuity({
+        sourceCatalog: sourceBundle.itemCatalog,
+        targetCatalog: baseItemCatalog,
+        targetContentSchemaVersion: contentSchemaVersion,
+        commandLabel: "import-audio base catalog",
+        requireTargetAudioBinding: false,
+      });
+    } else if (
+      contentSchemaVersion >= 6
+      || baseItemCatalog.audioAssets.length > 0
+    ) {
+      throw new Error(
+        "import-audio cannot inherit artifact-backed catalog data without a source item catalog",
+      );
+    }
+    const existingAudioAssets = baseItemCatalog.audioAssets;
+    const existingAudioById = new Map(
+      existingAudioAssets.map((asset) => [asset.assetId, asset]),
+    );
     const itemMap = new Map(
       baseItemCatalog.items
         .filter(isRecord)
@@ -1769,13 +2527,76 @@ const importAudioCommand = async (args) => {
     if (!Array.isArray(descriptor.assets) || descriptor.assets.length === 0) {
       throw new Error("audio descriptor.assets must be a non-empty array");
     }
-    if (descriptor.assets.length > 10_000) {
-      throw new Error("audio descriptor.assets exceeds the 10000-asset import limit");
+    if (
+      descriptor.assets.length
+      > AUDIO_CATALOG_MUTATION_POLICY.maxAssetCount
+    ) {
+      throw new Error(
+        `audio descriptor.assets exceeds the ${AUDIO_CATALOG_MUTATION_POLICY.maxAssetCount}-asset import limit`,
+      );
     }
-
+    const replacedAudioAssetIds = new Set();
+    const descriptorAssetIds = new Set();
+    for (const [index, descriptorAsset] of descriptor.assets.entries()) {
+      const prefix = `audio descriptor.assets[${index}]`;
+      if (!isRecord(descriptorAsset)) {
+        throw new Error(`${prefix} must be an object`);
+      }
+      assertSafeAudioAssetId(descriptorAsset.assetId, `${prefix}.assetId`);
+      if (descriptorAssetIds.has(descriptorAsset.assetId)) {
+        throw new Error(`Duplicate audio asset id: ${descriptorAsset.assetId}`);
+      }
+      descriptorAssetIds.add(descriptorAsset.assetId);
+      const replacedAsset = existingAudioById.get(descriptorAsset.assetId);
+      if (
+        replacedAsset !== undefined
+        && replacedAsset.targetItemKey !== descriptorAsset.targetItemKey
+      ) {
+        throw new Error(
+          `${prefix}.targetItemKey must match the existing asset when replacing ${descriptorAsset.assetId}`,
+        );
+      }
+      if (replacedAsset !== undefined) {
+        replacedAudioAssetIds.add(descriptorAsset.assetId);
+      }
+    }
+    const retainedAudioAssets = existingAudioAssets.filter(
+      (asset) => !replacedAudioAssetIds.has(asset.assetId),
+    );
+    if (
+      retainedAudioAssets.length + descriptor.assets.length
+      > AUDIO_CATALOG_MUTATION_POLICY.maxAssetCount
+    ) {
+      throw new Error(
+        `combined inherited and imported audioAssets exceed the ${AUDIO_CATALOG_MUTATION_POLICY.maxAssetCount}-asset limit`,
+      );
+    }
+    const inheritedArtifacts = isRecord(sourceBundle.itemCatalog)
+      ? await captureInheritedCatalogArtifacts({
+          sourcePackageDirectory,
+          itemCatalog: {
+            ...baseItemCatalog,
+            audioAssets: retainedAudioAssets,
+          },
+          contentSchemaVersion,
+          commandLabel: "import-audio",
+        })
+      : new Map();
+    const capturedAudioRefs = new Set();
+    let aggregateCapturedAudioByteLength = 0;
+    for (const asset of retainedAudioAssets) {
+      if (capturedAudioRefs.has(asset.fileRef)) continue;
+      const inheritedArtifact = inheritedArtifacts.get(asset.fileRef);
+      if (inheritedArtifact === undefined) {
+        throw new Error(
+          `Inherited audio artifact is unavailable: ${String(asset.fileRef)}`,
+        );
+      }
+      capturedAudioRefs.add(asset.fileRef);
+      aggregateCapturedAudioByteLength += inheritedArtifact.bytes.byteLength;
+    }
     const importedAssets = [];
-    const sourceFilesByAssetId = new Map();
-    const assetIds = new Set();
+    const sourceBytesByAssetId = new Map();
     for (const [index, descriptorAsset] of descriptor.assets.entries()) {
       const prefix = `audio descriptor.assets[${index}]`;
       assertExactObjectKeys(
@@ -1793,10 +2614,6 @@ const importAudioCommand = async (args) => {
         prefix,
       );
       assertSafeAudioAssetId(descriptorAsset.assetId, `${prefix}.assetId`);
-      if (assetIds.has(descriptorAsset.assetId)) {
-        throw new Error(`Duplicate audio asset id: ${descriptorAsset.assetId}`);
-      }
-      assetIds.add(descriptorAsset.assetId);
       const targetItem = itemMap.get(descriptorAsset.targetItemKey);
       if (!isRecord(targetItem)) {
         throw new Error(
@@ -1806,11 +2623,10 @@ const importAudioCommand = async (args) => {
       if (!SHA256_DIGEST_PATTERN.test(descriptorAsset.expectedFileSha256 ?? "")) {
         throw new Error(`${prefix}.expectedFileSha256 must be a SHA-256 digest`);
       }
-      const sourcePath = resolveRepositoryAudioSource(
+      const { bytes: sourceBytes } = resolveRepositoryAudioSource(
         descriptorAsset.sourceFile,
         `${prefix}.sourceFile`,
       );
-      const sourceBytes = readFileSync(sourcePath);
       const actualFileSha256 = sha256Bytes(sourceBytes);
       if (actualFileSha256 !== descriptorAsset.expectedFileSha256) {
         throw new Error(
@@ -1892,11 +2708,24 @@ const importAudioCommand = async (args) => {
           text: segment.text,
         };
       });
+      const fileRef = `audio/${descriptorAsset.assetId}.wav`;
+      if (!capturedAudioRefs.has(fileRef)) {
+        capturedAudioRefs.add(fileRef);
+        aggregateCapturedAudioByteLength += sourceBytes.byteLength;
+        if (
+          aggregateCapturedAudioByteLength
+          > AUDIO_CATALOG_MUTATION_POLICY.maxAggregateByteLength
+        ) {
+          throw new Error(
+            `combined inherited and imported audio bytes exceed the ${AUDIO_CATALOG_MUTATION_POLICY.maxAggregateByteLength}-byte aggregate limit`,
+          );
+        }
+      }
       importedAssets.push({
         assetId: descriptorAsset.assetId,
         targetItemKey: descriptorAsset.targetItemKey,
         targetPayloadSha256: targetItem.payloadSha256,
-        fileRef: `audio/${descriptorAsset.assetId}.wav`,
+        fileRef,
         fileSha256: actualFileSha256,
         transcript,
         transcriptSha256,
@@ -1917,15 +2746,36 @@ const importAudioCommand = async (args) => {
           segments,
         },
       });
-      sourceFilesByAssetId.set(descriptorAsset.assetId, sourcePath);
+      sourceBytesByAssetId.set(descriptorAsset.assetId, sourceBytes);
     }
     importedAssets.sort((left, right) =>
       left.assetId < right.assetId ? -1 : left.assetId > right.assetId ? 1 : 0
     );
+    if (retainedAudioAssets.length > 0) {
+      const retainedAudioRights =
+        sourceBundle.manifest.governance.audioRights;
+      if (
+        !isRecord(retainedAudioRights)
+        || retainedAudioRights.ownerId !== audioOwnerId
+        || retainedAudioRights.licenseId !== audioLicenseId
+        || retainedAudioRights.evidenceRef !== audioEvidence
+      ) {
+        throw new Error(
+          "CLI audio rights must exactly match every retained audio asset; replace all existing assets to rotate rights",
+        );
+      }
+    }
     const itemCatalog = {
       ...baseItemCatalog,
-      schemaVersion: 3,
-      audioAssets: importedAssets,
+      schemaVersion: contentSchemaVersion >= 6 ? 4 : 3,
+      audioAssets: [...retainedAudioAssets, ...importedAssets].sort(
+        (left, right) =>
+          left.assetId < right.assetId
+            ? -1
+            : left.assetId > right.assetId
+              ? 1
+              : 0,
+      ),
     };
     const runtimeCatalog = projectSanitizedRuntimeCatalog(itemCatalog);
     const coverageClaimsInput = flags.get("coverage-claims-file");
@@ -1980,13 +2830,14 @@ const importAudioCommand = async (args) => {
       sourceTexts: liveSourceTexts,
       validateStaged: true,
       writeAdditionalArtifacts: (stagedDirectory) => {
+        writeCapturedArtifacts(stagedDirectory, inheritedArtifacts);
         const audioDirectory = join(stagedDirectory, "audio");
-        mkdirSync(audioDirectory);
+        if (!existsSync(audioDirectory)) mkdirSync(audioDirectory);
         importedAssets.forEach((asset) => {
-          copyFileSync(
-            sourceFilesByAssetId.get(asset.assetId),
+          writeFileSync(
             join(stagedDirectory, ...asset.fileRef.split("/")),
-            constants.COPYFILE_EXCL,
+            sourceBytesByAssetId.get(asset.assetId),
+            { flag: "wx" },
           );
         });
       },
@@ -2054,6 +2905,7 @@ const importCharacterMetadataCommand = async (args) => {
     const contentSchemaVersion = 6;
     const {
       sourceBundle,
+      sourcePackageDirectory,
       sourceValidation,
       liveSourceTexts,
       targetDirectory,
@@ -2072,9 +2924,19 @@ const importCharacterMetadataCommand = async (args) => {
       itemCatalogInput,
       "--item-catalog-file",
     );
-    if (baseItemCatalog.schemaVersion !== 2) {
+    if (!isRecord(sourceBundle.itemCatalog)) {
       throw new Error(
-        "import-character-metadata requires a schema-v2 --item-catalog-file",
+        "import-character-metadata requires a source item catalog",
+      );
+    }
+    const expectedBaseCatalogSchemaVersion =
+      sourceBundle.itemCatalog.schemaVersion;
+    if (
+      ![2, 3, 4].includes(expectedBaseCatalogSchemaVersion)
+      || baseItemCatalog.schemaVersion !== expectedBaseCatalogSchemaVersion
+    ) {
+      throw new Error(
+        `import-character-metadata requires a schema-v${expectedBaseCatalogSchemaVersion} --item-catalog-file when branching from ${fromVersion}`,
       );
     }
     if (baseItemCatalog.contentVersion !== newVersion) {
@@ -2085,13 +2947,45 @@ const importCharacterMetadataCommand = async (args) => {
     if (!Array.isArray(baseItemCatalog.audioAssets)) {
       throw new Error("--item-catalog-file audioAssets must be an array");
     }
-    if (baseItemCatalog.audioAssets.length > 0) {
+    if (
+      baseItemCatalog.schemaVersion < 3
+      && baseItemCatalog.audioAssets.length > 0
+    ) {
       throw new Error(
-        "--item-catalog-file must have empty audioAssets; character import cannot carry uninspected audio",
+        "--item-catalog-file must not carry legacy uninspected audioAssets",
       );
     }
     if (!Array.isArray(baseItemCatalog.items)) {
       throw new Error("--item-catalog-file items must be an array");
+    }
+    assertInheritedAudioTargetsMatchCatalog(
+      baseItemCatalog.items,
+      baseItemCatalog.audioAssets,
+    );
+    await assertArtifactCatalogContinuity({
+      sourceCatalog: sourceBundle.itemCatalog,
+      targetCatalog: baseItemCatalog,
+      targetContentSchemaVersion: contentSchemaVersion,
+      commandLabel: "import-character-metadata base catalog",
+      preserveCharacters: false,
+    });
+    const inheritedAudioArtifacts = await captureInheritedCatalogArtifacts({
+      sourcePackageDirectory,
+      itemCatalog: baseItemCatalog,
+      contentSchemaVersion,
+      commandLabel: "import-character-metadata",
+      includeCharacters: false,
+    });
+    const inheritedAudioRights = baseItemCatalog.audioAssets.length > 0
+      ? sourceBundle.manifest.governance.audioRights
+      : null;
+    if (
+      baseItemCatalog.audioAssets.length > 0
+      && !isRecord(inheritedAudioRights)
+    ) {
+      throw new Error(
+        "import-character-metadata cannot preserve audio without source manifest audio rights",
+      );
     }
     const itemMap = new Map();
     for (const [index, item] of baseItemCatalog.items.entries()) {
@@ -2444,7 +3338,7 @@ const importCharacterMetadataCommand = async (args) => {
           throw new Error(`Duplicate generated character artifact ref: ${recordRef}`);
         }
         artifactSourcesByRef.set(recordRef, {
-          sourceFile: source.sourceFile,
+          bytes,
           expectedFileSha256: actualSha256,
         });
         sourceById.set(source.sourceId, {
@@ -2565,11 +3459,16 @@ const importCharacterMetadataCommand = async (args) => {
         payloadSha256: await sha256Json({ itemType: "character", payload }),
       };
     }));
+    const audioAssets = rebindAudioTargetsAfterCharacterImport({
+      previousItems: baseItemCatalog.items,
+      nextItems: items,
+      audioAssets: baseItemCatalog.audioAssets,
+    });
     const itemCatalog = {
       ...baseItemCatalog,
       schemaVersion: 4,
       items,
-      audioAssets: [],
+      audioAssets,
     };
     const runtimeCatalog = projectSanitizedRuntimeCatalog(itemCatalog);
     const {
@@ -2597,7 +3496,7 @@ const importCharacterMetadataCommand = async (args) => {
         typeof licenseId === "string" && typeof licenseEvidence === "string"
           ? { licenseId, evidenceRef: licenseEvidence }
           : null,
-      audioRights: null,
+      audioRights: inheritedAudioRights,
     });
     await writeCandidatePackage({
       temporaryDirectory,
@@ -2612,21 +3511,21 @@ const importCharacterMetadataCommand = async (args) => {
       sourceTexts: liveSourceTexts,
       validateStaged: true,
       writeAdditionalArtifacts: (stagedDirectory) => {
+        writeCapturedArtifacts(stagedDirectory, inheritedAudioArtifacts);
         [...artifactSourcesByRef.entries()]
           .sort(([left], [right]) => left.localeCompare(right))
           .forEach(([fileRef, sourceArtifact]) => {
-            const { bytes } = resolveRepositoryCharacterSource(
-              sourceArtifact.sourceFile,
-              `staged source for ${fileRef}`,
-            );
-            if (sha256Bytes(bytes) !== sourceArtifact.expectedFileSha256) {
+            if (
+              sha256Bytes(sourceArtifact.bytes)
+              !== sourceArtifact.expectedFileSha256
+            ) {
               throw new Error(
-                `Character source changed after descriptor validation: ${sourceArtifact.sourceFile}`,
+                `Captured character source changed before staging: ${fileRef}`,
               );
             }
             const targetPath = join(stagedDirectory, ...fileRef.split("/"));
             mkdirSync(dirname(targetPath), { recursive: true });
-            writeFileSync(targetPath, bytes, { flag: "wx" });
+            writeFileSync(targetPath, sourceArtifact.bytes, { flag: "wx" });
           });
       },
     });

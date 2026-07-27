@@ -72,6 +72,11 @@ This is a local engineering checkpoint, not production release evidence.
 - Catalog export rehydrates the complete immutable authoring inventory instead
   of reading sanitized runtime, preventing the 10 draft lessons from being
   dropped in the next version.
+- Catalog-v4 export now reprojects core and knowledge payloads from current
+  authoring sources while preserving exact source-addressed character
+  artifacts. Canonical audio bindings may follow an unchanged transcript;
+  incompatible text changes require explicit replacement and target removal is
+  rejected until an audio-retirement workflow exists.
 - Release counts use distinct reviewed payloads, not raw IDs. Empty graded
   texts, duplicate payload IDs, boolean-only audio, incomplete A0 graphs,
   relabeled HSK paths and production that skips closed-alpha gates all fail
@@ -122,6 +127,17 @@ This is a local engineering checkpoint, not production release evidence.
 - This remains tooling only. No real character source snapshot, linguistic
   decision, owner/license evidence, scoped approval, candidate package,
   promotion or runtime character exposure was added to `.07.5`.
+- Schema-v6 routine versioning, audio import and character reimport now preserve
+  and reinspect both media families. Audio replacement may reuse an ID only on
+  its existing target; partial rights rotation, stale target text and silent
+  artifact loss fail before registry handoff.
+- Immutable package control files, nested snapshots and inherited artifacts are
+  captured only through trusted regular-file paths with post-read identity
+  checks. Mutation failures keep the registry and target package unchanged.
+- Runtime and item prerequisite cycle checks are iterative. Matched
+  item/runtime lesson closure uses a bounded reachability bitset, including
+  non-lesson dependency frontiers, so a 10,000-lesson chain no longer performs
+  repeated quadratic closure scans.
 
 ## Local verification
 
@@ -133,16 +149,18 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 136 files, 1,114 tests passed
+  - Vitest: 137 files, 1,141 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 390.9 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 98 / 97, median 98
+  - Performance: 93 / 95 / 97, median 95
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,968 ms; CLS: 0; TBT: 108 ms
+  - Median LCP: 1,961 ms; CLS: 0; TBT: 221 ms
+  - An immediately preceding run under local load failed at median performance
+    94 after one 852 ms TBT outlier; the threshold was not lowered or bypassed.
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -168,20 +186,16 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Complete the schema-v6 lifecycle path so routine versioning and canonical
-   audio import preserve/reinspect catalog-v4 character artifacts instead of
-   forcing a downgrade or dropping either media type. Bound or make iterative
-   the large dependency-graph checks before expanding the catalog.
-3. Pin licensed source revisions and import the seven existing character items
+2. Pin licensed source revisions and import the seven existing character items
    into a new immutable candidate. Keep every enriched item in `review`; do
    not infer claims from glyph shape, and do not fabricate human approval.
-4. Complete sourced character metadata through attributable linguistic and
+3. Complete sourced character metadata through attributable linguistic and
    license review.
-5. Build the multi-user editorial assignment/review dashboard, then obtain
+4. Build the multi-user editorial assignment/review dashboard, then obtain
    attributable owner, license and native linguistic review evidence.
-6. Only after those gates, expand a reviewed A0 inventory and run
+5. Only after those gates, expand a reviewed A0 inventory and run
    pilot/calibration work before making assessment or coverage claims.
-7. Leave Sites ownership, saved version and deployment until the final release
+6. Leave Sites ownership, saved version and deployment until the final release
    step.
 
 Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use

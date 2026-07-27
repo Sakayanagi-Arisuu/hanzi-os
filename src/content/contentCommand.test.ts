@@ -1253,6 +1253,488 @@ describe("content validation command", () => {
     }
   });
 
+  it("preserves catalog-v4 character and canonical audio artifacts across schema-v6 lifecycle mutations", async () => {
+    const fixture = createCharacterCommandFixture();
+    type LifecycleCatalog = {
+      schemaVersion: number;
+      contentVersion: string;
+      audioAssets: Array<{
+        assetId: string;
+        targetItemKey: string;
+        targetPayloadSha256: string;
+        fileRef: string;
+        fileSha256: string;
+        rights: {
+          ownerId: string;
+          licenseId: string;
+          evidenceRef: string;
+        };
+      }>;
+      items: Array<{
+        itemKey: string;
+        itemType: string;
+        itemId: string;
+        itemVersion: string;
+        payloadSha256: string;
+        payload: {
+          character?: string;
+          simplified?: string;
+          meaning?: string;
+          analysis?: {
+            radical: { glyph: string };
+            sources: Array<{ recordRef: string }>;
+          };
+        };
+      }>;
+    };
+    const rebindCatalog = (
+      source: LifecycleCatalog,
+      contentVersion: string,
+    ): LifecycleCatalog => ({
+      ...structuredClone(source),
+      contentVersion,
+      items: source.items.map((item) => ({
+        ...structuredClone(item),
+        itemVersion: contentVersion,
+      })),
+    });
+    const bindRuntime = (
+      fromVersion: string,
+      toVersion: string,
+    ) => {
+      const readinessPath = join(
+        fixture.fixtureRoot,
+        "config/production-readiness.json",
+      );
+      const readiness = JSON.parse(
+        readFileSync(readinessPath, "utf8"),
+      ) as { contentVersion: string };
+      readiness.contentVersion = toVersion;
+      writeFileSync(
+        readinessPath,
+        `${JSON.stringify(readiness, null, 2)}\n`,
+      );
+      const curriculumPath = join(
+        fixture.fixtureRoot,
+        "src/data/curriculum.ts",
+      );
+      writeFileSync(
+        curriculumPath,
+        readFileSync(curriculumPath, "utf8").replaceAll(
+          fromVersion,
+          toVersion,
+        ),
+      );
+    };
+    const writeDraft = (name: string, value: unknown) => {
+      const path = join(fixture.fixtureRoot, "content/drafts", name);
+      writeFileSync(path, `${JSON.stringify(value, null, 2)}\n`);
+      return `content/drafts/${name}`;
+    };
+    const packageCatalog = (contentVersion: string) =>
+      JSON.parse(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${contentVersion}/item-catalog.json`,
+      ), "utf8")) as LifecycleCatalog;
+    const packageManifest = (contentVersion: string) =>
+      JSON.parse(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${contentVersion}/manifest.json`,
+      ), "utf8")) as {
+        governance: {
+          includesAudio: boolean;
+          audioRights: {
+            ownerId: string;
+            licenseId: string;
+            evidenceRef: string;
+          } | null;
+        };
+      };
+    const assertCharacterArtifactsEqual = (
+      leftVersion: string,
+      rightVersion: string,
+      catalog: LifecycleCatalog,
+    ) => {
+      catalog.items
+        .filter((item) => item.itemType === "character")
+        .flatMap((item) =>
+          item.payload.analysis?.sources.map((source) => source.recordRef) ?? []
+        )
+        .forEach((recordRef) => {
+          expect(readFileSync(join(
+            fixture.fixtureRoot,
+            `content/packages/${rightVersion}`,
+            ...recordRef.split("/"),
+          ))).toEqual(readFileSync(join(
+            fixture.fixtureRoot,
+            `content/packages/${leftVersion}`,
+            ...recordRef.split("/"),
+          )));
+        });
+    };
+
+    try {
+      copyFixtureFile(fixture.fixtureRoot, "scripts/content/import-audio.mjs");
+      copyFixtureFile(fixture.fixtureRoot, "scripts/content/new-version.mjs");
+      const characterImport = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(characterImport.status, characterImport.stderr).toBe(0);
+      const characterVersion = fixture.targetVersion;
+      const characterCatalog = packageCatalog(characterVersion);
+
+      const audioVersion = "fixture-2026.08.5";
+      bindRuntime(characterVersion, audioVersion);
+      const audioBaseCatalog = rebindCatalog(
+        characterCatalog,
+        audioVersion,
+      );
+      const audioCatalogRef = writeDraft(
+        "schema-v6-audio-catalog.json",
+        audioBaseCatalog,
+      );
+      const wave = makeCanonicalWave();
+      const wavePath = join(
+        fixture.fixtureRoot,
+        "content/drafts/schema-v6-ni.wav",
+      );
+      writeFileSync(wavePath, wave);
+      const audioTarget = audioBaseCatalog.items.find(
+        (item) => item.itemType === "character",
+      );
+      if (!audioTarget?.payload.character) {
+        throw new Error("Schema-v6 audio target is missing");
+      }
+      const audioDescriptorRef = writeDraft(
+        "schema-v6-audio-descriptor.json",
+        {
+          schemaVersion: 1,
+          contentVersion: audioVersion,
+          assets: [{
+            assetId: "schema-v6-ni",
+            targetItemKey: audioTarget.itemKey,
+            sourceFile: "content/drafts/schema-v6-ni.wav",
+            expectedFileSha256: sha256Bytes(wave),
+            transcript: audioTarget.payload.character,
+            segments: [{
+              startMs: 0,
+              endMs: 500,
+              text: audioTarget.payload.character,
+            }],
+            speaker: {
+              id: "native-speaker-v6",
+              nativeSpeakerEvidenceRef: "fixture://speaker/native-v6",
+            },
+            rights: {
+              ownerId: "fixture-audio-owner",
+              licenseId: "fixture-audio-license",
+              evidenceRef: "fixture://audio-rights",
+            },
+          }],
+        },
+      );
+      const audioImport = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/import-audio.mjs"),
+          audioVersion,
+          "--from", characterVersion,
+          "--created-at", "2026-08-05T00:00:00.000Z",
+          "--audience", "closed-alpha",
+          "--content-schema-version", "6",
+          "--item-catalog-file", audioCatalogRef,
+          "--audio-descriptor-file", audioDescriptorRef,
+          "--audio-owner-id", "fixture-audio-owner",
+          "--audio-license-id", "fixture-audio-license",
+          "--audio-evidence", "fixture://audio-rights",
+          "--confirm-runtime-ids-unchanged", "true",
+          "--write",
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(audioImport.status, audioImport.stderr).toBe(0);
+      const audioCatalog = packageCatalog(audioVersion);
+      expect(audioCatalog).toMatchObject({
+        schemaVersion: 4,
+        audioAssets: [{ assetId: "schema-v6-ni" }],
+      });
+      expect(
+        audioCatalog.items
+          .filter((item) => item.itemType === "character")
+          .map((item) => [item.itemKey, item.payloadSha256]),
+      ).toEqual(
+        characterCatalog.items
+          .filter((item) => item.itemType === "character")
+          .map((item) => [item.itemKey, item.payloadSha256]),
+      );
+      assertCharacterArtifactsEqual(
+        characterVersion,
+        audioVersion,
+        audioCatalog,
+      );
+
+      const routineVersion = "fixture-2026.08.6";
+      bindRuntime(audioVersion, routineVersion);
+      const routineCatalog = rebindCatalog(audioCatalog, routineVersion);
+      const routineAudioAsset = routineCatalog.audioAssets.find(
+        (asset) => asset.assetId === "schema-v6-ni",
+      );
+      const routineAudioTarget = routineCatalog.items.find(
+        (item) => item.itemKey === routineAudioAsset?.targetItemKey,
+      );
+      if (!routineAudioAsset || !routineAudioTarget?.payload.meaning) {
+        throw new Error("Routine audio-bound character is missing");
+      }
+      routineAudioTarget.payload.meaning =
+        `${routineAudioTarget.payload.meaning} (editorial update)`;
+      routineAudioTarget.payloadSha256 = await sha256Json({
+        itemType: routineAudioTarget.itemType,
+        payload: routineAudioTarget.payload,
+      });
+      routineAudioAsset.targetPayloadSha256 =
+        routineAudioTarget.payloadSha256;
+      const routineCatalogRef = writeDraft(
+        "schema-v6-routine-catalog.json",
+        routineCatalog,
+      );
+      const rejectedCatalog = structuredClone(routineCatalog);
+      const rejectedCharacter = rejectedCatalog.items.find(
+        (item) => item.itemType === "character",
+      );
+      if (!rejectedCharacter?.payload.analysis) {
+        throw new Error("Schema-v6 character payload is missing");
+      }
+      rejectedCharacter.payload.analysis.radical.glyph = "X";
+      writeDraft("schema-v6-routine-catalog.json", rejectedCatalog);
+      const newVersionArgs = [
+        join(fixture.fixtureRoot, "scripts/content/new-version.mjs"),
+        routineVersion,
+        "--from", audioVersion,
+        "--created-at", "2026-08-06T00:00:00.000Z",
+        "--audience", "closed-alpha",
+        "--content-schema-version", "6",
+        "--item-catalog-file", routineCatalogRef,
+        "--confirm-runtime-ids-unchanged", "true",
+        "--write",
+      ];
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBeforeRejectedCharacter = readFileSync(
+        registryPath,
+        "utf8",
+      );
+      const rejectedCharacterMutation = spawnSync(
+        process.execPath,
+        newVersionArgs,
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(rejectedCharacterMutation.status).toBe(2);
+      expect(rejectedCharacterMutation.stderr).toContain(
+        "must preserve source character artifacts",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(
+        registryBeforeRejectedCharacter,
+      );
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${routineVersion}`,
+      ))).toBe(false);
+
+      writeDraft("schema-v6-routine-catalog.json", routineCatalog);
+      const routineBranch = spawnSync(process.execPath, newVersionArgs, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(routineBranch.status, routineBranch.stderr).toBe(0);
+      const branchedCatalog = packageCatalog(routineVersion);
+      expect(branchedCatalog.audioAssets).toEqual(routineCatalog.audioAssets);
+      expect(packageManifest(routineVersion).governance).toMatchObject({
+        includesAudio: true,
+        audioRights: {
+          ownerId: "fixture-audio-owner",
+          licenseId: "fixture-audio-license",
+          evidenceRef: "fixture://audio-rights",
+        },
+      });
+      expect(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${routineVersion}/audio/schema-v6-ni.wav`,
+      ))).toEqual(wave);
+      assertCharacterArtifactsEqual(
+        audioVersion,
+        routineVersion,
+        branchedCatalog,
+      );
+
+      const reimportVersion = "fixture-2026.08.7";
+      bindRuntime(routineVersion, reimportVersion);
+      const reimportBaseCatalog = rebindCatalog(
+        branchedCatalog,
+        reimportVersion,
+      );
+      const reimportCatalogRef = writeDraft(
+        "schema-v6-character-reimport-catalog.json",
+        {
+          ...reimportBaseCatalog,
+          audioAssets: [],
+        },
+      );
+      const reimportDescriptor = structuredClone(fixture.descriptor);
+      reimportDescriptor.contentVersion = reimportVersion;
+      reimportDescriptor.characters.forEach((character) => {
+        const target = reimportBaseCatalog.items.find(
+          (item) => item.itemKey === character.targetItemKey,
+        );
+        if (!target) throw new Error("Character reimport target is missing");
+        character.expectedTargetPayloadSha256 = target.payloadSha256;
+      });
+      const audioBoundCharacter = reimportDescriptor.characters.find(
+        (character) =>
+          character.targetItemKey
+          === reimportBaseCatalog.audioAssets[0]?.targetItemKey,
+      );
+      if (!audioBoundCharacter) {
+        throw new Error("Audio-bound character descriptor is missing");
+      }
+      audioBoundCharacter.radical.glyph = "丨";
+      const reimportDescriptorRef = writeDraft(
+        "schema-v6-character-reimport-descriptor.json",
+        reimportDescriptor,
+      );
+      const reimportArgs = [
+        join(
+          fixture.fixtureRoot,
+          "scripts/content/import-character-metadata.mjs",
+        ),
+        reimportVersion,
+        "--from", routineVersion,
+        "--created-at", "2026-08-07T00:00:00.000Z",
+        "--audience", "closed-alpha",
+        "--content-schema-version", "6",
+        "--item-catalog-file", reimportCatalogRef,
+        "--character-descriptor-file", reimportDescriptorRef,
+        "--confirm-runtime-ids-unchanged", "true",
+        "--write",
+      ];
+      const textChangedCatalog = structuredClone(reimportBaseCatalog);
+      const textChangedCharacter = textChangedCatalog.items.find(
+        (item) =>
+          item.itemKey
+          === reimportBaseCatalog.audioAssets[0]?.targetItemKey,
+      );
+      if (!textChangedCharacter?.payload.character) {
+        throw new Error("Audio-bound character target is missing");
+      }
+      textChangedCharacter.payload.character = "X";
+      textChangedCharacter.payloadSha256 = await sha256Json({
+        itemType: textChangedCharacter.itemType,
+        payload: textChangedCharacter.payload,
+      });
+      writeDraft(
+        "schema-v6-character-reimport-catalog.json",
+        textChangedCatalog,
+      );
+      const registryBeforeDroppedAudio = readFileSync(registryPath, "utf8");
+      const rejectedTextChange = spawnSync(
+        process.execPath,
+        reimportArgs,
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(rejectedTextChange.status).toBe(2);
+      expect(rejectedTextChange.stderr).toContain(
+        "target text or payload changed; replace it through import-audio",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(
+        registryBeforeDroppedAudio,
+      );
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${reimportVersion}`,
+      ))).toBe(false);
+
+      writeDraft(
+        "schema-v6-character-reimport-catalog.json",
+        {
+          ...reimportBaseCatalog,
+          audioAssets: [],
+        },
+      );
+      const rejectedDroppedAudio = spawnSync(
+        process.execPath,
+        reimportArgs,
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(rejectedDroppedAudio.status).toBe(2);
+      expect(rejectedDroppedAudio.stderr).toContain(
+        "must preserve source audio asset schema-v6-ni bytes and evidence",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(
+        registryBeforeDroppedAudio,
+      );
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${reimportVersion}`,
+      ))).toBe(false);
+
+      writeDraft(
+        "schema-v6-character-reimport-catalog.json",
+        reimportBaseCatalog,
+      );
+      const characterReimport = spawnSync(
+        process.execPath,
+        reimportArgs,
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(characterReimport.status, characterReimport.stderr).toBe(0);
+      const reimportedCatalog = packageCatalog(reimportVersion);
+      expect(reimportedCatalog.audioAssets).toHaveLength(
+        branchedCatalog.audioAssets.length,
+      );
+      expect(reimportedCatalog.audioAssets[0]).toMatchObject({
+        assetId: branchedCatalog.audioAssets[0]?.assetId,
+        fileRef: branchedCatalog.audioAssets[0]?.fileRef,
+        fileSha256: branchedCatalog.audioAssets[0]?.fileSha256,
+        rights: branchedCatalog.audioAssets[0]?.rights,
+      });
+      expect(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${reimportVersion}/audio/schema-v6-ni.wav`,
+      ))).toEqual(wave);
+      expect(packageManifest(reimportVersion).governance.audioRights).toEqual(
+        packageManifest(routineVersion).governance.audioRights,
+      );
+      const reimportedAudioAsset = reimportedCatalog.audioAssets.find(
+        (asset) => asset.assetId === "schema-v6-ni",
+      );
+      const reimportedAudioTarget = reimportedCatalog.items.find(
+        (item) => item.itemKey === reimportedAudioAsset?.targetItemKey,
+      );
+      const previousAudioAsset = branchedCatalog.audioAssets.find(
+        (asset) => asset.assetId === "schema-v6-ni",
+      );
+      expect(reimportedAudioAsset?.targetPayloadSha256).toBe(
+        reimportedAudioTarget?.payloadSha256,
+      );
+      expect(reimportedAudioAsset?.targetPayloadSha256).not.toBe(
+        previousAudioAsset?.targetPayloadSha256,
+      );
+      const finalValidation = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/validate.mjs"),
+          reimportVersion,
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(finalValidation.status, finalValidation.stdout).toBe(0);
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  }, 120_000);
+
   it("keeps character package and registry writes atomic on untrusted import failures", () => {
     const fixture = createCharacterCommandFixture();
     try {
@@ -1367,7 +1849,7 @@ describe("content validation command", () => {
     } finally {
       rmSync(fixture.fixtureRoot, { recursive: true, force: true });
     }
-  });
+  }, 60_000);
 
   it("removes a staged character package when final validation rejects catalog drift", () => {
     const fixture = createCharacterCommandFixture();
@@ -1477,6 +1959,220 @@ describe("content validation command", () => {
       rmSync(fixture.fixtureRoot, { recursive: true, force: true });
     }
   });
+
+  it("bounds aggregate captured audio bytes before staging or registry mutation", () => {
+    const fixture = createAudioCommandFixture();
+    try {
+      const fixtureLibPath = join(
+        fixture.fixtureRoot,
+        "scripts/content/lib.mjs",
+      );
+      const fixtureLib = readFileSync(fixtureLibPath, "utf8");
+      const boundedFixtureLib = fixtureLib.replace(
+        "maxAggregateByteLength: 512 * 1024 * 1024",
+        "maxAggregateByteLength: 20_000",
+      );
+      expect(boundedFixtureLib).not.toBe(fixtureLib);
+      writeFileSync(fixtureLibPath, boundedFixtureLib);
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBefore = readFileSync(registryPath, "utf8");
+
+      const rejected = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+
+      expect(rejected.status).toBe(2);
+      expect(rejected.stderr).toContain(
+        "combined inherited and imported audio bytes exceed the 20000-byte aggregate limit",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}`,
+      ))).toBe(false);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        "content/.governance.lock",
+      ))).toBe(false);
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("allows full explicit audio replacement to rotate rights and rejects a partial rotation atomically", () => {
+    const fixture = createAudioCommandFixture();
+    try {
+      const initialImport = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(initialImport.status, initialImport.stderr).toBe(0);
+      const replacementVersion = "fixture-2026.08.9";
+      const readinessPath = join(
+        fixture.fixtureRoot,
+        "config/production-readiness.json",
+      );
+      const readiness = JSON.parse(
+        readFileSync(readinessPath, "utf8"),
+      ) as { contentVersion: string };
+      readiness.contentVersion = replacementVersion;
+      writeFileSync(
+        readinessPath,
+        `${JSON.stringify(readiness, null, 2)}\n`,
+      );
+      const curriculumPath = join(
+        fixture.fixtureRoot,
+        "src/data/curriculum.ts",
+      );
+      writeFileSync(
+        curriculumPath,
+        readFileSync(curriculumPath, "utf8").replaceAll(
+          fixture.targetVersion,
+          replacementVersion,
+        ),
+      );
+      const sourceCatalog = JSON.parse(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}/item-catalog.json`,
+      ), "utf8")) as {
+        schemaVersion: number;
+        contentVersion: string;
+        items: Array<{ itemVersion: string }>;
+        audioAssets: Array<{
+          assetId: string;
+          rights: {
+            ownerId: string;
+            licenseId: string;
+            evidenceRef: string;
+          };
+        }>;
+      };
+      const replacementCatalog = {
+        ...structuredClone(sourceCatalog),
+        contentVersion: replacementVersion,
+        items: sourceCatalog.items.map((item) => ({
+          ...structuredClone(item),
+          itemVersion: replacementVersion,
+        })),
+      };
+      const catalogPath = join(
+        fixture.fixtureRoot,
+        "content/drafts/replacement-audio-catalog.json",
+      );
+      writeFileSync(
+        catalogPath,
+        `${JSON.stringify(replacementCatalog, null, 2)}\n`,
+      );
+      const replacementDescriptor = structuredClone(fixture.descriptor);
+      replacementDescriptor.contentVersion = replacementVersion;
+      replacementDescriptor.assets.forEach((asset) => {
+        asset.rights = {
+          ownerId: "replacement-owner",
+          licenseId: "replacement-license",
+          evidenceRef: "fixture://replacement-rights",
+        };
+      });
+      const replacementDescriptorPath = join(
+        fixture.fixtureRoot,
+        "content/drafts/replacement-audio-descriptor.json",
+      );
+      const replacementArgs = [
+        join(fixture.fixtureRoot, "scripts/content/import-audio.mjs"),
+        replacementVersion,
+        "--from", fixture.targetVersion,
+        "--created-at", "2026-08-09T00:00:00.000Z",
+        "--audience", "closed-alpha",
+        "--content-schema-version", "5",
+        "--item-catalog-file",
+        "content/drafts/replacement-audio-catalog.json",
+        "--audio-descriptor-file",
+        "content/drafts/replacement-audio-descriptor.json",
+        "--audio-owner-id", "replacement-owner",
+        "--audio-license-id", "replacement-license",
+        "--audio-evidence", "fixture://replacement-rights",
+        "--confirm-runtime-ids-unchanged", "true",
+        "--write",
+      ];
+      writeFileSync(
+        replacementDescriptorPath,
+        `${JSON.stringify({
+          ...replacementDescriptor,
+          assets: [replacementDescriptor.assets[0]],
+        }, null, 2)}\n`,
+      );
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBeforePartialRotation = readFileSync(
+        registryPath,
+        "utf8",
+      );
+      const rejectedPartialRotation = spawnSync(
+        process.execPath,
+        replacementArgs,
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(rejectedPartialRotation.status).toBe(2);
+      expect(rejectedPartialRotation.stderr).toContain(
+        "replace all existing assets to rotate rights",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(
+        registryBeforePartialRotation,
+      );
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${replacementVersion}`,
+      ))).toBe(false);
+
+      writeFileSync(
+        replacementDescriptorPath,
+        `${JSON.stringify(replacementDescriptor, null, 2)}\n`,
+      );
+      const fullRotation = spawnSync(process.execPath, replacementArgs, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(fullRotation.status, fullRotation.stderr).toBe(0);
+      const rotatedCatalog = JSON.parse(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${replacementVersion}/item-catalog.json`,
+      ), "utf8")) as typeof sourceCatalog;
+      expect(rotatedCatalog.audioAssets).toHaveLength(
+        sourceCatalog.audioAssets.length,
+      );
+      rotatedCatalog.audioAssets.forEach((asset) => {
+        expect(asset.rights).toEqual({
+          ownerId: "replacement-owner",
+          licenseId: "replacement-license",
+          evidenceRef: "fixture://replacement-rights",
+        });
+      });
+      const rotatedManifest = JSON.parse(readFileSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${replacementVersion}/manifest.json`,
+      ), "utf8")) as {
+        governance: {
+          audioRights: {
+            ownerId: string;
+            licenseId: string;
+            evidenceRef: string;
+          };
+        };
+      };
+      expect(rotatedManifest.governance.audioRights).toEqual({
+        ownerId: "replacement-owner",
+        licenseId: "replacement-license",
+        evidenceRef: "fixture://replacement-rights",
+      });
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  }, 60_000);
 
   it("keeps hashing oversized legacy audio without requiring WAV inspection", () => {
     const packageDirectory = mkdtempSync(join(tmpdir(), "hanzi-legacy-audio-"));
@@ -1668,6 +2364,268 @@ describe("content validation command", () => {
       expect(validation.stdout).toContain(
         "item-catalog.audioAssets must be an array",
       );
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a BOM-prefixed package manifest instead of normalizing its bytes", () => {
+    const fixture = createAudioCommandFixture();
+    try {
+      const manifestPath = join(
+        fixture.fixtureRoot,
+        "content/packages/foundation-2026.07.5/manifest.json",
+      );
+      writeFileSync(
+        manifestPath,
+        `\uFEFF${readFileSync(manifestPath, "utf8")}`,
+      );
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBefore = readFileSync(registryPath, "utf8");
+      const validation = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/validate.mjs"),
+          "foundation-2026.07.5",
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(validation.status).toBe(2);
+      expect(validation.stderr).toContain(
+        "Package manifest.json must contain valid JSON",
+      );
+
+      const mutation = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(mutation.status).toBe(2);
+      expect(mutation.stderr).toContain(
+        "Package manifest.json must contain valid JSON",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}`,
+      ))).toBe(false);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        "content/.governance.lock",
+      ))).toBe(false);
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a manifest leaf symlink before validation or mutation reads JSON", () => {
+    const fixture = createAudioCommandFixture();
+    try {
+      const packageDirectory = join(
+        fixture.fixtureRoot,
+        "content/packages/foundation-2026.07.5",
+      );
+      const manifestPath = join(packageDirectory, "manifest.json");
+      const outsideManifestPath = join(
+        fixture.fixtureRoot,
+        "content/drafts/outside-package-manifest.json",
+      );
+      copyFileSync(manifestPath, outsideManifestPath);
+      rmSync(manifestPath, { force: true });
+      try {
+        symlinkSync(outsideManifestPath, manifestPath, "file");
+      } catch (error) {
+        if (
+          error instanceof Error
+          && "code" in error
+          && ["EPERM", "EACCES"].includes(String(error.code))
+        ) {
+          return;
+        }
+        throw error;
+      }
+
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBefore = readFileSync(registryPath, "utf8");
+      const validation = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/validate.mjs"),
+          "foundation-2026.07.5",
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(validation.status).toBe(2);
+      expect(validation.stderr).toContain(
+        "Package manifest.json must not contain symlinks or junctions",
+      );
+
+      const mutation = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(mutation.status).toBe(2);
+      expect(mutation.stderr).toContain(
+        "Package manifest.json must not contain symlinks or junctions",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}`,
+      ))).toBe(false);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        "content/.governance.lock",
+      ))).toBe(false);
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a nested snapshot junction before validation or mutation reads it", () => {
+    const fixture = createAudioCommandFixture();
+    try {
+      const packageDirectory = join(
+        fixture.fixtureRoot,
+        "content/packages/foundation-2026.07.5",
+      );
+      const snapshotDataDirectory = join(
+        packageDirectory,
+        "snapshots/src/data",
+      );
+      const outsideSnapshotDirectory = join(
+        fixture.fixtureRoot,
+        "content/drafts/outside-package-snapshots",
+      );
+      cpSync(snapshotDataDirectory, outsideSnapshotDirectory, {
+        recursive: true,
+      });
+      rmSync(snapshotDataDirectory, { recursive: true, force: true });
+      try {
+        symlinkSync(
+          outsideSnapshotDirectory,
+          snapshotDataDirectory,
+          process.platform === "win32" ? "junction" : "dir",
+        );
+      } catch (error) {
+        if (
+          error instanceof Error
+          && "code" in error
+          && ["EPERM", "EACCES"].includes(String(error.code))
+        ) {
+          return;
+        }
+        throw error;
+      }
+
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBefore = readFileSync(registryPath, "utf8");
+      const validation = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/validate.mjs"),
+          "foundation-2026.07.5",
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(validation.status).toBe(2);
+      expect(validation.stderr).toContain("Immutable source snapshot");
+      expect(validation.stderr).toContain(
+        "must not contain symlinks or junctions",
+      );
+
+      const mutation = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(mutation.status).toBe(2);
+      expect(mutation.stderr).toContain("Immutable source snapshot");
+      expect(mutation.stderr).toContain(
+        "must not contain symlinks or junctions",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}`,
+      ))).toBe(false);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        "content/.governance.lock",
+      ))).toBe(false);
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("rejects a package-root junction before validation or promotion reads JSON", () => {
+    const fixture = createAudioCommandFixture();
+    try {
+      copyFixtureFile(fixture.fixtureRoot, "scripts/content/promote.mjs");
+      const packageDirectory = join(
+        fixture.fixtureRoot,
+        "content/packages/foundation-2026.07.5",
+      );
+      const outsideDirectory = join(
+        fixture.fixtureRoot,
+        "content/drafts/package-root-junction-target",
+      );
+      cpSync(packageDirectory, outsideDirectory, { recursive: true });
+      rmSync(packageDirectory, { recursive: true, force: true });
+      try {
+        symlinkSync(
+          outsideDirectory,
+          packageDirectory,
+          process.platform === "win32" ? "junction" : "dir",
+        );
+      } catch (error) {
+        if (
+          error instanceof Error
+          && "code" in error
+          && ["EPERM", "EACCES"].includes(String(error.code))
+        ) {
+          return;
+        }
+        throw error;
+      }
+      const registryPath = join(
+        fixture.fixtureRoot,
+        "content/registry.json",
+      );
+      const registryBefore = readFileSync(registryPath, "utf8");
+      const validation = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/validate.mjs"),
+          "foundation-2026.07.5",
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(validation.status).toBe(2);
+      expect(validation.stderr).toContain(
+        "Content package foundation-2026.07.5",
+      );
+      const promotion = spawnSync(
+        process.execPath,
+        [
+          join(fixture.fixtureRoot, "scripts/content/promote.mjs"),
+          "foundation-2026.07.5",
+          "--channel", "closed-alpha",
+        ],
+        { cwd: fixture.fixtureRoot, encoding: "utf8" },
+      );
+      expect(promotion.status).toBe(2);
+      expect(promotion.stderr).toContain(
+        "Content package foundation-2026.07.5",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
     } finally {
       rmSync(fixture.fixtureRoot, { recursive: true, force: true });
     }
