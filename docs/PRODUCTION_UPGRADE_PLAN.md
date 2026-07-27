@@ -274,8 +274,16 @@ This remains a technical authoring envelope, not completed WS2. The candidate
   assets/review and a multi-user CMS are still absent. A bounded schema-v5
   importer now validates package-local canonical WAV bytes, duration,
   deterministic transcript alignment, speaker evidence and rights before an
-  atomic candidate handoff; legacy/uninspected audio is release-ineligible. No
-  real audio or evidence was fabricated or added to the current candidate.
+  atomic candidate handoff; legacy/uninspected audio is release-ineligible.
+  A bounded schema-v6/catalog-v4 importer also requires exact coverage of the
+  character inventory, immutable linguistic source records and byte-inspected
+  Hanzi Writer stroke data before atomic handoff. Target record keys,
+  independent and compound invariants, source use and hash drift fail closed;
+  legacy character fields are release-ineligible. The Characters UI no longer
+  promotes vocabulary-derived or hard-coded character claims, and no stroke
+  geometry is copied to the public build yet. No real audio, character source
+  candidate or human evidence was fabricated or added to the current
+  candidate.
   The real assessment bank therefore remains unissuable. No pilot,
   calibration, item-quality dashboard, native audio, provider speech pipeline
   or 100-person alpha evidence exists; the speech adapter stays disabled and

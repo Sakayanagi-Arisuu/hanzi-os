@@ -14,6 +14,7 @@ import {
   assessPublicationEligibility,
 } from "./publicationPolicy";
 import type {
+  CharacterCatalogPayloadV2,
   ContentCatalogItem,
   ContentPackageBundle,
   ContentPackageManifest,
@@ -722,6 +723,185 @@ const makeSchemaV5AudioFixture = async (
   return bundle;
 };
 
+const makeSchemaV6CharacterFixture = async (): Promise<ContentPackageBundle> => {
+  const bundle = structuredClone(loadCheckedInBundle());
+  if (bundle.itemCatalog?.schemaVersion !== 2) {
+    throw new Error("Schema-v4 catalog fixture is missing");
+  }
+  const legacyCharacter = bundle.itemCatalog.items.find(
+    (item) => item.itemKey === "character:u4e00",
+  );
+  if (!legacyCharacter || legacyCharacter.itemType !== "character") {
+    throw new Error("Independent character fixture is missing");
+  }
+  const linguisticSourceId = "unicode-unihan";
+  const strokeSourceId = "hanzi-writer-data";
+  const linguisticRef =
+    `character-sources/${legacyCharacter.itemId}/${linguisticSourceId}.json`;
+  const strokeRef = `stroke-data/${legacyCharacter.itemId}.json`;
+  const linguisticHash = await sha256Json({
+    fixture: "reviewed-independent-character-analysis",
+    character: legacyCharacter.payload.character,
+  });
+  const strokeHash = await sha256Json({
+    fixture: "inspected-hanzi-writer-record",
+    character: legacyCharacter.payload.character,
+  });
+  const payload = {
+    character: legacyCharacter.payload.character,
+    traditional: legacyCharacter.payload.traditional,
+    pinyin: legacyCharacter.payload.pinyin,
+    meaning: legacyCharacter.payload.meaning,
+    sourceLexemeIds: [...legacyCharacter.payload.sourceLexemeIds],
+    analysis: {
+      schemaVersion: 1,
+      decompositionKind: "independent",
+      radical: {
+        glyph: legacyCharacter.payload.character,
+        sourceIds: [linguisticSourceId],
+      },
+      components: [],
+      structure: {
+        kind: "independent",
+        sourceIds: [linguisticSourceId],
+      },
+      sources: [
+        {
+          sourceId: linguisticSourceId,
+          kind: "linguistic-reference",
+          recordKey: legacyCharacter.payload.character,
+          citationRef: "fixture://unicode-unihan/u4e00",
+          licenseId: "Unicode-DFS-2016",
+          licenseEvidenceRef: "fixture://unicode-license",
+          recordRef: linguisticRef,
+          recordSha256: linguisticHash,
+        },
+        {
+          sourceId: strokeSourceId,
+          kind: "stroke-dataset",
+          recordKey: legacyCharacter.payload.character,
+          citationRef: "fixture://hanzi-writer-data/u4e00",
+          licenseId: "Arphic-Public-License",
+          licenseEvidenceRef: "fixture://arphic-public-license",
+          recordRef: strokeRef,
+          recordSha256: strokeHash,
+        },
+      ],
+    },
+    strokeCount: 1,
+    strokeData: {
+      format: "hanzi-writer-v1",
+      fileRef: strokeRef,
+      fileSha256: strokeHash,
+      sourceId: strokeSourceId,
+    },
+  } satisfies CharacterCatalogPayloadV2;
+  const characterItem = {
+    ...legacyCharacter,
+    payload,
+    payloadSha256: await sha256Json({ itemType: "character", payload }),
+  };
+  const items = bundle.itemCatalog.items
+    .filter(
+      (item) => item.itemType !== "character" || item.itemKey === characterItem.itemKey,
+    )
+    .map((item) => {
+      if (item.itemKey === characterItem.itemKey) return characterItem;
+      if (item.itemType !== "lesson") return item;
+      return {
+        ...item,
+        knowledgeItems: item.knowledgeItems.filter(
+          (reference) =>
+            reference.itemType !== "character"
+            || reference.itemId === characterItem.itemId,
+        ),
+      };
+    });
+  bundle.itemCatalog = {
+    schemaVersion: 4,
+    contentVersion: bundle.itemCatalog.contentVersion,
+    items: items as Extract<ItemCatalogArtifact, { schemaVersion: 4 }>["items"],
+    audioAssets: [],
+  };
+  bundle.characterSourceFileHashes = {
+    [linguisticRef]: linguisticHash,
+    [strokeRef]: strokeHash,
+  };
+  bundle.characterLinguisticFileInspections = {
+    [linguisticRef]: {
+      ok: true,
+      format: "json-object-v1",
+      character: legacyCharacter.payload.character,
+      byteLength: 128,
+    },
+  };
+  bundle.characterStrokeFileInspections = {
+    [strokeRef]: {
+      ok: true,
+      format: "hanzi-writer-v1",
+      strokeCount: 1,
+      radicalStrokeIndices: [0],
+      byteLength: 256,
+    },
+  };
+  bundle.manifest.contentSchemaVersion = 6;
+  bundle.runtimeCatalog = projectRuntimeCatalog(bundle.itemCatalog);
+  bundle.manifest.artifacts["runtime-catalog.json"] = await sha256Json(
+    bundle.runtimeCatalog,
+  );
+  await rebindMutableFixture(bundle);
+  return bundle;
+};
+
+const approveCharacterFixture = async (
+  bundle: ContentPackageBundle,
+  itemKey = "character:u4e00" as const,
+) => {
+  if (bundle.itemCatalog === null || bundle.reviews.schemaVersion !== 2) {
+    throw new Error("Scoped character review fixture is missing");
+  }
+  const character = bundle.itemCatalog.items.find(
+    (item) => item.itemKey === itemKey,
+  );
+  if (!character || character.itemType !== "character") {
+    throw new Error("Character review target is missing");
+  }
+  character.releaseState = "beta";
+  character.owner = {
+    id: "character-owner-fixture",
+    evidenceRef: "fixture://character-owner",
+  };
+  character.sourceLicense = {
+    licenseId: "Character-License-Fixture",
+    evidenceRef: "fixture://character-source-license",
+  };
+  character.prerequisites = [];
+  const itemCatalogSha256 = await sha256Json(bundle.itemCatalog);
+  const packageManifestSha256 = await sha256Json(bundle.manifest);
+  bundle.reviews.reviews.push(
+    ...[
+      ["content-owner", "character-owner-reviewer"],
+      ["native-linguistic", "independent-native-character-reviewer"],
+      ["source-license", "character-license-reviewer"],
+    ].map(([role, reviewerId], index) => ({
+      reviewId: `character-${role}-approval-fixture`,
+      role: role as "content-owner" | "native-linguistic" | "source-license",
+      decision: "approved" as const,
+      reviewerId,
+      reviewedAt: `2026-07-22T01:0${index}:00.000Z`,
+      evidenceRef: `fixture://character-${role}-approval`,
+      packageManifestSha256,
+      scope: {
+        itemCatalogSha256,
+        itemKeys: [itemKey],
+        audioAssetIds: [],
+      },
+    })),
+  );
+  await rebindMutableFixture(bundle);
+  return character;
+};
+
 describe("content package governance", () => {
   it("uses deterministic canonical SHA-256 independent of object key insertion order", async () => {
     expect(canonicalJson({ z: 1, a: [3, { b: true, a: null }] })).toBe(
@@ -848,7 +1028,7 @@ describe("content package governance", () => {
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "manifest.contentSchemaVersion must be a supported version (1, 2, 3, 4, or 5)",
+      "manifest.contentSchemaVersion must be a supported version (1, 2, 3, 4, 5, or 6)",
     );
   });
 
@@ -1019,6 +1199,208 @@ describe("content package governance", () => {
     const schemaV5Validation = await validateContentBundle(schemaV5);
     expect(schemaV5Validation.errors).toContain(
       "item-catalog.schemaVersion must be 3",
+    );
+
+    const schemaV6 = await makeSchemaV6CharacterFixture();
+    if (schemaV6.itemCatalog === null) throw new Error("Catalog fixture is missing");
+    schemaV6.itemCatalog.schemaVersion = 3 as never;
+    const schemaV6Validation = await validateContentBundle(schemaV6);
+    expect(schemaV6Validation.errors).toContain(
+      "item-catalog.schemaVersion must be 4",
+    );
+  });
+
+  it("accepts a sourced independent character with zero components and inspected strokes", async () => {
+    const bundle = await makeSchemaV6CharacterFixture();
+    const validation = await validateContentBundle(bundle);
+
+    expect(validation.errors).toEqual([]);
+    if (bundle.itemCatalog?.schemaVersion !== 4) {
+      throw new Error("Schema-v6 character fixture is missing");
+    }
+    const character = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "character",
+    );
+    expect(character?.itemType === "character" && character.payload.analysis).toMatchObject({
+      decompositionKind: "independent",
+      components: [],
+      structure: { kind: "independent" },
+    });
+    expect(projectRuntimeCatalog(bundle.itemCatalog)).toEqual(bundle.runtimeCatalog);
+    expect(JSON.stringify(bundle.runtimeCatalog)).not.toContain("unicode-unihan");
+    expect(JSON.stringify(bundle.runtimeCatalog)).not.toContain("hanzi-writer-data");
+  });
+
+  it("enforces the component and structure contract for compound characters", async () => {
+    const bundle = await makeSchemaV6CharacterFixture();
+    if (bundle.itemCatalog?.schemaVersion !== 4) {
+      throw new Error("Schema-v6 character fixture is missing");
+    }
+    const character = bundle.itemCatalog.items.find(
+      (item) => item.itemType === "character",
+    );
+    if (!character || character.itemType !== "character") {
+      throw new Error("Character fixture is missing");
+    }
+    const linguisticSourceId = character.payload.analysis.sources.find(
+      (source) => source.kind === "linguistic-reference",
+    )?.sourceId;
+    if (!linguisticSourceId) {
+      throw new Error("Linguistic source fixture is missing");
+    }
+
+    character.payload.analysis.decompositionKind = "compound";
+    character.payload.analysis.components = [{
+      componentId: "fixture-component",
+      glyph: character.payload.character,
+      role: "graphic",
+      position: "whole",
+      sourceIds: [linguisticSourceId],
+    }];
+    character.payload.analysis.structure.kind = "overlaid";
+    character.payloadSha256 = await sha256Json({
+      itemType: character.itemType,
+      payload: character.payload,
+    });
+    await rebindMutableFixture(bundle);
+    expect((await validateContentBundle(bundle)).errors).toEqual([]);
+
+    character.payload.analysis.components = [];
+    character.payload.analysis.structure.kind = "independent";
+    character.payloadSha256 = await sha256Json({
+      itemType: character.itemType,
+      payload: character.payload,
+    });
+    await rebindMutableFixture(bundle);
+    expect((await validateContentBundle(bundle)).errors).toEqual(
+      expect.arrayContaining([
+        expect.stringContaining(
+          "compound characters require at least one component",
+        ),
+        expect.stringContaining(
+          "compound characters require non-independent structure",
+        ),
+      ]),
+    );
+  });
+
+  it("rejects ungrounded claims, source byte drift, and inspected stroke-count drift", async () => {
+    const bundle = await makeSchemaV6CharacterFixture();
+    if (bundle.itemCatalog?.schemaVersion !== 4) {
+      throw new Error("Schema-v6 character fixture is missing");
+    }
+    const characterIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemType === "character",
+    );
+    const character = bundle.itemCatalog.items[characterIndex];
+    if (!character || character.itemType !== "character") {
+      throw new Error("Character fixture is missing");
+    }
+    const linguisticSource = character.payload.analysis.sources.find(
+      (source) => source.kind === "linguistic-reference",
+    );
+    const strokeSource = character.payload.analysis.sources.find(
+      (source) => source.kind === "stroke-dataset",
+    );
+    if (
+      !linguisticSource
+      || !strokeSource
+      || !bundle.characterSourceFileHashes
+      || !bundle.characterLinguisticFileInspections
+    ) {
+      throw new Error("Character source fixtures are missing");
+    }
+    character.payload.analysis.radical.sourceIds = [strokeSource.sourceId];
+    character.payload.strokeCount = 2;
+    linguisticSource.recordKey = "二";
+    bundle.characterSourceFileHashes[linguisticSource.recordRef] =
+      `sha256:${"f".repeat(64)}`;
+    bundle.characterLinguisticFileInspections[linguisticSource.recordRef] = {
+      ok: false,
+      error: "invalid JSON fixture",
+    };
+    character.payloadSha256 = await sha256Json({
+      itemType: character.itemType,
+      payload: character.payload,
+    });
+    await rebindMutableFixture(bundle);
+
+    const validation = await validateContentBundle(bundle);
+    expect(validation.errors).toEqual(expect.arrayContaining([
+      `item-catalog.items[${characterIndex}].payload.analysis.radical.sourceIds must include a linguistic-reference source`,
+      `item-catalog.items[${characterIndex}].payload.analysis.sources[0].recordKey must match the target character`,
+      `item-catalog.items[${characterIndex}].payload.analysis.sources[0].recordSha256 does not match package bytes`,
+      `item-catalog.items[${characterIndex}].payload.analysis.sources[0].recordRef linguistic JSON inspection failed`,
+      `item-catalog.items[${characterIndex}].payload.strokeCount does not match inspected package bytes`,
+    ]));
+  });
+
+  it("does not treat plausible strings or drifted source hashes as character release evidence", async () => {
+    const legacy = structuredClone(loadCheckedInBundle());
+    if (legacy.itemCatalog?.schemaVersion !== 2) {
+      throw new Error("Legacy character catalog fixture is missing");
+    }
+    const legacyCharacter = legacy.itemCatalog.items.find(
+      (item) => item.itemKey === "character:u4e00",
+    );
+    if (!legacyCharacter || legacyCharacter.itemType !== "character") {
+      throw new Error("Legacy character fixture is missing");
+    }
+    legacyCharacter.payload.radical = legacyCharacter.payload.character;
+    legacyCharacter.payload.strokeCount = 1;
+    legacyCharacter.payload.components = [legacyCharacter.payload.character];
+    legacyCharacter.payload.structure = "independent";
+    legacyCharacter.payload.strokeDataRef = "stroke-data/u4e00.json";
+    legacyCharacter.payload.strokeDataSha256 = `sha256:${"a".repeat(64)}`;
+    legacyCharacter.payloadSha256 = await sha256Json({
+      itemType: legacyCharacter.itemType,
+      payload: legacyCharacter.payload,
+    });
+    await approveCharacterFixture(legacy);
+    const legacyValidation = await validateContentBundle(legacy);
+    const legacyAssessment = assessClosedAlphaEligibility(legacy, legacyValidation);
+    expect(legacyValidation.errors).toEqual([]);
+    expect(legacyAssessment.blockers).toContain(
+      "Released catalog items missing item-level governance or exact scoped review: 64",
+    );
+
+    const sourced = await makeSchemaV6CharacterFixture();
+    await approveCharacterFixture(sourced);
+    const validValidation = await validateContentBundle(sourced);
+    const validAssessment = assessClosedAlphaEligibility(sourced, validValidation);
+    expect(validValidation.errors).toEqual([]);
+    expect(validAssessment.blockers).toContain(
+      "Released catalog items missing item-level governance or exact scoped review: 57",
+    );
+
+    if (sourced.itemCatalog?.schemaVersion !== 4) {
+      throw new Error("Schema-v6 character fixture is missing");
+    }
+    const sourcedCharacter = sourced.itemCatalog.items.find(
+      (item) => item.itemKey === "character:u4e00",
+    );
+    if (
+      !sourcedCharacter
+      || sourcedCharacter.itemType !== "character"
+      || !sourced.characterSourceFileHashes
+    ) {
+      throw new Error("Sourced character fixture is missing");
+    }
+    const linguisticRef = sourcedCharacter.payload.analysis.sources.find(
+      (source) => source.kind === "linguistic-reference",
+    )?.recordRef;
+    if (!linguisticRef) throw new Error("Linguistic source fixture is missing");
+    sourced.characterSourceFileHashes[linguisticRef] = `sha256:${"0".repeat(64)}`;
+    const driftValidation = await validateContentBundle(sourced);
+    const driftAssessment = assessClosedAlphaEligibility(sourced, driftValidation);
+    const sourcedCharacterIndex = sourced.itemCatalog.items.findIndex(
+      (item) => item.itemKey === sourcedCharacter.itemKey,
+    );
+    expect(driftValidation.errors).toContain(
+      `item-catalog.items[${sourcedCharacterIndex}].payload.analysis.sources[0].recordSha256 does not match package bytes`,
+    );
+    expect(driftAssessment.blockers).toContain(
+      "Released catalog items missing item-level governance or exact scoped review: 58",
     );
   });
 
@@ -1437,7 +1819,7 @@ describe("content package governance", () => {
     expect(publication.blockers).toContain(
       "Public beta requires licensed native audio for released core content (missing 354 targets)",
     );
-  });
+  }, 20_000);
 
   it("does not count empty graded-text envelopes", async () => {
     const bundle = await makeEligibleFixture("public", "legacy");

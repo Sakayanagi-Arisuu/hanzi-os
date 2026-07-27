@@ -93,6 +93,35 @@ This is a local engineering checkpoint, not production release evidence.
   audio collections also fail policy assessment without throwing.
 - This is tooling only: no real audio, speaker identity, license evidence,
   review, release promotion or runtime playback was added to `.07.5`.
+- A separate `content:character:import` mutation can create a future
+  content-schema-v6 / item-catalog-v4 candidate from the schema-v2 authoring
+  catalog and an exact, complete character descriptor. It binds every
+  radical, component and structure claim to package-local source records and
+  every stroke count to inspected Hanzi Writer bytes.
+- Character policy v1 rejects malformed UTF-8/JSON, unknown or duplicate root
+  keys, oversized data, invalid paths/medians and duplicate or out-of-range
+  radical stroke indices. Linguistic records must be non-empty JSON objects
+  whose character key matches the target; stroke records carry the same
+  record key and glyph filename. Repository-relative sources are hash-checked,
+  protected from symlink/junction escape, aggregate-bounded, copied
+  exclusively into a temporary package and re-read before the package rename
+  and registry mutation.
+- Catalog v4 distinguishes independent characters, where zero components are
+  valid, from compound characters. Linguistic claims must resolve to a
+  linguistic reference, stroke data must resolve to exactly one stroke
+  dataset, every declared source must be used, and inspected stroke count must
+  match the payload. Legacy hash-shaped character fields are release-ineligible.
+- The Characters screen now stays fail-closed while no reviewed character
+  projection exists. Released vocabulary is no longer repurposed as a
+  character inventory, and hard-coded radical, structure and mnemonic claims
+  are no longer exposed. The public build likewise publishes no stroke JSON
+  until character content has passed its own release boundary.
+- The bundled Arphic license is copied byte-for-byte from
+  `hanzi-writer-data`; repository attributes and a regression test prevent
+  newline or trailing-whitespace rewriting.
+- This remains tooling only. No real character source snapshot, linguistic
+  decision, owner/license evidence, scoped approval, candidate package,
+  promotion or runtime character exposure was added to `.07.5`.
 
 ## Local verification
 
@@ -104,15 +133,16 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 134 files, 1,077 tests passed
-  - production build and bundle policy passed
+  - Vitest: 136 files, 1,114 tests passed
+  - production build and bundle policy passed; conservative client asset
+    ceiling: 390.9 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 95 / 97, median 97
+  - Performance: 98 / 98 / 97, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,894 ms; CLS: 0; TBT: 169 ms
+  - Median LCP: 1,968 ms; CLS: 0; TBT: 108 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -138,13 +168,20 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Complete sourced character radical/component/stroke metadata through the
-   editorial workflow; do not infer it from glyph shape or unreviewed sources.
-3. Build the multi-user editorial assignment/review dashboard, then obtain
+2. Complete the schema-v6 lifecycle path so routine versioning and canonical
+   audio import preserve/reinspect catalog-v4 character artifacts instead of
+   forcing a downgrade or dropping either media type. Bound or make iterative
+   the large dependency-graph checks before expanding the catalog.
+3. Pin licensed source revisions and import the seven existing character items
+   into a new immutable candidate. Keep every enriched item in `review`; do
+   not infer claims from glyph shape, and do not fabricate human approval.
+4. Complete sourced character metadata through attributable linguistic and
+   license review.
+5. Build the multi-user editorial assignment/review dashboard, then obtain
    attributable owner, license and native linguistic review evidence.
-4. Only after those gates, expand a reviewed A0 inventory and run
+6. Only after those gates, expand a reviewed A0 inventory and run
    pilot/calibration work before making assessment or coverage claims.
-5. Leave Sites ownership, saved version and deployment until the final release
+7. Leave Sites ownership, saved version and deployment until the final release
    step.
 
 Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use

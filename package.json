@@ -24,6 +24,7 @@
     "content:verify-release": "node scripts/content/verify-release.mjs --channel production",
     "content:new-version": "node scripts/content/new-version.mjs",
     "content:audio:import": "node scripts/content/import-audio.mjs",
+    "content:character:import": "node scripts/content/import-character-metadata.mjs",
     "content:submit-review": "node scripts/content/submit-review.mjs",
     "content:promote": "node scripts/content/promote.mjs",
     "test:e2e": "npm run build && playwright test",

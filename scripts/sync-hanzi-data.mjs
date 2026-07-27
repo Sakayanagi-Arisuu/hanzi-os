@@ -1,4 +1,11 @@
-import { copyFile, mkdir, readFile, writeFile } from "node:fs/promises";
+import {
+  copyFile,
+  mkdir,
+  readFile,
+  readdir,
+  unlink,
+  writeFile,
+} from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,7 +19,6 @@ if (
   manifest.schemaVersion !== 1
   || manifest.package !== "hanzi-writer-data"
   || !Array.isArray(manifest.characters)
-  || manifest.characters.length === 0
 ) {
   throw new Error("Invalid Hanzi data manifest");
 }
@@ -23,20 +29,22 @@ if (uniqueCharacters.some((character) => [...character].length !== 1)) {
 }
 
 await mkdir(outputRoot, { recursive: true });
+const existingCharacterFiles = (await readdir(outputRoot, {
+  withFileTypes: true,
+}))
+  .filter((entry) => entry.isFile() && entry.name.endsWith(".json"));
+await Promise.all(existingCharacterFiles.map((entry) =>
+  unlink(resolve(outputRoot, entry.name))
+));
 await Promise.all(uniqueCharacters.map((character) =>
   copyFile(
     resolve(sourceRoot, `${character}.json`),
     resolve(outputRoot, `${character}.json`),
   )
 ));
-const licenseText = await readFile(
+await copyFile(
   resolve(sourceRoot, "ARPHICPL.TXT"),
-  "utf8",
-);
-await writeFile(
   resolve(outputRoot, "ARPHICPL.TXT"),
-  licenseText.replace(/[ \t]+$/gmu, ""),
-  "utf8",
 );
 await writeFile(
   resolve(outputRoot, "NOTICE.txt"),

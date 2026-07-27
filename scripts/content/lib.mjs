@@ -14,7 +14,14 @@ import {
   writeFileSync,
 } from "node:fs";
 import { createHash, randomUUID } from "node:crypto";
-import { dirname, isAbsolute, join, relative, resolve } from "node:path";
+import {
+  basename,
+  dirname,
+  isAbsolute,
+  join,
+  relative,
+  resolve,
+} from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   assessClosedAlphaEligibility,
@@ -29,6 +36,11 @@ import {
   AUDIO_IMPORT_POLICY,
   inspectCanonicalWave,
 } from "../../src/content/audioInspection.mjs";
+import {
+  CHARACTER_DATA_IMPORT_POLICY,
+  inspectCharacterLinguisticSourceRecord,
+  inspectHanziWriterCharacterData,
+} from "../../src/content/characterDataInspection.mjs";
 
 export const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const contentRoot = join(repositoryRoot, "content");
@@ -52,6 +64,49 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
+const CHARACTER_SOURCE_KINDS = new Set([
+  "linguistic-reference",
+  "stroke-dataset",
+]);
+const CHARACTER_COMPONENT_ROLES = new Set([
+  "semantic",
+  "phonetic",
+  "semantic-phonetic",
+  "graphic",
+]);
+const CHARACTER_COMPONENT_POSITIONS = new Set([
+  "whole",
+  "left",
+  "right",
+  "top",
+  "bottom",
+  "center",
+  "enclosing",
+  "enclosed",
+  "overlaid",
+]);
+const CHARACTER_STRUCTURE_KINDS = new Set([
+  "independent",
+  "left-right",
+  "top-bottom",
+  "left-middle-right",
+  "top-middle-bottom",
+  "full-surround",
+  "surround-from-above",
+  "surround-from-below",
+  "surround-from-left",
+  "surround-from-upper-left",
+  "surround-from-upper-right",
+  "surround-from-lower-left",
+  "overlaid",
+]);
+const CHARACTER_METADATA_IMPORT_POLICY = Object.freeze({
+  maxCharacterCount: 2_048,
+  maxComponentsPerCharacter: 64,
+  maxSourcesPerCharacter: 16,
+  maxSourceFileCount: 8_192,
+  maxAggregateSourceByteLength: 64 * 1024 * 1024,
+});
 
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 const formatJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
@@ -191,6 +246,115 @@ export const inspectAudioAssetFiles = (
   return { hashes, inspections };
 };
 
+const characterFileRefs = (itemCatalog) => {
+  const sourceRefs = new Set();
+  const strokeRefs = new Set();
+  const items = Array.isArray(itemCatalog?.items) ? itemCatalog.items : [];
+  items.forEach((item) => {
+    if (item?.itemType !== "character") return;
+    const sources = Array.isArray(item?.payload?.analysis?.sources)
+      ? item.payload.analysis.sources
+      : [];
+    sources.forEach((source) => {
+      if (typeof source?.recordRef === "string") {
+        sourceRefs.add(source.recordRef);
+      }
+    });
+    if (typeof item?.payload?.strokeData?.fileRef === "string") {
+      sourceRefs.add(item.payload.strokeData.fileRef);
+      strokeRefs.add(item.payload.strokeData.fileRef);
+    }
+  });
+  return { sourceRefs, strokeRefs };
+};
+
+export const inspectCharacterSourceFiles = (
+  packageDirectory,
+  itemCatalog,
+  contentSchemaVersion,
+) => {
+  const hashes = {};
+  const inspections = {};
+  const linguisticInspections = {};
+  if (contentSchemaVersion < 6) {
+    return { hashes, inspections, linguisticInspections };
+  }
+  const { sourceRefs, strokeRefs } = characterFileRefs(itemCatalog);
+  const packageMetadata = lstatSync(packageDirectory);
+  const trustedPackageRoot =
+    packageMetadata.isDirectory() && !packageMetadata.isSymbolicLink();
+  const realPackageDirectory = realpathSync(packageDirectory);
+  [...sourceRefs].sort().forEach((fileRef) => {
+    const path = packageLocalPath(packageDirectory, fileRef);
+    const reject = (error) => {
+      hashes[fileRef] = null;
+      if (strokeRefs.has(fileRef)) {
+        inspections[fileRef] = { ok: false, error };
+      } else {
+        linguisticInspections[fileRef] = { ok: false, error };
+      }
+    };
+    if (path === null || !existsSync(path)) {
+      reject("Character source file is missing or outside its immutable package");
+      return;
+    }
+    if (!trustedPackageRoot) {
+      reject("Character source package root must not be a symlink or junction");
+      return;
+    }
+    try {
+      let currentPath = packageDirectory;
+      for (const part of relative(packageDirectory, path).split(/[\\/]/u)) {
+        currentPath = join(currentPath, part);
+        if (lstatSync(currentPath).isSymbolicLink()) {
+          reject(
+            "Character source path must not contain symlinks or junctions",
+          );
+          return;
+        }
+      }
+      if (!pathIsContained(realPackageDirectory, realpathSync(path))) {
+        reject("Character source resolves outside its immutable package");
+        return;
+      }
+      const metadata = lstatSync(path);
+      if (!metadata.isFile() || metadata.isSymbolicLink()) {
+        reject("Character source is not a regular non-symlink file");
+        return;
+      }
+      if (metadata.size > CHARACTER_DATA_IMPORT_POLICY.maxByteLength) {
+        reject(
+          `Character source exceeds ${CHARACTER_DATA_IMPORT_POLICY.maxByteLength} bytes`,
+        );
+        return;
+      }
+      const bytes = readFileSync(path);
+      hashes[fileRef] = sha256Bytes(bytes);
+      try {
+        if (strokeRefs.has(fileRef)) {
+          inspections[fileRef] = inspectHanziWriterCharacterData(bytes);
+        } else {
+          linguisticInspections[fileRef] =
+            inspectCharacterLinguisticSourceRecord(bytes);
+        }
+      } catch (error) {
+        const failedInspection = {
+          ok: false,
+          error: error instanceof Error ? error.message : String(error),
+        };
+        if (strokeRefs.has(fileRef)) {
+          inspections[fileRef] = failedInspection;
+        } else {
+          linguisticInspections[fileRef] = failedInspection;
+        }
+      }
+    } catch (error) {
+      reject(error instanceof Error ? error.message : String(error));
+    }
+  });
+  return { hashes, inspections, linguisticInspections };
+};
+
 const writeImmutableSourceTexts = (
   packageDirectory,
   contentSchemaVersion,
@@ -319,6 +483,11 @@ const readContentBundleFromDirectory = (
     itemCatalog,
     manifest.contentSchemaVersion,
   );
+  const characterSourceFiles = inspectCharacterSourceFiles(
+    packageDirectory,
+    itemCatalog,
+    manifest.contentSchemaVersion,
+  );
   return {
       registry,
       registryEntry,
@@ -330,6 +499,10 @@ const readContentBundleFromDirectory = (
       reviews: readJson(join(packageDirectory, "reviews.json")),
       audioAssetFileHashes: audioAssetFiles.hashes,
       audioAssetFileInspections: audioAssetFiles.inspections,
+      characterSourceFileHashes: characterSourceFiles.hashes,
+      characterLinguisticFileInspections:
+        characterSourceFiles.linguisticInspections,
+      characterStrokeFileInspections: characterSourceFiles.inspections,
       immutableSourceTexts: readImmutableSourceTexts(
         packageDirectory,
         manifest.contentSchemaVersion,
@@ -529,6 +702,46 @@ const resolveRepositoryAudioSource = (sourceFile, label) => {
   return realPath;
 };
 
+const resolveRepositoryCharacterSource = (sourceFile, label) => {
+  requireNonEmptyString(sourceFile, label);
+  if (isAbsolute(sourceFile) || sourceFile.includes(":")) {
+    throw new Error(`${label} must be a relative repository path`);
+  }
+  const pathParts = sourceFile.split(/[\\/]/u);
+  if (
+    pathParts.some((part) => part === "" || part === "." || part === "..")
+  ) {
+    throw new Error(`${label} must not contain empty or traversal segments`);
+  }
+  const path = resolve(repositoryRoot, sourceFile);
+  if (!pathIsContained(repositoryRoot, path)) {
+    throw new Error(`${label} must stay inside the repository`);
+  }
+  if (!existsSync(path)) throw new Error(`${label} does not exist: ${sourceFile}`);
+  let currentPath = repositoryRoot;
+  for (const part of pathParts) {
+    currentPath = join(currentPath, part);
+    if (lstatSync(currentPath).isSymbolicLink()) {
+      throw new Error(`${label} must not contain symlinks or junctions`);
+    }
+  }
+  const metadata = lstatSync(path);
+  if (!metadata.isFile() || metadata.isSymbolicLink()) {
+    throw new Error(`${label} must be a regular non-symlink file`);
+  }
+  if (metadata.size > CHARACTER_DATA_IMPORT_POLICY.maxByteLength) {
+    throw new Error(
+      `${label} exceeds the ${CHARACTER_DATA_IMPORT_POLICY.maxByteLength}-byte import limit`,
+    );
+  }
+  const realRepositoryRoot = realpathSync(repositoryRoot);
+  const realPath = realpathSync(path);
+  if (!pathIsContained(realRepositoryRoot, realPath)) {
+    throw new Error(`${label} resolves outside the repository`);
+  }
+  return { path: realPath, bytes: readFileSync(realPath) };
+};
+
 const assertSafeAudioAssetId = (assetId, label) => {
   if (!SAFE_AUDIO_ASSET_ID_PATTERN.test(assetId ?? "")) {
     throw new Error(`${label} must be a lowercase safe file id`);
@@ -537,6 +750,40 @@ const assertSafeAudioAssetId = (assetId, label) => {
   if (WINDOWS_RESERVED_FILE_STEMS.has(fileStem)) {
     throw new Error(`${label} is reserved by Windows`);
   }
+};
+
+const assertSafeCharacterFileId = (value, label) => {
+  if (!SAFE_AUDIO_ASSET_ID_PATTERN.test(value ?? "")) {
+    throw new Error(`${label} must be a lowercase safe file id`);
+  }
+  const fileStem = value.split(".", 1)[0];
+  if (WINDOWS_RESERVED_FILE_STEMS.has(fileStem)) {
+    throw new Error(`${label} is reserved by Windows`);
+  }
+};
+
+const requireSingleGlyph = (value, label) => {
+  requireNonEmptyString(value, label);
+  if ([...value].length !== 1) {
+    throw new Error(`${label} must contain exactly one Unicode character`);
+  }
+  return value;
+};
+
+const requireSourceIds = (value, label, { allowEmpty = false } = {}) => {
+  if (!Array.isArray(value) || (!allowEmpty && value.length === 0)) {
+    throw new Error(
+      `${label} must be ${allowEmpty ? "an" : "a non-empty"} array`,
+    );
+  }
+  const ids = value.map((sourceId, index) => {
+    assertSafeCharacterFileId(sourceId, `${label}[${index}]`);
+    return sourceId;
+  });
+  if (new Set(ids).size !== ids.length) {
+    throw new Error(`${label} must not contain duplicate source ids`);
+  }
+  return [...ids].sort();
 };
 
 const requireCanonicalTimestamp = (
@@ -1755,6 +2002,641 @@ const importAudioCommand = async (args) => {
   });
 };
 
+const importCharacterMetadataCommand = async (args) => {
+  const { positional, flags } = parseArguments(args);
+  assertCommandShape(positional, flags, {
+    minPositionals: 1,
+    maxPositionals: 1,
+    allowedFlags: [
+      "write",
+      "from",
+      "created-at",
+      "audience",
+      "owner-id",
+      "owner-evidence",
+      "license-id",
+      "license-evidence",
+      "runtime-ids-file",
+      "confirm-runtime-ids-unchanged",
+      "content-schema-version",
+      "item-catalog-file",
+      "character-descriptor-file",
+    ],
+  });
+  requireWrite(flags);
+  return withContentWriteLock(async () => {
+    const newVersion = positional[0];
+    assertPackageId(newVersion, "new content version");
+    const fromVersion = requiredFlag(flags, "from");
+    const createdAt = requiredFlag(flags, "created-at");
+    requireCanonicalTimestamp(createdAt, "--created-at");
+    const audience = flags.get("audience") ?? "closed-alpha";
+    if (!["closed-alpha", "public"].includes(audience)) {
+      throw new Error("--audience must be closed-alpha or public");
+    }
+    if (requiredFlag(flags, "content-schema-version") !== "6") {
+      throw new Error(
+        "import-character-metadata requires --content-schema-version 6",
+      );
+    }
+    const ownerId = flags.get("owner-id");
+    const ownerEvidence = flags.get("owner-evidence");
+    if ((ownerId === undefined) !== (ownerEvidence === undefined)) {
+      throw new Error("--owner-id and --owner-evidence must be supplied together");
+    }
+    const licenseId = flags.get("license-id");
+    const licenseEvidence = flags.get("license-evidence");
+    if ((licenseId === undefined) !== (licenseEvidence === undefined)) {
+      throw new Error("--license-id and --license-evidence must be supplied together");
+    }
+    const itemCatalogInput = requiredFlag(flags, "item-catalog-file");
+    const descriptorInput = requiredFlag(flags, "character-descriptor-file");
+    const contentSchemaVersion = 6;
+    const {
+      sourceBundle,
+      sourceValidation,
+      liveSourceTexts,
+      targetDirectory,
+      temporaryDirectory,
+      runtimeIds,
+    } = await prepareCandidateBranch({
+      newVersion,
+      fromVersion,
+      contentSchemaVersion,
+      flags,
+      currentVersionError:
+        "Character metadata imports must branch from registry.currentContentVersion",
+    });
+
+    const baseItemCatalog = readRepositoryJsonInput(
+      itemCatalogInput,
+      "--item-catalog-file",
+    );
+    if (baseItemCatalog.schemaVersion !== 2) {
+      throw new Error(
+        "import-character-metadata requires a schema-v2 --item-catalog-file",
+      );
+    }
+    if (baseItemCatalog.contentVersion !== newVersion) {
+      throw new Error(
+        "--item-catalog-file contentVersion must equal the new version",
+      );
+    }
+    if (!Array.isArray(baseItemCatalog.audioAssets)) {
+      throw new Error("--item-catalog-file audioAssets must be an array");
+    }
+    if (baseItemCatalog.audioAssets.length > 0) {
+      throw new Error(
+        "--item-catalog-file must have empty audioAssets; character import cannot carry uninspected audio",
+      );
+    }
+    if (!Array.isArray(baseItemCatalog.items)) {
+      throw new Error("--item-catalog-file items must be an array");
+    }
+    const itemMap = new Map();
+    for (const [index, item] of baseItemCatalog.items.entries()) {
+      if (!isRecord(item) || typeof item.itemKey !== "string") {
+        throw new Error(`--item-catalog-file items[${index}] must have an itemKey`);
+      }
+      if (itemMap.has(item.itemKey)) {
+        throw new Error(`Duplicate item key in --item-catalog-file: ${item.itemKey}`);
+      }
+      itemMap.set(item.itemKey, item);
+    }
+    const characterItems = baseItemCatalog.items.filter(
+      (item) => item?.itemType === "character",
+    );
+    if (characterItems.length === 0) {
+      throw new Error("--item-catalog-file contains no character items to enrich");
+    }
+
+    const descriptor = readRepositoryJsonInput(
+      descriptorInput,
+      "--character-descriptor-file",
+    );
+    assertExactObjectKeys(
+      descriptor,
+      ["schemaVersion", "contentVersion", "characters"],
+      "character descriptor",
+    );
+    if (descriptor.schemaVersion !== 1) {
+      throw new Error("character descriptor.schemaVersion must be 1");
+    }
+    if (descriptor.contentVersion !== newVersion) {
+      throw new Error(
+        "character descriptor.contentVersion must equal the new version",
+      );
+    }
+    if (!Array.isArray(descriptor.characters) || descriptor.characters.length === 0) {
+      throw new Error("character descriptor.characters must be a non-empty array");
+    }
+    if (
+      descriptor.characters.length
+      > CHARACTER_METADATA_IMPORT_POLICY.maxCharacterCount
+    ) {
+      throw new Error(
+        `character descriptor.characters exceeds the ${CHARACTER_METADATA_IMPORT_POLICY.maxCharacterCount}-character import limit`,
+      );
+    }
+
+    const importsByItemKey = new Map();
+    const artifactSourcesByRef = new Map();
+    let aggregateSourceFileCount = 0;
+    let aggregateSourceByteLength = 0;
+    for (const [index, descriptorCharacter] of descriptor.characters.entries()) {
+      const prefix = `character descriptor.characters[${index}]`;
+      assertExactObjectKeys(
+        descriptorCharacter,
+        [
+          "targetItemKey",
+          "expectedTargetPayloadSha256",
+          "decompositionKind",
+          "radical",
+          "components",
+          "structure",
+          "sources",
+          "strokeSourceId",
+        ],
+        prefix,
+      );
+      const targetItemKey = requireNonEmptyString(
+        descriptorCharacter.targetItemKey,
+        `${prefix}.targetItemKey`,
+      );
+      if (importsByItemKey.has(targetItemKey)) {
+        throw new Error(`Duplicate character target: ${targetItemKey}`);
+      }
+      const targetItem = itemMap.get(targetItemKey);
+      if (!isRecord(targetItem) || targetItem.itemType !== "character") {
+        throw new Error(
+          `${prefix}.targetItemKey references unknown character item ${targetItemKey}`,
+        );
+      }
+      assertSafeCharacterFileId(targetItem.itemId, `${prefix} target itemId`);
+      const targetCharacter = requireSingleGlyph(
+        targetItem.payload?.character,
+        `${prefix} target payload.character`,
+      );
+      if (
+        !SHA256_DIGEST_PATTERN.test(
+          descriptorCharacter.expectedTargetPayloadSha256 ?? "",
+        )
+      ) {
+        throw new Error(
+          `${prefix}.expectedTargetPayloadSha256 must be a SHA-256 digest`,
+        );
+      }
+      const canonicalTargetPayloadSha256 = await sha256Json({
+        itemType: targetItem.itemType,
+        payload: targetItem.payload,
+      });
+      if (targetItem.payloadSha256 !== canonicalTargetPayloadSha256) {
+        throw new Error(
+          `${prefix}.targetItemKey has a non-canonical payloadSha256`,
+        );
+      }
+      if (
+        descriptorCharacter.expectedTargetPayloadSha256
+        !== targetItem.payloadSha256
+      ) {
+        throw new Error(
+          `${prefix}.expectedTargetPayloadSha256 does not match the target item`,
+        );
+      }
+      if (
+        descriptorCharacter.decompositionKind !== "independent"
+        && descriptorCharacter.decompositionKind !== "compound"
+      ) {
+        throw new Error(
+          `${prefix}.decompositionKind must be independent or compound`,
+        );
+      }
+
+      assertExactObjectKeys(
+        descriptorCharacter.radical,
+        ["glyph", "sourceIds"],
+        `${prefix}.radical`,
+      );
+      const radical = {
+        glyph: requireSingleGlyph(
+          descriptorCharacter.radical?.glyph,
+          `${prefix}.radical.glyph`,
+        ),
+        sourceIds: requireSourceIds(
+          descriptorCharacter.radical?.sourceIds,
+          `${prefix}.radical.sourceIds`,
+        ),
+      };
+
+      if (!Array.isArray(descriptorCharacter.components)) {
+        throw new Error(`${prefix}.components must be an array`);
+      }
+      if (
+        descriptorCharacter.components.length
+        > CHARACTER_METADATA_IMPORT_POLICY.maxComponentsPerCharacter
+      ) {
+        throw new Error(
+          `${prefix}.components exceeds the ${CHARACTER_METADATA_IMPORT_POLICY.maxComponentsPerCharacter}-component limit`,
+        );
+      }
+      const componentIds = new Set();
+      const components = descriptorCharacter.components.map(
+        (component, componentIndex) => {
+          const componentPrefix = `${prefix}.components[${componentIndex}]`;
+          assertExactObjectKeys(
+            component,
+            ["componentId", "glyph", "role", "position", "sourceIds"],
+            componentPrefix,
+          );
+          assertSafeCharacterFileId(
+            component.componentId,
+            `${componentPrefix}.componentId`,
+          );
+          if (componentIds.has(component.componentId)) {
+            throw new Error(`${prefix}.components contains duplicate componentId`);
+          }
+          componentIds.add(component.componentId);
+          if (!CHARACTER_COMPONENT_ROLES.has(component.role)) {
+            throw new Error(`${componentPrefix}.role is unsupported`);
+          }
+          if (!CHARACTER_COMPONENT_POSITIONS.has(component.position)) {
+            throw new Error(`${componentPrefix}.position is unsupported`);
+          }
+          return {
+            componentId: component.componentId,
+            glyph: requireSingleGlyph(
+              component.glyph,
+              `${componentPrefix}.glyph`,
+            ),
+            role: component.role,
+            position: component.position,
+            sourceIds: requireSourceIds(
+              component.sourceIds,
+              `${componentPrefix}.sourceIds`,
+            ),
+          };
+        },
+      );
+      if (
+        descriptorCharacter.decompositionKind === "independent"
+        && components.length !== 0
+      ) {
+        throw new Error(`${prefix}.components must be empty for independent characters`);
+      }
+      if (
+        descriptorCharacter.decompositionKind === "compound"
+        && components.length === 0
+      ) {
+        throw new Error(`${prefix}.components must not be empty for compound characters`);
+      }
+
+      assertExactObjectKeys(
+        descriptorCharacter.structure,
+        ["kind", "sourceIds"],
+        `${prefix}.structure`,
+      );
+      if (!CHARACTER_STRUCTURE_KINDS.has(descriptorCharacter.structure?.kind)) {
+        throw new Error(`${prefix}.structure.kind is unsupported`);
+      }
+      if (
+        (descriptorCharacter.decompositionKind === "independent")
+        !== (descriptorCharacter.structure.kind === "independent")
+      ) {
+        throw new Error(
+          `${prefix}.structure.kind must match decompositionKind`,
+        );
+      }
+      const structure = {
+        kind: descriptorCharacter.structure.kind,
+        sourceIds: requireSourceIds(
+          descriptorCharacter.structure.sourceIds,
+          `${prefix}.structure.sourceIds`,
+        ),
+      };
+
+      if (
+        !Array.isArray(descriptorCharacter.sources)
+        || descriptorCharacter.sources.length === 0
+      ) {
+        throw new Error(`${prefix}.sources must be a non-empty array`);
+      }
+      if (
+        descriptorCharacter.sources.length
+        > CHARACTER_METADATA_IMPORT_POLICY.maxSourcesPerCharacter
+      ) {
+        throw new Error(
+          `${prefix}.sources exceeds the ${CHARACTER_METADATA_IMPORT_POLICY.maxSourcesPerCharacter}-source limit`,
+        );
+      }
+      const sourceById = new Map();
+      const strokeSources = [];
+      for (const [sourceIndex, source] of descriptorCharacter.sources.entries()) {
+        const sourcePrefix = `${prefix}.sources[${sourceIndex}]`;
+        assertExactObjectKeys(
+          source,
+          [
+            "sourceId",
+            "kind",
+            "recordKey",
+            "citationRef",
+            "licenseId",
+            "licenseEvidenceRef",
+            "sourceFile",
+            "expectedFileSha256",
+          ],
+          sourcePrefix,
+        );
+        assertSafeCharacterFileId(source.sourceId, `${sourcePrefix}.sourceId`);
+        if (sourceById.has(source.sourceId)) {
+          throw new Error(`${prefix}.sources contains duplicate sourceId`);
+        }
+        if (!CHARACTER_SOURCE_KINDS.has(source.kind)) {
+          throw new Error(`${sourcePrefix}.kind is unsupported`);
+        }
+        const recordKey = requireSingleGlyph(
+          source.recordKey,
+          `${sourcePrefix}.recordKey`,
+        );
+        if (recordKey !== targetCharacter) {
+          throw new Error(
+            `${sourcePrefix}.recordKey must match the target character`,
+          );
+        }
+        requireNonEmptyString(source.citationRef, `${sourcePrefix}.citationRef`);
+        requireNonEmptyString(source.licenseId, `${sourcePrefix}.licenseId`);
+        requireNonEmptyString(
+          source.licenseEvidenceRef,
+          `${sourcePrefix}.licenseEvidenceRef`,
+        );
+        if (!SHA256_DIGEST_PATTERN.test(source.expectedFileSha256 ?? "")) {
+          throw new Error(`${sourcePrefix}.expectedFileSha256 must be a SHA-256 digest`);
+        }
+        const { bytes } = resolveRepositoryCharacterSource(
+          source.sourceFile,
+          `${sourcePrefix}.sourceFile`,
+        );
+        aggregateSourceFileCount += 1;
+        aggregateSourceByteLength += bytes.byteLength;
+        if (
+          aggregateSourceFileCount
+          > CHARACTER_METADATA_IMPORT_POLICY.maxSourceFileCount
+        ) {
+          throw new Error(
+            `character descriptor source files exceed the ${CHARACTER_METADATA_IMPORT_POLICY.maxSourceFileCount}-file aggregate limit`,
+          );
+        }
+        if (
+          aggregateSourceByteLength
+          > CHARACTER_METADATA_IMPORT_POLICY.maxAggregateSourceByteLength
+        ) {
+          throw new Error(
+            `character descriptor source bytes exceed the ${CHARACTER_METADATA_IMPORT_POLICY.maxAggregateSourceByteLength}-byte aggregate limit`,
+          );
+        }
+        const actualSha256 = sha256Bytes(bytes);
+        if (actualSha256 !== source.expectedFileSha256) {
+          throw new Error(
+            `${sourcePrefix}.expectedFileSha256 does not match source bytes`,
+          );
+        }
+        const isStrokeSource = source.kind === "stroke-dataset";
+        let strokeInspection = null;
+        try {
+          if (isStrokeSource) {
+            if (basename(source.sourceFile) !== `${recordKey}.json`) {
+              throw new Error(
+                `${sourcePrefix}.sourceFile must end with the target character file ${recordKey}.json`,
+              );
+            }
+            strokeInspection = inspectHanziWriterCharacterData(bytes);
+          } else {
+            const linguisticInspection =
+              inspectCharacterLinguisticSourceRecord(bytes);
+            if (linguisticInspection.character !== recordKey) {
+              throw new Error(
+                `${sourcePrefix}.sourceFile character does not match recordKey`,
+              );
+            }
+          }
+        } catch (error) {
+          if (isStrokeSource) {
+            throw new Error(
+              `${sourcePrefix}.sourceFile is not canonical Hanzi Writer data: ${
+                error instanceof Error ? error.message : String(error)
+              }`,
+              { cause: error },
+            );
+          }
+          throw new Error(
+            `${sourcePrefix}.sourceFile is not a canonical linguistic JSON record: ${
+              error instanceof Error ? error.message : String(error)
+            }`,
+            { cause: error },
+          );
+        }
+        if (isStrokeSource) {
+          strokeSources.push(source.sourceId);
+        }
+        const recordRef = isStrokeSource
+          ? `stroke-data/${targetItem.itemId}.json`
+          : `character-sources/${targetItem.itemId}/${source.sourceId}.json`;
+        if (artifactSourcesByRef.has(recordRef)) {
+          throw new Error(`Duplicate generated character artifact ref: ${recordRef}`);
+        }
+        artifactSourcesByRef.set(recordRef, {
+          sourceFile: source.sourceFile,
+          expectedFileSha256: actualSha256,
+        });
+        sourceById.set(source.sourceId, {
+          source: {
+            sourceId: source.sourceId,
+            kind: source.kind,
+            recordKey,
+            citationRef: source.citationRef,
+            licenseId: source.licenseId,
+            licenseEvidenceRef: source.licenseEvidenceRef,
+            recordRef,
+            recordSha256: actualSha256,
+          },
+          strokeInspection,
+        });
+      }
+      if (strokeSources.length !== 1) {
+        throw new Error(`${prefix}.sources must contain exactly one stroke-dataset`);
+      }
+      assertSafeCharacterFileId(
+        descriptorCharacter.strokeSourceId,
+        `${prefix}.strokeSourceId`,
+      );
+      if (descriptorCharacter.strokeSourceId !== strokeSources[0]) {
+        throw new Error(
+          `${prefix}.strokeSourceId must identify the only stroke-dataset source`,
+        );
+      }
+      const resolveEvidenceSources = (sourceIds, label) => {
+        const resolved = sourceIds.map((sourceId) => sourceById.get(sourceId));
+        if (resolved.some((source) => source === undefined)) {
+          throw new Error(`${label} references an unknown sourceId`);
+        }
+        if (!resolved.some((source) =>
+          source.source.kind === "linguistic-reference"
+        )) {
+          throw new Error(`${label} must cite a linguistic-reference source`);
+        }
+      };
+      resolveEvidenceSources(radical.sourceIds, `${prefix}.radical.sourceIds`);
+      resolveEvidenceSources(structure.sourceIds, `${prefix}.structure.sourceIds`);
+      components.forEach((component, componentIndex) => {
+        resolveEvidenceSources(
+          component.sourceIds,
+          `${prefix}.components[${componentIndex}].sourceIds`,
+        );
+      });
+      const usedSourceIds = new Set([
+        ...radical.sourceIds,
+        ...structure.sourceIds,
+        ...components.flatMap((component) => component.sourceIds),
+        descriptorCharacter.strokeSourceId,
+      ]);
+      const unusedSourceIds = [...sourceById.keys()].filter(
+        (sourceId) => !usedSourceIds.has(sourceId),
+      );
+      if (unusedSourceIds.length > 0) {
+        throw new Error(
+          `${prefix}.sources contains unused source ids: ${unusedSourceIds.join(", ")}`,
+        );
+      }
+      const strokeSource = sourceById.get(descriptorCharacter.strokeSourceId);
+      const strokeInspection = strokeSource?.strokeInspection;
+      if (strokeSource === undefined || strokeInspection === null) {
+        throw new Error(`${prefix}.strokeSourceId has no canonical stroke inspection`);
+      }
+      importsByItemKey.set(targetItemKey, {
+        analysis: {
+          schemaVersion: 1,
+          decompositionKind: descriptorCharacter.decompositionKind,
+          radical,
+          components,
+          structure,
+          sources: [...sourceById.values()]
+            .map((entry) => entry.source)
+            .sort((left, right) => left.sourceId.localeCompare(right.sourceId)),
+        },
+        strokeCount: strokeInspection.strokeCount,
+        strokeData: {
+          format: "hanzi-writer-v1",
+          fileRef: strokeSource.source.recordRef,
+          fileSha256: strokeSource.source.recordSha256,
+          sourceId: descriptorCharacter.strokeSourceId,
+        },
+      });
+    }
+
+    const missingCharacterItems = characterItems
+      .map((item) => item.itemKey)
+      .filter((itemKey) => !importsByItemKey.has(itemKey));
+    if (missingCharacterItems.length > 0) {
+      throw new Error(
+        `character descriptor must cover every character item; missing ${missingCharacterItems.join(", ")}`,
+      );
+    }
+    if (importsByItemKey.size !== characterItems.length) {
+      throw new Error("character descriptor coverage does not exactly match character items");
+    }
+
+    const items = await Promise.all(baseItemCatalog.items.map(async (item) => {
+      if (item.itemType !== "character") return item;
+      const imported = importsByItemKey.get(item.itemKey);
+      if (!imported) throw new Error(`Missing character import: ${item.itemKey}`);
+      const payload = {
+        character: item.payload.character,
+        traditional: item.payload.traditional,
+        pinyin: item.payload.pinyin,
+        meaning: item.payload.meaning,
+        sourceLexemeIds: structuredClone(item.payload.sourceLexemeIds),
+        analysis: imported.analysis,
+        strokeCount: imported.strokeCount,
+        strokeData: imported.strokeData,
+      };
+      return {
+        ...item,
+        releaseState: "review",
+        payload,
+        payloadSha256: await sha256Json({ itemType: "character", payload }),
+      };
+    }));
+    const itemCatalog = {
+      ...baseItemCatalog,
+      schemaVersion: 4,
+      items,
+      audioAssets: [],
+    };
+    const runtimeCatalog = projectSanitizedRuntimeCatalog(itemCatalog);
+    const {
+      coverageClaims,
+      manifest,
+      reviews,
+      nextRegistry,
+    } = await buildCandidateEnvelope({
+      sourceBundle,
+      sourceManifestHash: sourceValidation.hashes.manifest,
+      newVersion,
+      contentSchemaVersion,
+      audience,
+      createdAt,
+      runtimeIds,
+      itemCatalog,
+      runtimeCatalog,
+      coverageClaimsSource: undefined,
+      liveSourceTexts,
+      contentOwner:
+        typeof ownerId === "string" && typeof ownerEvidence === "string"
+          ? { id: ownerId, evidenceRef: ownerEvidence }
+          : null,
+      sourceLicense:
+        typeof licenseId === "string" && typeof licenseEvidence === "string"
+          ? { licenseId, evidenceRef: licenseEvidence }
+          : null,
+      audioRights: null,
+    });
+    await writeCandidatePackage({
+      temporaryDirectory,
+      targetDirectory,
+      nextRegistry,
+      manifest,
+      runtimeIds,
+      itemCatalog,
+      runtimeCatalog,
+      coverageClaims,
+      reviews,
+      sourceTexts: liveSourceTexts,
+      validateStaged: true,
+      writeAdditionalArtifacts: (stagedDirectory) => {
+        [...artifactSourcesByRef.entries()]
+          .sort(([left], [right]) => left.localeCompare(right))
+          .forEach(([fileRef, sourceArtifact]) => {
+            const { bytes } = resolveRepositoryCharacterSource(
+              sourceArtifact.sourceFile,
+              `staged source for ${fileRef}`,
+            );
+            if (sha256Bytes(bytes) !== sourceArtifact.expectedFileSha256) {
+              throw new Error(
+                `Character source changed after descriptor validation: ${sourceArtifact.sourceFile}`,
+              );
+            }
+            const targetPath = join(stagedDirectory, ...fileRef.split("/"));
+            mkdirSync(dirname(targetPath), { recursive: true });
+            writeFileSync(targetPath, bytes, { flag: "wx" });
+          });
+      },
+    });
+    console.log(
+      `Imported sourced metadata for ${importsByItemKey.size} character item(s) into candidate ${newVersion} from ${fromVersion}; approvals and coverage claims were intentionally cleared`,
+    );
+    return 0;
+  });
+};
+
 const promoteCommand = async (args) => {
   const { positional, flags } = parseArguments(args);
   assertCommandShape(positional, flags, {
@@ -1825,6 +2707,7 @@ const commands = {
   "submit-review": submitReviewCommand,
   "new-version": newVersionCommand,
   "import-audio": importAudioCommand,
+  "import-character-metadata": importCharacterMetadataCommand,
   promote: promoteCommand,
 };
 

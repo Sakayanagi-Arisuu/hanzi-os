@@ -10,7 +10,7 @@ const REVIEW_ROLES = new Set([
   "audio-rights",
 ]);
 const REVIEW_DECISIONS = new Set(["approved", "changes-requested"]);
-const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5]);
+const SUPPORTED_CONTENT_SCHEMA_VERSIONS = new Set([1, 2, 3, 4, 5, 6]);
 const ITEM_TYPES_V1 = new Set(["lexeme", "lesson", "graded-text"]);
 const KNOWLEDGE_ITEM_TYPES = new Set([
   "lexeme",
@@ -32,6 +32,43 @@ const LEARNING_SKILLS = new Set([
   "writing",
   "vocabulary",
   "grammar",
+]);
+const CHARACTER_DECOMPOSITION_KINDS = new Set(["independent", "compound"]);
+const CHARACTER_COMPONENT_ROLES = new Set([
+  "semantic",
+  "phonetic",
+  "semantic-phonetic",
+  "graphic",
+]);
+const CHARACTER_COMPONENT_POSITIONS = new Set([
+  "whole",
+  "left",
+  "right",
+  "top",
+  "bottom",
+  "center",
+  "enclosing",
+  "enclosed",
+  "overlaid",
+]);
+const CHARACTER_STRUCTURE_KINDS = new Set([
+  "independent",
+  "left-right",
+  "top-bottom",
+  "left-middle-right",
+  "top-middle-bottom",
+  "full-surround",
+  "surround-from-above",
+  "surround-from-below",
+  "surround-from-left",
+  "surround-from-upper-left",
+  "surround-from-upper-right",
+  "surround-from-lower-left",
+  "overlaid",
+]);
+const CHARACTER_SOURCE_KINDS = new Set([
+  "linguistic-reference",
+  "stroke-dataset",
 ]);
 const CONTENT_SCHEMA_V1_SOURCE_ARTIFACTS = [
   "src/data/assessment.ts",
@@ -508,7 +545,7 @@ const validateManifest = (manifest, errors) => {
     errors.push("manifest.contentVersion must equal packageId");
   }
   if (!SUPPORTED_CONTENT_SCHEMA_VERSIONS.has(manifest.contentSchemaVersion)) {
-    errors.push("manifest.contentSchemaVersion must be a supported version (1, 2, 3, 4, or 5)");
+    errors.push("manifest.contentSchemaVersion must be a supported version (1, 2, 3, 4, 5, or 6)");
   }
   if (!["closed-alpha", "public"].includes(manifest.audience)) {
     errors.push("manifest.audience is invalid");
@@ -718,7 +755,517 @@ const validateCatalogExamples = (value, label, errors) => {
   });
 };
 
-const validateCatalogPayload = (item, index, errors) => {
+const isLowercaseSafeId = (value) =>
+  typeof value === "string"
+  && LOWERCASE_AUDIO_ASSET_ID_PATTERN.test(value)
+  && !value.endsWith(".")
+  && !WINDOWS_RESERVED_FILE_STEM_PATTERN.test(value);
+
+const validateSingleUnicodeGlyph = (value, label, errors) => {
+  if (!isNonEmptyString(value)) {
+    errors.push(`${label} is required`);
+    return false;
+  }
+  if ([...value].length !== 1) {
+    errors.push(`${label} must contain one Unicode character`);
+    return false;
+  }
+  return true;
+};
+
+const validateCharacterPayloadCommon = (item, payload, prefix, errors) => {
+  ["pinyin", "meaning"].forEach((field) => {
+    if (!isNonEmptyString(payload[field])) errors.push(`${prefix}.${field} is required`);
+  });
+  if (validateSingleUnicodeGlyph(payload.character, `${prefix}.character`, errors)) {
+    const codePoint = payload.character.codePointAt(0);
+    const expectedId = `u${codePoint.toString(16).padStart(4, "0")}`;
+    if (item.itemId !== expectedId) {
+      errors.push(`${prefix.replace(/\.payload$/u, "")}.itemId must be ${expectedId} for payload.character`);
+    }
+  }
+  validateSingleUnicodeGlyph(payload.traditional, `${prefix}.traditional`, errors);
+  const sourceLexemeIds = validateStringArray(
+    payload.sourceLexemeIds,
+    `${prefix} source lexeme id`,
+    errors,
+  );
+  if (sourceLexemeIds.length === 0) {
+    errors.push(`${prefix}.sourceLexemeIds must not be empty`);
+  }
+};
+
+const validateCharacterSourceIds = (
+  value,
+  label,
+  sourceMap,
+  usedSourceIds,
+  errors,
+) => {
+  const sourceIds = validateStringArray(value, `${label} source id`, errors);
+  if (sourceIds.length === 0) errors.push(`${label}.sourceIds must not be empty`);
+  let hasLinguisticReference = false;
+  sourceIds.forEach((sourceId, sourceIndex) => {
+    const source = sourceMap.get(sourceId);
+    if (!source) {
+      errors.push(`${label}.sourceIds[${sourceIndex}] references unknown source ${sourceId}`);
+      return;
+    }
+    usedSourceIds.add(sourceId);
+    if (source.kind === "linguistic-reference") hasLinguisticReference = true;
+  });
+  if (sourceIds.length > 0 && !hasLinguisticReference) {
+    errors.push(`${label}.sourceIds must include a linguistic-reference source`);
+  }
+};
+
+const validateCharacterStrokeInspection = (
+  inspection,
+  strokeData,
+  strokeCount,
+  prefix,
+  errors,
+) => {
+  if (!isRecord(inspection)) {
+    errors.push(`${prefix}.fileRef requires a successful character stroke inspection`);
+    return;
+  }
+  if (inspection.ok === false) {
+    validateAllowedKeys(inspection, ["ok", "error"], `${prefix}.fileInspection`, errors);
+    if (!isNonEmptyString(inspection.error)) {
+      errors.push(`${prefix}.fileInspection.error is required`);
+    }
+    errors.push(`${prefix}.fileRef character stroke inspection failed`);
+    return;
+  }
+  if (inspection.ok !== true) {
+    errors.push(`${prefix}.fileInspection.ok must be boolean`);
+    return;
+  }
+  validateAllowedKeys(
+    inspection,
+    ["ok", "format", "strokeCount", "radicalStrokeIndices", "byteLength"],
+    `${prefix}.fileInspection`,
+    errors,
+  );
+  if (inspection.format !== "hanzi-writer-v1") {
+    errors.push(`${prefix}.fileInspection.format must be hanzi-writer-v1`);
+  }
+  if (!Number.isSafeInteger(inspection.strokeCount) || inspection.strokeCount <= 0) {
+    errors.push(`${prefix}.fileInspection.strokeCount must be a positive integer`);
+  }
+  if (!Number.isSafeInteger(inspection.byteLength) || inspection.byteLength <= 0) {
+    errors.push(`${prefix}.fileInspection.byteLength must be a positive integer`);
+  }
+  const radicalStrokeIndices = Array.isArray(inspection.radicalStrokeIndices)
+    ? inspection.radicalStrokeIndices
+    : [];
+  if (!Array.isArray(inspection.radicalStrokeIndices)) {
+    errors.push(`${prefix}.fileInspection.radicalStrokeIndices must be an array`);
+  } else {
+    radicalStrokeIndices.forEach((strokeIndex, index) => {
+      if (
+        !Number.isSafeInteger(strokeIndex)
+        || strokeIndex < 0
+        || !Number.isSafeInteger(inspection.strokeCount)
+        || strokeIndex >= inspection.strokeCount
+      ) {
+        errors.push(
+          `${prefix}.fileInspection.radicalStrokeIndices[${index}] must reference an inspected stroke`,
+        );
+      }
+    });
+    pushDuplicateErrors(
+      radicalStrokeIndices,
+      `${prefix}.fileInspection radical stroke index`,
+      errors,
+    );
+  }
+  if (inspection.format !== strokeData?.format) {
+    errors.push(`${prefix}.format does not match inspected package bytes`);
+  }
+  if (inspection.strokeCount !== strokeCount) {
+    errors.push(`${prefix.replace(/\.strokeData$/u, "")}.strokeCount does not match inspected package bytes`);
+  }
+};
+
+const validateCharacterLinguisticInspection = (
+  inspection,
+  character,
+  prefix,
+  errors,
+) => {
+  if (!isRecord(inspection)) {
+    errors.push(
+      `${prefix}.recordRef requires a successful linguistic JSON inspection`,
+    );
+    return;
+  }
+  if (inspection.ok === false) {
+    validateAllowedKeys(
+      inspection,
+      ["ok", "error"],
+      `${prefix}.fileInspection`,
+      errors,
+    );
+    if (!isNonEmptyString(inspection.error)) {
+      errors.push(`${prefix}.fileInspection.error is required`);
+    }
+    errors.push(`${prefix}.recordRef linguistic JSON inspection failed`);
+    return;
+  }
+  if (inspection.ok !== true) {
+    errors.push(`${prefix}.fileInspection.ok must be boolean`);
+    return;
+  }
+  validateAllowedKeys(
+    inspection,
+    ["ok", "format", "character", "byteLength"],
+    `${prefix}.fileInspection`,
+    errors,
+  );
+  if (inspection.format !== "json-object-v1") {
+    errors.push(`${prefix}.fileInspection.format must be json-object-v1`);
+  }
+  if (inspection.character !== character) {
+    errors.push(
+      `${prefix}.fileInspection.character must match the target character`,
+    );
+  }
+  if (!Number.isSafeInteger(inspection.byteLength) || inspection.byteLength <= 0) {
+    errors.push(`${prefix}.fileInspection.byteLength must be a positive integer`);
+  }
+};
+
+const validateCharacterCatalogPayloadV2 = (
+  item,
+  index,
+  characterSourceFileHashes,
+  characterLinguisticFileInspections,
+  characterStrokeFileInspections,
+  errors,
+) => {
+  const itemPrefix = `item-catalog.items[${index}]`;
+  const prefix = `${itemPrefix}.payload`;
+  const payload = item.payload;
+  if (!isRecord(payload)) {
+    errors.push(`${prefix} must be an object`);
+    return;
+  }
+  validateAllowedKeys(
+    payload,
+    [
+      "character",
+      "traditional",
+      "pinyin",
+      "meaning",
+      "sourceLexemeIds",
+      "analysis",
+      "strokeCount",
+      "strokeData",
+    ],
+    prefix,
+    errors,
+  );
+  validateCharacterPayloadCommon(item, payload, prefix, errors);
+  if (!Number.isSafeInteger(payload.strokeCount) || payload.strokeCount <= 0) {
+    errors.push(`${prefix}.strokeCount must be a positive integer`);
+  }
+
+  const analysis = payload.analysis;
+  const sourceMap = new Map();
+  const usedSourceIds = new Set();
+  if (!isRecord(analysis)) {
+    errors.push(`${prefix}.analysis must be an object`);
+  } else {
+    validateAllowedKeys(
+      analysis,
+      ["schemaVersion", "decompositionKind", "radical", "components", "structure", "sources"],
+      `${prefix}.analysis`,
+      errors,
+    );
+    if (analysis.schemaVersion !== 1) {
+      errors.push(`${prefix}.analysis.schemaVersion must be 1`);
+    }
+    if (!CHARACTER_DECOMPOSITION_KINDS.has(analysis.decompositionKind)) {
+      errors.push(`${prefix}.analysis.decompositionKind is invalid`);
+    }
+    if (!Array.isArray(analysis.sources)) {
+      errors.push(`${prefix}.analysis.sources must be an array`);
+    } else {
+      const sourceIds = [];
+      const recordRefs = [];
+      analysis.sources.forEach((source, sourceIndex) => {
+        const sourcePrefix = `${prefix}.analysis.sources[${sourceIndex}]`;
+        if (!isRecord(source)) {
+          errors.push(`${sourcePrefix} must be an object`);
+          return;
+        }
+        validateAllowedKeys(
+          source,
+          [
+            "sourceId",
+            "kind",
+            "recordKey",
+            "citationRef",
+            "licenseId",
+            "licenseEvidenceRef",
+            "recordRef",
+            "recordSha256",
+          ],
+          sourcePrefix,
+          errors,
+        );
+        if (!isLowercaseSafeId(source.sourceId)) {
+          errors.push(`${sourcePrefix}.sourceId must be a lowercase non-reserved safe id`);
+        } else {
+          sourceIds.push(source.sourceId);
+          sourceMap.set(source.sourceId, source);
+        }
+        if (!CHARACTER_SOURCE_KINDS.has(source.kind)) {
+          errors.push(`${sourcePrefix}.kind is invalid`);
+        }
+        validateSingleUnicodeGlyph(
+          source.recordKey,
+          `${sourcePrefix}.recordKey`,
+          errors,
+        );
+        if (source.recordKey !== payload.character) {
+          errors.push(
+            `${sourcePrefix}.recordKey must match the target character`,
+          );
+        }
+        ["citationRef", "licenseId", "licenseEvidenceRef"].forEach((field) => {
+          if (!isNonEmptyString(source[field])) errors.push(`${sourcePrefix}.${field} is required`);
+        });
+        const expectedRecordRef = source.kind === "stroke-dataset"
+          ? `stroke-data/${item.itemId}.json`
+          : `character-sources/${item.itemId}/${String(source.sourceId)}.json`;
+        if (source.recordRef !== expectedRecordRef) {
+          errors.push(`${sourcePrefix}.recordRef must equal ${expectedRecordRef}`);
+        } else {
+          recordRefs.push(source.recordRef);
+        }
+        if (!DIGEST_PATTERN.test(source.recordSha256 ?? "")) {
+          errors.push(`${sourcePrefix}.recordSha256 must be a SHA-256 digest`);
+        }
+        if (isNonEmptyString(source.recordRef)) {
+          const fileHash = characterSourceFileHashes?.[source.recordRef] ?? null;
+          if (fileHash === null) {
+            errors.push(`${sourcePrefix}.recordRef is unavailable`);
+          } else if (fileHash !== source.recordSha256) {
+            errors.push(`${sourcePrefix}.recordSha256 does not match package bytes`);
+          }
+          if (source.kind === "linguistic-reference") {
+            validateCharacterLinguisticInspection(
+              characterLinguisticFileInspections?.[source.recordRef] ?? null,
+              payload.character,
+              sourcePrefix,
+              errors,
+            );
+          }
+        }
+      });
+      pushDuplicateErrors(sourceIds, `${prefix}.analysis source id`, errors);
+      pushDuplicateErrors(recordRefs, `${prefix}.analysis source recordRef`, errors);
+      if (analysis.sources.length === 0) {
+        errors.push(`${prefix}.analysis.sources must not be empty`);
+      }
+      if (
+        analysis.sources.filter((source) => source?.kind === "stroke-dataset").length !== 1
+      ) {
+        errors.push(`${prefix}.analysis.sources must contain exactly one stroke-dataset source`);
+      }
+    }
+
+    if (!isRecord(analysis.radical)) {
+      errors.push(`${prefix}.analysis.radical must be an object`);
+    } else {
+      validateAllowedKeys(
+        analysis.radical,
+        ["glyph", "sourceIds"],
+        `${prefix}.analysis.radical`,
+        errors,
+      );
+      validateSingleUnicodeGlyph(
+        analysis.radical.glyph,
+        `${prefix}.analysis.radical.glyph`,
+        errors,
+      );
+      validateCharacterSourceIds(
+        analysis.radical.sourceIds,
+        `${prefix}.analysis.radical`,
+        sourceMap,
+        usedSourceIds,
+        errors,
+      );
+    }
+
+    if (!Array.isArray(analysis.components)) {
+      errors.push(`${prefix}.analysis.components must be an array`);
+    } else {
+      const componentIds = [];
+      analysis.components.forEach((component, componentIndex) => {
+        const componentPrefix = `${prefix}.analysis.components[${componentIndex}]`;
+        if (!isRecord(component)) {
+          errors.push(`${componentPrefix} must be an object`);
+          return;
+        }
+        validateAllowedKeys(
+          component,
+          ["componentId", "glyph", "role", "position", "sourceIds"],
+          componentPrefix,
+          errors,
+        );
+        if (!isLowercaseSafeId(component.componentId)) {
+          errors.push(`${componentPrefix}.componentId must be a lowercase non-reserved safe id`);
+        } else {
+          componentIds.push(component.componentId);
+        }
+        validateSingleUnicodeGlyph(component.glyph, `${componentPrefix}.glyph`, errors);
+        if (!CHARACTER_COMPONENT_ROLES.has(component.role)) {
+          errors.push(`${componentPrefix}.role is invalid`);
+        }
+        if (!CHARACTER_COMPONENT_POSITIONS.has(component.position)) {
+          errors.push(`${componentPrefix}.position is invalid`);
+        }
+        validateCharacterSourceIds(
+          component.sourceIds,
+          componentPrefix,
+          sourceMap,
+          usedSourceIds,
+          errors,
+        );
+      });
+      pushDuplicateErrors(componentIds, `${prefix}.analysis component id`, errors);
+      if (
+        analysis.decompositionKind === "independent"
+        && analysis.components.length !== 0
+      ) {
+        errors.push(`${prefix}.analysis independent characters must have zero components`);
+      }
+      if (
+        analysis.decompositionKind === "compound"
+        && analysis.components.length === 0
+      ) {
+        errors.push(`${prefix}.analysis compound characters require at least one component`);
+      }
+    }
+
+    if (!isRecord(analysis.structure)) {
+      errors.push(`${prefix}.analysis.structure must be an object`);
+    } else {
+      validateAllowedKeys(
+        analysis.structure,
+        ["kind", "sourceIds"],
+        `${prefix}.analysis.structure`,
+        errors,
+      );
+      if (!CHARACTER_STRUCTURE_KINDS.has(analysis.structure.kind)) {
+        errors.push(`${prefix}.analysis.structure.kind is invalid`);
+      }
+      validateCharacterSourceIds(
+        analysis.structure.sourceIds,
+        `${prefix}.analysis.structure`,
+        sourceMap,
+        usedSourceIds,
+        errors,
+      );
+      if (
+        analysis.decompositionKind === "independent"
+        && analysis.structure.kind !== "independent"
+      ) {
+        errors.push(`${prefix}.analysis independent characters require independent structure`);
+      }
+      if (
+        analysis.decompositionKind === "compound"
+        && analysis.structure.kind === "independent"
+      ) {
+        errors.push(`${prefix}.analysis compound characters require non-independent structure`);
+      }
+    }
+  }
+
+  const strokeData = payload.strokeData;
+  const strokePrefix = `${prefix}.strokeData`;
+  if (!isRecord(strokeData)) {
+    errors.push(`${strokePrefix} must be an object`);
+  } else {
+    validateAllowedKeys(
+      strokeData,
+      ["format", "fileRef", "fileSha256", "sourceId"],
+      strokePrefix,
+      errors,
+    );
+    if (strokeData.format !== "hanzi-writer-v1") {
+      errors.push(`${strokePrefix}.format must be hanzi-writer-v1`);
+    }
+    const expectedFileRef = `stroke-data/${item.itemId}.json`;
+    if (strokeData.fileRef !== expectedFileRef) {
+      errors.push(`${strokePrefix}.fileRef must equal ${expectedFileRef}`);
+    }
+    if (!DIGEST_PATTERN.test(strokeData.fileSha256 ?? "")) {
+      errors.push(`${strokePrefix}.fileSha256 must be a SHA-256 digest`);
+    }
+    if (!isLowercaseSafeId(strokeData.sourceId)) {
+      errors.push(`${strokePrefix}.sourceId must be a lowercase non-reserved safe id`);
+    }
+    const strokeSource = sourceMap.get(strokeData.sourceId);
+    if (!strokeSource) {
+      errors.push(`${strokePrefix}.sourceId references unknown source ${String(strokeData.sourceId)}`);
+    } else {
+      usedSourceIds.add(strokeData.sourceId);
+      if (strokeSource.kind !== "stroke-dataset") {
+        errors.push(`${strokePrefix}.sourceId must reference a stroke-dataset source`);
+      }
+      if (strokeData.fileRef !== strokeSource.recordRef) {
+        errors.push(`${strokePrefix}.fileRef must match its source recordRef`);
+      }
+      if (strokeData.fileSha256 !== strokeSource.recordSha256) {
+        errors.push(`${strokePrefix}.fileSha256 must match its source recordSha256`);
+      }
+    }
+    if (isNonEmptyString(strokeData.fileRef)) {
+      const fileHash = characterSourceFileHashes?.[strokeData.fileRef] ?? null;
+      if (fileHash === null) {
+        errors.push(`${strokePrefix}.fileRef is unavailable`);
+      } else if (fileHash !== strokeData.fileSha256) {
+        errors.push(`${strokePrefix}.fileSha256 does not match package bytes`);
+      }
+      validateCharacterStrokeInspection(
+        characterStrokeFileInspections?.[strokeData.fileRef] ?? null,
+        strokeData,
+        payload.strokeCount,
+        strokePrefix,
+        errors,
+      );
+    }
+  }
+
+  if (isRecord(analysis) && Array.isArray(analysis.sources)) {
+    analysis.sources.forEach((source, sourceIndex) => {
+      if (
+        isRecord(source)
+        && isNonEmptyString(source.sourceId)
+        && !usedSourceIds.has(source.sourceId)
+      ) {
+        errors.push(
+          `${prefix}.analysis.sources[${sourceIndex}].sourceId is not used by a character claim or strokeData`,
+        );
+      }
+    });
+  }
+};
+
+const validateCatalogPayload = (
+  item,
+  index,
+  catalogSchemaVersion,
+  characterSourceFileHashes,
+  characterLinguisticFileInspections,
+  characterStrokeFileInspections,
+  errors,
+) => {
   const prefix = `item-catalog.items[${index}]`;
   const payload = item.payload;
   if (!isRecord(payload)) {
@@ -937,6 +1484,17 @@ const validateCatalogPayload = (item, index, errors) => {
     return;
   }
   if (item.itemType === "character") {
+    if (catalogSchemaVersion >= 4) {
+      validateCharacterCatalogPayloadV2(
+        item,
+        index,
+        characterSourceFileHashes,
+        characterLinguisticFileInspections,
+        characterStrokeFileInspections,
+        errors,
+      );
+      return;
+    }
     validateAllowedKeys(
       payload,
       [
@@ -955,31 +1513,7 @@ const validateCatalogPayload = (item, index, errors) => {
       `${prefix}.payload`,
       errors,
     );
-    ["character", "traditional", "pinyin", "meaning"].forEach((field) => {
-      if (!isNonEmptyString(payload[field])) errors.push(`${prefix}.payload.${field} is required`);
-    });
-    if (isNonEmptyString(payload.character)) {
-      if ([...payload.character].length !== 1) {
-        errors.push(`${prefix}.payload.character must contain one Unicode character`);
-      } else {
-        const codePoint = payload.character.codePointAt(0);
-        const expectedId = `u${codePoint.toString(16).padStart(4, "0")}`;
-        if (item.itemId !== expectedId) {
-          errors.push(`${prefix}.itemId must be ${expectedId} for payload.character`);
-        }
-      }
-    }
-    if (isNonEmptyString(payload.traditional) && [...payload.traditional].length !== 1) {
-      errors.push(`${prefix}.payload.traditional must contain one Unicode character`);
-    }
-    const sourceLexemeIds = validateStringArray(
-      payload.sourceLexemeIds,
-      `${prefix}.payload source lexeme id`,
-      errors,
-    );
-    if (sourceLexemeIds.length === 0) {
-      errors.push(`${prefix}.payload.sourceLexemeIds must not be empty`);
-    }
+    validateCharacterPayloadCommon(item, payload, `${prefix}.payload`, errors);
     for (const field of ["radical", "structure", "strokeDataRef"]) {
       if (payload[field] !== null && !isNonEmptyString(payload[field])) {
         errors.push(`${prefix}.payload.${field} must be null or a non-empty string`);
@@ -1131,15 +1665,20 @@ const validateItemCatalog = async (
   runtimeIds,
   audioAssetFileHashes,
   audioAssetFileInspections,
+  characterSourceFileHashes,
+  characterLinguisticFileInspections,
+  characterStrokeFileInspections,
   manifestAudioRights,
   contentSchemaVersion,
   errors,
 ) => {
-  const expectedSchemaVersion = contentSchemaVersion >= 5
-    ? 3
-    : contentSchemaVersion >= 4
-      ? 2
-      : 1;
+  const expectedSchemaVersion = contentSchemaVersion >= 6
+    ? 4
+    : contentSchemaVersion >= 5
+      ? 3
+      : contentSchemaVersion >= 4
+        ? 2
+        : 1;
   if (!isRecord(itemCatalog) || itemCatalog.schemaVersion !== expectedSchemaVersion) {
     errors.push(`item-catalog.schemaVersion must be ${expectedSchemaVersion}`);
     return;
@@ -1218,7 +1757,15 @@ const validateItemCatalog = async (
     if (!RELEASE_STATES.has(item.releaseState)) {
       errors.push(`${prefix}.releaseState is invalid`);
     }
-    validateCatalogPayload(item, index, errors);
+    validateCatalogPayload(
+      item,
+      index,
+      expectedSchemaVersion,
+      characterSourceFileHashes,
+      characterLinguisticFileInspections,
+      characterStrokeFileInspections,
+      errors,
+    );
     if (!DIGEST_PATTERN.test(item.payloadSha256 ?? "")) {
       errors.push(`${prefix}.payloadSha256 is invalid`);
     } else if (
@@ -1503,12 +2050,12 @@ const validateItemCatalog = async (
         "transcriptSha256",
         "speaker",
         "rights",
-        ...(expectedSchemaVersion === 3 ? ["media", "alignment"] : []),
+        ...(expectedSchemaVersion >= 3 ? ["media", "alignment"] : []),
       ],
       prefix,
       errors,
     );
-    const validAssetId = expectedSchemaVersion === 3
+    const validAssetId = expectedSchemaVersion >= 3
       ? typeof asset.assetId === "string"
         && LOWERCASE_AUDIO_ASSET_ID_PATTERN.test(asset.assetId)
         && !asset.assetId.endsWith(".")
@@ -1516,7 +2063,7 @@ const validateItemCatalog = async (
       : SAFE_ID_PATTERN.test(asset.assetId ?? "");
     if (!validAssetId) {
       errors.push(
-        expectedSchemaVersion === 3
+        expectedSchemaVersion >= 3
           ? `${prefix}.assetId must be a lowercase non-reserved safe id`
           : `${prefix}.assetId is invalid`,
       );
@@ -1533,7 +2080,7 @@ const validateItemCatalog = async (
     ) {
       errors.push(`${prefix}.targetPayloadSha256 does not match the target item`);
     }
-    const validFileRef = expectedSchemaVersion === 3
+    const validFileRef = expectedSchemaVersion >= 3
       ? validAssetId && asset.fileRef === `audio/${asset.assetId}.wav`
       : isNonEmptyString(asset.fileRef)
         && asset.fileRef.startsWith("audio/")
@@ -1543,7 +2090,7 @@ const validateItemCatalog = async (
         );
     if (!validFileRef) {
       errors.push(
-        expectedSchemaVersion === 3
+        expectedSchemaVersion >= 3
           ? `${prefix}.fileRef must equal audio/<assetId>.wav`
           : `${prefix}.fileRef must be a safe package-local audio path`,
       );
@@ -1598,7 +2145,7 @@ const validateItemCatalog = async (
         errors,
       );
     }
-    if (expectedSchemaVersion === 3) {
+    if (expectedSchemaVersion >= 3) {
       if (!audioRightsEqual(asset.rights, manifestAudioRights)) {
         errors.push(`${prefix}.rights must exactly match manifest.governance.audioRights`);
       }
@@ -2133,6 +2680,9 @@ export const validateContentBundle = async (bundle) => {
       bundle.runtimeIds,
       bundle.audioAssetFileHashes,
       bundle.audioAssetFileInspections,
+      bundle.characterSourceFileHashes,
+      bundle.characterLinguisticFileInspections,
+      bundle.characterStrokeFileInspections,
       bundle.manifest?.governance?.audioRights,
       bundle.manifest.contentSchemaVersion,
       errors,
@@ -2426,19 +2976,25 @@ const releasedCatalogItems = (bundle) => {
   return items.filter((item) => relevantKeys.has(item.itemKey));
 };
 
-const characterPayloadIsReleaseComplete = (item) =>
-  item?.itemType !== "character"
-  || (
-    isNonEmptyString(item.payload?.radical)
-    && Number.isInteger(item.payload?.strokeCount)
-    && item.payload.strokeCount > 0
-    && Array.isArray(item.payload?.components)
-    && item.payload.components.length > 0
-    && item.payload.components.every(isNonEmptyString)
-    && isNonEmptyString(item.payload?.structure)
-    && isNonEmptyString(item.payload?.strokeDataRef)
-    && DIGEST_PATTERN.test(item.payload?.strokeDataSha256 ?? "")
+const characterPayloadIsReleaseComplete = (bundle, item) => {
+  if (item?.itemType !== "character") return true;
+  if (
+    bundle.manifest?.contentSchemaVersion !== 6
+    || bundle.itemCatalog?.schemaVersion !== 4
+  ) {
+    return false;
+  }
+  const errors = [];
+  validateCharacterCatalogPayloadV2(
+    item,
+    0,
+    bundle.characterSourceFileHashes,
+    bundle.characterLinguisticFileInspections,
+    bundle.characterStrokeFileInspections,
+    errors,
   );
+  return errors.length === 0;
+};
 
 const itemIsReleaseReady = (
   bundle,
@@ -2455,7 +3011,7 @@ const itemIsReleaseReady = (
   if (!item.owner?.id || !item.owner?.evidenceRef) ready = false;
   if (!item.sourceLicense?.licenseId || !item.sourceLicense?.evidenceRef) ready = false;
   if (!Array.isArray(item.prerequisites)) ready = false;
-  if (!characterPayloadIsReleaseComplete(item)) ready = false;
+  if (!characterPayloadIsReleaseComplete(bundle, item)) ready = false;
   if (
     item.itemType === "lesson"
     && Array.isArray(item.prerequisites)
@@ -2731,7 +3287,8 @@ const isNonEmptyReviewedGradedText = (bundle, manifestHash, item) => {
 const audioAssetIsReleaseReady = (bundle, manifestHash, asset) => {
   if (
     bundle.manifest?.contentSchemaVersion < 5
-    || bundle.itemCatalog?.schemaVersion !== 3
+    || !isRecord(bundle.itemCatalog)
+    || bundle.itemCatalog.schemaVersion < 3
     || bundle.manifest?.governance?.includesAudio !== true
     || !isRecord(asset)
   ) {

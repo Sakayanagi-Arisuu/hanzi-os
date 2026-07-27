@@ -40,6 +40,16 @@ speaker/rights binding và staged validation; audio legacy không được tính
 release gate. Candidate hiện tại chưa dùng đường này và vẫn không có audio hay
 evidence thật. Không được suy diễn rằng WS2 hoặc A0 đã hoàn tất.
 
+Tooling hiện hỗ trợ content schema v6 / item catalog v4 cho character
+metadata source-addressed. Importer yêu cầu descriptor phủ đúng bảy character
+item hiện có, bind payload nguồn, linguistic record và Hanzi Writer record bằng
+SHA-256 cùng character record key, inspect JSON/stroke từ bytes, rồi
+staged-validate trước atomic handoff. Legacy character fields không còn được
+tính là release evidence. Runtime projection vẫn loại character item,
+Characters UI fail closed và public build không phát stroke JSON, nên tooling
+mới không làm nội dung chưa duyệt xuất hiện với người học. Candidate `.07.5`
+và registry hiện tại không bị thay đổi bởi lát triển khai tooling này.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text

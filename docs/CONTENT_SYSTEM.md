@@ -37,6 +37,24 @@ lịch sử, nhưng audio legacy/uninspected không bao giờ thỏa production 
 gate. Đây chỉ là workflow kỹ thuật: `foundation-2026.07.5` vẫn có audio catalog
 rỗng và không có evidence hay approval thật.
 
+Đường `content:character:import` tương tự tạo candidate content schema v6 /
+item catalog v4 từ catalog authoring schema v2 và descriptor phủ chính xác toàn
+bộ character item. Radical, component và structure phải trỏ tới linguistic
+source record package-local; stroke count/file phải trỏ tới đúng một
+stroke-dataset record đã được inspect từ bytes. Chữ độc lập hợp lệ với
+`components: []`, còn chữ ghép phải có component và structure không phải
+`independent`. Linguistic JSON và stroke source đều bind đúng character
+`recordKey`; source/hash/stroke drift, path escape, symlink/junction, aggregate
+quá lớn và descriptor thiếu/thừa đều fail closed trước registry mutation.
+Schema cũ vẫn đọc được nhưng character metadata kiểu cũ không thể trở thành
+release evidence.
+
+Characters UI hiện không dùng vocabulary đang phát hành để suy diễn kho Hán tự
+hay hiển thị radical/mnemonic hard-code. Cho tới khi runtime projection có
+character item đã duyệt, màn hình chỉ hiển thị trạng thái chưa có dữ liệu.
+Public build cũng không copy stroke JSON. `foundation-2026.07.5` vẫn chưa có
+source snapshot, review hoặc character candidate thật.
+
 ## Knowledge item
 
 ### Lexeme
@@ -90,8 +108,9 @@ Mỗi activity định nghĩa prompt, modality, accepted answers, scoring rubric
 1. Curriculum designer tạo objective và blueprint.
 2. Linguist tạo/duyệt language content.
 3. Native speaker thu audio theo script version.
-4. Editor tạo descriptor bind exact payload/transcript, speaker và rights;
-   importer kiểm bytes/alignment rồi tạo candidate mới.
+4. Editor tạo descriptor bind exact payload và source: audio bind
+   transcript/speaker/rights; character bind linguistic record và stroke
+   dataset. Importer kiểm bytes rồi tạo candidate mới.
 5. Reviewer bản ngữ và reviewer quyền audio duyệt exact manifest/catalog scope.
 6. Assessment editor kiểm tra distractor và rubric.
 7. QA kiểm tra locale, accessibility và thiết bị.

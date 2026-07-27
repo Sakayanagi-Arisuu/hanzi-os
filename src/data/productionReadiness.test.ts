@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import {
   mkdirSync,
   mkdtempSync,
+  readdirSync,
   readFileSync,
   rmSync,
   writeFileSync,
@@ -21,7 +22,7 @@ import {
   serializeCanonicalJson,
   sha256Bytes,
 } from "../../scripts/generate-release-evidence.mjs";
-import { CONTENT_VERSION, RELEASED_VOCABULARY } from "./curriculum";
+import { CONTENT_VERSION } from "./curriculum";
 
 type ProductionBlocker = {
   code: string;
@@ -44,6 +45,8 @@ type ReadinessManifest = {
 
 type HanziDataManifest = {
   schemaVersion: number;
+  package: string;
+  packageVersion: string;
   characters: string[];
 };
 
@@ -804,17 +807,38 @@ describe("production readiness manifest", () => {
     expect(output).toContain("technicalTestsPassed is not allowed");
   });
 
-  it("self-hosts stroke data for every character exposed by released vocabulary", () => {
-    const releasedCharacters = [
-      ...new Set(
-        RELEASED_VOCABULARY.flatMap((word) => [
-          ...Array.from(word.simplified),
-          ...Array.from(word.traditional),
-        ]),
-      ),
-    ].sort();
-
+  it("does not publish stroke geometry before character content is released", () => {
+    const publishedCharacterFiles = readdirSync(join(
+      repositoryRoot,
+      "public",
+      "hanzi-data",
+    ))
+      .filter((name) => name.endsWith(".json"))
+      .sort();
     expect(hanziDataManifest.schemaVersion).toBe(1);
-    expect([...new Set(hanziDataManifest.characters)].sort()).toEqual(releasedCharacters);
+    expect(hanziDataManifest.characters).toEqual([]);
+    expect(publishedCharacterFiles).toEqual([]);
+  });
+
+  it("publishes the stroke-data license byte-for-byte without rewriting it", () => {
+    const installedPackage = JSON.parse(readFileSync(
+      join(repositoryRoot, "node_modules", hanziDataManifest.package, "package.json"),
+      "utf8",
+    )) as { version: string };
+    const upstreamLicense = readFileSync(join(
+      repositoryRoot,
+      "node_modules",
+      hanziDataManifest.package,
+      "ARPHICPL.TXT",
+    ));
+    const publishedLicense = readFileSync(join(
+      repositoryRoot,
+      "public",
+      "hanzi-data",
+      "ARPHICPL.TXT",
+    ));
+
+    expect(installedPackage.version).toBe(hanziDataManifest.packageVersion);
+    expect(publishedLicense).toEqual(upstreamLicense);
   });
 });

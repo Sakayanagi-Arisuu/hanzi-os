@@ -77,6 +77,7 @@ const createAudioCommandFixture = () => {
     "scripts/content/validate.mjs",
     "src/content/governance.mjs",
     "src/content/audioInspection.mjs",
+    "src/content/characterDataInspection.mjs",
     "content/registry.json",
     "config/production-readiness.json",
     ...sourceArtifactNamesV4,
@@ -185,6 +186,169 @@ const createAudioCommandFixture = () => {
   return { fixtureRoot, targetVersion, wave, descriptor, descriptorPath, args };
 };
 
+const createCharacterCommandFixture = () => {
+  const fixtureRoot = mkdtempSync(join(tmpdir(), "hanzi-character-command-"));
+  const targetVersion = "fixture-2026.08.4";
+  [
+    "scripts/content/lib.mjs",
+    "scripts/content/import-character-metadata.mjs",
+    "scripts/content/validate.mjs",
+    "src/content/governance.mjs",
+    "src/content/audioInspection.mjs",
+    "src/content/characterDataInspection.mjs",
+    "content/registry.json",
+    "config/production-readiness.json",
+    ...sourceArtifactNamesV4,
+  ].forEach((path) => copyFixtureFile(fixtureRoot, path));
+  for (const version of [
+    "foundation-2026.07.1",
+    "foundation-2026.07.2",
+    "foundation-2026.07.3",
+    "foundation-2026.07.4",
+    "foundation-2026.07.5",
+  ]) {
+    cpSync(
+      join(repositoryRoot, `content/packages/${version}`),
+      join(fixtureRoot, `content/packages/${version}`),
+      { recursive: true },
+    );
+  }
+  const readinessPath = join(fixtureRoot, "config/production-readiness.json");
+  const readiness = JSON.parse(readFileSync(readinessPath, "utf8")) as {
+    contentVersion: string;
+  };
+  readiness.contentVersion = targetVersion;
+  writeFileSync(readinessPath, `${JSON.stringify(readiness, null, 2)}\n`);
+  const curriculumPath = join(fixtureRoot, "src/data/curriculum.ts");
+  writeFileSync(
+    curriculumPath,
+    readFileSync(curriculumPath, "utf8").replaceAll(
+      "foundation-2026.07.5",
+      targetVersion,
+    ),
+  );
+  const catalog = JSON.parse(readFileSync(join(
+    fixtureRoot,
+    "content/packages/foundation-2026.07.5/item-catalog.json",
+  ), "utf8")) as {
+    schemaVersion: number;
+    contentVersion: string;
+    audioAssets: unknown[];
+    items: Array<{
+      itemKey: string;
+      itemType: string;
+      itemId: string;
+      itemVersion: string;
+      payloadSha256: string;
+      payload: { character?: string };
+    }>;
+  };
+  catalog.contentVersion = targetVersion;
+  catalog.items.forEach((item) => {
+    item.itemVersion = targetVersion;
+  });
+  const catalogPath = join(
+    fixtureRoot,
+    "content/drafts/character-catalog.json",
+  );
+  mkdirSync(dirname(catalogPath), { recursive: true });
+  writeFileSync(catalogPath, `${JSON.stringify(catalog, null, 2)}\n`);
+
+  const sourceDirectory = join(
+    fixtureRoot,
+    "content/drafts/character-import-sources",
+  );
+  mkdirSync(sourceDirectory, { recursive: true });
+  const strokeBytes = Buffer.from(JSON.stringify({
+    strokes: ["M 0 0 L 1 1"],
+    medians: [[[0, 0], [1, 1]]],
+    radStrokes: [0],
+  }));
+  const characters = catalog.items
+    .filter((item) => item.itemType === "character")
+    .map((item) => {
+      if (typeof item.payload.character !== "string") {
+        throw new Error(`Missing fixture character ${item.itemKey}`);
+      }
+      const linguisticBytes = Buffer.from(JSON.stringify({
+        character: item.payload.character,
+        fixtureAnalysis: "independent",
+      }));
+      writeFileSync(join(sourceDirectory, `${item.itemId}.linguistic.json`), linguisticBytes);
+      writeFileSync(join(sourceDirectory, `${item.payload.character}.json`), strokeBytes);
+      return {
+        targetItemKey: item.itemKey,
+        expectedTargetPayloadSha256: item.payloadSha256,
+        decompositionKind: "independent",
+        radical: {
+          glyph: item.payload.character,
+          sourceIds: ["linguistic-fixture"],
+        },
+        components: [],
+        structure: {
+          kind: "independent",
+          sourceIds: ["linguistic-fixture"],
+        },
+        sources: [
+          {
+            sourceId: "linguistic-fixture",
+            kind: "linguistic-reference",
+            recordKey: item.payload.character,
+            citationRef: `fixture://character/${item.itemId}`,
+            licenseId: "fixture-reference-license",
+            licenseEvidenceRef: "fixture://license/linguistic-reference",
+            sourceFile:
+              `content/drafts/character-import-sources/${item.itemId}.linguistic.json`,
+            expectedFileSha256: sha256Bytes(linguisticBytes),
+          },
+          {
+            sourceId: "stroke-fixture",
+            kind: "stroke-dataset",
+            recordKey: item.payload.character,
+            citationRef: `fixture://strokes/${item.itemId}`,
+            licenseId: "fixture-stroke-license",
+            licenseEvidenceRef: "fixture://license/stroke-dataset",
+            sourceFile:
+              `content/drafts/character-import-sources/${item.payload.character}.json`,
+            expectedFileSha256: sha256Bytes(strokeBytes),
+          },
+        ],
+        strokeSourceId: "stroke-fixture",
+      };
+    });
+  const descriptor = {
+    schemaVersion: 1,
+    contentVersion: targetVersion,
+    characters,
+  };
+  const descriptorPath = join(
+    fixtureRoot,
+    "content/drafts/character-descriptor.json",
+  );
+  writeFileSync(descriptorPath, `${JSON.stringify(descriptor, null, 2)}\n`);
+  const args = [
+    join(fixtureRoot, "scripts/content/import-character-metadata.mjs"),
+    targetVersion,
+    "--from", "foundation-2026.07.5",
+    "--created-at", "2026-08-04T00:00:00.000Z",
+    "--audience", "closed-alpha",
+    "--content-schema-version", "6",
+    "--item-catalog-file", "content/drafts/character-catalog.json",
+    "--character-descriptor-file", "content/drafts/character-descriptor.json",
+    "--confirm-runtime-ids-unchanged", "true",
+    "--write",
+  ];
+  return {
+    fixtureRoot,
+    targetVersion,
+    descriptor,
+    descriptorPath,
+    catalogPath,
+    strokeBytes,
+    args,
+  };
+};
+
 afterEach(() => {
   vi.restoreAllMocks();
 });
@@ -248,6 +412,7 @@ describe("content validation command", () => {
         "scripts/content/submit-review.mjs",
         "src/content/governance.mjs",
         "src/content/audioInspection.mjs",
+        "src/content/characterDataInspection.mjs",
         "content/registry.json",
         "config/production-readiness.json",
         ...sourceArtifactNames,
@@ -607,6 +772,7 @@ describe("content validation command", () => {
         "scripts/content/new-version.mjs",
         "src/content/governance.mjs",
         "src/content/audioInspection.mjs",
+        "src/content/characterDataInspection.mjs",
         "content/registry.json",
         "config/production-readiness.json",
         ...sourceArtifactNamesV4,
@@ -959,6 +1125,298 @@ describe("content validation command", () => {
     }
   });
 
+  it("imports source-addressed character metadata and detects immutable record tampering", () => {
+    const fixture = createCharacterCommandFixture();
+    try {
+      const imported = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(imported.status, imported.stderr).toBe(0);
+      expect(imported.stdout).toContain(
+        "approvals and coverage claims were intentionally cleared",
+      );
+      const packageDirectory = join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}`,
+      );
+      const manifest = JSON.parse(readFileSync(
+        join(packageDirectory, "manifest.json"),
+        "utf8",
+      )) as { contentSchemaVersion: number; governance: { includesAudio: boolean } };
+      expect(manifest).toMatchObject({
+        contentSchemaVersion: 6,
+        governance: { includesAudio: false },
+      });
+      const catalog = JSON.parse(readFileSync(
+        join(packageDirectory, "item-catalog.json"),
+        "utf8",
+      )) as {
+        schemaVersion: number;
+        audioAssets: unknown[];
+        items: Array<{
+          itemType: string;
+          itemId: string;
+          releaseState: string;
+          payload: Record<string, unknown> & {
+            analysis?: {
+              schemaVersion: number;
+              decompositionKind: string;
+              sources: Array<{
+                sourceId: string;
+                kind: string;
+                recordRef: string;
+                recordSha256: string;
+              }>;
+            };
+            strokeCount?: number;
+            strokeData?: {
+              format: string;
+              fileRef: string;
+              fileSha256: string;
+              sourceId: string;
+            };
+          };
+        }>;
+      };
+      expect(catalog.schemaVersion).toBe(4);
+      expect(catalog.audioAssets).toEqual([]);
+      const characterItems = catalog.items.filter(
+        (item) => item.itemType === "character",
+      );
+      expect(characterItems).toHaveLength(fixture.descriptor.characters.length);
+      characterItems.forEach((item) => {
+        expect(item.releaseState).toBe("review");
+        expect(item.payload).not.toHaveProperty("radical");
+        expect(item.payload).not.toHaveProperty("components");
+        expect(item.payload).not.toHaveProperty("structure");
+        expect(item.payload).not.toHaveProperty("strokeDataRef");
+        expect(item.payload).toMatchObject({
+          analysis: {
+            schemaVersion: 1,
+            decompositionKind: "independent",
+          },
+          strokeCount: 1,
+          strokeData: {
+            format: "hanzi-writer-v1",
+            fileRef: `stroke-data/${item.itemId}.json`,
+            sourceId: "stroke-fixture",
+          },
+        });
+        expect(readFileSync(
+          join(packageDirectory, `stroke-data/${item.itemId}.json`),
+        )).toEqual(fixture.strokeBytes);
+        expect(item.payload.analysis?.sources.map((source) => source.sourceId))
+          .toEqual(["linguistic-fixture", "stroke-fixture"]);
+      });
+      expect(JSON.parse(readFileSync(
+        join(packageDirectory, "coverage-claims.json"),
+        "utf8",
+      ))).toMatchObject({ coverageClaims: [] });
+      expect(JSON.parse(readFileSync(
+        join(packageDirectory, "reviews.json"),
+        "utf8",
+      ))).toMatchObject({ reviews: [] });
+      const runtimeCatalogText = readFileSync(
+        join(packageDirectory, "runtime-catalog.json"),
+        "utf8",
+      );
+      expect(runtimeCatalogText).not.toContain("linguistic-fixture");
+      expect(runtimeCatalogText).not.toContain("stroke-data/");
+      const validateArguments = [
+        join(fixture.fixtureRoot, "scripts/content/validate.mjs"),
+        fixture.targetVersion,
+      ];
+      const validation = spawnSync(process.execPath, validateArguments, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(validation.status, validation.stdout).toBe(0);
+
+      const firstLinguisticSource = characterItems[0]?.payload.analysis?.sources
+        .find((source) => source.kind === "linguistic-reference");
+      if (!firstLinguisticSource) throw new Error("Fixture source is missing");
+      writeFileSync(
+        join(packageDirectory, ...firstLinguisticSource.recordRef.split("/")),
+        "{}",
+      );
+      const rejectedTamper = spawnSync(process.execPath, validateArguments, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+      expect(rejectedTamper.status).toBe(1);
+      expect(rejectedTamper.stdout).toContain(
+        "recordSha256 does not match package bytes",
+      );
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("keeps character package and registry writes atomic on untrusted import failures", () => {
+    const fixture = createCharacterCommandFixture();
+    try {
+      const registryPath = join(fixture.fixtureRoot, "content/registry.json");
+      const registryBefore = readFileSync(registryPath, "utf8");
+      const corruptStroke = Buffer.from(JSON.stringify({ strokes: ["M 0 0"] }));
+      writeFileSync(
+        join(fixture.fixtureRoot, "content/drafts/corrupt-character-stroke.json"),
+        corruptStroke,
+      );
+      const invalidLinguistic = Buffer.from("{}");
+      writeFileSync(
+        join(
+          fixture.fixtureRoot,
+          "content/drafts/invalid-character-linguistic.json",
+        ),
+        invalidLinguistic,
+      );
+      const linkedSourceDirectory = join(
+        fixture.fixtureRoot,
+        "content/drafts/linked-character-source-target",
+      );
+      mkdirSync(linkedSourceDirectory);
+      const linkedSourceBytes = Buffer.from("{\"fixture\":true}");
+      writeFileSync(join(linkedSourceDirectory, "source.json"), linkedSourceBytes);
+      const linkedSourcePath = join(
+        fixture.fixtureRoot,
+        "content/drafts/linked-character-source",
+      );
+      let canCreateSymlink = true;
+      try {
+        symlinkSync(
+          linkedSourceDirectory,
+          linkedSourcePath,
+          process.platform === "win32" ? "junction" : "dir",
+        );
+      } catch (error) {
+        if (
+          error instanceof Error
+          && "code" in error
+          && ["EPERM", "EACCES"].includes(String(error.code))
+        ) {
+          canCreateSymlink = false;
+        } else {
+          throw error;
+        }
+      }
+      const cases: Array<[
+        string,
+        (descriptor: typeof fixture.descriptor) => void,
+        string,
+      ]> = [
+        ["target digest", (descriptor) => {
+          descriptor.characters[0].expectedTargetPayloadSha256 =
+            `sha256:${"0".repeat(64)}`;
+        }, "expectedTargetPayloadSha256 does not match the target item"],
+        ["traversal", (descriptor) => {
+          descriptor.characters[0].sources[0].sourceFile = "../outside.json";
+        }, "must not contain empty or traversal segments"],
+        ["stroke inspection", (descriptor) => {
+          const source = descriptor.characters[0].sources[1];
+          source.sourceFile = "content/drafts/corrupt-character-stroke.json";
+          source.expectedFileSha256 = sha256Bytes(corruptStroke);
+        }, "is not canonical Hanzi Writer data"],
+        ["linguistic inspection", (descriptor) => {
+          const source = descriptor.characters[0].sources[0];
+          source.sourceFile =
+            "content/drafts/invalid-character-linguistic.json";
+          source.expectedFileSha256 = sha256Bytes(invalidLinguistic);
+        }, "is not a canonical linguistic JSON record"],
+        ["record key", (descriptor) => {
+          descriptor.characters[0].sources[0].recordKey = "二";
+        }, "recordKey must match the target character"],
+        ["missing coverage", (descriptor) => {
+          descriptor.characters.pop();
+        }, "character descriptor must cover every character item"],
+      ];
+      if (canCreateSymlink) {
+        cases.push(["symlink", (descriptor) => {
+          const source = descriptor.characters[0].sources[0];
+          source.sourceFile = "content/drafts/linked-character-source/source.json";
+          source.expectedFileSha256 = sha256Bytes(linkedSourceBytes);
+        }, "must not contain symlinks or junctions"]);
+      }
+      for (const [_label, mutate, expectedError] of cases) {
+        const descriptor = structuredClone(fixture.descriptor);
+        mutate(descriptor);
+        writeFileSync(
+          fixture.descriptorPath,
+          `${JSON.stringify(descriptor, null, 2)}\n`,
+        );
+        const rejected = spawnSync(process.execPath, fixture.args, {
+          cwd: fixture.fixtureRoot,
+          encoding: "utf8",
+        });
+        expect(rejected.status).toBe(2);
+        expect(rejected.stderr).toContain(expectedError);
+        expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
+        expect(existsSync(join(
+          fixture.fixtureRoot,
+          `content/packages/${fixture.targetVersion}`,
+        ))).toBe(false);
+        expect(existsSync(join(
+          fixture.fixtureRoot,
+          "content/.governance.lock",
+        ))).toBe(false);
+        expect(readdirSync(join(fixture.fixtureRoot, "content/packages")))
+          .not.toContainEqual(expect.stringMatching(
+            new RegExp(`^${fixture.targetVersion}(?:\\.|$)`, "u"),
+          ));
+      }
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
+  it("removes a staged character package when final validation rejects catalog drift", () => {
+    const fixture = createCharacterCommandFixture();
+    try {
+      const registryPath = join(fixture.fixtureRoot, "content/registry.json");
+      const registryBefore = readFileSync(registryPath, "utf8");
+      const catalog = JSON.parse(
+        readFileSync(fixture.catalogPath, "utf8"),
+      ) as {
+        items: Array<{
+          itemType: string;
+          payload: Record<string, unknown>;
+        }>;
+      };
+      const lexeme = catalog.items.find((item) => item.itemType === "lexeme");
+      if (!lexeme) throw new Error("Fixture lexeme is missing");
+      lexeme.payload.meaning = "";
+      writeFileSync(
+        fixture.catalogPath,
+        `${JSON.stringify(catalog, null, 2)}\n`,
+      );
+
+      const rejected = spawnSync(process.execPath, fixture.args, {
+        cwd: fixture.fixtureRoot,
+        encoding: "utf8",
+      });
+
+      expect(rejected.status).toBe(2);
+      expect(rejected.stderr).toContain(
+        "Generated staged candidate is invalid",
+      );
+      expect(readFileSync(registryPath, "utf8")).toBe(registryBefore);
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        `content/packages/${fixture.targetVersion}`,
+      ))).toBe(false);
+      expect(readdirSync(join(fixture.fixtureRoot, "content/packages")))
+        .not.toContainEqual(expect.stringMatching(
+          new RegExp(`^${fixture.targetVersion}(?:\\.|$)`, "u"),
+        ));
+      expect(existsSync(join(
+        fixture.fixtureRoot,
+        "content/.governance.lock",
+      ))).toBe(false);
+    } finally {
+      rmSync(fixture.fixtureRoot, { recursive: true, force: true });
+    }
+  });
+
   it("retains only explicitly supplied coverage claims in the new audio envelope", async () => {
     const bootstrap = createAudioCommandFixture();
     const fixture = createAudioCommandFixture();
@@ -1119,7 +1577,7 @@ describe("content validation command", () => {
     } finally {
       rmSync(fixture.fixtureRoot, { recursive: true, force: true });
     }
-  });
+  }, 20_000);
 
   it("cleans a fully staged two-asset package when the second alignment is invalid", () => {
     const fixture = createAudioCommandFixture();

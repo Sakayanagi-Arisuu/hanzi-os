@@ -236,6 +236,7 @@ export type PronunciationCatalogPayload = {
   sourceLessonIds: string[];
 };
 
+/** Legacy character payload retained for immutable catalog schemas 2 and 3. */
 export type CharacterCatalogPayload = {
   character: string;
   traditional: string;
@@ -248,6 +249,90 @@ export type CharacterCatalogPayload = {
   structure: string | null;
   strokeDataRef: string | null;
   strokeDataSha256: Sha256Digest | null;
+};
+
+export type CharacterDecompositionKind = "independent" | "compound";
+
+export type CharacterComponentRole =
+  | "semantic"
+  | "phonetic"
+  | "semantic-phonetic"
+  | "graphic";
+
+export type CharacterComponentPosition =
+  | "whole"
+  | "left"
+  | "right"
+  | "top"
+  | "bottom"
+  | "center"
+  | "enclosing"
+  | "enclosed"
+  | "overlaid";
+
+export type CharacterStructureKind =
+  | "independent"
+  | "left-right"
+  | "top-bottom"
+  | "left-middle-right"
+  | "top-middle-bottom"
+  | "full-surround"
+  | "surround-from-above"
+  | "surround-from-below"
+  | "surround-from-left"
+  | "surround-from-upper-left"
+  | "surround-from-upper-right"
+  | "surround-from-lower-left"
+  | "overlaid";
+
+export type CharacterAnalysisSource = {
+  sourceId: string;
+  kind: "linguistic-reference" | "stroke-dataset";
+  recordKey: string;
+  citationRef: string;
+  licenseId: string;
+  licenseEvidenceRef: string;
+  recordRef: string;
+  recordSha256: Sha256Digest;
+};
+
+/**
+ * Catalog schema v4 character metadata is source-addressed and keeps the
+ * linguistic analysis separate from byte-inspected stroke geometry.
+ */
+export type CharacterCatalogPayloadV2 = {
+  character: string;
+  traditional: string;
+  pinyin: string;
+  meaning: string;
+  sourceLexemeIds: string[];
+  analysis: {
+    schemaVersion: 1;
+    decompositionKind: CharacterDecompositionKind;
+    radical: {
+      glyph: string;
+      sourceIds: string[];
+    };
+    components: Array<{
+      componentId: string;
+      glyph: string;
+      role: CharacterComponentRole;
+      position: CharacterComponentPosition;
+      sourceIds: string[];
+    }>;
+    structure: {
+      kind: CharacterStructureKind;
+      sourceIds: string[];
+    };
+    sources: CharacterAnalysisSource[];
+  };
+  strokeCount: number;
+  strokeData: {
+    format: "hanzi-writer-v1";
+    fileRef: string;
+    fileSha256: Sha256Digest;
+    sourceId: string;
+  };
 };
 
 export type CommunicativeFunctionCatalogPayload = {
@@ -316,6 +401,16 @@ export type KnowledgeContentCatalogItem =
       payload: CommunicativeFunctionCatalogPayload;
     });
 
+export type CharacterCatalogItemV2 = ContentCatalogItemBase & {
+  itemKey: `character:${string}`;
+  itemType: "character";
+  payload: CharacterCatalogPayloadV2;
+};
+
+export type KnowledgeContentCatalogItemV4 =
+  | Exclude<KnowledgeContentCatalogItem, { itemType: "character" }>
+  | CharacterCatalogItemV2;
+
 export type ContentCatalogItemV1 =
   | LexemeCatalogItem
   | LessonCatalogItemV1
@@ -327,9 +422,16 @@ export type ContentCatalogItemV2 =
   | GradedTextCatalogItem
   | KnowledgeContentCatalogItem;
 
+export type ContentCatalogItemV4 =
+  | LexemeCatalogItem
+  | LessonCatalogItemV2
+  | GradedTextCatalogItem
+  | KnowledgeContentCatalogItemV4;
+
 export type ContentCatalogItem =
   | ContentCatalogItemV1
-  | ContentCatalogItemV2;
+  | ContentCatalogItemV2
+  | ContentCatalogItemV4;
 
 export type ReleasedContentState = Extract<
   ContentReleaseState,
@@ -384,6 +486,12 @@ export type ItemCatalogArtifact =
       contentVersion: string;
       items: ContentCatalogItemV2[];
       audioAssets: ValidatedCatalogAudioAsset[];
+    }
+  | {
+      schemaVersion: 4;
+      contentVersion: string;
+      items: ContentCatalogItemV4[];
+      audioAssets: ValidatedCatalogAudioAsset[];
     };
 
 export type CatalogAudioAssetCommon = {
@@ -437,6 +545,31 @@ export type AudioAssetFileInspection =
   | {
       ok: true;
       media: AudioAssetMedia;
+    }
+  | {
+      ok: false;
+      error: string;
+    };
+
+export type CharacterStrokeFileInspection =
+  | {
+      ok: true;
+      format: "hanzi-writer-v1";
+      strokeCount: number;
+      radicalStrokeIndices: number[];
+      byteLength: number;
+    }
+  | {
+      ok: false;
+      error: string;
+    };
+
+export type CharacterLinguisticFileInspection =
+  | {
+      ok: true;
+      format: "json-object-v1";
+      character: string;
+      byteLength: number;
     }
   | {
       ok: false;
@@ -526,6 +659,18 @@ export type ContentPackageBundle = {
   audioAssetFileInspections?: Record<
     string,
     AudioAssetFileInspection | null
+  >;
+  /** Optional for legacy packages; content schema v6 requires every source record. */
+  characterSourceFileHashes?: Record<string, Sha256Digest | null>;
+  /** Optional for legacy packages; schema v6 verifies every linguistic JSON record. */
+  characterLinguisticFileInspections?: Record<
+    string,
+    CharacterLinguisticFileInspection | null
+  >;
+  /** Optional for legacy packages; content schema v6 requires inspected stroke geometry. */
+  characterStrokeFileInspections?: Record<
+    string,
+    CharacterStrokeFileInspection | null
   >;
   immutableSourceTexts: Partial<Record<ContentSourceArtifactName, string | null>>;
   runtimeContentVersion: string | null;
