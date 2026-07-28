@@ -96,6 +96,8 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
+Status: **in progress** at project progress **51%**.
+
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
 - Mở điểm bắt đầu theo self-declaration + diagnostic, không tự cấp mastery.
@@ -137,11 +139,11 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | --- | ---: | ---: | --- |
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 5 | năm blueprint, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 5 | inventory, mapping, lesson, dialogue/reader, character/grammar |
+| C. Lộ trình HSK0-4 khác biệt | 15 | 8 | năm blueprint, prerequisite, placement và level progress |
+| D. Nội dung có coverage HSK0-4 | 30 | 6 | inventory, mapping, lesson, dialogue/reader, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **47** | **Tiến độ hiện tại: 47%** |
+| **Tổng** | **100** | **51** | **Tiến độ hiện tại: 51%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -160,6 +162,15 @@ checksum/page/count/sequence/level; checked report đo runtime hiện tại ch�
 23/2.000 vocabulary (1,15%), 0 released character và chưa có mapping
 task/topic/grammar. Vì vậy mọi claim hoàn thành HSK1-4 vẫn là `false`; phần
 inventory không được tính như lesson/practice đã hoàn thiện.
+
+Lát G2 đầu tăng trụ cột C thêm 3 điểm và D thêm 1 điểm. Graph hiện có đúng
+năm path, 15 unit, dependency không cycle và placement fail-closed; 14 lesson
+runtime được ánh xạ vào unit HSK0/1 cùng đúng 23 vocabulary item chính thức.
+HSK0 chỉ thấy bốn lesson bootcamp, HSK1 thấy bridge và 10 lesson đích, còn
+HSK2-4 không bị thay bằng lộ trình beginner khi content đích chưa phát hành.
+Diagnostic foundation chưa hiệu chuẩn chỉ được ghi là observed, không cấp
+mastery hay prerequisite waiver. G2 chưa complete vì placement đã hiệu chuẩn,
+topic/task/grammar mapping và level progress đầy đủ vẫn còn thiếu.
 
 ## 6. Quy tắc cập nhật phần trăm
 

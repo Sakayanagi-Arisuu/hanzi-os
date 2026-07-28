@@ -2,6 +2,10 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
+  assertValidHskCurriculumGraphBundle,
+  loadHskCurriculumGraphBundle,
+} from "../../src/content/hskCurriculumGraph.mjs";
+import {
   assertValidHskSyllabusBundle,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
@@ -24,6 +28,8 @@ const percentage = (covered, total) =>
 export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const syllabus = loadHskSyllabusBundle(root);
   assertValidHskSyllabusBundle(syllabus);
+  const curriculum = loadHskCurriculumGraphBundle(root);
+  const curriculumResult = assertValidHskCurriculumGraphBundle(curriculum);
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -126,6 +132,11 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
       releasedCoveragePercent: percentage(released, official),
     };
   });
+  const lessonMappedVocabularyIds = new Set(
+    curriculum.graph.lessonMappings.flatMap(
+      (mapping) => mapping.officialVocabularyIds,
+    ),
+  );
 
   return {
     schemaVersion: 1,
@@ -171,10 +182,15 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         tasks: 0,
         topics: 0,
         grammarRows: 0,
+        officialVocabularyWithLessonMapping:
+          lessonMappedVocabularyIds.size,
+        runtimeLessonsMapped: curriculumResult.summary.mappedLessons,
       },
       learningMaterials: {
         runtimeLessons: runtime.lessons.length,
         runtimeGradedTexts: runtime.stories.length,
+        curriculumPaths: curriculumResult.summary.paths,
+        curriculumUnits: curriculumResult.summary.units,
       },
     },
     coverageClaims: LEVELS.map((level) => ({

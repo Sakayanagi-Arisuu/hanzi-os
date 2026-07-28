@@ -12,6 +12,10 @@ import {
 import { Link } from "react-router";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { COURSE_UNITS } from "../data/curriculum";
+import {
+  getHskCurriculumView,
+  resolveHskPlacement,
+} from "../data/hskCurriculumGraph";
 import { getHskLearningPath } from "../data/hskLearningPaths";
 import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import {
@@ -20,16 +24,10 @@ import {
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 
-const releasedCourseUnits = COURSE_UNITS
-  .map((unit) => ({
-    ...unit,
-    lessons: unit.lessons.filter(isLessonReleased),
-  }))
-  .filter((unit) => unit.lessons.length > 0);
-
 export function PathPage() {
   const { state, sync } = useLearning();
   const selectedPath = getHskLearningPath(state.profile.startingLevel);
+  const curriculumView = getHskCurriculumView(state.profile.startingLevel);
   const normalized = useNormalizedLearningProjection();
   const authenticated = sync.session?.authenticated === true;
   const authority = resolveLearningPathAuthority({
@@ -55,6 +53,24 @@ export function PathPage() {
     lessons: lessonAuthority,
     mode,
   } = authority.view;
+  const visibleLessonIds = new Set(curriculumView.visibleLessonIds);
+  const releasedCourseUnits = COURSE_UNITS
+    .map((unit) => ({
+      ...unit,
+      lessons: unit.lessons.filter((lesson) =>
+        isLessonReleased(lesson) && visibleLessonIds.has(lesson.id)
+      ),
+    }))
+    .filter((unit) => unit.lessons.length > 0);
+  const placement = resolveHskPlacement({
+    startingLevel: state.profile.startingLevel,
+    diagnosticCompleted: state.diagnostic.completed,
+    passedLessonIds: new Set(
+      [...lessonAuthority.values()]
+        .filter((lesson) => lesson.passed)
+        .map((lesson) => lesson.lessonId),
+    ),
+  });
 
   return (
     <div className="content-page path-page">
@@ -73,6 +89,28 @@ export function PathPage() {
       </header>
 
       <div className="path-progress"><i style={{ width: `${progress}%` }} /><span>{progress}%</span></div>
+
+      {placement.status === "prerequisite-evidence-required" && (
+        <aside className="path-footer-note">
+          <LockKeyhole size={18} />
+          <p>
+            <strong>Tự khai cấp độ không tự miễn prerequisite.</strong>{" "}
+            Hãy hoàn thành bridge foundation; diagnostic hiện tại chỉ mô tả
+            kết quả và chưa đủ chuẩn để cấp waiver hay mastery.
+          </p>
+        </aside>
+      )}
+
+      {placement.status === "target-content-unavailable" && (
+        <aside className="path-footer-note">
+          <Orbit size={18} />
+          <p>
+            <strong>{selectedPath.label} đã có graph riêng nhưng chưa có lesson được phát hành.</strong>{" "}
+            Hệ thống không thay bằng lộ trình cấp thấp hơn và không tính
+            inventory như nội dung đã học. {selectedPath.availabilityNote}
+          </p>
+        </aside>
+      )}
 
       <div className="course-realms">
         {releasedCourseUnits.map((unit, unitIndex) => {

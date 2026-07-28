@@ -22,6 +22,7 @@
     "content:hsk4:extract": "python scripts/content/extract-hsk-syllabus.py",
     "content:hsk4:validate": "node scripts/content/validate-hsk-syllabus.mjs",
     "content:hsk4:report": "node scripts/content/report-hsk4-coverage.mjs",
+    "content:hsk4:graph:validate": "node scripts/content/validate-hsk-curriculum-graph.mjs",
     "content:report": "node scripts/content/report.mjs",
     "content:verify-alpha": "node scripts/content/verify-release.mjs --channel closed-alpha",
     "content:verify-release": "node scripts/content/verify-release.mjs --channel production",
@@ -41,7 +42,7 @@
     "verify:lockfile": "node scripts/verify-lockfile-policy.mjs",
     "release:evidence": "node scripts/generate-release-evidence.mjs",
     "release:evidence:production": "node scripts/generate-release-evidence.mjs --require-source-revision --source-revision-from-head --rebuild-from-source",
-    "check": "npm run verify:lockfile && npm run typecheck && npm run lint && npm run content:validate && npm run content:hsk4:validate && npm run content:hsk4:report -- --check && npm run db:check && npm run test:restore && npm run test && npm run build",
+    "check": "npm run verify:lockfile && npm run typecheck && npm run lint && npm run content:validate && npm run content:hsk4:validate && npm run content:hsk4:graph:validate && npm run content:hsk4:report -- --check && npm run db:check && npm run test:restore && npm run test && npm run build",
     "verify:production": "node scripts/verify-production-readiness.mjs && npm run content:verify-release && npm run check && npm run test:e2e && npm run test:lighthouse && npm audit --omit=dev && npm run release:evidence:production && node scripts/verify-production-readiness.mjs"
   },
   "dependencies": {

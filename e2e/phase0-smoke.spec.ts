@@ -21,6 +21,26 @@ test("onboards a new learner into the released path", async ({ page }) => {
   await expect(page.getByRole("heading", { name: /Thiên Lộ/u })).toBeVisible();
 });
 
+test("does not substitute beginner lessons for an HSK4 target", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", {
+    name: /Đánh thức một ngôn ngữ mới/i,
+  })).toBeVisible();
+  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
+  await page.getByRole("radiogroup", { name: "Điểm xuất phát" })
+    .getByRole("radio", { name: /^HSK4/u })
+    .click();
+  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
+  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
+  await page.goto("/path");
+
+  await expect(page.getByText(
+    "HSK4 · Trung cấp II đã có graph riêng nhưng chưa có lesson được phát hành.",
+    { exact: false },
+  )).toBeVisible();
+  await expect(page.locator(".lesson-node")).toHaveCount(0);
+});
+
 test("does not expose a historical draft lesson opened by direct URL", async ({ page }) => {
   await finishOnboarding(page);
   await page.goto("/lesson/characters-3");

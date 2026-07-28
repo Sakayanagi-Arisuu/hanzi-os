@@ -125,6 +125,13 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       releasedMapped: 0,
       releasedCoveragePercent: 0,
     });
+    expect(report.currentCoverage.mappings).toMatchObject({
+      tasks: 0,
+      topics: 0,
+      grammarRows: 0,
+      officialVocabularyWithLessonMapping: 23,
+      runtimeLessonsMapped: 14,
+    });
     expect(report.coverageClaims.every((claim) => claim.complete === false))
       .toBe(true);
   });

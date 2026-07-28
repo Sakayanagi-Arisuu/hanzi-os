@@ -23,6 +23,7 @@ import { Link } from "react-router";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ResponsiveHeroBackdrop } from "../components/ResponsiveHeroBackdrop";
 import { COURSE_UNITS, RELEASED_LESSONS } from "../data/curriculum";
+import { getHskCurriculumView } from "../data/hskCurriculumGraph";
 import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
@@ -66,15 +67,18 @@ const missionIcon = (mission: DailyMission) => {
   return Sparkles;
 };
 
-const releasedCourseUnits = COURSE_UNITS
-  .map((unit) => ({
-    ...unit,
-    lessons: unit.lessons.filter(isLessonReleased),
-  }))
-  .filter((unit) => unit.lessons.length > 0);
-
 export function DashboardPage() {
   const { state, dueWordIds, level, sync } = useLearning();
+  const curriculumView = getHskCurriculumView(state.profile.startingLevel);
+  const visibleLessonIds = new Set(curriculumView.visibleLessonIds);
+  const releasedCourseUnits = COURSE_UNITS
+    .map((unit) => ({
+      ...unit,
+      lessons: unit.lessons.filter((lesson) =>
+        isLessonReleased(lesson) && visibleLessonIds.has(lesson.id)
+      ),
+    }))
+    .filter((unit) => unit.lessons.length > 0);
   const normalized = useNormalizedLearningProjection();
   const authenticated = sync.session?.authenticated === true;
   const authority = resolveLearningPathAuthority({

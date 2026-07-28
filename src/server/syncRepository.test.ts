@@ -227,8 +227,11 @@ async function syncOperation(
   ownerKey: string,
   operationId = "sync:test-operation",
   sequence = 1,
+  startingLevel: LearningState["profile"]["startingLevel"] = "zero",
 ): Promise<SyncPushOperationV1> {
   const occurredAt = "2026-07-20T00:00:00.000Z";
+  const state = learningState();
+  state.profile.startingLevel = startingLevel;
   const withoutHash: Omit<SyncPushOperationV1, "requestHash"> = {
     protocolVersion: SYNC_PROTOCOL_VERSION,
     operationId,
@@ -242,7 +245,7 @@ async function syncOperation(
     contentVersion: CONTENT_VERSION,
     occurredAt,
     document: createInitialSyncDocument(
-      learningState(),
+      state,
       occurredAt,
       operationId,
     ),
@@ -721,6 +724,24 @@ function tenantForeignKeySignatures(database: DatabaseSync) {
 }
 
 describe("D1 sync repository", () => {
+  it("persists the expanded HSK3-4 starting-level contract", async () => {
+    const d1 = new SQLiteD1();
+    const repository = new SyncRepository(d1);
+    const userId = await repository.resolveUser(user("hsk4@example.com"));
+    const operation = await syncOperation(
+      "siwc_hsk4",
+      "sync:hsk4-profile",
+      1,
+      "hsk4",
+    );
+
+    await repository.updateProfileProjection(userId, operation.document, 1);
+
+    expect(d1.database.prepare(
+      "SELECT starting_level AS startingLevel FROM profiles WHERE user_id = ?",
+    ).get(userId)).toEqual({ startingLevel: "hsk4" });
+  });
+
   it("persists a retry-safe document and isolates it by server identity", async () => {
     const d1 = new SQLiteD1();
     const repository = new SyncRepository(d1);

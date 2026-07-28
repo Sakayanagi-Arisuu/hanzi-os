@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **47%**.
+Active progress: **51%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
-| Distinct HSK0-4 paths | 5 / 15 | Five typed level profiles now differ by skill weight, activity, exit evidence and assessment; inventory-backed graph/placement remain. |
-| HSK0-4 content coverage | 5 / 30 | Pinned official HSK1-4 inventory and deterministic gap report exist; only 23/2,000 official vocabulary entries currently map to runtime and no task/topic/grammar mapping exists. |
+| Distinct HSK0-4 paths | 8 / 15 | Five profiles now have a cycle-safe 15-unit graph, path-specific runtime slices and fail-closed placement; calibrated placement and full level progress remain. |
+| HSK0-4 content coverage | 6 / 30 | Official inventory exists and all 14 runtime lessons explicitly map 23 official vocabulary items into HSK0/1 units; task/topic/grammar mappings and HSK2-4 lessons remain absent. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -58,6 +58,27 @@ Every commit must update this percentage here and in the active roadmap.
   remain zero.
 - All four HSK completion claims remain false. Inventory presence does not
   publish content, unlock lessons or count as mastery/review evidence.
+
+### Active G2 slice in progress
+
+- Added an inventory-bound curriculum graph with exactly five paths and 15
+  cycle-safe units. Path and unit prerequisites are explicit and HSK1-4 use
+  the exact incremental inventory counts from the pinned syllabus.
+- Mapped all 14 released runtime lessons to HSK0/1 units and to the exact 23
+  official vocabulary records they currently teach. `越南` remains explicitly
+  unmapped; no task/topic/grammar mapping was invented.
+- Anonymous Path and Dashboard now use the selected graph slice. HSK0 exposes
+  the four boot lessons, HSK1 retains the prerequisite bridge plus ten target
+  lessons, and HSK2-4 expose no lower-level substitute while their target
+  packages are unpublished.
+- Placement is fail-closed: self-declaration chooses the target view only;
+  the current uncalibrated diagnostic remains observed-only and grants neither
+  mastery nor a prerequisite waiver.
+- Expanded the D1 `profiles.starting_level` constraint with a data-preserving
+  migration. Restore rehearsal proves an existing HSK2 row survives, HSK4 is
+  accepted and HSK5 is rejected; authenticated sync now covers HSK4.
+- G2 remains open until calibrated placement authority, topic/task/grammar
+  mappings and complete per-level progress behavior exist.
 
 ## Repository state
 
@@ -311,27 +332,27 @@ Progress accounting rules:
 
 ## Local verification
 
-### Current G1 complete baseline
+### Current G2 partial baseline
 
-The results below are bound to the exact G1 checkpoint worktree. Any later
+The results below are bound to the exact G2 checkpoint worktree. Any later
 edit to code, configuration or content makes this snapshot stale and requires
 the applicable gates to run again before the next checkpoint commit.
 
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
-  - local D1 restore rehearsal: 13 migrations, 26 restored tables, 4 editorial
-    events and 5 editorial authority triggers
+  - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
+    HSK4 profile persistence, 4 editorial events and 5 editorial triggers
   - pinned HSK1-4 source/inventory validation and checked coverage report
-  - Vitest: 144 files, 1,211 tests passed
+  - Vitest: 146 files, 1,222 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 392.0 KiB
-- `npm run test:e2e`: 18 tests passed
+    ceiling: 394.5 KiB
+- `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 93 / 97, median 97
+  - Performance: 96 / 94 / 98, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,896 ms; CLS: 0; TBT: 129 ms
+  - Median LCP: 1,905 ms; CLS: 0; TBT: 175 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -356,8 +377,8 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Start G2 by defining inventory mapping records, a cycle-safe curriculum
-   graph and placement behavior for the five distinct HSK0-4 paths.
+1. Finish G2 with inventory-to-unit topic/task/grammar scope, calibrated
+   placement authority and complete per-level progress behavior.
 2. Keep all mapped/imported content unpublished until its schema, provenance and
    applicable linguistic checks pass.
 3. Leave operator auth, commerce, hosted pilot and Sites frozen until the

@@ -21,6 +21,7 @@ const completion = (bestScore: number): LearningState["completedLessons"][string
 
 const makeState = (
   completedLessons: LearningState["completedLessons"] = {},
+  startingLevel: LearningState["profile"]["startingLevel"] = "hsk1",
 ): LearningState => ({
   schemaVersion: 2,
   contentVersion: CONTENT_VERSION,
@@ -29,7 +30,7 @@ const makeState = (
     goal: "conversation",
     dailyMinutes: 20,
     script: "simplified",
-    startingLevel: "hsk2",
+    startingLevel,
     onboarded: true,
   },
   xp: 0,
@@ -86,7 +87,7 @@ describe("lesson release and prerequisite policy", () => {
 
   it("does not let starting level, diagnostic, or the lesson's own completion bypass prerequisites", () => {
     const boot2 = lesson("boot-2");
-    const state = makeState({ "boot-2": completion(100) });
+    const state = makeState({ "boot-2": completion(100) }, "hsk2");
 
     expect(state.profile.startingLevel).toBe("hsk2");
     expect(state.diagnostic.score).toBe(100);
@@ -113,6 +114,18 @@ describe("lesson release and prerequisite policy", () => {
       remainingCount: RELEASED_LESSONS.length - 1,
       progress: Math.round(100 / RELEASED_LESSONS.length),
     });
+  });
+
+  it("uses distinct active slices and never backfills an unpublished target", () => {
+    expect(getReleasedLessonProgress(makeState({}, "zero")).totalCount).toBe(4);
+    expect(getReleasedLessonProgress(makeState({}, "hsk1")).totalCount).toBe(14);
+    expect(getReleasedLessonProgress(makeState({}, "hsk4"))).toEqual({
+      completedCount: 0,
+      totalCount: 0,
+      remainingCount: 0,
+      progress: 0,
+    });
+    expect(getNextLesson(makeState({}, "hsk4"))).toBeUndefined();
   });
 
   it("never recommends an unreleased lesson", () => {

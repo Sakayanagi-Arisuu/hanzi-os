@@ -87,7 +87,7 @@ export const profiles = sqliteTable(
     ),
     check(
       "profiles_starting_level_check",
-      sql`${table.startingLevel} IN ('zero', 'basic', 'hsk1', 'hsk2')`,
+      sql`${table.startingLevel} IN ('zero', 'basic', 'hsk1', 'hsk2', 'hsk3', 'hsk4')`,
     ),
     check("profiles_revision_check", sql`${table.revision} >= 1`),
   ],

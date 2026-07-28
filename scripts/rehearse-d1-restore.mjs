@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 13
-    || !migrations[12]?.startsWith("0012_")
+    migrations.length !== 14
+    || !migrations[13]?.startsWith("0013_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 13 migrations through 0012; found ${
+      `Restore rehearsal requires 14 migrations through 0013; found ${
         migrations.length
       }`,
     );
@@ -291,6 +291,9 @@ try {
   try {
     source.prepare(
       "INSERT INTO users (id, status, created_at, updated_at) VALUES ('migration-legacy-user', 'active', 1, 1)",
+    ).run();
+    source.prepare(
+      "INSERT INTO profiles (user_id, display_name, goal, daily_minutes, script, starting_level, onboarded, revision, created_at, updated_at) VALUES ('migration-legacy-user', 'Legacy learner', 'hsk', 20, 'simplified', 'hsk2', 1, 1, 1, 1)",
     ).run();
     source.prepare(
       "INSERT INTO course_versions (id, course_id, schema_version, manifest_hash, release_state, linguistic_review_status, created_at) VALUES ('migration-legacy-content', 'migration-course', 1, 'migration-hash', 'beta', 'pending', 1)",
@@ -419,6 +422,18 @@ try {
     }
   }
   const postUpgradeForeignKeys = source.prepare("PRAGMA foreign_key_check").all();
+  const migratedLegacyProfile = source.prepare(
+    "SELECT starting_level AS startingLevel, revision FROM profiles WHERE user_id = 'migration-legacy-user'",
+  ).get();
+  source.prepare(
+    "UPDATE profiles SET starting_level = 'hsk4', revision = revision + 1 WHERE user_id = 'migration-legacy-user'",
+  ).run();
+  const migratedExpandedProfile = source.prepare(
+    "SELECT starting_level AS startingLevel, revision FROM profiles WHERE user_id = 'migration-legacy-user'",
+  ).get();
+  expectCheckConstraint(() => source.prepare(
+    "UPDATE profiles SET starting_level = 'hsk5' WHERE user_id = 'migration-legacy-user'",
+  ).run(), "profiles_starting_level_check");
   const migratedLegacySession = source.prepare(
     "SELECT form_manifest_json AS formManifestJson, status FROM lesson_sessions WHERE id = 'migration-legacy-session'",
   ).get();
@@ -475,6 +490,10 @@ try {
   ).all().map((column) => column.name);
   if (
     postUpgradeForeignKeys.length
+    || JSON.stringify(migratedLegacyProfile)
+      !== JSON.stringify({ startingLevel: "hsk2", revision: 1 })
+    || JSON.stringify(migratedExpandedProfile)
+      !== JSON.stringify({ startingLevel: "hsk4", revision: 2 })
     || migratedLegacySession?.formManifestJson !== null
     || migratedLegacySession?.status !== "invalidated"
     || migratedLegacyEvent?.status !== "dead"
@@ -1685,6 +1704,7 @@ try {
     editorialAssignmentTriggers:
       restoredEditorialAssignmentTriggers.length,
     editorialAssignmentMutationGuards: "ok",
+    startingLevelMigration: "hsk2-preserved-hsk4-accepted-hsk5-rejected",
     postRestoreReaderReset,
     integrity: "ok",
     foreignKeys: "ok",

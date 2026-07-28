@@ -1,4 +1,5 @@
 import { RELEASED_LESSONS, RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { getHskCurriculumView } from "../data/hskCurriculumGraph";
 import type {
   LearningGoal,
   LearningState,
@@ -10,6 +11,15 @@ import type {
 const RELEASED_LESSON_BY_ID = new Map(
   RELEASED_LESSONS.map((lesson) => [lesson.id, lesson]),
 );
+
+export const getActivePathReleasedLessons = (
+  startingLevel: LearningState["profile"]["startingLevel"],
+) => {
+  const visibleLessonIds = new Set(
+    getHskCurriculumView(startingLevel).visibleLessonIds,
+  );
+  return RELEASED_LESSONS.filter((lesson) => visibleLessonIds.has(lesson.id));
+};
 
 export const isLessonReleased = (lesson: Lesson) =>
   lesson.releaseState === "beta" || lesson.releaseState === "published";
@@ -29,10 +39,13 @@ export const isLessonPassed = (lesson: Lesson, state: LearningState) =>
   (state.completedLessons[lesson.id]?.bestScore ?? 0) >= 70;
 
 export const getReleasedLessonProgress = (state: LearningState) => {
-  const completedCount = RELEASED_LESSONS.filter((lesson) =>
+  const activeLessons = getActivePathReleasedLessons(
+    state.profile.startingLevel,
+  );
+  const completedCount = activeLessons.filter((lesson) =>
     isLessonPassed(lesson, state)
   ).length;
-  const totalCount = RELEASED_LESSONS.length;
+  const totalCount = activeLessons.length;
 
   return {
     completedCount,
@@ -110,11 +123,15 @@ export const isLessonUnlocked = (lesson: Lesson, state: LearningState) => {
   });
 };
 
-export const getNextLesson = (state: LearningState) =>
-  RELEASED_LESSONS.find((lesson) =>
+export const getNextLesson = (state: LearningState) => {
+  const activeLessons = getActivePathReleasedLessons(
+    state.profile.startingLevel,
+  );
+  return activeLessons.find((lesson) =>
     isLessonUnlocked(lesson, state) &&
     (!state.completedLessons[lesson.id] || state.completedLessons[lesson.id].bestScore < 70),
-  ) ?? RELEASED_LESSONS.find((lesson) => isLessonUnlocked(lesson, state));
+  ) ?? activeLessons.find((lesson) => isLessonUnlocked(lesson, state));
+};
 
 export type DailyMission = {
   id: string;

@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "graphId": "hsk0-4-graduation-2026.07",
+  "source": {
+    "sourceId": "cti-hsk-syllabus-2026",
+    "sourcePdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
+    "inventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
+  },
+  "runtimeContentVersion": "foundation-2026.07.6",
+  "coverageClaims": {
+    "hsk1": false,
+    "hsk2": false,
+    "hsk3": false,
+    "hsk4": false
+  },
+  "paths": [
+    {
+      "pathId": "hsk0",
+      "stageIndex": 0,
+      "officialExamLevel": null,
+      "prerequisitePathIds": [],
+      "unitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control"
+      ],
+      "placementPolicy": "open-foundation",
+      "officialInventory": null
+    },
+    {
+      "pathId": "hsk1",
+      "stageIndex": 1,
+      "officialExamLevel": 1,
+      "prerequisitePathIds": ["hsk0"],
+      "unitIds": [
+        "hsk1-personal-exchange",
+        "hsk1-daily-life",
+        "hsk1-character-foundation"
+      ],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "officialInventory": {
+        "tasks": 15,
+        "topics": 30,
+        "vocabulary": 300,
+        "recognitionCharacters": 246,
+        "grammarRows": 66
+      }
+    },
+    {
+      "pathId": "hsk2",
+      "stageIndex": 2,
+      "officialExamLevel": 2,
+      "prerequisitePathIds": ["hsk1"],
+      "unitIds": [
+        "hsk2-situational-dialogue",
+        "hsk2-sentence-chains",
+        "hsk2-short-text-production"
+      ],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "officialInventory": {
+        "tasks": 17,
+        "topics": 34,
+        "vocabulary": 200,
+        "recognitionCharacters": 125,
+        "grammarRows": 75
+      }
+    },
+    {
+      "pathId": "hsk3",
+      "stageIndex": 3,
+      "officialExamLevel": 3,
+      "prerequisitePathIds": ["hsk2"],
+      "unitIds": [
+        "hsk3-paragraph-input",
+        "hsk3-narration",
+        "hsk3-guided-production"
+      ],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "officialInventory": {
+        "tasks": 22,
+        "topics": 54,
+        "vocabulary": 500,
+        "recognitionCharacters": 284,
+        "grammarRows": 96
+      }
+    },
+    {
+      "pathId": "hsk4",
+      "stageIndex": 4,
+      "officialExamLevel": 4,
+      "prerequisitePathIds": ["hsk3"],
+      "unitIds": [
+        "hsk4-deep-comprehension",
+        "hsk4-summary-argument",
+        "hsk4-timed-integration"
+      ],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "officialInventory": {
+        "tasks": 30,
+        "topics": 77,
+        "vocabulary": 1000,
+        "recognitionCharacters": 441,
+        "grammarRows": 95
+      }
+    }
+  ],
+  "units": [
+    {
+      "unitId": "hsk0-tone-basics",
+      "pathId": "hsk0",
+      "sequence": 1,
+      "status": "foundation",
+      "title": "Thanh điệu và nghe phân biệt",
+      "objective": "Nhận diện bốn thanh và gắn âm với chữ nền.",
+      "prerequisiteUnitIds": []
+    },
+    {
+      "unitId": "hsk0-first-interaction",
+      "pathId": "hsk0",
+      "sequence": 2,
+      "status": "foundation",
+      "title": "Lượt thoại đầu tiên",
+      "objective": "Nghe và phản hồi những lượt chào hỏi tối thiểu.",
+      "prerequisiteUnitIds": ["hsk0-tone-basics"]
+    },
+    {
+      "unitId": "hsk0-pronunciation-control",
+      "pathId": "hsk0",
+      "sequence": 3,
+      "status": "foundation",
+      "title": "Âm đầu khó và tone pair",
+      "objective": "Phân biệt âm đầu khó và kiểm soát chuỗi hai thanh.",
+      "prerequisiteUnitIds": ["hsk0-first-interaction"]
+    },
+    {
+      "unitId": "hsk1-personal-exchange",
+      "pathId": "hsk1",
+      "sequence": 1,
+      "status": "foundation",
+      "title": "Thông tin cá nhân và giao tiếp",
+      "objective": "Hiểu và tạo câu ngắn trong hỏi đáp cá nhân.",
+      "prerequisiteUnitIds": ["hsk0-pronunciation-control"]
+    },
+    {
+      "unitId": "hsk1-daily-life",
+      "pathId": "hsk1",
+      "sequence": 2,
+      "status": "foundation",
+      "title": "Đời sống hằng ngày",
+      "objective": "Dùng câu ngắn về gia đình, ăn uống và hoạt động.",
+      "prerequisiteUnitIds": ["hsk1-personal-exchange"]
+    },
+    {
+      "unitId": "hsk1-character-foundation",
+      "pathId": "hsk1",
+      "sequence": 3,
+      "status": "foundation",
+      "title": "Đọc viết chữ nền",
+      "objective": "Nhận diện và viết có kiểm soát các chữ đã học.",
+      "prerequisiteUnitIds": ["hsk1-daily-life"]
+    },
+    {
+      "unitId": "hsk2-situational-dialogue",
+      "pathId": "hsk2",
+      "sequence": 1,
+      "status": "planned",
+      "title": "Hội thoại theo tình huống",
+      "objective": "Duy trì chuỗi hỏi đáp đời sống thay vì câu đơn rời rạc.",
+      "prerequisiteUnitIds": ["hsk1-character-foundation"]
+    },
+    {
+      "unitId": "hsk2-sentence-chains",
+      "pathId": "hsk2",
+      "sequence": 2,
+      "status": "planned",
+      "title": "Chuỗi câu và quan hệ ngữ pháp",
+      "objective": "Ghép câu có aspect, bổ ngữ và quan hệ thời gian nền.",
+      "prerequisiteUnitIds": ["hsk2-situational-dialogue"]
+    },
+    {
+      "unitId": "hsk2-short-text-production",
+      "pathId": "hsk2",
+      "sequence": 3,
+      "status": "planned",
+      "title": "Dictation và văn bản ngắn",
+      "objective": "Nghe, dựng câu và viết văn bản ngắn có kiểm soát.",
+      "prerequisiteUnitIds": ["hsk2-sentence-chains"]
+    },
+    {
+      "unitId": "hsk3-paragraph-input",
+      "pathId": "hsk3",
+      "sequence": 1,
+      "status": "planned",
+      "title": "Nghe đọc cấp đoạn",
+      "objective": "Theo dõi ý chính và chi tiết trong đoạn liên kết.",
+      "prerequisiteUnitIds": ["hsk2-short-text-production"]
+    },
+    {
+      "unitId": "hsk3-narration",
+      "pathId": "hsk3",
+      "sequence": 2,
+      "status": "planned",
+      "title": "Tường thuật và liên kết diễn ngôn",
+      "objective": "Kể lại sự kiện với trình tự và liên kết rõ ràng.",
+      "prerequisiteUnitIds": ["hsk3-paragraph-input"]
+    },
+    {
+      "unitId": "hsk3-guided-production",
+      "pathId": "hsk3",
+      "sequence": 3,
+      "status": "planned",
+      "title": "Sản sinh có hướng dẫn",
+      "objective": "Dictation, viết đoạn và nói theo rubric đã review.",
+      "prerequisiteUnitIds": ["hsk3-narration"]
+    },
+    {
+      "unitId": "hsk4-deep-comprehension",
+      "pathId": "hsk4",
+      "sequence": 1,
+      "status": "planned",
+      "title": "Đọc nghe chuyên sâu",
+      "objective": "Khai thác ý chính, lập luận và thông tin ngầm trong văn bản dài hơn.",
+      "prerequisiteUnitIds": ["hsk3-guided-production"]
+    },
+    {
+      "unitId": "hsk4-summary-argument",
+      "pathId": "hsk4",
+      "sequence": 2,
+      "status": "planned",
+      "title": "Tóm tắt và lập luận",
+      "objective": "Paraphrase, tóm tắt và trình bày quan điểm có cấu trúc.",
+      "prerequisiteUnitIds": ["hsk4-deep-comprehension"]
+    },
+    {
+      "unitId": "hsk4-timed-integration",
+      "pathId": "hsk4",
+      "sequence": 3,
+      "status": "planned",
+      "title": "Tích hợp có giới hạn thời gian",
+      "objective": "Phối hợp kỹ năng trong bài luyện và mock có giới hạn thời gian.",
+      "prerequisiteUnitIds": ["hsk4-summary-argument"]
+    }
+  ],
+  "lessonMappings": [
+    {
+      "lessonId": "boot-1",
+      "unitId": "hsk0-tone-basics",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00254", "hsk-vocab-00170", "hsk-vocab-00146", "hsk-vocab-00049"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "boot-2",
+      "unitId": "hsk0-first-interaction",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00146", "hsk-vocab-00071", "hsk-vocab-00221"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "boot-3",
+      "unitId": "hsk0-pronunciation-control",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00241", "hsk-vocab-00289", "hsk-vocab-00021"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "boot-4",
+      "unitId": "hsk0-pronunciation-control",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00146", "hsk-vocab-00071", "hsk-vocab-00248", "hsk-vocab-00107"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-1",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00221", "hsk-vocab-00188", "hsk-vocab-00248", "hsk-vocab-00107"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-2",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00146", "hsk-vocab-00071", "hsk-vocab-00115", "hsk-vocab-00013"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-3",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00241", "hsk-vocab-00272", "hsk-vocab-00146"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-4",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00170", "hsk-vocab-00289", "hsk-vocab-00188"],
+      "unmappedRuntimeWordIds": ["yuenan"]
+    },
+    {
+      "lessonId": "daily-1",
+      "unitId": "hsk1-daily-life",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00086", "hsk-vocab-00263", "hsk-vocab-00170", "hsk-vocab-00173"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "daily-2",
+      "unitId": "hsk1-daily-life",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00021", "hsk-vocab-00077", "hsk-vocab-00017", "hsk-vocab-00221"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "daily-3",
+      "unitId": "hsk1-daily-life",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00094", "hsk-vocab-00071", "hsk-vocab-00099"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "daily-4",
+      "unitId": "hsk1-daily-life",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00190", "hsk-vocab-00099", "hsk-vocab-00221"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-1",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00254", "hsk-vocab-00170", "hsk-vocab-00173"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-2",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00170", "hsk-vocab-00086", "hsk-vocab-00071"],
+      "unmappedRuntimeWordIds": []
+    }
+  ]
+}

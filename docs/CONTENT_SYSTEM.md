@@ -94,6 +94,13 @@ không tự mở lesson, cấp mastery, trở thành nội dung đã review hay 
 coverage. Mọi claim HSK1-4 vẫn phải qua mapping, practice, review và release
 gate tương ứng.
 
+`content/curriculum/hsk0-4-graph.json` là graph authoring mỏng đầu tiên bind
+exact inventory hash và runtime content version. Nó có năm path, 15 unit và
+mapping tường minh cho toàn bộ 14 lesson đang phát hành. Validator tái tính
+official vocabulary reference từ surface + pinyin của runtime: hiện có 23 mục
+được lesson-map, còn `越南` được giữ trong danh sách chưa ánh xạ. Mapping state
+vẫn `partial`; task, topic và grammar chưa được gán nên không tạo claim HSK.
+
 ## Knowledge item
 
 ### Lexeme

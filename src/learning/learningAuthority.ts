@@ -1,5 +1,5 @@
-import { RELEASED_LESSONS } from "../data/curriculum";
 import {
+  getActivePathReleasedLessons,
   getReleasedLessonProgress,
   isLessonPassed,
   isLessonUnlocked,
@@ -47,7 +47,10 @@ export const resolveLearningPathAuthority = ({
 }): LearningPathAuthorityResolution => {
   if (!authenticated) {
     const progress = getReleasedLessonProgress(localState);
-    const lessons = new Map(RELEASED_LESSONS.map((lesson) => {
+    const activeLessons = getActivePathReleasedLessons(
+      localState.profile.startingLevel,
+    );
+    const lessons = new Map(activeLessons.map((lesson) => {
       const passed = isLessonPassed(lesson, localState);
       const unlocked = passed || isLessonUnlocked(lesson, localState);
       return [lesson.id, {
@@ -63,7 +66,7 @@ export const resolveLearningPathAuthority = ({
       view: {
         mode: "anonymous",
         ...progress,
-        nextLessonId: RELEASED_LESSONS.find((lesson) => {
+        nextLessonId: activeLessons.find((lesson) => {
           const item = lessons.get(lesson.id);
           return item?.unlocked && !item.passed;
         })?.id ?? null,

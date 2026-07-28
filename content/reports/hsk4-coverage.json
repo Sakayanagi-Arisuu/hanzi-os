@@ -129,11 +129,15 @@
     "mappings": {
       "tasks": 0,
       "topics": 0,
-      "grammarRows": 0
+      "grammarRows": 0,
+      "officialVocabularyWithLessonMapping": 23,
+      "runtimeLessonsMapped": 14
     },
     "learningMaterials": {
       "runtimeLessons": 14,
-      "runtimeGradedTexts": 1
+      "runtimeGradedTexts": 1,
+      "curriculumPaths": 5,
+      "curriculumUnits": 15
     }
   },
   "coverageClaims": [

@@ -19,6 +19,9 @@ import {
 import type { LearningState, Lesson } from "../types";
 
 const stateWithScores = (scores: Record<string, number> = {}) => ({
+  profile: {
+    startingLevel: "hsk1",
+  },
   completedLessons: Object.fromEntries(Object.entries(scores).map(([lessonId, bestScore]) => [
     lessonId,
     {

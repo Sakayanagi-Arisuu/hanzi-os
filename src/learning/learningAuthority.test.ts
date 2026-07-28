@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION, RELEASED_LESSONS } from "../data/curriculum";
+import { getHskCurriculumView } from "../data/hskCurriculumGraph";
 import { INITIAL_LEARNING_STATE } from "../store/LearningStore";
 import type { LearningState } from "../types";
 import {
@@ -79,7 +80,8 @@ describe("learning path authority", () => {
     expect(result.state).toBe("ready");
     if (result.state !== "ready") return;
     expect(result.view.mode).toBe("anonymous");
-    expect(result.view.completedCount).toBe(RELEASED_LESSONS.length);
+    expect(result.view.completedCount)
+      .toBe(getHskCurriculumView("zero").visibleLessonIds.length);
   });
 
   it("does not unlock the anonymous path from forged persisted aggregates without evidence", () => {

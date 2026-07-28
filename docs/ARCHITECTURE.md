@@ -112,6 +112,13 @@ không có quyền thay đổi registry, publication, prerequisite, mastery ho�
 coverage claim. Quyền sử dụng nguồn vẫn `pending`, và source PDF không nằm
 trong repository.
 
+Graph HSK0-4 bind exact inventory hash và content version nhưng không có quyền
+phát hành. Client chỉ đọc projection nhỏ của graph để chọn đúng lát lesson:
+HSK0 và HSK1 dùng mapping foundation hiện có; HSK2-4 fail closed thay vì nhận
+ngầm cùng lộ trình beginner. Self-declaration chỉ chọn target view; diagnostic
+foundation chưa hiệu chuẩn không cấp mastery hay prerequisite waiver. D1
+profile constraint đã mở tương thích tới HSK4 qua migration bảo toàn row cũ.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text
