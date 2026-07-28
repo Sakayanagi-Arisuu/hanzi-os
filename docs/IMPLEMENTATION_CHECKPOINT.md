@@ -23,6 +23,77 @@ This is a local engineering checkpoint, not production release evidence.
   Freeze both files until the final Sites step; no saved version or deployment
   has occurred.
 
+## Production roadmap progress estimate
+
+Headline estimate: **55.1% of the original production roadmap** as of
+28 July 2026.
+
+This is a planning estimate, not a release claim. The nine workstreams are
+weighted equally. Each workstream has at most 40 points for implemented product
+and infrastructure, 30 points for repeatable local evidence, and 30 points for
+hosted, human, pilot, legal or operational acceptance evidence. No production
+acceptance points are claimed yet because the project still has no deployment,
+reviewed content release, learner pilot, hosted recovery drill or independent
+security/privacy sign-off.
+
+| Workstream | Technical + local evidence (max 70) | Production acceptance (max 30) | Overall | Current position |
+| --- | ---: | ---: | ---: | --- |
+| WS1 Identity/backend/durable data | 58 | 0 | 58% | Repository boundaries, D1 schema, sync/outboxes, export/delete and local restore exist; immutable provider identity, hosted multi-device proof, PostgreSQL target and hosted recovery remain. |
+| WS2 Curriculum/content production | 56 | 0 | 56% | Versioned packages, governance/import tooling, readiness projection and the verified E3a assignment persistence kernel exist; authenticated editor workflow, reviewed A0 volume, licensed audio and human approvals remain. |
+| WS3 Mandarin phonology/tone | 52 | 0 | 52% | Syllable-aware technical model and validation exist; native golden approval and release evidence remain. |
+| WS4 Assessment/mastery | 55 | 0 | 55% | Skill-specific server authority and evidence separation exist; adaptive calibration, confidence thresholds and pilot validity remain. |
+| WS5 Release/prerequisites | 64 | 0 | 64% | Fail-closed states, prerequisites, content versions and route/server guards are broadly implemented; hosted contract proof and reviewed activation remain. |
+| WS6 Unified learning evidence | 51 | 0 | 51% | Lesson, Reader, assessment and Review command/evidence paths exist; verified writing/speaking and consented acoustic scoring remain. |
+| WS7 Quality/operations | 58 | 0 | 58% | Strong local unit/content/restore/E2E/Lighthouse gates include the E3a database boundary; production telemetry, staging, alert ownership, SLO and incident/rollback drills remain. |
+| WS8 Performance/inclusive UX | 62 | 0 | 62% | Bundle budgets, responsive assets, offline recovery, keyboard/mobile/reduced-motion and local Lighthouse targets exist; production RUM p75 evidence remains. |
+| WS9 Security/privacy/legal/SEO | 40 | 0 | 40% | Baseline headers, policy gates, dependency audit and public metadata exist; independent review, consent lifecycle, privacy operations, legal decisions and public verification remain. |
+
+The technical/local portion is about **79% complete** (496 of 630 possible
+technical/local points), while the end-to-end production acceptance portion is
+still **0% claimed**. This explains why the repository can contain substantial
+engineering work while `verify:production` correctly remains fail-closed.
+
+Current bounded milestone:
+
+- E3a assignment persistence kernel: **100%** — implementation, migration,
+  restore rehearsal, focused lifecycle/integrity tests and the complete local
+  baseline are green.
+- E3b authenticated/authorized operator workflow: **0%** — next dependency,
+  deliberately not started before E3a is green and committed.
+- Sites ownership, saved version and deployment: deferred to the final step at
+  the user's request.
+
+Forecast from the current delivery pace:
+
+- The available Git sample covers 26–28 July, not a complete seven-day
+  steady-state week. It contains 21 commits, but the first 12 split a
+  reconstructed checkpoint into auditable boundaries and must not be treated
+  as ordinary feature throughput.
+- If the later bounded-slice pace is sustained, the remaining local
+  engineering can reach a feature-complete, pre-deployment candidate in about
+  **2–3 weeks** (11–18 August 2026).
+- A closed-alpha-ready candidate is more realistically **4–7 weeks** away
+  (25 August–15 September 2026), assuming legal and native reviewers, licensed
+  content/audio and pilot recruitment are available in parallel.
+- Full production completion is approximately **12–16 weeks** away
+  (20 October–17 November 2026) in an optimistic cross-functional path.
+  A primarily solo path or delayed human review/content/pilot recruitment is
+  more realistically **16–24 weeks** (17 November 2026–12 January 2027).
+- These dates cannot be shortened by code throughput alone: the roadmap
+  requires a 14-day, 100-person closed alpha, followed by retention/outcome
+  observation including D30, plus legal, security, hosted recovery and
+  operational evidence.
+
+Progress accounting rules:
+
+- Update this section at every green checkpoint commit, not after every test
+  invocation.
+- Generated migration snapshots and line counts do not increase the estimate.
+- Tests increase only the local-evidence portion; they cannot close content,
+  pilot, hosted, legal, security or operational acceptance gates.
+- A workstream percentage moves only when a named roadmap deliverable and its
+  applicable evidence are both present.
+
 ## Stabilization completed
 
 - Reader open, attempt, submission and abandonment records now hash the same
@@ -167,34 +238,43 @@ This is a local engineering checkpoint, not production release evidence.
 - The assignment contract stays outside immutable content packages,
   `reviews.json`, registry, promotion and learner runtime. It never counts as
   review, mastery, coverage or release evidence.
-- No real assignment, placement/store, descriptor, mutation CLI, persistence,
-  authenticated operator, API, learner-runtime route, dashboard UI, D1
-  mutation, Sites version or deployment was created. Operator IDs in E2 are
-  declared strings, not authenticated identities.
+- E3a adds one operational `editorial_assignment_events` table outside the
+  learner/user realm. Exact content streams append immutable `assigned`,
+  `reassigned` and `cancelled` events through predecessor CAS and
+  operator-scoped idempotency; replay independently verifies the canonical
+  stream, intent, envelope and event hash plus lifecycle and active
+  role/target ownership.
+- The database rejects update/delete, forks, invalid transitions, overlapping
+  active role/targets, oversized rows and streams, while the repository bounds
+  replay to 10,000 events and 16 MiB. Restore rehearsal now covers the event
+  chain and all five authority triggers.
+- No real assignment row, descriptor, mutation CLI, authenticated/authorized
+  operator, service/API, learner-runtime route, dashboard UI, hosted D1
+  mutation, Sites version or deployment was created. Operator IDs remain
+  declared strings until the next trusted-principal boundary.
 
 ## Local verification
 
-The results below are bound to this exact code, configuration and content
-snapshot. Any later edit to those surfaces makes the snapshot stale and
-requires the complete local baseline to run again before another checkpoint or
-commit claim.
+### E3a complete baseline
+
+The results below are bound to the exact E3a checkpoint worktree. Any later
+edit to code, configuration or content makes this snapshot stale and requires
+the applicable gates to run again before the next checkpoint commit.
 
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
-  - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 140 files, 1,178 tests passed
+  - local D1 restore rehearsal: 13 migrations, 26 restored tables, 4 editorial
+    events and 5 editorial authority triggers
+  - Vitest: 142 files, 1,194 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 391.0 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 95 / 99 / 94, median 95
+  - Performance: 91 / 97 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,906 ms; CLS: 0; TBT: 214 ms
-  - An immediately preceding run under local load measured 93 / 93 / 75 and
-    failed at median performance 93; its third-run TBT was an outlying 1,143
-    ms. The threshold was not lowered or bypassed.
+  - Median LCP: 1,891 ms; CLS: 0; TBT: 160 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -220,9 +300,10 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Build E3 as a server-only authenticated and authorized append workflow for
-   immutable assignment envelopes, including persistence and conflict-safe
-   lifecycle handling, before exposing any editorial dashboard UI.
+2. Complete E3 by putting authenticated operator identity, capability/role
+   authorization and server-materialized actor/time in front of the E3a
+   persistence kernel. Keep it server-only and do not expose an API or
+   editorial dashboard until that trusted-principal workflow is green.
 3. Obtain an attributable legal/license decision for the pinned
    Make Me a Hanzi and CJKVI/CHISE records; replace a source rather than
    weakening the gate if its terms are unsuitable.

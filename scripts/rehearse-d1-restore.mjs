@@ -13,6 +13,46 @@ let restored = null;
 
 const sqlString = (value) => `'${String(value).replaceAll("'", "''")}'`;
 const digest = (value) => createHash("sha256").update(value).digest("hex");
+const canonicalValue = (value, seen = new WeakSet(), arrayPosition = false) => {
+  if (value === null) return "null";
+  if (typeof value === "string") return JSON.stringify(value);
+  if (typeof value === "boolean") return value ? "true" : "false";
+  if (typeof value === "number") {
+    return Number.isFinite(value) ? JSON.stringify(value) : "null";
+  }
+  if (
+    typeof value === "undefined"
+    || typeof value === "function"
+    || typeof value === "symbol"
+  ) {
+    return arrayPosition ? "null" : undefined;
+  }
+  if (typeof value === "bigint") {
+    throw new TypeError("BigInt cannot be represented as canonical JSON");
+  }
+  if (value instanceof Date) return JSON.stringify(value.toISOString());
+  if (seen.has(value)) throw new TypeError("Cannot canonicalize cyclic data");
+  seen.add(value);
+  try {
+    if (Array.isArray(value)) {
+      return `[${value.map((item) =>
+        canonicalValue(item, seen, true) ?? "null"
+      ).join(",")}]`;
+    }
+    return `{${Object.keys(value).sort().flatMap((key) => {
+      const encoded = canonicalValue(value[key], seen);
+      return encoded === undefined
+        ? []
+        : [`${JSON.stringify(key)}:${encoded}`];
+    }).join(",")}}`;
+  } finally {
+    seen.delete(value);
+  }
+};
+const canonicalStringify = (value) =>
+  canonicalValue(value) ?? "null";
+const canonicalDigest = (value) =>
+  `sha256:${digest(canonicalStringify(value))}`;
 const expectCheckConstraint = (action, constraintName) => {
   try {
     action();
@@ -42,6 +82,49 @@ const expectedReaderTriggers = [
   "reader_sessions_reset_invalidation",
   "reader_sessions_status_transition_update",
 ];
+
+const expectedEditorialAssignmentTriggers = [
+  "editorial_assignment_events_immutable_delete",
+  "editorial_assignment_events_immutable_update",
+  "editorial_assignment_events_predecessor_insert",
+  "editorial_assignment_events_stream_size_insert",
+  "editorial_assignment_events_transition_insert",
+];
+
+const readEditorialAssignmentTriggers = (database) => database.prepare(
+  `SELECT name FROM sqlite_master
+   WHERE type = 'trigger'
+     AND name LIKE 'editorial_assignment_events_%'
+   ORDER BY name`,
+).all().map((row) => row.name);
+
+const readEditorialAssignmentChain = (database, streamId) => database.prepare(
+  `SELECT
+    event_id AS eventId,
+    sequence,
+    event_type AS eventType,
+    assignment_id AS assignmentId,
+    previous_assignment_id AS previousAssignmentId,
+    previous_event_id AS previousEventId,
+    event_sha256 AS eventSha256
+   FROM editorial_assignment_events
+   WHERE stream_id = ?
+   ORDER BY sequence`,
+).all(streamId);
+
+const readEditorialAssignmentCanonicalRows = (database, streamId) =>
+  database.prepare(
+    `SELECT
+      event_id AS eventId,
+      envelope_json AS envelopeJson,
+      assignment_sha256 AS assignmentSha256,
+      request_sha256 AS requestSha256,
+      event_json AS eventJson,
+      event_sha256 AS eventSha256
+     FROM editorial_assignment_events
+     WHERE stream_id = ?
+     ORDER BY sequence`,
+  ).all(streamId);
 
 const readReaderFixture = (database) => ({
   session: database.prepare(
@@ -176,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 12
-    || !migrations[11]?.startsWith("0011_")
+    migrations.length !== 13
+    || !migrations[12]?.startsWith("0012_")
   ) {
     throw new Error(
-      `Reader restore rehearsal requires 12 migrations through 0011; found ${
+      `Restore rehearsal requires 13 migrations through 0012; found ${
         migrations.length
       }`,
     );
@@ -533,6 +616,237 @@ try {
     kind: "selection",
     answer: "restore-reader-response",
   });
+  const editorialManifestHash = `sha256:${digest("restore-package-manifest")}`;
+  const editorialCatalogHash = `sha256:${digest("restore-item-catalog")}`;
+  const editorialStream = {
+    contentVersion: "restore-content-v1",
+    packageManifestSha256: editorialManifestHash,
+    itemCatalogSha256: editorialCatalogHash,
+  };
+  const editorialStreamId = canonicalDigest(editorialStream);
+  const editorialActor = {
+    operatorId: "restore-editorial-operator",
+    credentialId: "restore-editorial-credential",
+  };
+  const editorialAssignedAt = new Date(now).toISOString();
+  const editorialReassignedAt = new Date(now + 1).toISOString();
+  const editorialEnvelopeOneValue = {
+    schemaVersion: 1,
+    assignmentId: "restore-editorial-assignment-1",
+    ...editorialStream,
+    role: "native-linguistic",
+    assignedByOperatorId: "restore-editorial-operator",
+    assigneeOperatorId: "restore-editorial-reviewer-1",
+    assignedAt: editorialAssignedAt,
+    scope: {
+      itemKeys: ["character:你"],
+      audioAssetIds: [],
+    },
+  };
+  const editorialEnvelopeTwoValue = {
+    schemaVersion: 1,
+    assignmentId: "restore-editorial-assignment-2",
+    ...editorialStream,
+    role: "native-linguistic",
+    assignedByOperatorId: "restore-editorial-operator",
+    assigneeOperatorId: "restore-editorial-reviewer-2",
+    assignedAt: editorialReassignedAt,
+    scope: {
+      itemKeys: ["character:你"],
+      audioAssetIds: [],
+    },
+  };
+  const editorialEnvelopeOne = canonicalStringify(
+    editorialEnvelopeOneValue,
+  );
+  const editorialEnvelopeTwo = canonicalStringify(
+    editorialEnvelopeTwoValue,
+  );
+  const editorialAssignmentOneHash = canonicalDigest(
+    editorialEnvelopeOneValue,
+  );
+  const editorialAssignmentTwoHash = canonicalDigest(
+    editorialEnvelopeTwoValue,
+  );
+  const editorialAssignmentIntent = (envelope) => envelope === null
+    ? null
+    : {
+        assignmentId: envelope.assignmentId,
+        role: envelope.role,
+        assigneeOperatorId: envelope.assigneeOperatorId,
+        scope: envelope.scope,
+      };
+  const makeEditorialEvent = ({
+    eventId,
+    sequence,
+    eventType,
+    assignment,
+    assignmentSha256,
+    previousAssignment,
+    previousEvent,
+    idempotencyKey,
+    occurredAt,
+  }) => {
+    const requestSha256 = canonicalDigest({
+      schemaVersion: 1,
+      eventType,
+      actorOperatorId: editorialActor.operatorId,
+      idempotencyKey,
+      expectedHead: previousEvent,
+      stream: editorialStream,
+      previousAssignment,
+      assignment: editorialAssignmentIntent(assignment),
+    });
+    const eventValue = {
+      schemaVersion: 1,
+      eventId,
+      streamId: editorialStreamId,
+      sequence,
+      eventType,
+      stream: editorialStream,
+      assignment,
+      assignmentSha256,
+      previousAssignment,
+      actor: editorialActor,
+      idempotencyKey,
+      requestSha256,
+      previousEvent,
+      targetCount: assignment === null
+        ? 0
+        : assignment.scope.itemKeys.length
+          + assignment.scope.audioAssetIds.length,
+      occurredAt: new Date(occurredAt).toISOString(),
+    };
+    const eventJson = canonicalStringify(eventValue);
+    return {
+      ...eventValue,
+      eventJson,
+      eventSha256: `sha256:${digest(eventJson)}`,
+      occurredAtEpoch: occurredAt,
+    };
+  };
+  const editorialEventOne = makeEditorialEvent({
+    eventId: "restore-editorial-event-1",
+    sequence: 1,
+    eventType: "assigned",
+    assignment: editorialEnvelopeOneValue,
+    assignmentSha256: editorialAssignmentOneHash,
+    previousAssignment: null,
+    previousEvent: null,
+    idempotencyKey: "restore-editorial-idempotency-1",
+    occurredAt: now,
+  });
+  const editorialEventTwo = makeEditorialEvent({
+    eventId: "restore-editorial-event-2",
+    sequence: 2,
+    eventType: "reassigned",
+    assignment: editorialEnvelopeTwoValue,
+    assignmentSha256: editorialAssignmentTwoHash,
+    previousAssignment: {
+      assignmentId: editorialEnvelopeOneValue.assignmentId,
+      assignmentSha256: editorialAssignmentOneHash,
+    },
+    previousEvent: {
+      eventId: editorialEventOne.eventId,
+      eventSha256: editorialEventOne.eventSha256,
+      sequence: editorialEventOne.sequence,
+    },
+    idempotencyKey: "restore-editorial-idempotency-2",
+    occurredAt: now + 1,
+  });
+  const editorialEventThree = makeEditorialEvent({
+    eventId: "restore-editorial-event-3",
+    sequence: 3,
+    eventType: "cancelled",
+    assignment: null,
+    assignmentSha256: null,
+    previousAssignment: {
+      assignmentId: editorialEnvelopeTwoValue.assignmentId,
+      assignmentSha256: editorialAssignmentTwoHash,
+    },
+    previousEvent: {
+      eventId: editorialEventTwo.eventId,
+      eventSha256: editorialEventTwo.eventSha256,
+      sequence: editorialEventTwo.sequence,
+    },
+    idempotencyKey: "restore-editorial-idempotency-3",
+    occurredAt: now + 2,
+  });
+  const editorialEventOneHash = editorialEventOne.eventSha256;
+  const editorialEventTwoHash = editorialEventTwo.eventSha256;
+  const editorialEventThreeHash = editorialEventThree.eventSha256;
+  const expectedEditorialCanonicalRows = [
+    {
+      eventId: editorialEventOne.eventId,
+      envelopeJson: editorialEnvelopeOne,
+      assignmentSha256: editorialAssignmentOneHash,
+      requestSha256: editorialEventOne.requestSha256,
+      eventJson: editorialEventOne.eventJson,
+      eventSha256: editorialEventOne.eventSha256,
+    },
+    {
+      eventId: editorialEventTwo.eventId,
+      envelopeJson: editorialEnvelopeTwo,
+      assignmentSha256: editorialAssignmentTwoHash,
+      requestSha256: editorialEventTwo.requestSha256,
+      eventJson: editorialEventTwo.eventJson,
+      eventSha256: editorialEventTwo.eventSha256,
+    },
+    {
+      eventId: editorialEventThree.eventId,
+      envelopeJson: null,
+      assignmentSha256: null,
+      requestSha256: editorialEventThree.requestSha256,
+      eventJson: editorialEventThree.eventJson,
+      eventSha256: editorialEventThree.eventSha256,
+    },
+  ];
+  const expectedEditorialAssignmentChain = [
+    {
+      eventId: "restore-editorial-event-1",
+      sequence: 1,
+      eventType: "assigned",
+      assignmentId: "restore-editorial-assignment-1",
+      previousAssignmentId: null,
+      previousEventId: null,
+      eventSha256: editorialEventOneHash,
+    },
+    {
+      eventId: "restore-editorial-event-2",
+      sequence: 2,
+      eventType: "reassigned",
+      assignmentId: "restore-editorial-assignment-2",
+      previousAssignmentId: "restore-editorial-assignment-1",
+      previousEventId: "restore-editorial-event-1",
+      eventSha256: editorialEventTwoHash,
+    },
+    {
+      eventId: "restore-editorial-event-3",
+      sequence: 3,
+      eventType: "cancelled",
+      assignmentId: null,
+      previousAssignmentId: "restore-editorial-assignment-2",
+      previousEventId: "restore-editorial-event-2",
+      eventSha256: editorialEventThreeHash,
+    },
+  ];
+  const editorialAssignmentInsertSql =
+    `INSERT INTO editorial_assignment_events (
+      event_id, stream_id, sequence, schema_version, event_type,
+      content_version, package_manifest_sha256, item_catalog_sha256,
+      assignment_id, assignment_sha256, previous_assignment_id,
+      previous_assignment_sha256, role, assignee_operator_id, envelope_json,
+      target_count, actor_operator_id, actor_credential_id, idempotency_key,
+      request_sha256, previous_event_id, previous_event_sha256, event_json,
+      event_sha256, occurred_at
+    ) VALUES (
+      ?, ?, ?, 1, ?, 'restore-content-v1', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+      'restore-editorial-operator', 'restore-editorial-credential', ?, ?, ?,
+      ?, ?, ?, ?
+    )`;
+  const insertEditorialAssignmentEvent = source.prepare(
+    editorialAssignmentInsertSql,
+  );
   source.exec("BEGIN IMMEDIATE");
   try {
     source.prepare(
@@ -730,6 +1044,75 @@ try {
     source.prepare(
       "INSERT INTO learning_documents (user_id, revision, document_json, schema_version, content_version, updated_at) VALUES (?, 7, ?, 1, ?, ?)",
     ).run("restore-user", documentJson, "restore-content-v1", now);
+    insertEditorialAssignmentEvent.run(
+      "restore-editorial-event-1",
+      editorialStreamId,
+      1,
+      "assigned",
+      editorialManifestHash,
+      editorialCatalogHash,
+      "restore-editorial-assignment-1",
+      editorialAssignmentOneHash,
+      null,
+      null,
+      "native-linguistic",
+      "restore-editorial-reviewer-1",
+      editorialEnvelopeOne,
+      1,
+      "restore-editorial-idempotency-1",
+      editorialEventOne.requestSha256,
+      null,
+      null,
+      editorialEventOne.eventJson,
+      editorialEventOneHash,
+      now,
+    );
+    insertEditorialAssignmentEvent.run(
+      "restore-editorial-event-2",
+      editorialStreamId,
+      2,
+      "reassigned",
+      editorialManifestHash,
+      editorialCatalogHash,
+      "restore-editorial-assignment-2",
+      editorialAssignmentTwoHash,
+      "restore-editorial-assignment-1",
+      editorialAssignmentOneHash,
+      "native-linguistic",
+      "restore-editorial-reviewer-2",
+      editorialEnvelopeTwo,
+      1,
+      "restore-editorial-idempotency-2",
+      editorialEventTwo.requestSha256,
+      "restore-editorial-event-1",
+      editorialEventOneHash,
+      editorialEventTwo.eventJson,
+      editorialEventTwoHash,
+      now + 1,
+    );
+    insertEditorialAssignmentEvent.run(
+      "restore-editorial-event-3",
+      editorialStreamId,
+      3,
+      "cancelled",
+      editorialManifestHash,
+      editorialCatalogHash,
+      null,
+      null,
+      "restore-editorial-assignment-2",
+      editorialAssignmentTwoHash,
+      null,
+      null,
+      null,
+      0,
+      "restore-editorial-idempotency-3",
+      editorialEventThree.requestSha256,
+      "restore-editorial-event-2",
+      editorialEventTwoHash,
+      editorialEventThree.eventJson,
+      editorialEventThreeHash,
+      now + 2,
+    );
     source.exec("COMMIT");
   } catch (error) {
     source.exec("ROLLBACK");
@@ -751,6 +1134,26 @@ try {
       "Source Reader outbox, transition, or reset trigger is missing",
     );
   }
+  const sourceEditorialAssignmentChain = readEditorialAssignmentChain(
+    source,
+    editorialStreamId,
+  );
+  const sourceEditorialAssignmentTriggers =
+    readEditorialAssignmentTriggers(source);
+  const sourceEditorialCanonicalRows =
+    readEditorialAssignmentCanonicalRows(source, editorialStreamId);
+  if (
+    JSON.stringify(sourceEditorialAssignmentChain)
+      !== JSON.stringify(expectedEditorialAssignmentChain)
+    || JSON.stringify(sourceEditorialCanonicalRows)
+      !== JSON.stringify(expectedEditorialCanonicalRows)
+    || JSON.stringify(sourceEditorialAssignmentTriggers)
+      !== JSON.stringify(expectedEditorialAssignmentTriggers)
+  ) {
+    throw new Error(
+      "Source editorial assignment chain or authority triggers do not match",
+    );
+  }
   source.exec("PRAGMA wal_checkpoint(TRUNCATE)");
   source.exec(`VACUUM INTO ${sqlString(backupPath)}`);
   source.close();
@@ -769,9 +1172,9 @@ try {
   const tables = restored.prepare(
     "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' ORDER BY name",
   ).all();
-  if (tables.length !== 25) {
+  if (tables.length !== 26) {
     throw new Error(
-      `Reader restore rehearsal requires 25 application tables; found ${
+      `Restore rehearsal requires 26 application tables; found ${
         tables.length
       }`,
     );
@@ -868,6 +1271,14 @@ try {
      ORDER BY name`,
   ).all().map((row) => row.name);
   const restoredReaderTriggers = readReaderTriggers(restored);
+  const restoredEditorialAssignmentChain = readEditorialAssignmentChain(
+    restored,
+    editorialStreamId,
+  );
+  const restoredEditorialAssignmentTriggers =
+    readEditorialAssignmentTriggers(restored);
+  const restoredEditorialCanonicalRows =
+    readEditorialAssignmentCanonicalRows(restored, editorialStreamId);
   if (
     restoredDocument?.revision !== 7
     || digest(restoredDocument.documentJson) !== digest(documentJson)
@@ -937,9 +1348,194 @@ try {
     || restoredReviewOutboxEpochTriggers.length !== 2
     || JSON.stringify(restoredReaderTriggers)
       !== JSON.stringify(expectedReaderTriggers)
+    || JSON.stringify(restoredEditorialAssignmentChain)
+      !== JSON.stringify(expectedEditorialAssignmentChain)
+    || JSON.stringify(restoredEditorialCanonicalRows)
+      !== JSON.stringify(expectedEditorialCanonicalRows)
+    || JSON.stringify(restoredEditorialAssignmentTriggers)
+      !== JSON.stringify(expectedEditorialAssignmentTriggers)
   ) {
     throw new Error(
-      "Restored outbox lease state, index, or authority triggers do not match the source",
+      "Restored state, event chains, indexes, or authority triggers do not match the source",
+    );
+  }
+  const insertRestoredEditorialAssignmentEvent = restored.prepare(
+    editorialAssignmentInsertSql,
+  );
+  const makeEditorialEnvelope = ({
+    assignmentId,
+    assigneeOperatorId,
+    role = "native-linguistic",
+  }) => JSON.stringify({
+    schemaVersion: 1,
+    assignmentId,
+    contentVersion: "restore-content-v1",
+    packageManifestSha256: editorialManifestHash,
+    itemCatalogSha256: editorialCatalogHash,
+    role,
+    assignedByOperatorId: "restore-editorial-operator",
+    assigneeOperatorId,
+    assignedAt: editorialAssignedAt,
+    scope: {
+      itemKeys: ["character:你"],
+      audioAssetIds: [],
+    },
+  });
+  expectCheckConstraint(() => insertRestoredEditorialAssignmentEvent.run(
+    "restore-editorial-stale-fork",
+    editorialStreamId,
+    4,
+    "assigned",
+    editorialManifestHash,
+    editorialCatalogHash,
+    "restore-editorial-assignment-stale",
+    `sha256:${digest("restore-editorial-assignment-stale")}`,
+    null,
+    null,
+    "native-linguistic",
+    "restore-editorial-reviewer-stale",
+    makeEditorialEnvelope({
+      assignmentId: "restore-editorial-assignment-stale",
+      assigneeOperatorId: "restore-editorial-reviewer-stale",
+    }),
+    1,
+    "restore-editorial-idempotency-stale",
+    `sha256:${digest("restore-editorial-request-stale")}`,
+    "restore-editorial-event-1",
+    editorialEventOneHash,
+    JSON.stringify({ schemaVersion: 1, eventType: "assigned" }),
+    `sha256:${digest("restore-editorial-event-stale")}`,
+    now + 3,
+  ), "editorial assignment predecessor is not the exact head");
+  expectCheckConstraint(() => restored.prepare(
+    "UPDATE editorial_assignment_events SET occurred_at = occurred_at + 1 WHERE event_id = 'restore-editorial-event-1'",
+  ).run(), "editorial assignment events are immutable");
+  expectCheckConstraint(() => restored.prepare(
+    "DELETE FROM editorial_assignment_events WHERE event_id = 'restore-editorial-event-3'",
+  ).run(), "editorial assignment events are append-only");
+  expectCheckConstraint(() => insertRestoredEditorialAssignmentEvent.run(
+    "restore-editorial-inactive-transition",
+    editorialStreamId,
+    4,
+    "reassigned",
+    editorialManifestHash,
+    editorialCatalogHash,
+    "restore-editorial-assignment-inactive",
+    `sha256:${digest("restore-editorial-assignment-inactive")}`,
+    "restore-editorial-assignment-2",
+    editorialAssignmentTwoHash,
+    "native-linguistic",
+    "restore-editorial-reviewer-inactive",
+    makeEditorialEnvelope({
+      assignmentId: "restore-editorial-assignment-inactive",
+      assigneeOperatorId: "restore-editorial-reviewer-inactive",
+    }),
+    1,
+    "restore-editorial-idempotency-inactive",
+    `sha256:${digest("restore-editorial-request-inactive")}`,
+    "restore-editorial-event-3",
+    editorialEventThreeHash,
+    JSON.stringify({ schemaVersion: 1, eventType: "reassigned" }),
+    `sha256:${digest("restore-editorial-event-inactive")}`,
+    now + 4,
+  ), "editorial assignment transition is not active");
+  expectCheckConstraint(() => insertRestoredEditorialAssignmentEvent.run(
+    "restore-editorial-envelope-tamper",
+    editorialStreamId,
+    4,
+    "assigned",
+    editorialManifestHash,
+    editorialCatalogHash,
+    "restore-editorial-assignment-tamper",
+    `sha256:${digest("restore-editorial-assignment-tamper")}`,
+    null,
+    null,
+    "source-license",
+    "restore-editorial-reviewer-tamper",
+    makeEditorialEnvelope({
+      assignmentId: "restore-editorial-assignment-tamper",
+      assigneeOperatorId: "restore-editorial-reviewer-tamper",
+    }),
+    1,
+    "restore-editorial-idempotency-tamper",
+    `sha256:${digest("restore-editorial-request-tamper")}`,
+    "restore-editorial-event-3",
+    editorialEventThreeHash,
+    JSON.stringify({ schemaVersion: 1, eventType: "assigned" }),
+    `sha256:${digest("restore-editorial-event-tamper")}`,
+    now + 5,
+  ), "editorial assignment envelope columns do not match");
+  if (
+    JSON.stringify(readEditorialAssignmentChain(restored, editorialStreamId))
+      !== JSON.stringify(expectedEditorialAssignmentChain)
+  ) {
+    throw new Error(
+      "Rejected editorial assignment mutations changed the restored stream",
+    );
+  }
+  const postRestoreEnvelopeValue = {
+    ...editorialEnvelopeOneValue,
+    assignmentId: "restore-editorial-assignment-4",
+    assigneeOperatorId: "restore-editorial-reviewer-4",
+    assignedAt: new Date(now + 6).toISOString(),
+  };
+  const postRestoreEnvelopeJson = canonicalStringify(
+    postRestoreEnvelopeValue,
+  );
+  const postRestoreAssignmentHash = canonicalDigest(
+    postRestoreEnvelopeValue,
+  );
+  const postRestoreEditorialEvent = makeEditorialEvent({
+    eventId: "restore-editorial-event-4",
+    sequence: 4,
+    eventType: "assigned",
+    assignment: postRestoreEnvelopeValue,
+    assignmentSha256: postRestoreAssignmentHash,
+    previousAssignment: null,
+    previousEvent: {
+      eventId: editorialEventThree.eventId,
+      eventSha256: editorialEventThree.eventSha256,
+      sequence: editorialEventThree.sequence,
+    },
+    idempotencyKey: "restore-editorial-idempotency-4",
+    occurredAt: now + 6,
+  });
+  insertRestoredEditorialAssignmentEvent.run(
+    postRestoreEditorialEvent.eventId,
+    editorialStreamId,
+    postRestoreEditorialEvent.sequence,
+    postRestoreEditorialEvent.eventType,
+    editorialManifestHash,
+    editorialCatalogHash,
+    postRestoreEnvelopeValue.assignmentId,
+    postRestoreAssignmentHash,
+    null,
+    null,
+    postRestoreEnvelopeValue.role,
+    postRestoreEnvelopeValue.assigneeOperatorId,
+    postRestoreEnvelopeJson,
+    postRestoreEditorialEvent.targetCount,
+    postRestoreEditorialEvent.idempotencyKey,
+    postRestoreEditorialEvent.requestSha256,
+    editorialEventThree.eventId,
+    editorialEventThree.eventSha256,
+    postRestoreEditorialEvent.eventJson,
+    postRestoreEditorialEvent.eventSha256,
+    postRestoreEditorialEvent.occurredAtEpoch,
+  );
+  const postRestoreEditorialAssignmentChain = readEditorialAssignmentChain(
+    restored,
+    editorialStreamId,
+  );
+  if (
+    postRestoreEditorialAssignmentChain.length !== 4
+    || postRestoreEditorialAssignmentChain[3]?.eventId
+      !== postRestoreEditorialEvent.eventId
+    || postRestoreEditorialAssignmentChain[3]?.eventSha256
+      !== postRestoreEditorialEvent.eventSha256
+  ) {
+    throw new Error(
+      "Restored editorial assignment stream rejected a canonical append",
     );
   }
   expectCheckConstraint(() => restored.prepare(
@@ -1085,6 +1681,10 @@ try {
     readerResetInvalidationTriggers: restoredReaderTriggers.filter((trigger) =>
       trigger === "reader_sessions_reset_invalidation"
     ).length,
+    editorialAssignmentEvents: postRestoreEditorialAssignmentChain.length,
+    editorialAssignmentTriggers:
+      restoredEditorialAssignmentTriggers.length,
+    editorialAssignmentMutationGuards: "ok",
     postRestoreReaderReset,
     integrity: "ok",
     foreignKeys: "ok",

@@ -1691,3 +1691,212 @@ export const outboxEvents = sqliteTable(
     ),
   ],
 );
+
+/**
+ * Operational editorial assignments live outside the learner/user realm.
+ *
+ * Every exact content package has one globally serialized, append-only event
+ * stream. The application replays this bounded log to derive active
+ * role/target ownership; no mutable projection is authoritative.
+ */
+export const editorialAssignmentEvents = sqliteTable(
+  "editorial_assignment_events",
+  {
+    eventId: text("event_id").primaryKey(),
+    streamId: text("stream_id").notNull(),
+    sequence: integer("sequence").notNull(),
+    schemaVersion: integer("schema_version").notNull().default(1),
+    eventType: text("event_type").notNull(),
+    contentVersion: text("content_version").notNull(),
+    packageManifestSha256: text("package_manifest_sha256").notNull(),
+    itemCatalogSha256: text("item_catalog_sha256").notNull(),
+    assignmentId: text("assignment_id"),
+    assignmentSha256: text("assignment_sha256"),
+    previousAssignmentId: text("previous_assignment_id"),
+    previousAssignmentSha256: text("previous_assignment_sha256"),
+    role: text("role"),
+    assigneeOperatorId: text("assignee_operator_id"),
+    envelopeJson: text("envelope_json"),
+    targetCount: integer("target_count").notNull(),
+    actorOperatorId: text("actor_operator_id").notNull(),
+    actorCredentialId: text("actor_credential_id").notNull(),
+    idempotencyKey: text("idempotency_key").notNull(),
+    requestSha256: text("request_sha256").notNull(),
+    previousEventId: text("previous_event_id"),
+    previousEventSha256: text("previous_event_sha256"),
+    eventJson: text("event_json").notNull(),
+    eventSha256: text("event_sha256").notNull(),
+    occurredAt: integer("occurred_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("editorial_assignment_events_stream_sequence_uidx").on(
+      table.streamId,
+      table.sequence,
+    ),
+    uniqueIndex("editorial_assignment_events_stream_event_uidx").on(
+      table.streamId,
+      table.eventId,
+    ),
+    uniqueIndex("editorial_assignment_events_actor_idempotency_uidx").on(
+      table.actorOperatorId,
+      table.idempotencyKey,
+    ),
+    uniqueIndex("editorial_assignment_events_sha256_uidx").on(
+      table.eventSha256,
+    ),
+    uniqueIndex("editorial_assignment_events_predecessor_uidx")
+      .on(table.streamId, table.previousEventId)
+      .where(sql`${table.previousEventId} IS NOT NULL`),
+    uniqueIndex("editorial_assignment_events_genesis_uidx")
+      .on(table.streamId)
+      .where(sql`${table.previousEventId} IS NULL`),
+    uniqueIndex("editorial_assignment_events_assignment_uidx")
+      .on(table.assignmentId)
+      .where(sql`${table.assignmentId} IS NOT NULL`),
+    index("editorial_assignment_events_stream_sequence_idx").on(
+      table.streamId,
+      table.sequence,
+    ),
+    foreignKey({
+      name: "editorial_assignment_events_predecessor_fk",
+      columns: [table.streamId, table.previousEventId],
+      foreignColumns: [table.streamId, table.eventId],
+    }).onDelete("restrict"),
+    check(
+      "editorial_assignment_events_sequence_check",
+      sql`${table.sequence} BETWEEN 1 AND 10000`,
+    ),
+    check(
+      "editorial_assignment_events_schema_version_check",
+      sql`${table.schemaVersion} = 1`,
+    ),
+    check(
+      "editorial_assignment_events_type_check",
+      sql`${table.eventType} IN ('assigned', 'reassigned', 'cancelled')`,
+    ),
+    check(
+      "editorial_assignment_events_identifier_check",
+      sql`length(${table.eventId}) BETWEEN 1 AND 128
+        AND length(${table.contentVersion}) BETWEEN 1 AND 128
+        AND length(${table.actorOperatorId}) BETWEEN 1 AND 128
+        AND length(${table.actorCredentialId}) BETWEEN 1 AND 128
+        AND length(${table.idempotencyKey}) BETWEEN 1 AND 128`,
+    ),
+    check(
+      "editorial_assignment_events_stream_digest_check",
+      sql`length(${table.streamId}) = 71
+        AND substr(${table.streamId}, 1, 7) = 'sha256:'
+        AND substr(${table.streamId}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "editorial_assignment_events_manifest_digest_check",
+      sql`length(${table.packageManifestSha256}) = 71
+        AND substr(${table.packageManifestSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.packageManifestSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "editorial_assignment_events_catalog_digest_check",
+      sql`length(${table.itemCatalogSha256}) = 71
+        AND substr(${table.itemCatalogSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.itemCatalogSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "editorial_assignment_events_request_digest_check",
+      sql`length(${table.requestSha256}) = 71
+        AND substr(${table.requestSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.requestSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "editorial_assignment_events_event_digest_check",
+      sql`length(${table.eventSha256}) = 71
+        AND substr(${table.eventSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.eventSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "editorial_assignment_events_optional_digest_check",
+      sql`(${table.assignmentSha256} IS NULL OR (
+          length(${table.assignmentSha256}) = 71
+          AND substr(${table.assignmentSha256}, 1, 7) = 'sha256:'
+          AND substr(${table.assignmentSha256}, 8) NOT GLOB '*[^0-9a-f]*'
+        ))
+        AND (${table.previousAssignmentSha256} IS NULL OR (
+          length(${table.previousAssignmentSha256}) = 71
+          AND substr(${table.previousAssignmentSha256}, 1, 7) = 'sha256:'
+          AND substr(${table.previousAssignmentSha256}, 8) NOT GLOB '*[^0-9a-f]*'
+        ))
+        AND (${table.previousEventSha256} IS NULL OR (
+          length(${table.previousEventSha256}) = 71
+          AND substr(${table.previousEventSha256}, 1, 7) = 'sha256:'
+          AND substr(${table.previousEventSha256}, 8) NOT GLOB '*[^0-9a-f]*'
+        ))`,
+    ),
+    check(
+      "editorial_assignment_events_json_check",
+      sql`json_valid(${table.eventJson})
+        AND (${table.envelopeJson} IS NULL OR json_valid(${table.envelopeJson}))
+        AND length(CAST(${table.eventJson} AS BLOB)) <= 700000
+        AND COALESCE(length(CAST(${table.envelopeJson} AS BLOB)), 0) <= 600000
+        AND length(CAST(${table.eventJson} AS BLOB))
+          + COALESCE(length(CAST(${table.envelopeJson} AS BLOB)), 0)
+          <= 1350000`,
+    ),
+    check(
+      "editorial_assignment_events_target_count_check",
+      sql`${table.targetCount} >= 0 AND ${table.targetCount} <= 10000`,
+    ),
+    check(
+      "editorial_assignment_events_role_check",
+      sql`${table.role} IS NULL OR ${table.role} IN (
+        'content-owner', 'native-linguistic', 'source-license', 'audio-rights'
+      )`,
+    ),
+    check(
+      "editorial_assignment_events_shape_check",
+      sql`(
+          ${table.eventType} = 'assigned'
+          AND ${table.assignmentId} IS NOT NULL
+          AND ${table.assignmentSha256} IS NOT NULL
+          AND ${table.previousAssignmentId} IS NULL
+          AND ${table.previousAssignmentSha256} IS NULL
+          AND ${table.role} IS NOT NULL
+          AND ${table.assigneeOperatorId} IS NOT NULL
+          AND ${table.envelopeJson} IS NOT NULL
+          AND ${table.targetCount} > 0
+        ) OR (
+          ${table.eventType} = 'reassigned'
+          AND ${table.assignmentId} IS NOT NULL
+          AND ${table.assignmentSha256} IS NOT NULL
+          AND ${table.previousAssignmentId} IS NOT NULL
+          AND ${table.previousAssignmentSha256} IS NOT NULL
+          AND ${table.role} IS NOT NULL
+          AND ${table.assigneeOperatorId} IS NOT NULL
+          AND ${table.envelopeJson} IS NOT NULL
+          AND ${table.targetCount} > 0
+        ) OR (
+          ${table.eventType} = 'cancelled'
+          AND ${table.assignmentId} IS NULL
+          AND ${table.assignmentSha256} IS NULL
+          AND ${table.previousAssignmentId} IS NOT NULL
+          AND ${table.previousAssignmentSha256} IS NOT NULL
+          AND ${table.role} IS NULL
+          AND ${table.assigneeOperatorId} IS NULL
+          AND ${table.envelopeJson} IS NULL
+          AND ${table.targetCount} = 0
+        )`,
+    ),
+    check(
+      "editorial_assignment_events_predecessor_pair_check",
+      sql`(${table.previousEventId} IS NULL
+          AND ${table.previousEventSha256} IS NULL
+          AND ${table.sequence} = 1
+          AND ${table.eventType} = 'assigned')
+        OR (${table.previousEventId} IS NOT NULL
+          AND ${table.previousEventSha256} IS NOT NULL
+          AND ${table.sequence} > 1)`,
+    ),
+    check(
+      "editorial_assignment_events_time_check",
+      sql`${table.occurredAt} BETWEEN 0 AND 8640000000000000`,
+    ),
+  ],
+);

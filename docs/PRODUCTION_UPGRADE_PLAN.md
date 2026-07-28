@@ -282,9 +282,14 @@ This remains a technical authoring envelope, not completed WS2. Candidate
   A bounded E2 contract now defines one immutable editorial assignment bound
   to exact content-version, manifest and catalog identities, with an exact
   item/audio scope and declared operator IDs. Its pure validator does not
-  persist or append assignments and no real assignment exists. There is still
-  no authenticated operator, API, store, CLI mutation or dashboard UI; an
-  assignment is never linguistic review, mastery or release evidence.
+  by itself persist or append assignments and no real assignment exists.
+  E3a now adds a local, server-only D1 event kernel: exact content streams are
+  append-only, predecessor-CAS and actor-idempotent; replay recomputes
+  canonical hashes and enforces lifecycle, target and storage bounds. This
+  kernel is deliberately outside learner identity and runtime. There is still
+  no authenticated/authorized operator workflow, API, CLI mutation,
+  dashboard UI, real principal or real assignment; an assignment is never
+  linguistic review, mastery or release evidence.
   A bounded schema-v5
   importer now validates package-local canonical WAV bytes, duration,
   deterministic transcript alignment, speaker evidence and rights before an

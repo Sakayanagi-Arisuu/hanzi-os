@@ -88,6 +88,22 @@ danh tính đã xác thực. Server-only authenticated append workflow là bound
 tiếp theo; cho tới khi boundary đó tồn tại, không được mô tả contract này như
 assignment store hay multi-user CMS.
 
+E3a bổ sung một kernel lưu trữ D1 server-only cho assignment, tách hoàn toàn
+khỏi learner identity và các bảng học tập. Mỗi content version cùng exact
+manifest/catalog hash có một event stream toàn cục, append-only gồm
+`assigned`, `reassigned` và `cancelled`. Head/predecessor compare-and-swap,
+idempotency theo operator, unique role/target đang hoạt động và các trigger
+immutable ngăn fork, sửa hoặc xóa lịch sử. Repository replay có giới hạn,
+recompute canonical stream/request/envelope/event hash và fail closed khi dữ
+liệu, lifecycle hoặc byte budget bị sai; restore rehearsal bảo toàn cả chuỗi
+và authority trigger.
+
+Kernel E3a vẫn chỉ là local persistence primitive. Nó chưa xác thực operator,
+chưa authorize capability/role, chưa tự bind thời gian và actor từ trusted
+principal, chưa có API/CLI/dashboard, principal thật, assignment thật, hosted
+D1 hay Sites deployment. Những boundary đó không được suy diễn từ việc bảng
+và repository đã tồn tại.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text
