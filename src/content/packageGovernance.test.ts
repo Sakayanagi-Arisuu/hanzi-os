@@ -2761,7 +2761,7 @@ describe("content package governance", () => {
       hashes: {
         manifest: manifestHash,
         runtimeIds: manifestHash,
-        itemCatalog: manifestHash,
+        itemCatalog: bundle.reviews.itemCatalogSha256,
         runtimeCatalog: manifestHash,
         coverageClaims: manifestHash,
         reviews: manifestHash,

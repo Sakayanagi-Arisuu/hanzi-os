@@ -76,6 +76,7 @@ const createAudioCommandFixture = () => {
     "scripts/content/import-audio.mjs",
     "scripts/content/validate.mjs",
     "src/content/governance.mjs",
+    "src/content/editorialReadiness.mjs",
     "src/content/audioInspection.mjs",
     "src/content/characterDataInspection.mjs",
     "content/registry.json",
@@ -204,6 +205,7 @@ const createCharacterCommandFixture = () => {
     "scripts/content/import-character-metadata.mjs",
     "scripts/content/validate.mjs",
     "src/content/governance.mjs",
+    "src/content/editorialReadiness.mjs",
     "src/content/audioInspection.mjs",
     "src/content/characterDataInspection.mjs",
     "content/registry.json",
@@ -400,6 +402,68 @@ describe("content validation command", () => {
     ]);
   });
 
+  it("reports the exact-hash editorial backlog without treating readiness as command failure", async () => {
+    const output: string[] = [];
+    vi.spyOn(console, "log").mockImplementation((value) => {
+      output.push(String(value));
+    });
+
+    await expect(
+      runContentCommand("report", ["foundation-2026.07.6"]),
+    ).resolves.toBe(0);
+
+    const report = JSON.parse(output.at(-1) ?? "{}") as {
+      contentVersion?: string;
+      editorialReadiness?: {
+        contentVersion: string;
+        packageManifestSha256: string;
+        itemCatalogSha256: string;
+        reviewEnvelopeSha256: string;
+        valid: boolean;
+        summary: {
+          totalItems: number;
+          releaseRelevantItems: number;
+          releaseRelevantItemsNeedingAuthoring: number;
+          itemsApproved: number;
+        };
+        items: Array<{ itemKey: string }>;
+      };
+      validation?: {
+        hashes: {
+          manifest: string;
+          itemCatalog: string;
+          reviews: string;
+        };
+      };
+      releaseAssessments?: {
+        closedAlpha: { eligible: boolean };
+        production: { eligible: boolean };
+      };
+    };
+    expect(report.editorialReadiness).toMatchObject({
+      contentVersion: "foundation-2026.07.6",
+      packageManifestSha256: report.validation?.hashes.manifest,
+      itemCatalogSha256: report.validation?.hashes.itemCatalog,
+      reviewEnvelopeSha256: report.validation?.hashes.reviews,
+      valid: true,
+      summary: {
+        totalItems: 74,
+        releaseRelevantItems: 64,
+        releaseRelevantItemsNeedingAuthoring: 64,
+        itemsApproved: 0,
+      },
+    });
+    expect(
+      report.editorialReadiness?.items.map(({ itemKey }) => itemKey),
+    ).toEqual(
+      report.editorialReadiness?.items
+        .map(({ itemKey }) => itemKey)
+        .toSorted((left, right) => left.localeCompare(right, "en-US")),
+    );
+    expect(report.releaseAssessments?.closedAlpha.eligible).toBe(false);
+    expect(report.releaseAssessments?.production.eligible).toBe(false);
+  });
+
   it("rejects ambiguous or unknown mutation arguments before writing", async () => {
     const registryPath = join(repositoryRoot, "content/registry.json");
     const registryBefore = readFileSync(registryPath, "utf8");
@@ -432,6 +496,7 @@ describe("content validation command", () => {
         "scripts/content/new-version.mjs",
         "scripts/content/submit-review.mjs",
         "src/content/governance.mjs",
+        "src/content/editorialReadiness.mjs",
         "src/content/audioInspection.mjs",
         "src/content/characterDataInspection.mjs",
         "content/registry.json",
@@ -797,6 +862,7 @@ describe("content validation command", () => {
         "scripts/content/lib.mjs",
         "scripts/content/new-version.mjs",
         "src/content/governance.mjs",
+        "src/content/editorialReadiness.mjs",
         "src/content/audioInspection.mjs",
         "src/content/characterDataInspection.mjs",
         "content/registry.json",

@@ -39,6 +39,9 @@ import {
   inspectCharacterLinguisticSourceRecord,
   inspectHanziWriterCharacterData,
 } from "../../src/content/characterDataInspection.mjs";
+import {
+  assessEditorialReadiness,
+} from "../../src/content/editorialReadiness.mjs";
 
 export const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
 const contentRoot = join(repositoryRoot, "content");
@@ -1609,6 +1612,7 @@ const reportCommand = async (args) => {
   const validation = await validateContentBundle(bundle);
   const closedAlpha = assessClosedAlphaEligibility(bundle, validation);
   const production = assessPublicationEligibility(bundle, validation);
+  const editorialReadiness = assessEditorialReadiness(bundle, validation);
   console.log(
     JSON.stringify(
       {
@@ -1652,6 +1656,7 @@ const reportCommand = async (args) => {
             ? bundle.runtimeCatalog.stories.length
             : 0,
         },
+        editorialReadiness,
         validation,
         releaseAssessments: { closedAlpha, production },
       },

@@ -3192,7 +3192,7 @@ export const validateContentBundle = async (bundle) => {
 
 const REVIEW_SCOPE_FIELDS = ["itemKeys", "audioAssetIds"];
 
-const buildReviewIndexes = (reviews, manifestHash) => {
+const buildReviewIndexes = (reviews, manifestHash, itemCatalogHash) => {
   const latestByRole = new Map();
   const latestByScope = new Map(
     REVIEW_SCOPE_FIELDS.map((scopeField) => [scopeField, new Map()]),
@@ -3201,6 +3201,16 @@ const buildReviewIndexes = (reviews, manifestHash) => {
     if (
       !isRecord(review)
       || review.packageManifestSha256 !== manifestHash
+      || !REVIEW_ROLES.has(review.role)
+      || !REVIEW_DECISIONS.has(review.decision)
+      || !isNonEmptyString(review.reviewId)
+      || !isNonEmptyString(review.reviewerId)
+      || !isValidDate(review.reviewedAt)
+      || !isNonEmptyString(review.evidenceRef)
+      || (
+        itemCatalogHash !== null
+        && review.scope?.itemCatalogSha256 !== itemCatalogHash
+      )
     ) {
       return;
     }
@@ -3234,7 +3244,16 @@ const buildReviewIndexes = (reviews, manifestHash) => {
   return { latestByRole, latestByScope };
 };
 
-const createReleaseEvaluationContext = (bundle, manifestHash) => {
+const createReleaseEvaluationContext = (bundle, validation) => {
+  const manifestHash = validation.hashes.manifest;
+  const itemCatalogHash = validation.hashes.itemCatalog;
+  const reviewEnvelopeIsCurrent =
+    isRecord(bundle.reviews)
+    && bundle.reviews.packageManifestSha256 === manifestHash
+    && (
+      itemCatalogHash === null
+      || bundle.reviews.itemCatalogSha256 === itemCatalogHash
+    );
   const items = Array.isArray(bundle.itemCatalog?.items)
     ? bundle.itemCatalog.items.filter(isRecord)
     : [];
@@ -3242,10 +3261,19 @@ const createReleaseEvaluationContext = (bundle, manifestHash) => {
   const reviews = Array.isArray(bundle.reviews?.reviews)
     ? bundle.reviews.reviews
     : [];
-  const reviewIndexes = buildReviewIndexes(reviews, manifestHash);
+  const reviewIndexes = buildReviewIndexes(
+    reviewEnvelopeIsCurrent ? reviews : [],
+    manifestHash,
+    itemCatalogHash,
+  );
   return {
     bundle,
     manifestHash,
+    itemCatalogHash,
+    packageValidationPassed: validation.errors.length === 0,
+    reviewEnvelopeIsCurrent,
+    packageIsValid:
+      validation.errors.length === 0 && reviewEnvelopeIsCurrent,
     items,
     itemMap,
     itemKeysAreUnique: itemMap.size === items.length,
@@ -3354,12 +3382,85 @@ const characterPayloadIsReleaseComplete = (context, item) => {
   return errors.length === 0;
 };
 
-const itemPassesLocalReleaseRequirements = (context, item) => {
-  let ready = true;
-  if (!item.owner?.id || !item.owner?.evidenceRef) ready = false;
-  if (!item.sourceLicense?.licenseId || !item.sourceLicense?.evidenceRef) ready = false;
-  if (!Array.isArray(item.prerequisites)) ready = false;
-  if (!characterPayloadIsReleaseComplete(context, item)) ready = false;
+const ITEM_REVIEW_ROLES = [
+  "content-owner",
+  "native-linguistic",
+  "source-license",
+];
+
+const reviewRequirementFor = (
+  context,
+  role,
+  scopeField,
+  target,
+  ownerId,
+) => {
+  if (!context.packageValidationPassed) {
+    return {
+      role,
+      status: "blocked-invalid-package",
+      reviewId: null,
+      reviewerId: null,
+      reviewedAt: null,
+    };
+  }
+  if (!context.reviewEnvelopeIsCurrent) {
+    return {
+      role,
+      status: "blocked-stale-review-envelope",
+      reviewId: null,
+      reviewerId: null,
+      reviewedAt: null,
+    };
+  }
+  const review = latestScopedReview(
+    context,
+    role,
+    scopeField,
+    target,
+  );
+  if (!review) {
+    return {
+      role,
+      status: "pending",
+      reviewId: null,
+      reviewerId: null,
+      reviewedAt: null,
+    };
+  }
+  const selected = {
+    role,
+    reviewId: review.reviewId,
+    reviewerId: review.reviewerId,
+    reviewedAt: review.reviewedAt,
+  };
+  if (review.decision === "changes-requested") {
+    return { ...selected, status: "changes-requested" };
+  }
+  if (
+    role === "native-linguistic"
+    && isNonEmptyString(ownerId)
+    && review.reviewerId === ownerId
+  ) {
+    return { ...selected, status: "self-review-conflict" };
+  }
+  return { ...selected, status: "approved" };
+};
+
+const itemAuthoringIssues = (context, item) => {
+  const issues = [];
+  if (!item.owner?.id || !item.owner?.evidenceRef) {
+    issues.push("missing-owner");
+  }
+  if (!item.sourceLicense?.licenseId || !item.sourceLicense?.evidenceRef) {
+    issues.push("missing-source-license");
+  }
+  if (!Array.isArray(item.prerequisites)) {
+    issues.push("prerequisites-undecided");
+  }
+  if (!characterPayloadIsReleaseComplete(context, item)) {
+    issues.push("character-analysis-incomplete");
+  }
   if (
     item.itemType === "lesson"
     && Array.isArray(item.prerequisites)
@@ -3367,28 +3468,53 @@ const itemPassesLocalReleaseRequirements = (context, item) => {
       (reference) => !isRecord(reference) || reference.itemType !== "lesson",
     )
   ) {
-    ready = false;
+    issues.push("lesson-prerequisites-invalid");
   }
   if (
     item.itemType === "graded-text"
     && Array.isArray(item.prerequisites)
     && item.prerequisites.length > 0
   ) {
-    ready = false;
+    issues.push("graded-text-prerequisites-invalid");
   }
-  for (const role of ["content-owner", "native-linguistic", "source-license"]) {
-    const review = latestScopedReview(
+  return issues;
+};
+
+const itemReviewRequirements = (context, item) =>
+  ITEM_REVIEW_ROLES.map((role) =>
+    reviewRequirementFor(
       context,
       role,
       "itemKeys",
       item.itemKey,
-    );
-    if (!review || review.decision !== "approved") ready = false;
-    if (role === "native-linguistic" && review?.reviewerId === item.owner?.id) {
-      ready = false;
-    }
+      item.owner?.id,
+    ));
+
+const itemPassesLocalReleaseRequirements = (context, item) =>
+  itemAuthoringIssues(context, item).length === 0
+  && itemReviewRequirements(context, item).every(
+    (requirement) => requirement.status === "approved",
+  );
+
+const editorialStatus = (packageIsValid, authoringIssues, requirements) => {
+  if (!packageIsValid) return "invalid";
+  if (
+    requirements.some(
+      (requirement) => requirement.status === "changes-requested",
+    )
+  ) {
+    return "changes-requested";
   }
-  return ready;
+  if (authoringIssues.length > 0) return "needs-authoring";
+  if (
+    requirements.length > 0
+    && requirements.every(
+      (requirement) => requirement.status === "approved",
+    )
+  ) {
+    return "approved";
+  }
+  return "ready-for-review";
 };
 
 const itemIsReleaseReady = (context, item) => {
@@ -3669,18 +3795,24 @@ const isNonEmptyReviewedGradedText = (context, item) => {
   return gradedTextPayloadIsNonEmpty(item);
 };
 
-const audioAssetIsReleaseReady = (context, asset) => {
+const audioAssetAuthoringIssues = (context, asset) => {
   const { bundle } = context;
+  const issues = [];
   if (
     bundle.manifest?.contentSchemaVersion < 5
     || !isRecord(bundle.itemCatalog)
     || bundle.itemCatalog.schemaVersion < 3
     || bundle.manifest?.governance?.includesAudio !== true
-    || !isRecord(asset)
   ) {
-    return false;
+    issues.push("audio-package-governance-incomplete");
+  }
+  if (!isRecord(asset)) {
+    return [...issues, "audio-asset-invalid"];
   }
   const target = context.itemMap.get(asset.targetItemKey);
+  if (!target) {
+    issues.push("audio-target-missing");
+  }
   const inspection = isNonEmptyString(asset.fileRef)
     ? bundle.audioAssetFileInspections?.[asset.fileRef]
     : null;
@@ -3715,13 +3847,12 @@ const audioAssetIsReleaseReady = (context, asset) => {
       (text) => normalizeAudioText(text) === normalizeAudioText(asset.transcript),
     );
   if (
-    !target
-    || typeof asset.assetId !== "string"
+    typeof asset.assetId !== "string"
     || !LOWERCASE_AUDIO_ASSET_ID_PATTERN.test(asset.assetId)
     || asset.assetId.endsWith(".")
     || WINDOWS_RESERVED_FILE_STEM_PATTERN.test(asset.assetId)
     || asset.fileRef !== `audio/${asset.assetId}.wav`
-    || asset.targetPayloadSha256 !== target.payloadSha256
+    || asset.targetPayloadSha256 !== target?.payloadSha256
     || !DIGEST_PATTERN.test(asset.fileSha256 ?? "")
     || bundle.audioAssetFileHashes?.[asset.fileRef] !== asset.fileSha256
     || !isRecord(inspection)
@@ -3734,30 +3865,47 @@ const audioAssetIsReleaseReady = (context, asset) => {
     || alignment.targetTextSha256 !== asset.transcriptSha256
     || !alignmentSegmentsAreValid
     || !transcriptMatchesTarget
+    || !isNonEmptyString(asset.transcript)
     || normalizeAudioText(segmentTexts.join("")) !== normalizeAudioText(asset.transcript)
-    || !audioRightsEqual(asset.rights, bundle.manifest?.governance?.audioRights)
-    || !isNonEmptyString(asset.speaker?.id)
-    || !isNonEmptyString(asset.speaker?.nativeSpeakerEvidenceRef)
+  ) {
+    issues.push("audio-asset-unverified");
+  }
+  if (
+    !audioRightsEqual(asset.rights, bundle.manifest?.governance?.audioRights)
     || !isNonEmptyString(asset.rights?.ownerId)
     || !isNonEmptyString(asset.rights?.licenseId)
     || !isNonEmptyString(asset.rights?.evidenceRef)
   ) {
-    return false;
+    issues.push("audio-rights-incomplete");
   }
-  for (const role of ["native-linguistic", "audio-rights"]) {
-    const review = latestScopedReview(
+  if (
+    !isNonEmptyString(asset.speaker?.id)
+    || !isNonEmptyString(asset.speaker?.nativeSpeakerEvidenceRef)
+  ) {
+    issues.push("native-speaker-evidence-missing");
+  }
+  return [...new Set(issues)];
+};
+
+const audioAssetReviewRequirements = (context, asset) => {
+  const target = isRecord(asset)
+    ? context.itemMap.get(asset.targetItemKey)
+    : null;
+  return ["native-linguistic", "audio-rights"].map((role) =>
+    reviewRequirementFor(
       context,
       role,
       "audioAssetIds",
-      asset.assetId,
-    );
-    if (!review || review.decision !== "approved") return false;
-    if (role === "native-linguistic" && review.reviewerId === target.owner?.id) {
-      return false;
-    }
-  }
-  return true;
+      isRecord(asset) ? asset.assetId : "",
+      target?.owner?.id,
+    ));
 };
+
+const audioAssetIsReleaseReady = (context, asset) =>
+  audioAssetAuthoringIssues(context, asset).length === 0
+  && audioAssetReviewRequirements(context, asset).every(
+    (requirement) => requirement.status === "approved",
+  );
 
 const schemaV5AudioReleaseBlockers = (context) => {
   const { bundle } = context;
@@ -3833,19 +3981,253 @@ const assessClosedAlphaEligibilityWithContext = (
   return withAdditionalBlockers(base, blockers);
 };
 
-export const assessClosedAlphaEligibility = (bundle, validation) => {
-  const context = createReleaseEvaluationContext(
-    bundle,
-    validation.hashes.manifest,
+const PACKAGE_AUTHORING_ISSUES = {
+  invalid: "invalid-package",
+  contentOwner: "missing-package-content-owner",
+  sourceLicense: "missing-package-source-license",
+  audioRights: "missing-package-audio-rights",
+  reviewEnvelope: "stale-review-envelope",
+};
+
+const packageAuthoringIssues = (
+  bundle,
+  validation,
+  reviewEnvelopeIsCurrent,
+) => {
+  const issues = [];
+  if (validation.errors.length > 0) {
+    issues.push(PACKAGE_AUTHORING_ISSUES.invalid);
+  }
+  if (!reviewEnvelopeIsCurrent) {
+    issues.push(PACKAGE_AUTHORING_ISSUES.reviewEnvelope);
+  }
+  if (
+    !bundle.manifest?.governance?.contentOwner?.id
+    || !bundle.manifest?.governance?.contentOwner?.evidenceRef
+  ) {
+    issues.push(PACKAGE_AUTHORING_ISSUES.contentOwner);
+  }
+  if (
+    !bundle.manifest?.governance?.sourceLicense?.licenseId
+    || !bundle.manifest?.governance?.sourceLicense?.evidenceRef
+  ) {
+    issues.push(PACKAGE_AUTHORING_ISSUES.sourceLicense);
+  }
+  if (
+    bundle.manifest?.governance?.includesAudio === true
+    && (
+      !bundle.manifest?.governance?.audioRights?.ownerId
+      || !bundle.manifest?.governance?.audioRights?.licenseId
+      || !bundle.manifest?.governance?.audioRights?.evidenceRef
+    )
+  ) {
+    issues.push(PACKAGE_AUTHORING_ISSUES.audioRights);
+  }
+  return issues;
+};
+
+const emptyReleaseStateCounts = () => ({
+  draft: 0,
+  review: 0,
+  beta: 0,
+  published: 0,
+  retired: 0,
+});
+
+const safeContentItemKey = (value) => {
+  if (!isNonEmptyString(value)) return false;
+  const separatorIndex = value.indexOf(":");
+  if (
+    separatorIndex <= 0
+    || separatorIndex !== value.lastIndexOf(":")
+  ) {
+    return false;
+  }
+  return ITEM_TYPES_V2.has(value.slice(0, separatorIndex))
+    && SAFE_ID_PATTERN.test(value.slice(separatorIndex + 1));
+};
+
+const editorialItemHasSafeIdentity = (item) =>
+  isRecord(item)
+  && ITEM_TYPES_V2.has(item.itemType)
+  && SAFE_ID_PATTERN.test(item.itemId ?? "")
+  && item.itemKey === `${item.itemType}:${item.itemId}`
+  && safeContentItemKey(item.itemKey)
+  && RELEASE_STATES.has(item.releaseState);
+
+const editorialAudioHasSafeIdentity = (asset) =>
+  isRecord(asset)
+  && typeof asset.assetId === "string"
+  && LOWERCASE_AUDIO_ASSET_ID_PATTERN.test(asset.assetId)
+  && !asset.assetId.endsWith(".")
+  && !WINDOWS_RESERVED_FILE_STEM_PATTERN.test(asset.assetId)
+  && safeContentItemKey(asset.targetItemKey);
+
+const identityCounts = (values, identity) => {
+  const counts = new Map();
+  values.forEach((value) => {
+    if (!isRecord(value)) return;
+    const key = value[identity];
+    if (!isNonEmptyString(key)) return;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  });
+  return counts;
+};
+
+/**
+ * Produce a deterministic, read-only editorial queue bound to the exact
+ * candidate hashes. This is an operator aid only; release eligibility remains
+ * owned by the fail-closed policy assessments below.
+ */
+export const assessEditorialReadiness = (bundle, validation) => {
+  const context = createReleaseEvaluationContext(bundle, validation);
+  const rawCatalogItems = Array.isArray(bundle.itemCatalog?.items)
+    ? bundle.itemCatalog.items
+    : [];
+  const itemKeyCounts = identityCounts(rawCatalogItems, "itemKey");
+  const editorialItems = rawCatalogItems.filter(
+    (item) =>
+      editorialItemHasSafeIdentity(item)
+      && itemKeyCounts.get(item.itemKey) === 1,
   );
+  const releaseRelevantKeys = new Set(
+    releasedCatalogItems(context).map((item) => item.itemKey),
+  );
+  const items = editorialItems
+    .map((item) => {
+      const authoringIssues = itemAuthoringIssues(context, item);
+      const reviewRequirements = itemReviewRequirements(context, item);
+      return {
+        itemKey: item.itemKey,
+        itemType: item.itemType,
+        releaseState: item.releaseState,
+        releaseRelevant: releaseRelevantKeys.has(item.itemKey),
+        status: editorialStatus(
+          context.packageIsValid,
+          authoringIssues,
+          reviewRequirements,
+        ),
+        authoringIssues,
+        reviewRequirements,
+      };
+    })
+    .sort((left, right) =>
+      String(left.itemKey).localeCompare(String(right.itemKey), "en-US"));
+  const rawAudioAssets = Array.isArray(bundle.itemCatalog?.audioAssets)
+    ? bundle.itemCatalog.audioAssets
+    : [];
+  const assetIdCounts = identityCounts(rawAudioAssets, "assetId");
+  const audioAssets = rawAudioAssets
+    .filter(
+      (asset) =>
+        editorialAudioHasSafeIdentity(asset)
+        && assetIdCounts.get(asset.assetId) === 1,
+    )
+    .map((asset) => {
+      const authoringIssues = audioAssetAuthoringIssues(context, asset);
+      const reviewRequirements = audioAssetReviewRequirements(context, asset);
+      return {
+        assetId: asset.assetId,
+        targetItemKey: asset.targetItemKey,
+        releaseRelevant: releaseRelevantKeys.has(asset.targetItemKey),
+        status: editorialStatus(
+          context.packageIsValid,
+          authoringIssues,
+          reviewRequirements,
+        ),
+        authoringIssues,
+        reviewRequirements,
+      };
+    })
+    .sort((left, right) =>
+      String(left.assetId).localeCompare(String(right.assetId), "en-US"));
+  const reviewEntries = Array.isArray(bundle.reviews?.reviews)
+    ? bundle.reviews.reviews
+    : [];
+  const usableReviewCount = context.packageIsValid
+    ? reviewEntries.filter(
+      (review) =>
+        isRecord(review)
+        && review.packageManifestSha256 === validation.hashes.manifest
+        && (
+          validation.hashes.itemCatalog === null
+          || review.scope?.itemCatalogSha256 === validation.hashes.itemCatalog
+        ),
+    ).length
+    : 0;
+  const releaseStateCounts = emptyReleaseStateCounts();
+  items.forEach((item) => {
+    if (Object.hasOwn(releaseStateCounts, item.releaseState)) {
+      releaseStateCounts[item.releaseState] += 1;
+    }
+  });
+  return {
+    schemaVersion: 1,
+    contentVersion: bundle.manifest?.contentVersion ?? null,
+    packageManifestSha256: validation.hashes.manifest,
+    itemCatalogSha256: validation.hashes.itemCatalog,
+    reviewEnvelopeSha256: validation.hashes.reviews,
+    valid: context.packageIsValid,
+    packageAuthoringIssues: packageAuthoringIssues(
+      bundle,
+      validation,
+      context.reviewEnvelopeIsCurrent,
+    ),
+    summary: {
+      totalItems: rawCatalogItems.length,
+      projectedItems: items.length,
+      invalidCatalogItems: rawCatalogItems.length - items.length,
+      releasedItems: items.filter(
+        (item) => RELEASED_STATES.has(item.releaseState),
+      ).length,
+      reviewItems: releaseStateCounts.review,
+      draftItems: releaseStateCounts.draft,
+      releaseRelevantItems: items.filter((item) => item.releaseRelevant).length,
+      itemsMissingOwner: items.filter(
+        (item) => item.authoringIssues.includes("missing-owner"),
+      ).length,
+      itemsMissingSourceLicense: items.filter(
+        (item) => item.authoringIssues.includes("missing-source-license"),
+      ).length,
+      itemsMissingPrerequisites: items.filter(
+        (item) => item.authoringIssues.includes("prerequisites-undecided"),
+      ).length,
+      itemsNeedingAuthoring: items.filter(
+        (item) => item.authoringIssues.length > 0,
+      ).length,
+      releaseRelevantItemsNeedingAuthoring: items.filter(
+        (item) => item.releaseRelevant && item.authoringIssues.length > 0,
+      ).length,
+      itemsReadyForReview: items.filter(
+        (item) => item.status === "ready-for-review",
+      ).length,
+      itemsChangesRequested: items.filter(
+        (item) => item.status === "changes-requested",
+      ).length,
+      itemsApproved: items.filter(
+        (item) => item.status === "approved",
+      ).length,
+      itemsInvalid: items.filter((item) => item.status === "invalid").length,
+      audioAssets: rawAudioAssets.length,
+      projectedAudioAssets: audioAssets.length,
+      invalidAudioAssets: rawAudioAssets.length - audioAssets.length,
+      reviewCount: reviewEntries.length,
+      usableReviewCount,
+      unusableReviewCount: reviewEntries.length - usableReviewCount,
+      releaseStateCounts,
+    },
+    items,
+    audioAssets,
+  };
+};
+
+export const assessClosedAlphaEligibility = (bundle, validation) => {
+  const context = createReleaseEvaluationContext(bundle, validation);
   return assessClosedAlphaEligibilityWithContext(bundle, validation, context);
 };
 
 export const assessPublicationEligibility = (bundle, validation) => {
-  const context = createReleaseEvaluationContext(
-    bundle,
-    validation.hashes.manifest,
-  );
+  const context = createReleaseEvaluationContext(bundle, validation);
   const closedAlpha = assessClosedAlphaEligibilityWithContext(
     bundle,
     validation,

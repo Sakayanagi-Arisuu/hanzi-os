@@ -152,6 +152,18 @@ This is a local engineering checkpoint, not production release evidence.
   item/runtime lesson closure uses a bounded reachability bitset, including
   non-lesson dependency frontiers, so a 10,000-lesson chain no longer performs
   repeated quadratic closure scans.
+- `content:report` now includes a deterministic editorial-readiness projection
+  bound to the exact content version, manifest, item catalog and review
+  envelope. It reuses release-policy scope, precedence, dependency closure,
+  self-review, audio and character semantics rather than maintaining a second
+  approval model.
+- The `.07.6` projection exposes 74 authoring items, 64 release-relevant items,
+  74 missing owners/licenses, 25 unresolved prerequisite decisions and zero
+  approvals. Draft inventory remains visible but separate from the
+  release-critical queue; no payload or evidence reference is emitted.
+- This is CLI-only, read-only infrastructure. No assignment, review, operator
+  identity, learner-runtime route, D1 mutation, Sites version or deployment was
+  created.
 
 ## Local verification
 
@@ -163,16 +175,18 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 138 files, 1,143 tests passed
+  - Vitest: 139 files, 1,153 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 391.0 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 95 / 88 / 98, median 95
+  - Performance: 96 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,890 ms; CLS: 0; TBT: 209 ms
+  - Median LCP: 1,890 ms; CLS: 0; TBT: 119 ms
+  - An immediately preceding run under local load measured 94 / 92 / 98 and
+    failed at median performance 94; the threshold was not lowered or bypassed.
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -198,16 +212,19 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Build the multi-user editorial assignment/review dashboard with accountable
-   roles and exact manifest/catalog scopes.
-3. Obtain an attributable legal/license decision for the pinned
+2. Define an immutable assignment envelope bound to content version,
+   manifest/catalog hash, exact targets, accountable role and operator
+   identity; keep it outside the learner runtime.
+3. Add operator authorization and a server-only assignment/review workflow
+   before exposing any editorial dashboard UI.
+4. Obtain an attributable legal/license decision for the pinned
    Make Me a Hanzi and CJKVI/CHISE records; replace a source rather than
    weakening the gate if its terms are unsuitable.
-4. Obtain independent native linguistic review for the exact seven-character
+5. Obtain independent native linguistic review for the exact seven-character
    candidate and record changes as a new immutable version.
-5. Only after those gates, expand a reviewed A0 inventory and run
+6. Only after those gates, expand a reviewed A0 inventory and run
    pilot/calibration work before making assessment or coverage claims.
-6. Leave Sites ownership, saved version and deployment until the final release
+7. Leave Sites ownership, saved version and deployment until the final release
    step.
 
 Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use

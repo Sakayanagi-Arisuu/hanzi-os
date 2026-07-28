@@ -66,6 +66,19 @@ node scripts/content/promote.mjs foundation-2026.07.6 --channel closed-alpha
 release blocker. `verify-release` trả `1` cho candidate hiện tại. `promote`
 không có `--write` chỉ dry-run policy.
 
+`report.editorialReadiness` là projection read-only bind exact content version,
+manifest/catalog/review-envelope hash. Mỗi item có trạng thái
+`needs-authoring`, `ready-for-review`, `changes-requested`, `approved` hoặc
+`invalid`, cùng requirement theo role nhưng không lộ payload hay evidence ref.
+Review stale, scope wildcard/duplicate, catalog hash lệch, precedence mơ hồ và
+native self-review không được tính là approval.
+
+Snapshot `.07.6` hiện báo 74/74 item thiếu owner và source license, 25 item chưa
+có quyết định prerequisite, 64 item nằm trong release-relevant closure và cả 64
+đều cần authoring. Mười lesson draft vẫn được liệt kê nhưng không bị trộn vào
+release-critical queue. Báo cáo không tạo assignment, review hay promotion và
+không thay thế `verify-release`.
+
 ## Tạo candidate kế tiếp
 
 Tạo catalog draft từ full authoring inventory của package nguồn. Tooling tái
@@ -267,12 +280,13 @@ audio cho released core content.
 - `new-version` bảo toàn audio/character artifact nhưng không được dùng để thay
   asset hoặc thay sourced character analysis. Chưa có workflow retirement
   audio; xóa một target đang được bind sẽ fail closed.
-- Các importer kỹ thuật đã có nhưng candidate hiện tại chưa chứa audio,
-  character source, speaker/right evidence hay scoped approval thật.
+- Candidate hiện tại có source-addressed character records nhưng chưa chứa
+  audio, speaker/right evidence hay scoped approval thật.
 - Runtime projection đã được tách khỏi governance catalog và allow-list từng
   field. Không được đổi client trở lại import `item-catalog.json`.
-- Catalog draft exporter là bootstrap workflow, không phải multi-user CMS,
-  assignment queue hay dashboard SLA.
+- Catalog draft exporter và editorial readiness report là bootstrap workflow,
+  chưa phải multi-user CMS, assignment store, operator authorization hay
+  dashboard SLA.
 
 Không promote cho tới khi owner/license/native evidence thật, reviewed
 inventory, coverage graph và audio workflow đạt gate. Sites/deploy là gate vận

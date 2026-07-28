@@ -621,6 +621,104 @@ export type ContentReviewArtifact =
       >;
     };
 
+export type EditorialReadinessStatus =
+  | "invalid"
+  | "needs-authoring"
+  | "ready-for-review"
+  | "changes-requested"
+  | "approved";
+
+export type EditorialReviewRequirementStatus =
+  | "blocked-invalid-package"
+  | "blocked-stale-review-envelope"
+  | "pending"
+  | "changes-requested"
+  | "self-review-conflict"
+  | "approved";
+
+export type EditorialReviewRequirement = {
+  role: ReviewRole;
+  status: EditorialReviewRequirementStatus;
+  reviewId: string | null;
+  reviewerId: string | null;
+  reviewedAt: string | null;
+};
+
+export type EditorialAuthoringIssue =
+  | "invalid-package"
+  | "stale-review-envelope"
+  | "missing-package-content-owner"
+  | "missing-package-source-license"
+  | "missing-package-audio-rights"
+  | "missing-owner"
+  | "missing-source-license"
+  | "prerequisites-undecided"
+  | "character-analysis-incomplete"
+  | "lesson-prerequisites-invalid"
+  | "graded-text-prerequisites-invalid"
+  | "audio-package-governance-incomplete"
+  | "audio-asset-invalid"
+  | "audio-target-missing"
+  | "audio-asset-unverified"
+  | "audio-rights-incomplete"
+  | "native-speaker-evidence-missing";
+
+export type EditorialReadinessItem = {
+  itemKey: ContentItemKey;
+  itemType: ContentItemType;
+  releaseState: ContentReleaseState;
+  releaseRelevant: boolean;
+  status: EditorialReadinessStatus;
+  authoringIssues: EditorialAuthoringIssue[];
+  reviewRequirements: EditorialReviewRequirement[];
+};
+
+export type EditorialReadinessAudioAsset = {
+  assetId: string;
+  targetItemKey: ContentItemKey;
+  releaseRelevant: boolean;
+  status: EditorialReadinessStatus;
+  authoringIssues: EditorialAuthoringIssue[];
+  reviewRequirements: EditorialReviewRequirement[];
+};
+
+export type EditorialReadinessReport = {
+  schemaVersion: 1;
+  contentVersion: string | null;
+  packageManifestSha256: Sha256Digest;
+  itemCatalogSha256: Sha256Digest | null;
+  reviewEnvelopeSha256: Sha256Digest;
+  valid: boolean;
+  packageAuthoringIssues: EditorialAuthoringIssue[];
+  summary: {
+    totalItems: number;
+    projectedItems: number;
+    invalidCatalogItems: number;
+    releasedItems: number;
+    reviewItems: number;
+    draftItems: number;
+    releaseRelevantItems: number;
+    itemsMissingOwner: number;
+    itemsMissingSourceLicense: number;
+    itemsMissingPrerequisites: number;
+    itemsNeedingAuthoring: number;
+    releaseRelevantItemsNeedingAuthoring: number;
+    itemsReadyForReview: number;
+    itemsChangesRequested: number;
+    itemsApproved: number;
+    itemsInvalid: number;
+    audioAssets: number;
+    projectedAudioAssets: number;
+    invalidAudioAssets: number;
+    reviewCount: number;
+    usableReviewCount: number;
+    unusableReviewCount: number;
+    releaseStateCounts: Record<ContentReleaseState, number>;
+  };
+  items: EditorialReadinessItem[];
+  audioAssets: EditorialReadinessAudioAsset[];
+};
+
 export type ContentRegistryEntry = {
   packageId: string;
   contentVersion: string;

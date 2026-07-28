@@ -246,7 +246,7 @@ Exit criteria:
 - Deliver WS4 skill-specific diagnostic and confidence-aware mastery.
 - Complete unified evidence and speech pipeline beta under WS6.
 
-Implementation status (27/07/2026): the technical assessment slice is
+Implementation status (28/07/2026): the technical assessment slice is
 server-authoritative and skill-specific. Authenticated lesson, Reader and
 assessment screens use owner-scoped command outboxes; projection V2 adds an
 answer-free assessment resume and uncalibrated aggregate result; cross-device
@@ -274,8 +274,12 @@ This remains a technical authoring envelope, not completed WS2. Candidate
   character items now bind immutable radical, IDS and byte-inspected stroke
   records; the CJKVI/CHISE license identity remains explicitly pending legal
   review, every component role is neutral `graphic`, and no human approval was
-  fabricated. Audio assets/review and a multi-user CMS are still absent. A
-  bounded schema-v5
+  fabricated. Audio assets/review and a multi-user CMS are still absent.
+  `content:report` now exposes a deterministic, exact-hash editorial-readiness
+  projection for the 74-item backlog without importing authoring data into the
+  learner runtime. It is read-only and does not substitute for an assignment
+  store, operator authorization, human review or release evidence. A bounded
+  schema-v5
   importer now validates package-local canonical WAV bytes, duration,
   deterministic transcript alignment, speaker evidence and rights before an
   atomic candidate handoff; legacy/uninspected audio is release-ineligible.

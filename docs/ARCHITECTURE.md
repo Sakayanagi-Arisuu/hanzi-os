@@ -64,6 +64,15 @@ bind bị từ chối vì retirement chưa được triển khai. Validation gra
 iterative traversal và reachability bitset có giới hạn bộ nhớ/edge để tránh
 stack overflow và closure scan bậc hai nhưng vẫn fail closed khi vượt trần.
 
+`content:report` hiện xuất thêm projection editorial read-only, bind đúng
+content version, manifest hash, catalog hash và review-envelope hash. Projection
+dùng chung review precedence, native-review independence, audio/character
+readiness và transitive release closure với release policy; nó phân biệt
+`needs-authoring`, `ready-for-review`, `changes-requested` và `approved`, đồng
+thời tách 10 draft item khỏi 64 item release-relevant. Dữ liệu này chỉ nằm ở
+CLI quản trị, không được import vào learner SPA. Đây chưa phải assignment store,
+operator authorization hay dashboard web.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text
