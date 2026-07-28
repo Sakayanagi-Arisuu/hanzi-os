@@ -18,6 +18,10 @@ import {
   loadHsk1CommunicativeUnitPacksBundle,
 } from "../../src/content/hsk1CommunicativeUnitPacks.mjs";
 import {
+  assertValidHsk1CharacterFoundationPackBundle,
+  loadHsk1CharacterFoundationPackBundle,
+} from "../../src/content/hsk1CharacterFoundationPack.mjs";
+import {
   assertValidHskSyllabusBundle,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
@@ -51,6 +55,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     loadHsk1CommunicativeUnitPacksBundle(root);
   const hsk1CommunicativePacksResult =
     assertValidHsk1CommunicativeUnitPacksBundle(hsk1CommunicativePacks);
+  const hsk1CharacterPack = loadHsk1CharacterFoundationPackBundle(root);
+  const hsk1CharacterPackResult =
+    assertValidHsk1CharacterFoundationPackBundle(hsk1CharacterPack);
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -243,6 +250,20 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           dialogueTurns: hsk1CommunicativePacksResult.summary.dialogueTurns,
           authoredPracticeItems:
             hsk1CommunicativePacksResult.summary.authoredPracticeItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk1CharacterFoundation: {
+          lessons: hsk1CharacterPackResult.summary.lessons,
+          recognitionCharacters:
+            hsk1CharacterPackResult.summary.characterDrafts,
+          vocabularyContextMapped:
+            hsk1CharacterPackResult.summary.charactersWithVocabularyContext,
+          pinnedStrokeMetadata:
+            hsk1CharacterPackResult.summary
+              .charactersWithPinnedStrokeMetadata,
+          authoredPracticeItems:
+            hsk1CharacterPackResult.summary.authoredPracticeItems,
           reviewed: false,
           learnerVisible: false,
         },

@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **64%**.
+Status: **in progress** at project progress **66%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **64%**.
+Status: **in progress** at project progress **66%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 18 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar |
+| D. Nội dung có coverage HSK0-4 | 30 | 20 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **64** | **Tiến độ hiện tại: 64%** |
+| **Tổng** | **100** | **66** | **Tiến độ hiện tại: 66%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -223,6 +223,16 @@ draft và ba dạng luyện tập, 25 lesson, 102 lượt hội thoại, 900 pra
 và 25 review batch. Điểm tăng ghi nhận coverage authoring có thể kiểm tra và
 tái tạo; 0 mục đã qua review hoặc release, character foundation và bài luyện
 grammar/context vẫn chưa hoàn thiện nên claim HSK1 vẫn là `false`.
+
+Lát G3 thứ năm tăng trụ cột D thêm 2 điểm. Toàn bộ 246 recognition character
+HSK1 đã được ánh xạ deterministically tới từ vựng ngữ cảnh trong 300 mục draft,
+chia thành 15 lesson và có 492 bài luyện: nhận diện chữ trong từ và tự chép
+hình dạng. Mỗi chữ xuất hiện trong đúng một lesson; 15 review batch yêu cầu
+native Mandarin, biên tập tiếng Việt và reviewer sư phạm chữ Hán. Vì repo mới
+có nguồn stroke/radical hoàn chỉnh cho 7 chữ foundation chứ chưa có source
+đồng nhất cho cả inventory, pack này cố ý ghi 0 pinned stroke metadata, không
+dạy/chấm thứ tự nét, không suy diễn writing mastery và vẫn có 0 item
+release-eligible.
 
 ## 6. Quy tắc cập nhật phần trăm
 

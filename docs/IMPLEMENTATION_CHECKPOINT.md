@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **64%**.
+Active progress: **66%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
-| HSK0-4 content coverage | 18 / 30 | All 300 HSK1 communicative vocabulary records now have Vietnamese draft glosses and three practice drafts across 25 lessons; review, character/grammar/context content and HSK2-4 remain. |
+| HSK0-4 content coverage | 20 / 30 | All 300 HSK1 vocabulary records and 246 recognition characters have contextual draft practice; review, complete stroke metadata, grammar/context content and HSK2-4 remain. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -136,6 +136,13 @@ Every commit must update this percentage here and in the active roadmap.
   records with 25 lessons, 102 dialogue turns and 900 practice items. Every
   item remains review-pending, measurement/mastery-ineligible and excluded
   from runtime; HSK1 completion therefore remains false.
+- Added the learner-hidden `hsk1-character-foundation` pack: all 246 official
+  recognition characters are mapped to existing HSK1 vocabulary contexts,
+  partitioned across 15 sequential lessons and exercised by 246
+  character-in-word items plus 246 glyph-copy self-checks.
+- The pack explicitly records zero complete pinned stroke metadata, teaches
+  and assesses no stroke order, never infers writing mastery from recognition
+  or self-check, and leaves all 15 character review batches unapproved.
 
 ## Repository state
 
@@ -405,18 +412,22 @@ the applicable gates to run again before the next checkpoint commit.
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
     drafts, 66 grammar mappings, 102 dialogue turns, 900 vocabulary practice
     items and 25 pending review batches; 0 release-eligible item
+  - HSK1 character-foundation draft pack: 15 lesson blueprints, 246
+    vocabulary-context mappings, 492 recognition/copy practice items and 15
+    pending review batches; 0 pinned full-inventory stroke metadata and 0
+    release-eligible item
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 150 files, 1,240 tests passed
+  - Vitest: 151 files, 1,244 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 96 / 98 / 98, median 98
+  - Performance: 98 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,904 ms; CLS: 0; TBT: 79 ms
+  - Median LCP: 1,887 ms; CLS: 0; TBT: 104 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -441,9 +452,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Build the learner-hidden `hsk1-character-foundation` pack and add explicit
-   grammar/context practice for the 25 communicative lesson blueprints; keep
-   all 25 existing review batches open.
+1. Add explicit grammar/context practice for all 66 HSK1 grammar rows across
+   the 25 communicative lesson blueprints; keep the 25 vocabulary and 15
+   character review batches open.
 2. Finish the remaining G2 placement/progress work when reviewed HSK1 content can
    exercise it; keep all imported content unpublished until schema, provenance
    and applicable linguistic checks pass.

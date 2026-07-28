@@ -82,6 +82,9 @@ describe("HSK1 CC-CEDICT source-enrichment draft", () => {
       vietnameseGlossDrafted: 300,
       lessonBlueprintVocabularyMapped: 300,
       vocabularyPracticeDrafted: 300,
+      recognitionCharactersDraftMapped: 246,
+      characterPracticeDrafted: 246,
+      charactersWithPinnedStrokeMetadata: 0,
       pronunciationCompatible: 297,
       vietnameseGlossReviewed: 0,
       lessonMapped: 23,
@@ -98,6 +101,9 @@ describe("HSK1 CC-CEDICT source-enrichment draft", () => {
       draftDialogueTurns: 102,
       authoredPracticeItems: 900,
       pendingReviewBatches: 25,
+      draftCharacterLessons: 15,
+      authoredCharacterPracticeItems: 492,
+      pendingCharacterReviewBatches: 15,
     });
     expect(report.editorialQueue.pronunciationReviewItems).toEqual([
       {
