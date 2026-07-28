@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **55%**.
+Status: **in progress** at project progress **57%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **55%**.
+Status: **in progress** at project progress **57%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 9 | inventory, authoring scope, source-backed draft, lesson, dialogue/reader, character/grammar |
+| D. Nội dung có coverage HSK0-4 | 30 | 11 | inventory, authoring scope, Vietnamese draft, lesson/dialogue blueprint, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **55** | **Tiến độ hiện tại: 55%** |
+| **Tổng** | **100** | **57** | **Tiến độ hiện tại: 57%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -195,6 +195,14 @@ CC BY-SA 4.0. Điểm này chỉ ghi nhận source enrichment đầy đủ và r
 có thể thi hành; 0 nghĩa tiếng Việt đã review, 0 mục release-eligible và chỉ
 23 mục có lesson mapping, nên claim hoàn thành từ vựng HSK1 và HSK1 vẫn là
 `false`.
+
+Lát G3 thứ hai tăng trụ cột D thêm 2 điểm. Unit
+`hsk1-personal-exchange` đã có 107 nghĩa Việt AI-assisted draft gắn provenance,
+9 lesson blueprint tuần tự, đủ mapping blueprint cho 2 task, 5 topic, 107 từ
+và 32 grammar row, cùng 38 lượt hội thoại mẫu. Validator bắt buộc exact
+partition, prerequisite chain, source digest và trạng thái review-pending.
+Điểm chỉ ghi nhận khối authoring có thể review; authored practice item,
+reviewed gloss/dialogue, learner-visible và release-eligible đều vẫn bằng 0.
 
 ## 6. Quy tắc cập nhật phần trăm
 

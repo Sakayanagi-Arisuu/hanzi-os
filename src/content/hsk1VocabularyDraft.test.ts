@@ -79,6 +79,8 @@ describe("HSK1 CC-CEDICT source-enrichment draft", () => {
       dictionaryMatched: 300,
       englishSourceSenseReady: 300,
       authoringScoped: 300,
+      vietnameseGlossDrafted: 107,
+      lessonBlueprintVocabularyMapped: 107,
       pronunciationCompatible: 297,
       vietnameseGlossReviewed: 0,
       lessonMapped: 23,

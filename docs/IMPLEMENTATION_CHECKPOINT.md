@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **55%**.
+Active progress: **57%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
-| HSK0-4 content coverage | 9 / 30 | Official inventory, complete HSK1 authoring scope and a source-backed 300-item editorial backlog exist; 23 words map into current lessons, while Vietnamese review, examples and HSK2-4 lessons remain absent. |
+| HSK0-4 content coverage | 11 / 30 | HSK1 has complete authoring scope plus a 107-lexeme/9-lesson personal-exchange draft pack; reviewed Vietnamese, authored practice, remaining HSK1 units and HSK2-4 lessons remain absent. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -112,6 +112,14 @@ Every commit must update this percentage here and in the active roadmap.
 - G3 can proceed before the remaining placement calibration because this slice
   is learner-hidden authoring input. Runtime promotion still depends on
   Vietnamese definitions, examples, unit/practice mapping and review.
+- Added the first unit content pack for `hsk1-personal-exchange`: 107
+  AI-assisted Vietnamese gloss drafts with exact source-line provenance,
+  9 sequential lesson blueprints, 38 model-dialogue turns and complete
+  blueprint partitions for its 2 tasks, 5 topics and 32 grammar rows.
+- The pack explicitly records AI-assisted authorship, CC BY-SA treatment,
+  missing Mandarin/Vietnamese/assessment reviewers and browser-TTS-only audio
+  policy. It contains zero authored practice items, zero approved content and
+  zero release-eligible items, so it is not imported into runtime.
 
 ## Repository state
 
@@ -378,18 +386,24 @@ the applicable gates to run again before the next checkpoint commit.
   - pinned HSK1-4 source/inventory validation and checked coverage report
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
+  - personal-exchange draft pack: 9 lesson blueprints, 107 Vietnamese gloss
+    drafts, 32 grammar mappings and 38 dialogue turns; 0 authored practice
+    item and 0 release-eligible item
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 148 files, 1,231 tests passed
+  - Vitest: 149 files, 1,235 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 96 / 98, median 98
+  - Performance: 98 / 99 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,891 ms; CLS: 0; TBT: 74 ms
+  - Median LCP: 1,889 ms; CLS: 0; TBT: 76 ms
+  - the first sample taken immediately after E2E was noisy and failed at
+    median 85 / TBT 541 ms; one independent three-run rerun passed the values
+    above without a source or build change
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -414,9 +428,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Continue G3 with Vietnamese draft glosses and the first complete
-   `hsk1-personal-exchange` lesson/practice pack, while resolving its subset of
-   the 3 pronunciation and 23 multi-match editorial queues.
+1. Turn the nine `hsk1-personal-exchange` blueprints into authored practice
+   items and review batches; then repeat the content-pack workflow for
+   `hsk1-time-place-events`.
 2. Finish the remaining G2 placement/progress work when real HSK1 content can
    exercise it; keep all imported content unpublished until schema, provenance
    and applicable linguistic checks pass.

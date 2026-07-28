@@ -129,6 +129,17 @@ Scope này chỉ quyết định nơi biên tập item, không chứng minh less
 coverage. Checked report vẫn tách `authoringScope` khỏi released learning
 mapping; task/topic/grammar thực dạy hiện vẫn bằng 0.
 
+`content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
+được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
+lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107
+vocabulary, 32 grammar row. Mỗi lesson có prerequisite, objective và practice
+blueprint dùng chung bốn modality, nhưng `authoredItemCount` vẫn bằng 0.
+
+Pack gắn exact scope/dictionary-draft digest, giữ source-line provenance và
+CC BY-SA 4.0. Native Mandarin review, Vietnamese editorial review, assessment
+review và dialogue-pinyin review đều `pending`; vì vậy pack learner-hidden,
+không release-eligible và không cấp mastery.
+
 ## Knowledge item
 
 ### Lexeme

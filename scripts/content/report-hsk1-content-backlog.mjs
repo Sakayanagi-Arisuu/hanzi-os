@@ -9,6 +9,10 @@ import {
   assertValidHsk1CurriculumScopeBundle,
   loadHsk1CurriculumScopeBundle,
 } from "../../src/content/hsk1CurriculumScope.mjs";
+import {
+  assertValidHsk1PersonalExchangePackBundle,
+  loadHsk1PersonalExchangePackBundle,
+} from "../../src/content/hsk1PersonalExchangePack.mjs";
 
 export const HSK1_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
   "content/reports/hsk1-content-backlog.json";
@@ -18,6 +22,9 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
   assertValidHsk1VocabularyDraftBundle(bundle);
   const scopeBundle = loadHsk1CurriculumScopeBundle(root);
   const scopeResult = assertValidHsk1CurriculumScopeBundle(scopeBundle);
+  const personalPackBundle = loadHsk1PersonalExchangePackBundle(root);
+  const personalPackResult =
+    assertValidHsk1PersonalExchangePackBundle(personalPackBundle);
   const graph = JSON.parse(readFileSync(
     join(root, "content/curriculum/hsk0-4-graph.json"),
     "utf8",
@@ -37,7 +44,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
       sourceSnapshotSha256: bundle.descriptor.snapshot.sha256,
       syllabusInventorySha256: bundle.draft.syllabusInventorySha256,
     },
-    stage: "draft-source-enrichment",
+    stage: "draft-content-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -49,6 +56,9 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
         ),
       ).length,
       authoringScoped: scopeResult.summary.vocabulary,
+      vietnameseGlossDrafted: personalPackResult.summary.vocabularyDrafts,
+      lessonBlueprintVocabularyMapped:
+        personalPackResult.summary.vocabularyDrafts,
       pronunciationCompatible: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType !== "surface-only",
@@ -81,6 +91,11 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
       usageExampleReviewPending: entries.filter(
         (entry) => entry.editorial.usageExampleReview === "pending",
       ).length,
+      machineDraftGlossReviewPending:
+        personalPackResult.summary.vocabularyDrafts,
+      draftLessonBlueprints: personalPackResult.summary.lessons,
+      draftDialogueTurns: personalPackResult.summary.dialogueTurns,
+      authoredPracticeItems: personalPackResult.summary.authoredPracticeItems,
       pronunciationReviewItems: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType === "surface-only",
@@ -99,7 +114,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
     claims: {
       hsk1VocabularyComplete: false,
       hsk1Complete: false,
-      reason: "Source enrichment is draft-only; Vietnamese review, examples, practice mapping and release remain incomplete.",
+      reason: "AI-assisted content remains draft-only; Vietnamese and Mandarin review, authored practice items, remaining unit packs and release are incomplete.",
     },
   };
 };

@@ -10,6 +10,10 @@ import {
   loadHsk1CurriculumScopeBundle,
 } from "../../src/content/hsk1CurriculumScope.mjs";
 import {
+  assertValidHsk1PersonalExchangePackBundle,
+  loadHsk1PersonalExchangePackBundle,
+} from "../../src/content/hsk1PersonalExchangePack.mjs";
+import {
   assertValidHskSyllabusBundle,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
@@ -36,6 +40,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const curriculumResult = assertValidHskCurriculumGraphBundle(curriculum);
   const hsk1Scope = loadHsk1CurriculumScopeBundle(root);
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
+  const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
+  const hsk1PersonalPackResult =
+    assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -201,6 +208,21 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk1ScopeResult.summary.recognitionCharacters,
           grammarRows: hsk1ScopeResult.summary.grammarRows,
           lessonPracticeCoverageComplete: false,
+        },
+      },
+      draftBlueprintMappings: {
+        hsk1PersonalExchange: {
+          lessons: hsk1PersonalPackResult.summary.lessons,
+          tasks: hsk1PersonalPackResult.summary.taskBlueprintMappings,
+          topics: hsk1PersonalPackResult.summary.topicBlueprintMappings,
+          vocabulary: hsk1PersonalPackResult.summary.vocabularyDrafts,
+          grammarRows:
+            hsk1PersonalPackResult.summary.grammarBlueprintMappings,
+          dialogueTurns: hsk1PersonalPackResult.summary.dialogueTurns,
+          authoredPracticeItems:
+            hsk1PersonalPackResult.summary.authoredPracticeItems,
+          reviewed: false,
+          learnerVisible: false,
         },
       },
       learningMaterials: {

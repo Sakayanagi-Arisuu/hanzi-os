@@ -58,8 +58,8 @@ describe("HSK1 complete authoring scope", () => {
     ));
 
     expect(counts).toEqual({
-      "hsk1-personal-exchange": [2, 5, 108, 32, 0],
-      "hsk1-time-place-events": [3, 3, 65, 25, 0],
+      "hsk1-personal-exchange": [2, 5, 107, 32, 0],
+      "hsk1-time-place-events": [3, 3, 66, 25, 0],
       "hsk1-daily-life": [5, 10, 69, 5, 0],
       "hsk1-travel-leisure": [2, 4, 23, 3, 0],
       "hsk1-study-work": [3, 8, 35, 1, 0],
