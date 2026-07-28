@@ -214,8 +214,8 @@ meaning-recall, pinyin-recognition và listening-selection, tổng 600 item.
 trùng, lesson assignment, provenance và 20 review batch. Tất cả nghĩa Việt
 vẫn chờ native Mandarin/Vietnamese review. Hai trăm item nghe có `audio: null`
 và browser TTS chỉ để luyện draft; 0 item measurement/mastery/release-eligible.
-Grammar, character, dialogue/task production và assessment HSK2 vẫn là các
-lát authoring tiếp theo.
+Character và grammar đã có các pack draft tách biệt bên dưới; dialogue/task
+production và assessment HSK2 vẫn là các lát authoring tiếp theo.
 
 `content/drafts/hsk2-character-practice-2026.07.json` phủ cả 125 recognition
 character bằng 250 item trong 10 bài production: 124 bài nhận diện chữ trong
@@ -228,6 +228,21 @@ không bị gắn giả vào một từ HSK2.
 partition, option, review batch và gap nói trên. Cả 125 chữ vẫn có radical,
 stroke count và stroke data bằng `null`; bài tự chép không dạy/chấm thứ tự nét
 và không suy diễn writing mastery từ recognition hay self-check.
+
+`content/drafts/hsk2-grammar-context-2026.07.json` exact-map cả 75 grammar row
+vào 10 bài sentence-chain. Mỗi row giữ nguyên official source text, category,
+page và lesson/track binding, đồng thời có một giải thích tiếng Việt
+AI-assisted, một ví dụ Hán tự–Pinyin–nghĩa Việt và một guided production có
+đáp án tự đối chiếu riêng. Tổng cộng pack có 75 model example và 75
+guided-pattern-production item.
+
+Chạy `content:hsk2:grammar-context -- --write` để tái tạo; `--check` và
+`content:hsk2:grammar-context:validate` kiểm exact 75-row partition, source
+hash, lesson mapping, tính duy nhất/tính đủ của ngữ cảnh, 10 review batch và
+trạng thái fail-closed. Toàn bộ nội dung vẫn chờ native Mandarin, Vietnamese
+editorial và grammar-pedagogy review; guided item chỉ `self-reveal-only`, có
+0 approval và 0 measurement/mastery/release-eligible item. Draft coverage
+không được suy thành grammar mastery hoặc claim HSK2 hoàn thành.
 
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38

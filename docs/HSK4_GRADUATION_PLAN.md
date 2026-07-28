@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **76%**.
+Status: **in progress** at project progress **77%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **76%**.
+Status: **in progress** at project progress **77%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 10 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 27 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints và 600 vocabulary practice item |
+| D. Nội dung có coverage HSK0-4 | 30 | 28 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character và grammar-context practice |
 | E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **76** | **Tiến độ hiện tại: 76%** |
+| **Tổng** | **100** | **77** | **Tiến độ hiện tại: 77%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -336,6 +336,18 @@ thứ tự nét, không suy diễn writing mastery và giữ 0 approval/
 measurement/release-eligible item. Lát này lấp một backlog con nhưng chưa đủ
 thay đổi điểm D vì grammar, task production, assessment và toàn bộ HSK3–4 vẫn
 rất lớn.
+
+Lát G3 HSK2 thứ năm tăng trụ cột D thêm 1 điểm, đưa tiến độ lên **77%**. Cả
+75 grammar row chính thức đã được exact-map vào 10 bài sentence-chain; mỗi row
+có một giải thích Việt AI-assisted, một ví dụ Hán tự–Pinyin–nghĩa Việt và một
+guided-pattern-production với đáp án tự đối chiếu riêng. Validator bind exact
+official source text/page, lesson/track, kiểm đủ 75 row, tính duy nhất của
+ngữ cảnh, 10 review batch và source hash. Đây vẫn chỉ là authoring draft:
+native Mandarin, Vietnamese editorial và grammar-pedagogy review đều
+`pending`; 75 bài production có 0 approval và 0 measurement/mastery/
+release-eligible item. Điểm tăng ghi nhận một deliverable ngữ pháp có phạm vi
+đóng; task/dialogue production, assessment, audio, runtime promotion và toàn
+bộ HSK3–4 vẫn còn.
 
 ## 6. Quy tắc cập nhật phần trăm
 

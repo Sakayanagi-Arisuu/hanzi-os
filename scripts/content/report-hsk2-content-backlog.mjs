@@ -21,6 +21,10 @@ import {
   assertValidHsk2CharacterPracticeBundle,
   loadHsk2CharacterPracticeBundle,
 } from "../../src/content/hsk2CharacterPractice.mjs";
+import {
+  assertValidHsk2GrammarContextBundle,
+  loadHsk2GrammarContextBundle,
+} from "../../src/content/hsk2GrammarContext.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -40,6 +44,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const characterBundle = loadHsk2CharacterPracticeBundle(root);
   const characterResult =
     assertValidHsk2CharacterPracticeBundle(characterBundle);
+  const grammarBundle = loadHsk2GrammarContextBundle(root);
+  const grammarResult =
+    assertValidHsk2GrammarContextBundle(grammarBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -64,8 +71,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       vocabularyPracticePackSha256: fileSha256(practiceBundle.packPath),
       characterPracticePackId: characterBundle.pack.packId,
       characterPracticePackSha256: fileSha256(characterBundle.packPath),
+      grammarContextPackId: grammarBundle.pack.packId,
+      grammarContextPackSha256: fileSha256(grammarBundle.packPath),
     },
-    stage: "vocabulary-practice-authoring",
+    stage: "grammar-context-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -90,6 +99,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         characterResult.summary.charactersWithPinnedStrokeMetadata,
       grammarRowsDraftMapped:
         blueprintResult.summary.grammarBlueprintMappings,
+      grammarContextDrafted: grammarResult.summary.grammarDrafts,
+      grammarModelExamplesDrafted: grammarResult.summary.modelExamples,
+      guidedGrammarPracticeDrafted:
+        grammarResult.summary.guidedPracticeItems,
       tasksScenarioDraftMapped:
         blueprintResult.summary.taskBlueprintMappings,
       topicsPromptDraftMapped:
@@ -133,6 +146,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         characterResult.summary.authoredPracticeItems,
       pendingCharacterReviewBatches: characterResult.summary.reviewBatches,
       characterPracticeApprovals: characterResult.summary.approvals,
+      authoredGrammarPracticeItems:
+        grammarResult.summary.guidedPracticeItems,
+      pendingGrammarReviewBatches: grammarResult.summary.reviewBatches,
+      grammarPracticeApprovals: grammarResult.summary.approvals,
       characterContextGaps: characterBundle.pack.characters.filter(
         (item) => item.primaryContext === null,
       ).map((item) => ({
@@ -154,7 +171,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All HSK2 vocabulary items and recognition characters have bounded draft practice, but grammar and task production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
+        "All HSK2 vocabulary items, recognition characters and official grammar rows have bounded draft practice, but task/dialogue production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
     },
   };
 };

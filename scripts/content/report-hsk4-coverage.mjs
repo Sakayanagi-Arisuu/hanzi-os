@@ -34,6 +34,10 @@ import {
   loadHsk2CharacterPracticeBundle,
 } from "../../src/content/hsk2CharacterPractice.mjs";
 import {
+  assertValidHsk2GrammarContextBundle,
+  loadHsk2GrammarContextBundle,
+} from "../../src/content/hsk2GrammarContext.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -105,6 +109,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2CharacterPractice = loadHsk2CharacterPracticeBundle(root);
   const hsk2CharacterPracticeResult =
     assertValidHsk2CharacterPracticeBundle(hsk2CharacterPractice);
+  const hsk2GrammarContext = loadHsk2GrammarContextBundle(root);
+  const hsk2GrammarContextResult =
+    assertValidHsk2GrammarContextBundle(hsk2GrammarContext);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -406,6 +413,19 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk2CharacterPracticeResult.summary.authoredPracticeItems,
           measurementEligibleItems:
             hsk2CharacterPracticeResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2GrammarContext: {
+          lessons: hsk2GrammarContextResult.summary.sentenceChainLessons,
+          grammarDrafts: hsk2GrammarContextResult.summary.grammarDrafts,
+          modelExamples: hsk2GrammarContextResult.summary.modelExamples,
+          guidedPracticeItems:
+            hsk2GrammarContextResult.summary.guidedPracticeItems,
+          reviewBatches: hsk2GrammarContextResult.summary.reviewBatches,
+          approvals: hsk2GrammarContextResult.summary.approvals,
+          measurementEligibleItems:
+            hsk2GrammarContextResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

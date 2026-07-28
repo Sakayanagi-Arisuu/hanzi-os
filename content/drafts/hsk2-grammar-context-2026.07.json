@@ -1,0 +1,3877 @@
+{
+  "schemaVersion": 1,
+  "packId": "hsk2-grammar-context-2026.07",
+  "level": 2,
+  "state": "ai-assisted-draft",
+  "learnerVisible": false,
+  "releaseEligible": false,
+  "source": {
+    "scopeId": "hsk2-authoring-scope-2026.07",
+    "syllabusInventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3",
+    "lessonBlueprintPackId": "hsk2-lesson-blueprints-2026.07",
+    "lessonBlueprintPackSha256": "sha256:75d13e22d8dde51859cd99d64a38a37626405a8dfa571e26d8665a7c245e08ab"
+  },
+  "authorship": {
+    "method": "ai-assisted-grammar-explanation-and-context-draft",
+    "assistant": "OpenAI Codex",
+    "nativeMandarinReviewer": null,
+    "vietnameseEditor": null,
+    "grammarPedagogyReviewer": null
+  },
+  "reviewPolicy": {
+    "nativeMandarinRequiredForRelease": true,
+    "vietnameseEditorialRequiredForRelease": true,
+    "grammarPedagogyReviewRequiredForRelease": true,
+    "productiveScoringReviewRequiredForMeasurement": true
+  },
+  "counts": {
+    "lessonBlueprints": 40,
+    "sentenceChainLessons": 10,
+    "grammarDrafts": 75,
+    "modelExamples": 75,
+    "guidedPracticeItems": 75,
+    "reviewBatches": 10,
+    "approvals": 0,
+    "measurementEligibleItems": 0,
+    "masteryEligibleItems": 0,
+    "releaseEligibleItems": 0
+  },
+  "coverageClaims": {
+    "officialGrammarInventoryDraftMapped": true,
+    "grammarContextDraftComplete": true,
+    "reviewedGrammarContentComplete": false,
+    "measurementCoverageComplete": false,
+    "hsk2Complete": false
+  },
+  "grammarDrafts": [
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-001",
+      "officialOrdinal": 1,
+      "sourcePage": 389,
+      "category": "语素",
+      "categoryName": "后缀",
+      "detail": null,
+      "officialContent": "面",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "面 kết hợp với từ chỉ phương hướng để tạo danh từ vị trí như 对面, 前面, 后面; cụm vị trí thường đứng sau địa điểm được quy chiếu.",
+      "modelExample": {
+        "hanzi": "学校对面有一家书店。",
+        "pinyin": "Xuéxiào duìmiàn yǒu yì jiā shūdiàn.",
+        "meaningVi": "Đối diện trường học có một hiệu sách."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 后面 để nói: Phía sau bệnh viện có một quán cà phê.",
+        "modelAnswerHanzi": "医院后面有一家咖啡店。",
+        "modelAnswerPinyin": "Yīyuàn hòumiàn yǒu yì jiā kāfēidiàn.",
+        "modelAnswerMeaningVi": "Phía sau bệnh viện có một quán cà phê."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-002",
+      "officialOrdinal": 2,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "名词",
+      "detail": "方位名词",
+      "officialContent": "左、右",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "左 và 右 là danh từ phương vị chỉ bên trái và bên phải; có thể đi với 边 hoặc 面 và làm trung tâm của cụm vị trí.",
+      "modelExample": {
+        "hanzi": "医院在学校左边。",
+        "pinyin": "Yīyuàn zài xuéxiào zuǒbian.",
+        "meaningVi": "Bệnh viện ở bên trái trường học."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 右边 để nói: Nhà vệ sinh ở bên phải lớp học.",
+        "modelAnswerHanzi": "洗手间在教室右边。",
+        "modelAnswerPinyin": "Xǐshǒujiān zài jiàoshì yòubian.",
+        "modelAnswerMeaningVi": "Nhà vệ sinh ở bên phải lớp học."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-003",
+      "officialOrdinal": 3,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "动词",
+      "detail": "动词重叠",
+      "officialContent": "AA、A一A、A了A、ABAB",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "Lặp động từ biểu thị hành động ngắn, nhẹ hoặc thử làm; các dạng thường gặp là AA, A一A, A了A và ABAB.",
+      "modelExample": {
+        "hanzi": "你先看看这本书。",
+        "pinyin": "Nǐ xiān kànkan zhè běn shū.",
+        "meaningVi": "Bạn hãy xem thử quyển sách này trước."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng dạng ABAB để rủ: Chúng ta nghỉ một chút nhé.",
+        "modelAnswerHanzi": "我们休息休息吧。",
+        "modelAnswerPinyin": "Wǒmen xiūxi xiūxi ba.",
+        "modelAnswerMeaningVi": "Chúng ta nghỉ một chút nhé."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-004",
+      "officialOrdinal": 4,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "动词",
+      "detail": "能愿动词",
+      "officialContent": "可能",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "可能 đứng trước vị ngữ để nêu một khả năng chưa chắc chắn; phủ định thường là 可能不, không dùng để khẳng định năng lực đã học được.",
+      "modelExample": {
+        "hanzi": "他今天可能不来。",
+        "pinyin": "Tā jīntiān kěnéng bù lái.",
+        "meaningVi": "Hôm nay có thể anh ấy không đến."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 可能 để nói: Ngày mai có thể trời mưa.",
+        "modelAnswerHanzi": "明天可能下雨。",
+        "modelAnswerPinyin": "Míngtiān kěnéng xiàyǔ.",
+        "modelAnswerMeaningVi": "Ngày mai có thể trời mưa."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-005",
+      "officialOrdinal": 5,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "动词",
+      "detail": "离合词",
+      "officialContent": "帮忙、游泳、跳舞、跑步",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "帮忙, 游泳, 跳舞 và 跑步 là động từ ly hợp; bổ ngữ thời lượng hoặc số lần có thể chen giữa hai thành tố theo từng mẫu.",
+      "modelExample": {
+        "hanzi": "我昨天跳了两个小时舞。",
+        "pinyin": "Wǒ zuótiān tiào le liǎng ge xiǎoshí wǔ.",
+        "meaningVi": "Hôm qua tôi đã nhảy hai tiếng."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 帮忙 để nói: Bạn có thể giúp tôi một việc không?",
+        "modelAnswerHanzi": "你能帮我一个忙吗？",
+        "modelAnswerPinyin": "Nǐ néng bāng wǒ yí ge máng ma?",
+        "modelAnswerMeaningVi": "Bạn có thể giúp tôi một việc không?"
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-006",
+      "officialOrdinal": 6,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "代词",
+      "detail": "疑问代词",
+      "officialContent": "为什么",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "为什么 hỏi nguyên nhân và đứng tại vị trí của thành phần cần hỏi; câu trả lời thường dùng 因为 để đưa ra lý do.",
+      "modelExample": {
+        "hanzi": "你为什么学汉语？",
+        "pinyin": "Nǐ wèishénme xué Hànyǔ?",
+        "meaningVi": "Tại sao bạn học tiếng Trung?"
+      },
+      "guidedPractice": {
+        "promptVi": "Hỏi: Tại sao hôm nay anh ấy không đi làm?",
+        "modelAnswerHanzi": "他今天为什么不上班？",
+        "modelAnswerPinyin": "Tā jīntiān wèishénme bù shàngbān?",
+        "modelAnswerMeaningVi": "Tại sao hôm nay anh ấy không đi làm?"
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-007",
+      "officialOrdinal": 7,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "代词",
+      "detail": "人称代词",
+      "officialContent": "自己",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "自己 là đại từ phản thân, quy chiếu về chủ thể phù hợp trong câu và nhấn mạnh người đó tự thực hiện hoặc tự chịu tác động.",
+      "modelExample": {
+        "hanzi": "我自己做晚饭。",
+        "pinyin": "Wǒ zìjǐ zuò wǎnfàn.",
+        "meaningVi": "Tôi tự nấu bữa tối."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 自己 để nói: Cô ấy tự mua vé.",
+        "modelAnswerHanzi": "她自己买票。",
+        "modelAnswerPinyin": "Tā zìjǐ mǎi piào.",
+        "modelAnswerMeaningVi": "Cô ấy tự mua vé."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-008",
+      "officialOrdinal": 8,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "代词",
+      "detail": "指示代词",
+      "officialContent": "那么、那样、这么、这样、每",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "这么/这样 chỉ cách thức hoặc mức độ gần ngữ cảnh, 那么/那样 chỉ xa; 每 phân phối lần lượt cho từng người, vật hoặc thời điểm.",
+      "modelExample": {
+        "hanzi": "每个人都有自己的名字。",
+        "pinyin": "Měi ge rén dōu yǒu zìjǐ de míngzi.",
+        "meaningVi": "Mỗi người đều có tên riêng."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 这样 để nói: Làm như thế này khá tốt.",
+        "modelAnswerHanzi": "这样做很不错。",
+        "modelAnswerPinyin": "Zhèyàng zuò hěn búcuò.",
+        "modelAnswerMeaningVi": "Làm như thế này khá tốt."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-009",
+      "officialOrdinal": 9,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "形容词",
+      "detail": "形容词重叠",
+      "officialContent": "AA、AABB",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "Lặp tính từ tạo sắc thái miêu tả sinh động hoặc tăng mức độ; dạng AA thường dùng với tính từ đơn, AABB với tính từ hai âm tiết.",
+      "modelExample": {
+        "hanzi": "房间干干净净的。",
+        "pinyin": "Fángjiān gāngānjìngjìng de.",
+        "meaningVi": "Căn phòng sạch sẽ tinh tươm."
+      },
+      "guidedPractice": {
+        "promptVi": "Lặp 慢 để nhắc: Bạn nói chậm chậm thôi.",
+        "modelAnswerHanzi": "你慢慢说。",
+        "modelAnswerPinyin": "Nǐ mànmàn shuō.",
+        "modelAnswerMeaningVi": "Bạn nói chậm chậm thôi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-010",
+      "officialOrdinal": 10,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "数词",
+      "detail": null,
+      "officialContent": "万、好多、多",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "万 là đơn vị mười nghìn; 好多 biểu thị số lượng nhiều không xác định, còn 多 có thể hỏi hoặc nêu phần vượt quá một mốc số.",
+      "modelExample": {
+        "hanzi": "这个学校有一万多人。",
+        "pinyin": "Zhège xuéxiào yǒu yí wàn duō rén.",
+        "meaningVi": "Trường học này có hơn mười nghìn người."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 好多 để nói: Hiệu sách có rất nhiều sách.",
+        "modelAnswerHanzi": "书店里有好多书。",
+        "modelAnswerPinyin": "Shūdiàn lǐ yǒu hǎoduō shū.",
+        "modelAnswerMeaningVi": "Hiệu sách có rất nhiều sách."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-011",
+      "officialOrdinal": 11,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "量词",
+      "detail": "名量词",
+      "officialContent": "（1）专用名量词：条、位、间、名",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "条, 位, 间 và 名 là lượng từ chuyên dụng: 条 cho vật dài, 位 lịch sự cho người, 间 cho phòng và 名 cho thành viên/người có tư cách.",
+      "modelExample": {
+        "hanzi": "教室里有三位老师。",
+        "pinyin": "Jiàoshì lǐ yǒu sān wèi lǎoshī.",
+        "meaningVi": "Trong lớp học có ba giáo viên."
+      },
+      "guidedPractice": {
+        "promptVi": "Chọn 间 để nói: Chúng tôi đặt hai phòng.",
+        "modelAnswerHanzi": "我们订了两间房。",
+        "modelAnswerPinyin": "Wǒmen dìng le liǎng jiān fáng.",
+        "modelAnswerMeaningVi": "Chúng tôi đã đặt hai phòng."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-012",
+      "officialOrdinal": 12,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "量词",
+      "detail": "名量词",
+      "officialContent": "（2）借用名量词：包",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "explanationViDraft": "包 vốn là danh từ chỉ gói nhưng có thể mượn làm lượng từ cho vật được đóng thành gói, đặt giữa số từ và danh từ.",
+      "modelExample": {
+        "hanzi": "我买了一包茶。",
+        "pinyin": "Wǒ mǎi le yì bāo chá.",
+        "meaningVi": "Tôi đã mua một gói trà."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 包 để nói: Trên bàn có hai gói thuốc.",
+        "modelAnswerHanzi": "桌子上有两包药。",
+        "modelAnswerPinyin": "Zhuōzi shàng yǒu liǎng bāo yào.",
+        "modelAnswerMeaningVi": "Trên bàn có hai gói thuốc."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-013",
+      "officialOrdinal": 13,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "量词",
+      "detail": "动量词",
+      "officialContent": "次",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "次 là động lượng từ đếm số lần hành động xảy ra; thường đứng sau động từ hoặc sau tân ngữ nơi chốn tùy cấu trúc.",
+      "modelExample": {
+        "hanzi": "我去过北京两次。",
+        "pinyin": "Wǒ qùguo Běijīng liǎng cì.",
+        "meaningVi": "Tôi đã từng đến Bắc Kinh hai lần."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 次 để nói: Hôm nay tôi gọi cho anh ấy ba lần.",
+        "modelAnswerHanzi": "今天我给他打了三次电话。",
+        "modelAnswerPinyin": "Jīntiān wǒ gěi tā dǎ le sān cì diànhuà.",
+        "modelAnswerMeaningVi": "Hôm nay tôi đã gọi cho anh ấy ba lần."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-014",
+      "officialOrdinal": 14,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "程度副词",
+      "officialContent": "多、好、最",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "多, 好 và 最 đứng trước tính từ để biểu thị mức độ; 最 đánh dấu mức cao nhất trong phạm vi so sánh được hiểu từ ngữ cảnh.",
+      "modelExample": {
+        "hanzi": "这件衣服最好看。",
+        "pinyin": "Zhè jiàn yīfu zuì hǎokàn.",
+        "meaningVi": "Bộ quần áo này đẹp nhất."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 多 để cảm thán: Hôm nay trời đẹp biết bao!",
+        "modelAnswerHanzi": "今天的天气多好啊！",
+        "modelAnswerPinyin": "Jīntiān de tiānqì duō hǎo a!",
+        "modelAnswerMeaningVi": "Hôm nay trời đẹp biết bao!"
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-015",
+      "officialOrdinal": 15,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "范围副词",
+      "officialContent": "一起",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "一起 đứng trước động từ để nói nhiều chủ thể cùng thực hiện một hành động; chủ thể tập thể phải xuất hiện hoặc được hiểu rõ.",
+      "modelExample": {
+        "hanzi": "我们一起去吃饭吧。",
+        "pinyin": "Wǒmen yìqǐ qù chīfàn ba.",
+        "meaningVi": "Chúng ta cùng đi ăn nhé."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 一起 để nói: Cuối tuần họ cùng chơi bóng.",
+        "modelAnswerHanzi": "周末他们一起打球。",
+        "modelAnswerPinyin": "Zhōumò tāmen yìqǐ dǎqiú.",
+        "modelAnswerMeaningVi": "Cuối tuần họ cùng chơi bóng."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-016",
+      "officialOrdinal": 16,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "时间副词",
+      "officialContent": "还2、已经、有时（候）、快、快要、正",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "已经 nêu việc đã xảy ra, 还 nêu trạng thái vẫn tiếp diễn; 有时 chỉ thỉnh thoảng, 快/快要 báo sắp xảy ra và 正 đánh dấu đúng lúc đang diễn ra.",
+      "modelExample": {
+        "hanzi": "我正吃饭呢。",
+        "pinyin": "Wǒ zhèng chīfàn ne.",
+        "meaningVi": "Tôi đang ăn cơm đây."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 已经 để nói: Anh ấy đã về nhà rồi.",
+        "modelAnswerHanzi": "他已经回家了。",
+        "modelAnswerPinyin": "Tā yǐjīng huí jiā le.",
+        "modelAnswerMeaningVi": "Anh ấy đã về nhà rồi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-017",
+      "officialOrdinal": 17,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "频率副词",
+      "officialContent": "常、经常",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "常 và 经常 là phó từ tần suất, đứng trước động từ hoặc cụm vị ngữ để diễn đạt hành động xảy ra thường xuyên.",
+      "modelExample": {
+        "hanzi": "我经常坐地铁上班。",
+        "pinyin": "Wǒ jīngcháng zuò dìtiě shàngbān.",
+        "meaningVi": "Tôi thường đi tàu điện ngầm đi làm."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 常 để nói: Cô ấy thường gọi cho mẹ.",
+        "modelAnswerHanzi": "她常给妈妈打电话。",
+        "modelAnswerPinyin": "Tā cháng gěi māma dǎ diànhuà.",
+        "modelAnswerMeaningVi": "Cô ấy thường gọi cho mẹ."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-018",
+      "officialOrdinal": 18,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "否定副词",
+      "officialContent": "别",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "别 đứng trước động từ để tạo mệnh lệnh phủ định hoặc lời khuyên không làm việc gì; cuối câu thường có 了 hoặc 了 nhé tùy sắc thái.",
+      "modelExample": {
+        "hanzi": "别在这里停车。",
+        "pinyin": "Bié zài zhèlǐ tíngchē.",
+        "meaningVi": "Đừng đỗ xe ở đây."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 别 để nhắc: Đừng quên cầm vé máy bay.",
+        "modelAnswerHanzi": "别忘了拿机票。",
+        "modelAnswerPinyin": "Bié wàng le ná jīpiào.",
+        "modelAnswerMeaningVi": "Đừng quên cầm vé máy bay."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-019",
+      "officialOrdinal": 19,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "关联副词",
+      "officialContent": "再2、就1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "explanationViDraft": "再 thường đặt hành động sau một mốc hoặc hành động khác; 就 nêu hành động xảy ra ngay, sớm hoặc theo điều kiện đã nói.",
+      "modelExample": {
+        "hanzi": "吃完饭我们再走。",
+        "pinyin": "Chīwán fàn wǒmen zài zǒu.",
+        "meaningVi": "Ăn xong rồi chúng ta hãy đi."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 就 để nói: Tôi tan học lúc năm giờ rồi về nhà ngay.",
+        "modelAnswerHanzi": "我五点下课就回家。",
+        "modelAnswerPinyin": "Wǒ wǔ diǎn xiàkè jiù huí jiā.",
+        "modelAnswerMeaningVi": "Tôi tan học lúc năm giờ rồi về nhà ngay."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-020",
+      "officialOrdinal": 20,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "副词",
+      "detail": "语气副词",
+      "officialContent": "都2、就2、还是1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "都 và 就 có thể tạo sắc thái nhấn mạnh theo ngữ cảnh; 还是 trong câu trần thuật thường đưa ra lựa chọn hoặc lời khuyên được xem là phù hợp hơn.",
+      "modelExample": {
+        "hanzi": "你还是坐地铁去吧。",
+        "pinyin": "Nǐ háishi zuò dìtiě qù ba.",
+        "meaningVi": "Bạn vẫn nên đi tàu điện ngầm thì hơn."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 都…了 để nhấn mạnh: Đã mười giờ rồi.",
+        "modelAnswerHanzi": "都十点了。",
+        "modelAnswerPinyin": "Dōu shí diǎn le.",
+        "modelAnswerMeaningVi": "Đã mười giờ rồi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-021",
+      "officialOrdinal": 21,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出时间、处所",
+      "officialContent": "从1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "从 đưa ra điểm bắt đầu về thời gian hoặc nơi chốn; mẫu 从…到… nêu trọn khoảng hoặc tuyến từ điểm đầu đến điểm cuối.",
+      "modelExample": {
+        "hanzi": "我从八点工作到五点。",
+        "pinyin": "Wǒ cóng bā diǎn gōngzuò dào wǔ diǎn.",
+        "meaningVi": "Tôi làm việc từ tám giờ đến năm giờ."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 从 để nói: Chúng tôi đi từ trường đến nhà ga.",
+        "modelAnswerHanzi": "我们从学校走到车站。",
+        "modelAnswerPinyin": "Wǒmen cóng xuéxiào zǒu dào chēzhàn.",
+        "modelAnswerMeaningVi": "Chúng tôi đi từ trường đến nhà ga."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-022",
+      "officialOrdinal": 22,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出方向、路径",
+      "officialContent": "往",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "explanationViDraft": "往 đưa ra hướng hoặc tuyến chuyển động, đứng trước từ chỉ phương hướng/nơi chốn rồi mới đến động từ chuyển động.",
+      "modelExample": {
+        "hanzi": "往前走五分钟就到了。",
+        "pinyin": "Wǎng qián zǒu wǔ fēnzhōng jiù dào le.",
+        "meaningVi": "Đi thẳng về phía trước năm phút là tới."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 往右 để chỉ đường: Đi về bên phải.",
+        "modelAnswerHanzi": "往右边走。",
+        "modelAnswerPinyin": "Wǎng yòubian zǒu.",
+        "modelAnswerMeaningVi": "Đi về bên phải."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-023",
+      "officialOrdinal": 23,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出方向、路径",
+      "officialContent": "从2",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "explanationViDraft": "从 cũng có thể giới thiệu hướng, tuyến hoặc nguồn của chuyển động, giúp xác định hành động đi từ phía hay con đường nào.",
+      "modelExample": {
+        "hanzi": "他从门口进来了。",
+        "pinyin": "Tā cóng ménkǒu jìnlái le.",
+        "meaningVi": "Anh ấy đã đi vào từ cửa."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 从 để nói: Xe buýt đi qua từ con đường này.",
+        "modelAnswerHanzi": "公交车从这条路开过去。",
+        "modelAnswerPinyin": "Gōngjiāochē cóng zhè tiáo lù kāi guòqu.",
+        "modelAnswerMeaningVi": "Xe buýt chạy qua từ con đường này."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-024",
+      "officialOrdinal": 24,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出对象",
+      "officialContent": "给",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "给 làm giới từ đưa người nhận hoặc đối tượng hưởng lợi ra trước động từ; cấu trúc cơ bản là 给 + người + động từ.",
+      "modelExample": {
+        "hanzi": "我给妈妈打电话。",
+        "pinyin": "Wǒ gěi māma dǎ diànhuà.",
+        "meaningVi": "Tôi gọi điện cho mẹ."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 给 để nói: Xin hãy mở cửa cho tôi.",
+        "modelAnswerHanzi": "请给我开门。",
+        "modelAnswerPinyin": "Qǐng gěi wǒ kāimén.",
+        "modelAnswerMeaningVi": "Xin hãy mở cửa cho tôi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-025",
+      "officialOrdinal": 25,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出对象",
+      "officialContent": "比",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "比 đưa chuẩn so sánh B vào mẫu A比B+vị ngữ; không thêm 很 ngay trước tính từ trong mẫu so sánh cơ bản.",
+      "modelExample": {
+        "hanzi": "今天比昨天冷。",
+        "pinyin": "Jīntiān bǐ zuótiān lěng.",
+        "meaningVi": "Hôm nay lạnh hơn hôm qua."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 比 để nói: Em gái tôi cao hơn tôi.",
+        "modelAnswerHanzi": "我妹妹比我高。",
+        "modelAnswerPinyin": "Wǒ mèimei bǐ wǒ gāo.",
+        "modelAnswerMeaningVi": "Em gái tôi cao hơn tôi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-026",
+      "officialOrdinal": 26,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出对象",
+      "officialContent": "跟1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "跟 làm giới từ giới thiệu người cùng tham gia hoặc đối tượng giao tiếp; cụm 跟 + người đứng trước động từ.",
+      "modelExample": {
+        "hanzi": "我跟老师说了这件事。",
+        "pinyin": "Wǒ gēn lǎoshī shuō le zhè jiàn shì.",
+        "meaningVi": "Tôi đã nói việc này với giáo viên."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 跟 để nói: Cuối tuần tôi đi xem phim cùng bạn.",
+        "modelAnswerHanzi": "周末我跟朋友去看电影。",
+        "modelAnswerPinyin": "Zhōumò wǒ gēn péngyou qù kàn diànyǐng.",
+        "modelAnswerMeaningVi": "Cuối tuần tôi đi xem phim cùng bạn."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-027",
+      "officialOrdinal": 27,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "介词",
+      "detail": "引出原因",
+      "officialContent": "因为1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "explanationViDraft": "因为 đưa nguyên nhân ra trước sự việc chính; khi dùng như thành phần giới thiệu lý do, vế kết quả có thể không cần 所以.",
+      "modelExample": {
+        "hanzi": "因为下雨，我们没出去。",
+        "pinyin": "Yīnwèi xiàyǔ, wǒmen méi chūqù.",
+        "meaningVi": "Vì trời mưa nên chúng tôi đã không ra ngoài."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 因为 để nói: Vì bị ốm nên hôm nay cô ấy xin nghỉ.",
+        "modelAnswerHanzi": "因为生病，她今天请假了。",
+        "modelAnswerPinyin": "Yīnwèi shēngbìng, tā jīntiān qǐngjià le.",
+        "modelAnswerMeaningVi": "Vì bị ốm nên hôm nay cô ấy xin nghỉ."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-028",
+      "officialOrdinal": 28,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "连词",
+      "detail": "连接词或短语",
+      "officialContent": "跟2",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "explanationViDraft": "跟 làm liên từ nối hai từ hoặc cụm từ có chức năng ngang hàng, tương đương 'và'; không dùng một mình để nối hai mệnh đề hoàn chỉnh.",
+      "modelExample": {
+        "hanzi": "我买了苹果跟别的水果。",
+        "pinyin": "Wǒ mǎi le píngguǒ gēn bié de shuǐguǒ.",
+        "meaningVi": "Tôi đã mua táo và các loại trái cây khác."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 跟 nối hai danh từ: Bố và mẹ đều ở nhà.",
+        "modelAnswerHanzi": "爸爸跟妈妈都在家。",
+        "modelAnswerPinyin": "Bàba gēn māma dōu zài jiā.",
+        "modelAnswerMeaningVi": "Bố và mẹ đều ở nhà."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-029",
+      "officialOrdinal": 29,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "连词",
+      "detail": "连接分句或者句子",
+      "officialContent": "但、但是、那、虽然、还是2、因为2、所以",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "explanationViDraft": "但/但是 nối ý chuyển hướng; 虽然 thường đi với 但是, 因为 thường đi với 所以; 还是 trong câu hỏi đưa ra lựa chọn.",
+      "modelExample": {
+        "hanzi": "虽然很累，但是他还在工作。",
+        "pinyin": "Suīrán hěn lèi, dànshì tā hái zài gōngzuò.",
+        "meaningVi": "Mặc dù rất mệt nhưng anh ấy vẫn đang làm việc."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 因为…所以…: Vì trời lạnh nên tôi không ra ngoài.",
+        "modelAnswerHanzi": "因为天气冷，所以我不出去。",
+        "modelAnswerPinyin": "Yīnwèi tiānqì lěng, suǒyǐ wǒ bù chūqù.",
+        "modelAnswerMeaningVi": "Vì trời lạnh nên tôi không ra ngoài."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-030",
+      "officialOrdinal": 30,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "助词",
+      "detail": "结构助词",
+      "officialContent": "得、地",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "地 nối trạng ngữ với động từ, còn 得 nối động từ với bổ ngữ miêu tả mức độ hoặc trạng thái của hành động.",
+      "modelExample": {
+        "hanzi": "他高兴地说：“你写得很好。”",
+        "pinyin": "Tā gāoxìng de shuō: “Nǐ xiě de hěn hǎo.”",
+        "meaningVi": "Anh ấy vui vẻ nói: “Bạn viết rất tốt.”"
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 得 để nói: Cô ấy chạy rất nhanh.",
+        "modelAnswerHanzi": "她跑得很快。",
+        "modelAnswerPinyin": "Tā pǎo de hěn kuài.",
+        "modelAnswerMeaningVi": "Cô ấy chạy rất nhanh."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-031",
+      "officialOrdinal": 31,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "助词",
+      "detail": "动态助词",
+      "officialContent": "过",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "过 đặt sau động từ để đánh dấu trải nghiệm đã từng có trước thời điểm nói; phủ định trải nghiệm dùng 没(有)…过.",
+      "modelExample": {
+        "hanzi": "我去过上海。",
+        "pinyin": "Wǒ qùguo Shànghǎi.",
+        "meaningVi": "Tôi đã từng đến Thượng Hải."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 没…过 để nói: Tôi chưa từng ăn món này.",
+        "modelAnswerHanzi": "我没吃过这个菜。",
+        "modelAnswerPinyin": "Wǒ méi chīguo zhège cài.",
+        "modelAnswerMeaningVi": "Tôi chưa từng ăn món này."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-032",
+      "officialOrdinal": 32,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "助词",
+      "detail": "动态助词",
+      "officialContent": "着",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "着 đặt sau động từ để biểu thị trạng thái đang được duy trì hoặc hành động làm nền; không đồng nhất với 在 đang tiến hành.",
+      "modelExample": {
+        "hanzi": "门开着。",
+        "pinyin": "Mén kāizhe.",
+        "meaningVi": "Cửa đang mở."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 着 để nói: Trên giường có một em bé đang ngồi.",
+        "modelAnswerHanzi": "床上坐着一个小孩儿。",
+        "modelAnswerPinyin": "Chuáng shàng zuòzhe yí ge xiǎoháir.",
+        "modelAnswerMeaningVi": "Trên giường có một em bé đang ngồi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-033",
+      "officialOrdinal": 33,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "助词",
+      "detail": "语气助词",
+      "officialContent": "呢4、吧2、的2、啊1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "explanationViDraft": "呢, 吧, 的 và 啊 là trợ từ ngữ khí: 呢 duy trì chủ đề/hỏi trạng thái, 吧 đề nghị, 的 xác nhận và 啊 tăng sắc thái cảm thán hoặc nhắc.",
+      "modelExample": {
+        "hanzi": "你在找什么呢？",
+        "pinyin": "Nǐ zài zhǎo shénme ne?",
+        "meaningVi": "Bạn đang tìm gì vậy?"
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 吧 để đề nghị: Chúng ta nghỉ một lát nhé.",
+        "modelAnswerHanzi": "我们休息一会儿吧。",
+        "modelAnswerPinyin": "Wǒmen xiūxi yíhuìr ba.",
+        "modelAnswerMeaningVi": "Chúng ta nghỉ một lát nhé."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-034",
+      "officialOrdinal": 34,
+      "sourcePage": 389,
+      "category": "词类",
+      "categoryName": "助词",
+      "detail": "基本结构类型",
+      "officialContent": "动补短语1",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "explanationViDraft": "Cụm động–bổ gồm động từ và thành phần sau nó nêu kết quả, hướng, trạng thái hoặc mức độ; ý nghĩa chỉ hoàn chỉnh khi đọc cả cụm.",
+      "modelExample": {
+        "hanzi": "这本书我看完了。",
+        "pinyin": "Zhè běn shū wǒ kànwán le.",
+        "meaningVi": "Tôi đã đọc xong quyển sách này."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng bổ ngữ kết quả 懂: Tôi đã nghe hiểu lời giáo viên.",
+        "modelAnswerHanzi": "我听懂老师的话了。",
+        "modelAnswerPinyin": "Wǒ tīngdǒng lǎoshī de huà le.",
+        "modelAnswerMeaningVi": "Tôi đã nghe hiểu lời giáo viên."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-035",
+      "officialOrdinal": 35,
+      "sourcePage": 390,
+      "category": "短语",
+      "categoryName": "结构类型",
+      "detail": "其他结构类型",
+      "officialContent": "（1）“的”字短语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Cụm chữ 的 lược bỏ danh từ đã rõ, giữ lại định ngữ + 的 để đại diện cho người hoặc vật được nhắc tới.",
+      "modelExample": {
+        "hanzi": "红的是我的，白的是他的。",
+        "pinyin": "Hóng de shì wǒ de, bái de shì tā de.",
+        "meaningVi": "Cái màu đỏ là của tôi, cái màu trắng là của anh ấy."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng cụm 的 để nói: Cái lớn là của tôi.",
+        "modelAnswerHanzi": "大的是我的。",
+        "modelAnswerPinyin": "Dà de shì wǒ de.",
+        "modelAnswerMeaningVi": "Cái lớn là của tôi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-036",
+      "officialOrdinal": 36,
+      "sourcePage": 390,
+      "category": "短语",
+      "categoryName": "结构类型",
+      "detail": "其他结构类型",
+      "officialContent": "（2）连谓短语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "explanationViDraft": "Cụm liên động đặt nhiều động từ chung một chủ ngữ theo thứ tự mục đích hoặc thời gian, thường không cần liên từ ở giữa.",
+      "modelExample": {
+        "hanzi": "我去商店买东西。",
+        "pinyin": "Wǒ qù shāngdiàn mǎi dōngxi.",
+        "meaningVi": "Tôi đến cửa hàng mua đồ."
+      },
+      "guidedPractice": {
+        "promptVi": "Tạo chuỗi liên động: Anh ấy đến trường học.",
+        "modelAnswerHanzi": "他去学校学习。",
+        "modelAnswerPinyin": "Tā qù xuéxiào xuéxí.",
+        "modelAnswerMeaningVi": "Anh ấy đến trường học."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-037",
+      "officialOrdinal": 37,
+      "sourcePage": 390,
+      "category": "短语",
+      "categoryName": "结构类型",
+      "detail": "其他结构类型",
+      "officialContent": "（3）兼语短语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "explanationViDraft": "Cụm kiêm ngữ có một danh ngữ vừa làm tân ngữ của động từ trước vừa làm chủ thể của động từ sau, thường gặp sau 请, 叫, 让.",
+      "modelExample": {
+        "hanzi": "老师请我读这个问题。",
+        "pinyin": "Lǎoshī qǐng wǒ dú zhège wèntí.",
+        "meaningVi": "Giáo viên mời tôi đọc câu hỏi này."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 让: Mẹ bảo em trai nấu cơm.",
+        "modelAnswerHanzi": "妈妈让弟弟做饭。",
+        "modelAnswerPinyin": "Māma ràng dìdi zuòfàn.",
+        "modelAnswerMeaningVi": "Mẹ bảo em trai nấu cơm."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-038",
+      "officialOrdinal": 38,
+      "sourcePage": 390,
+      "category": "短语",
+      "categoryName": "固定短语",
+      "detail": "其他",
+      "officialContent": "什么的",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "什么的 đặt sau một vài ví dụ để nói còn những thứ tương tự chưa liệt kê hết, mang sắc thái khẩu ngữ.",
+      "modelExample": {
+        "hanzi": "我喜欢红茶、咖啡什么的。",
+        "pinyin": "Wǒ xǐhuan hóngchá, kāfēi shénme de.",
+        "meaningVi": "Tôi thích trà đen, cà phê và những thứ tương tự."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 什么的: Cuối tuần tôi thường đọc sách, nghe hát các kiểu.",
+        "modelAnswerHanzi": "周末我常看书、听歌什么的。",
+        "modelAnswerPinyin": "Zhōumò wǒ cháng kànshū, tīng gē shénme de.",
+        "modelAnswerMeaningVi": "Cuối tuần tôi thường đọc sách, nghe hát các kiểu."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-039",
+      "officialOrdinal": 39,
+      "sourcePage": 390,
+      "category": "固定格式",
+      "categoryName": null,
+      "detail": null,
+      "officialContent": "还是……吧",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "还是……吧 dùng trong câu trần thuật để khuyên chọn phương án được cho là hợp lý hơn sau khi cân nhắc.",
+      "modelExample": {
+        "hanzi": "下雨了，我们还是坐车吧。",
+        "pinyin": "Xiàyǔ le, wǒmen háishi zuò chē ba.",
+        "meaningVi": "Trời mưa rồi, chúng ta vẫn nên đi xe thì hơn."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng mẫu để khuyên: Muộn rồi, bạn vẫn nên về nhà đi.",
+        "modelAnswerHanzi": "太晚了，你还是回家吧。",
+        "modelAnswerPinyin": "Tài wǎn le, nǐ háishi huí jiā ba.",
+        "modelAnswerMeaningVi": "Muộn rồi, bạn vẫn nên về nhà đi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-040",
+      "officialOrdinal": 40,
+      "sourcePage": 390,
+      "category": "固定格式",
+      "categoryName": null,
+      "detail": null,
+      "officialContent": "要/快要/就要……了",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "explanationViDraft": "要/快要/就要……了 báo một sự việc sắp xảy ra; 快要 nhấn mạnh rất gần, còn 就要 thường đi được với mốc thời gian cụ thể.",
+      "modelExample": {
+        "hanzi": "火车快要开了。",
+        "pinyin": "Huǒchē kuàiyào kāi le.",
+        "meaningVi": "Tàu hỏa sắp chạy rồi."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 就要…了: Còn mười phút nữa là vào học.",
+        "modelAnswerHanzi": "还有十分钟就要上课了。",
+        "modelAnswerPinyin": "Hái yǒu shí fēnzhōng jiùyào shàngkè le.",
+        "modelAnswerMeaningVi": "Còn mười phút nữa là vào học."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-041",
+      "officialOrdinal": 41,
+      "sourcePage": 390,
+      "category": "固定格式",
+      "categoryName": null,
+      "detail": null,
+      "officialContent": "都……了",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "都……了 nhấn mạnh thời gian, số lượng hoặc mức độ đã đạt một mốc thường cao, muộn hoặc đáng chú ý so với kỳ vọng.",
+      "modelExample": {
+        "hanzi": "都十点了，你怎么还不睡？",
+        "pinyin": "Dōu shí diǎn le, nǐ zěnme hái bù shuì?",
+        "meaningVi": "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?"
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 都…了: Con đã mười tuổi rồi.",
+        "modelAnswerHanzi": "孩子都十岁了。",
+        "modelAnswerPinyin": "Háizi dōu shí suì le.",
+        "modelAnswerMeaningVi": "Đứa trẻ đã mười tuổi rồi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-042",
+      "officialOrdinal": 42,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "主语",
+      "detail": null,
+      "officialContent": "受事主语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Trong câu có chủ ngữ chịu tác động, đối tượng bị xử lý được đưa lên đầu câu làm chủ đề; tác nhân có thể không cần nêu.",
+      "modelExample": {
+        "hanzi": "饭做好了。",
+        "pinyin": "Fàn zuòhǎo le.",
+        "meaningVi": "Cơm đã nấu xong rồi."
+      },
+      "guidedPractice": {
+        "promptVi": "Đưa đối tượng lên đầu: Vé đã mua xong rồi.",
+        "modelAnswerHanzi": "票买好了。",
+        "modelAnswerPinyin": "Piào mǎihǎo le.",
+        "modelAnswerMeaningVi": "Vé đã mua xong rồi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-043",
+      "officialOrdinal": 43,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "谓语",
+      "detail": null,
+      "officialContent": "名词性短语作谓语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Cụm danh từ có thể làm vị ngữ để nêu ngày tháng, tuổi, giá, số lượng hoặc đặc điểm phân loại mà không cần 是.",
+      "modelExample": {
+        "hanzi": "今天星期一。",
+        "pinyin": "Jīntiān xīngqīyī.",
+        "meaningVi": "Hôm nay là thứ Hai."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng vị ngữ danh từ: Em trai tôi hai mươi tuổi.",
+        "modelAnswerHanzi": "我弟弟二十岁。",
+        "modelAnswerPinyin": "Wǒ dìdi èrshí suì.",
+        "modelAnswerMeaningVi": "Em trai tôi hai mươi tuổi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-044",
+      "officialOrdinal": 44,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "定语",
+      "detail": null,
+      "officialContent": "动词或动词性短语、主谓短语作定语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Động từ, cụm động từ hoặc cụm chủ–vị đứng trước 的 để bổ nghĩa cho danh từ, cho biết hành động hay đặc điểm liên quan.",
+      "modelExample": {
+        "hanzi": "我昨天买的书在桌子上。",
+        "pinyin": "Wǒ zuótiān mǎi de shū zài zhuōzi shàng.",
+        "meaningVi": "Quyển sách tôi mua hôm qua ở trên bàn."
+      },
+      "guidedPractice": {
+        "promptVi": "Tạo định ngữ bằng cụm chủ–vị: Đây là món mẹ tôi làm.",
+        "modelAnswerHanzi": "这是我妈妈做的菜。",
+        "modelAnswerPinyin": "Zhè shì wǒ māma zuò de cài.",
+        "modelAnswerMeaningVi": "Đây là món mẹ tôi làm."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-045",
+      "officialOrdinal": 45,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "结果补语1",
+      "officialContent": "动词+错/懂/好/会/完",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "explanationViDraft": "错, 懂, 好, 会 và 完 đứng sau động từ để nêu kết quả: làm sai, hiểu được, hoàn tất tốt, học được hoặc hoàn thành.",
+      "modelExample": {
+        "hanzi": "老师说的话我听懂了。",
+        "pinyin": "Lǎoshī shuō de huà wǒ tīngdǒng le.",
+        "meaningVi": "Tôi đã nghe hiểu lời giáo viên nói."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 完 để nói: Tôi đã viết xong chữ Hán.",
+        "modelAnswerHanzi": "我写完汉字了。",
+        "modelAnswerPinyin": "Wǒ xiěwán Hànzì le.",
+        "modelAnswerMeaningVi": "Tôi đã viết xong chữ Hán."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-046",
+      "officialOrdinal": 46,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "趋向补语1",
+      "officialContent": "简单趋向补语的趋向意义用法：（1）动词+来 / /去",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "explanationViDraft": "Động từ + 来/去 là bổ ngữ hướng đơn: 来 chỉ chuyển động về phía người nói hoặc điểm quy chiếu, 去 chỉ rời xa.",
+      "modelExample": {
+        "hanzi": "老师走来了。",
+        "pinyin": "Lǎoshī zǒulái le.",
+        "meaningVi": "Giáo viên đi về phía này."
+      },
+      "guidedPractice": {
+        "promptVi": "Chọn 去 để nói: Anh ấy chạy về phía kia.",
+        "modelAnswerHanzi": "他跑去了。",
+        "modelAnswerPinyin": "Tā pǎoqù le.",
+        "modelAnswerMeaningVi": "Anh ấy chạy về phía kia."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-047",
+      "officialOrdinal": 47,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "趋向补语1",
+      "officialContent": "（2）动词+上/下/进/出/过/回",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "explanationViDraft": "上, 下, 进, 出, 过 và 回 đứng sau động từ để nêu hướng cơ bản của chuyển động: lên, xuống, vào, ra, qua hoặc về.",
+      "modelExample": {
+        "hanzi": "学生们走进教室。",
+        "pinyin": "Xuéshengmen zǒujìn jiàoshì.",
+        "meaningVi": "Các học sinh đi vào lớp học."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 回 để nói: Anh ấy đã chạy về nhà.",
+        "modelAnswerHanzi": "他跑回家了。",
+        "modelAnswerPinyin": "Tā pǎohuí jiā le.",
+        "modelAnswerMeaningVi": "Anh ấy đã chạy về nhà."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-048",
+      "officialOrdinal": 48,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "趋向补语1",
+      "officialContent": "复合趋向补语的趋向意义用法：动词+出来/出 / 去/过来/过去/回来/回去/进来/进去/起来/上 / 来/上去/下来/下去",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "explanationViDraft": "Bổ ngữ hướng phức kết hợp hướng không gian với 来/去 để đồng thời chỉ tuyến chuyển động và quan hệ với điểm nhìn.",
+      "modelExample": {
+        "hanzi": "孩子从房间里跑出来了。",
+        "pinyin": "Háizi cóng fángjiān lǐ pǎo chūlái le.",
+        "meaningVi": "Đứa trẻ đã chạy từ trong phòng ra đây."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 进去 để nói: Anh ấy đã chạy vào trong.",
+        "modelAnswerHanzi": "他跑进去了。",
+        "modelAnswerPinyin": "Tā pǎo jìnqu le.",
+        "modelAnswerMeaningVi": "Anh ấy đã chạy vào trong."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-049",
+      "officialOrdinal": 49,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "状态补语1",
+      "officialContent": "动词+得+形容词性短语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Mẫu động từ + 得 + cụm tính từ miêu tả trạng thái hoặc mức độ thực hiện hành động; khi phủ định, 不 đứng trong phần bổ ngữ.",
+      "modelExample": {
+        "hanzi": "她汉语说得很好。",
+        "pinyin": "Tā Hànyǔ shuō de hěn hǎo.",
+        "meaningVi": "Cô ấy nói tiếng Trung rất tốt."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 得 để nói: Anh ấy chạy không nhanh.",
+        "modelAnswerHanzi": "他跑得不快。",
+        "modelAnswerPinyin": "Tā pǎo de bú kuài.",
+        "modelAnswerMeaningVi": "Anh ấy chạy không nhanh."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-050",
+      "officialOrdinal": 50,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "数量补语2",
+      "officialContent": "（1）表示动作持续的时间",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Bổ ngữ thời lượng đứng sau động từ hoặc tân ngữ để nêu hành động kéo dài bao lâu; vị trí thay đổi theo loại tân ngữ.",
+      "modelExample": {
+        "hanzi": "我学了两年汉语。",
+        "pinyin": "Wǒ xué le liǎng nián Hànyǔ.",
+        "meaningVi": "Tôi đã học tiếng Trung hai năm."
+      },
+      "guidedPractice": {
+        "promptVi": "Nêu thời lượng: Hôm qua cô ấy ngủ tám tiếng.",
+        "modelAnswerHanzi": "她昨天睡了八个小时。",
+        "modelAnswerPinyin": "Tā zuótiān shuì le bā ge xiǎoshí.",
+        "modelAnswerMeaningVi": "Hôm qua cô ấy ngủ tám tiếng."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-051",
+      "officialOrdinal": 51,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "补语",
+      "detail": "数量补语2",
+      "officialContent": "（2）形容词+数量补语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Tính từ có thể đi với cụm số lượng phía sau để nêu mức chênh lệch hoặc kích thước cụ thể, thường xuất hiện trong câu so sánh.",
+      "modelExample": {
+        "hanzi": "这条裤子长一点儿。",
+        "pinyin": "Zhè tiáo kùzi cháng yìdiǎnr.",
+        "meaningVi": "Chiếc quần này dài hơn một chút."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng tính từ + lượng: Năm nay em trai lớn thêm một tuổi.",
+        "modelAnswerHanzi": "弟弟今年大一岁。",
+        "modelAnswerPinyin": "Dìdi jīnnián dà yí suì.",
+        "modelAnswerMeaningVi": "Năm nay em trai lớn thêm một tuổi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-052",
+      "officialOrdinal": 52,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句型",
+      "detail": "单句",
+      "officialContent": "主谓句4：主谓谓语句",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Trong câu chủ–vị làm vị ngữ, toàn bộ cụm chủ–vị phía sau miêu tả chủ đề phía trước, như sức khỏe, tóc, mắt hoặc một bộ phận.",
+      "modelExample": {
+        "hanzi": "他身体很好。",
+        "pinyin": "Tā shēntǐ hěn hǎo.",
+        "meaningVi": "Sức khỏe anh ấy rất tốt."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng chủ–vị làm vị ngữ: Cô gái này mắt rất to.",
+        "modelAnswerHanzi": "这个女孩眼睛很大。",
+        "modelAnswerPinyin": "Zhège nǚhái yǎnjing hěn dà.",
+        "modelAnswerMeaningVi": "Cô gái này có đôi mắt rất to."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-053",
+      "officialOrdinal": 53,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "疑问句",
+      "officialContent": "用“还是”连接的选择问句",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Câu hỏi lựa chọn dùng 还是 nối hai phương án; người nghe phải chọn một phương án thay vì chỉ trả lời có hoặc không.",
+      "modelExample": {
+        "hanzi": "你喝茶还是喝咖啡？",
+        "pinyin": "Nǐ hē chá háishi hē kāfēi?",
+        "meaningVi": "Bạn uống trà hay uống cà phê?"
+      },
+      "guidedPractice": {
+        "promptVi": "Tạo câu hỏi lựa chọn: Bạn đi xe buýt hay tàu điện ngầm?",
+        "modelAnswerHanzi": "你坐公交车还是坐地铁？",
+        "modelAnswerPinyin": "Nǐ zuò gōngjiāochē háishi zuò dìtiě?",
+        "modelAnswerMeaningVi": "Bạn đi xe buýt hay tàu điện ngầm?"
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-054",
+      "officialOrdinal": 54,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "祈使句",
+      "officialContent": "用“别”的祈使句",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Câu cầu khiến với 别 yêu cầu hoặc khuyên người nghe không thực hiện hành động; chủ ngữ 你 thường được lược bỏ.",
+      "modelExample": {
+        "hanzi": "别说话，请听老师说。",
+        "pinyin": "Bié shuōhuà, qǐng tīng lǎoshī shuō.",
+        "meaningVi": "Đừng nói chuyện, hãy nghe giáo viên nói."
+      },
+      "guidedPractice": {
+        "promptVi": "Tạo lời nhắc: Đừng quên viết tên.",
+        "modelAnswerHanzi": "别忘了写名字。",
+        "modelAnswerPinyin": "Bié wàng le xiě míngzi.",
+        "modelAnswerMeaningVi": "Đừng quên viết tên."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-055",
+      "officialOrdinal": 55,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "“是”字句2",
+      "officialContent": "表示说明或特征",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "explanationViDraft": "Câu 是 dùng để giải thích thân phận, thuộc tính hoặc đặc trưng của chủ thể; phần sau 是 cung cấp thông tin nhận diện.",
+      "modelExample": {
+        "hanzi": "她是新来的汉语老师。",
+        "pinyin": "Tā shì xīn lái de Hànyǔ lǎoshī.",
+        "meaningVi": "Cô ấy là giáo viên tiếng Trung mới đến."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 是 để giới thiệu đặc trưng: Đây là món tôi thích nhất.",
+        "modelAnswerHanzi": "这是我最喜欢的菜。",
+        "modelAnswerPinyin": "Zhè shì wǒ zuì xǐhuan de cài.",
+        "modelAnswerMeaningVi": "Đây là món tôi thích nhất."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-056",
+      "officialOrdinal": 56,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "“有”字句2",
+      "officialContent": "表示达到",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Câu 有 có thể nêu số lượng, chiều dài, chiều sâu hoặc mức đã đạt; cụm số lượng đứng sau 有 làm thông tin đo lường.",
+      "modelExample": {
+        "hanzi": "这个男孩儿有一米五高。",
+        "pinyin": "Zhège nánháir yǒu yì mǐ wǔ gāo.",
+        "meaningVi": "Cậu bé này cao một mét rưỡi."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 有 để nói chiều cao đã đạt: Cô bé cao một mét.",
+        "modelAnswerHanzi": "这个女孩儿有一米高。",
+        "modelAnswerPinyin": "Zhège nǚháir yǒu yì mǐ gāo.",
+        "modelAnswerMeaningVi": "Cô bé này cao một mét."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-057",
+      "officialOrdinal": 57,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "存现句2",
+      "officialContent": "处所+动词+着(+数量短语)+名词",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Câu tồn hiện với 处所 + động từ + 着 + danh ngữ giới thiệu người/vật đang hiện diện trong một trạng thái tại nơi đó.",
+      "modelExample": {
+        "hanzi": "门口站着三位老师。",
+        "pinyin": "Ménkǒu zhànzhe sān wèi lǎoshī.",
+        "meaningVi": "Ở cửa có ba giáo viên đang đứng."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng mẫu tồn hiện: Trong lớp có mười học sinh đang ngồi.",
+        "modelAnswerHanzi": "教室里坐着十名学生。",
+        "modelAnswerPinyin": "Jiàoshì lǐ zuòzhe shí míng xuésheng.",
+        "modelAnswerMeaningVi": "Trong lớp có mười học sinh đang ngồi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-058",
+      "officialOrdinal": 58,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "比较句1",
+      "officialContent": "（1）A比B+形容词",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Mẫu A比B+形容词 nêu A có mức độ tính chất cao hoặc thấp hơn B; tính từ đứng trực tiếp sau chuẩn so sánh.",
+      "modelExample": {
+        "hanzi": "今天比昨天热。",
+        "pinyin": "Jīntiān bǐ zuótiān rè.",
+        "meaningVi": "Hôm nay nóng hơn hôm qua."
+      },
+      "guidedPractice": {
+        "promptVi": "So sánh hai vật: Chiếc áo này đắt hơn chiếc kia.",
+        "modelAnswerHanzi": "这件衣服比那件贵。",
+        "modelAnswerPinyin": "Zhè jiàn yīfu bǐ nà jiàn guì.",
+        "modelAnswerMeaningVi": "Chiếc áo này đắt hơn chiếc kia."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-059",
+      "officialOrdinal": 59,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "比较句1",
+      "officialContent": "（2）A比B+形容词+数量补语/程度补语",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Sau tính từ trong câu 比 có thể thêm bổ ngữ số lượng hoặc mức độ để nêu chính xác chênh lệch giữa A và B.",
+      "modelExample": {
+        "hanzi": "姐姐比我大三岁。",
+        "pinyin": "Jiějie bǐ wǒ dà sān suì.",
+        "meaningVi": "Chị gái lớn hơn tôi ba tuổi."
+      },
+      "guidedPractice": {
+        "promptVi": "Nêu chênh lệch: Quyển sách này đắt hơn quyển kia mười tệ.",
+        "modelAnswerHanzi": "这本书比那本贵十块钱。",
+        "modelAnswerPinyin": "Zhè běn shū bǐ nà běn guì shí kuài qián.",
+        "modelAnswerMeaningVi": "Quyển sách này đắt hơn quyển kia mười tệ."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-060",
+      "officialOrdinal": 60,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "比较句1",
+      "officialContent": "（3）A有/没有B（+这么/那么）+形容词",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Mẫu A有/没有B这么/那么+形容词 so sánh mức độ ngang bằng hoặc không bằng; 没有 thường nêu A kém B về tính chất.",
+      "modelExample": {
+        "hanzi": "他没有我这么忙。",
+        "pinyin": "Tā méiyǒu wǒ zhème máng.",
+        "meaningVi": "Anh ấy không bận bằng tôi."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 有…那么 để hỏi: Căn phòng này có lớn bằng căn kia không?",
+        "modelAnswerHanzi": "这个房间有那个房间那么大吗？",
+        "modelAnswerPinyin": "Zhège fángjiān yǒu nàge fángjiān nàme dà ma?",
+        "modelAnswerMeaningVi": "Căn phòng này có lớn bằng căn kia không?"
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-061",
+      "officialOrdinal": 61,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "比较句1",
+      "officialContent": "（4）A比B+动词+得+形容词/A+动词+得+比 / +B+形容词",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "So sánh cách thực hiện hành động dùng A比B+动词+得+形容词 hoặc A+动词+得+比B+形容词.",
+      "modelExample": {
+        "hanzi": "他跑得比我快。",
+        "pinyin": "Tā pǎo de bǐ wǒ kuài.",
+        "meaningVi": "Anh ấy chạy nhanh hơn tôi."
+      },
+      "guidedPractice": {
+        "promptVi": "So sánh kỹ năng: Cô ấy nói tiếng Trung hay hơn tôi.",
+        "modelAnswerHanzi": "她汉语说得比我好。",
+        "modelAnswerPinyin": "Tā Hànyǔ shuō de bǐ wǒ hǎo.",
+        "modelAnswerMeaningVi": "Cô ấy nói tiếng Trung hay hơn tôi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-062",
+      "officialOrdinal": 62,
+      "sourcePage": 390,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "“是……的”句1",
+      "officialContent": "强调时间、地点、方式、动作者",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "explanationViDraft": "Mẫu 是……的 nhấn mạnh thời gian, địa điểm, cách thức hoặc người thực hiện của một sự việc đã xác định, không dùng để kể sự việc mới.",
+      "modelExample": {
+        "hanzi": "我是去年开始学汉语的。",
+        "pinyin": "Wǒ shì qùnián kāishǐ xué Hànyǔ de.",
+        "meaningVi": "Chính năm ngoái tôi bắt đầu học tiếng Trung."
+      },
+      "guidedPractice": {
+        "promptVi": "Nhấn mạnh phương tiện: Chúng tôi đến bằng tàu hỏa.",
+        "modelAnswerHanzi": "我们是坐火车来的。",
+        "modelAnswerPinyin": "Wǒmen shì zuò huǒchē lái de.",
+        "modelAnswerMeaningVi": "Chúng tôi đến bằng tàu hỏa."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-063",
+      "officialOrdinal": 63,
+      "sourcePage": 391,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "兼语句1",
+      "officialContent": "表使令：主语+请/叫/让……+宾语1+动词+宾 / 语2",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "explanationViDraft": "Câu kiêm ngữ với 请/叫/让 có cấu trúc chủ ngữ + động từ sai khiến + người nhận lệnh + hành động; người nhận là chủ thể của hành động sau.",
+      "modelExample": {
+        "hanzi": "老师让我们写汉字。",
+        "pinyin": "Lǎoshī ràng wǒmen xiě Hànzì.",
+        "meaningVi": "Giáo viên bảo chúng tôi viết chữ Hán."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 请: Tôi mời bạn ngồi xuống.",
+        "modelAnswerHanzi": "我请你坐下。",
+        "modelAnswerPinyin": "Wǒ qǐng nǐ zuòxia.",
+        "modelAnswerMeaningVi": "Tôi mời bạn ngồi xuống."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-064",
+      "officialOrdinal": 64,
+      "sourcePage": 391,
+      "category": "句子成分",
+      "categoryName": "句类",
+      "detail": "双宾语句2",
+      "officialContent": "主语+动词+给+宾语1+宾语2",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-complements-and-motion",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "explanationViDraft": "Câu hai tân ngữ với động từ + 给 đặt người nhận trước vật được trao; động từ thường biểu thị trao, gửi hoặc tặng.",
+      "modelExample": {
+        "hanzi": "他送给我一本书。",
+        "pinyin": "Tā sònggěi wǒ yì běn shū.",
+        "meaningVi": "Anh ấy tặng tôi một quyển sách."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 给 trong câu hai tân ngữ: Mẹ tặng em trai một quyển sách.",
+        "modelAnswerHanzi": "妈妈送给弟弟一本书。",
+        "modelAnswerPinyin": "Māma sònggěi dìdi yì běn shū.",
+        "modelAnswerMeaningVi": "Mẹ tặng em trai một quyển sách."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-065",
+      "officialOrdinal": 65,
+      "sourcePage": 391,
+      "category": "句子成分",
+      "categoryName": "复句",
+      "detail": "选择复句",
+      "officialContent": "（是）……，还是……",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "explanationViDraft": "Câu phức lựa chọn dùng （是）……，还是…… để đặt hai tình huống hoặc phán đoán làm phương án cần chọn.",
+      "modelExample": {
+        "hanzi": "是你去，还是我去？",
+        "pinyin": "Shì nǐ qù, háishi wǒ qù?",
+        "meaningVi": "Bạn đi hay tôi đi?"
+      },
+      "guidedPractice": {
+        "promptVi": "Tạo câu chọn nguyên nhân: Là xe hỏng hay là bạn đến muộn?",
+        "modelAnswerHanzi": "是车坏了，还是你来晚了？",
+        "modelAnswerPinyin": "Shì chē huài le, háishi nǐ lái wǎn le?",
+        "modelAnswerMeaningVi": "Là xe hỏng hay là bạn đến muộn?"
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-066",
+      "officialOrdinal": 66,
+      "sourcePage": 391,
+      "category": "句子成分",
+      "categoryName": "复句",
+      "detail": "转折复句",
+      "officialContent": "虽然……，但是……",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "explanationViDraft": "虽然……但是…… nối một sự thật nhượng bộ với kết quả trái kỳ vọng; trong khẩu ngữ có thể lược một liên từ nhưng quan hệ vẫn phải rõ.",
+      "modelExample": {
+        "hanzi": "虽然下雨，但是我们还是去了。",
+        "pinyin": "Suīrán xiàyǔ, dànshì wǒmen háishi qù le.",
+        "meaningVi": "Mặc dù trời mưa nhưng chúng tôi vẫn đi."
+      },
+      "guidedPractice": {
+        "promptVi": "Nối hai vế: Tuy món này đắt nhưng rất ngon.",
+        "modelAnswerHanzi": "虽然这个菜很贵，但是很好吃。",
+        "modelAnswerPinyin": "Suīrán zhège cài hěn guì, dànshì hěn hǎochī.",
+        "modelAnswerMeaningVi": "Tuy món này đắt nhưng rất ngon."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-067",
+      "officialOrdinal": 67,
+      "sourcePage": 391,
+      "category": "句子成分",
+      "categoryName": "复句",
+      "detail": "因果复句",
+      "officialContent": "因为……，所以……",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "explanationViDraft": "因为……所以…… nối nguyên nhân với kết quả; 因为 mở vế lý do và 所以 mở vế hệ quả, trật tự thông tin thường là nguyên nhân trước.",
+      "modelExample": {
+        "hanzi": "因为明天考试，所以我今天晚上要学习。",
+        "pinyin": "Yīnwèi míngtiān kǎoshì, suǒyǐ wǒ jīntiān wǎnshang yào xuéxí.",
+        "meaningVi": "Vì ngày mai thi nên tối nay tôi phải học."
+      },
+      "guidedPractice": {
+        "promptVi": "Nối nguyên nhân–kết quả: Vì anh ấy bị ốm nên không đi làm.",
+        "modelAnswerHanzi": "因为他生病了，所以没去上班。",
+        "modelAnswerPinyin": "Yīnwèi tā shēngbìng le, suǒyǐ méi qù shàngbān.",
+        "modelAnswerMeaningVi": "Vì anh ấy bị ốm nên không đi làm."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-068",
+      "officialOrdinal": 68,
+      "sourcePage": 391,
+      "category": "句子成分",
+      "categoryName": "复句",
+      "detail": "紧缩复句",
+      "officialContent": "一……就……",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-clause-linking",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "explanationViDraft": "一……就…… nêu hành động hoặc kết quả xảy ra ngay sau điều kiện/hành động đầu; hai vị trí 一 và 就 đánh dấu quan hệ kế tiếp chặt.",
+      "modelExample": {
+        "hanzi": "我一下课就回家。",
+        "pinyin": "Wǒ yí xiàkè jiù huí jiā.",
+        "meaningVi": "Tôi vừa tan học là về nhà ngay."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng mẫu: Anh ấy vừa đến nhà là gọi điện cho mẹ.",
+        "modelAnswerHanzi": "他一到家就给妈妈打电话。",
+        "modelAnswerPinyin": "Tā yí dào jiā jiù gěi māma dǎ diànhuà.",
+        "modelAnswerMeaningVi": "Anh ấy vừa đến nhà là gọi điện cho mẹ."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-069",
+      "officialOrdinal": 69,
+      "sourcePage": 391,
+      "category": "动作的态",
+      "categoryName": null,
+      "detail": "持续态",
+      "officialContent": "动词+着：（1）表示状态的持续",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Động từ + 着 có thể nêu trạng thái là kết quả của một hành động và đang tiếp tục, như cửa mở, đèn sáng hoặc vật được treo.",
+      "modelExample": {
+        "hanzi": "门开着呢。",
+        "pinyin": "Mén kāizhe ne.",
+        "meaningVi": "Cửa vẫn đang mở."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 着 nêu trạng thái: Anh ấy đang mặc quần áo màu đỏ.",
+        "modelAnswerHanzi": "他穿着红色衣服。",
+        "modelAnswerPinyin": "Tā chuānzhe hóngsè yīfu.",
+        "modelAnswerMeaningVi": "Anh ấy đang mặc quần áo màu đỏ."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-070",
+      "officialOrdinal": 70,
+      "sourcePage": 391,
+      "category": "动作的态",
+      "categoryName": null,
+      "detail": "持续态",
+      "officialContent": "（2）表示动作的持续",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Động từ + 着 cũng biểu thị một hành động đang duy trì làm nền cho hành động khác; hai hành động có thể cùng diễn ra.",
+      "modelExample": {
+        "hanzi": "他听着歌写汉字。",
+        "pinyin": "Tā tīngzhe gē xiě Hànzì.",
+        "meaningVi": "Anh ấy vừa nghe hát vừa viết chữ Hán."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 着 cho hành động nền: Cô ấy cười và nói với tôi.",
+        "modelAnswerHanzi": "她笑着跟我说话。",
+        "modelAnswerPinyin": "Tā xiàozhe gēn wǒ shuōhuà.",
+        "modelAnswerMeaningVi": "Cô ấy cười và nói chuyện với tôi."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-071",
+      "officialOrdinal": 71,
+      "sourcePage": 391,
+      "category": "动作的态",
+      "categoryName": null,
+      "detail": "经历态",
+      "officialContent": "用动态助词“过”表示",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-aspect-time-experience",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "explanationViDraft": "Động từ + 过 đánh dấu trạng thái trải nghiệm, cho biết sự việc từng xảy ra ít nhất một lần nhưng không nhấn mạnh thời điểm cụ thể.",
+      "modelExample": {
+        "hanzi": "你吃过中国饺子吗？",
+        "pinyin": "Nǐ chīguo Zhōngguó jiǎozi ma?",
+        "meaningVi": "Bạn đã từng ăn sủi cảo Trung Quốc chưa?"
+      },
+      "guidedPractice": {
+        "promptVi": "Trả lời phủ định bằng 没…过: Tôi chưa từng xem bộ phim đó.",
+        "modelAnswerHanzi": "我没看过那个电影。",
+        "modelAnswerPinyin": "Wǒ méi kànguo nàge diànyǐng.",
+        "modelAnswerMeaningVi": "Tôi chưa từng xem bộ phim đó."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-072",
+      "officialOrdinal": 72,
+      "sourcePage": 391,
+      "category": "特殊表达法",
+      "categoryName": "数的表达法",
+      "detail": null,
+      "officialContent": "序数表示法2：数词+量词",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Trong một số chuỗi quen thuộc như tầng, lớp hoặc tuyến, số từ + lượng từ có thể biểu thị thứ tự mà không cần 第; phải dựa vào danh từ và ngữ cảnh.",
+      "modelExample": {
+        "hanzi": "我家住三楼。",
+        "pinyin": "Wǒ jiā zhù sān lóu.",
+        "meaningVi": "Nhà tôi ở tầng ba."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng số + lượng từ để nói thứ tự tầng: Lớp học ở tầng năm.",
+        "modelAnswerHanzi": "教室在五楼。",
+        "modelAnswerPinyin": "Jiàoshì zài wǔ lóu.",
+        "modelAnswerMeaningVi": "Lớp học ở tầng năm."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-073",
+      "officialOrdinal": 73,
+      "sourcePage": 391,
+      "category": "特殊表达法",
+      "categoryName": "数的表达法",
+      "detail": null,
+      "officialContent": "概数表达法1：（1）用“几”表示概数",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "几 đặt trước lượng từ để nêu số lượng ước chừng nhỏ hoặc phần lẻ chưa xác định, như 十几个人 hay 几十块钱.",
+      "modelExample": {
+        "hanzi": "教室里有十几个学生。",
+        "pinyin": "Jiàoshì lǐ yǒu shí jǐ ge xuésheng.",
+        "meaningVi": "Trong lớp có hơn mười học sinh."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng 几 nêu ước lượng: Chiếc áo này giá vài chục tệ.",
+        "modelAnswerHanzi": "这件衣服几十块钱。",
+        "modelAnswerPinyin": "Zhè jiàn yīfu jǐshí kuài qián.",
+        "modelAnswerMeaningVi": "Chiếc áo này giá vài chục tệ."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-074",
+      "officialOrdinal": 74,
+      "sourcePage": 391,
+      "category": "特殊表达法",
+      "categoryName": "数的表达法",
+      "detail": null,
+      "officialContent": "（2）数词+多+量词",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Mẫu số từ + 多 + lượng từ nêu số lượng vượt một mốc tròn nhưng chưa tới mốc kế tiếp, thường gặp với 十, 百, 千.",
+      "modelExample": {
+        "hanzi": "这个班有三十多名学生。",
+        "pinyin": "Zhège bān yǒu sānshí duō míng xuésheng.",
+        "meaningVi": "Lớp này có hơn ba mươi học sinh."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng số + 多 + lượng từ: Trường học có hơn một trăm người.",
+        "modelAnswerHanzi": "学校有一百多人。",
+        "modelAnswerPinyin": "Xuéxiào yǒu yì bǎi duō rén.",
+        "modelAnswerMeaningVi": "Trường học có hơn một trăm người."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialGrammarRowId": "hsk2-grammar-row-075",
+      "officialOrdinal": 75,
+      "sourcePage": 391,
+      "category": "特殊表达法",
+      "categoryName": "数的表达法",
+      "detail": null,
+      "officialContent": "（3）数词+量词+多",
+      "unitId": "hsk2-sentence-chains",
+      "trackId": "hsk2-reference-description-comparison",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "explanationViDraft": "Mẫu số từ + lượng từ + 多 nêu lượng vượt con số đã nói một phần nhỏ, như 三岁多 hoặc 五公里多.",
+      "modelExample": {
+        "hanzi": "这个孩子三岁多了。",
+        "pinyin": "Zhège háizi sān suì duō le.",
+        "meaningVi": "Đứa trẻ này hơn ba tuổi."
+      },
+      "guidedPractice": {
+        "promptVi": "Dùng số + lượng từ + 多: Anh ấy đã sống ở Trung Quốc hơn một năm.",
+        "modelAnswerHanzi": "他在中国住了一年多。",
+        "modelAnswerPinyin": "Tā zài Zhōngguó zhù le yì nián duō.",
+        "modelAnswerMeaningVi": "Anh ấy đã sống ở Trung Quốc hơn một năm."
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "grammarPedagogyReview": "pending"
+      }
+    }
+  ],
+  "practiceItems": [
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-001:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-001",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 后面 để nói: Phía sau bệnh viện có một quán cà phê.",
+      "modelAnswer": {
+        "hanzi": "医院后面有一家咖啡店。",
+        "pinyin": "Yīyuàn hòumiàn yǒu yì jiā kāfēidiàn.",
+        "meaningVi": "Phía sau bệnh viện có một quán cà phê."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-002:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-002",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 右边 để nói: Nhà vệ sinh ở bên phải lớp học.",
+      "modelAnswer": {
+        "hanzi": "洗手间在教室右边。",
+        "pinyin": "Xǐshǒujiān zài jiàoshì yòubian.",
+        "meaningVi": "Nhà vệ sinh ở bên phải lớp học."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-003:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-003",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng dạng ABAB để rủ: Chúng ta nghỉ một chút nhé.",
+      "modelAnswer": {
+        "hanzi": "我们休息休息吧。",
+        "pinyin": "Wǒmen xiūxi xiūxi ba.",
+        "meaningVi": "Chúng ta nghỉ một chút nhé."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-004:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-004",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 可能 để nói: Ngày mai có thể trời mưa.",
+      "modelAnswer": {
+        "hanzi": "明天可能下雨。",
+        "pinyin": "Míngtiān kěnéng xiàyǔ.",
+        "meaningVi": "Ngày mai có thể trời mưa."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-005:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-005",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 帮忙 để nói: Bạn có thể giúp tôi một việc không?",
+      "modelAnswer": {
+        "hanzi": "你能帮我一个忙吗？",
+        "pinyin": "Nǐ néng bāng wǒ yí ge máng ma?",
+        "meaningVi": "Bạn có thể giúp tôi một việc không?"
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-006:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-006",
+      "kind": "guided-pattern-production",
+      "promptVi": "Hỏi: Tại sao hôm nay anh ấy không đi làm?",
+      "modelAnswer": {
+        "hanzi": "他今天为什么不上班？",
+        "pinyin": "Tā jīntiān wèishénme bù shàngbān?",
+        "meaningVi": "Tại sao hôm nay anh ấy không đi làm?"
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-007:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-007",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 自己 để nói: Cô ấy tự mua vé.",
+      "modelAnswer": {
+        "hanzi": "她自己买票。",
+        "pinyin": "Tā zìjǐ mǎi piào.",
+        "meaningVi": "Cô ấy tự mua vé."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-008:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-008",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 这样 để nói: Làm như thế này khá tốt.",
+      "modelAnswer": {
+        "hanzi": "这样做很不错。",
+        "pinyin": "Zhèyàng zuò hěn búcuò.",
+        "meaningVi": "Làm như thế này khá tốt."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-009:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-009",
+      "kind": "guided-pattern-production",
+      "promptVi": "Lặp 慢 để nhắc: Bạn nói chậm chậm thôi.",
+      "modelAnswer": {
+        "hanzi": "你慢慢说。",
+        "pinyin": "Nǐ mànmàn shuō.",
+        "meaningVi": "Bạn nói chậm chậm thôi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-010:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-010",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 好多 để nói: Hiệu sách có rất nhiều sách.",
+      "modelAnswer": {
+        "hanzi": "书店里有好多书。",
+        "pinyin": "Shūdiàn lǐ yǒu hǎoduō shū.",
+        "meaningVi": "Hiệu sách có rất nhiều sách."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-011:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-011",
+      "kind": "guided-pattern-production",
+      "promptVi": "Chọn 间 để nói: Chúng tôi đặt hai phòng.",
+      "modelAnswer": {
+        "hanzi": "我们订了两间房。",
+        "pinyin": "Wǒmen dìng le liǎng jiān fáng.",
+        "meaningVi": "Chúng tôi đã đặt hai phòng."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-012:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-012",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 包 để nói: Trên bàn có hai gói thuốc.",
+      "modelAnswer": {
+        "hanzi": "桌子上有两包药。",
+        "pinyin": "Zhuōzi shàng yǒu liǎng bāo yào.",
+        "meaningVi": "Trên bàn có hai gói thuốc."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-013:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-013",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 次 để nói: Hôm nay tôi gọi cho anh ấy ba lần.",
+      "modelAnswer": {
+        "hanzi": "今天我给他打了三次电话。",
+        "pinyin": "Jīntiān wǒ gěi tā dǎ le sān cì diànhuà.",
+        "meaningVi": "Hôm nay tôi đã gọi cho anh ấy ba lần."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-014:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-014",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 多 để cảm thán: Hôm nay trời đẹp biết bao!",
+      "modelAnswer": {
+        "hanzi": "今天的天气多好啊！",
+        "pinyin": "Jīntiān de tiānqì duō hǎo a!",
+        "meaningVi": "Hôm nay trời đẹp biết bao!"
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-015:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-015",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 一起 để nói: Cuối tuần họ cùng chơi bóng.",
+      "modelAnswer": {
+        "hanzi": "周末他们一起打球。",
+        "pinyin": "Zhōumò tāmen yìqǐ dǎqiú.",
+        "meaningVi": "Cuối tuần họ cùng chơi bóng."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-016:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-016",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 已经 để nói: Anh ấy đã về nhà rồi.",
+      "modelAnswer": {
+        "hanzi": "他已经回家了。",
+        "pinyin": "Tā yǐjīng huí jiā le.",
+        "meaningVi": "Anh ấy đã về nhà rồi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-017:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-017",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 常 để nói: Cô ấy thường gọi cho mẹ.",
+      "modelAnswer": {
+        "hanzi": "她常给妈妈打电话。",
+        "pinyin": "Tā cháng gěi māma dǎ diànhuà.",
+        "meaningVi": "Cô ấy thường gọi cho mẹ."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-018:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-018",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 别 để nhắc: Đừng quên cầm vé máy bay.",
+      "modelAnswer": {
+        "hanzi": "别忘了拿机票。",
+        "pinyin": "Bié wàng le ná jīpiào.",
+        "meaningVi": "Đừng quên cầm vé máy bay."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-01:hsk2-grammar-row-019:guided",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-019",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 就 để nói: Tôi tan học lúc năm giờ rồi về nhà ngay.",
+      "modelAnswer": {
+        "hanzi": "我五点下课就回家。",
+        "pinyin": "Wǒ wǔ diǎn xiàkè jiù huí jiā.",
+        "meaningVi": "Tôi tan học lúc năm giờ rồi về nhà ngay."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-020:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-020",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 都…了 để nhấn mạnh: Đã mười giờ rồi.",
+      "modelAnswer": {
+        "hanzi": "都十点了。",
+        "pinyin": "Dōu shí diǎn le.",
+        "meaningVi": "Đã mười giờ rồi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-021:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-021",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 从 để nói: Chúng tôi đi từ trường đến nhà ga.",
+      "modelAnswer": {
+        "hanzi": "我们从学校走到车站。",
+        "pinyin": "Wǒmen cóng xuéxiào zǒu dào chēzhàn.",
+        "meaningVi": "Chúng tôi đi từ trường đến nhà ga."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-022:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-022",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 往右 để chỉ đường: Đi về bên phải.",
+      "modelAnswer": {
+        "hanzi": "往右边走。",
+        "pinyin": "Wǎng yòubian zǒu.",
+        "meaningVi": "Đi về bên phải."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-023:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-023",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 从 để nói: Xe buýt đi qua từ con đường này.",
+      "modelAnswer": {
+        "hanzi": "公交车从这条路开过去。",
+        "pinyin": "Gōngjiāochē cóng zhè tiáo lù kāi guòqu.",
+        "meaningVi": "Xe buýt chạy qua từ con đường này."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-024:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-024",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 给 để nói: Xin hãy mở cửa cho tôi.",
+      "modelAnswer": {
+        "hanzi": "请给我开门。",
+        "pinyin": "Qǐng gěi wǒ kāimén.",
+        "meaningVi": "Xin hãy mở cửa cho tôi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-025:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-025",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 比 để nói: Em gái tôi cao hơn tôi.",
+      "modelAnswer": {
+        "hanzi": "我妹妹比我高。",
+        "pinyin": "Wǒ mèimei bǐ wǒ gāo.",
+        "meaningVi": "Em gái tôi cao hơn tôi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-026:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-026",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 跟 để nói: Cuối tuần tôi đi xem phim cùng bạn.",
+      "modelAnswer": {
+        "hanzi": "周末我跟朋友去看电影。",
+        "pinyin": "Zhōumò wǒ gēn péngyou qù kàn diànyǐng.",
+        "meaningVi": "Cuối tuần tôi đi xem phim cùng bạn."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-01:hsk2-grammar-row-027:guided",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-027",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 因为 để nói: Vì bị ốm nên hôm nay cô ấy xin nghỉ.",
+      "modelAnswer": {
+        "hanzi": "因为生病，她今天请假了。",
+        "pinyin": "Yīnwèi shēngbìng, tā jīntiān qǐngjià le.",
+        "meaningVi": "Vì bị ốm nên hôm nay cô ấy xin nghỉ."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-01:hsk2-grammar-row-028:guided",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-028",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 跟 nối hai danh từ: Bố và mẹ đều ở nhà.",
+      "modelAnswer": {
+        "hanzi": "爸爸跟妈妈都在家。",
+        "pinyin": "Bàba gēn māma dōu zài jiā.",
+        "meaningVi": "Bố và mẹ đều ở nhà."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-01:hsk2-grammar-row-029:guided",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-029",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 因为…所以…: Vì trời lạnh nên tôi không ra ngoài.",
+      "modelAnswer": {
+        "hanzi": "因为天气冷，所以我不出去。",
+        "pinyin": "Yīnwèi tiānqì lěng, suǒyǐ wǒ bù chūqù.",
+        "meaningVi": "Vì trời lạnh nên tôi không ra ngoài."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-030:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-030",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 得 để nói: Cô ấy chạy rất nhanh.",
+      "modelAnswer": {
+        "hanzi": "她跑得很快。",
+        "pinyin": "Tā pǎo de hěn kuài.",
+        "meaningVi": "Cô ấy chạy rất nhanh."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-031:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-031",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 没…过 để nói: Tôi chưa từng ăn món này.",
+      "modelAnswer": {
+        "hanzi": "我没吃过这个菜。",
+        "pinyin": "Wǒ méi chīguo zhège cài.",
+        "meaningVi": "Tôi chưa từng ăn món này."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-032:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-032",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 着 để nói: Trên giường có một em bé đang ngồi.",
+      "modelAnswer": {
+        "hanzi": "床上坐着一个小孩儿。",
+        "pinyin": "Chuáng shàng zuòzhe yí ge xiǎoháir.",
+        "meaningVi": "Trên giường có một em bé đang ngồi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-033:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-033",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 吧 để đề nghị: Chúng ta nghỉ một lát nhé.",
+      "modelAnswer": {
+        "hanzi": "我们休息一会儿吧。",
+        "pinyin": "Wǒmen xiūxi yíhuìr ba.",
+        "meaningVi": "Chúng ta nghỉ một lát nhé."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-034:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-034",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng bổ ngữ kết quả 懂: Tôi đã nghe hiểu lời giáo viên.",
+      "modelAnswer": {
+        "hanzi": "我听懂老师的话了。",
+        "pinyin": "Wǒ tīngdǒng lǎoshī de huà le.",
+        "meaningVi": "Tôi đã nghe hiểu lời giáo viên."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-035:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-035",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng cụm 的 để nói: Cái lớn là của tôi.",
+      "modelAnswer": {
+        "hanzi": "大的是我的。",
+        "pinyin": "Dà de shì wǒ de.",
+        "meaningVi": "Cái lớn là của tôi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-036:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-036",
+      "kind": "guided-pattern-production",
+      "promptVi": "Tạo chuỗi liên động: Anh ấy đến trường học.",
+      "modelAnswer": {
+        "hanzi": "他去学校学习。",
+        "pinyin": "Tā qù xuéxiào xuéxí.",
+        "meaningVi": "Anh ấy đến trường học."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-037:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-037",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 让: Mẹ bảo em trai nấu cơm.",
+      "modelAnswer": {
+        "hanzi": "妈妈让弟弟做饭。",
+        "pinyin": "Māma ràng dìdi zuòfàn.",
+        "meaningVi": "Mẹ bảo em trai nấu cơm."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-038:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-038",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 什么的: Cuối tuần tôi thường đọc sách, nghe hát các kiểu.",
+      "modelAnswer": {
+        "hanzi": "周末我常看书、听歌什么的。",
+        "pinyin": "Zhōumò wǒ cháng kànshū, tīng gē shénme de.",
+        "meaningVi": "Cuối tuần tôi thường đọc sách, nghe hát các kiểu."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-039:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-039",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng mẫu để khuyên: Muộn rồi, bạn vẫn nên về nhà đi.",
+      "modelAnswer": {
+        "hanzi": "太晚了，你还是回家吧。",
+        "pinyin": "Tài wǎn le, nǐ háishi huí jiā ba.",
+        "meaningVi": "Muộn rồi, bạn vẫn nên về nhà đi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-040:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-040",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 就要…了: Còn mười phút nữa là vào học.",
+      "modelAnswer": {
+        "hanzi": "还有十分钟就要上课了。",
+        "pinyin": "Hái yǒu shí fēnzhōng jiùyào shàngkè le.",
+        "meaningVi": "Còn mười phút nữa là vào học."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-041:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-041",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 都…了: Con đã mười tuổi rồi.",
+      "modelAnswer": {
+        "hanzi": "孩子都十岁了。",
+        "pinyin": "Háizi dōu shí suì le.",
+        "meaningVi": "Đứa trẻ đã mười tuổi rồi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-042:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-042",
+      "kind": "guided-pattern-production",
+      "promptVi": "Đưa đối tượng lên đầu: Vé đã mua xong rồi.",
+      "modelAnswer": {
+        "hanzi": "票买好了。",
+        "pinyin": "Piào mǎihǎo le.",
+        "meaningVi": "Vé đã mua xong rồi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-043:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-043",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng vị ngữ danh từ: Em trai tôi hai mươi tuổi.",
+      "modelAnswer": {
+        "hanzi": "我弟弟二十岁。",
+        "pinyin": "Wǒ dìdi èrshí suì.",
+        "meaningVi": "Em trai tôi hai mươi tuổi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-044:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-044",
+      "kind": "guided-pattern-production",
+      "promptVi": "Tạo định ngữ bằng cụm chủ–vị: Đây là món mẹ tôi làm.",
+      "modelAnswer": {
+        "hanzi": "这是我妈妈做的菜。",
+        "pinyin": "Zhè shì wǒ māma zuò de cài.",
+        "meaningVi": "Đây là món mẹ tôi làm."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-045:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-045",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 完 để nói: Tôi đã viết xong chữ Hán.",
+      "modelAnswer": {
+        "hanzi": "我写完汉字了。",
+        "pinyin": "Wǒ xiěwán Hànzì le.",
+        "meaningVi": "Tôi đã viết xong chữ Hán."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-046:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-046",
+      "kind": "guided-pattern-production",
+      "promptVi": "Chọn 去 để nói: Anh ấy chạy về phía kia.",
+      "modelAnswer": {
+        "hanzi": "他跑去了。",
+        "pinyin": "Tā pǎoqù le.",
+        "meaningVi": "Anh ấy chạy về phía kia."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-047:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-047",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 回 để nói: Anh ấy đã chạy về nhà.",
+      "modelAnswer": {
+        "hanzi": "他跑回家了。",
+        "pinyin": "Tā pǎohuí jiā le.",
+        "meaningVi": "Anh ấy đã chạy về nhà."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-048:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-048",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 进去 để nói: Anh ấy đã chạy vào trong.",
+      "modelAnswer": {
+        "hanzi": "他跑进去了。",
+        "pinyin": "Tā pǎo jìnqu le.",
+        "meaningVi": "Anh ấy đã chạy vào trong."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-049:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-049",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 得 để nói: Anh ấy chạy không nhanh.",
+      "modelAnswer": {
+        "hanzi": "他跑得不快。",
+        "pinyin": "Tā pǎo de bú kuài.",
+        "meaningVi": "Anh ấy chạy không nhanh."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-050:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-050",
+      "kind": "guided-pattern-production",
+      "promptVi": "Nêu thời lượng: Hôm qua cô ấy ngủ tám tiếng.",
+      "modelAnswer": {
+        "hanzi": "她昨天睡了八个小时。",
+        "pinyin": "Tā zuótiān shuì le bā ge xiǎoshí.",
+        "meaningVi": "Hôm qua cô ấy ngủ tám tiếng."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-051:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-051",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng tính từ + lượng: Năm nay em trai lớn thêm một tuổi.",
+      "modelAnswer": {
+        "hanzi": "弟弟今年大一岁。",
+        "pinyin": "Dìdi jīnnián dà yí suì.",
+        "meaningVi": "Năm nay em trai lớn thêm một tuổi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-052:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-052",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng chủ–vị làm vị ngữ: Cô gái này mắt rất to.",
+      "modelAnswer": {
+        "hanzi": "这个女孩眼睛很大。",
+        "pinyin": "Zhège nǚhái yǎnjing hěn dà.",
+        "meaningVi": "Cô gái này có đôi mắt rất to."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-053:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-053",
+      "kind": "guided-pattern-production",
+      "promptVi": "Tạo câu hỏi lựa chọn: Bạn đi xe buýt hay tàu điện ngầm?",
+      "modelAnswer": {
+        "hanzi": "你坐公交车还是坐地铁？",
+        "pinyin": "Nǐ zuò gōngjiāochē háishi zuò dìtiě?",
+        "meaningVi": "Bạn đi xe buýt hay tàu điện ngầm?"
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-054:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-054",
+      "kind": "guided-pattern-production",
+      "promptVi": "Tạo lời nhắc: Đừng quên viết tên.",
+      "modelAnswer": {
+        "hanzi": "别忘了写名字。",
+        "pinyin": "Bié wàng le xiě míngzi.",
+        "meaningVi": "Đừng quên viết tên."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-055:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "officialGrammarRowId": "hsk2-grammar-row-055",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 是 để giới thiệu đặc trưng: Đây là món tôi thích nhất.",
+      "modelAnswer": {
+        "hanzi": "这是我最喜欢的菜。",
+        "pinyin": "Zhè shì wǒ zuì xǐhuan de cài.",
+        "meaningVi": "Đây là món tôi thích nhất."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-056:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-056",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 有 để nói chiều cao đã đạt: Cô bé cao một mét.",
+      "modelAnswer": {
+        "hanzi": "这个女孩儿有一米高。",
+        "pinyin": "Zhège nǚháir yǒu yì mǐ gāo.",
+        "meaningVi": "Cô bé này cao một mét."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-057:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-057",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng mẫu tồn hiện: Trong lớp có mười học sinh đang ngồi.",
+      "modelAnswer": {
+        "hanzi": "教室里坐着十名学生。",
+        "pinyin": "Jiàoshì lǐ zuòzhe shí míng xuésheng.",
+        "meaningVi": "Trong lớp có mười học sinh đang ngồi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-058:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-058",
+      "kind": "guided-pattern-production",
+      "promptVi": "So sánh hai vật: Chiếc áo này đắt hơn chiếc kia.",
+      "modelAnswer": {
+        "hanzi": "这件衣服比那件贵。",
+        "pinyin": "Zhè jiàn yīfu bǐ nà jiàn guì.",
+        "meaningVi": "Chiếc áo này đắt hơn chiếc kia."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-059:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-059",
+      "kind": "guided-pattern-production",
+      "promptVi": "Nêu chênh lệch: Quyển sách này đắt hơn quyển kia mười tệ.",
+      "modelAnswer": {
+        "hanzi": "这本书比那本贵十块钱。",
+        "pinyin": "Zhè běn shū bǐ nà běn guì shí kuài qián.",
+        "meaningVi": "Quyển sách này đắt hơn quyển kia mười tệ."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-060:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-060",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 有…那么 để hỏi: Căn phòng này có lớn bằng căn kia không?",
+      "modelAnswer": {
+        "hanzi": "这个房间有那个房间那么大吗？",
+        "pinyin": "Zhège fángjiān yǒu nàge fángjiān nàme dà ma?",
+        "meaningVi": "Căn phòng này có lớn bằng căn kia không?"
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-061:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-061",
+      "kind": "guided-pattern-production",
+      "promptVi": "So sánh kỹ năng: Cô ấy nói tiếng Trung hay hơn tôi.",
+      "modelAnswer": {
+        "hanzi": "她汉语说得比我好。",
+        "pinyin": "Tā Hànyǔ shuō de bǐ wǒ hǎo.",
+        "meaningVi": "Cô ấy nói tiếng Trung hay hơn tôi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-01:hsk2-grammar-row-062:guided",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "officialGrammarRowId": "hsk2-grammar-row-062",
+      "kind": "guided-pattern-production",
+      "promptVi": "Nhấn mạnh phương tiện: Chúng tôi đến bằng tàu hỏa.",
+      "modelAnswer": {
+        "hanzi": "我们是坐火车来的。",
+        "pinyin": "Wǒmen shì zuò huǒchē lái de.",
+        "meaningVi": "Chúng tôi đến bằng tàu hỏa."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-063:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-063",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 请: Tôi mời bạn ngồi xuống.",
+      "modelAnswer": {
+        "hanzi": "我请你坐下。",
+        "pinyin": "Wǒ qǐng nǐ zuòxia.",
+        "meaningVi": "Tôi mời bạn ngồi xuống."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-064:guided",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-064",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 给 trong câu hai tân ngữ: Mẹ tặng em trai một quyển sách.",
+      "modelAnswer": {
+        "hanzi": "妈妈送给弟弟一本书。",
+        "pinyin": "Māma sònggěi dìdi yì běn shū.",
+        "meaningVi": "Mẹ tặng em trai một quyển sách."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-02:hsk2-grammar-row-065:guided",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-065",
+      "kind": "guided-pattern-production",
+      "promptVi": "Tạo câu chọn nguyên nhân: Là xe hỏng hay là bạn đến muộn?",
+      "modelAnswer": {
+        "hanzi": "是车坏了，还是你来晚了？",
+        "pinyin": "Shì chē huài le, háishi nǐ lái wǎn le?",
+        "meaningVi": "Là xe hỏng hay là bạn đến muộn?"
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-02:hsk2-grammar-row-066:guided",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-066",
+      "kind": "guided-pattern-production",
+      "promptVi": "Nối hai vế: Tuy món này đắt nhưng rất ngon.",
+      "modelAnswer": {
+        "hanzi": "虽然这个菜很贵，但是很好吃。",
+        "pinyin": "Suīrán zhège cài hěn guì, dànshì hěn hǎochī.",
+        "meaningVi": "Tuy món này đắt nhưng rất ngon."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-02:hsk2-grammar-row-067:guided",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-067",
+      "kind": "guided-pattern-production",
+      "promptVi": "Nối nguyên nhân–kết quả: Vì anh ấy bị ốm nên không đi làm.",
+      "modelAnswer": {
+        "hanzi": "因为他生病了，所以没去上班。",
+        "pinyin": "Yīnwèi tā shēngbìng le, suǒyǐ méi qù shàngbān.",
+        "meaningVi": "Vì anh ấy bị ốm nên không đi làm."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-clause-linking-lesson-02:hsk2-grammar-row-068:guided",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-068",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng mẫu: Anh ấy vừa đến nhà là gọi điện cho mẹ.",
+      "modelAnswer": {
+        "hanzi": "他一到家就给妈妈打电话。",
+        "pinyin": "Tā yí dào jiā jiù gěi māma dǎ diànhuà.",
+        "meaningVi": "Anh ấy vừa đến nhà là gọi điện cho mẹ."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-069:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-069",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 着 nêu trạng thái: Anh ấy đang mặc quần áo màu đỏ.",
+      "modelAnswer": {
+        "hanzi": "他穿着红色衣服。",
+        "pinyin": "Tā chuānzhe hóngsè yīfu.",
+        "meaningVi": "Anh ấy đang mặc quần áo màu đỏ."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-070:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-070",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 着 cho hành động nền: Cô ấy cười và nói với tôi.",
+      "modelAnswer": {
+        "hanzi": "她笑着跟我说话。",
+        "pinyin": "Tā xiàozhe gēn wǒ shuōhuà.",
+        "meaningVi": "Cô ấy cười và nói chuyện với tôi."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-071:guided",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "officialGrammarRowId": "hsk2-grammar-row-071",
+      "kind": "guided-pattern-production",
+      "promptVi": "Trả lời phủ định bằng 没…过: Tôi chưa từng xem bộ phim đó.",
+      "modelAnswer": {
+        "hanzi": "我没看过那个电影。",
+        "pinyin": "Wǒ méi kànguo nàge diànyǐng.",
+        "meaningVi": "Tôi chưa từng xem bộ phim đó."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-072:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-072",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng số + lượng từ để nói thứ tự tầng: Lớp học ở tầng năm.",
+      "modelAnswer": {
+        "hanzi": "教室在五楼。",
+        "pinyin": "Jiàoshì zài wǔ lóu.",
+        "meaningVi": "Lớp học ở tầng năm."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-073:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-073",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng 几 nêu ước lượng: Chiếc áo này giá vài chục tệ.",
+      "modelAnswer": {
+        "hanzi": "这件衣服几十块钱。",
+        "pinyin": "Zhè jiàn yīfu jǐshí kuài qián.",
+        "meaningVi": "Chiếc áo này giá vài chục tệ."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-074:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-074",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng số + 多 + lượng từ: Trường học có hơn một trăm người.",
+      "modelAnswer": {
+        "hanzi": "学校有一百多人。",
+        "pinyin": "Xuéxiào yǒu yì bǎi duō rén.",
+        "meaningVi": "Trường học có hơn một trăm người."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-075:guided",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "officialGrammarRowId": "hsk2-grammar-row-075",
+      "kind": "guided-pattern-production",
+      "promptVi": "Dùng số + lượng từ + 多: Anh ấy đã sống ở Trung Quốc hơn một năm.",
+      "modelAnswer": {
+        "hanzi": "他在中国住了一年多。",
+        "pinyin": "Tā zài Zhōngguó zhù le yì nián duō.",
+        "meaningVi": "Anh ấy đã sống ở Trung Quốc hơn một năm."
+      },
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    }
+  ],
+  "reviewBatches": [
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-01:grammar-review-v1",
+      "lessonId": "hsk2-reference-description-comparison-lesson-01",
+      "grammarRowIds": [
+        "hsk2-grammar-row-001",
+        "hsk2-grammar-row-002",
+        "hsk2-grammar-row-006",
+        "hsk2-grammar-row-007",
+        "hsk2-grammar-row-008",
+        "hsk2-grammar-row-009",
+        "hsk2-grammar-row-010",
+        "hsk2-grammar-row-011",
+        "hsk2-grammar-row-012"
+      ],
+      "practiceItemIds": [
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-001:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-002:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-006:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-007:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-008:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-009:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-010:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-011:guided",
+        "hsk2-reference-description-comparison-lesson-01:hsk2-grammar-row-012:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-02:grammar-review-v1",
+      "lessonId": "hsk2-reference-description-comparison-lesson-02",
+      "grammarRowIds": [
+        "hsk2-grammar-row-013",
+        "hsk2-grammar-row-014",
+        "hsk2-grammar-row-020",
+        "hsk2-grammar-row-021",
+        "hsk2-grammar-row-024",
+        "hsk2-grammar-row-025",
+        "hsk2-grammar-row-026",
+        "hsk2-grammar-row-030",
+        "hsk2-grammar-row-033"
+      ],
+      "practiceItemIds": [
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-013:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-014:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-020:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-021:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-024:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-025:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-026:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-030:guided",
+        "hsk2-reference-description-comparison-lesson-02:hsk2-grammar-row-033:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-03:grammar-review-v1",
+      "lessonId": "hsk2-reference-description-comparison-lesson-03",
+      "grammarRowIds": [
+        "hsk2-grammar-row-035",
+        "hsk2-grammar-row-038",
+        "hsk2-grammar-row-039",
+        "hsk2-grammar-row-042",
+        "hsk2-grammar-row-043",
+        "hsk2-grammar-row-044",
+        "hsk2-grammar-row-052",
+        "hsk2-grammar-row-053",
+        "hsk2-grammar-row-055"
+      ],
+      "practiceItemIds": [
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-035:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-038:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-039:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-042:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-043:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-044:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-052:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-053:guided",
+        "hsk2-reference-description-comparison-lesson-03:hsk2-grammar-row-055:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-04:grammar-review-v1",
+      "lessonId": "hsk2-reference-description-comparison-lesson-04",
+      "grammarRowIds": [
+        "hsk2-grammar-row-056",
+        "hsk2-grammar-row-058",
+        "hsk2-grammar-row-059",
+        "hsk2-grammar-row-060",
+        "hsk2-grammar-row-061",
+        "hsk2-grammar-row-072",
+        "hsk2-grammar-row-073",
+        "hsk2-grammar-row-074",
+        "hsk2-grammar-row-075"
+      ],
+      "practiceItemIds": [
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-056:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-058:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-059:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-060:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-061:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-072:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-073:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-074:guided",
+        "hsk2-reference-description-comparison-lesson-04:hsk2-grammar-row-075:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-aspect-time-experience-lesson-01:grammar-review-v1",
+      "lessonId": "hsk2-aspect-time-experience-lesson-01",
+      "grammarRowIds": [
+        "hsk2-grammar-row-003",
+        "hsk2-grammar-row-004",
+        "hsk2-grammar-row-005",
+        "hsk2-grammar-row-015",
+        "hsk2-grammar-row-016",
+        "hsk2-grammar-row-017",
+        "hsk2-grammar-row-018",
+        "hsk2-grammar-row-031",
+        "hsk2-grammar-row-032",
+        "hsk2-grammar-row-040"
+      ],
+      "practiceItemIds": [
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-003:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-004:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-005:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-015:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-016:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-017:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-018:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-031:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-032:guided",
+        "hsk2-aspect-time-experience-lesson-01:hsk2-grammar-row-040:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-aspect-time-experience-lesson-02:grammar-review-v1",
+      "lessonId": "hsk2-aspect-time-experience-lesson-02",
+      "grammarRowIds": [
+        "hsk2-grammar-row-041",
+        "hsk2-grammar-row-049",
+        "hsk2-grammar-row-050",
+        "hsk2-grammar-row-051",
+        "hsk2-grammar-row-054",
+        "hsk2-grammar-row-057",
+        "hsk2-grammar-row-069",
+        "hsk2-grammar-row-070",
+        "hsk2-grammar-row-071"
+      ],
+      "practiceItemIds": [
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-041:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-049:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-050:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-051:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-054:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-057:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-069:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-070:guided",
+        "hsk2-aspect-time-experience-lesson-02:hsk2-grammar-row-071:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-complements-and-motion-lesson-01:grammar-review-v1",
+      "lessonId": "hsk2-complements-and-motion-lesson-01",
+      "grammarRowIds": [
+        "hsk2-grammar-row-022",
+        "hsk2-grammar-row-023",
+        "hsk2-grammar-row-034",
+        "hsk2-grammar-row-036",
+        "hsk2-grammar-row-037",
+        "hsk2-grammar-row-045"
+      ],
+      "practiceItemIds": [
+        "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-022:guided",
+        "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-023:guided",
+        "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-034:guided",
+        "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-036:guided",
+        "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-037:guided",
+        "hsk2-complements-and-motion-lesson-01:hsk2-grammar-row-045:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-complements-and-motion-lesson-02:grammar-review-v1",
+      "lessonId": "hsk2-complements-and-motion-lesson-02",
+      "grammarRowIds": [
+        "hsk2-grammar-row-046",
+        "hsk2-grammar-row-047",
+        "hsk2-grammar-row-048",
+        "hsk2-grammar-row-063",
+        "hsk2-grammar-row-064"
+      ],
+      "practiceItemIds": [
+        "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-046:guided",
+        "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-047:guided",
+        "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-048:guided",
+        "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-063:guided",
+        "hsk2-complements-and-motion-lesson-02:hsk2-grammar-row-064:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-clause-linking-lesson-01:grammar-review-v1",
+      "lessonId": "hsk2-clause-linking-lesson-01",
+      "grammarRowIds": [
+        "hsk2-grammar-row-019",
+        "hsk2-grammar-row-027",
+        "hsk2-grammar-row-028",
+        "hsk2-grammar-row-029",
+        "hsk2-grammar-row-062"
+      ],
+      "practiceItemIds": [
+        "hsk2-clause-linking-lesson-01:hsk2-grammar-row-019:guided",
+        "hsk2-clause-linking-lesson-01:hsk2-grammar-row-027:guided",
+        "hsk2-clause-linking-lesson-01:hsk2-grammar-row-028:guided",
+        "hsk2-clause-linking-lesson-01:hsk2-grammar-row-029:guided",
+        "hsk2-clause-linking-lesson-01:hsk2-grammar-row-062:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-clause-linking-lesson-02:grammar-review-v1",
+      "lessonId": "hsk2-clause-linking-lesson-02",
+      "grammarRowIds": [
+        "hsk2-grammar-row-065",
+        "hsk2-grammar-row-066",
+        "hsk2-grammar-row-067",
+        "hsk2-grammar-row-068"
+      ],
+      "practiceItemIds": [
+        "hsk2-clause-linking-lesson-02:hsk2-grammar-row-065:guided",
+        "hsk2-clause-linking-lesson-02:hsk2-grammar-row-066:guided",
+        "hsk2-clause-linking-lesson-02:hsk2-grammar-row-067:guided",
+        "hsk2-clause-linking-lesson-02:hsk2-grammar-row-068:guided"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    }
+  ]
+}
