@@ -14,6 +14,10 @@ import {
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
 import {
+  assertValidHsk1CommunicativeUnitPacksBundle,
+  loadHsk1CommunicativeUnitPacksBundle,
+} from "../../src/content/hsk1CommunicativeUnitPacks.mjs";
+import {
   assertValidHskSyllabusBundle,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
@@ -43,6 +47,10 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
+  const hsk1CommunicativePacks =
+    loadHsk1CommunicativeUnitPacksBundle(root);
+  const hsk1CommunicativePacksResult =
+    assertValidHsk1CommunicativeUnitPacksBundle(hsk1CommunicativePacks);
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -221,6 +229,20 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           dialogueTurns: hsk1PersonalPackResult.summary.dialogueTurns,
           authoredPracticeItems:
             hsk1PersonalPackResult.summary.authoredPracticeItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk1CommunicativeUnits: {
+          units: hsk1CommunicativePacksResult.summary.units,
+          lessons: hsk1CommunicativePacksResult.summary.lessons,
+          tasks: hsk1CommunicativePacksResult.summary.taskBlueprintMappings,
+          topics: hsk1CommunicativePacksResult.summary.topicBlueprintMappings,
+          vocabulary: hsk1CommunicativePacksResult.summary.vocabularyDrafts,
+          grammarRows:
+            hsk1CommunicativePacksResult.summary.grammarBlueprintMappings,
+          dialogueTurns: hsk1CommunicativePacksResult.summary.dialogueTurns,
+          authoredPracticeItems:
+            hsk1CommunicativePacksResult.summary.authoredPracticeItems,
           reviewed: false,
           learnerVisible: false,
         },

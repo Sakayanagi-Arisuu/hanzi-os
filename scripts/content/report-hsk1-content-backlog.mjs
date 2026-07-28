@@ -13,6 +13,10 @@ import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
+import {
+  assertValidHsk1CommunicativeUnitPacksBundle,
+  loadHsk1CommunicativeUnitPacksBundle,
+} from "../../src/content/hsk1CommunicativeUnitPacks.mjs";
 
 export const HSK1_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
   "content/reports/hsk1-content-backlog.json";
@@ -25,6 +29,13 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
   const personalPackBundle = loadHsk1PersonalExchangePackBundle(root);
   const personalPackResult =
     assertValidHsk1PersonalExchangePackBundle(personalPackBundle);
+  const communicativePackBundle =
+    loadHsk1CommunicativeUnitPacksBundle(root);
+  const communicativePackResult =
+    assertValidHsk1CommunicativeUnitPacksBundle(communicativePackBundle);
+  const totalDraftedVocabulary =
+    personalPackResult.summary.vocabularyDrafts
+    + communicativePackResult.summary.vocabularyDrafts;
   const graph = JSON.parse(readFileSync(
     join(root, "content/curriculum/hsk0-4-graph.json"),
     "utf8",
@@ -56,11 +67,9 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
         ),
       ).length,
       authoringScoped: scopeResult.summary.vocabulary,
-      vietnameseGlossDrafted: personalPackResult.summary.vocabularyDrafts,
-      lessonBlueprintVocabularyMapped:
-        personalPackResult.summary.vocabularyDrafts,
-      vocabularyPracticeDrafted:
-        personalPackResult.summary.vocabularyDrafts,
+      vietnameseGlossDrafted: totalDraftedVocabulary,
+      lessonBlueprintVocabularyMapped: totalDraftedVocabulary,
+      vocabularyPracticeDrafted: totalDraftedVocabulary,
       pronunciationCompatible: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType !== "surface-only",
@@ -94,11 +103,19 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
         (entry) => entry.editorial.usageExampleReview === "pending",
       ).length,
       machineDraftGlossReviewPending:
-        personalPackResult.summary.vocabularyDrafts,
-      draftLessonBlueprints: personalPackResult.summary.lessons,
-      draftDialogueTurns: personalPackResult.summary.dialogueTurns,
-      authoredPracticeItems: personalPackResult.summary.authoredPracticeItems,
-      pendingReviewBatches: personalPackResult.summary.reviewBatches,
+        totalDraftedVocabulary,
+      draftLessonBlueprints:
+        personalPackResult.summary.lessons
+        + communicativePackResult.summary.lessons,
+      draftDialogueTurns:
+        personalPackResult.summary.dialogueTurns
+        + communicativePackResult.summary.dialogueTurns,
+      authoredPracticeItems:
+        personalPackResult.summary.authoredPracticeItems
+        + communicativePackResult.summary.authoredPracticeItems,
+      pendingReviewBatches:
+        personalPackResult.summary.reviewBatches
+        + communicativePackResult.summary.reviewBatches,
       pronunciationReviewItems: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType === "surface-only",
@@ -117,7 +134,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
     claims: {
       hsk1VocabularyComplete: false,
       hsk1Complete: false,
-      reason: "AI-assisted content remains draft-only; Vietnamese and Mandarin review, grammar/context practice, remaining unit packs and release are incomplete.",
+      reason: "All communicative HSK1 vocabulary has AI-assisted draft practice, but Vietnamese and Mandarin review, character practice, grammar/context assessment and release are incomplete.",
     },
   };
 };
