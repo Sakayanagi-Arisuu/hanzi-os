@@ -203,6 +203,20 @@ Vietnamese editorial và assessment review. Pack cố ý giữ 0 authored practi
 0 assessment prompt, 0 rubric, 0 approval và 0 release-eligible lesson; bước
 tiếp theo mới author nội dung ngữ cảnh và ngân hàng luyện tập cho từng bài.
 
+`content/drafts/hsk2-vocabulary-practice-2026.07.json` là lớp practice đầu
+tiên trên 20 bài tình huống. Pack giữ 200 nghĩa Việt AI-assisted draft theo
+đúng official ID, từ loại, lesson và exact CC-CEDICT source-line digest; hai
+mục đồng hình như `花` không bị gộp nghĩa. Mỗi từ có ba item riêng:
+meaning-recall, pinyin-recognition và listening-selection, tổng 600 item.
+
+`content:hsk2:vocabulary-practice -- --write` tái tạo artifact; `--check` và
+`content:hsk2:vocabulary-practice:validate` kiểm exact 200 × 3, option không
+trùng, lesson assignment, provenance và 20 review batch. Tất cả nghĩa Việt
+vẫn chờ native Mandarin/Vietnamese review. Hai trăm item nghe có `audio: null`
+và browser TTS chỉ để luyện draft; 0 item measurement/mastery/release-eligible.
+Grammar, character, dialogue/task production và assessment HSK2 vẫn là các
+lát authoring tiếp theo.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

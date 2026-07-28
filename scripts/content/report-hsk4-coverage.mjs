@@ -26,6 +26,10 @@ import {
   loadHsk2LessonBlueprintsBundle,
 } from "../../src/content/hsk2LessonBlueprints.mjs";
 import {
+  assertValidHsk2VocabularyPracticeBundle,
+  loadHsk2VocabularyPracticeBundle,
+} from "../../src/content/hsk2VocabularyPractice.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -91,6 +95,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2LessonBlueprints = loadHsk2LessonBlueprintsBundle(root);
   const hsk2LessonBlueprintsResult =
     assertValidHsk2LessonBlueprintsBundle(hsk2LessonBlueprints);
+  const hsk2VocabularyPractice = loadHsk2VocabularyPracticeBundle(root);
+  const hsk2VocabularyPracticeResult =
+    assertValidHsk2VocabularyPracticeBundle(hsk2VocabularyPractice);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -353,6 +360,26 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
               .recognitionCharacterBlueprintMappings,
           authoredPracticeItems:
             hsk2LessonBlueprintsResult.summary.authoredPracticeItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2VocabularyPractice: {
+          lessons:
+            hsk2VocabularyPracticeResult.summary.situationalLessons,
+          vocabularyDrafts:
+            hsk2VocabularyPracticeResult.summary.vocabularyDrafts,
+          authoredPracticeItems:
+            hsk2VocabularyPracticeResult.summary.authoredPracticeItems,
+          meaningRecallItems:
+            hsk2VocabularyPracticeResult.summary.meaningRecallItems,
+          pinyinRecognitionItems:
+            hsk2VocabularyPracticeResult.summary.pinyinRecognitionItems,
+          listeningSelectionItems:
+            hsk2VocabularyPracticeResult.summary.listeningSelectionItems,
+          reviewedAudioItems:
+            hsk2VocabularyPracticeResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk2VocabularyPracticeResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **75%**.
+Active progress: **76%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
-| HSK0-4 content coverage | 26 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has a 200-record source backlog plus 40 exact-mapped lesson blueprints; reviewed content, audio and HSK2 practice remain. |
+| HSK0-4 content coverage | 27 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has 40 exact-mapped blueprints plus 600 vocabulary practice drafts; grammar/character/production practice, reviewed content and audio remain. |
 | HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -227,6 +227,17 @@ Every commit must update this percentage here and in the active roadmap.
   prompts, rubrics, approvals and release-eligible lessons all remain zero;
   HSK2 completion stays false. This named authoring deliverable raises active
   progress to **75%**.
+- Added 200 Vietnamese AI-assisted HSK2 vocabulary gloss drafts with exact
+  official ID, part-of-speech, lesson and CC-CEDICT source-line provenance.
+  Homographs remain separate records and every gloss still requires Mandarin
+  linguistic plus Vietnamese editorial review.
+- Added exactly three practice items per HSK2 lexeme: 200 meaning recall,
+  200 pinyin recognition and 200 listening selection items across the 20
+  situational blueprints. Twenty exact review batches cover all 600 items.
+- All listening items retain `audio: null` and disclose synthetic browser TTS.
+  The pack has zero reviewed audio, approval, measurement/mastery or
+  release-eligible item; grammar, character, task production and assessment
+  content remain open. This deliverable raises active progress to **76%**.
 
 ## Repository state
 
@@ -527,16 +538,20 @@ the applicable gates to run again before the next checkpoint commit.
     10 sentence-chain and 10 short-production; all 17 tasks, 34 topics,
     200 vocabulary, 75 grammar rows and 125 recognition characters mapped;
     0 authored practice, assessment prompt, approval or release-eligible lesson
-  - Vitest: 160 files, 1,286 tests passed
+  - HSK2 vocabulary-practice pack: 200 Vietnamese AI-assisted gloss drafts,
+    200 meaning-recall, 200 pinyin-recognition and 200 listening-selection
+    items across 20 situational lessons; 0 reviewed audio, measurement/mastery
+    or release-eligible item
+  - Vitest: 161 files, 1,291 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 97 / 99, median 98
+  - Performance: 99 / 98 / 92, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,885 ms; CLS: 0; TBT: 106 ms
+  - Median LCP: 1,899 ms; CLS: 0; TBT: 98 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

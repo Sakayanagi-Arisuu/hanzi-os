@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **75%**.
+Status: **in progress** at project progress **76%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **75%**.
+Status: **in progress** at project progress **76%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 10 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 26 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 vocabulary backlog và 40 exact-mapped lesson blueprint |
+| D. Nội dung có coverage HSK0-4 | 30 | 27 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints và 600 vocabulary practice item |
 | E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **75** | **Tiến độ hiện tại: 75%** |
+| **Tổng** | **100** | **76** | **Tiến độ hiện tại: 76%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -316,6 +316,16 @@ plan, evidence mode, audio requirement và 40 review batch. Điểm tăng chỉ 
 nhận lesson architecture có thể biên tập: authored practice, assessment
 prompt, rubric, approval, learner-visible và release-eligible vẫn bằng 0; mọi
 claim hoàn thành HSK2 vẫn là `false`.
+
+Lát G3 HSK2 thứ ba tăng trụ cột D thêm 1 điểm, đưa tiến độ lên **76%**. Toàn
+bộ 200 từ đã có nghĩa Việt AI-assisted draft gắn official identity, từ loại,
+lesson và exact source-line provenance. Mỗi từ có ba bài luyện riêng:
+meaning recall, pinyin recognition và listening selection, tổng 600 item chia
+đúng 20 blueprint tình huống cùng 20 review batch. Validator còn kiểm các mục
+đồng hình theo ID/từ loại, option không trùng và TTS disclosure. Hai trăm bài
+nghe vẫn không có audio đã duyệt; toàn pack có 0 approval, measurement,
+mastery và release-eligible item. Grammar/character/production practice,
+assessment và human review còn thiếu nên HSK2 completion tiếp tục `false`.
 
 ## 6. Quy tắc cập nhật phần trăm
 

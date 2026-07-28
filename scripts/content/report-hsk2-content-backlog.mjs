@@ -13,6 +13,10 @@ import {
   assertValidHsk2LessonBlueprintsBundle,
   loadHsk2LessonBlueprintsBundle,
 } from "../../src/content/hsk2LessonBlueprints.mjs";
+import {
+  assertValidHsk2VocabularyPracticeBundle,
+  loadHsk2VocabularyPracticeBundle,
+} from "../../src/content/hsk2VocabularyPractice.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -26,6 +30,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const blueprintBundle = loadHsk2LessonBlueprintsBundle(root);
   const blueprintResult =
     assertValidHsk2LessonBlueprintsBundle(blueprintBundle);
+  const practiceBundle = loadHsk2VocabularyPracticeBundle(root);
+  const practiceResult =
+    assertValidHsk2VocabularyPracticeBundle(practiceBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -46,8 +53,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       scopeId: scopeBundle.scope.scopeId,
       lessonBlueprintPackId: blueprintBundle.pack.packId,
       lessonBlueprintPackSha256: fileSha256(blueprintBundle.packPath),
+      vocabularyPracticePackId: practiceBundle.pack.packId,
+      vocabularyPracticePackSha256: fileSha256(practiceBundle.packPath),
     },
-    stage: "lesson-blueprint-authoring",
+    stage: "vocabulary-practice-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -59,10 +68,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         ),
       ).length,
       authoringScoped: scopeResult.summary.vocabulary,
-      vietnameseGlossDrafted: 0,
+      vietnameseGlossDrafted: practiceResult.summary.vocabularyDrafts,
       lessonBlueprintVocabularyMapped:
         blueprintResult.summary.vocabularyBlueprintMappings,
-      vocabularyPracticeDrafted: 0,
+      vocabularyPracticeDrafted: practiceResult.summary.vocabularyDrafts,
       recognitionCharactersDraftMapped:
         blueprintResult.summary.recognitionCharacterBlueprintMappings,
       grammarRowsDraftMapped:
@@ -92,14 +101,20 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       usageExampleReviewPending: entries.filter(
         (entry) => entry.editorial.usageExampleReview === "pending",
       ).length,
-      machineDraftGlossReviewPending: 0,
+      machineDraftGlossReviewPending: practiceResult.summary.vocabularyDrafts,
       plannedLessonBlueprints: scopeResult.summary.plannedLessonBlueprints,
       draftLessonBlueprints: blueprintResult.summary.lessons,
       pendingBlueprintReviewBatches: blueprintResult.summary.reviewBatches,
       blueprintApprovals: blueprintResult.summary.approvals,
-      authoredPracticeItems: blueprintResult.summary.authoredPracticeItems,
+      authoredPracticeItems: practiceResult.summary.authoredPracticeItems,
       authoredAssessmentPrompts:
         blueprintResult.summary.authoredAssessmentPrompts,
+      draftVocabularyLessons: practiceResult.summary.situationalLessons,
+      pendingVocabularyReviewBatches: practiceResult.summary.reviewBatches,
+      vocabularyPracticeApprovals: practiceResult.summary.approvals,
+      audioDependentVocabularyItems:
+        practiceResult.summary.audioDependentItems,
+      reviewedVocabularyAudioItems: practiceResult.summary.reviewedAudioItems,
       pronunciationReviewItems: pronunciationReviewItems.map((entry) => ({
         officialId: entry.officialId,
         simplified: entry.simplified,
@@ -115,7 +130,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All official HSK2 inventory sections are assigned to 40 lesson blueprints, but Vietnamese glosses, practice, assessment prompts, linguistic review, audio and runtime release are incomplete.",
+        "All 200 HSK2 vocabulary items have Vietnamese and three-mode practice drafts inside the exact lesson blueprint, but grammar, character and production practice, assessment prompts, linguistic review, audio and runtime release are incomplete.",
     },
   };
 };
