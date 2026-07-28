@@ -14,34 +14,161 @@ import {
 } from "../../src/content/hsk2LessonBlueprints.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
-const STRAND_TITLES = {
+const SITUATIONAL_LESSON_SPECS = {
   "hsk2-person-events-environment": [
-    "Miêu tả người và vật",
-    "Vị trí và môi trường xung quanh",
-    "Thời tiết và kế hoạch",
-    "Sự kiện theo trình tự thời gian",
-    "Hỏi tiếp và giải thích lý do",
+    {
+      titleVi: "Ngoại hình, thói quen và lai lịch",
+      taskOrdinals: [1],
+      topicOrdinals: [1, 2],
+      vocabularySequences: [302, 309, 314, 341, 344, 410, 412, 462, 498],
+    },
+    {
+      titleVi: "Chi tiết sự kiện và nguyên nhân",
+      taskOrdinals: [2],
+      topicOrdinals: [3],
+      vocabularySequences: [
+        323, 330, 331, 332, 333, 334, 336, 376, 382, 384, 386, 399, 431,
+        438, 439, 454,
+      ],
+    },
+    {
+      titleVi: "Đồ vật, màu sắc và so sánh",
+      taskOrdinals: [3],
+      topicOrdinals: [4],
+      vocabularySequences: [303, 353, 355, 358, 396, 406, 407, 466],
+    },
+    {
+      titleVi: "Thời tiết và thay đổi kế hoạch",
+      taskOrdinals: [4],
+      topicOrdinals: [5],
+      vocabularySequences: [420, 475],
+    },
+    {
+      titleVi: "Địa điểm và đặc điểm môi trường",
+      taskOrdinals: [5],
+      topicOrdinals: [6],
+      vocabularySequences: [321, 366, 403],
+    },
   ],
   "hsk2-daily-needs-family": [
-    "Lời mời và yêu cầu lịch sự",
-    "Cảm xúc và trạng thái hằng ngày",
-    "Ăn uống và mua sắm",
-    "Sức khỏe và gia đình",
-    "Xử lý nhu cầu qua hội thoại nhiều lượt",
+    {
+      titleVi: "Lịch sự, nhờ giúp và bày tỏ ý muốn",
+      taskOrdinals: [6],
+      topicOrdinals: [7, 8, 9],
+      vocabularySequences: [
+        301, 305, 306, 311, 312, 313, 327, 329, 343, 345, 352, 422, 455,
+        463,
+      ],
+    },
+    {
+      titleVi: "Món ăn, đồ uống và thói quen ăn uống",
+      taskOrdinals: [7],
+      topicOrdinals: [10, 11, 12],
+      vocabularySequences: [
+        339, 347, 354, 374, 377, 395, 408, 423, 483, 493,
+      ],
+    },
+    {
+      titleVi: "Chọn mua và mô tả sản phẩm",
+      taskOrdinals: [9],
+      topicOrdinals: [17, 18],
+      vocabularySequences: [
+        307, 357, 360, 383, 405, 424, 434, 437, 453,
+      ],
+    },
+    {
+      titleVi: "Báo bệnh, hỏi thăm và đi khám",
+      taskOrdinals: [10],
+      topicOrdinals: [19, 20],
+      vocabularySequences: [
+        388, 429, 433, 436, 440, 445, 456, 457, 467, 468, 469, 476,
+      ],
+    },
+    {
+      titleVi: "Quan hệ và hoạt động gia đình",
+      taskOrdinals: [12],
+      topicOrdinals: [23, 24],
+      vocabularySequences: [409, 417, 461, 470, 480, 487, 494],
+    },
   ],
   "hsk2-travel-leisure": [
-    "Hỏi đường và xác nhận điểm đến",
-    "Chỉ tuyến đi theo từng chặng",
-    "Phương tiện và thời gian di chuyển",
-    "Đặt và thay đổi lịch trình",
-    "Trao đổi hoạt động giải trí",
+    {
+      titleVi: "Hỏi đường và xác nhận vị trí",
+      taskOrdinals: [8],
+      topicOrdinals: [13],
+      vocabularySequences: [
+        324, 356, 371, 389, 390, 391, 392, 400, 401, 413, 419, 426, 443,
+        447, 450, 459, 481, 482, 484, 499, 500,
+      ],
+    },
+    {
+      titleVi: "Chỉ tuyến bằng hướng chuyển động",
+      taskOrdinals: [],
+      topicOrdinals: [14],
+      vocabularySequences: [
+        316, 318, 320, 348, 350, 361, 362, 370, 372, 373, 425, 427, 458,
+        460, 495,
+      ],
+    },
+    {
+      titleVi: "Phương tiện, lịch trình và cảm nhận chuyến đi",
+      taskOrdinals: [],
+      topicOrdinals: [15, 16],
+      vocabularySequences: [
+        315, 317, 319, 328, 335, 340, 346, 351, 363, 364, 375, 393, 394,
+        397, 398, 402, 416, 496,
+      ],
+    },
+    {
+      titleVi: "Trao đổi hoạt động giải trí",
+      taskOrdinals: [11],
+      topicOrdinals: [21],
+      vocabularySequences: [
+        338, 387, 411, 414, 415, 421, 428, 441, 444, 451, 477, 478, 479,
+        485, 490, 497,
+      ],
+    },
+    {
+      titleVi: "Hẹn và sắp xếp thời gian rảnh",
+      taskOrdinals: [],
+      topicOrdinals: [22],
+      vocabularySequences: [418, 471, 473, 486],
+    },
   ],
   "hsk2-study-work-culture": [
-    "Lịch học và nhiệm vụ",
-    "Kinh nghiệm học tập",
-    "Công việc và phối hợp",
-    "Lễ hội và món ăn",
-    "Họ tên, xưng hô và giới thiệu văn hóa",
+    {
+      titleVi: "Tình hình và kinh nghiệm học tập",
+      taskOrdinals: [13],
+      topicOrdinals: [25, 26],
+      vocabularySequences: [
+        304, 308, 310, 322, 325, 326, 337, 342, 365, 367, 380, 381, 442,
+        448, 452, 472, 492,
+      ],
+    },
+    {
+      titleVi: "Trường học và hoạt động sau giờ học",
+      taskOrdinals: [14],
+      topicOrdinals: [27, 28],
+      vocabularySequences: [359, 368, 369, 378, 379, 435],
+    },
+    {
+      titleVi: "Công việc, trải nghiệm và nghề nghiệp",
+      taskOrdinals: [15],
+      topicOrdinals: [29, 30, 31],
+      vocabularySequences: [404, 432, 449, 491],
+    },
+    {
+      titleVi: "Tết và ấn tượng về món ăn Trung Quốc",
+      taskOrdinals: [16],
+      topicOrdinals: [32, 33],
+      vocabularySequences: [349, 385, 430, 446],
+    },
+    {
+      titleVi: "Họ tên và cách xưng hô trang trọng",
+      taskOrdinals: [17],
+      topicOrdinals: [34],
+      vocabularySequences: [464, 465, 474, 488, 489],
+    },
   ],
 };
 
@@ -99,28 +226,70 @@ const splitEvenly = (values, count) => {
   });
 };
 
+const ordinalId = (prefix, ordinal, width = 2) =>
+  `${prefix}${String(ordinal).padStart(width, "0")}`;
+const vocabularyId = (sequence) =>
+  `hsk-vocab-${String(sequence).padStart(5, "0")}`;
+
+const assertLessonPartition = (label, specs, key, expected) => {
+  const actual = specs.flatMap((spec) => spec[key]);
+  if (
+    actual.length !== new Set(actual).size
+    || JSON.stringify([...actual].sort())
+      !== JSON.stringify([...expected].sort())
+  ) {
+    throw new Error(`${label} lesson specification is not an exact partition`);
+  }
+};
+
 const makeSituationalLessons = (unit) =>
   unit.strands.flatMap((strand) => {
-    const titles = STRAND_TITLES[strand.strandId];
-    if (!titles) throw new Error(`Missing lesson titles for ${strand.strandId}`);
-    const taskBuckets = splitEvenly(strand.taskIds, titles.length);
-    const topicBuckets = splitEvenly(strand.topicIds, titles.length);
-    const vocabularyBuckets = splitEvenly(
-      strand.vocabularyIds,
-      titles.length,
+    const specs = SITUATIONAL_LESSON_SPECS[strand.strandId];
+    if (!specs) {
+      throw new Error(
+        `Missing situational lesson specifications for ${strand.strandId}`,
+      );
+    }
+    const resolvedSpecs = specs.map((spec) => ({
+      ...spec,
+      taskIds: spec.taskOrdinals.map(
+        (ordinal) => ordinalId("hsk2-task-", ordinal),
+      ),
+      topicIds: spec.topicOrdinals.map(
+        (ordinal) => ordinalId("hsk2-topic-", ordinal, 3),
+      ),
+      vocabularyIds: spec.vocabularySequences.map(vocabularyId),
+    }));
+    assertLessonPartition(
+      `${strand.strandId} task`,
+      resolvedSpecs,
+      "taskIds",
+      strand.taskIds,
     );
-    return titles.map((titleVi, index) => ({
+    assertLessonPartition(
+      `${strand.strandId} topic`,
+      resolvedSpecs,
+      "topicIds",
+      strand.topicIds,
+    );
+    assertLessonPartition(
+      `${strand.strandId} vocabulary`,
+      resolvedSpecs,
+      "vocabularyIds",
+      strand.vocabularyIds,
+    );
+    return resolvedSpecs.map((spec, index) => ({
       lessonId: `${strand.strandId}-lesson-${String(index + 1).padStart(2, "0")}`,
       unitId: unit.unitId,
       trackId: strand.strandId,
       blueprintKind: "situational-dialogue",
-      titleVi,
+      titleVi: spec.titleVi,
       objectiveVi:
-        `Duy trì hội thoại nhiều lượt về ${titleVi.toLocaleLowerCase("vi")} bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.`,
+        `Duy trì hội thoại nhiều lượt về ${spec.titleVi.toLocaleLowerCase("vi")} bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.`,
       inventoryMappings: {
-        taskIds: taskBuckets[index],
-        topicIds: topicBuckets[index],
-        vocabularyIds: vocabularyBuckets[index],
+        taskIds: spec.taskIds,
+        topicIds: spec.topicIds,
+        vocabularyIds: spec.vocabularyIds,
         grammarRowIds: [],
         recognitionCharacterIds: [],
       },

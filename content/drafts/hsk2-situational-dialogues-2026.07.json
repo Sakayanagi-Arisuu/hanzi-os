@@ -1,0 +1,4827 @@
+{
+  "schemaVersion": 1,
+  "packId": "hsk2-situational-dialogues-2026.07",
+  "level": 2,
+  "state": "ai-assisted-draft",
+  "learnerVisible": false,
+  "releaseEligible": false,
+  "source": {
+    "syllabusInventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3",
+    "lessonBlueprintPackId": "hsk2-lesson-blueprints-2026.07",
+    "lessonBlueprintPackSha256": "sha256:17724b4ca36b34495583c7db2f7e740d49c7462c3d449e5aaac779af7f5ec0d1",
+    "vocabularyPracticePackId": "hsk2-vocabulary-practice-2026.07",
+    "vocabularyPracticePackSha256": "sha256:974127f566d617533800e9d0f3312196769ce35aff899773e7da7713894fe78d"
+  },
+  "authorship": {
+    "method": "ai-assisted-six-turn-dialogue-and-task-draft",
+    "assistant": "OpenAI Codex",
+    "nativeMandarinReviewer": null,
+    "vietnameseEditor": null,
+    "taskPedagogyReviewer": null,
+    "audioRightsReviewer": null
+  },
+  "reviewPolicy": {
+    "nativeMandarinRequiredForRelease": true,
+    "vietnameseEditorialRequiredForRelease": true,
+    "taskPedagogyReviewRequiredForRelease": true,
+    "reviewedHumanOrLicensedAudioRequiredForListening": true,
+    "reviewedRubricRequiredForMeasurement": true
+  },
+  "counts": {
+    "situationalLessons": 20,
+    "officialTaskDrafts": 17,
+    "officialTopicDrafts": 34,
+    "modelDialogueTurns": 120,
+    "guidedRoleplayItems": 20,
+    "audioDependentDialogues": 20,
+    "reviewedAudioDialogues": 0,
+    "reviewBatches": 20,
+    "approvals": 0,
+    "measurementEligibleItems": 0,
+    "masteryEligibleItems": 0,
+    "releaseEligibleItems": 0
+  },
+  "coverageClaims": {
+    "officialTaskInventoryDraftMapped": true,
+    "officialTopicInventoryDraftMapped": true,
+    "situationalDialogueDraftComplete": true,
+    "reviewedTaskContentComplete": false,
+    "measurementCoverageComplete": false,
+    "hsk2Complete": false
+  },
+  "lessonDialogues": [
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "trackId": "hsk2-person-events-environment",
+      "titleVi": "Ngoại hình, thói quen và lai lịch",
+      "officialTaskIds": [
+        "hsk2-task-01"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-001",
+        "hsk2-topic-002"
+      ],
+      "scenarioVi": "Hai bạn mới quen hỏi tiếp về ngoại hình thời nhỏ và sở thích hiện nay.",
+      "taskInstructionVi": "Đóng vai hai người mới quen; duy trì ít nhất sáu lượt để hỏi ngoại hình, lai lịch hoặc sở thích và có một câu hỏi tiếp nối.",
+      "targetFunctions": [
+        "describe-personal-background",
+        "ask-follow-up",
+        "state-habit-or-interest"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00302",
+        "hsk-vocab-00344",
+        "hsk-vocab-00462"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你个子很高，你小时候也这么高吗？",
+            "pinyin": "Nǐ gèzi hěn gāo, nǐ xiǎoshíhou yě zhème gāo ma?",
+            "meaningVi": "Bạn cao thật, hồi nhỏ bạn cũng cao thế này à?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "没有，我小时候个子不高。",
+            "pinyin": "Méiyǒu, wǒ xiǎoshíhou gèzi bù gāo.",
+            "meaningVi": "Không, hồi nhỏ tôi không cao."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你有什么爱好？",
+            "pinyin": "Nǐ yǒu shénme àihào?",
+            "meaningVi": "Bạn có sở thích gì?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我最喜欢踢足球。",
+            "pinyin": "Wǒ zuì xǐhuan tī zúqiú.",
+            "meaningVi": "Tôi thích đá bóng nhất."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你常跟谁一起踢？",
+            "pinyin": "Nǐ cháng gēn shéi yìqǐ tī?",
+            "meaningVi": "Bạn thường đá cùng ai?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我常跟同学一起踢。",
+            "pinyin": "Wǒ cháng gēn tóngxué yìqǐ tī.",
+            "meaningVi": "Tôi thường đá cùng bạn học."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "trackId": "hsk2-person-events-environment",
+      "titleVi": "Chi tiết sự kiện và nguyên nhân",
+      "officialTaskIds": [
+        "hsk2-task-02"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-003"
+      ],
+      "scenarioVi": "Một người hỏi nguyên nhân bạn đến muộn và cùng chọn cách tránh lặp lại.",
+      "taskInstructionVi": "Hỏi và trả lời sáu lượt về một sự việc; phải nêu thời gian, nguyên nhân, trạng thái và một phương án tiếp theo.",
+      "targetFunctions": [
+        "ask-event-cause",
+        "report-event-state",
+        "propose-next-action"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00334",
+        "hsk-vocab-00382",
+        "hsk-vocab-00439",
+        "hsk-vocab-00454"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你为什么来晚了？",
+            "pinyin": "Nǐ wèishénme lái wǎn le?",
+            "meaningVi": "Tại sao bạn đến muộn?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我在车站等公交车，但是车没来。",
+            "pinyin": "Wǒ zài chēzhàn děng gōngjiāochē, dànshì chē méi lái.",
+            "meaningVi": "Tôi đợi xe buýt ở nhà ga nhưng xe không đến."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你等了多长时间？",
+            "pinyin": "Nǐ děng le duō cháng shíjiān?",
+            "meaningVi": "Bạn đã đợi bao lâu?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我等了半个小时。",
+            "pinyin": "Wǒ děng le bàn ge xiǎoshí.",
+            "meaningVi": "Tôi đã đợi nửa tiếng."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "下次你可能怎么来？",
+            "pinyin": "Xià cì nǐ kěnéng zěnme lái?",
+            "meaningVi": "Lần sau bạn có thể đến bằng cách nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我可能坐地铁，所以不会晚了。",
+            "pinyin": "Wǒ kěnéng zuò dìtiě, suǒyǐ bú huì wǎn le.",
+            "meaningVi": "Có thể tôi sẽ đi tàu điện ngầm, vì vậy sẽ không muộn nữa."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "trackId": "hsk2-person-events-environment",
+      "titleVi": "Đồ vật, màu sắc và so sánh",
+      "officialTaskIds": [
+        "hsk2-task-03"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-004"
+      ],
+      "scenarioVi": "Khách chọn giữa hai bộ quần áo có màu và độ dài khác nhau.",
+      "taskInstructionVi": "Đóng vai khách và người bán; hỏi tên hoặc đặc điểm, so sánh hai lựa chọn rồi xác nhận món muốn lấy.",
+      "targetFunctions": [
+        "ask-object-feature",
+        "compare-options",
+        "confirm-selection"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00355",
+        "hsk-vocab-00396",
+        "hsk-vocab-00406",
+        "hsk-vocab-00466"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你想买哪件衣服？",
+            "pinyin": "Nǐ xiǎng mǎi nǎ jiàn yīfu?",
+            "meaningVi": "Bạn muốn mua bộ quần áo nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我想看看红色的。",
+            "pinyin": "Wǒ xiǎng kànkan hóngsè de.",
+            "meaningVi": "Tôi muốn xem bộ màu đỏ."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "绿色的也不错，你觉得呢？",
+            "pinyin": "Lǜsè de yě búcuò, nǐ juéde ne?",
+            "meaningVi": "Bộ màu xanh lá cũng khá đấy, bạn thấy sao?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "红色的比绿色的好看。",
+            "pinyin": "Hóngsè de bǐ lǜsè de hǎokàn.",
+            "meaningVi": "Bộ màu đỏ đẹp hơn bộ màu xanh lá."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你要什么样的颜色？",
+            "pinyin": "Nǐ yào shénme yàng de yánsè?",
+            "meaningVi": "Bạn muốn màu sắc như thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "就要红色的，不要那么长的。",
+            "pinyin": "Jiù yào hóngsè de, bú yào nàme cháng de.",
+            "meaningVi": "Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "trackId": "hsk2-person-events-environment",
+      "titleVi": "Thời tiết và thay đổi kế hoạch",
+      "officialTaskIds": [
+        "hsk2-task-04"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-005"
+      ],
+      "scenarioVi": "Hai người xem thời tiết hôm nay và ngày mai để đổi kế hoạch vận động.",
+      "taskInstructionVi": "Giới thiệu thời tiết qua sáu lượt; nêu ít nhất hai trạng thái thời tiết và tác động của chúng lên kế hoạch.",
+      "targetFunctions": [
+        "describe-weather",
+        "ask-weather-change",
+        "adjust-plan"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00420",
+        "hsk-vocab-00475"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "今天天气怎么样？",
+            "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+            "meaningVi": "Hôm nay thời tiết thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "今天是阴天，有点儿冷。",
+            "pinyin": "Jīntiān shì yīntiān, yǒudiǎnr lěng.",
+            "meaningVi": "Hôm nay trời âm u, hơi lạnh."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "明天会下雨吗？",
+            "pinyin": "Míngtiān huì xiàyǔ ma?",
+            "meaningVi": "Ngày mai có mưa không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "不会，明天是晴天。",
+            "pinyin": "Bú huì, míngtiān shì qíngtiān.",
+            "meaningVi": "Không, ngày mai trời nắng."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "那我们明天去运动，好吗？",
+            "pinyin": "Nà wǒmen míngtiān qù yùndòng, hǎo ma?",
+            "meaningVi": "Vậy ngày mai chúng ta đi vận động nhé?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "好，天气晴的时候一起去。",
+            "pinyin": "Hǎo, tiānqì qíng de shíhou yìqǐ qù.",
+            "meaningVi": "Được, lúc trời nắng chúng ta cùng đi."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "trackId": "hsk2-person-events-environment",
+      "titleVi": "Địa điểm và đặc điểm môi trường",
+      "officialTaskIds": [
+        "hsk2-task-05"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-006"
+      ],
+      "scenarioVi": "Một người giới thiệu căn phòng và vị trí các tiện ích xung quanh.",
+      "taskInstructionVi": "Giới thiệu một địa điểm trong sáu lượt; phải có vị trí, ít nhất hai vật hoặc đặc điểm và một câu hỏi xác nhận.",
+      "targetFunctions": [
+        "locate-place",
+        "describe-interior",
+        "describe-surroundings"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00321",
+        "hsk-vocab-00366",
+        "hsk-vocab-00403"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你住的地方怎么样？",
+            "pinyin": "Nǐ zhù de dìfang zěnmeyàng?",
+            "meaningVi": "Nơi bạn sống thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我住在学校对面的一间房里。",
+            "pinyin": "Wǒ zhù zài xuéxiào duìmiàn de yì jiān fáng lǐ.",
+            "meaningVi": "Tôi sống trong một căn phòng đối diện trường."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "房间里有什么？",
+            "pinyin": "Fángjiān lǐ yǒu shénme?",
+            "meaningVi": "Trong phòng có gì?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "有一张床和一张桌子。",
+            "pinyin": "Yǒu yì zhāng chuáng hé yì zhāng zhuōzi.",
+            "meaningVi": "Có một chiếc giường và một chiếc bàn."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "外面有商店吗？",
+            "pinyin": "Wàimiàn yǒu shāngdiàn ma?",
+            "meaningVi": "Bên ngoài có cửa hàng không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "有，商店就在房间对面。",
+            "pinyin": "Yǒu, shāngdiàn jiù zài fángjiān duìmiàn.",
+            "meaningVi": "Có, cửa hàng ở ngay đối diện căn phòng."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "trackId": "hsk2-daily-needs-family",
+      "titleVi": "Lịch sự, nhờ giúp và bày tỏ ý muốn",
+      "officialTaskIds": [
+        "hsk2-task-06"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-007",
+        "hsk2-topic-008",
+        "hsk2-topic-009"
+      ],
+      "scenarioVi": "Một người lịch sự nhờ bạn mở cửa vì tay bị đau.",
+      "taskInstructionVi": "Duy trì sáu lượt giao tiếp lịch sự gồm mở lời, nhờ giúp, hỏi lại, giải thích và đáp lời phù hợp.",
+      "targetFunctions": [
+        "make-polite-request",
+        "clarify-request",
+        "offer-help"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00305",
+        "hsk-vocab-00313",
+        "hsk-vocab-00329",
+        "hsk-vocab-00455"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "不好意思，你能帮我一个忙吗？",
+            "pinyin": "Bù hǎoyìsi, nǐ néng bāng wǒ yí ge máng ma?",
+            "meaningVi": "Xin lỗi, bạn có thể giúp tôi một việc không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "可以，你希望我帮你做什么？",
+            "pinyin": "Kěyǐ, nǐ xīwàng wǒ bāng nǐ zuò shénme?",
+            "meaningVi": "Được, bạn muốn tôi giúp việc gì?"
+          },
+          {
+            "speaker": "A",
+            "hanzi": "请帮我打开门。",
+            "pinyin": "Qǐng bāng wǒ dǎkāi mén.",
+            "meaningVi": "Xin hãy giúp tôi mở cửa."
+          },
+          {
+            "speaker": "B",
+            "hanzi": "好。你为什么自己不打开？",
+            "pinyin": "Hǎo. Nǐ wèishénme zìjǐ bù dǎkāi?",
+            "meaningVi": "Được. Tại sao bạn không tự mở?"
+          },
+          {
+            "speaker": "A",
+            "hanzi": "我的手疼。",
+            "pinyin": "Wǒ de shǒu téng.",
+            "meaningVi": "Tay tôi bị đau."
+          },
+          {
+            "speaker": "B",
+            "hanzi": "那你别拿东西了，让我来吧。",
+            "pinyin": "Nà nǐ bié ná dōngxi le, ràng wǒ lái ba.",
+            "meaningVi": "Vậy bạn đừng cầm đồ nữa, để tôi làm."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "trackId": "hsk2-daily-needs-family",
+      "titleVi": "Món ăn, đồ uống và thói quen ăn uống",
+      "officialTaskIds": [
+        "hsk2-task-07"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-010",
+        "hsk2-topic-011",
+        "hsk2-topic-012"
+      ],
+      "scenarioVi": "Hai người hỏi thói quen ăn ngoài, chọn món và đồ uống.",
+      "taskInstructionVi": "Hỏi đáp sáu lượt về thói quen ăn uống; phải chọn món, đồ uống và xác nhận nơi hoặc thời điểm dùng bữa.",
+      "targetFunctions": [
+        "ask-dining-habit",
+        "choose-food",
+        "choose-drink"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00339",
+        "hsk-vocab-00374",
+        "hsk-vocab-00395",
+        "hsk-vocab-00493"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你经常在饭馆吃饭吗？",
+            "pinyin": "Nǐ jīngcháng zài fànguǎn chīfàn ma?",
+            "meaningVi": "Bạn có thường ăn ở nhà hàng không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "不，我常在家吃，今天没准备晚饭。",
+            "pinyin": "Bù, wǒ cháng zài jiā chī, jīntiān méi zhǔnbèi wǎnfàn.",
+            "meaningVi": "Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你喜欢吃肉还是鱼？",
+            "pinyin": "Nǐ xǐhuan chī ròu háishi yú?",
+            "meaningVi": "Bạn thích ăn thịt hay cá?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我更喜欢鱼。",
+            "pinyin": "Wǒ gèng xǐhuan yú.",
+            "meaningVi": "Tôi thích cá hơn."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "喝红茶还是绿茶？",
+            "pinyin": "Hē hóngchá háishi lǜchá?",
+            "meaningVi": "Uống trà đen hay trà xanh?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "绿茶，谢谢。",
+            "pinyin": "Lǜchá, xièxie.",
+            "meaningVi": "Trà xanh, cảm ơn."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "trackId": "hsk2-daily-needs-family",
+      "titleVi": "Chọn mua và mô tả sản phẩm",
+      "officialTaskIds": [
+        "hsk2-task-09"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-017",
+        "hsk2-topic-018"
+      ],
+      "scenarioVi": "Khách xem quần và hỏi thêm về giá, đồng hồ trong cửa hàng.",
+      "taskInstructionVi": "Đóng vai mua sắm trong sáu lượt; mô tả ít nhất hai đặc điểm, hỏi giá và quyết định lấy hoặc không lấy.",
+      "targetFunctions": [
+        "describe-product",
+        "ask-price",
+        "decide-purchase"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00357",
+        "hsk-vocab-00360",
+        "hsk-vocab-00383",
+        "hsk-vocab-00434"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "这条裤子怎么样？",
+            "pinyin": "Zhè tiáo kùzi zěnmeyàng?",
+            "meaningVi": "Chiếc quần này thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "颜色不错，但是有点儿长。",
+            "pinyin": "Yánsè búcuò, dànshì yǒudiǎnr cháng.",
+            "meaningVi": "Màu khá đẹp nhưng hơi dài."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你要拿这条吗？",
+            "pinyin": "Nǐ yào ná zhè tiáo ma?",
+            "meaningVi": "Bạn lấy chiếc này không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "先看看价钱。这条要花多少钱？",
+            "pinyin": "Xiān kànkan jiàqian. Zhè tiáo yào huā duōshao qián?",
+            "meaningVi": "Xem giá trước đã. Chiếc này tốn bao nhiêu tiền?"
+          },
+          {
+            "speaker": "A",
+            "hanzi": "一百块。你的手表也是在这个商场买的吗？",
+            "pinyin": "Yì bǎi kuài. Nǐ de shǒubiǎo yě shì zài zhège shāngchǎng mǎi de ma?",
+            "meaningVi": "Một trăm tệ. Đồng hồ của bạn cũng mua ở trung tâm này à?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "是，不过手表已经坏了。",
+            "pinyin": "Shì, búguò shǒubiǎo yǐjīng huài le.",
+            "meaningVi": "Đúng, nhưng đồng hồ đã hỏng rồi."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "trackId": "hsk2-daily-needs-family",
+      "titleVi": "Báo bệnh, hỏi thăm và đi khám",
+      "officialTaskIds": [
+        "hsk2-task-10"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-019",
+        "hsk2-topic-020"
+      ],
+      "scenarioVi": "Một người mô tả triệu chứng và được chỉ tới hiệu thuốc.",
+      "taskInstructionVi": "Đóng vai người bệnh và người hỏi thăm; dùng sáu lượt để nêu triệu chứng, nguyên nhân có thể và bước chăm sóc tiếp theo.",
+      "targetFunctions": [
+        "report-symptoms",
+        "ask-cause",
+        "recommend-care"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00440",
+        "hsk-vocab-00445",
+        "hsk-vocab-00467",
+        "hsk-vocab-00468",
+        "hsk-vocab-00469",
+        "hsk-vocab-00476"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你怎么了？",
+            "pinyin": "Nǐ zěnme le?",
+            "meaningVi": "Bạn bị làm sao?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我头疼，眼睛也不舒服。",
+            "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+            "meaningVi": "Tôi đau đầu, mắt cũng khó chịu."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "是不是因为昨天太累了？",
+            "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+            "meaningVi": "Có phải vì hôm qua quá mệt không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "可能是。附近有药店吗？",
+            "pinyin": "Kěnéng shì. Fùjìn yǒu yàodiàn ma?",
+            "meaningVi": "Có thể. Gần đây có hiệu thuốc không?"
+          },
+          {
+            "speaker": "A",
+            "hanzi": "前面就有一家药店，我陪你去买药。",
+            "pinyin": "Qiánmiàn jiù yǒu yì jiā yàodiàn, wǒ péi nǐ qù mǎi yào.",
+            "meaningVi": "Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn."
+          },
+          {
+            "speaker": "B",
+            "hanzi": "谢谢，买药以后我就回家休息。",
+            "pinyin": "Xièxie, mǎi yào yǐhòu wǒ jiù huí jiā xiūxi.",
+            "meaningVi": "Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "trackId": "hsk2-daily-needs-family",
+      "titleVi": "Quan hệ và hoạt động gia đình",
+      "officialTaskIds": [
+        "hsk2-task-12"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-023",
+        "hsk2-topic-024"
+      ],
+      "scenarioVi": "Một người giới thiệu các thành viên sống cùng và việc nhà thường ngày.",
+      "taskInstructionVi": "Giới thiệu gia đình trong sáu lượt; nêu quan hệ của ít nhất ba người và hai hoạt động thường ngày.",
+      "targetFunctions": [
+        "identify-family-relations",
+        "describe-family-routine",
+        "ask-follow-up"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00409",
+        "hsk-vocab-00417",
+        "hsk-vocab-00470",
+        "hsk-vocab-00480",
+        "hsk-vocab-00494"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你跟谁一起住？",
+            "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+            "meaningVi": "Bạn sống cùng ai?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我跟妻子、孩子，还有爷爷奶奶一起住。",
+            "pinyin": "Wǒ gēn qīzi, háizi, hái yǒu yéye nǎinai yìqǐ zhù.",
+            "meaningVi": "Tôi sống cùng vợ, con và ông bà."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你奶奶每天做饭吗？",
+            "pinyin": "Nǐ nǎinai měitiān zuòfàn ma?",
+            "meaningVi": "Bà bạn nấu cơm hằng ngày à?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "有时她做，有时我自己做。",
+            "pinyin": "Yǒushí tā zuò, yǒushí wǒ zìjǐ zuò.",
+            "meaningVi": "Có khi bà nấu, có khi tôi tự nấu."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你妻子和爷爷做什么？",
+            "pinyin": "Nǐ qīzi hé yéye zuò shénme?",
+            "meaningVi": "Vợ và ông bạn làm gì?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "妻子看孩子，爷爷常跟孩子玩。",
+            "pinyin": "Qīzi kàn háizi, yéye cháng gēn háizi wán.",
+            "meaningVi": "Vợ tôi trông con, ông thường chơi với đứa trẻ."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "trackId": "hsk2-travel-leisure",
+      "titleVi": "Hỏi đường và xác nhận vị trí",
+      "officialTaskIds": [
+        "hsk2-task-08"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-013"
+      ],
+      "scenarioVi": "Người đi đường hỏi vị trí hiệu thuốc và nhắc lại các mốc.",
+      "taskInstructionVi": "Hỏi và chỉ đường trong sáu lượt; nêu điểm xuất phát, hai mốc hoặc hướng và xác nhận xa gần.",
+      "targetFunctions": [
+        "ask-directions",
+        "give-route",
+        "confirm-distance"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00324",
+        "hsk-vocab-00389",
+        "hsk-vocab-00413",
+        "hsk-vocab-00450",
+        "hsk-vocab-00482"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "请问，药店怎么走？",
+            "pinyin": "Qǐngwèn, yàodiàn zěnme zǒu?",
+            "meaningVi": "Xin hỏi, đi đến hiệu thuốc thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "从这里往前走，到第二个路口往右边走。",
+            "pinyin": "Cóng zhèlǐ wǎng qián zǒu, dào dì èr ge lùkǒu wǎng yòubian zǒu.",
+            "meaningVi": "Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "药店在路的哪边？",
+            "pinyin": "Yàodiàn zài lù de nǎ biān?",
+            "meaningVi": "Hiệu thuốc ở phía nào của đường?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "在饭馆旁边，门口有红色的字。",
+            "pinyin": "Zài fànguǎn pángbiān, ménkǒu yǒu hóngsè de zì.",
+            "meaningVi": "Ở cạnh nhà hàng, cửa có chữ màu đỏ."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "离这里远吗？",
+            "pinyin": "Lí zhèlǐ yuǎn ma?",
+            "meaningVi": "Có xa đây không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "不远，走路十分钟就到。",
+            "pinyin": "Bù yuǎn, zǒulù shí fēnzhōng jiù dào.",
+            "meaningVi": "Không xa, đi bộ mười phút là tới."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-02",
+      "trackId": "hsk2-travel-leisure",
+      "titleVi": "Chỉ tuyến bằng hướng chuyển động",
+      "officialTaskIds": [],
+      "officialTopicIds": [
+        "hsk2-topic-014"
+      ],
+      "scenarioVi": "Một người hỏi từng chặng để đi vào trung tâm thương mại và lên tầng hai.",
+      "taskInstructionVi": "Thực hành sáu lượt chỉ tuyến; dùng ít nhất ba bổ ngữ hướng để mô tả đi vào, lên, xuống hoặc đi ra.",
+      "targetFunctions": [
+        "sequence-route-steps",
+        "use-directional-complements",
+        "confirm-return-route"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00320",
+        "hsk-vocab-00373",
+        "hsk-vocab-00427",
+        "hsk-vocab-00458"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "我怎么去二楼？",
+            "pinyin": "Wǒ zěnme qù èr lóu?",
+            "meaningVi": "Tôi lên tầng hai thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "从这个门进去，再往前走。",
+            "pinyin": "Cóng zhège mén jìnqu, zài wǎng qián zǒu.",
+            "meaningVi": "Đi vào từ cửa này rồi đi thẳng."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "到前面以后呢？",
+            "pinyin": "Dào qiánmiàn yǐhòu ne?",
+            "meaningVi": "Sau khi đến phía trước thì sao?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "从右边的楼梯上去。",
+            "pinyin": "Cóng yòubian de lóutī shàngqu.",
+            "meaningVi": "Đi lên bằng cầu thang bên phải."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "回来时也从这里下来吗？",
+            "pinyin": "Huílái shí yě cóng zhèlǐ xiàlái ma?",
+            "meaningVi": "Khi về cũng đi xuống từ đây phải không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "对，下楼以后从左边的门出去。",
+            "pinyin": "Duì, xià lóu yǐhòu cóng zuǒbian de mén chūqù.",
+            "meaningVi": "Đúng, xuống tầng rồi đi ra cửa bên trái."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "trackId": "hsk2-travel-leisure",
+      "titleVi": "Phương tiện, lịch trình và cảm nhận chuyến đi",
+      "officialTaskIds": [],
+      "officialTopicIds": [
+        "hsk2-topic-015",
+        "hsk2-topic-016"
+      ],
+      "scenarioVi": "Hai người xác nhận vé, phương tiện, khách sạn cho chuyến đi.",
+      "taskInstructionVi": "Trao đổi sáu lượt về chuyến đi; chốt thời gian, phương tiện, vé, nơi ở và một cảm nhận về quãng đường.",
+      "targetFunctions": [
+        "confirm-travel-plan",
+        "state-transport",
+        "describe-trip-feeling"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00335",
+        "hsk-vocab-00363",
+        "hsk-vocab-00364",
+        "hsk-vocab-00375",
+        "hsk-vocab-00394"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你准备什么时候去旅游？",
+            "pinyin": "Nǐ zhǔnbèi shénme shíhou qù lǚyóu?",
+            "meaningVi": "Bạn định khi nào đi du lịch?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "下周，我已经买好机票了。",
+            "pinyin": "Xià zhōu, wǒ yǐjīng mǎihǎo jīpiào le.",
+            "meaningVi": "Tuần sau, tôi đã mua vé máy bay rồi."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你怎么去机场？",
+            "pinyin": "Nǐ zěnme qù jīchǎng?",
+            "meaningVi": "Bạn đi sân bay thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我坐地铁去，不打车。",
+            "pinyin": "Wǒ zuò dìtiě qù, bù dǎchē.",
+            "meaningVi": "Tôi đi tàu điện ngầm, không đi taxi."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "酒店离车站远吗？",
+            "pinyin": "Jiǔdiàn lí chēzhàn yuǎn ma?",
+            "meaningVi": "Khách sạn có xa nhà ga không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "不远，从车站走十分钟。",
+            "pinyin": "Bù yuǎn, cóng chēzhàn zǒu shí fēnzhōng.",
+            "meaningVi": "Không xa, đi từ nhà ga mười phút."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "trackId": "hsk2-travel-leisure",
+      "titleVi": "Trao đổi hoạt động giải trí",
+      "officialTaskIds": [
+        "hsk2-task-11"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-021"
+      ],
+      "scenarioVi": "Hai người so sánh các môn thể thao và hẹn cùng vận động.",
+      "taskInstructionVi": "Trao đổi sáu lượt về hoạt động giải trí; nêu ít nhất hai hoạt động, một so sánh và một lời hẹn.",
+      "targetFunctions": [
+        "ask-leisure-preference",
+        "compare-activities",
+        "make-activity-plan"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00387",
+        "hsk-vocab-00415",
+        "hsk-vocab-00478",
+        "hsk-vocab-00479",
+        "hsk-vocab-00497"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "周末你喜欢什么运动？",
+            "pinyin": "Zhōumò nǐ xǐhuan shénme yùndòng?",
+            "meaningVi": "Cuối tuần bạn thích môn thể thao nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我喜欢跑步，也喜欢游泳。",
+            "pinyin": "Wǒ xǐhuan pǎobù, yě xǐhuan yóuyǒng.",
+            "meaningVi": "Tôi thích chạy bộ, cũng thích bơi."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你会踢足球吗？",
+            "pinyin": "Nǐ huì tī zúqiú ma?",
+            "meaningVi": "Bạn biết đá bóng không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "会，足球比篮球有意思。",
+            "pinyin": "Huì, zúqiú bǐ lánqiú yǒuyìsi.",
+            "meaningVi": "Có, bóng đá thú vị hơn bóng rổ."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "明天一起去运动吧？",
+            "pinyin": "Míngtiān yìqǐ qù yùndòng ba?",
+            "meaningVi": "Ngày mai cùng đi vận động nhé?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "好，我们先跑步，再踢足球。",
+            "pinyin": "Hǎo, wǒmen xiān pǎobù, zài tī zúqiú.",
+            "meaningVi": "Được, chúng ta chạy bộ trước rồi đá bóng."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-05",
+      "trackId": "hsk2-travel-leisure",
+      "titleVi": "Hẹn và sắp xếp thời gian rảnh",
+      "officialTaskIds": [],
+      "officialTopicIds": [
+        "hsk2-topic-022"
+      ],
+      "scenarioVi": "Hai người hẹn giờ và điểm gặp trước khi đi chơi.",
+      "taskInstructionVi": "Duy trì sáu lượt để sắp xếp thời gian rảnh; phải xác nhận giờ, điểm gặp và hoạt động chung.",
+      "targetFunctions": [
+        "ask-availability",
+        "set-meeting-place",
+        "confirm-plan"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00418",
+        "hsk-vocab-00471",
+        "hsk-vocab-00473",
+        "hsk-vocab-00486"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你几点起来？",
+            "pinyin": "Nǐ jǐ diǎn qǐlái?",
+            "meaningVi": "Bạn thức dậy lúc mấy giờ?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "七点。吃早饭以后有时间。",
+            "pinyin": "Qī diǎn. Chī zǎofàn yǐhòu yǒu shíjiān.",
+            "meaningVi": "Bảy giờ. Ăn sáng xong tôi có thời gian."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "那一会儿一起去打球吗？",
+            "pinyin": "Nà yíhuìr yìqǐ qù dǎqiú ma?",
+            "meaningVi": "Vậy lát nữa cùng đi chơi bóng không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "好，我们在哪儿见？",
+            "pinyin": "Hǎo, wǒmen zài nǎr jiàn?",
+            "meaningVi": "Được, chúng ta gặp ở đâu?"
+          },
+          {
+            "speaker": "A",
+            "hanzi": "九点在车站见，我站在门口等你。",
+            "pinyin": "Jiǔ diǎn zài chēzhàn jiàn, wǒ zhàn zài ménkǒu děng nǐ.",
+            "meaningVi": "Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn."
+          },
+          {
+            "speaker": "B",
+            "hanzi": "好，一会儿见。",
+            "pinyin": "Hǎo, yíhuìr jiàn.",
+            "meaningVi": "Được, lát nữa gặp."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "trackId": "hsk2-study-work-culture",
+      "titleVi": "Tình hình và kinh nghiệm học tập",
+      "officialTaskIds": [
+        "hsk2-task-13"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-025",
+        "hsk2-topic-026"
+      ],
+      "scenarioVi": "Hai người hỏi quá trình học tiếng Trung và bài thi gần nhất.",
+      "taskInstructionVi": "Giới thiệu việc học qua sáu lượt; nêu thời điểm bắt đầu, tần suất, trải nghiệm và một khó khăn cụ thể.",
+      "targetFunctions": [
+        "describe-study-history",
+        "state-study-frequency",
+        "report-learning-difficulty"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00342",
+        "hsk-vocab-00381",
+        "hsk-vocab-00472",
+        "hsk-vocab-00492"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你从什么时候开始学汉语？",
+            "pinyin": "Nǐ cóng shénme shíhou kāishǐ xué Hànyǔ?",
+            "meaningVi": "Bạn bắt đầu học tiếng Trung từ khi nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我从高中开始学，已经学了两年。",
+            "pinyin": "Wǒ cóng gāozhōng kāishǐ xué, yǐjīng xué le liǎng nián.",
+            "meaningVi": "Tôi bắt đầu học từ cấp ba, đã học hai năm."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你每周上几次课？",
+            "pinyin": "Nǐ měi zhōu shàng jǐ cì kè?",
+            "meaningVi": "Mỗi tuần bạn học mấy buổi?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "每周三次，老师教得很好。",
+            "pinyin": "Měi zhōu sān cì, lǎoshī jiāo de hěn hǎo.",
+            "meaningVi": "Mỗi tuần ba buổi, giáo viên dạy rất tốt."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "上周的考试难吗？",
+            "pinyin": "Shàng zhōu de kǎoshì nán ma?",
+            "meaningVi": "Bài thi tuần trước khó không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "有几道题我没看懂，但已经做完了。",
+            "pinyin": "Yǒu jǐ dào tí wǒ méi kàndǒng, dàn yǐjīng zuòwán le.",
+            "meaningVi": "Có vài câu tôi không hiểu, nhưng đã làm xong."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "trackId": "hsk2-study-work-culture",
+      "titleVi": "Trường học và hoạt động sau giờ học",
+      "officialTaskIds": [
+        "hsk2-task-14"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-027",
+        "hsk2-topic-028"
+      ],
+      "scenarioVi": "Một học sinh giới thiệu trường và hoạt động vẽ sau giờ học.",
+      "taskInstructionVi": "Trao đổi sáu lượt về trường; mô tả phòng học, lịch bắt đầu và ít nhất một hoạt động sau giờ học.",
+      "targetFunctions": [
+        "describe-school",
+        "confirm-school-schedule",
+        "describe-after-class-activity"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00359",
+        "hsk-vocab-00368",
+        "hsk-vocab-00369",
+        "hsk-vocab-00379",
+        "hsk-vocab-00435"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "请介绍一下你的学校吧。",
+            "pinyin": "Qǐng jièshào yíxià nǐ de xuéxiào ba.",
+            "meaningVi": "Hãy giới thiệu một chút về trường của bạn."
+          },
+          {
+            "speaker": "B",
+            "hanzi": "学校不大，但是教室很新。",
+            "pinyin": "Xuéxiào bú dà, dànshì jiàoshì hěn xīn.",
+            "meaningVi": "Trường không lớn nhưng lớp học rất mới."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你们什么时候开学？",
+            "pinyin": "Nǐmen shénme shíhou kāixué?",
+            "meaningVi": "Các bạn khi nào khai giảng?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "下周一开始上课。",
+            "pinyin": "Xià zhōuyī kāishǐ shàngkè.",
+            "meaningVi": "Thứ Hai tuần sau bắt đầu học."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "下课以后你做什么？",
+            "pinyin": "Xiàkè yǐhòu nǐ zuò shénme?",
+            "meaningVi": "Sau giờ học bạn làm gì?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我从书包里拿出本子画画。",
+            "pinyin": "Wǒ cóng shūbāo lǐ náchū běnzi huàhuà.",
+            "meaningVi": "Tôi lấy vở từ cặp ra để vẽ."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "trackId": "hsk2-study-work-culture",
+      "titleVi": "Công việc, trải nghiệm và nghề nghiệp",
+      "officialTaskIds": [
+        "hsk2-task-15"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-029",
+        "hsk2-topic-030",
+        "hsk2-topic-031"
+      ],
+      "scenarioVi": "Một giáo viên giới thiệu nơi làm việc, quy mô và việc đang làm.",
+      "taskInstructionVi": "Trao đổi sáu lượt về công việc; nêu nơi làm, quy mô, nhiệm vụ hiện tại và một cảm nhận.",
+      "targetFunctions": [
+        "ask-workplace",
+        "describe-current-task",
+        "state-work-feeling"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00404",
+        "hsk-vocab-00432",
+        "hsk-vocab-00491"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你在哪儿工作？",
+            "pinyin": "Nǐ zài nǎr gōngzuò?",
+            "meaningVi": "Bạn làm việc ở đâu?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我在一所学校工作。",
+            "pinyin": "Wǒ zài yì suǒ xuéxiào gōngzuò.",
+            "meaningVi": "Tôi làm việc ở một trường học."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "学校有多少名老师？",
+            "pinyin": "Xuéxiào yǒu duōshao míng lǎoshī?",
+            "meaningVi": "Trường có bao nhiêu giáo viên?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "有一百多名老师。",
+            "pinyin": "Yǒu yì bǎi duō míng lǎoshī.",
+            "meaningVi": "Có hơn một trăm giáo viên."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你现在忙什么事情？",
+            "pinyin": "Nǐ xiànzài máng shénme shìqing?",
+            "meaningVi": "Hiện bạn bận việc gì?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我正准备下午的汉语课，跟学生一起学习很快乐。",
+            "pinyin": "Wǒ zhèng zhǔnbèi xiàwǔ de Hànyǔ kè, gēn xuésheng yìqǐ xuéxí hěn kuàilè.",
+            "meaningVi": "Tôi đang chuẩn bị tiết tiếng Trung buổi chiều; học cùng học sinh rất vui."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "trackId": "hsk2-study-work-culture",
+      "titleVi": "Tết và ấn tượng về món ăn Trung Quốc",
+      "officialTaskIds": [
+        "hsk2-task-16"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-032",
+        "hsk2-topic-033"
+      ],
+      "scenarioVi": "Một du học sinh kể lần đầu đón năm mới và so sánh với sinh nhật.",
+      "taskInstructionVi": "Giới thiệu năm mới hoặc món ăn truyền thống qua sáu lượt; nêu trải nghiệm, hoạt động chung và một điểm khác biệt văn hóa.",
+      "targetFunctions": [
+        "describe-festival-experience",
+        "name-traditional-food",
+        "compare-customs"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00349",
+        "hsk-vocab-00385",
+        "hsk-vocab-00430",
+        "hsk-vocab-00446"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "你在中国过过年吗？",
+            "pinyin": "Nǐ zài Zhōngguó guòguo nián ma?",
+            "meaningVi": "Bạn đã từng đón năm mới ở Trung Quốc chưa?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "过过。第一次过年时，我还是外国学生。",
+            "pinyin": "Guòguo. Dì yí cì guònián shí, wǒ háishi wàiguó xuésheng.",
+            "meaningVi": "Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "你觉得中国年怎么样？",
+            "pinyin": "Nǐ juéde Zhōngguó nián zěnmeyàng?",
+            "meaningVi": "Bạn thấy năm mới Trung Quốc thế nào?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "很快乐，大家一起吃饭、吃饺子。",
+            "pinyin": "Hěn kuàilè, dàjiā yìqǐ chīfàn, chī jiǎozi.",
+            "meaningVi": "Rất vui, mọi người cùng ăn cơm và sủi cảo."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "过年跟过生日一样吗？",
+            "pinyin": "Guònián gēn guò shēngrì yíyàng ma?",
+            "meaningVi": "Đón năm mới có giống tổ chức sinh nhật không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "不一样，过年是大家的节日，生日是一个人的。",
+            "pinyin": "Bù yíyàng, guònián shì dàjiā de jiérì, shēngrì shì yí ge rén de.",
+            "meaningVi": "Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    },
+    {
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "trackId": "hsk2-study-work-culture",
+      "titleVi": "Họ tên và cách xưng hô trang trọng",
+      "officialTaskIds": [
+        "hsk2-task-17"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-034"
+      ],
+      "scenarioVi": "Hai người hỏi họ tên và xác nhận cách gọi một giáo viên.",
+      "taskInstructionVi": "Thực hành sáu lượt hỏi họ tên và xưng hô; phải dùng một cách hỏi lịch sự, một chức danh và giải thích cách gọi.",
+      "targetFunctions": [
+        "ask-surname-politely",
+        "state-full-name",
+        "confirm-form-of-address"
+      ],
+      "usedVocabularyIds": [
+        "hsk-vocab-00464",
+        "hsk-vocab-00465",
+        "hsk-vocab-00474",
+        "hsk-vocab-00489"
+      ],
+      "modelDialogue": {
+        "audio": null,
+        "audioPolicy": "reviewed-human-or-licensed-recording-required",
+        "turns": [
+          {
+            "speaker": "A",
+            "hanzi": "您好，请问您贵姓？",
+            "pinyin": "Nín hǎo, qǐngwèn nín guìxìng?",
+            "meaningVi": "Xin chào, xin hỏi quý danh của ông/bà?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "我姓王，姓名是王小明。",
+            "pinyin": "Wǒ xìng Wáng, xìngmíng shì Wáng Xiǎomíng.",
+            "meaningVi": "Tôi họ Vương, họ tên là Vương Tiểu Minh."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "我可以叫您王老师吗？",
+            "pinyin": "Wǒ kěyǐ jiào nín Wáng lǎoshī ma?",
+            "meaningVi": "Tôi có thể gọi ông/bà là thầy/cô Vương không?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "可以，中文常这样称呼老师。",
+            "pinyin": "Kěyǐ, Zhōngwén cháng zhèyàng chēnghu lǎoshī.",
+            "meaningVi": "Được, tiếng Trung thường gọi giáo viên như vậy."
+          },
+          {
+            "speaker": "A",
+            "hanzi": "“贵姓”是什么意思？",
+            "pinyin": "“Guìxìng” shì shénme yìsi?",
+            "meaningVi": "“Quý tính” có nghĩa là gì?"
+          },
+          {
+            "speaker": "B",
+            "hanzi": "是很有礼貌地问别人的姓。",
+            "pinyin": "Shì hěn yǒu lǐmào de wèn biéren de xìng.",
+            "meaningVi": "Là cách lịch sự để hỏi họ của người khác."
+          }
+        ],
+        "review": "pending"
+      },
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending",
+        "audioRightsReview": "blocked-no-audio"
+      }
+    }
+  ],
+  "taskDrafts": [
+    {
+      "officialTaskId": "hsk2-task-01",
+      "officialOrdinal": 1,
+      "sourcePage": 9,
+      "officialTitle": "问答个人基本情况",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "trackId": "hsk2-person-events-environment",
+      "relatedTopicIds": [
+        "hsk2-topic-001",
+        "hsk2-topic-002"
+      ],
+      "instructionViDraft": "Đóng vai hai người mới quen; duy trì ít nhất sáu lượt để hỏi ngoại hình, lai lịch hoặc sở thích và có một câu hỏi tiếp nối.",
+      "targetFunctions": [
+        "describe-personal-background",
+        "ask-follow-up",
+        "state-habit-or-interest"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-02",
+      "officialOrdinal": 2,
+      "sourcePage": 9,
+      "officialTitle": "问答事件情况",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "trackId": "hsk2-person-events-environment",
+      "relatedTopicIds": [
+        "hsk2-topic-003"
+      ],
+      "instructionViDraft": "Hỏi và trả lời sáu lượt về một sự việc; phải nêu thời gian, nguyên nhân, trạng thái và một phương án tiếp theo.",
+      "targetFunctions": [
+        "ask-event-cause",
+        "report-event-state",
+        "propose-next-action"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-03",
+      "officialOrdinal": 3,
+      "sourcePage": 9,
+      "officialTitle": "问答物品情况",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "trackId": "hsk2-person-events-environment",
+      "relatedTopicIds": [
+        "hsk2-topic-004"
+      ],
+      "instructionViDraft": "Đóng vai khách và người bán; hỏi tên hoặc đặc điểm, so sánh hai lựa chọn rồi xác nhận món muốn lấy.",
+      "targetFunctions": [
+        "ask-object-feature",
+        "compare-options",
+        "confirm-selection"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-04",
+      "officialOrdinal": 4,
+      "sourcePage": 9,
+      "officialTitle": "介绍天气基本情况",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "trackId": "hsk2-person-events-environment",
+      "relatedTopicIds": [
+        "hsk2-topic-005"
+      ],
+      "instructionViDraft": "Giới thiệu thời tiết qua sáu lượt; nêu ít nhất hai trạng thái thời tiết và tác động của chúng lên kế hoạch.",
+      "targetFunctions": [
+        "describe-weather",
+        "ask-weather-change",
+        "adjust-plan"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-05",
+      "officialOrdinal": 5,
+      "sourcePage": 10,
+      "officialTitle": "介绍某个地方",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "trackId": "hsk2-person-events-environment",
+      "relatedTopicIds": [
+        "hsk2-topic-006"
+      ],
+      "instructionViDraft": "Giới thiệu một địa điểm trong sáu lượt; phải có vị trí, ít nhất hai vật hoặc đặc điểm và một câu hỏi xác nhận.",
+      "targetFunctions": [
+        "locate-place",
+        "describe-interior",
+        "describe-surroundings"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-06",
+      "officialOrdinal": 6,
+      "sourcePage": 10,
+      "officialTitle": "日常言语交往",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "trackId": "hsk2-daily-needs-family",
+      "relatedTopicIds": [
+        "hsk2-topic-007",
+        "hsk2-topic-008",
+        "hsk2-topic-009"
+      ],
+      "instructionViDraft": "Duy trì sáu lượt giao tiếp lịch sự gồm mở lời, nhờ giúp, hỏi lại, giải thích và đáp lời phù hợp.",
+      "targetFunctions": [
+        "make-polite-request",
+        "clarify-request",
+        "offer-help"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-07",
+      "officialOrdinal": 7,
+      "sourcePage": 10,
+      "officialTitle": "问答日常饮食",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "trackId": "hsk2-daily-needs-family",
+      "relatedTopicIds": [
+        "hsk2-topic-010",
+        "hsk2-topic-011",
+        "hsk2-topic-012"
+      ],
+      "instructionViDraft": "Hỏi đáp sáu lượt về thói quen ăn uống; phải chọn món, đồ uống và xác nhận nơi hoặc thời điểm dùng bữa.",
+      "targetFunctions": [
+        "ask-dining-habit",
+        "choose-food",
+        "choose-drink"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-08",
+      "officialOrdinal": 8,
+      "sourcePage": 11,
+      "officialTitle": "问答出行情况",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "trackId": "hsk2-travel-leisure",
+      "relatedTopicIds": [
+        "hsk2-topic-013"
+      ],
+      "instructionViDraft": "Hỏi và chỉ đường trong sáu lượt; nêu điểm xuất phát, hai mốc hoặc hướng và xác nhận xa gần.",
+      "targetFunctions": [
+        "ask-directions",
+        "give-route",
+        "confirm-distance"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-09",
+      "officialOrdinal": 9,
+      "sourcePage": 11,
+      "officialTitle": "问答商品情况",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "trackId": "hsk2-daily-needs-family",
+      "relatedTopicIds": [
+        "hsk2-topic-017",
+        "hsk2-topic-018"
+      ],
+      "instructionViDraft": "Đóng vai mua sắm trong sáu lượt; mô tả ít nhất hai đặc điểm, hỏi giá và quyết định lấy hoặc không lấy.",
+      "targetFunctions": [
+        "describe-product",
+        "ask-price",
+        "decide-purchase"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-10",
+      "officialOrdinal": 10,
+      "sourcePage": 11,
+      "officialTitle": "问答生病、探病",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "trackId": "hsk2-daily-needs-family",
+      "relatedTopicIds": [
+        "hsk2-topic-019",
+        "hsk2-topic-020"
+      ],
+      "instructionViDraft": "Đóng vai người bệnh và người hỏi thăm; dùng sáu lượt để nêu triệu chứng, nguyên nhân có thể và bước chăm sóc tiếp theo.",
+      "targetFunctions": [
+        "report-symptoms",
+        "ask-cause",
+        "recommend-care"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-11",
+      "officialOrdinal": 11,
+      "sourcePage": 11,
+      "officialTitle": "交流休闲活动",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "trackId": "hsk2-travel-leisure",
+      "relatedTopicIds": [
+        "hsk2-topic-021"
+      ],
+      "instructionViDraft": "Trao đổi sáu lượt về hoạt động giải trí; nêu ít nhất hai hoạt động, một so sánh và một lời hẹn.",
+      "targetFunctions": [
+        "ask-leisure-preference",
+        "compare-activities",
+        "make-activity-plan"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-12",
+      "officialOrdinal": 12,
+      "sourcePage": 12,
+      "officialTitle": "介绍家庭日常生活",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "trackId": "hsk2-daily-needs-family",
+      "relatedTopicIds": [
+        "hsk2-topic-023",
+        "hsk2-topic-024"
+      ],
+      "instructionViDraft": "Giới thiệu gia đình trong sáu lượt; nêu quan hệ của ít nhất ba người và hai hoạt động thường ngày.",
+      "targetFunctions": [
+        "identify-family-relations",
+        "describe-family-routine",
+        "ask-follow-up"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-13",
+      "officialOrdinal": 13,
+      "sourcePage": 12,
+      "officialTitle": "介绍学习情况、学习经历",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "trackId": "hsk2-study-work-culture",
+      "relatedTopicIds": [
+        "hsk2-topic-025",
+        "hsk2-topic-026"
+      ],
+      "instructionViDraft": "Giới thiệu việc học qua sáu lượt; nêu thời điểm bắt đầu, tần suất, trải nghiệm và một khó khăn cụ thể.",
+      "targetFunctions": [
+        "describe-study-history",
+        "state-study-frequency",
+        "report-learning-difficulty"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-14",
+      "officialOrdinal": 14,
+      "sourcePage": 12,
+      "officialTitle": "交流学校情况、课后活动",
+      "officialBulletCount": 4,
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "trackId": "hsk2-study-work-culture",
+      "relatedTopicIds": [
+        "hsk2-topic-027",
+        "hsk2-topic-028"
+      ],
+      "instructionViDraft": "Trao đổi sáu lượt về trường; mô tả phòng học, lịch bắt đầu và ít nhất một hoạt động sau giờ học.",
+      "targetFunctions": [
+        "describe-school",
+        "confirm-school-schedule",
+        "describe-after-class-activity"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-15",
+      "officialOrdinal": 15,
+      "sourcePage": 13,
+      "officialTitle": "交流工作情况",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "trackId": "hsk2-study-work-culture",
+      "relatedTopicIds": [
+        "hsk2-topic-029",
+        "hsk2-topic-030",
+        "hsk2-topic-031"
+      ],
+      "instructionViDraft": "Trao đổi sáu lượt về công việc; nêu nơi làm, quy mô, nhiệm vụ hiện tại và một cảm nhận.",
+      "targetFunctions": [
+        "ask-workplace",
+        "describe-current-task",
+        "state-work-feeling"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-16",
+      "officialOrdinal": 16,
+      "sourcePage": 13,
+      "officialTitle": "介绍过年及传统饮食",
+      "officialBulletCount": 5,
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "trackId": "hsk2-study-work-culture",
+      "relatedTopicIds": [
+        "hsk2-topic-032",
+        "hsk2-topic-033"
+      ],
+      "instructionViDraft": "Giới thiệu năm mới hoặc món ăn truyền thống qua sáu lượt; nêu trải nghiệm, hoạt động chung và một điểm khác biệt văn hóa.",
+      "targetFunctions": [
+        "describe-festival-experience",
+        "name-traditional-food",
+        "compare-customs"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTaskId": "hsk2-task-17",
+      "officialOrdinal": 17,
+      "sourcePage": 13,
+      "officialTitle": "使用中文称谓语",
+      "officialBulletCount": 3,
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "trackId": "hsk2-study-work-culture",
+      "relatedTopicIds": [
+        "hsk2-topic-034"
+      ],
+      "instructionViDraft": "Thực hành sáu lượt hỏi họ tên và xưng hô; phải dùng một cách hỏi lịch sự, một chức danh và giải thích cách gọi.",
+      "targetFunctions": [
+        "ask-surname-politely",
+        "state-full-name",
+        "confirm-form-of-address"
+      ],
+      "evidencePolicy": {
+        "observedSkills": [
+          "listening",
+          "speaking",
+          "reading"
+        ],
+        "minimumTurns": 6,
+        "followUpRequired": true,
+        "confirmationRequired": true,
+        "reviewedRubricRequired": true,
+        "grantsMastery": false
+      },
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    }
+  ],
+  "topicDrafts": [
+    {
+      "officialTopicId": "hsk2-topic-001",
+      "officialOrdinal": 1,
+      "sourcePage": 61,
+      "domain": "基本信息",
+      "group": "个人信息",
+      "officialTopic": "外貌、穿着、生日等",
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "trackId": "hsk2-person-events-environment",
+      "promptViDraft": "Miêu tả ngoại hình, trang phục hoặc sinh nhật của một người.",
+      "supportQuestionsVi": [
+        "Người đó có đặc điểm gì dễ nhận ra?",
+        "Sinh nhật hoặc trang phục của người đó thế nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-002",
+      "officialOrdinal": 2,
+      "sourcePage": 61,
+      "domain": "基本信息",
+      "group": "个人信息",
+      "officialTopic": "身份、习惯、爱好、来处等",
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "trackId": "hsk2-person-events-environment",
+      "promptViDraft": "Giới thiệu thân phận, thói quen, sở thích và nơi xuất thân.",
+      "supportQuestionsVi": [
+        "Người đó đến từ đâu và đang làm gì?",
+        "Người đó thường thích làm gì?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-003",
+      "officialOrdinal": 3,
+      "sourcePage": 61,
+      "domain": "基本信息",
+      "group": "事件信息",
+      "officialTopic": "事件、人物、时间、方式、地址、原因、变化、状态等",
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "trackId": "hsk2-person-events-environment",
+      "promptViDraft": "Kể lại một sự kiện với người tham gia, thời gian, cách thức, địa điểm và nguyên nhân.",
+      "supportQuestionsVi": [
+        "Sự việc xảy ra khi nào, ở đâu?",
+        "Vì sao tình trạng hoặc kế hoạch thay đổi?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-004",
+      "officialOrdinal": 4,
+      "sourcePage": 61,
+      "domain": "基本信息",
+      "group": "物品信息",
+      "officialTopic": "名称、颜色、差别、数量、所在、特点等",
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "trackId": "hsk2-person-events-environment",
+      "promptViDraft": "Hỏi và mô tả tên, màu sắc, số lượng, vị trí và điểm khác nhau của đồ vật.",
+      "supportQuestionsVi": [
+        "Đồ vật ở đâu và có màu gì?",
+        "Hai lựa chọn khác nhau ở điểm nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-005",
+      "officialOrdinal": 5,
+      "sourcePage": 61,
+      "domain": "基本信息",
+      "group": "环境信息",
+      "officialTopic": "天气",
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "trackId": "hsk2-person-events-environment",
+      "promptViDraft": "Giới thiệu thời tiết hiện tại và ảnh hưởng của nó đến kế hoạch.",
+      "supportQuestionsVi": [
+        "Hôm nay trời nắng, âm u hay mưa?",
+        "Kế hoạch cần giữ nguyên hay thay đổi?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-006",
+      "officialOrdinal": 6,
+      "sourcePage": 61,
+      "domain": "基本信息",
+      "group": "环境信息",
+      "officialTopic": "环境特征",
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "trackId": "hsk2-person-events-environment",
+      "promptViDraft": "Giới thiệu một địa điểm bằng vị trí và các đặc điểm môi trường dễ nhận biết.",
+      "supportQuestionsVi": [
+        "Địa điểm nằm ở đâu?",
+        "Bên trong hoặc xung quanh có gì?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-007",
+      "officialOrdinal": 7,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交往",
+      "officialTopic": "基本礼貌行为",
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Thực hiện lời xin lỗi, cảm ơn hoặc đáp lời lịch sự đúng tình huống.",
+      "supportQuestionsVi": [
+        "Bạn cần mở đầu lịch sự thế nào?",
+        "Người nghe nên đáp lại ra sao?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-008",
+      "officialOrdinal": 8,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交往",
+      "officialTopic": "简单互动行为",
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Duy trì một tương tác ngắn bằng yêu cầu, hỏi lại và xác nhận.",
+      "supportQuestionsVi": [
+        "Bạn cần người kia giúp việc gì?",
+        "Bạn sẽ xác nhận đã hiểu thế nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-009",
+      "officialOrdinal": 9,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交往",
+      "officialTopic": "意愿感受",
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Nói rõ mong muốn, cảm nhận hoặc lựa chọn cá nhân.",
+      "supportQuestionsVi": [
+        "Bạn muốn phương án nào?",
+        "Bạn cảm thấy thế nào và vì sao?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-010",
+      "officialOrdinal": 10,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "饮食",
+      "officialTopic": "食物饮品",
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Trao đổi về món ăn và đồ uống quen thuộc.",
+      "supportQuestionsVi": [
+        "Bạn muốn ăn món gì?",
+        "Bạn chọn loại đồ uống nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-011",
+      "officialOrdinal": 11,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "饮食",
+      "officialTopic": "饮食习惯",
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Nói về thói quen ăn uống thường ngày.",
+      "supportQuestionsVi": [
+        "Bạn thường ăn ở nhà hay bên ngoài?",
+        "Bạn thường ăn hoặc uống gì?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-012",
+      "officialOrdinal": 12,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "饮食",
+      "officialTopic": "就餐",
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Thực hiện hội thoại gọi món và xác nhận lựa chọn trong bữa ăn.",
+      "supportQuestionsVi": [
+        "Bạn sẽ gọi món thế nào?",
+        "Bạn cần xác nhận số lượng hoặc đồ uống nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-013",
+      "officialOrdinal": 13,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交通出行",
+      "officialTopic": "问路",
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "trackId": "hsk2-travel-leisure",
+      "promptViDraft": "Hỏi đường tới một địa điểm và nhắc lại tuyến đi để xác nhận.",
+      "supportQuestionsVi": [
+        "Phải bắt đầu đi từ đâu?",
+        "Địa điểm đích nằm bên trái hay bên phải?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-014",
+      "officialOrdinal": 14,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交通出行",
+      "officialTopic": "出行方式",
+      "lessonId": "hsk2-travel-leisure-lesson-02",
+      "trackId": "hsk2-travel-leisure",
+      "promptViDraft": "Trao đổi cách di chuyển và các chặng trên tuyến đi.",
+      "supportQuestionsVi": [
+        "Bạn chọn phương tiện nào?",
+        "Bạn cần đi vào, đi ra, lên hay xuống ở đâu?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-015",
+      "officialOrdinal": 15,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交通出行",
+      "officialTopic": "出行安排",
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "trackId": "hsk2-travel-leisure",
+      "promptViDraft": "Sắp xếp chuyến đi bằng thời gian, vé, phương tiện và nơi ở.",
+      "supportQuestionsVi": [
+        "Khi nào bạn xuất phát?",
+        "Bạn đã chuẩn bị vé và khách sạn chưa?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-016",
+      "officialOrdinal": 16,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "交通出行",
+      "officialTopic": "出行感受",
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "trackId": "hsk2-travel-leisure",
+      "promptViDraft": "Nói cảm nhận về một chuyến đi hoặc cách di chuyển.",
+      "supportQuestionsVi": [
+        "Đường đi xa hay gần?",
+        "Trải nghiệm nhanh, chậm hay thú vị?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-017",
+      "officialOrdinal": 17,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "购物",
+      "officialTopic": "商品选购",
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Chọn mua sản phẩm theo nhu cầu, giá và tình trạng.",
+      "supportQuestionsVi": [
+        "Bạn muốn mua sản phẩm nào?",
+        "Giá và tình trạng sản phẩm có phù hợp không?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-018",
+      "officialOrdinal": 18,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "购物",
+      "officialTopic": "商品描述",
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Mô tả màu sắc, kích thước, chất lượng hoặc khác biệt của sản phẩm.",
+      "supportQuestionsVi": [
+        "Sản phẩm trông thế nào?",
+        "Bạn muốn đổi đặc điểm nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-019",
+      "officialOrdinal": 19,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "医疗健康",
+      "officialTopic": "生病",
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Mô tả triệu chứng và thời điểm bắt đầu bị bệnh.",
+      "supportQuestionsVi": [
+        "Bộ phận nào khó chịu?",
+        "Bạn mệt hoặc đau từ khi nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-020",
+      "officialOrdinal": 20,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "医疗健康",
+      "officialTopic": "就医",
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Trao đổi việc đi khám, mua thuốc và chăm sóc người bệnh.",
+      "supportQuestionsVi": [
+        "Có cần đi bệnh viện hoặc hiệu thuốc không?",
+        "Người bệnh cần làm gì tiếp theo?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-021",
+      "officialOrdinal": 21,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "休闲",
+      "officialTopic": "休闲活动",
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "trackId": "hsk2-travel-leisure",
+      "promptViDraft": "Trao đổi về hoạt động giải trí đã làm hoặc muốn thử.",
+      "supportQuestionsVi": [
+        "Bạn thường chơi môn gì?",
+        "Hoạt động nào thú vị hơn với bạn?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-022",
+      "officialOrdinal": 22,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "休闲",
+      "officialTopic": "休闲安排",
+      "lessonId": "hsk2-travel-leisure-lesson-05",
+      "trackId": "hsk2-travel-leisure",
+      "promptViDraft": "Hẹn thời gian, địa điểm và hoạt động cho lúc rảnh.",
+      "supportQuestionsVi": [
+        "Hai người gặp lúc mấy giờ?",
+        "Sẽ gặp ở đâu và làm gì?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-023",
+      "officialOrdinal": 23,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "家庭生活",
+      "officialTopic": "家庭关系",
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Giới thiệu quan hệ giữa các thành viên trong gia đình.",
+      "supportQuestionsVi": [
+        "Bạn sống cùng những ai?",
+        "Mỗi người có quan hệ gì với bạn?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-024",
+      "officialOrdinal": 24,
+      "sourcePage": 61,
+      "domain": "日常生活",
+      "group": "家庭生活",
+      "officialTopic": "家庭活动",
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "trackId": "hsk2-daily-needs-family",
+      "promptViDraft": "Mô tả cách gia đình phân chia hoặc cùng làm hoạt động hằng ngày.",
+      "supportQuestionsVi": [
+        "Ai thường nấu ăn hoặc chăm trẻ?",
+        "Gia đình làm gì cùng nhau?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-025",
+      "officialOrdinal": 25,
+      "sourcePage": 62,
+      "domain": "教育情况",
+      "group": "学习情况",
+      "officialTopic": "基本情况",
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Giới thiệu lớp học, môn học, lịch học và tình hình hiện tại.",
+      "supportQuestionsVi": [
+        "Bạn đang học gì và ở lớp nào?",
+        "Mỗi tuần bạn học bao nhiêu buổi?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-026",
+      "officialOrdinal": 26,
+      "sourcePage": 62,
+      "domain": "教育情况",
+      "group": "学习情况",
+      "officialTopic": "学习经历",
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Kể ngắn quá trình học và một trải nghiệm đáng nhớ.",
+      "supportQuestionsVi": [
+        "Bạn bắt đầu học từ khi nào?",
+        "Bạn từng gặp khó khăn hoặc tiến bộ gì?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-027",
+      "officialOrdinal": 27,
+      "sourcePage": 62,
+      "domain": "教育情况",
+      "group": "校园生活",
+      "officialTopic": "学校情况",
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Giới thiệu quy mô, phòng học hoặc con người trong trường.",
+      "supportQuestionsVi": [
+        "Trường và lớp học thế nào?",
+        "Ai học hoặc làm việc ở đó?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-028",
+      "officialOrdinal": 28,
+      "sourcePage": 62,
+      "domain": "教育情况",
+      "group": "校园生活",
+      "officialTopic": "课后活动",
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Trao đổi hoạt động sau giờ học.",
+      "supportQuestionsVi": [
+        "Bạn làm gì sau khi tan học?",
+        "Bạn làm một mình hay cùng bạn bè?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-029",
+      "officialOrdinal": 29,
+      "sourcePage": 62,
+      "domain": "职场生活",
+      "group": "工作情况",
+      "officialTopic": "工作信息",
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Hỏi và trả lời nơi làm việc, thời gian và nhiệm vụ.",
+      "supportQuestionsVi": [
+        "Bạn làm việc ở đâu, lúc nào?",
+        "Bạn đang phụ trách việc gì?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-030",
+      "officialOrdinal": 30,
+      "sourcePage": 62,
+      "domain": "职场生活",
+      "group": "工作情况",
+      "officialTopic": "工作经历、工作感受",
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Kể một trải nghiệm và cảm nhận về công việc.",
+      "supportQuestionsVi": [
+        "Bạn đã làm công việc này bao lâu?",
+        "Điều gì làm bạn thấy vui hoặc mệt?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-031",
+      "officialOrdinal": 31,
+      "sourcePage": 62,
+      "domain": "职场生活",
+      "group": "职业",
+      "officialTopic": "职业状况",
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Giới thiệu nghề nghiệp hoặc tình trạng nghề nghiệp của một người.",
+      "supportQuestionsVi": [
+        "Người đó làm nghề gì?",
+        "Nơi làm việc có quy mô thế nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-032",
+      "officialOrdinal": 32,
+      "sourcePage": 62,
+      "domain": "文化与传统",
+      "group": "传统习俗",
+      "officialTopic": "节日",
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Giới thiệu hoạt động và lời chúc trong một dịp lễ truyền thống.",
+      "supportQuestionsVi": [
+        "Mọi người làm gì trong dịp đó?",
+        "Bạn sẽ dùng lời chúc nào?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-033",
+      "officialOrdinal": 33,
+      "sourcePage": 62,
+      "domain": "文化与传统",
+      "group": "饮食文化",
+      "officialTopic": "中餐印象",
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Nói ấn tượng về món ăn Trung Quốc.",
+      "supportQuestionsVi": [
+        "Bạn đã thử món nào?",
+        "Mùi vị hoặc cách ăn có gì đáng nhớ?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    },
+    {
+      "officialTopicId": "hsk2-topic-034",
+      "officialOrdinal": 34,
+      "sourcePage": 62,
+      "domain": "文化与传统",
+      "group": "姓氏文化",
+      "officialTopic": "主要姓氏、正式称谓等",
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "trackId": "hsk2-study-work-culture",
+      "promptViDraft": "Hỏi họ tên và dùng cách xưng hô tiếng Trung phù hợp.",
+      "supportQuestionsVi": [
+        "Bạn hỏi họ một cách lịch sự thế nào?",
+        "Khi nào dùng họ kèm chức danh?"
+      ],
+      "review": {
+        "machineAssisted": true,
+        "nativeMandarinReview": "pending",
+        "vietnameseEditorialReview": "pending",
+        "taskPedagogyReview": "pending"
+      }
+    }
+  ],
+  "practiceItems": [
+    {
+      "itemId": "hsk2-person-events-environment-lesson-01:guided-roleplay-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "officialTaskIds": [
+        "hsk2-task-01"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-001",
+        "hsk2-topic-002"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Đóng vai hai người mới quen; duy trì ít nhất sáu lượt để hỏi ngoại hình, lai lịch hoặc sở thích và có một câu hỏi tiếp nối.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你个子很高，你小时候也这么高吗？",
+          "pinyin": "Nǐ gèzi hěn gāo, nǐ xiǎoshíhou yě zhème gāo ma?",
+          "meaningVi": "Bạn cao thật, hồi nhỏ bạn cũng cao thế này à?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "没有，我小时候个子不高。",
+          "pinyin": "Méiyǒu, wǒ xiǎoshíhou gèzi bù gāo.",
+          "meaningVi": "Không, hồi nhỏ tôi không cao."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你有什么爱好？",
+          "pinyin": "Nǐ yǒu shénme àihào?",
+          "meaningVi": "Bạn có sở thích gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我最喜欢踢足球。",
+          "pinyin": "Wǒ zuì xǐhuan tī zúqiú.",
+          "meaningVi": "Tôi thích đá bóng nhất."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你常跟谁一起踢？",
+          "pinyin": "Nǐ cháng gēn shéi yìqǐ tī?",
+          "meaningVi": "Bạn thường đá cùng ai?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我常跟同学一起踢。",
+          "pinyin": "Wǒ cháng gēn tóngxué yìqǐ tī.",
+          "meaningVi": "Tôi thường đá cùng bạn học."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-person-events-environment-lesson-02:guided-roleplay-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "officialTaskIds": [
+        "hsk2-task-02"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-003"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Hỏi và trả lời sáu lượt về một sự việc; phải nêu thời gian, nguyên nhân, trạng thái và một phương án tiếp theo.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你为什么来晚了？",
+          "pinyin": "Nǐ wèishénme lái wǎn le?",
+          "meaningVi": "Tại sao bạn đến muộn?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我在车站等公交车，但是车没来。",
+          "pinyin": "Wǒ zài chēzhàn děng gōngjiāochē, dànshì chē méi lái.",
+          "meaningVi": "Tôi đợi xe buýt ở nhà ga nhưng xe không đến."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你等了多长时间？",
+          "pinyin": "Nǐ děng le duō cháng shíjiān?",
+          "meaningVi": "Bạn đã đợi bao lâu?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我等了半个小时。",
+          "pinyin": "Wǒ děng le bàn ge xiǎoshí.",
+          "meaningVi": "Tôi đã đợi nửa tiếng."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "下次你可能怎么来？",
+          "pinyin": "Xià cì nǐ kěnéng zěnme lái?",
+          "meaningVi": "Lần sau bạn có thể đến bằng cách nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我可能坐地铁，所以不会晚了。",
+          "pinyin": "Wǒ kěnéng zuò dìtiě, suǒyǐ bú huì wǎn le.",
+          "meaningVi": "Có thể tôi sẽ đi tàu điện ngầm, vì vậy sẽ không muộn nữa."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-person-events-environment-lesson-03:guided-roleplay-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "officialTaskIds": [
+        "hsk2-task-03"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-004"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Đóng vai khách và người bán; hỏi tên hoặc đặc điểm, so sánh hai lựa chọn rồi xác nhận món muốn lấy.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你想买哪件衣服？",
+          "pinyin": "Nǐ xiǎng mǎi nǎ jiàn yīfu?",
+          "meaningVi": "Bạn muốn mua bộ quần áo nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我想看看红色的。",
+          "pinyin": "Wǒ xiǎng kànkan hóngsè de.",
+          "meaningVi": "Tôi muốn xem bộ màu đỏ."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "绿色的也不错，你觉得呢？",
+          "pinyin": "Lǜsè de yě búcuò, nǐ juéde ne?",
+          "meaningVi": "Bộ màu xanh lá cũng khá đấy, bạn thấy sao?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "红色的比绿色的好看。",
+          "pinyin": "Hóngsè de bǐ lǜsè de hǎokàn.",
+          "meaningVi": "Bộ màu đỏ đẹp hơn bộ màu xanh lá."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你要什么样的颜色？",
+          "pinyin": "Nǐ yào shénme yàng de yánsè?",
+          "meaningVi": "Bạn muốn màu sắc như thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "就要红色的，不要那么长的。",
+          "pinyin": "Jiù yào hóngsè de, bú yào nàme cháng de.",
+          "meaningVi": "Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-person-events-environment-lesson-04:guided-roleplay-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "officialTaskIds": [
+        "hsk2-task-04"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-005"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Giới thiệu thời tiết qua sáu lượt; nêu ít nhất hai trạng thái thời tiết và tác động của chúng lên kế hoạch.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "今天天气怎么样？",
+          "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+          "meaningVi": "Hôm nay thời tiết thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "今天是阴天，有点儿冷。",
+          "pinyin": "Jīntiān shì yīntiān, yǒudiǎnr lěng.",
+          "meaningVi": "Hôm nay trời âm u, hơi lạnh."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "明天会下雨吗？",
+          "pinyin": "Míngtiān huì xiàyǔ ma?",
+          "meaningVi": "Ngày mai có mưa không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不会，明天是晴天。",
+          "pinyin": "Bú huì, míngtiān shì qíngtiān.",
+          "meaningVi": "Không, ngày mai trời nắng."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "那我们明天去运动，好吗？",
+          "pinyin": "Nà wǒmen míngtiān qù yùndòng, hǎo ma?",
+          "meaningVi": "Vậy ngày mai chúng ta đi vận động nhé?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "好，天气晴的时候一起去。",
+          "pinyin": "Hǎo, tiānqì qíng de shíhou yìqǐ qù.",
+          "meaningVi": "Được, lúc trời nắng chúng ta cùng đi."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-person-events-environment-lesson-05:guided-roleplay-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "officialTaskIds": [
+        "hsk2-task-05"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-006"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Giới thiệu một địa điểm trong sáu lượt; phải có vị trí, ít nhất hai vật hoặc đặc điểm và một câu hỏi xác nhận.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你住的地方怎么样？",
+          "pinyin": "Nǐ zhù de dìfang zěnmeyàng?",
+          "meaningVi": "Nơi bạn sống thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我住在学校对面的一间房里。",
+          "pinyin": "Wǒ zhù zài xuéxiào duìmiàn de yì jiān fáng lǐ.",
+          "meaningVi": "Tôi sống trong một căn phòng đối diện trường."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "房间里有什么？",
+          "pinyin": "Fángjiān lǐ yǒu shénme?",
+          "meaningVi": "Trong phòng có gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "有一张床和一张桌子。",
+          "pinyin": "Yǒu yì zhāng chuáng hé yì zhāng zhuōzi.",
+          "meaningVi": "Có một chiếc giường và một chiếc bàn."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "外面有商店吗？",
+          "pinyin": "Wàimiàn yǒu shāngdiàn ma?",
+          "meaningVi": "Bên ngoài có cửa hàng không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "有，商店就在房间对面。",
+          "pinyin": "Yǒu, shāngdiàn jiù zài fángjiān duìmiàn.",
+          "meaningVi": "Có, cửa hàng ở ngay đối diện căn phòng."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-daily-needs-family-lesson-01:guided-roleplay-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "officialTaskIds": [
+        "hsk2-task-06"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-007",
+        "hsk2-topic-008",
+        "hsk2-topic-009"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Duy trì sáu lượt giao tiếp lịch sự gồm mở lời, nhờ giúp, hỏi lại, giải thích và đáp lời phù hợp.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "不好意思，你能帮我一个忙吗？",
+          "pinyin": "Bù hǎoyìsi, nǐ néng bāng wǒ yí ge máng ma?",
+          "meaningVi": "Xin lỗi, bạn có thể giúp tôi một việc không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "可以，你希望我帮你做什么？",
+          "pinyin": "Kěyǐ, nǐ xīwàng wǒ bāng nǐ zuò shénme?",
+          "meaningVi": "Được, bạn muốn tôi giúp việc gì?"
+        },
+        {
+          "speaker": "A",
+          "hanzi": "请帮我打开门。",
+          "pinyin": "Qǐng bāng wǒ dǎkāi mén.",
+          "meaningVi": "Xin hãy giúp tôi mở cửa."
+        },
+        {
+          "speaker": "B",
+          "hanzi": "好。你为什么自己不打开？",
+          "pinyin": "Hǎo. Nǐ wèishénme zìjǐ bù dǎkāi?",
+          "meaningVi": "Được. Tại sao bạn không tự mở?"
+        },
+        {
+          "speaker": "A",
+          "hanzi": "我的手疼。",
+          "pinyin": "Wǒ de shǒu téng.",
+          "meaningVi": "Tay tôi bị đau."
+        },
+        {
+          "speaker": "B",
+          "hanzi": "那你别拿东西了，让我来吧。",
+          "pinyin": "Nà nǐ bié ná dōngxi le, ràng wǒ lái ba.",
+          "meaningVi": "Vậy bạn đừng cầm đồ nữa, để tôi làm."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-daily-needs-family-lesson-02:guided-roleplay-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "officialTaskIds": [
+        "hsk2-task-07"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-010",
+        "hsk2-topic-011",
+        "hsk2-topic-012"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Hỏi đáp sáu lượt về thói quen ăn uống; phải chọn món, đồ uống và xác nhận nơi hoặc thời điểm dùng bữa.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你经常在饭馆吃饭吗？",
+          "pinyin": "Nǐ jīngcháng zài fànguǎn chīfàn ma?",
+          "meaningVi": "Bạn có thường ăn ở nhà hàng không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不，我常在家吃，今天没准备晚饭。",
+          "pinyin": "Bù, wǒ cháng zài jiā chī, jīntiān méi zhǔnbèi wǎnfàn.",
+          "meaningVi": "Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你喜欢吃肉还是鱼？",
+          "pinyin": "Nǐ xǐhuan chī ròu háishi yú?",
+          "meaningVi": "Bạn thích ăn thịt hay cá?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我更喜欢鱼。",
+          "pinyin": "Wǒ gèng xǐhuan yú.",
+          "meaningVi": "Tôi thích cá hơn."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "喝红茶还是绿茶？",
+          "pinyin": "Hē hóngchá háishi lǜchá?",
+          "meaningVi": "Uống trà đen hay trà xanh?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "绿茶，谢谢。",
+          "pinyin": "Lǜchá, xièxie.",
+          "meaningVi": "Trà xanh, cảm ơn."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-daily-needs-family-lesson-03:guided-roleplay-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "officialTaskIds": [
+        "hsk2-task-09"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-017",
+        "hsk2-topic-018"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Đóng vai mua sắm trong sáu lượt; mô tả ít nhất hai đặc điểm, hỏi giá và quyết định lấy hoặc không lấy.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "这条裤子怎么样？",
+          "pinyin": "Zhè tiáo kùzi zěnmeyàng?",
+          "meaningVi": "Chiếc quần này thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "颜色不错，但是有点儿长。",
+          "pinyin": "Yánsè búcuò, dànshì yǒudiǎnr cháng.",
+          "meaningVi": "Màu khá đẹp nhưng hơi dài."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你要拿这条吗？",
+          "pinyin": "Nǐ yào ná zhè tiáo ma?",
+          "meaningVi": "Bạn lấy chiếc này không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "先看看价钱。这条要花多少钱？",
+          "pinyin": "Xiān kànkan jiàqian. Zhè tiáo yào huā duōshao qián?",
+          "meaningVi": "Xem giá trước đã. Chiếc này tốn bao nhiêu tiền?"
+        },
+        {
+          "speaker": "A",
+          "hanzi": "一百块。你的手表也是在这个商场买的吗？",
+          "pinyin": "Yì bǎi kuài. Nǐ de shǒubiǎo yě shì zài zhège shāngchǎng mǎi de ma?",
+          "meaningVi": "Một trăm tệ. Đồng hồ của bạn cũng mua ở trung tâm này à?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "是，不过手表已经坏了。",
+          "pinyin": "Shì, búguò shǒubiǎo yǐjīng huài le.",
+          "meaningVi": "Đúng, nhưng đồng hồ đã hỏng rồi."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-daily-needs-family-lesson-04:guided-roleplay-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "officialTaskIds": [
+        "hsk2-task-10"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-019",
+        "hsk2-topic-020"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Đóng vai người bệnh và người hỏi thăm; dùng sáu lượt để nêu triệu chứng, nguyên nhân có thể và bước chăm sóc tiếp theo.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你怎么了？",
+          "pinyin": "Nǐ zěnme le?",
+          "meaningVi": "Bạn bị làm sao?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我头疼，眼睛也不舒服。",
+          "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+          "meaningVi": "Tôi đau đầu, mắt cũng khó chịu."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "是不是因为昨天太累了？",
+          "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+          "meaningVi": "Có phải vì hôm qua quá mệt không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "可能是。附近有药店吗？",
+          "pinyin": "Kěnéng shì. Fùjìn yǒu yàodiàn ma?",
+          "meaningVi": "Có thể. Gần đây có hiệu thuốc không?"
+        },
+        {
+          "speaker": "A",
+          "hanzi": "前面就有一家药店，我陪你去买药。",
+          "pinyin": "Qiánmiàn jiù yǒu yì jiā yàodiàn, wǒ péi nǐ qù mǎi yào.",
+          "meaningVi": "Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn."
+        },
+        {
+          "speaker": "B",
+          "hanzi": "谢谢，买药以后我就回家休息。",
+          "pinyin": "Xièxie, mǎi yào yǐhòu wǒ jiù huí jiā xiūxi.",
+          "meaningVi": "Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-daily-needs-family-lesson-05:guided-roleplay-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "officialTaskIds": [
+        "hsk2-task-12"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-023",
+        "hsk2-topic-024"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Giới thiệu gia đình trong sáu lượt; nêu quan hệ của ít nhất ba người và hai hoạt động thường ngày.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你跟谁一起住？",
+          "pinyin": "Nǐ gēn shéi yìqǐ zhù?",
+          "meaningVi": "Bạn sống cùng ai?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我跟妻子、孩子，还有爷爷奶奶一起住。",
+          "pinyin": "Wǒ gēn qīzi, háizi, hái yǒu yéye nǎinai yìqǐ zhù.",
+          "meaningVi": "Tôi sống cùng vợ, con và ông bà."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你奶奶每天做饭吗？",
+          "pinyin": "Nǐ nǎinai měitiān zuòfàn ma?",
+          "meaningVi": "Bà bạn nấu cơm hằng ngày à?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "有时她做，有时我自己做。",
+          "pinyin": "Yǒushí tā zuò, yǒushí wǒ zìjǐ zuò.",
+          "meaningVi": "Có khi bà nấu, có khi tôi tự nấu."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你妻子和爷爷做什么？",
+          "pinyin": "Nǐ qīzi hé yéye zuò shénme?",
+          "meaningVi": "Vợ và ông bạn làm gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "妻子看孩子，爷爷常跟孩子玩。",
+          "pinyin": "Qīzi kàn háizi, yéye cháng gēn háizi wán.",
+          "meaningVi": "Vợ tôi trông con, ông thường chơi với đứa trẻ."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-travel-leisure-lesson-01:guided-roleplay-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "officialTaskIds": [
+        "hsk2-task-08"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-013"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Hỏi và chỉ đường trong sáu lượt; nêu điểm xuất phát, hai mốc hoặc hướng và xác nhận xa gần.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "请问，药店怎么走？",
+          "pinyin": "Qǐngwèn, yàodiàn zěnme zǒu?",
+          "meaningVi": "Xin hỏi, đi đến hiệu thuốc thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "从这里往前走，到第二个路口往右边走。",
+          "pinyin": "Cóng zhèlǐ wǎng qián zǒu, dào dì èr ge lùkǒu wǎng yòubian zǒu.",
+          "meaningVi": "Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "药店在路的哪边？",
+          "pinyin": "Yàodiàn zài lù de nǎ biān?",
+          "meaningVi": "Hiệu thuốc ở phía nào của đường?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "在饭馆旁边，门口有红色的字。",
+          "pinyin": "Zài fànguǎn pángbiān, ménkǒu yǒu hóngsè de zì.",
+          "meaningVi": "Ở cạnh nhà hàng, cửa có chữ màu đỏ."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "离这里远吗？",
+          "pinyin": "Lí zhèlǐ yuǎn ma?",
+          "meaningVi": "Có xa đây không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不远，走路十分钟就到。",
+          "pinyin": "Bù yuǎn, zǒulù shí fēnzhōng jiù dào.",
+          "meaningVi": "Không xa, đi bộ mười phút là tới."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-travel-leisure-lesson-02:guided-roleplay-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-02",
+      "officialTaskIds": [],
+      "officialTopicIds": [
+        "hsk2-topic-014"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Thực hành sáu lượt chỉ tuyến; dùng ít nhất ba bổ ngữ hướng để mô tả đi vào, lên, xuống hoặc đi ra.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "我怎么去二楼？",
+          "pinyin": "Wǒ zěnme qù èr lóu?",
+          "meaningVi": "Tôi lên tầng hai thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "从这个门进去，再往前走。",
+          "pinyin": "Cóng zhège mén jìnqu, zài wǎng qián zǒu.",
+          "meaningVi": "Đi vào từ cửa này rồi đi thẳng."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "到前面以后呢？",
+          "pinyin": "Dào qiánmiàn yǐhòu ne?",
+          "meaningVi": "Sau khi đến phía trước thì sao?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "从右边的楼梯上去。",
+          "pinyin": "Cóng yòubian de lóutī shàngqu.",
+          "meaningVi": "Đi lên bằng cầu thang bên phải."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "回来时也从这里下来吗？",
+          "pinyin": "Huílái shí yě cóng zhèlǐ xiàlái ma?",
+          "meaningVi": "Khi về cũng đi xuống từ đây phải không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "对，下楼以后从左边的门出去。",
+          "pinyin": "Duì, xià lóu yǐhòu cóng zuǒbian de mén chūqù.",
+          "meaningVi": "Đúng, xuống tầng rồi đi ra cửa bên trái."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-travel-leisure-lesson-03:guided-roleplay-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "officialTaskIds": [],
+      "officialTopicIds": [
+        "hsk2-topic-015",
+        "hsk2-topic-016"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Trao đổi sáu lượt về chuyến đi; chốt thời gian, phương tiện, vé, nơi ở và một cảm nhận về quãng đường.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你准备什么时候去旅游？",
+          "pinyin": "Nǐ zhǔnbèi shénme shíhou qù lǚyóu?",
+          "meaningVi": "Bạn định khi nào đi du lịch?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "下周，我已经买好机票了。",
+          "pinyin": "Xià zhōu, wǒ yǐjīng mǎihǎo jīpiào le.",
+          "meaningVi": "Tuần sau, tôi đã mua vé máy bay rồi."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你怎么去机场？",
+          "pinyin": "Nǐ zěnme qù jīchǎng?",
+          "meaningVi": "Bạn đi sân bay thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我坐地铁去，不打车。",
+          "pinyin": "Wǒ zuò dìtiě qù, bù dǎchē.",
+          "meaningVi": "Tôi đi tàu điện ngầm, không đi taxi."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "酒店离车站远吗？",
+          "pinyin": "Jiǔdiàn lí chēzhàn yuǎn ma?",
+          "meaningVi": "Khách sạn có xa nhà ga không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不远，从车站走十分钟。",
+          "pinyin": "Bù yuǎn, cóng chēzhàn zǒu shí fēnzhōng.",
+          "meaningVi": "Không xa, đi từ nhà ga mười phút."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-travel-leisure-lesson-04:guided-roleplay-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "officialTaskIds": [
+        "hsk2-task-11"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-021"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Trao đổi sáu lượt về hoạt động giải trí; nêu ít nhất hai hoạt động, một so sánh và một lời hẹn.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "周末你喜欢什么运动？",
+          "pinyin": "Zhōumò nǐ xǐhuan shénme yùndòng?",
+          "meaningVi": "Cuối tuần bạn thích môn thể thao nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我喜欢跑步，也喜欢游泳。",
+          "pinyin": "Wǒ xǐhuan pǎobù, yě xǐhuan yóuyǒng.",
+          "meaningVi": "Tôi thích chạy bộ, cũng thích bơi."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你会踢足球吗？",
+          "pinyin": "Nǐ huì tī zúqiú ma?",
+          "meaningVi": "Bạn biết đá bóng không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "会，足球比篮球有意思。",
+          "pinyin": "Huì, zúqiú bǐ lánqiú yǒuyìsi.",
+          "meaningVi": "Có, bóng đá thú vị hơn bóng rổ."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "明天一起去运动吧？",
+          "pinyin": "Míngtiān yìqǐ qù yùndòng ba?",
+          "meaningVi": "Ngày mai cùng đi vận động nhé?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "好，我们先跑步，再踢足球。",
+          "pinyin": "Hǎo, wǒmen xiān pǎobù, zài tī zúqiú.",
+          "meaningVi": "Được, chúng ta chạy bộ trước rồi đá bóng."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-travel-leisure-lesson-05:guided-roleplay-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-05",
+      "officialTaskIds": [],
+      "officialTopicIds": [
+        "hsk2-topic-022"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Duy trì sáu lượt để sắp xếp thời gian rảnh; phải xác nhận giờ, điểm gặp và hoạt động chung.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你几点起来？",
+          "pinyin": "Nǐ jǐ diǎn qǐlái?",
+          "meaningVi": "Bạn thức dậy lúc mấy giờ?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "七点。吃早饭以后有时间。",
+          "pinyin": "Qī diǎn. Chī zǎofàn yǐhòu yǒu shíjiān.",
+          "meaningVi": "Bảy giờ. Ăn sáng xong tôi có thời gian."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "那一会儿一起去打球吗？",
+          "pinyin": "Nà yíhuìr yìqǐ qù dǎqiú ma?",
+          "meaningVi": "Vậy lát nữa cùng đi chơi bóng không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "好，我们在哪儿见？",
+          "pinyin": "Hǎo, wǒmen zài nǎr jiàn?",
+          "meaningVi": "Được, chúng ta gặp ở đâu?"
+        },
+        {
+          "speaker": "A",
+          "hanzi": "九点在车站见，我站在门口等你。",
+          "pinyin": "Jiǔ diǎn zài chēzhàn jiàn, wǒ zhàn zài ménkǒu děng nǐ.",
+          "meaningVi": "Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn."
+        },
+        {
+          "speaker": "B",
+          "hanzi": "好，一会儿见。",
+          "pinyin": "Hǎo, yíhuìr jiàn.",
+          "meaningVi": "Được, lát nữa gặp."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-study-work-culture-lesson-01:guided-roleplay-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "officialTaskIds": [
+        "hsk2-task-13"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-025",
+        "hsk2-topic-026"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Giới thiệu việc học qua sáu lượt; nêu thời điểm bắt đầu, tần suất, trải nghiệm và một khó khăn cụ thể.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你从什么时候开始学汉语？",
+          "pinyin": "Nǐ cóng shénme shíhou kāishǐ xué Hànyǔ?",
+          "meaningVi": "Bạn bắt đầu học tiếng Trung từ khi nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我从高中开始学，已经学了两年。",
+          "pinyin": "Wǒ cóng gāozhōng kāishǐ xué, yǐjīng xué le liǎng nián.",
+          "meaningVi": "Tôi bắt đầu học từ cấp ba, đã học hai năm."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你每周上几次课？",
+          "pinyin": "Nǐ měi zhōu shàng jǐ cì kè?",
+          "meaningVi": "Mỗi tuần bạn học mấy buổi?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "每周三次，老师教得很好。",
+          "pinyin": "Měi zhōu sān cì, lǎoshī jiāo de hěn hǎo.",
+          "meaningVi": "Mỗi tuần ba buổi, giáo viên dạy rất tốt."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "上周的考试难吗？",
+          "pinyin": "Shàng zhōu de kǎoshì nán ma?",
+          "meaningVi": "Bài thi tuần trước khó không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "有几道题我没看懂，但已经做完了。",
+          "pinyin": "Yǒu jǐ dào tí wǒ méi kàndǒng, dàn yǐjīng zuòwán le.",
+          "meaningVi": "Có vài câu tôi không hiểu, nhưng đã làm xong."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-study-work-culture-lesson-02:guided-roleplay-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "officialTaskIds": [
+        "hsk2-task-14"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-027",
+        "hsk2-topic-028"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Trao đổi sáu lượt về trường; mô tả phòng học, lịch bắt đầu và ít nhất một hoạt động sau giờ học.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "请介绍一下你的学校吧。",
+          "pinyin": "Qǐng jièshào yíxià nǐ de xuéxiào ba.",
+          "meaningVi": "Hãy giới thiệu một chút về trường của bạn."
+        },
+        {
+          "speaker": "B",
+          "hanzi": "学校不大，但是教室很新。",
+          "pinyin": "Xuéxiào bú dà, dànshì jiàoshì hěn xīn.",
+          "meaningVi": "Trường không lớn nhưng lớp học rất mới."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你们什么时候开学？",
+          "pinyin": "Nǐmen shénme shíhou kāixué?",
+          "meaningVi": "Các bạn khi nào khai giảng?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "下周一开始上课。",
+          "pinyin": "Xià zhōuyī kāishǐ shàngkè.",
+          "meaningVi": "Thứ Hai tuần sau bắt đầu học."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "下课以后你做什么？",
+          "pinyin": "Xiàkè yǐhòu nǐ zuò shénme?",
+          "meaningVi": "Sau giờ học bạn làm gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我从书包里拿出本子画画。",
+          "pinyin": "Wǒ cóng shūbāo lǐ náchū běnzi huàhuà.",
+          "meaningVi": "Tôi lấy vở từ cặp ra để vẽ."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-study-work-culture-lesson-03:guided-roleplay-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "officialTaskIds": [
+        "hsk2-task-15"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-029",
+        "hsk2-topic-030",
+        "hsk2-topic-031"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Trao đổi sáu lượt về công việc; nêu nơi làm, quy mô, nhiệm vụ hiện tại và một cảm nhận.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你在哪儿工作？",
+          "pinyin": "Nǐ zài nǎr gōngzuò?",
+          "meaningVi": "Bạn làm việc ở đâu?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我在一所学校工作。",
+          "pinyin": "Wǒ zài yì suǒ xuéxiào gōngzuò.",
+          "meaningVi": "Tôi làm việc ở một trường học."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "学校有多少名老师？",
+          "pinyin": "Xuéxiào yǒu duōshao míng lǎoshī?",
+          "meaningVi": "Trường có bao nhiêu giáo viên?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "有一百多名老师。",
+          "pinyin": "Yǒu yì bǎi duō míng lǎoshī.",
+          "meaningVi": "Có hơn một trăm giáo viên."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你现在忙什么事情？",
+          "pinyin": "Nǐ xiànzài máng shénme shìqing?",
+          "meaningVi": "Hiện bạn bận việc gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我正准备下午的汉语课，跟学生一起学习很快乐。",
+          "pinyin": "Wǒ zhèng zhǔnbèi xiàwǔ de Hànyǔ kè, gēn xuésheng yìqǐ xuéxí hěn kuàilè.",
+          "meaningVi": "Tôi đang chuẩn bị tiết tiếng Trung buổi chiều; học cùng học sinh rất vui."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-study-work-culture-lesson-04:guided-roleplay-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "officialTaskIds": [
+        "hsk2-task-16"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-032",
+        "hsk2-topic-033"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Giới thiệu năm mới hoặc món ăn truyền thống qua sáu lượt; nêu trải nghiệm, hoạt động chung và một điểm khác biệt văn hóa.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你在中国过过年吗？",
+          "pinyin": "Nǐ zài Zhōngguó guòguo nián ma?",
+          "meaningVi": "Bạn đã từng đón năm mới ở Trung Quốc chưa?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "过过。第一次过年时，我还是外国学生。",
+          "pinyin": "Guòguo. Dì yí cì guònián shí, wǒ háishi wàiguó xuésheng.",
+          "meaningVi": "Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你觉得中国年怎么样？",
+          "pinyin": "Nǐ juéde Zhōngguó nián zěnmeyàng?",
+          "meaningVi": "Bạn thấy năm mới Trung Quốc thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "很快乐，大家一起吃饭、吃饺子。",
+          "pinyin": "Hěn kuàilè, dàjiā yìqǐ chīfàn, chī jiǎozi.",
+          "meaningVi": "Rất vui, mọi người cùng ăn cơm và sủi cảo."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "过年跟过生日一样吗？",
+          "pinyin": "Guònián gēn guò shēngrì yíyàng ma?",
+          "meaningVi": "Đón năm mới có giống tổ chức sinh nhật không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不一样，过年是大家的节日，生日是一个人的。",
+          "pinyin": "Bù yíyàng, guònián shì dàjiā de jiérì, shēngrì shì yí ge rén de.",
+          "meaningVi": "Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    },
+    {
+      "itemId": "hsk2-study-work-culture-lesson-05:guided-roleplay-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "officialTaskIds": [
+        "hsk2-task-17"
+      ],
+      "officialTopicIds": [
+        "hsk2-topic-034"
+      ],
+      "kind": "six-turn-guided-roleplay-self-check",
+      "instructionVi": "Thực hành sáu lượt hỏi họ tên và xưng hô; phải dùng một cách hỏi lịch sự, một chức danh và giải thích cách gọi.",
+      "successChecklist": [
+        "Hoàn thành ít nhất sáu lượt luân phiên.",
+        "Có ít nhất một câu hỏi tiếp nối và một lượt xác nhận.",
+        "Tự sửa câu trước khi xem lại hội thoại mẫu."
+      ],
+      "modelDialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "您好，请问您贵姓？",
+          "pinyin": "Nín hǎo, qǐngwèn nín guìxìng?",
+          "meaningVi": "Xin chào, xin hỏi quý danh của ông/bà?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我姓王，姓名是王小明。",
+          "pinyin": "Wǒ xìng Wáng, xìngmíng shì Wáng Xiǎomíng.",
+          "meaningVi": "Tôi họ Vương, họ tên là Vương Tiểu Minh."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "我可以叫您王老师吗？",
+          "pinyin": "Wǒ kěyǐ jiào nín Wáng lǎoshī ma?",
+          "meaningVi": "Tôi có thể gọi ông/bà là thầy/cô Vương không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "可以，中文常这样称呼老师。",
+          "pinyin": "Kěyǐ, Zhōngwén cháng zhèyàng chēnghu lǎoshī.",
+          "meaningVi": "Được, tiếng Trung thường gọi giáo viên như vậy."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "“贵姓”是什么意思？",
+          "pinyin": "“Guìxìng” shì shénme yìsi?",
+          "meaningVi": "“Quý tính” có nghĩa là gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "是很有礼貌地问别人的姓。",
+          "pinyin": "Shì hěn yǒu lǐmào de wèn biéren de xìng.",
+          "meaningVi": "Là cách lịch sự để hỏi họ của người khác."
+        }
+      ],
+      "scoringPolicy": "self-reveal-only",
+      "review": "pending",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "releaseEligible": false
+    }
+  ],
+  "reviewBatches": [
+    {
+      "batchId": "hsk2-person-events-environment-lesson-01:situational-review-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-01",
+      "taskIds": [
+        "hsk2-task-01"
+      ],
+      "topicIds": [
+        "hsk2-topic-001",
+        "hsk2-topic-002"
+      ],
+      "dialogueIds": [
+        "hsk2-person-events-environment-lesson-01"
+      ],
+      "practiceItemIds": [
+        "hsk2-person-events-environment-lesson-01:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-02:situational-review-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-02",
+      "taskIds": [
+        "hsk2-task-02"
+      ],
+      "topicIds": [
+        "hsk2-topic-003"
+      ],
+      "dialogueIds": [
+        "hsk2-person-events-environment-lesson-02"
+      ],
+      "practiceItemIds": [
+        "hsk2-person-events-environment-lesson-02:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-03:situational-review-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-03",
+      "taskIds": [
+        "hsk2-task-03"
+      ],
+      "topicIds": [
+        "hsk2-topic-004"
+      ],
+      "dialogueIds": [
+        "hsk2-person-events-environment-lesson-03"
+      ],
+      "practiceItemIds": [
+        "hsk2-person-events-environment-lesson-03:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-04:situational-review-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-04",
+      "taskIds": [
+        "hsk2-task-04"
+      ],
+      "topicIds": [
+        "hsk2-topic-005"
+      ],
+      "dialogueIds": [
+        "hsk2-person-events-environment-lesson-04"
+      ],
+      "practiceItemIds": [
+        "hsk2-person-events-environment-lesson-04:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-05:situational-review-v1",
+      "lessonId": "hsk2-person-events-environment-lesson-05",
+      "taskIds": [
+        "hsk2-task-05"
+      ],
+      "topicIds": [
+        "hsk2-topic-006"
+      ],
+      "dialogueIds": [
+        "hsk2-person-events-environment-lesson-05"
+      ],
+      "practiceItemIds": [
+        "hsk2-person-events-environment-lesson-05:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-01:situational-review-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-01",
+      "taskIds": [
+        "hsk2-task-06"
+      ],
+      "topicIds": [
+        "hsk2-topic-007",
+        "hsk2-topic-008",
+        "hsk2-topic-009"
+      ],
+      "dialogueIds": [
+        "hsk2-daily-needs-family-lesson-01"
+      ],
+      "practiceItemIds": [
+        "hsk2-daily-needs-family-lesson-01:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-02:situational-review-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "taskIds": [
+        "hsk2-task-07"
+      ],
+      "topicIds": [
+        "hsk2-topic-010",
+        "hsk2-topic-011",
+        "hsk2-topic-012"
+      ],
+      "dialogueIds": [
+        "hsk2-daily-needs-family-lesson-02"
+      ],
+      "practiceItemIds": [
+        "hsk2-daily-needs-family-lesson-02:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-03:situational-review-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "taskIds": [
+        "hsk2-task-09"
+      ],
+      "topicIds": [
+        "hsk2-topic-017",
+        "hsk2-topic-018"
+      ],
+      "dialogueIds": [
+        "hsk2-daily-needs-family-lesson-03"
+      ],
+      "practiceItemIds": [
+        "hsk2-daily-needs-family-lesson-03:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-04:situational-review-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "taskIds": [
+        "hsk2-task-10"
+      ],
+      "topicIds": [
+        "hsk2-topic-019",
+        "hsk2-topic-020"
+      ],
+      "dialogueIds": [
+        "hsk2-daily-needs-family-lesson-04"
+      ],
+      "practiceItemIds": [
+        "hsk2-daily-needs-family-lesson-04:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-05:situational-review-v1",
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "taskIds": [
+        "hsk2-task-12"
+      ],
+      "topicIds": [
+        "hsk2-topic-023",
+        "hsk2-topic-024"
+      ],
+      "dialogueIds": [
+        "hsk2-daily-needs-family-lesson-05"
+      ],
+      "practiceItemIds": [
+        "hsk2-daily-needs-family-lesson-05:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-01:situational-review-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "taskIds": [
+        "hsk2-task-08"
+      ],
+      "topicIds": [
+        "hsk2-topic-013"
+      ],
+      "dialogueIds": [
+        "hsk2-travel-leisure-lesson-01"
+      ],
+      "practiceItemIds": [
+        "hsk2-travel-leisure-lesson-01:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-02:situational-review-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-02",
+      "taskIds": [],
+      "topicIds": [
+        "hsk2-topic-014"
+      ],
+      "dialogueIds": [
+        "hsk2-travel-leisure-lesson-02"
+      ],
+      "practiceItemIds": [
+        "hsk2-travel-leisure-lesson-02:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-03:situational-review-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-03",
+      "taskIds": [],
+      "topicIds": [
+        "hsk2-topic-015",
+        "hsk2-topic-016"
+      ],
+      "dialogueIds": [
+        "hsk2-travel-leisure-lesson-03"
+      ],
+      "practiceItemIds": [
+        "hsk2-travel-leisure-lesson-03:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-04:situational-review-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-04",
+      "taskIds": [
+        "hsk2-task-11"
+      ],
+      "topicIds": [
+        "hsk2-topic-021"
+      ],
+      "dialogueIds": [
+        "hsk2-travel-leisure-lesson-04"
+      ],
+      "practiceItemIds": [
+        "hsk2-travel-leisure-lesson-04:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-05:situational-review-v1",
+      "lessonId": "hsk2-travel-leisure-lesson-05",
+      "taskIds": [],
+      "topicIds": [
+        "hsk2-topic-022"
+      ],
+      "dialogueIds": [
+        "hsk2-travel-leisure-lesson-05"
+      ],
+      "practiceItemIds": [
+        "hsk2-travel-leisure-lesson-05:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-01:situational-review-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-01",
+      "taskIds": [
+        "hsk2-task-13"
+      ],
+      "topicIds": [
+        "hsk2-topic-025",
+        "hsk2-topic-026"
+      ],
+      "dialogueIds": [
+        "hsk2-study-work-culture-lesson-01"
+      ],
+      "practiceItemIds": [
+        "hsk2-study-work-culture-lesson-01:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-02:situational-review-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-02",
+      "taskIds": [
+        "hsk2-task-14"
+      ],
+      "topicIds": [
+        "hsk2-topic-027",
+        "hsk2-topic-028"
+      ],
+      "dialogueIds": [
+        "hsk2-study-work-culture-lesson-02"
+      ],
+      "practiceItemIds": [
+        "hsk2-study-work-culture-lesson-02:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-03:situational-review-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-03",
+      "taskIds": [
+        "hsk2-task-15"
+      ],
+      "topicIds": [
+        "hsk2-topic-029",
+        "hsk2-topic-030",
+        "hsk2-topic-031"
+      ],
+      "dialogueIds": [
+        "hsk2-study-work-culture-lesson-03"
+      ],
+      "practiceItemIds": [
+        "hsk2-study-work-culture-lesson-03:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-04:situational-review-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-04",
+      "taskIds": [
+        "hsk2-task-16"
+      ],
+      "topicIds": [
+        "hsk2-topic-032",
+        "hsk2-topic-033"
+      ],
+      "dialogueIds": [
+        "hsk2-study-work-culture-lesson-04"
+      ],
+      "practiceItemIds": [
+        "hsk2-study-work-culture-lesson-04:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-05:situational-review-v1",
+      "lessonId": "hsk2-study-work-culture-lesson-05",
+      "taskIds": [
+        "hsk2-task-17"
+      ],
+      "topicIds": [
+        "hsk2-topic-034"
+      ],
+      "dialogueIds": [
+        "hsk2-study-work-culture-lesson-05"
+      ],
+      "practiceItemIds": [
+        "hsk2-study-work-culture-lesson-05:guided-roleplay-v1"
+      ],
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvals": []
+    }
+  ]
+}

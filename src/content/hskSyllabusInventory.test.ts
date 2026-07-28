@@ -189,6 +189,22 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk2SituationalDialogues,
+    ).toEqual({
+      lessons: 20,
+      taskDrafts: 17,
+      topicDrafts: 34,
+      modelDialogueTurns: 120,
+      guidedRoleplayItems: 20,
+      audioDependentDialogues: 20,
+      reviewedAudioDialogues: 0,
+      reviewBatches: 20,
+      approvals: 0,
+      measurementEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2VocabularyPractice,
     ).toEqual({
       lessons: 20,

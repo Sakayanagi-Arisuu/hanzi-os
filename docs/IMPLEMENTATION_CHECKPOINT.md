@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **77%**.
+Active progress: **78%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
-| HSK0-4 content coverage | 28 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has exact blueprints plus vocabulary, character and grammar-context drafts; task/dialogue production, assessment, reviewed content and audio remain. |
+| HSK0-4 content coverage | 29 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has exact blueprints plus vocabulary, character, grammar-context and situational-dialogue drafts; short production, assessment, reviewed content and audio remain. |
 | HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -260,6 +260,17 @@ Every commit must update this percentage here and in the active roadmap.
   named deliverable raises content coverage by one point and active progress
   to **77%**; task/dialogue production, assessment, audio, runtime promotion
   and HSK3-4 remain open.
+- Replaced count-even HSK2 situational assignment with explicit semantic
+  lesson mappings while preserving exact partitions. Regression coverage now
+  pins object/color comparison to its object-description task and Chinese
+  surnames/forms of address to the culture lesson.
+- Added 20 six-turn situational dialogues (120 Hanzi-Pinyin-Vietnamese turns),
+  17 task scenarios, 34 topic prompts with support questions and 20 guided
+  roleplay self-checks. Twenty exact review batches remain pending; all audio
+  is null and approval, measurement/mastery and release eligibility remain
+  zero. This named G3 deliverable raises content coverage by one point and
+  active progress to **78%**; short-text production, assessment, review/audio,
+  runtime promotion and HSK3-4 remain open.
 
 ## Repository state
 
@@ -570,16 +581,20 @@ the applicable gates to run again before the next checkpoint commit.
   - HSK2 grammar-context draft pack: 75 Vietnamese explanations, 75 distinct
     model examples, 75 guided production self-checks and 10 pending review
     batches; 0 approval, measurement/mastery or release-eligible item
-  - Vitest: 163 files, 1,299 tests passed
+  - HSK2 situational-dialogue draft pack: 20 lessons, 120 model-dialogue
+    turns, 17 task scenarios, 34 topic prompts, 20 guided roleplay self-checks
+    and 20 pending review batches; 0 reviewed audio, approval,
+    measurement/mastery or release-eligible item
+  - Vitest: 164 files, 1,304 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 98 / 89, median 98
+  - Performance: 97 / 91 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,962 ms; CLS: 0; TBT: 96 ms
+  - Median LCP: 1,938 ms; CLS: 0; TBT: 114 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -607,8 +622,9 @@ human, pilot, hosted or ownership gates.
 1. Use the exact local workflow for a bounded human HSK1 review sample; do not
    promote receipts or assessment items until all required roles and
    calibration evidence exist.
-2. Continue the active content factory with the HSK0 pronunciation bootcamp,
-   then HSK2 authoring, while the human HSK1 review track proceeds separately.
+2. Continue the active HSK2 content factory with ten short-text production
+   lessons and then bounded assessment prompts, while the human HSK1 review
+   track and HSK0 audio sourcing proceed separately.
 3. Finish the remaining G2 placement/progress work when reviewed content can
    exercise it; keep imports unpublished until provenance and linguistic gates
    pass.

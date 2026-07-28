@@ -52,9 +52,9 @@ describe("HSK2 differentiated authoring scope", () => {
       ],
     )).toEqual([
       [5, 6, 38],
-      [6, 13, 52],
+      [5, 12, 52],
       [2, 6, 74],
-      [4, 9, 36],
+      [5, 10, 36],
     ]);
     expect(sentenceChains.grammarModules.map(
       (module: { grammarRowIds: string[] }) => module.grammarRowIds.length,

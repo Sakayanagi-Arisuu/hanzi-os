@@ -25,6 +25,10 @@ import {
   assertValidHsk2GrammarContextBundle,
   loadHsk2GrammarContextBundle,
 } from "../../src/content/hsk2GrammarContext.mjs";
+import {
+  assertValidHsk2SituationalDialoguesBundle,
+  loadHsk2SituationalDialoguesBundle,
+} from "../../src/content/hsk2SituationalDialogues.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -47,6 +51,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const grammarBundle = loadHsk2GrammarContextBundle(root);
   const grammarResult =
     assertValidHsk2GrammarContextBundle(grammarBundle);
+  const situationalBundle = loadHsk2SituationalDialoguesBundle(root);
+  const situationalResult =
+    assertValidHsk2SituationalDialoguesBundle(situationalBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -73,8 +80,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       characterPracticePackSha256: fileSha256(characterBundle.packPath),
       grammarContextPackId: grammarBundle.pack.packId,
       grammarContextPackSha256: fileSha256(grammarBundle.packPath),
+      situationalDialoguePackId: situationalBundle.pack.packId,
+      situationalDialoguePackSha256: fileSha256(situationalBundle.packPath),
     },
-    stage: "grammar-context-authoring",
+    stage: "situational-dialogue-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -107,6 +116,12 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         blueprintResult.summary.taskBlueprintMappings,
       topicsPromptDraftMapped:
         blueprintResult.summary.topicBlueprintMappings,
+      taskScenarioDrafts: situationalResult.summary.officialTaskDrafts,
+      topicPromptDrafts: situationalResult.summary.officialTopicDrafts,
+      situationalDialogueDrafts:
+        situationalResult.summary.situationalLessons,
+      modelDialogueTurnsDrafted:
+        situationalResult.summary.modelDialogueTurns,
       pronunciationCompatible:
         entries.length - pronunciationReviewItems.length,
       vietnameseGlossReviewed: 0,
@@ -150,6 +165,15 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         grammarResult.summary.guidedPracticeItems,
       pendingGrammarReviewBatches: grammarResult.summary.reviewBatches,
       grammarPracticeApprovals: grammarResult.summary.approvals,
+      authoredSituationalRoleplayItems:
+        situationalResult.summary.guidedRoleplayItems,
+      pendingSituationalReviewBatches:
+        situationalResult.summary.reviewBatches,
+      situationalDialogueApprovals: situationalResult.summary.approvals,
+      audioDependentDialogues:
+        situationalResult.summary.audioDependentDialogues,
+      reviewedDialogueAudio:
+        situationalResult.summary.reviewedAudioDialogues,
       characterContextGaps: characterBundle.pack.characters.filter(
         (item) => item.primaryContext === null,
       ).map((item) => ({
@@ -171,7 +195,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All HSK2 vocabulary items, recognition characters and official grammar rows have bounded draft practice, but task/dialogue production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
+        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks and topics have bounded draft practice or situational context, but short-text production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
     },
   };
 };

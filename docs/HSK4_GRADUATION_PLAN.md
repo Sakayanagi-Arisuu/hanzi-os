@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **77%**.
+Status: **in progress** at project progress **78%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **77%**.
+Status: **in progress** at project progress **78%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 10 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 28 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character và grammar-context practice |
+| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character/grammar và situational-dialogue practice |
 | E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **77** | **Tiến độ hiện tại: 77%** |
+| **Tổng** | **100** | **78** | **Tiến độ hiện tại: 78%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -348,6 +348,18 @@ native Mandarin, Vietnamese editorial và grammar-pedagogy review đều
 release-eligible item. Điểm tăng ghi nhận một deliverable ngữ pháp có phạm vi
 đóng; task/dialogue production, assessment, audio, runtime promotion và toàn
 bộ HSK3–4 vẫn còn.
+
+Lát G3 HSK2 thứ sáu tăng trụ cột D thêm 1 điểm, đưa tiến độ lên **78%**.
+Mapping của 20 bài tình huống được sửa từ chia đều kỹ thuật sang gán ngữ nghĩa
+tường minh mà vẫn exact-partition đủ 17 task, 34 topic và 200 từ; regression
+test khóa các neo như mô tả đồ vật với so sánh màu/kích thước và họ/xưng hô
+với văn hóa giao tiếp. Trên mapping đó, pack mới author 20 hội thoại sáu lượt
+(120 lượt), 17 scenario task, 34 topic prompt có câu hỏi hỗ trợ và 20 guided
+roleplay tự đối chiếu. Hai mươi review batch yêu cầu native Mandarin,
+Vietnamese editorial, task-pedagogy và audio-rights review. Tất cả audio vẫn
+`null`, approval và measurement/mastery/release eligibility đều bằng 0;
+short-text production, assessment, review/audio, runtime promotion và toàn bộ
+HSK3–4 vẫn còn.
 
 ## 6. Quy tắc cập nhật phần trăm
 

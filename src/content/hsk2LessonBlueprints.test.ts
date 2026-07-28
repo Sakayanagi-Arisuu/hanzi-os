@@ -70,6 +70,27 @@ describe("HSK2 lesson blueprint pack", () => {
     });
   });
 
+  it("keeps tasks and topics in semantically matching situational lessons", () => {
+    const { pack } = loadHsk2LessonBlueprintsBundle();
+    const objectComparison = pack.lessons.find(
+      (lesson: { lessonId: string }) =>
+        lesson.lessonId === "hsk2-person-events-environment-lesson-03",
+    );
+    const formsOfAddress = pack.lessons.find(
+      (lesson: { lessonId: string }) =>
+        lesson.lessonId === "hsk2-study-work-culture-lesson-05",
+    );
+
+    expect(objectComparison?.inventoryMappings).toMatchObject({
+      taskIds: ["hsk2-task-03"],
+      topicIds: ["hsk2-topic-004"],
+    });
+    expect(formsOfAddress?.inventoryMappings).toMatchObject({
+      taskIds: ["hsk2-task-17"],
+      topicIds: ["hsk2-topic-034"],
+    });
+  });
+
   it("fails closed on duplicate mapping or premature visibility", () => {
     const bundle = loadHsk2LessonBlueprintsBundle();
     const pack = structuredClone(bundle.pack);

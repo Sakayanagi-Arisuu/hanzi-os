@@ -29,9 +29,9 @@ const SITUATIONAL_STRANDS = [
   {
     strandId: "hsk2-daily-needs-family",
     focus:
-      "Xử lý lịch sự, cảm xúc, ăn uống, mua sắm, sức khỏe, gia đình và cách xưng hô.",
-    taskOrdinals: [6, 7, 9, 10, 12, 17],
-    topicOrdinals: [7, 8, 9, 10, 11, 12, 17, 18, 19, 20, 23, 24, 34],
+      "Xử lý lịch sự, cảm xúc, ăn uống, mua sắm, sức khỏe và sinh hoạt gia đình.",
+    taskOrdinals: [6, 7, 9, 10, 12],
+    topicOrdinals: [7, 8, 9, 10, 11, 12, 17, 18, 19, 20, 23, 24],
     vocabularySequences: [
       301, 305, 306, 307, 311, 312, 313, 327, 329, 339, 343, 345, 347,
       352, 354, 357, 360, 374, 377, 383, 388, 395, 405, 408, 409, 417,
@@ -58,8 +58,8 @@ const SITUATIONAL_STRANDS = [
     strandId: "hsk2-study-work-culture",
     focus:
       "Kể trải nghiệm học tập/công việc và giới thiệu lễ hội, món ăn, họ tên, xưng hô.",
-    taskOrdinals: [13, 14, 15, 16],
-    topicOrdinals: [25, 26, 27, 28, 29, 30, 31, 32, 33],
+    taskOrdinals: [13, 14, 15, 16, 17],
+    topicOrdinals: [25, 26, 27, 28, 29, 30, 31, 32, 33, 34],
     vocabularySequences: [
       304, 308, 310, 322, 325, 326, 337, 342, 349, 359, 365, 367, 368,
       369, 378, 379, 380, 381, 385, 404, 430, 432, 435, 442, 446, 448,

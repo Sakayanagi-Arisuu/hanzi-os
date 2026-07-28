@@ -38,6 +38,10 @@ import {
   loadHsk2GrammarContextBundle,
 } from "../../src/content/hsk2GrammarContext.mjs";
 import {
+  assertValidHsk2SituationalDialoguesBundle,
+  loadHsk2SituationalDialoguesBundle,
+} from "../../src/content/hsk2SituationalDialogues.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -112,6 +116,10 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2GrammarContext = loadHsk2GrammarContextBundle(root);
   const hsk2GrammarContextResult =
     assertValidHsk2GrammarContextBundle(hsk2GrammarContext);
+  const hsk2SituationalDialogues =
+    loadHsk2SituationalDialoguesBundle(root);
+  const hsk2SituationalDialoguesResult =
+    assertValidHsk2SituationalDialoguesBundle(hsk2SituationalDialogues);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -426,6 +434,29 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           approvals: hsk2GrammarContextResult.summary.approvals,
           measurementEligibleItems:
             hsk2GrammarContextResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2SituationalDialogues: {
+          lessons:
+            hsk2SituationalDialoguesResult.summary.situationalLessons,
+          taskDrafts:
+            hsk2SituationalDialoguesResult.summary.officialTaskDrafts,
+          topicDrafts:
+            hsk2SituationalDialoguesResult.summary.officialTopicDrafts,
+          modelDialogueTurns:
+            hsk2SituationalDialoguesResult.summary.modelDialogueTurns,
+          guidedRoleplayItems:
+            hsk2SituationalDialoguesResult.summary.guidedRoleplayItems,
+          audioDependentDialogues:
+            hsk2SituationalDialoguesResult.summary.audioDependentDialogues,
+          reviewedAudioDialogues:
+            hsk2SituationalDialoguesResult.summary.reviewedAudioDialogues,
+          reviewBatches:
+            hsk2SituationalDialoguesResult.summary.reviewBatches,
+          approvals: hsk2SituationalDialoguesResult.summary.approvals,
+          measurementEligibleItems:
+            hsk2SituationalDialoguesResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

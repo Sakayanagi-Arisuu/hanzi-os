@@ -195,6 +195,11 @@ câu/ngữ pháp và 10 bài nghe-chép/viết ngắn. Generator exact-partition
 task, 34 topic, 200 vocabulary, 75 grammar row và 125 recognition character;
 dependency là một chuỗi không dangling qua ba unit. Mỗi bài có objective,
 practice/assessment plan và audio requirement phù hợp với loại evidence.
+Các task, topic và nhóm từ của 20 bài tình huống được gán bằng mapping ngữ
+nghĩa tường minh, không chia đều theo số lượng: ví dụ mô tả đồ vật nằm trong
+bài so sánh màu/kích thước, còn họ và cách xưng hô nằm trong bài văn hóa giao
+tiếp. Validator và regression test giữ cả exact partition lẫn các neo ngữ nghĩa
+này để không tái tạo một blueprint đúng số lượng nhưng sai tình huống.
 
 Chạy `content:hsk2:lesson-blueprints -- --write` để tái tạo; `--check` cùng
 `content:hsk2:lesson-blueprints:validate` là gate bắt buộc. Bốn mươi review
@@ -215,7 +220,8 @@ trùng, lesson assignment, provenance và 20 review batch. Tất cả nghĩa Vi�
 vẫn chờ native Mandarin/Vietnamese review. Hai trăm item nghe có `audio: null`
 và browser TTS chỉ để luyện draft; 0 item measurement/mastery/release-eligible.
 Character và grammar đã có các pack draft tách biệt bên dưới; dialogue/task
-production và assessment HSK2 vẫn là các lát authoring tiếp theo.
+production nằm trong pack tình huống bên dưới; short-text production và
+assessment HSK2 vẫn là các lát authoring tiếp theo.
 
 `content/drafts/hsk2-character-practice-2026.07.json` phủ cả 125 recognition
 character bằng 250 item trong 10 bài production: 124 bài nhận diện chữ trong
@@ -243,6 +249,22 @@ trạng thái fail-closed. Toàn bộ nội dung vẫn chờ native Mandarin, Vi
 editorial và grammar-pedagogy review; guided item chỉ `self-reveal-only`, có
 0 approval và 0 measurement/mastery/release-eligible item. Draft coverage
 không được suy thành grammar mastery hoặc claim HSK2 hoàn thành.
+
+`content/drafts/hsk2-situational-dialogues-2026.07.json` author đủ 20 bài hội
+thoại HSK2, mỗi bài đúng sáu lượt A/B, tổng 120 lượt Hán tự–Pinyin–nghĩa Việt.
+Pack bind chính xác 17 task thành 17 scenario, 34 topic thành 34 prompt có câu
+hỏi gợi ý, và tạo 20 guided roleplay tự đối chiếu. Mỗi bài nêu tình huống,
+chức năng giao tiếp, từ mục tiêu thực sự xuất hiện trong hội thoại và evidence
+policy yêu cầu hỏi tiếp/xác nhận; không suy diễn listening, speaking hay
+reading mastery từ việc tự xem đáp án.
+
+Chạy `content:hsk2:situational-dialogues -- --write` để tái tạo; `--check` và
+`content:hsk2:situational-dialogues:validate` kiểm source hash, exact
+task/topic/lesson binding, sáu lượt luân phiên, từ mục tiêu trong câu và 20
+review batch. Cả 20 audio vẫn là `null`; native Mandarin, Vietnamese
+editorial, task-pedagogy và audio-rights review đều pending hoặc
+`blocked-no-audio`. Pack giữ 0 approval và 0 measurement/mastery/
+release-eligible item.
 
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38

@@ -9,15 +9,17 @@
     "syllabusInventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3",
     "scopeId": "hsk2-authoring-scope-2026.07",
     "lessonBlueprintPackId": "hsk2-lesson-blueprints-2026.07",
-    "lessonBlueprintPackSha256": "sha256:75d13e22d8dde51859cd99d64a38a37626405a8dfa571e26d8665a7c245e08ab",
+    "lessonBlueprintPackSha256": "sha256:17724b4ca36b34495583c7db2f7e740d49c7462c3d449e5aaac779af7f5ec0d1",
     "vocabularyPracticePackId": "hsk2-vocabulary-practice-2026.07",
-    "vocabularyPracticePackSha256": "sha256:ac4f0b55fd3af1620463d47ba9e270f305b28c3fcca95e2e604def649830295f",
+    "vocabularyPracticePackSha256": "sha256:974127f566d617533800e9d0f3312196769ce35aff899773e7da7713894fe78d",
     "characterPracticePackId": "hsk2-character-practice-2026.07",
-    "characterPracticePackSha256": "sha256:d8b4f5ab3acd6f6c7ca52ed40b9632a7e2a1692656de8a5eb2bc830c6ccd6a1b",
+    "characterPracticePackSha256": "sha256:29e50329008eb8aefea960458dc98be0aa46bf22f746fdf82e308876b3c1967b",
     "grammarContextPackId": "hsk2-grammar-context-2026.07",
-    "grammarContextPackSha256": "sha256:31de993d12ca14178dabec61834379402fb8977a8fc09efb86250277e4095ffc"
+    "grammarContextPackSha256": "sha256:af2a00eefa7c1e40f30a0711102b40bb5ca70bf2f2fed90fc3385ea20f19f9fb",
+    "situationalDialoguePackId": "hsk2-situational-dialogues-2026.07",
+    "situationalDialoguePackSha256": "sha256:07b5c1b0992ae76035b48d4f600aa69c5ce20d26b3acbafe2a18f685bf6234bd"
   },
-  "stage": "grammar-context-authoring",
+  "stage": "situational-dialogue-authoring",
   "coverage": {
     "officialVocabulary": 200,
     "dictionaryMatched": 200,
@@ -36,6 +38,10 @@
     "guidedGrammarPracticeDrafted": 75,
     "tasksScenarioDraftMapped": 17,
     "topicsPromptDraftMapped": 34,
+    "taskScenarioDrafts": 17,
+    "topicPromptDrafts": 34,
+    "situationalDialogueDrafts": 20,
+    "modelDialogueTurnsDrafted": 120,
     "pronunciationCompatible": 194,
     "vietnameseGlossReviewed": 0,
     "lessonMapped": 0,
@@ -66,6 +72,11 @@
     "authoredGrammarPracticeItems": 75,
     "pendingGrammarReviewBatches": 10,
     "grammarPracticeApprovals": 0,
+    "authoredSituationalRoleplayItems": 20,
+    "pendingSituationalReviewBatches": 20,
+    "situationalDialogueApprovals": 0,
+    "audioDependentDialogues": 20,
+    "reviewedDialogueAudio": 0,
     "characterContextGaps": [
       {
         "officialCharacterId": "hsk2-character-050",
@@ -127,6 +138,6 @@
   "claims": {
     "hsk2VocabularyComplete": false,
     "hsk2Complete": false,
-    "reason": "All HSK2 vocabulary items, recognition characters and official grammar rows have bounded draft practice, but task/dialogue production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete."
+    "reason": "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks and topics have bounded draft practice or situational context, but short-text production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete."
   }
 }
