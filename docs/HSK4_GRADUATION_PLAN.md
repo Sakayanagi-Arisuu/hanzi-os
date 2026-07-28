@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **51%**.
+Status: **in progress** at project progress **55%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **53%**.
+Status: **in progress** at project progress **55%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -141,11 +141,11 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | --- | ---: | ---: | --- |
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 8 | năm blueprint, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 8 | inventory, mapping, source-backed draft, lesson, dialogue/reader, character/grammar |
+| C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
+| D. Nội dung có coverage HSK0-4 | 30 | 9 | inventory, authoring scope, source-backed draft, lesson, dialogue/reader, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **53** | **Tiến độ hiện tại: 53%** |
+| **Tổng** | **100** | **55** | **Tiến độ hiện tại: 55%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -166,13 +166,24 @@ task/topic/grammar. Vì vậy mọi claim hoàn thành HSK1-4 vẫn là `false`;
 inventory không được tính như lesson/practice đã hoàn thiện.
 
 Lát G2 đầu tăng trụ cột C thêm 3 điểm và D thêm 1 điểm. Graph hiện có đúng
-năm path, 15 unit, dependency không cycle và placement fail-closed; 14 lesson
+năm path; sau lát scope HSK1 graph có 18 unit, dependency không cycle và
+placement fail-closed; 14 lesson
 runtime được ánh xạ vào unit HSK0/1 cùng đúng 23 vocabulary item chính thức.
 HSK0 chỉ thấy bốn lesson bootcamp, HSK1 thấy bridge và 10 lesson đích, còn
 HSK2-4 không bị thay bằng lộ trình beginner khi content đích chưa phát hành.
 Diagnostic foundation chưa hiệu chuẩn chỉ được ghi là observed, không cấp
 mastery hay prerequisite waiver. G2 chưa complete vì placement đã hiệu chuẩn,
-topic/task/grammar mapping và level progress đầy đủ vẫn còn thiếu.
+topic/task/grammar lesson/practice mapping và level progress đầy đủ vẫn còn
+thiếu.
+
+Lát G2 thứ hai tăng trụ cột C thêm 1 điểm và D thêm 1 điểm. HSK1 được mở từ 3
+lên 6 unit tuần tự, tách giao tiếp cá nhân; thời gian/địa điểm/sự kiện; nhu cầu
+hằng ngày; đi lại/giải trí; học tập/công việc; và chữ Hán. Scope authoring ghim
+vào exact graph/inventory, phân vùng đúng một unit cho đủ 15 task, 30 topic,
+300 vocabulary, 66 grammar row và 246 recognition character. Sáu unit có focus
+và exit-evidence mode khác nhau. Đây chưa phải lesson/practice coverage:
+mapping học liệu cho task/topic/grammar vẫn bằng 0 và mọi completion claim vẫn
+`false`.
 
 Lát G3 đầu tăng trụ cột D thêm 2 điểm. Toàn bộ 300 mục từ vựng HSK1 đã có
 backlog biên tập draft ghim vào đúng inventory chính thức và snapshot

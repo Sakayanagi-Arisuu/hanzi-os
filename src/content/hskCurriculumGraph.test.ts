@@ -6,14 +6,14 @@ import {
 } from "./hskCurriculumGraph.mjs";
 
 describe("HSK0-4 curriculum graph contract", () => {
-  it("binds five paths, fifteen units and every released lesson", () => {
+  it("binds five paths, eighteen units and every released lesson", () => {
     const result = assertValidHskCurriculumGraphBundle(
       loadHskCurriculumGraphBundle(),
     );
 
     expect(result.summary).toEqual({
       paths: 5,
-      units: 15,
+      units: 18,
       releasedLessons: 14,
       mappedLessons: 14,
       officialVocabularyWithLessonMapping: 23,

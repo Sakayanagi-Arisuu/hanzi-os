@@ -6,6 +6,10 @@ import {
   loadHskCurriculumGraphBundle,
 } from "../../src/content/hskCurriculumGraph.mjs";
 import {
+  assertValidHsk1CurriculumScopeBundle,
+  loadHsk1CurriculumScopeBundle,
+} from "../../src/content/hsk1CurriculumScope.mjs";
+import {
   assertValidHskSyllabusBundle,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
@@ -30,6 +34,8 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   assertValidHskSyllabusBundle(syllabus);
   const curriculum = loadHskCurriculumGraphBundle(root);
   const curriculumResult = assertValidHskCurriculumGraphBundle(curriculum);
+  const hsk1Scope = loadHsk1CurriculumScopeBundle(root);
+  const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -185,6 +191,17 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         officialVocabularyWithLessonMapping:
           lessonMappedVocabularyIds.size,
         runtimeLessonsMapped: curriculumResult.summary.mappedLessons,
+      },
+      authoringScope: {
+        hsk1: {
+          tasks: hsk1ScopeResult.summary.tasks,
+          topics: hsk1ScopeResult.summary.topics,
+          vocabulary: hsk1ScopeResult.summary.vocabulary,
+          recognitionCharacters:
+            hsk1ScopeResult.summary.recognitionCharacters,
+          grammarRows: hsk1ScopeResult.summary.grammarRows,
+          lessonPracticeCoverageComplete: false,
+        },
       },
       learningMaterials: {
         runtimeLessons: runtime.lessons.length,

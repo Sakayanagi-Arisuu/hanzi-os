@@ -133,11 +133,21 @@
       "officialVocabularyWithLessonMapping": 23,
       "runtimeLessonsMapped": 14
     },
+    "authoringScope": {
+      "hsk1": {
+        "tasks": 15,
+        "topics": 30,
+        "vocabulary": 300,
+        "recognitionCharacters": 246,
+        "grammarRows": 66,
+        "lessonPracticeCoverageComplete": false
+      }
+    },
     "learningMaterials": {
       "runtimeLessons": 14,
       "runtimeGradedTexts": 1,
       "curriculumPaths": 5,
-      "curriculumUnits": 15
+      "curriculumUnits": 18
     }
   },
   "coverageClaims": [

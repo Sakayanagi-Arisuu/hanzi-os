@@ -94,8 +94,8 @@ không tự mở lesson, cấp mastery, trở thành nội dung đã review hay 
 coverage. Mọi claim HSK1-4 vẫn phải qua mapping, practice, review và release
 gate tương ứng.
 
-`content/curriculum/hsk0-4-graph.json` là graph authoring mỏng đầu tiên bind
-exact inventory hash và runtime content version. Nó có năm path, 15 unit và
+`content/curriculum/hsk0-4-graph.json` là graph authoring bind exact inventory
+hash và runtime content version. Nó có năm path, 18 unit và
 mapping tường minh cho toàn bộ 14 lesson đang phát hành. Validator tái tính
 official vocabulary reference từ surface + pinyin của runtime: hiện có 23 mục
 được lesson-map, còn `越南` được giữ trong danh sách chưa ánh xạ. Mapping state
@@ -118,6 +118,16 @@ mục cần giải quyết tone drift và 23 mục có nhiều source match.
 Đây không phải nội dung learner-ready: nghĩa tiếng Việt, ví dụ, review và
 release eligibility đều bằng 0. Validator/report bắt buộc giữ draft
 learner-hidden và không cho source enrichment biến thành coverage claim.
+
+`content/curriculum/hsk1-scope.json` biến inventory phẳng thành backlog theo
+sáu unit HSK1. Generator ghim exact graph hash rồi phân vùng primary
+exactly-once cho đủ 15 task, 30 topic, 300 vocabulary, 66 grammar row và 246
+recognition character. Mỗi unit có focus và exit-evidence mode riêng; character
+inventory nằm trong unit luyện chữ, không bị tính như từ vựng đã học.
+
+Scope này chỉ quyết định nơi biên tập item, không chứng minh lesson/practice
+coverage. Checked report vẫn tách `authoringScope` khỏi released learning
+mapping; task/topic/grammar thực dạy hiện vẫn bằng 0.
 
 ## Knowledge item
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "graphId": "hsk0-4-graduation-2026.07",
+  "graphId": "hsk0-4-graduation-2026.07.2",
   "source": {
     "sourceId": "cti-hsk-syllabus-2026",
     "sourcePdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
@@ -34,7 +34,10 @@
       "prerequisitePathIds": ["hsk0"],
       "unitIds": [
         "hsk1-personal-exchange",
+        "hsk1-time-place-events",
         "hsk1-daily-life",
+        "hsk1-travel-leisure",
+        "hsk1-study-work",
         "hsk1-character-foundation"
       ],
       "placementPolicy": "verified-placement-or-prerequisite-completion",
@@ -142,22 +145,49 @@
       "prerequisiteUnitIds": ["hsk0-pronunciation-control"]
     },
     {
-      "unitId": "hsk1-daily-life",
+      "unitId": "hsk1-time-place-events",
       "pathId": "hsk1",
       "sequence": 2,
-      "status": "foundation",
-      "title": "Đời sống hằng ngày",
-      "objective": "Dùng câu ngắn về gia đình, ăn uống và hoạt động.",
+      "status": "planned",
+      "title": "Thời gian, địa điểm và sự kiện",
+      "objective": "Hỏi đáp thời gian, vị trí, thời tiết và thông tin sự kiện bằng câu ngắn.",
       "prerequisiteUnitIds": ["hsk1-personal-exchange"]
+    },
+    {
+      "unitId": "hsk1-daily-life",
+      "pathId": "hsk1",
+      "sequence": 3,
+      "status": "foundation",
+      "title": "Ăn uống, mua sắm và sức khỏe",
+      "objective": "Hoàn thành lượt thoại ngắn về nhu cầu hằng ngày, giá cả và sức khỏe.",
+      "prerequisiteUnitIds": ["hsk1-time-place-events"]
+    },
+    {
+      "unitId": "hsk1-travel-leisure",
+      "pathId": "hsk1",
+      "sequence": 4,
+      "status": "planned",
+      "title": "Đi lại và giải trí",
+      "objective": "Hỏi đường, sắp xếp di chuyển và trao đổi hoạt động giải trí cơ bản.",
+      "prerequisiteUnitIds": ["hsk1-daily-life"]
+    },
+    {
+      "unitId": "hsk1-study-work",
+      "pathId": "hsk1",
+      "sequence": 5,
+      "status": "planned",
+      "title": "Học tập và công việc",
+      "objective": "Giới thiệu khóa học, trường lớp, nghề nghiệp và lịch làm việc cơ bản.",
+      "prerequisiteUnitIds": ["hsk1-travel-leisure"]
     },
     {
       "unitId": "hsk1-character-foundation",
       "pathId": "hsk1",
-      "sequence": 3,
+      "sequence": 6,
       "status": "foundation",
       "title": "Đọc viết chữ nền",
-      "objective": "Nhận diện và viết có kiểm soát các chữ đã học.",
-      "prerequisiteUnitIds": ["hsk1-daily-life"]
+      "objective": "Nhận diện 246 chữ HSK1 và viết có kiểm soát các chữ đã học trong ngữ cảnh.",
+      "prerequisiteUnitIds": ["hsk1-study-work"]
     },
     {
       "unitId": "hsk2-situational-dialogue",

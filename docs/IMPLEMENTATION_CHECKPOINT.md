@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **53%**.
+Active progress: **55%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
-| Distinct HSK0-4 paths | 8 / 15 | Five profiles now have a cycle-safe 15-unit graph, path-specific runtime slices and fail-closed placement; calibrated placement and full level progress remain. |
-| HSK0-4 content coverage | 8 / 30 | Official inventory and a source-backed 300-item HSK1 editorial backlog exist; 23 items map into current lessons, while Vietnamese review, examples, task/topic/grammar mappings and HSK2-4 lessons remain absent. |
+| Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
+| HSK0-4 content coverage | 9 / 30 | Official inventory, complete HSK1 authoring scope and a source-backed 300-item editorial backlog exist; 23 words map into current lessons, while Vietnamese review, examples and HSK2-4 lessons remain absent. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -79,6 +79,17 @@ Every commit must update this percentage here and in the active roadmap.
   accepted and HSK5 is rejected; authenticated sync now covers HSK4.
 - G2 remains open until calibrated placement authority, topic/task/grammar
   mappings and complete per-level progress behavior exist.
+- Expanded HSK1 from three broad units to six ordered authoring units with
+  distinct objectives and exit-evidence modes: personal exchange; time/place/
+  events; daily needs; travel/leisure; study/work; and character integration.
+- Added a graph- and inventory-bound HSK1 scope that partitions each official
+  item into exactly one primary unit: 15 tasks, 30 topics, 300 vocabulary
+  records, 66 grammar rows and 246 recognition characters. Duplicate, missing,
+  cross-level or stale graph assignments fail validation.
+- The scope is explicitly not lesson coverage and grants no mastery. Current
+  released learning mappings remain 23 vocabulary, 0 task, 0 topic and
+  0 grammar; G2 therefore remains open for real practice mapping, calibrated
+  placement and complete per-level progress behavior.
 
 ### Active G3 slice in progress
 
@@ -95,8 +106,9 @@ Every commit must update this percentage here and in the active roadmap.
   retain explicit source-vs-syllabus tone review items. Twenty-three official
   records have multiple source matches and remain in the editorial queue.
 - The checked backlog report separates source readiness from learner coverage:
-  Vietnamese gloss review 0/300, lesson mapping 23/300, learner-visible 0/300
-  and release-eligible 0/300. No HSK1 completion claim was created.
+  authoring scope 300/300, Vietnamese gloss review 0/300, lesson mapping
+  23/300, learner-visible 0/300 and release-eligible 0/300. No HSK1 completion
+  claim was created.
 - G3 can proceed before the remaining placement calibration because this slice
   is learner-hidden authoring input. Runtime promotion still depends on
   Vietnamese definitions, examples, unit/practice mapping and review.
@@ -364,18 +376,20 @@ the applicable gates to run again before the next checkpoint commit.
   - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
     HSK4 profile persistence, 4 editorial events and 5 editorial triggers
   - pinned HSK1-4 source/inventory validation and checked coverage report
+  - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
+    66 grammar rows and 246 recognition characters
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 147 files, 1,227 tests passed
+  - Vitest: 148 files, 1,231 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 394.6 KiB
+    ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 98 / 94, median 98
+  - Performance: 98 / 96 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,907 ms; CLS: 0; TBT: 79 ms
+  - Median LCP: 1,891 ms; CLS: 0; TBT: 74 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -400,9 +414,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Continue G3 with Vietnamese draft glosses, HSK1 unit assignment, reviewed
-   examples and practice mappings, while resolving the 3 pronunciation and 23
-   multi-match editorial queues.
+1. Continue G3 with Vietnamese draft glosses and the first complete
+   `hsk1-personal-exchange` lesson/practice pack, while resolving its subset of
+   the 3 pronunciation and 23 multi-match editorial queues.
 2. Finish the remaining G2 placement/progress work when real HSK1 content can
    exercise it; keep all imported content unpublished until schema, provenance
    and applicable linguistic checks pass.
