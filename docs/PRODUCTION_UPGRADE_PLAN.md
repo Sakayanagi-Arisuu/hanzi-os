@@ -278,8 +278,14 @@ This remains a technical authoring envelope, not completed WS2. Candidate
   `content:report` now exposes a deterministic, exact-hash editorial-readiness
   projection for the 74-item backlog without importing authoring data into the
   learner runtime. It is read-only and does not substitute for an assignment
-  store, operator authorization, human review or release evidence. A bounded
-  schema-v5
+  store, operator authorization, human review or release evidence.
+  A bounded E2 contract now defines one immutable editorial assignment bound
+  to exact content-version, manifest and catalog identities, with an exact
+  item/audio scope and declared operator IDs. Its pure validator does not
+  persist or append assignments and no real assignment exists. There is still
+  no authenticated operator, API, store, CLI mutation or dashboard UI; an
+  assignment is never linguistic review, mastery or release evidence.
+  A bounded schema-v5
   importer now validates package-local canonical WAV bytes, duration,
   deterministic transcript alignment, speaker evidence and rights before an
   atomic candidate handoff; legacy/uninspected audio is release-ineligible.

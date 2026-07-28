@@ -582,6 +582,37 @@ export type ReviewRole =
   | "source-license"
   | "audio-rights";
 
+export type EditorialAssignmentScope = {
+  itemKeys: ContentItemKey[];
+  audioAssetIds: string[];
+};
+
+/**
+ * One immutable, exact-scope editorial assignment. Authentication and
+ * authorization of the claimed operator identities belong to the server-only
+ * workflow, not this content-bound envelope.
+ */
+export type EditorialAssignmentEnvelope = {
+  schemaVersion: 1;
+  assignmentId: string;
+  contentVersion: string;
+  packageManifestSha256: Sha256Digest;
+  itemCatalogSha256: Sha256Digest;
+  role: ReviewRole;
+  assignedByOperatorId: string;
+  assigneeOperatorId: string;
+  assignedAt: string;
+  scope: EditorialAssignmentScope;
+};
+
+export type EditorialAssignmentValidationResult = {
+  schemaVersion: 1;
+  assignmentSha256: Sha256Digest | null;
+  valid: boolean;
+  errors: string[];
+  warnings: string[];
+};
+
 export type ContentReview = {
   reviewId: string;
   role: ReviewRole;

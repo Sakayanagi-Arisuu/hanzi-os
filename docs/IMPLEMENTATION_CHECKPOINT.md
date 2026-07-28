@@ -161,9 +161,16 @@ This is a local engineering checkpoint, not production release evidence.
   74 missing owners/licenses, 25 unresolved prerequisite decisions and zero
   approvals. Draft inventory remains visible but separate from the
   release-critical queue; no payload or evidence reference is emitted.
-- This is CLI-only, read-only infrastructure. No assignment, review, operator
-  identity, learner-runtime route, D1 mutation, Sites version or deployment was
-  created.
+- E2 adds `EditorialAssignmentEnvelope` schema v1 and a pure validator for one
+  immutable assignment bound to exact content version, manifest, item catalog,
+  accountable role, declared operators, timestamp and item/audio scope.
+- The assignment contract stays outside immutable content packages,
+  `reviews.json`, registry, promotion and learner runtime. It never counts as
+  review, mastery, coverage or release evidence.
+- No real assignment, placement/store, descriptor, mutation CLI, persistence,
+  authenticated operator, API, learner-runtime route, dashboard UI, D1
+  mutation, Sites version or deployment was created. Operator IDs in E2 are
+  declared strings, not authenticated identities.
 
 ## Local verification
 
@@ -175,18 +182,19 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 139 files, 1,153 tests passed
+  - Vitest: 140 files, 1,178 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 391.0 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 96 / 98 / 98, median 98
+  - Performance: 95 / 99 / 94, median 95
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,890 ms; CLS: 0; TBT: 119 ms
-  - An immediately preceding run under local load measured 94 / 92 / 98 and
-    failed at median performance 94; the threshold was not lowered or bypassed.
+  - Median LCP: 1,906 ms; CLS: 0; TBT: 214 ms
+  - An immediately preceding run under local load measured 93 / 93 / 75 and
+    failed at median performance 93; its third-run TBT was an outlying 1,143
+    ms. The threshold was not lowered or bypassed.
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -212,19 +220,17 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Define an immutable assignment envelope bound to content version,
-   manifest/catalog hash, exact targets, accountable role and operator
-   identity; keep it outside the learner runtime.
-3. Add operator authorization and a server-only assignment/review workflow
-   before exposing any editorial dashboard UI.
-4. Obtain an attributable legal/license decision for the pinned
+2. Build E3 as a server-only authenticated and authorized append workflow for
+   immutable assignment envelopes, including persistence and conflict-safe
+   lifecycle handling, before exposing any editorial dashboard UI.
+3. Obtain an attributable legal/license decision for the pinned
    Make Me a Hanzi and CJKVI/CHISE records; replace a source rather than
    weakening the gate if its terms are unsuitable.
-5. Obtain independent native linguistic review for the exact seven-character
+4. Obtain independent native linguistic review for the exact seven-character
    candidate and record changes as a new immutable version.
-6. Only after those gates, expand a reviewed A0 inventory and run
+5. Only after those gates, expand a reviewed A0 inventory and run
    pilot/calibration work before making assessment or coverage claims.
-7. Leave Sites ownership, saved version and deployment until the final release
+6. Leave Sites ownership, saved version and deployment until the final release
    step.
 
 Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use

@@ -79,6 +79,35 @@ có quyết định prerequisite, 64 item nằm trong release-relevant closure v
 release-critical queue. Báo cáo không tạo assignment, review hay promotion và
 không thay thế `verify-release`.
 
+## Contract giao việc E2
+
+`EditorialAssignmentEnvelope` schema v1 là contract cho đúng một assignment bất
+biến. Các field được phép là:
+
+- `assignmentId`, `contentVersion`;
+- `packageManifestSha256`, `itemCatalogSha256`;
+- `role`;
+- `assignedByOperatorId`, `assigneeOperatorId`, `assignedAt`;
+- `scope.itemKeys` và `scope.audioAssetIds`.
+
+`validateEditorialAssignmentEnvelope` kiểm envelope theo đúng package/catalog
+được cung cấp và fail closed nếu identity/hash/scope không hợp lệ. Scope luôn
+liệt kê target cụ thể; wildcard, target lạ hoặc duplicate không trở thành giao
+việc hợp lệ. Contract không có mutable completion flag: một assignment không
+thể tự tuyên bố rằng nội dung đã được author, review hoặc phát hành.
+
+E2 chỉ cung cấp type boundary và validator thuần. Repository chưa có assignment
+thật, file placement, store, descriptor, lệnh tạo/append, persistence, API,
+operator authentication/authorization hoặc UI. Hai operator ID chỉ là chuỗi
+định danh được khai báo; validator không chứng minh ai đang thao tác. Assignment
+envelope nằm ngoài immutable content packages và learner runtime, không được
+ghi vào manifest, `reviews.json`, coverage, registry hay promotion.
+
+Assignment không thay thế scoped review. Chỉ review evidence thật, bind exact
+manifest/catalog và đi qua policy hiện hữu, mới có thể đóng review requirement;
+assignment cũng không tạo mastery, coverage hoặc release evidence. Workflow
+append có xác thực phía server được để cho E3.
+
 ## Tạo candidate kế tiếp
 
 Tạo catalog draft từ full authoring inventory của package nguồn. Tooling tái
@@ -284,9 +313,9 @@ audio cho released core content.
   audio, speaker/right evidence hay scoped approval thật.
 - Runtime projection đã được tách khỏi governance catalog và allow-list từng
   field. Không được đổi client trở lại import `item-catalog.json`.
-- Catalog draft exporter và editorial readiness report là bootstrap workflow,
-  chưa phải multi-user CMS, assignment store, operator authorization hay
-  dashboard SLA.
+- Catalog draft exporter, editorial readiness report và assignment-envelope
+  validator là bootstrap workflow. Chúng chưa phải multi-user CMS, assignment
+  store, operator authorization hay dashboard SLA.
 
 Không promote cho tới khi owner/license/native evidence thật, reviewed
 inventory, coverage graph và audio workflow đạt gate. Sites/deploy là gate vận

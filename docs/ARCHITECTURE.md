@@ -70,8 +70,23 @@ dùng chung review precedence, native-review independence, audio/character
 readiness và transitive release closure với release policy; nó phân biệt
 `needs-authoring`, `ready-for-review`, `changes-requested` và `approved`, đồng
 thời tách 10 draft item khỏi 64 item release-relevant. Dữ liệu này chỉ nằm ở
-CLI quản trị, không được import vào learner SPA. Đây chưa phải assignment store,
-operator authorization hay dashboard web.
+CLI quản trị, không được import vào learner SPA.
+
+E2 định nghĩa thêm một contract độc lập `EditorialAssignmentEnvelope` schema v1
+và validator thuần `validateEditorialAssignmentEnvelope`. Một envelope là một
+bản ghi giao việc bất biến, bind `assignmentId`, content version, manifest hash,
+item-catalog hash, role, người khai giao việc, người được giao, thời điểm giao
+và scope chính xác gồm `itemKeys`/`audioAssetIds`. Contract nằm ngoài immutable
+content package, manifest/review envelope và learner runtime. Nó không được
+import vào client, không thay đổi release policy và không phải review, mastery
+hay release evidence.
+
+E2 chưa tạo envelope thật, nơi lưu, CLI mutation, API, operator authentication,
+authorization hoặc dashboard UI. `assignedByOperatorId` và
+`assigneeOperatorId` mới là định danh được khai báo để kiểm cấu trúc, chưa phải
+danh tính đã xác thực. Server-only authenticated append workflow là boundary
+tiếp theo; cho tới khi boundary đó tồn tại, không được mô tả contract này như
+assignment store hay multi-user CMS.
 
 ## 2. Kiến trúc production đề xuất
 
