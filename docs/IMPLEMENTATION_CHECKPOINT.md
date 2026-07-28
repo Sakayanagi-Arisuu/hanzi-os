@@ -11,13 +11,13 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **72%**.
+Active progress: **73%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
-| Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
+| Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
 | HSK0-4 content coverage | 24 / 30 | HSK0 has a source-bound 12-lesson pronunciation draft and HSK1 vocabulary, character, grammar, task and topic inventory has contextual draft practice; reviewed audio/content, complete stroke metadata and HSK2-4 remain. |
 | HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
@@ -90,6 +90,19 @@ Every commit must update this percentage here and in the active roadmap.
   released learning mappings remain 23 vocabulary, 0 task, 0 topic and
   0 grammar; G2 therefore remains open for real practice mapping, calibrated
   placement and complete per-level progress behavior.
+- Added a graph- and inventory-bound HSK2 scope while preserving its distinct
+  three-unit path: multi-turn situational dialogue, sentence/grammar chains
+  and reviewed dictation/short-text production.
+- The situational unit partitions all 17 tasks, 34 topics and 200 incremental
+  vocabulary records across four semantic strands. Four grammar modules
+  partition all 75 grammar rows; four production stages plan dictation,
+  sentence reconstruction, guided messages and picture description; all 125
+  recognition characters remain isolated in the productive-text unit.
+- The scope plans 40 lesson blueprints but authors zero lesson or practice
+  item. It remains learner-hidden, grants no mastery and keeps lesson coverage,
+  reviewed content and HSK2 completion false. This differentiated roadmap
+  deliverable raises active progress to **73%** without claiming content
+  completion.
 
 ### Active G3 slice in progress
 
@@ -454,6 +467,9 @@ the applicable gates to run again before the next checkpoint commit.
   - pinned HSK1-4 source/inventory validation and checked coverage report
   - source-bound HSK0 pronunciation draft: 12 lessons, 111 targets and 208
     activities; 89 audio-dependent activities remain silent and ineligible
+  - exact HSK2 authoring scope: 3 graph units, 4 situational strands, 4 grammar
+    modules, 4 production stages, 17 tasks, 34 topics, 200 vocabulary, 75
+    grammar rows and 125 recognition characters
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -478,16 +494,16 @@ the applicable gates to run again before the next checkpoint commit.
     2,181 normalized target references; 0 manifest approval or runtime mutation
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 157 files, 1,273 tests passed
+  - Vitest: 158 files, 1,278 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 98 / 99, median 99
+  - Performance: 97 / 99 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,885 ms; CLS: 0; TBT: 86 ms
+  - Median LCP: 1,914 ms; CLS: 0; TBT: 54 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

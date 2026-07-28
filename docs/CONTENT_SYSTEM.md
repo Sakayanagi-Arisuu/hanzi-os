@@ -149,6 +149,21 @@ Scope này chỉ quyết định nơi biên tập item, không chứng minh less
 coverage. Checked report vẫn tách `authoringScope` khỏi released learning
 mapping; task/topic/grammar thực dạy hiện vẫn bằng 0.
 
+## Scope authoring HSK2
+
+`content/curriculum/hsk2-scope.json` bind exact graph và inventory HSK2 nhưng
+không sao chép lộ trình HSK1. Ba unit lần lượt tập trung hội thoại tình huống
+nhiều lượt, chuỗi câu/ngữ pháp và dictation-văn bản ngắn. Bên trong, bốn mạch
+tình huống phân vùng 17 task, 34 topic và 200 từ; bốn mô-đun phân vùng 75
+grammar row; unit sản xuất giữ 125 recognition character và bốn giai đoạn
+evidence dự kiến.
+
+Chạy `content:hsk2:scope -- --write` để tái tạo, dùng `--check` cùng
+`content:hsk2:scope:validate` làm gate. Validator yêu cầu từng inventory item
+thuộc đúng một unit và đúng một strand/module phù hợp. Con số 40 lesson
+blueprint chỉ là kế hoạch authoring: scope vẫn learner-hidden, không phải
+lesson/practice coverage, không cấp mastery và không tạo claim HSK2 hoàn thành.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

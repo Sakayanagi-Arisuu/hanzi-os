@@ -14,6 +14,10 @@ import {
   loadHsk1CurriculumScopeBundle,
 } from "../../src/content/hsk1CurriculumScope.mjs";
 import {
+  assertValidHsk2CurriculumScopeBundle,
+  loadHsk2CurriculumScopeBundle,
+} from "../../src/content/hsk2CurriculumScope.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -71,6 +75,8 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk0PronunciationBootcampBundle(hsk0Pronunciation);
   const hsk1Scope = loadHsk1CurriculumScopeBundle(root);
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
+  const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
+  const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -257,6 +263,21 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           recognitionCharacters:
             hsk1ScopeResult.summary.recognitionCharacters,
           grammarRows: hsk1ScopeResult.summary.grammarRows,
+          lessonPracticeCoverageComplete: false,
+        },
+        hsk2: {
+          units: hsk2ScopeResult.summary.units,
+          situationalStrands: hsk2ScopeResult.summary.situationalStrands,
+          grammarModules: hsk2ScopeResult.summary.grammarModules,
+          productionStages: hsk2ScopeResult.summary.productionStages,
+          plannedLessonBlueprints:
+            hsk2ScopeResult.summary.plannedLessonBlueprints,
+          tasks: hsk2ScopeResult.summary.tasks,
+          topics: hsk2ScopeResult.summary.topics,
+          vocabulary: hsk2ScopeResult.summary.vocabulary,
+          recognitionCharacters:
+            hsk2ScopeResult.summary.recognitionCharacters,
+          grammarRows: hsk2ScopeResult.summary.grammarRows,
           lessonPracticeCoverageComplete: false,
         },
       },
