@@ -132,6 +132,23 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       officialVocabularyWithLessonMapping: 23,
       runtimeLessonsMapped: 14,
     });
+    expect(
+      report.currentCoverage.draftBlueprintMappings.hsk0PronunciationBootcamp,
+    ).toEqual({
+      lessons: 12,
+      targets: 111,
+      officialInitials: 21,
+      officialFinalTableCells: 35,
+      officialSpecialFinals: 1,
+      toneCategories: 5,
+      tonePairCells: 25,
+      authoredActivities: 208,
+      audioDependentActivities: 89,
+      reviewedAudioActivities: 0,
+      measurementEligibleActivities: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
     expect(report.coverageClaims.every((claim) => claim.complete === false))
       .toBe(true);
   });

@@ -144,6 +144,21 @@
       }
     },
     "draftBlueprintMappings": {
+      "hsk0PronunciationBootcamp": {
+        "lessons": 12,
+        "targets": 111,
+        "officialInitials": 21,
+        "officialFinalTableCells": 35,
+        "officialSpecialFinals": 1,
+        "toneCategories": 5,
+        "tonePairCells": 25,
+        "authoredActivities": 208,
+        "audioDependentActivities": 89,
+        "reviewedAudioActivities": 0,
+        "measurementEligibleActivities": 0,
+        "reviewed": false,
+        "learnerVisible": false
+      },
       "hsk1PersonalExchange": {
         "lessons": 9,
         "tasks": 2,

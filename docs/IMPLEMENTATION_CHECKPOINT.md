@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **71%**.
+Active progress: **72%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
-| HSK0-4 content coverage | 23 / 30 | All HSK1 vocabulary, character, grammar, task and topic inventory has contextual draft practice; human review, complete stroke metadata and HSK2-4 remain. |
+| HSK0-4 content coverage | 24 / 30 | HSK0 has a source-bound 12-lesson pronunciation draft and HSK1 vocabulary, character, grammar, task and topic inventory has contextual draft practice; reviewed audio/content, complete stroke metadata and HSK2-4 remain. |
 | HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -171,8 +171,23 @@ Every commit must update this percentage here and in the active roadmap.
 - Reviewer/operator identities remain declared local metadata. The workflow
   does not mutate source drafts, manifest approvals, runtime, calibration or
   mastery, and absent listening audio cannot receive audio-rights approval.
-  Active progress therefore remains 71% until real review evidence closes a
-  named roadmap deliverable.
+- Pinned the official five-page `汉语拼音方案` descriptor by Ministry URL,
+  PDF byte length/SHA-256 and approval date, and recorded active
+  GB/T 16159-2012 orthography metadata. Rights remain pending and neither
+  official PDF is redistributed.
+- Added a learner-hidden 12-lesson HSK0 pronunciation pack with 111 targets
+  and 208 authored activities. It covers all 21 official initials, all 35
+  final-table spellings plus `er`, 14 orthography rewrites, 20 initial
+  contrasts, 20 tone-category drills, the full 25-cell tone-pair matrix,
+  12 connected-speech analyses and 24 survival shadowing prompts.
+- Twelve exact lesson review batches require native Mandarin, Vietnamese and
+  pronunciation-pedagogy review; batches with listening/recording also require
+  audio-rights review. All 89 audio-dependent activities retain `audio: null`;
+  browser TTS is preview-only and browser ASR cannot score tone mastery.
+- The pack has 0 reviewed audio, measurement/mastery/release-eligible activity
+  and remains excluded from runtime. This named G3 authoring deliverable raises
+  content coverage by one point; active progress is now **72%**, while HSK0
+  completion remains false until human review, audio and runtime promotion.
 
 ## Repository state
 
@@ -437,6 +452,8 @@ the applicable gates to run again before the next checkpoint commit.
   - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
     HSK4 profile persistence, 4 editorial events and 5 editorial triggers
   - pinned HSK1-4 source/inventory validation and checked coverage report
+  - source-bound HSK0 pronunciation draft: 12 lessons, 111 targets and 208
+    activities; 89 audio-dependent activities remain silent and ineligible
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -461,16 +478,16 @@ the applicable gates to run again before the next checkpoint commit.
     2,181 normalized target references; 0 manifest approval or runtime mutation
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 156 files, 1,268 tests passed
+  - Vitest: 157 files, 1,273 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 98 / 98, median 98
+  - Performance: 99 / 98 / 99, median 99
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,910 ms; CLS: 0; TBT: 73 ms
+  - Median LCP: 1,885 ms; CLS: 0; TBT: 86 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

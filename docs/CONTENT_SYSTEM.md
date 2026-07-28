@@ -94,6 +94,26 @@ không tự mở lesson, cấp mastery, trở thành nội dung đã review hay 
 coverage. Mọi claim HSK1-4 vẫn phải qua mapping, practice, review và release
 gate tương ứng.
 
+## Bootcamp phát âm HSK0
+
+`content/sources/official-hanyu-pinyin-scheme-1958/source.json` ghim trang và
+PDF `汉语拼音方案` chính thức, cùng metadata trạng thái của GB/T 16159-2012.
+PDF nguồn không được phân phối trong repo và quyết định quyền vẫn `pending`.
+
+`content:hsk0:pronunciation -- --write` tái tạo
+`content/drafts/hsk0-pronunciation-bootcamp-2026.07.json`; lệnh `--check` và
+`content:hsk0:pronunciation:validate` là gate bắt buộc. Pack authoring có 12
+lesson, 111 target và 208 activity, phủ exact 21 thanh mẫu, 35 ô vận mẫu chính
+thức cùng `er`, quy tắc chính tả, đối chiếu âm đầu, bốn thanh + thanh nhẹ, đủ
+25 tone pair, biến điệu và shadowing câu sinh tồn.
+
+Đây vẫn là lớp draft learner-hidden. 89 hoạt động nghe/ghi âm có `audio: null`;
+TTS trình duyệt chỉ dùng preview biên tập, ASR trình duyệt không được chấm
+phát âm hoặc cấp mastery. Mỗi lesson có review batch yêu cầu native Mandarin,
+biên tập Việt và reviewer sư phạm phát âm; batch phụ thuộc âm thanh còn yêu
+cầu audio-rights reviewer. Chỉ khi source/quyền, transcript, audio và review
+đều đạt thì một phiên bản content mới mới được cân nhắc import vào runtime.
+
 `content/curriculum/hsk0-4-graph.json` là graph authoring bind exact inventory
 hash và runtime content version. Nó có năm path, 18 unit và
 mapping tường minh cho toàn bộ 14 lesson đang phát hành. Validator tái tính

@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **71%**.
+Status: **in progress** at project progress **72%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **71%**.
+Status: **in progress** at project progress **72%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 23 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar/task |
+| D. Nội dung có coverage HSK0-4 | 30 | 24 | inventory, authoring scope, HSK0 pronunciation draft, Vietnamese draft, lesson/dialogue và practice draft, character/grammar/task |
 | E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **71** | **Tiến độ hiện tại: 71%** |
+| **Tổng** | **100** | **72** | **Tiến độ hiện tại: 72%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -272,6 +272,19 @@ Git-ignore, không sửa draft/manifest/runtime, không hiệu chuẩn hay cấp
 Audio-rights reviewer cũng không thể approve listening batch khi audio còn
 null. Công cụ này làm review queue có thể vận hành nhưng chưa có review người
 thật, nên không được tính thêm phần trăm.
+
+Lát G3 thứ mười tăng trụ cột D thêm 1 điểm, đưa tiến độ lên **72%**. Bootcamp
+phát âm HSK0 nay có 12 lesson authoring tuần tự, 111 target và 208 hoạt động:
+đủ 21 thanh mẫu, 35 ô vận mẫu trong bảng chính thức cùng `er`, 14 bài chính tả
+Pinyin, 20 bài đối chiếu thanh mẫu, 20 bài nhận diện thanh, ma trận đủ 25 cặp
+thanh, 12 bài biến điệu và 24 câu shadowing sinh tồn. Source descriptor ghim
+PDF `汉语拼音方案` cùng trạng thái hiện hành của GB/T 16159-2012; validator kiểm
+exact inventory, source hash, lesson/activity partition và review batch.
+Trong 208 hoạt động có 89 mục phụ thuộc audio nhưng toàn bộ vẫn để audio
+`null`; browser TTS chỉ là preview, browser ASR không được chấm mastery, và
+0 item đã review/measurement/mastery/release-eligible. Điểm tăng chỉ ghi nhận
+gói draft HSK0 đủ phạm vi để chuyển sang review/audio, không tuyên bố HSK0 đã
+hoàn thành hoặc đưa nội dung chưa duyệt vào runtime.
 
 ## 6. Quy tắc cập nhật phần trăm
 

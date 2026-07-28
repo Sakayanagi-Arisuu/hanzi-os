@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "official-hanyu-pinyin-scheme-1958",
+  "title": "汉语拼音方案",
+  "titleEnglish": "Scheme for the Chinese Phonetic Alphabet",
+  "publisher": "Ministry of Education of the People's Republic of China",
+  "canonicalUrl": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/195802/t19580201_186000.html",
+  "pdfUrl": "https://www.moe.gov.cn/ewebeditor/uploadfile/2015/03/02/20150302165814246.pdf",
+  "approved": "1958-02-11",
+  "retrievedAt": "2026-07-28",
+  "pdf": {
+    "byteLength": 2586611,
+    "pages": 5,
+    "sha256": "sha256:8b834d15c7456ce5def7b2c8c0d88cb7ed6ddd61db7b8ea508f9314a6c3edfa9"
+  },
+  "orthographyStandard": {
+    "standardId": "GB/T 16159-2012",
+    "title": "汉语拼音正词法基本规则",
+    "canonicalUrl": "https://std.samr.gov.cn/gb/search/gbDetailed?id=71F772D7E196D3A7E05397BE0A0AB82A",
+    "status": "active",
+    "published": "2012-06-29",
+    "effective": "2012-10-01",
+    "reconfirmed": "2025-09-05"
+  },
+  "transcriptionScope": {
+    "initials": [
+      "b",
+      "p",
+      "m",
+      "f",
+      "d",
+      "t",
+      "n",
+      "l",
+      "g",
+      "k",
+      "h",
+      "j",
+      "q",
+      "x",
+      "zh",
+      "ch",
+      "sh",
+      "r",
+      "z",
+      "c",
+      "s"
+    ],
+    "finalTableSpellings": [
+      "i",
+      "u",
+      "ü",
+      "a",
+      "ia",
+      "ua",
+      "o",
+      "uo",
+      "e",
+      "ie",
+      "üe",
+      "ai",
+      "uai",
+      "ei",
+      "uei",
+      "ao",
+      "iao",
+      "ou",
+      "iou",
+      "an",
+      "ian",
+      "uan",
+      "üan",
+      "en",
+      "in",
+      "uen",
+      "ün",
+      "ang",
+      "iang",
+      "uang",
+      "eng",
+      "ing",
+      "ueng",
+      "ong",
+      "iong"
+    ],
+    "specialFinals": [
+      "er"
+    ],
+    "toneCategories": [
+      "tone-1",
+      "tone-2",
+      "tone-3",
+      "tone-4",
+      "neutral"
+    ]
+  },
+  "rights": {
+    "license": null,
+    "decision": "pending",
+    "note": "Official public references are used only to author and validate a local teaching inventory. The source PDFs are not redistributed in this repository."
+  }
+}

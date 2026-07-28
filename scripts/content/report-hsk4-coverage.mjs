@@ -6,6 +6,10 @@ import {
   loadHskCurriculumGraphBundle,
 } from "../../src/content/hskCurriculumGraph.mjs";
 import {
+  assertValidHsk0PronunciationBootcampBundle,
+  loadHsk0PronunciationBootcampBundle,
+} from "../../src/content/hsk0PronunciationBootcamp.mjs";
+import {
   assertValidHsk1CurriculumScopeBundle,
   loadHsk1CurriculumScopeBundle,
 } from "../../src/content/hsk1CurriculumScope.mjs";
@@ -62,6 +66,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   assertValidHskSyllabusBundle(syllabus);
   const curriculum = loadHskCurriculumGraphBundle(root);
   const curriculumResult = assertValidHskCurriculumGraphBundle(curriculum);
+  const hsk0Pronunciation = loadHsk0PronunciationBootcampBundle(root);
+  const hsk0PronunciationResult =
+    assertValidHsk0PronunciationBootcampBundle(hsk0Pronunciation);
   const hsk1Scope = loadHsk1CurriculumScopeBundle(root);
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
@@ -254,6 +261,30 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         },
       },
       draftBlueprintMappings: {
+        hsk0PronunciationBootcamp: {
+          lessons: hsk0PronunciationResult.summary.lessons,
+          targets: hsk0PronunciationResult.summary.targets,
+          officialInitials:
+            hsk0PronunciationResult.summary.officialInitials,
+          officialFinalTableCells:
+            hsk0PronunciationResult.summary.officialFinalTableCells,
+          officialSpecialFinals:
+            hsk0PronunciationResult.summary.officialSpecialFinals,
+          toneCategories:
+            hsk0PronunciationResult.summary.toneCategories,
+          tonePairCells:
+            hsk0PronunciationResult.summary.tonePairCells,
+          authoredActivities:
+            hsk0PronunciationResult.summary.authoredActivities,
+          audioDependentActivities:
+            hsk0PronunciationResult.summary.audioDependentActivities,
+          reviewedAudioActivities:
+            hsk0PronunciationResult.summary.reviewedAudioActivities,
+          measurementEligibleActivities:
+            hsk0PronunciationResult.summary.measurementEligibleActivities,
+          reviewed: false,
+          learnerVisible: false,
+        },
         hsk1PersonalExchange: {
           lessons: hsk1PersonalPackResult.summary.lessons,
           tasks: hsk1PersonalPackResult.summary.taskBlueprintMappings,
