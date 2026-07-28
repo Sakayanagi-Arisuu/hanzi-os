@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **66%**.
+Status: **in progress** at project progress **68%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **66%**.
+Status: **in progress** at project progress **68%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 20 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar |
+| D. Nội dung có coverage HSK0-4 | 30 | 22 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **66** | **Tiến độ hiện tại: 66%** |
+| **Tổng** | **100** | **68** | **Tiến độ hiện tại: 68%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -233,6 +233,15 @@ có nguồn stroke/radical hoàn chỉnh cho 7 chữ foundation chứ chưa có 
 đồng nhất cho cả inventory, pack này cố ý ghi 0 pinned stroke metadata, không
 dạy/chấm thứ tự nét, không suy diễn writing mastery và vẫn có 0 item
 release-eligible.
+
+Lát G3 thứ sáu tăng trụ cột D thêm 2 điểm. Cả 66 grammar row HSK1 đã được
+gắn lại với đúng lesson blueprint, có giải thích tiếng Việt, model example và
+một guided-pattern-production item cho mỗi row. Tổng cộng 20 lesson có grammar
+practice và 20 review batch; validator khóa official row/source digest, exact
+mapping, nội dung model-answer và trạng thái review. Mọi bài tạo câu vẫn là
+self-reveal-only, 0 measurement/mastery-eligible và 0 release-eligible. Lớp
+draft hiện phủ vocabulary, recognition character và grammar HSK1, nhưng task
+evidence, assessment hiệu chuẩn, human review và runtime promotion vẫn thiếu.
 
 ## 6. Quy tắc cập nhật phần trăm
 

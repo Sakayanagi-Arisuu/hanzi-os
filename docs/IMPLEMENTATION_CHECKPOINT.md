@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **66%**.
+Active progress: **68%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
-| HSK0-4 content coverage | 20 / 30 | All 300 HSK1 vocabulary records and 246 recognition characters have contextual draft practice; review, complete stroke metadata, grammar/context content and HSK2-4 remain. |
+| HSK0-4 content coverage | 22 / 30 | All 300 HSK1 vocabulary records, 246 recognition characters and 66 grammar rows have contextual draft practice; human review, task evidence, complete stroke metadata and HSK2-4 remain. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -143,6 +143,13 @@ Every commit must update this percentage here and in the active roadmap.
 - The pack explicitly records zero complete pinned stroke metadata, teaches
   and assesses no stroke order, never infers writing mastery from recognition
   or self-check, and leaves all 15 character review batches unapproved.
+- Added the learner-hidden HSK1 grammar/context pack: all 66 official grammar
+  rows retain their source text and exact lesson mapping, with one Vietnamese
+  explanation, model example and guided production self-check per row.
+- Twenty grammar review batches cover the 20 applicable lesson blueprints.
+  All 66 productive items remain unreviewed, self-reveal-only and
+  measurement/mastery-ineligible; no runtime lesson or completion claim was
+  created.
 
 ## Repository state
 
@@ -416,18 +423,21 @@ the applicable gates to run again before the next checkpoint commit.
     vocabulary-context mappings, 492 recognition/copy practice items and 15
     pending review batches; 0 pinned full-inventory stroke metadata and 0
     release-eligible item
+  - HSK1 grammar-context draft pack: 66 Vietnamese explanations, 66 model
+    examples, 66 guided production self-checks and 20 pending review batches;
+    0 measurement-eligible or release-eligible item
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 151 files, 1,244 tests passed
+  - Vitest: 152 files, 1,248 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 98 / 98, median 98
+  - Performance: 97 / 97 / 98, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,887 ms; CLS: 0; TBT: 104 ms
+  - Median LCP: 1,891 ms; CLS: 0; TBT: 156 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -452,9 +462,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Add explicit grammar/context practice for all 66 HSK1 grammar rows across
-   the 25 communicative lesson blueprints; keep the 25 vocabulary and 15
-   character review batches open.
+1. Add task-level HSK1 scenarios and an end-of-level assessment blueprint,
+   then export a bounded review bundle for the 25 vocabulary, 15 character
+   and 20 grammar batches; keep all draft content unpublished.
 2. Finish the remaining G2 placement/progress work when reviewed HSK1 content can
    exercise it; keep all imported content unpublished until schema, provenance
    and applicable linguistic checks pass.

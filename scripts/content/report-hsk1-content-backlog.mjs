@@ -21,6 +21,10 @@ import {
   assertValidHsk1CharacterFoundationPackBundle,
   loadHsk1CharacterFoundationPackBundle,
 } from "../../src/content/hsk1CharacterFoundationPack.mjs";
+import {
+  assertValidHsk1GrammarContextPackBundle,
+  loadHsk1GrammarContextPackBundle,
+} from "../../src/content/hsk1GrammarContextPack.mjs";
 
 export const HSK1_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
   "content/reports/hsk1-content-backlog.json";
@@ -40,6 +44,9 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
   const characterPackBundle = loadHsk1CharacterFoundationPackBundle(root);
   const characterPackResult =
     assertValidHsk1CharacterFoundationPackBundle(characterPackBundle);
+  const grammarPackBundle = loadHsk1GrammarContextPackBundle(root);
+  const grammarPackResult =
+    assertValidHsk1GrammarContextPackBundle(grammarPackBundle);
   const totalDraftedVocabulary =
     personalPackResult.summary.vocabularyDrafts
     + communicativePackResult.summary.vocabularyDrafts;
@@ -83,6 +90,9 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
         characterPackResult.summary.characterDrafts,
       charactersWithPinnedStrokeMetadata:
         characterPackResult.summary.charactersWithPinnedStrokeMetadata,
+      grammarRowsDraftMapped: grammarPackResult.summary.grammarDrafts,
+      grammarPracticeDrafted:
+        grammarPackResult.summary.guidedPracticeItems,
       pronunciationCompatible: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType !== "surface-only",
@@ -134,6 +144,11 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
         characterPackResult.summary.authoredPracticeItems,
       pendingCharacterReviewBatches:
         characterPackResult.summary.reviewBatches,
+      draftGrammarModelExamples: grammarPackResult.summary.modelExamples,
+      authoredGrammarPracticeItems:
+        grammarPackResult.summary.guidedPracticeItems,
+      pendingGrammarReviewBatches:
+        grammarPackResult.summary.reviewBatches,
       pronunciationReviewItems: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType === "surface-only",
@@ -152,7 +167,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
     claims: {
       hsk1VocabularyComplete: false,
       hsk1Complete: false,
-      reason: "HSK1 vocabulary and recognition characters have AI-assisted draft practice, but human review, complete stroke metadata, grammar/context assessment and release are incomplete.",
+      reason: "HSK1 vocabulary, recognition characters and grammar rows have AI-assisted draft practice, but human review, complete stroke metadata, calibrated assessment, task-level evidence and release are incomplete.",
     },
   };
 };
