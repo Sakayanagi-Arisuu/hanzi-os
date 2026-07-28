@@ -1,6 +1,6 @@
 # HANZI.OS implementation checkpoint
 
-Date: 27 July 2026
+Date: 28 July 2026
 
 This is a local engineering checkpoint, not production release evidence.
 
@@ -45,7 +45,7 @@ This is a local engineering checkpoint, not production release evidence.
   wording.
 - Reset E2E proves the injected cache and response are removed while allowing
   the active service worker to recreate public offline asset caches.
-- All five registered content packages now retain exact immutable source
+- All six registered content packages now retain exact immutable source
   snapshots, so historical validation no longer depends on mutable HEAD files.
 - The mandatory content gate validates every registry entry and lineage edge;
   runtime-bound candidates also fail on live-source drift.
@@ -124,9 +124,23 @@ This is a local engineering checkpoint, not production release evidence.
 - The bundled Arphic license is copied byte-for-byte from
   `hanzi-writer-data`; repository attributes and a regression test prevent
   newline or trailing-whitespace rewriting.
-- This remains tooling only. No real character source snapshot, linguistic
-  decision, owner/license evidence, scoped approval, candidate package,
-  promotion or runtime character exposure was added to `.07.5`.
+- `foundation-2026.07.6` is the first real schema-v6 / catalog-v4 character
+  candidate. It copies exact source-addressed radical, IDS and stroke records
+  for 一, 二, 三, 人, 你, 好 and 家 into an immutable package.
+- Radical records pin Make Me a Hanzi `dictionary.txt` revision
+  `618dbab8a8ddefb958763c8b4afbaa741a4460de`; structure/component records pin
+  CJKVI IDS revision `86b4d16159f0079437870408f0ca186e529015db`;
+  stroke bytes match `hanzi-writer-data@2.0.1` tag commit
+  `ad1a9905cada18d07630acc27d438b070d753ec0` byte-for-byte.
+- IDS root/self mappings, not glyph appearance, determine independent,
+  left-right and top-bottom structure. Component roles remain neutral
+  `graphic`; no semantic or phonetic role was invented.
+- The CJKVI README delegates `ids.txt` licensing to CHISE terms. The candidate
+  records `CHISE-IDS-terms` without inventing an SPDX identity; legal/license
+  review remains a release blocker.
+- All seven items remain `review`, owner and item/package source license remain
+  null, reviews and coverage claims remain empty, and no promotion or runtime
+  character exposure occurred.
 - Schema-v6 routine versioning, audio import and character reimport now preserve
   and reinspect both media families. Audio replacement may reuse an ID only on
   its existing target; partial rights rotation, stale target text and silent
@@ -149,18 +163,16 @@ commit claim.
 - `npm run check`: pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 12 migrations and 25 restored tables
-  - Vitest: 137 files, 1,141 tests passed
+  - Vitest: 138 files, 1,143 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 390.9 KiB
+    ceiling: 391.0 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 93 / 95 / 97, median 95
+  - Performance: 95 / 88 / 98, median 95
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,961 ms; CLS: 0; TBT: 221 ms
-  - An immediately preceding run under local load failed at median performance
-    94 after one 852 ms TBT outlier; the threshold was not lowered or bypassed.
+  - Median LCP: 1,890 ms; CLS: 0; TBT: 209 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -186,13 +198,13 @@ human, pilot, hosted or ownership gates.
 ## Next dependency-ordered milestone
 
 1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Pin licensed source revisions and import the seven existing character items
-   into a new immutable candidate. Keep every enriched item in `review`; do
-   not infer claims from glyph shape, and do not fabricate human approval.
-3. Complete sourced character metadata through attributable linguistic and
-   license review.
-4. Build the multi-user editorial assignment/review dashboard, then obtain
-   attributable owner, license and native linguistic review evidence.
+2. Build the multi-user editorial assignment/review dashboard with accountable
+   roles and exact manifest/catalog scopes.
+3. Obtain an attributable legal/license decision for the pinned
+   Make Me a Hanzi and CJKVI/CHISE records; replace a source rather than
+   weakening the gate if its terms are unsuitable.
+4. Obtain independent native linguistic review for the exact seven-character
+   candidate and record changes as a new immutable version.
 5. Only after those gates, expand a reviewed A0 inventory and run
    pilot/calibration work before making assessment or coverage claims.
 6. Leave Sites ownership, saved version and deployment until the final release

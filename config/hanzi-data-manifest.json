@@ -2,8 +2,12 @@
   "schemaVersion": 1,
   "package": "hanzi-writer-data",
   "packageVersion": "2.0.1",
-  "source": "https://github.com/chanind/hanzi-writer-data",
-  "upstream": "https://github.com/skishore/makemeahanzi",
+  "packageIntegrity": "sha512-nbQwM+MaryGoq7pBMIZLCd3lFq03nXuJuwku1+6UbjL58uU+9OULVcMkoNvNuJSoIV7f1bbPRfD4D/LQa5S7qg==",
+  "source": "https://github.com/chanind/hanzi-writer-data/tree/ad1a9905cada18d07630acc27d438b070d753ec0",
+  "sourceRevision": "ad1a9905cada18d07630acc27d438b070d753ec0",
+  "upstream": "https://github.com/chanind/makemeahanzi/tree/9d54d6bbba93023078628589ffbffff1edf91335",
+  "upstreamRevision": "9d54d6bbba93023078628589ffbffff1edf91335",
   "license": "Arphic Public License",
+  "licenseFileSha256": "sha256:5590533436c70f10f2f524ee61456238c290175c6662fbe1c700b5f038a6d328",
   "characters": []
 }

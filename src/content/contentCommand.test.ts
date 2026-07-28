@@ -95,6 +95,16 @@ const createAudioCommandFixture = () => {
       { recursive: true },
     );
   }
+  const registryPath = join(fixtureRoot, "content/registry.json");
+  const registry = JSON.parse(readFileSync(registryPath, "utf8")) as {
+    currentContentVersion: string;
+    packages: Array<{ contentVersion: string }>;
+  };
+  registry.currentContentVersion = "foundation-2026.07.5";
+  registry.packages = registry.packages.filter(
+    ({ contentVersion }) => contentVersion !== "foundation-2026.07.6",
+  );
+  writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
   const readinessPath = join(fixtureRoot, "config/production-readiness.json");
   const readiness = JSON.parse(readFileSync(readinessPath, "utf8")) as {
     contentVersion: string;
@@ -105,7 +115,7 @@ const createAudioCommandFixture = () => {
   writeFileSync(
     curriculumPath,
     readFileSync(curriculumPath, "utf8").replaceAll(
-      "foundation-2026.07.5",
+      "foundation-2026.07.6",
       targetVersion,
     ),
   );
@@ -213,6 +223,16 @@ const createCharacterCommandFixture = () => {
       { recursive: true },
     );
   }
+  const registryPath = join(fixtureRoot, "content/registry.json");
+  const registry = JSON.parse(readFileSync(registryPath, "utf8")) as {
+    currentContentVersion: string;
+    packages: Array<{ contentVersion: string }>;
+  };
+  registry.currentContentVersion = "foundation-2026.07.5";
+  registry.packages = registry.packages.filter(
+    ({ contentVersion }) => contentVersion !== "foundation-2026.07.6",
+  );
+  writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
   const readinessPath = join(fixtureRoot, "config/production-readiness.json");
   const readiness = JSON.parse(readFileSync(readinessPath, "utf8")) as {
     contentVersion: string;
@@ -223,7 +243,7 @@ const createCharacterCommandFixture = () => {
   writeFileSync(
     curriculumPath,
     readFileSync(curriculumPath, "utf8").replaceAll(
-      "foundation-2026.07.5",
+      "foundation-2026.07.6",
       targetVersion,
     ),
   );
@@ -376,6 +396,7 @@ describe("content validation command", () => {
       { contentVersion: "foundation-2026.07.3", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.07.4", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.07.5", valid: true, errors: [], warnings: [] },
+      { contentVersion: "foundation-2026.07.6", valid: true, errors: [], warnings: [] },
     ]);
   });
 
@@ -438,7 +459,12 @@ describe("content validation command", () => {
       };
       fixtureRegistry.currentContentVersion = "foundation-2026.07.4";
       fixtureRegistry.packages = fixtureRegistry.packages.filter(
-        (entry) => entry.contentVersion !== "foundation-2026.07.5",
+        (entry) => [
+          "foundation-2026.07.1",
+          "foundation-2026.07.2",
+          "foundation-2026.07.3",
+          "foundation-2026.07.4",
+        ].includes(entry.contentVersion),
       );
       writeFileSync(
         fixtureRegistryPath,
@@ -793,6 +819,20 @@ describe("content validation command", () => {
 
       const targetVersion = "fixture-2026.08.2";
       const registryPath = join(fixtureRoot, "content/registry.json");
+      const fixtureRegistry = JSON.parse(
+        readFileSync(registryPath, "utf8"),
+      ) as {
+        currentContentVersion: string;
+        packages: Array<{ contentVersion: string }>;
+      };
+      fixtureRegistry.currentContentVersion = "foundation-2026.07.5";
+      fixtureRegistry.packages = fixtureRegistry.packages.filter(
+        ({ contentVersion }) => contentVersion !== "foundation-2026.07.6",
+      );
+      writeFileSync(
+        registryPath,
+        `${JSON.stringify(fixtureRegistry, null, 2)}\n`,
+      );
       const readinessPath = join(
         fixtureRoot,
         "config/production-readiness.json",

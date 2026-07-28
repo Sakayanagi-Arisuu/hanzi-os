@@ -1,6 +1,11 @@
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { CONTENT_VERSION, COURSE_UNITS, LESSONS, STORIES, VOCABULARY } from "../data/curriculum";
+import {
+  inspectCharacterLinguisticSourceRecord,
+  inspectHanziWriterCharacterData,
+} from "./characterDataInspection.mjs";
 import {
   canonicalJson,
   contentSourceArtifactNames,
@@ -58,6 +63,41 @@ const loadCheckedInBundle = (
   )
     ? readJson<RuntimeCatalogArtifact>(runtimeCatalogPath)
     : null;
+  const characterSourceFileHashes: NonNullable<
+    ContentPackageBundle["characterSourceFileHashes"]
+  > = {};
+  const characterLinguisticFileInspections: NonNullable<
+    ContentPackageBundle["characterLinguisticFileInspections"]
+  > = {};
+  const characterStrokeFileInspections: NonNullable<
+    ContentPackageBundle["characterStrokeFileInspections"]
+  > = {};
+  if (manifest.contentSchemaVersion >= 6 && itemCatalog?.schemaVersion === 4) {
+    const sourceRefs = new Set<string>();
+    const strokeRefs = new Set<string>();
+    itemCatalog.items.forEach((item) => {
+      if (item.itemType !== "character") return;
+      item.payload.analysis.sources.forEach((source) => {
+        sourceRefs.add(source.recordRef);
+      });
+      sourceRefs.add(item.payload.strokeData.fileRef);
+      strokeRefs.add(item.payload.strokeData.fileRef);
+    });
+    [...sourceRefs].sort().forEach((fileRef) => {
+      const bytes = readFileSync(
+        new URL(`../../${packagePath}/${fileRef}`, import.meta.url),
+      );
+      characterSourceFileHashes[fileRef] =
+        `sha256:${createHash("sha256").update(bytes).digest("hex")}`;
+      if (strokeRefs.has(fileRef)) {
+        characterStrokeFileInspections[fileRef] =
+          inspectHanziWriterCharacterData(bytes);
+      } else {
+        characterLinguisticFileInspections[fileRef] =
+          inspectCharacterLinguisticSourceRecord(bytes);
+      }
+    });
+  }
   return {
     registry,
     registryEntry,
@@ -68,6 +108,9 @@ const loadCheckedInBundle = (
     coverageClaims: readJson<CoverageClaimsArtifact>(`${packagePath}/coverage-claims.json`),
     reviews: readJson<ContentReviewArtifact>(`${packagePath}/reviews.json`),
     audioAssetFileHashes: {},
+    characterSourceFileHashes,
+    characterLinguisticFileInspections,
+    characterStrokeFileInspections,
     immutableSourceTexts: Object.fromEntries(
       contentSourceArtifactNames(manifest.contentSchemaVersion).map((name) => [
         name,
@@ -656,7 +699,9 @@ const rebindMutableFixture = async (bundle: ContentPackageBundle) => {
 const makeSchemaV5AudioFixture = async (
   targetKind: "lexeme" | "graded-text-crlf" = "lexeme",
 ): Promise<ContentPackageBundle> => {
-  const bundle = structuredClone(loadCheckedInBundle());
+  const bundle = structuredClone(
+    loadCheckedInBundle("foundation-2026.07.5"),
+  );
   if (bundle.itemCatalog?.schemaVersion !== 2) {
     throw new Error("Schema-v4 catalog fixture is missing");
   }
@@ -729,7 +774,9 @@ const makeSchemaV5AudioFixture = async (
 };
 
 const makeSchemaV6CharacterFixture = async (): Promise<ContentPackageBundle> => {
-  const bundle = structuredClone(loadCheckedInBundle());
+  const bundle = structuredClone(
+    loadCheckedInBundle("foundation-2026.07.5"),
+  );
   if (bundle.itemCatalog?.schemaVersion !== 2) {
     throw new Error("Schema-v4 catalog fixture is missing");
   }
@@ -1151,7 +1198,9 @@ describe("content package governance", () => {
   });
 
   it("rejects a missing or tampered schema-v4 item catalog", async () => {
-    const missing = structuredClone(loadCheckedInBundle());
+    const missing = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     missing.itemCatalog = null;
     const missingValidation = await validateContentBundle(missing);
     expect(missingValidation.errors).toContain(
@@ -1161,7 +1210,9 @@ describe("content package governance", () => {
       "item-catalog.json digest does not match manifest",
     );
 
-    const tampered = structuredClone(loadCheckedInBundle());
+    const tampered = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (tampered.itemCatalog === null) throw new Error("Catalog fixture is missing");
     const lexeme = tampered.itemCatalog.items.find(
       (item) => item.itemType === "lexeme",
@@ -1180,7 +1231,9 @@ describe("content package governance", () => {
   });
 
   it("keeps item-catalog schema versions paired with content schema versions", async () => {
-    const schemaV4 = structuredClone(loadCheckedInBundle());
+    const schemaV4 = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (schemaV4.itemCatalog === null) throw new Error("Catalog fixture is missing");
     schemaV4.itemCatalog.schemaVersion = 1 as never;
     const schemaV4Validation = await validateContentBundle(schemaV4);
@@ -1341,7 +1394,9 @@ describe("content package governance", () => {
   });
 
   it("does not treat plausible strings or drifted source hashes as character release evidence", async () => {
-    const legacy = structuredClone(loadCheckedInBundle());
+    const legacy = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (legacy.itemCatalog?.schemaVersion !== 2) {
       throw new Error("Legacy character catalog fixture is missing");
     }
@@ -1603,7 +1658,9 @@ describe("content package governance", () => {
   });
 
   it("validates schema-v4 knowledge payloads and lesson membership fail-closed", async () => {
-    const bundle = structuredClone(loadCheckedInBundle());
+    const bundle = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (bundle.itemCatalog?.schemaVersion !== 2) {
       throw new Error("Schema-v4 catalog fixture is missing");
     }
@@ -1668,7 +1725,9 @@ describe("content package governance", () => {
   });
 
   it("rejects dangling and cyclic cross-type prerequisites", async () => {
-    const bundle = structuredClone(loadCheckedInBundle());
+    const bundle = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (bundle.itemCatalog?.schemaVersion !== 2) {
       throw new Error("Schema-v4 catalog fixture is missing");
     }
@@ -1715,7 +1774,9 @@ describe("content package governance", () => {
   });
 
   it("rejects a knowledge-item frontier that implies an unreachable lesson", async () => {
-    const bundle = structuredClone(loadCheckedInBundle());
+    const bundle = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (bundle.itemCatalog?.schemaVersion !== 2) {
       throw new Error("Schema-v4 catalog fixture is missing");
     }
@@ -2360,7 +2421,9 @@ describe("content package governance", () => {
   });
 
   it("fails closed before graph traversal above the 200,000-edge reachability bound", () => {
-    const catalog = structuredClone(loadCheckedInBundle().itemCatalog);
+    const catalog = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5").itemCatalog,
+    );
     if (catalog?.schemaVersion !== 2) {
       throw new Error("Reachability edge-limit fixture requires catalog schema v2");
     }
@@ -2417,7 +2480,9 @@ describe("content package governance", () => {
   });
 
   it("fails closed before allocating an index above the 32 MiB reachability bound", () => {
-    const catalog = structuredClone(loadCheckedInBundle().itemCatalog);
+    const catalog = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5").itemCatalog,
+    );
     if (catalog?.schemaVersion !== 2) {
       throw new Error("Reachability index-limit fixture requires catalog schema v2");
     }
@@ -2536,7 +2601,9 @@ describe("content package governance", () => {
   );
 
   it("matches a 10,000-lesson item and runtime forward chain without quadratic closure scans", async () => {
-    const bundle = structuredClone(loadCheckedInBundle());
+    const bundle = structuredClone(
+      loadCheckedInBundle("foundation-2026.07.5"),
+    );
     if (bundle.itemCatalog?.schemaVersion !== 2) {
       throw new Error("Matched lesson stress fixture requires catalog schema v2");
     }

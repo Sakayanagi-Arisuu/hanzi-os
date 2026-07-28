@@ -1,0 +1,822 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "foundation-2026.07.6",
+  "vocabulary": [
+    {
+      "id": "bu",
+      "simplified": "不",
+      "traditional": "不",
+      "pinyin": "bù",
+      "pinyinNumbered": "bu4",
+      "meaning": "không",
+      "partOfSpeech": "phó từ",
+      "example": "我不是老师。",
+      "examplePinyin": "Wǒ bú shì lǎoshī.",
+      "exampleMeaning": "Tôi không phải giáo viên.",
+      "hsk": 1,
+      "tags": [
+        "phủ định",
+        "ngữ pháp"
+      ]
+    },
+    {
+      "id": "cha",
+      "simplified": "茶",
+      "traditional": "茶",
+      "pinyin": "chá",
+      "pinyinNumbered": "cha2",
+      "meaning": "trà",
+      "partOfSpeech": "danh từ",
+      "example": "我喜欢喝茶。",
+      "examplePinyin": "Wǒ xǐhuan hē chá.",
+      "exampleMeaning": "Tôi thích uống trà.",
+      "hsk": 1,
+      "tags": [
+        "ăn uống",
+        "văn hóa"
+      ]
+    },
+    {
+      "id": "chi",
+      "simplified": "吃",
+      "traditional": "吃",
+      "pinyin": "chī",
+      "pinyinNumbered": "chi1",
+      "meaning": "ăn",
+      "partOfSpeech": "động từ",
+      "example": "我吃米饭。",
+      "examplePinyin": "Wǒ chī mǐfàn.",
+      "exampleMeaning": "Tôi ăn cơm.",
+      "hsk": 1,
+      "tags": [
+        "ăn uống",
+        "động từ"
+      ]
+    },
+    {
+      "id": "er",
+      "simplified": "二",
+      "traditional": "二",
+      "pinyin": "èr",
+      "pinyinNumbered": "er4",
+      "meaning": "hai",
+      "partOfSpeech": "số từ",
+      "example": "二月",
+      "examplePinyin": "èryuè",
+      "exampleMeaning": "tháng hai",
+      "hsk": 1,
+      "tags": [
+        "số đếm",
+        "thời gian"
+      ]
+    },
+    {
+      "id": "hao",
+      "simplified": "好",
+      "traditional": "好",
+      "pinyin": "hǎo",
+      "pinyinNumbered": "hao3",
+      "meaning": "tốt, khỏe",
+      "partOfSpeech": "tính từ",
+      "example": "我很好。",
+      "examplePinyin": "Wǒ hěn hǎo.",
+      "exampleMeaning": "Tôi rất khỏe.",
+      "hsk": 1,
+      "tags": [
+        "chào hỏi",
+        "trạng thái"
+      ]
+    },
+    {
+      "id": "he",
+      "simplified": "喝",
+      "traditional": "喝",
+      "pinyin": "hē",
+      "pinyinNumbered": "he1",
+      "meaning": "uống",
+      "partOfSpeech": "động từ",
+      "example": "你喝茶吗？",
+      "examplePinyin": "Nǐ hē chá ma?",
+      "exampleMeaning": "Bạn uống trà không?",
+      "hsk": 1,
+      "tags": [
+        "ăn uống",
+        "động từ"
+      ]
+    },
+    {
+      "id": "jia",
+      "simplified": "家",
+      "traditional": "家",
+      "pinyin": "jiā",
+      "pinyinNumbered": "jia1",
+      "meaning": "nhà, gia đình",
+      "partOfSpeech": "danh từ",
+      "example": "我家有四个人。",
+      "examplePinyin": "Wǒ jiā yǒu sì ge rén.",
+      "exampleMeaning": "Nhà tôi có bốn người.",
+      "hsk": 1,
+      "tags": [
+        "gia đình",
+        "địa điểm"
+      ]
+    },
+    {
+      "id": "jinri",
+      "simplified": "今天",
+      "traditional": "今天",
+      "pinyin": "jīntiān",
+      "pinyinNumbered": "jin1tian1",
+      "meaning": "hôm nay",
+      "partOfSpeech": "danh từ thời gian",
+      "example": "今天天气很好。",
+      "examplePinyin": "Jīntiān tiānqì hěn hǎo.",
+      "exampleMeaning": "Hôm nay thời tiết rất đẹp.",
+      "hsk": 1,
+      "tags": [
+        "thời gian",
+        "hằng ngày"
+      ]
+    },
+    {
+      "id": "kan",
+      "simplified": "看",
+      "traditional": "看",
+      "pinyin": "kàn",
+      "pinyinNumbered": "kan4",
+      "meaning": "nhìn, xem, đọc",
+      "partOfSpeech": "động từ",
+      "example": "我看中文书。",
+      "examplePinyin": "Wǒ kàn Zhōngwén shū.",
+      "exampleMeaning": "Tôi đọc sách tiếng Trung.",
+      "hsk": 1,
+      "tags": [
+        "hoạt động",
+        "học tập"
+      ]
+    },
+    {
+      "id": "laoshi",
+      "simplified": "老师",
+      "traditional": "老師",
+      "pinyin": "lǎoshī",
+      "pinyinNumbered": "lao3shi1",
+      "meaning": "giáo viên",
+      "partOfSpeech": "danh từ",
+      "example": "王老师，你好。",
+      "examplePinyin": "Wáng lǎoshī, nǐ hǎo.",
+      "exampleMeaning": "Thầy Vương, xin chào.",
+      "hsk": 1,
+      "tags": [
+        "trường học",
+        "xưng hô"
+      ]
+    },
+    {
+      "id": "ma",
+      "simplified": "吗",
+      "traditional": "嗎",
+      "pinyin": "ma",
+      "pinyinNumbered": "ma5",
+      "meaning": "trợ từ nghi vấn",
+      "partOfSpeech": "trợ từ",
+      "example": "你好吗？",
+      "examplePinyin": "Nǐ hǎo ma?",
+      "exampleMeaning": "Bạn khỏe không?",
+      "hsk": 1,
+      "tags": [
+        "ngữ pháp",
+        "câu hỏi"
+      ]
+    },
+    {
+      "id": "ni",
+      "simplified": "你",
+      "traditional": "你",
+      "pinyin": "nǐ",
+      "pinyinNumbered": "ni3",
+      "meaning": "bạn",
+      "partOfSpeech": "đại từ",
+      "example": "你好！",
+      "examplePinyin": "Nǐ hǎo!",
+      "exampleMeaning": "Xin chào!",
+      "hsk": 1,
+      "tags": [
+        "chào hỏi",
+        "đại từ"
+      ]
+    },
+    {
+      "id": "ren",
+      "simplified": "人",
+      "traditional": "人",
+      "pinyin": "rén",
+      "pinyinNumbered": "ren2",
+      "meaning": "người",
+      "partOfSpeech": "danh từ",
+      "example": "中国人",
+      "examplePinyin": "Zhōngguó rén",
+      "exampleMeaning": "người Trung Quốc",
+      "hsk": 1,
+      "tags": [
+        "con người",
+        "quốc gia"
+      ]
+    },
+    {
+      "id": "san",
+      "simplified": "三",
+      "traditional": "三",
+      "pinyin": "sān",
+      "pinyinNumbered": "san1",
+      "meaning": "ba",
+      "partOfSpeech": "số từ",
+      "example": "三个人",
+      "examplePinyin": "sān ge rén",
+      "exampleMeaning": "ba người",
+      "hsk": 1,
+      "tags": [
+        "số đếm"
+      ]
+    },
+    {
+      "id": "shi",
+      "simplified": "是",
+      "traditional": "是",
+      "pinyin": "shì",
+      "pinyinNumbered": "shi4",
+      "meaning": "là",
+      "partOfSpeech": "động từ",
+      "example": "她是老师。",
+      "examplePinyin": "Tā shì lǎoshī.",
+      "exampleMeaning": "Cô ấy là giáo viên.",
+      "hsk": 1,
+      "tags": [
+        "câu cơ bản",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "shu",
+      "simplified": "书",
+      "traditional": "書",
+      "pinyin": "shū",
+      "pinyinNumbered": "shu1",
+      "meaning": "sách",
+      "partOfSpeech": "danh từ",
+      "example": "这是我的书。",
+      "examplePinyin": "Zhè shì wǒ de shū.",
+      "exampleMeaning": "Đây là sách của tôi.",
+      "hsk": 1,
+      "tags": [
+        "đồ vật",
+        "học tập"
+      ]
+    },
+    {
+      "id": "wo",
+      "simplified": "我",
+      "traditional": "我",
+      "pinyin": "wǒ",
+      "pinyinNumbered": "wo3",
+      "meaning": "tôi",
+      "partOfSpeech": "đại từ",
+      "example": "我是学生。",
+      "examplePinyin": "Wǒ shì xuésheng.",
+      "exampleMeaning": "Tôi là học sinh.",
+      "hsk": 1,
+      "tags": [
+        "đại từ",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "xiexie",
+      "simplified": "谢谢",
+      "traditional": "謝謝",
+      "pinyin": "xièxie",
+      "pinyinNumbered": "xie4xie5",
+      "meaning": "cảm ơn",
+      "partOfSpeech": "động từ",
+      "example": "谢谢你。",
+      "examplePinyin": "Xièxie nǐ.",
+      "exampleMeaning": "Cảm ơn bạn.",
+      "hsk": 1,
+      "tags": [
+        "lịch sự",
+        "giao tiếp"
+      ]
+    },
+    {
+      "id": "xuesheng",
+      "simplified": "学生",
+      "traditional": "學生",
+      "pinyin": "xuésheng",
+      "pinyinNumbered": "xue2sheng5",
+      "meaning": "học sinh, sinh viên",
+      "partOfSpeech": "danh từ",
+      "example": "你是学生吗？",
+      "examplePinyin": "Nǐ shì xuésheng ma?",
+      "exampleMeaning": "Bạn là sinh viên phải không?",
+      "hsk": 1,
+      "tags": [
+        "trường học",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "yi",
+      "simplified": "一",
+      "traditional": "一",
+      "pinyin": "yī",
+      "pinyinNumbered": "yi1",
+      "meaning": "một",
+      "partOfSpeech": "số từ",
+      "example": "一个人",
+      "examplePinyin": "yí ge rén",
+      "exampleMeaning": "một người",
+      "hsk": 1,
+      "tags": [
+        "số đếm"
+      ]
+    },
+    {
+      "id": "you",
+      "simplified": "有",
+      "traditional": "有",
+      "pinyin": "yǒu",
+      "pinyinNumbered": "you3",
+      "meaning": "có",
+      "partOfSpeech": "động từ",
+      "example": "你有时间吗？",
+      "examplePinyin": "Nǐ yǒu shíjiān ma?",
+      "exampleMeaning": "Bạn có thời gian không?",
+      "hsk": 1,
+      "tags": [
+        "tồn tại",
+        "ngữ pháp"
+      ]
+    },
+    {
+      "id": "yuenan",
+      "simplified": "越南",
+      "traditional": "越南",
+      "pinyin": "Yuènán",
+      "pinyinNumbered": "Yue4nan2",
+      "meaning": "Việt Nam",
+      "partOfSpeech": "danh từ riêng",
+      "example": "我是越南人。",
+      "examplePinyin": "Wǒ shì Yuènán rén.",
+      "exampleMeaning": "Tôi là người Việt Nam.",
+      "hsk": 1,
+      "tags": [
+        "quốc gia",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "zaijian",
+      "simplified": "再见",
+      "traditional": "再見",
+      "pinyin": "zàijiàn",
+      "pinyinNumbered": "zai4jian4",
+      "meaning": "tạm biệt",
+      "partOfSpeech": "cụm từ",
+      "example": "老师，再见！",
+      "examplePinyin": "Lǎoshī, zàijiàn!",
+      "exampleMeaning": "Tạm biệt thầy/cô!",
+      "hsk": 1,
+      "tags": [
+        "chào hỏi",
+        "giao tiếp"
+      ]
+    },
+    {
+      "id": "zhongguo",
+      "simplified": "中国",
+      "traditional": "中國",
+      "pinyin": "Zhōngguó",
+      "pinyinNumbered": "Zhong1guo2",
+      "meaning": "Trung Quốc",
+      "partOfSpeech": "danh từ riêng",
+      "example": "我来自中国。",
+      "examplePinyin": "Wǒ láizì Zhōngguó.",
+      "exampleMeaning": "Tôi đến từ Trung Quốc.",
+      "hsk": 1,
+      "tags": [
+        "quốc gia",
+        "giới thiệu"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "boot-1",
+      "unitId": "boot",
+      "title": "Bốn thanh điệu",
+      "chineseTitle": "四声",
+      "objective": "Nghe và nhận diện đường cao độ của bốn thanh.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "pronunciation",
+        "listening"
+      ],
+      "wordIds": [
+        "yi",
+        "ren",
+        "ni",
+        "er"
+      ],
+      "prerequisiteIds": [],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "boot-2",
+      "unitId": "boot",
+      "title": "Xin chào đầu tiên",
+      "chineseTitle": "你好",
+      "objective": "Nhận diện lời chào và đại từ ngôi một, ngôi hai.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "wo"
+      ],
+      "prerequisiteIds": [
+        "boot-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "boot-3",
+      "unitId": "boot",
+      "title": "Âm đầu khó",
+      "chineseTitle": "声母",
+      "objective": "Phân biệt j/q/x, zh/ch/sh và z/c/s.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "pronunciation",
+        "listening"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zhongguo",
+        "chi"
+      ],
+      "prerequisiteIds": [
+        "boot-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "boot-4",
+      "unitId": "boot",
+      "title": "Tone pairs",
+      "chineseTitle": "声调组合",
+      "objective": "Phân biệt thanh từ điển và thanh bề mặt trong cụm hai âm tiết.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "pronunciation",
+        "listening"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "xuesheng",
+        "laoshi"
+      ],
+      "prerequisiteIds": [
+        "boot-3"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "characters-1",
+      "unitId": "characters",
+      "title": "Nét cơ bản",
+      "chineseTitle": "基本笔画",
+      "objective": "Viết ngang, sổ, phẩy, mác đúng hướng.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "writing",
+        "reading"
+      ],
+      "wordIds": [
+        "yi",
+        "ren",
+        "san"
+      ],
+      "prerequisiteIds": [
+        "daily-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "characters-2",
+      "unitId": "characters",
+      "title": "Người và nhà",
+      "chineseTitle": "人和家",
+      "objective": "Nhìn cấu kiện và nhớ ý nghĩa bằng cấu trúc.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "writing",
+        "vocabulary"
+      ],
+      "wordIds": [
+        "ren",
+        "jia",
+        "hao"
+      ],
+      "prerequisiteIds": [
+        "characters-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "daily-1",
+      "unitId": "daily",
+      "title": "Nhà tôi",
+      "chineseTitle": "我的家",
+      "objective": "Nhận diện mẫu 有 để nói số người trong gia đình.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "vocabulary",
+        "grammar",
+        "reading"
+      ],
+      "wordIds": [
+        "jia",
+        "you",
+        "ren",
+        "san"
+      ],
+      "prerequisiteIds": [
+        "survival-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "daily-2",
+      "unitId": "daily",
+      "title": "Ăn và uống",
+      "chineseTitle": "吃饭喝茶",
+      "objective": "Nghe và nhận diện nhu cầu ăn uống cơ bản.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "chi",
+        "he",
+        "cha",
+        "wo"
+      ],
+      "prerequisiteIds": [
+        "daily-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "daily-3",
+      "unitId": "daily",
+      "title": "Hôm nay",
+      "chineseTitle": "今天",
+      "objective": "Đặt thời gian ở đầu câu.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "reading"
+      ],
+      "wordIds": [
+        "jinri",
+        "hao",
+        "kan"
+      ],
+      "prerequisiteIds": [
+        "daily-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "daily-4",
+      "unitId": "daily",
+      "title": "Sách của tôi",
+      "chineseTitle": "我的书",
+      "objective": "Dùng 的 để thể hiện sở hữu.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "writing",
+        "reading"
+      ],
+      "wordIds": [
+        "shu",
+        "kan",
+        "wo"
+      ],
+      "prerequisiteIds": [
+        "daily-3"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "survival-1",
+      "unitId": "survival",
+      "title": "Tôi là sinh viên",
+      "chineseTitle": "我是学生",
+      "objective": "Nhận diện cấu trúc A là B trong lời giới thiệu vai trò.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "reading",
+        "vocabulary"
+      ],
+      "wordIds": [
+        "wo",
+        "shi",
+        "xuesheng",
+        "laoshi"
+      ],
+      "prerequisiteIds": [
+        "boot-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "survival-2",
+      "unitId": "survival",
+      "title": "Bạn khỏe không?",
+      "chineseTitle": "你好吗",
+      "objective": "Nhận diện 吗 trong câu hỏi có/không.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "listening",
+        "reading"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "ma",
+        "bu"
+      ],
+      "prerequisiteIds": [
+        "survival-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "survival-3",
+      "unitId": "survival",
+      "title": "Cảm ơn và tạm biệt",
+      "chineseTitle": "谢谢，再见",
+      "objective": "Chọn lời cảm ơn và kết thúc lượt thoại phù hợp.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zaijian",
+        "ni"
+      ],
+      "prerequisiteIds": [
+        "survival-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    },
+    {
+      "id": "survival-4",
+      "unitId": "survival",
+      "title": "Tôi là người Việt Nam",
+      "chineseTitle": "我是越南人",
+      "objective": "Đọc và nhận diện mẫu giới thiệu quốc tịch.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "vocabulary",
+        "listening",
+        "reading"
+      ],
+      "wordIds": [
+        "ren",
+        "zhongguo",
+        "yuenan",
+        "shi"
+      ],
+      "prerequisiteIds": [
+        "survival-3"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    }
+  ],
+  "stories": [
+    {
+      "id": "first-day",
+      "level": "Closed alpha · foundation slice",
+      "title": "Ngày đầu ở lớp tiếng Trung",
+      "chineseTitle": "中文课的第一天",
+      "summary": "Một cuộc gặp ngắn giữa Minh và giáo viên Vương.",
+      "estimatedMinutes": 4,
+      "sentences": [
+        {
+          "chinese": "今天是中文课的第一天。",
+          "pinyin": "Jīntiān shì Zhōngwén kè de dì-yī tiān.",
+          "translation": "Hôm nay là ngày đầu tiên của lớp tiếng Trung.",
+          "wordIds": [
+            "jinri",
+            "shi",
+            "yi"
+          ]
+        },
+        {
+          "chinese": "王老师说：“你好！你是学生吗？”",
+          "pinyin": "Wáng lǎoshī shuō: “Nǐ hǎo! Nǐ shì xuésheng ma?”",
+          "translation": "Giáo viên Vương nói: “Xin chào! Bạn là sinh viên phải không?”",
+          "wordIds": [
+            "laoshi",
+            "ni",
+            "hao",
+            "shi",
+            "xuesheng",
+            "ma"
+          ]
+        },
+        {
+          "chinese": "我说：“是，我是越南人。”",
+          "pinyin": "Wǒ shuō: “Shì, wǒ shì Yuènán rén.”",
+          "translation": "Tôi nói: “Vâng, tôi là người Việt Nam.”",
+          "wordIds": [
+            "wo",
+            "shi",
+            "yuenan",
+            "ren"
+          ]
+        },
+        {
+          "chinese": "老师给我一本书，我说：“谢谢老师！”",
+          "pinyin": "Lǎoshī gěi wǒ yì běn shū, wǒ shuō: “Xièxie lǎoshī!”",
+          "translation": "Giáo viên đưa tôi một quyển sách, tôi nói: “Cảm ơn thầy/cô!”",
+          "wordIds": [
+            "laoshi",
+            "wo",
+            "yi",
+            "shu",
+            "xiexie"
+          ]
+        }
+      ],
+      "comprehension": [
+        {
+          "id": "first-day-main-idea",
+          "prompt": "Trong ngày đầu đến lớp, người kể đã làm gì?",
+          "options": [
+            "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+            "Hỏi đường đến trường rồi mua một quyển sách.",
+            "Giới thiệu mình là giáo viên tiếng Trung."
+          ],
+          "correctAnswer": "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+          "explanation": "Người kể trả lời mình là người Việt Nam, nhận sách rồi nói 谢谢老师."
+        }
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.6"
+    }
+  ]
+}

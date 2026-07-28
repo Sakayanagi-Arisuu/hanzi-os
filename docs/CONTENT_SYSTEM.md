@@ -6,8 +6,9 @@ Nội dung không được lưu như HTML tự do. Mỗi đơn vị phải có m
 
 ## Lát triển khai hiện tại
 
-`foundation-2026.07.5` là package schema v4 đầu tiên, dùng item catalog v2. Full
-authoring inventory có 74 payload: 24 lexeme, 24 lesson, 1 graded text, 5
+`foundation-2026.07.6` là candidate schema v6 / item catalog v4 hiện tại, kế
+thừa inventory từ package schema v4 đầu tiên `.07.5`. Full authoring inventory
+có 74 payload: 24 lexeme, 24 lesson, 1 graded text, 5
 grammar pattern, 5 pronunciation target, 7 character và 8 communicative
 function. Lesson khai báo `knowledgeItems` tường minh; lexeme membership phải
 khớp chính xác `wordIds`. Typed prerequisite được kiểm dangling reference,
@@ -24,9 +25,10 @@ khi character source/stroke artifact được ghép lại nguyên vẹn; audio c
 rebind khi transcript vẫn khớp canonical target text.
 
 Đây vẫn chỉ là authoring envelope kỹ thuật, chưa phải CMS hoàn chỉnh. 25 item
-mới đều ở state `review`, owner/license đều `null`; character metadata về bộ,
-nét, cấu kiện và stroke asset cố ý để trống cho tới khi có nguồn và linguistic
-review thật. Package không có approval, claim A0/HSK hay audio. Release gate xét
+mới đều ở state `review`, owner/license đều `null`. Bảy character đã có radical,
+IDS cấu trúc/cấu kiện và stroke asset source-addressed trong package bất biến,
+nhưng chưa có legal/license decision hay native linguistic review. Package
+không có approval, claim A0/HSK hay audio. Release gate xét
 transitive dependency closure nên không thể dùng lesson đã phát hành để lách
 review của knowledge item. Production tiếp tục fail closed.
 
@@ -37,7 +39,7 @@ target payload, normalized transcript, timestamp segments, speaker evidence,
 rights, media metadata và file hash. Bytes được copy package-local rồi inspect
 và validate lại trước registry mutation. Catalog schema cũ vẫn đọc được để giữ
 lịch sử, nhưng audio legacy/uninspected không bao giờ thỏa production audio
-gate. Đây chỉ là workflow kỹ thuật: `foundation-2026.07.5` vẫn có audio catalog
+gate. Đây chỉ là workflow kỹ thuật: `foundation-2026.07.6` vẫn có audio catalog
 rỗng và không có evidence hay approval thật.
 
 Đường `content:character:import` tương tự tạo candidate content schema v6 /
@@ -68,8 +70,9 @@ và runtime graph khớp 10.000 lesson không còn kích hoạt closure scan b�
 Characters UI hiện không dùng vocabulary đang phát hành để suy diễn kho Hán tự
 hay hiển thị radical/mnemonic hard-code. Cho tới khi runtime projection có
 character item đã duyệt, màn hình chỉ hiển thị trạng thái chưa có dữ liệu.
-Public build cũng không copy stroke JSON. `foundation-2026.07.5` vẫn chưa có
-source snapshot, review hoặc character candidate thật.
+Public build cũng không copy stroke JSON. `foundation-2026.07.6` đã có source
+snapshot và character candidate thật, nhưng chưa có owner, package-level license
+approval, native review, promotion hay runtime character projection.
 
 ## Knowledge item
 

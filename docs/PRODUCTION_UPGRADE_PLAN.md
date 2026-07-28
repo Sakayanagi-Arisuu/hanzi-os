@@ -267,11 +267,15 @@ reset invalidation with an explicit terminal reason and the restore rehearsal
   content and governance metadata are excluded. Every registered package keeps
   exact source snapshots and the mandatory gate validates history plus lineage.
 
-This remains a technical authoring envelope, not completed WS2. The candidate
-  is unpromoted with zero coverage claims, no owner/license/native review and no
-  audio. The 25 new knowledge items are source-derived `review` candidates, not
-  publishable Mandarin content; character stroke/radical metadata, audio
-  assets/review and a multi-user CMS are still absent. A bounded schema-v5
+This remains a technical authoring envelope, not completed WS2. Candidate
+  `foundation-2026.07.6` is unpromoted with zero coverage claims, no
+  owner/package-license/native review and no audio. The 25 new knowledge items
+  are `review` candidates, not publishable Mandarin content. Its seven
+  character items now bind immutable radical, IDS and byte-inspected stroke
+  records; the CJKVI/CHISE license identity remains explicitly pending legal
+  review, every component role is neutral `graphic`, and no human approval was
+  fabricated. Audio assets/review and a multi-user CMS are still absent. A
+  bounded schema-v5
   importer now validates package-local canonical WAV bytes, duration,
   deterministic transcript alignment, speaker evidence and rights before an
   atomic candidate handoff; legacy/uninspected audio is release-ineligible.
@@ -288,10 +292,8 @@ This remains a technical authoring envelope, not completed WS2. The candidate
   uses a bounded reachability index; a matched 10,000-lesson item/runtime graph
   with a knowledge-item frontier is covered without quadratic closure scans. The
   Characters UI no longer promotes vocabulary-derived or hard-coded character
-  claims, and no stroke
-  geometry is copied to the public build yet. No real audio, character source
-  candidate or human evidence was fabricated or added to the current
-  candidate.
+  claims, and no stroke geometry is copied to the public build yet. No real
+  audio or human evidence was fabricated or added to the current candidate.
   The real assessment bank therefore remains unissuable. No pilot,
   calibration, item-quality dashboard, native audio, provider speech pipeline
   or 100-person alpha evidence exists; the speech adapter stays disabled and

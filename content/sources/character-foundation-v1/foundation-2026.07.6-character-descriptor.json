@@ -1,0 +1,410 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "foundation-2026.07.6",
+  "characters": [
+    {
+      "targetItemKey": "character:u4e00",
+      "expectedTargetPayloadSha256": "sha256:31be96c14170ef69143bcd2a7316a8f13caa9fea9fb143e35405f386bef5a298",
+      "decompositionKind": "independent",
+      "radical": {
+        "glyph": "一",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [],
+      "structure": {
+        "kind": "independent",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "一",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L41",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u4e00.json",
+          "expectedFileSha256": "sha256:e63b87d303444e9bef49efb035b6dfa5594d33104655c2d153ff44bf82ea90e5"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "一",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L51",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u4e00.json",
+          "expectedFileSha256": "sha256:650b17819c1725d73ad8ae948924cbdf74e16c3e426b290aff9c47f3715ebcfc"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "一",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E4%B8%80.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/一.json",
+          "expectedFileSha256": "sha256:ed728673d86fb9aa559c5b150e59ffbee666b085d4a55597c524079a91ebc8ce"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    },
+    {
+      "targetItemKey": "character:u4e8c",
+      "expectedTargetPayloadSha256": "sha256:75ae285ab5174a314abdf57fc19d199c3428cf41753036008305a9fbd37c8364",
+      "decompositionKind": "compound",
+      "radical": {
+        "glyph": "二",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [
+        {
+          "componentId": "top-u4e00",
+          "glyph": "一",
+          "role": "graphic",
+          "position": "top",
+          "sourceIds": ["cjkvi-ids"]
+        },
+        {
+          "componentId": "bottom-u4e00",
+          "glyph": "一",
+          "role": "graphic",
+          "position": "bottom",
+          "sourceIds": ["cjkvi-ids"]
+        }
+      ],
+      "structure": {
+        "kind": "top-bottom",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "二",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L136",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u4e8c.json",
+          "expectedFileSha256": "sha256:cde45ba560cde4603256fd5b8ed50198cf19cb3de3ba1bcf22dd61ba3d424b9c"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "二",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L191",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u4e8c.json",
+          "expectedFileSha256": "sha256:0dd734d531932a6e103ed0ee66f2560a9ee1d0518818c57bdabe20804a747e28"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "二",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E4%BA%8C.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/二.json",
+          "expectedFileSha256": "sha256:24d4225b8514e5b169f44230ba38169f63e9d9875f31b478457841114dbe1faa"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    },
+    {
+      "targetItemKey": "character:u4e09",
+      "expectedTargetPayloadSha256": "sha256:e30d0d04ffef4aa14298d7a12c59457ffc850e4ea91d3fff9d9ef5b6ae800822",
+      "decompositionKind": "compound",
+      "radical": {
+        "glyph": "一",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [
+        {
+          "componentId": "top-u4e00",
+          "glyph": "一",
+          "role": "graphic",
+          "position": "top",
+          "sourceIds": ["cjkvi-ids"]
+        },
+        {
+          "componentId": "bottom-u4e8c",
+          "glyph": "二",
+          "role": "graphic",
+          "position": "bottom",
+          "sourceIds": ["cjkvi-ids"]
+        }
+      ],
+      "structure": {
+        "kind": "top-bottom",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "三",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L48",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u4e09.json",
+          "expectedFileSha256": "sha256:943a6088a39c7d2c22909edad62026138dd7bc00734a30456370bbf5ea19efc2"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "三",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L60",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u4e09.json",
+          "expectedFileSha256": "sha256:cf8b65cf191630e895864cc3c95257e97e4dabbdece46d66c884a483dd0c81c0"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "三",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E4%B8%89.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/三.json",
+          "expectedFileSha256": "sha256:917763e15ac14a5ece5067913da4156f3060f33ae0e172d3533275a494cec99c"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    },
+    {
+      "targetItemKey": "character:u4eba",
+      "expectedTargetPayloadSha256": "sha256:9aa75237ec56bd8a2eb42774962e94d290c2e5c9153fc42e1299606f1aa1882d",
+      "decompositionKind": "independent",
+      "radical": {
+        "glyph": "人",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [],
+      "structure": {
+        "kind": "independent",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "人",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L169",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u4eba.json",
+          "expectedFileSha256": "sha256:1f1918754c58700c374444f9e1b169761e77dd48fe4a94e0801f4f974e6a0153"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "人",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L237",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u4eba.json",
+          "expectedFileSha256": "sha256:5ffcbd5446e39f67d9c9fbe72c2ac8b0bab5d1312bd1f37ca734bc7571798431"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "人",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E4%BA%BA.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/人.json",
+          "expectedFileSha256": "sha256:18ffb9fb727576b0c3e7dc44914be7ffd43164de9ba121710824b83f27bd3bb1"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    },
+    {
+      "targetItemKey": "character:u4f60",
+      "expectedTargetPayloadSha256": "sha256:7fe26435d7f899f37df64fbf554e82ad14d90b63324d586ba14d70141b7d0b8a",
+      "decompositionKind": "compound",
+      "radical": {
+        "glyph": "亻",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [
+        {
+          "componentId": "left-u4ebb",
+          "glyph": "亻",
+          "role": "graphic",
+          "position": "left",
+          "sourceIds": ["cjkvi-ids"]
+        },
+        {
+          "componentId": "right-u5c14",
+          "glyph": "尔",
+          "role": "graphic",
+          "position": "right",
+          "sourceIds": ["cjkvi-ids"]
+        }
+      ],
+      "structure": {
+        "kind": "left-right",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "你",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L273",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u4f60.json",
+          "expectedFileSha256": "sha256:b04d68f8081895fc8e1fcacaae529d7c2df6ea5e5938e320d0d1edb991cf8c41"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "你",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L403",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u4f60.json",
+          "expectedFileSha256": "sha256:b9e483a284e4bc52943f7e729ea8b979c3453b2e69b1c9f9e764b8370397c46d"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "你",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E4%BD%A0.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/你.json",
+          "expectedFileSha256": "sha256:21057a26cb5c1753ea710d503b759cc17948263501ffd76ef1737cb2b5d5f966"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    },
+    {
+      "targetItemKey": "character:u597d",
+      "expectedTargetPayloadSha256": "sha256:28f2c31d882455b05e7bd14841fa1d21fc8923b5cc47a2262d75b33f851a03ba",
+      "decompositionKind": "compound",
+      "radical": {
+        "glyph": "女",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [
+        {
+          "componentId": "left-u5973",
+          "glyph": "女",
+          "role": "graphic",
+          "position": "left",
+          "sourceIds": ["cjkvi-ids"]
+        },
+        {
+          "componentId": "right-u5b50",
+          "glyph": "子",
+          "role": "graphic",
+          "position": "right",
+          "sourceIds": ["cjkvi-ids"]
+        }
+      ],
+      "structure": {
+        "kind": "left-right",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "好",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L1595",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u597d.json",
+          "expectedFileSha256": "sha256:f813915818637c1dd7e9aa7b40d64e5de5f74198b4a688a7ce3bd143e14d95b4"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "好",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L2992",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u597d.json",
+          "expectedFileSha256": "sha256:d45c57fa53e098bf1d2e6b101a908a85d594e9c12e90c81678daa4279044843b"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "好",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E5%A5%BD.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/好.json",
+          "expectedFileSha256": "sha256:c9f085fe6519e2b2c9653c7edf51bdbc78339fcc0b10f94c1f33c7f4f4d4a3a5"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    },
+    {
+      "targetItemKey": "character:u5bb6",
+      "expectedTargetPayloadSha256": "sha256:c9e31ca92a1ca4f09c4da4d57926023d09c6661b10c91c518a994a96c9517427",
+      "decompositionKind": "compound",
+      "radical": {
+        "glyph": "宀",
+        "sourceIds": ["makemeahanzi-dictionary"]
+      },
+      "components": [
+        {
+          "componentId": "top-u5b80",
+          "glyph": "宀",
+          "role": "graphic",
+          "position": "top",
+          "sourceIds": ["cjkvi-ids"]
+        },
+        {
+          "componentId": "bottom-u8c55",
+          "glyph": "豕",
+          "role": "graphic",
+          "position": "bottom",
+          "sourceIds": ["cjkvi-ids"]
+        }
+      ],
+      "structure": {
+        "kind": "top-bottom",
+        "sourceIds": ["cjkvi-ids"]
+      },
+      "sources": [
+        {
+          "sourceId": "makemeahanzi-dictionary",
+          "kind": "linguistic-reference",
+          "recordKey": "家",
+          "citationRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/dictionary.txt#L1811",
+          "licenseId": "LGPL-3.0-or-later",
+          "licenseEvidenceRef": "https://github.com/skishore/makemeahanzi/blob/618dbab8a8ddefb958763c8b4afbaa741a4460de/COPYING",
+          "sourceFile": "content/sources/character-foundation-v1/makemeahanzi/u5bb6.json",
+          "expectedFileSha256": "sha256:ce1736f3e3ce9793e396bd1eb634053392e277a9613a81c7521328a2c383bb97"
+        },
+        {
+          "sourceId": "cjkvi-ids",
+          "kind": "linguistic-reference",
+          "recordKey": "家",
+          "citationRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/ids.txt#L3561",
+          "licenseId": "CHISE-IDS-terms",
+          "licenseEvidenceRef": "https://github.com/cjkvi/cjkvi-ids/blob/86b4d16159f0079437870408f0ca186e529015db/README.md#licenses",
+          "sourceFile": "content/sources/character-foundation-v1/cjkvi-ids/u5bb6.json",
+          "expectedFileSha256": "sha256:5f2252a142721f6477a125048fa2f410d0b65eb744dea1c369b8e63d3c11331a"
+        },
+        {
+          "sourceId": "hanzi-writer-data",
+          "kind": "stroke-dataset",
+          "recordKey": "家",
+          "citationRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/data/%E5%AE%B6.json",
+          "licenseId": "Arphic-Public-License",
+          "licenseEvidenceRef": "https://github.com/chanind/hanzi-writer-data/blob/ad1a9905cada18d07630acc27d438b070d753ec0/ARPHICPL.TXT",
+          "sourceFile": "node_modules/hanzi-writer-data/家.json",
+          "expectedFileSha256": "sha256:390ad42ee60491df2ae9ddfd59358d4d6ff69208ccdac902aae0431b7e5f9aef"
+        }
+      ],
+      "strokeSourceId": "hanzi-writer-data"
+    }
+  ]
+}

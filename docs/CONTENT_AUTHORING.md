@@ -6,11 +6,13 @@
 chỉnh và không tự tạo nội dung tiếng Trung, owner, license, audio, approval bản
 ngữ hay coverage claim.
 
-Candidate hiện tại là `foundation-2026.07.5`, schema v4 / item catalog v2:
+Candidate hiện tại là `foundation-2026.07.6`, schema v6 / item catalog v4:
 
 - 24 lexeme, 24 lesson, 1 graded text, 5 grammar, 5 pronunciation, 7 character
   và 8 communicative-function item có canonical payload + hash;
 - 25 knowledge item mới ở state `review`, không có owner/license hay approval;
+- 7 character item bind source-addressed radical, IDS và inspected stroke bytes,
+  nhưng vẫn chờ legal/license và native linguistic review;
 - runtime chỉ đọc sanitized catalog gồm 24 lexeme, 14 lesson đã phát hành và 1
   graded text; draft/review/governance payload không đi vào client;
 - owner/license của mọi item là `null`, review envelope rỗng;
@@ -54,24 +56,24 @@ lineage và live source của package runtime-bound.
 
 ```powershell
 node scripts/content/validate.mjs
-node scripts/content/hash.mjs foundation-2026.07.5
-node scripts/content/report.mjs foundation-2026.07.5
-node scripts/content/verify-release.mjs foundation-2026.07.5 --channel closed-alpha
-node scripts/content/promote.mjs foundation-2026.07.5 --channel closed-alpha
+node scripts/content/hash.mjs foundation-2026.07.6
+node scripts/content/report.mjs foundation-2026.07.6
+node scripts/content/verify-release.mjs foundation-2026.07.6 --channel closed-alpha
+node scripts/content/promote.mjs foundation-2026.07.6 --channel closed-alpha
 ```
 
 `validate` trả `0` chỉ khi mọi package hợp lệ. `report` vẫn trả `0` khi có
 release blocker. `verify-release` trả `1` cho candidate hiện tại. `promote`
 không có `--write` chỉ dry-run policy.
 
-## Tạo candidate schema v4
+## Tạo candidate kế tiếp
 
 Tạo catalog draft từ full authoring inventory của package nguồn. Tooling tái
 dựng core items từ immutable governance catalog; không dùng sanitized runtime,
 vì runtime cố ý không chứa 10 lesson draft:
 
 ```powershell
-npm run content:catalog:export -- --from foundation-2026.07.5 --content-version foundation-2026.08.1 --catalog-schema-version 2 --output content/drafts/foundation-2026.08.1-item-catalog.json --write
+npm run content:catalog:export -- --from foundation-2026.07.6 --content-version foundation-2026.08.1 --catalog-schema-version 4 --output content/drafts/foundation-2026.08.1-item-catalog.json --write
 ```
 
 Exporter chỉ được ghi dưới `content/drafts`, không overwrite file và cố ý tạo
@@ -95,7 +97,7 @@ Trước `new-version`, đổi đồng thời:
 Nếu runtime IDs/graph không đổi:
 
 ```powershell
-node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.5 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 4 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --confirm-runtime-ids-unchanged true --write
+node scripts/content/new-version.mjs foundation-2026.08.1 --from foundation-2026.07.6 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 6 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --confirm-runtime-ids-unchanged true --write
 ```
 
 Nếu IDs, membership, state hoặc graph đổi, cung cấp thêm
@@ -179,7 +181,7 @@ Sau khi đổi runtime binding/config sang version đích giống flow `new-vers
 chạy:
 
 ```powershell
-npm run content:audio:import -- foundation-2026.08.1 --from foundation-2026.07.5 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 5 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --audio-descriptor-file content/drafts/foundation-2026.08.1-audio.json --audio-owner-id AUDIO_OWNER_ID --audio-license-id AUDIO_LICENSE_ID --audio-evidence AUDIO_EVIDENCE_REF --confirm-runtime-ids-unchanged true --write
+npm run content:audio:import -- foundation-2026.08.1 --from foundation-2026.07.6 --created-at 2026-08-01T00:00:00.000Z --audience closed-alpha --content-schema-version 6 --item-catalog-file content/drafts/foundation-2026.08.1-item-catalog.json --audio-descriptor-file content/drafts/foundation-2026.08.1-audio.json --audio-owner-id AUDIO_OWNER_ID --audio-license-id AUDIO_LICENSE_ID --audio-evidence AUDIO_EVIDENCE_REF --confirm-runtime-ids-unchanged true --write
 ```
 
 Importer validate history trước mutation, kiểm hash/codec từ bytes thay vì tên
@@ -207,6 +209,12 @@ text của character không đổi, audio được rebind sang payload hash mớ
 Mọi package control file và artifact kế thừa được đọc như regular file bên
 trong package thật, không đi qua symlink/junction, rồi kiểm lại identity sau
 khi capture trước atomic handoff.
+
+Lần import thật đầu tiên được lưu để audit tại
+`content/sources/character-foundation-v1/`. `PROVENANCE.md` pin revision,
+license evidence và transformation boundary; descriptor `.07.6` bind exact
+target/source hash. Đây là reproduction evidence, không phải approval và không
+được sửa để hồi tố package bất biến `.07.6`.
 
 ## Review item có scope
 
@@ -253,8 +261,9 @@ audio cho released core content.
 ## Giới hạn còn chủ ý
 
 - Grammar, pronunciation, character và communicative function đã có envelope
-  typed nhưng mới là source-derived review candidates, chưa phải nội dung đã
-  được linguistic review hay phát hành.
+  typed nhưng mới là review candidates, chưa phải nội dung đã được linguistic
+  review hay phát hành. Character source records trong `.07.6` không thay thế
+  legal/license decision hoặc native review.
 - `new-version` bảo toàn audio/character artifact nhưng không được dùng để thay
   asset hoặc thay sourced character analysis. Chưa có workflow retirement
   audio; xóa một target đang được bind sẽ fail closed.

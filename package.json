@@ -15,7 +15,7 @@
     "lint": "eslint . --max-warnings=0",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:content": "vitest run src/data/assessment.test.ts src/data/contentValidation.test.ts src/data/releasePolicy.test.ts src/data/productionReadiness.test.ts src/content/packageGovernance.test.ts src/content/currentPackage.test.ts src/content/contentCommand.test.ts",
+    "test:content": "vitest run src/data/assessment.test.ts src/data/contentValidation.test.ts src/data/releasePolicy.test.ts src/data/productionReadiness.test.ts src/content/packageGovernance.test.ts src/content/currentPackage.test.ts src/content/contentCommand.test.ts src/content/characterSourceProvenance.test.ts",
     "content:hash": "node scripts/content/hash.mjs",
     "content:catalog:export": "tsx scripts/content/export-item-catalog.ts",
     "content:validate": "node scripts/content/validate.mjs",

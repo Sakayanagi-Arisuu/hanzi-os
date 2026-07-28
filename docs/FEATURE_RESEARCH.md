@@ -66,7 +66,7 @@ HANZI.OS được định vị ở giao điểm của:
 | Operations | registry/version/hash content, readiness matrix, health checks và restore rehearsal cục bộ cho 12 migration `0000`–`0011`/graph 25 bảng | hosted CI/alerts/backup-restore, admin, CMS, moderation, support, experimentation |
 
 “Hiện có” trong bảng chỉ mô tả mã nguồn và phạm vi regression cục bộ, không xác
-nhận một dịch vụ hosted đang hoạt động. Ứng viên `foundation-2026.07.5` chưa
+nhận một dịch vụ hosted đang hoạt động. Ứng viên `foundation-2026.07.6` chưa
 được promote, chưa có linguistic approval và không được tính là coverage đã
 phát hành.
 

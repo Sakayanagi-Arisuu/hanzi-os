@@ -47,6 +47,10 @@ type HanziDataManifest = {
   schemaVersion: number;
   package: string;
   packageVersion: string;
+  packageIntegrity: string;
+  sourceRevision: string;
+  upstreamRevision: string;
+  licenseFileSha256: string;
   characters: string[];
 };
 
@@ -825,6 +829,15 @@ describe("production readiness manifest", () => {
       join(repositoryRoot, "node_modules", hanziDataManifest.package, "package.json"),
       "utf8",
     )) as { version: string };
+    const packageLock = JSON.parse(readFileSync(
+      join(repositoryRoot, "package-lock.json"),
+      "utf8",
+    )) as {
+      packages: Record<string, {
+        version?: string;
+        integrity?: string;
+      }>;
+    };
     const upstreamLicense = readFileSync(join(
       repositoryRoot,
       "node_modules",
@@ -839,6 +852,14 @@ describe("production readiness manifest", () => {
     ));
 
     expect(installedPackage.version).toBe(hanziDataManifest.packageVersion);
+    expect(packageLock.packages[`node_modules/${hanziDataManifest.package}`]).toMatchObject({
+      version: hanziDataManifest.packageVersion,
+      integrity: hanziDataManifest.packageIntegrity,
+    });
+    expect(hanziDataManifest.sourceRevision).toMatch(/^[0-9a-f]{40}$/);
+    expect(hanziDataManifest.upstreamRevision).toMatch(/^[0-9a-f]{40}$/);
+    expect(`sha256:${createHash("sha256").update(upstreamLicense).digest("hex")}`)
+      .toBe(hanziDataManifest.licenseFileSha256);
     expect(publishedLicense).toEqual(upstreamLicense);
   });
 });

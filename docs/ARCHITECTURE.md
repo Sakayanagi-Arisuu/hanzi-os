@@ -15,8 +15,9 @@ trường hosted được provision và kiểm chứng. PostgreSQL trong sơ đ�
 là đích production khi quy mô, transaction/event ingestion và vận hành vượt
 giới hạn closed alpha.
 
-Ứng viên nội dung hiện tại là `foundation-2026.07.5`, content schema v4. Full
-governance catalog có 74 payload thuộc 7 item type và giữ cả 24 lesson authoring;
+Ứng viên nội dung hiện tại là `foundation-2026.07.6`, content schema v6 /
+item catalog v4. Full governance catalog có 74 payload thuộc 7 item type và giữ
+cả 24 lesson authoring;
 manifest bind catalog, runtime ID graph, sanitized runtime catalog, coverage
 envelope cùng snapshot bất biến của blueprint/lesson guide và item bank/scoring
 lesson + assessment. Validator kiểm strict payload schema, typed prerequisite
@@ -33,22 +34,26 @@ runtime projection.
 Package vẫn là candidate: owner/license đều rỗng, review envelope v2 không có
 approval, coverage envelope v2 không có claim, audio catalog rỗng và chưa có
 promotion. Bởi vậy 24 lexeme hiện hữu vẫn đóng góp **0 reviewed lexeme** vào
-release gate. 25 knowledge item mới đều ở state `review`; character enrichment
-chưa có dữ liệu nguồn đã duyệt. Tooling đã có đường import audio bất biến cho
+release gate. 25 knowledge item mới đều ở state `review`. Bảy character item
+đã bind radical, IDS cấu trúc/cấu kiện và stroke bytes vào source record bất
+biến; đây là dữ liệu chờ review, không phải dữ liệu đã được duyệt. Tooling đã có
+đường import audio bất biến cho
 schema v5/catalog v3 với byte-derived WAV metadata, transcript alignment,
 speaker/rights binding và staged validation; audio legacy không được tính vào
 release gate. Candidate hiện tại chưa dùng đường này và vẫn không có audio hay
 evidence thật. Không được suy diễn rằng WS2 hoặc A0 đã hoàn tất.
 
-Tooling hiện hỗ trợ content schema v6 / item catalog v4 cho character
-metadata source-addressed. Importer yêu cầu descriptor phủ đúng bảy character
-item hiện có, bind payload nguồn, linguistic record và Hanzi Writer record bằng
+Candidate `.07.6` là lần chạy thật đầu tiên của đường import character
+source-addressed. Descriptor phủ đúng bảy character item, bind payload nguồn,
+Make Me a Hanzi radical record, CJKVI IDS record và Hanzi Writer record bằng
 SHA-256 cùng character record key, inspect JSON/stroke từ bytes, rồi
-staged-validate trước atomic handoff. Legacy character fields không còn được
-tính là release evidence. Runtime projection vẫn loại character item,
-Characters UI fail closed và public build không phát stroke JSON, nên tooling
-mới không làm nội dung chưa duyệt xuất hiện với người học. Candidate `.07.5`
-và registry hiện tại không bị thay đổi bởi lát triển khai tooling này.
+staged-validate trước atomic handoff. Mọi component role vẫn là `graphic`; cấu
+trúc được ánh xạ từ IDS ghim revision, không suy diễn từ hình glyph. License
+`CHISE-IDS-terms` được giữ như định danh thận trọng chờ legal review, không bị
+đổi thành một SPDX claim chưa được chứng minh. Legacy character fields không
+còn được tính là release evidence. Runtime projection vẫn loại character item,
+Characters UI fail closed và public build không phát stroke JSON, nên metadata
+chưa duyệt không xuất hiện với người học.
 
 Lifecycle schema v6 bảo toàn cả audio lẫn character artifact qua routine
 versioning và hai importer chuyên biệt. Bytes kế thừa được capture một lần từ

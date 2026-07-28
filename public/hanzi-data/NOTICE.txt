@@ -1,8 +1,12 @@
 HANZI.OS self-hosted stroke data
 
 Package: hanzi-writer-data@2.0.1
-Source: https://github.com/chanind/hanzi-writer-data
-Upstream data: https://github.com/skishore/makemeahanzi
+Package integrity: sha512-nbQwM+MaryGoq7pBMIZLCd3lFq03nXuJuwku1+6UbjL58uU+9OULVcMkoNvNuJSoIV7f1bbPRfD4D/LQa5S7qg==
+Source: https://github.com/chanind/hanzi-writer-data/tree/ad1a9905cada18d07630acc27d438b070d753ec0
+Source revision: ad1a9905cada18d07630acc27d438b070d753ec0
+Upstream data: https://github.com/chanind/makemeahanzi/tree/9d54d6bbba93023078628589ffbffff1edf91335
+Upstream revision: 9d54d6bbba93023078628589ffbffff1edf91335
 License: Arphic Public License (see ARPHICPL.TXT in this directory)
+License file SHA-256: sha256:5590533436c70f10f2f524ee61456238c290175c6662fbe1c700b5f038a6d328
 
 Only the characters listed in config/hanzi-data-manifest.json are copied into the public build.
