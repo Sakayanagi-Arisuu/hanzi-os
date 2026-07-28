@@ -396,11 +396,121 @@ export const buildHsk1PersonalExchangePack = (root = process.cwd()) => {
         "meaning-recall",
         "pinyin-recognition",
         "listening-selection",
-        "context-selection",
       ],
-      authoredItemCount: 0,
+      authoredItemCount: plan.vocabularySequences.length * 3,
       grantsMastery: false,
     },
+  }));
+
+  const lexemeById = new Map(
+    lexemes.map((lexeme) => [lexeme.officialId, lexeme]),
+  );
+  const pickDistinctDistractors = ({
+    lessonLexemes,
+    targetIndex,
+    field,
+  }) => {
+    const targetValue = lessonLexemes[targetIndex][field];
+    const distractors = [];
+    for (
+      let offset = 1;
+      offset < lessonLexemes.length * 2 && distractors.length < 3;
+      offset += 1
+    ) {
+      const candidate = lessonLexemes[
+        (targetIndex + offset) % lessonLexemes.length
+      ][field];
+      if (
+        candidate !== targetValue
+        && !distractors.includes(candidate)
+      ) {
+        distractors.push(candidate);
+      }
+    }
+    if (distractors.length !== 3) {
+      throw new Error(
+        `Cannot create three distinct ${field} distractors for ${lessonLexemes[targetIndex].officialId}`,
+      );
+    }
+    return distractors;
+  };
+  const practiceItems = lessons.flatMap((lesson) => {
+    const lessonLexemes = lesson.vocabularyIds.map(
+      (officialId) => lexemeById.get(officialId),
+    );
+    return lessonLexemes.flatMap((lexeme, index) => {
+      const pinyinDistractors = pickDistinctDistractors({
+        lessonLexemes,
+        targetIndex: index,
+        field: "pinyin",
+      });
+      const hanziDistractors = pickDistinctDistractors({
+        lessonLexemes,
+        targetIndex: index,
+        field: "simplified",
+      });
+      const base = {
+        lessonId: lesson.lessonId,
+        officialVocabularyId: lexeme.officialId,
+        review: "pending",
+        measurementEligible: false,
+        masteryEligible: false,
+      };
+      return [
+        {
+          ...base,
+          itemId: `${lesson.lessonId}:${lexeme.officialId}:meaning`,
+          kind: "meaning-recall",
+          prompt: lexeme.simplified,
+          answer: lexeme.vietnameseGlossDraft,
+          scoringPolicy: "self-reveal-only",
+        },
+        {
+          ...base,
+          itemId: `${lesson.lessonId}:${lexeme.officialId}:pinyin`,
+          kind: "pinyin-recognition",
+          prompt: lexeme.simplified,
+          options: [
+            pinyinDistractors[0],
+            lexeme.pinyin,
+            pinyinDistractors[1],
+            pinyinDistractors[2],
+          ],
+          correctAnswer: lexeme.pinyin,
+          scoringPolicy: "automatic-draft-only",
+        },
+        {
+          ...base,
+          itemId: `${lesson.lessonId}:${lexeme.officialId}:listening`,
+          kind: "listening-selection",
+          prompt: "Chọn từ bạn nghe được.",
+          ttsText: lexeme.simplified,
+          ttsDisclosure: "synthetic-browser-voice",
+          options: [
+            hanziDistractors[0],
+            lexeme.simplified,
+            hanziDistractors[1],
+            hanziDistractors[2],
+          ],
+          correctAnswer: lexeme.simplified,
+          scoringPolicy: "automatic-draft-only",
+        },
+      ];
+    });
+  });
+  const reviewBatches = lessons.map((lesson) => ({
+    batchId: `${lesson.lessonId}:review-v1`,
+    lessonId: lesson.lessonId,
+    practiceItemIds: practiceItems.filter(
+      (item) => item.lessonId === lesson.lessonId,
+    ).map((item) => item.itemId),
+    requiredRoles: [
+      "native-mandarin-reviewer",
+      "vietnamese-editor",
+      "assessment-editor",
+    ],
+    state: "pending",
+    approvals: [],
   }));
 
   return {
@@ -442,17 +552,30 @@ export const buildHsk1PersonalExchangePack = (root = process.cwd()) => {
         (total, lesson) => total + lesson.modelDialogue.turns.length,
         0,
       ),
-      authoredPracticeItems: 0,
+      authoredPracticeItems: practiceItems.length,
+      meaningRecallItems: practiceItems.filter(
+        (item) => item.kind === "meaning-recall",
+      ).length,
+      pinyinRecognitionItems: practiceItems.filter(
+        (item) => item.kind === "pinyin-recognition",
+      ).length,
+      listeningSelectionItems: practiceItems.filter(
+        (item) => item.kind === "listening-selection",
+      ).length,
+      reviewBatches: reviewBatches.length,
       releaseEligibleItems: 0,
     },
     coverageClaims: {
       unitBlueprintMapped: true,
+      vocabularyPracticeDraftComplete: true,
       authoredPracticeCoverageComplete: false,
       reviewedContentComplete: false,
       hsk1Complete: false,
     },
     lexemes,
     lessons,
+    practiceItems,
+    reviewBatches,
   };
 };
 

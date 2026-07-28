@@ -112,6 +112,7 @@ export const validateHsk1PersonalExchangePackBundle = ({
   }
   if (
     pack.coverageClaims?.unitBlueprintMapped !== true
+    || pack.coverageClaims?.vocabularyPracticeDraftComplete !== true
     || pack.coverageClaims?.authoredPracticeCoverageComplete !== false
     || pack.coverageClaims?.reviewedContentComplete !== false
     || pack.coverageClaims?.hsk1Complete !== false
@@ -229,12 +230,12 @@ export const validateHsk1PersonalExchangePackBundle = ({
             "meaning-recall",
             "pinyin-recognition",
             "listening-selection",
-            "context-selection",
           ])
-        || lesson.practiceBlueprint?.authoredItemCount !== 0
+        || lesson.practiceBlueprint?.authoredItemCount
+          !== lesson.vocabularyIds.length * 3
         || lesson.practiceBlueprint?.grantsMastery !== false
       ) {
-        errors.push(`${lesson.lessonId} practice blueprint must not imply authored items`);
+        errors.push(`${lesson.lessonId} practice blueprint is stale or grants mastery`);
       }
     }
 
@@ -264,7 +265,126 @@ export const validateHsk1PersonalExchangePackBundle = ({
     });
   }
 
-  if (Array.isArray(pack.lexemes) && Array.isArray(pack.lessons)) {
+  const packLexemeById = new Map(
+    (pack.lexemes ?? []).map((lexeme) => [lexeme.officialId, lexeme]),
+  );
+  const lessonById = new Map(
+    (pack.lessons ?? []).map((lesson) => [lesson.lessonId, lesson]),
+  );
+  const expectedKinds = [
+    "meaning-recall",
+    "pinyin-recognition",
+    "listening-selection",
+  ];
+  if (!Array.isArray(pack.practiceItems) || pack.practiceItems.length !== 321) {
+    errors.push("personal-exchange pack must contain 321 vocabulary practice items");
+  } else {
+    const itemIds = pack.practiceItems.map((item) => item.itemId);
+    if (duplicateValues(itemIds).length > 0) {
+      errors.push("personal-exchange practice item IDs must be unique");
+    }
+    for (const lexemeId of personalScope.vocabularyIds) {
+      const kinds = pack.practiceItems.filter(
+        (item) => item.officialVocabularyId === lexemeId,
+      ).map((item) => item.kind).sort();
+      if (!exactSet(kinds, expectedKinds)) {
+        errors.push(`${lexemeId} must have one item of every vocabulary practice kind`);
+      }
+    }
+    for (const item of pack.practiceItems) {
+      const lexeme = packLexemeById.get(item.officialVocabularyId);
+      const lesson = lessonById.get(item.lessonId);
+      if (
+        !lexeme
+        || !lesson
+        || !lesson.vocabularyIds.includes(item.officialVocabularyId)
+      ) {
+        errors.push(`${item.itemId} target or lesson binding is invalid`);
+        continue;
+      }
+      if (
+        item.review !== "pending"
+        || item.measurementEligible !== false
+        || item.masteryEligible !== false
+      ) {
+        errors.push(`${item.itemId} must remain pending and ineligible for mastery`);
+      }
+      if (item.kind === "meaning-recall") {
+        if (
+          item.prompt !== lexeme.simplified
+          || item.answer !== lexeme.vietnameseGlossDraft
+          || item.scoringPolicy !== "self-reveal-only"
+        ) {
+          errors.push(`${item.itemId} meaning-recall content drifted`);
+        }
+      } else if (item.kind === "pinyin-recognition") {
+        if (
+          item.prompt !== lexeme.simplified
+          || !Array.isArray(item.options)
+          || item.options.length !== 4
+          || new Set(item.options).size !== 4
+          || !item.options.includes(lexeme.pinyin)
+          || item.correctAnswer !== lexeme.pinyin
+          || item.scoringPolicy !== "automatic-draft-only"
+        ) {
+          errors.push(`${item.itemId} pinyin-recognition content is invalid`);
+        }
+      } else if (item.kind === "listening-selection") {
+        if (
+          item.prompt !== "Chọn từ bạn nghe được."
+          || item.ttsText !== lexeme.simplified
+          || item.ttsDisclosure !== "synthetic-browser-voice"
+          || !Array.isArray(item.options)
+          || item.options.length !== 4
+          || new Set(item.options).size !== 4
+          || !item.options.includes(lexeme.simplified)
+          || item.correctAnswer !== lexeme.simplified
+          || item.scoringPolicy !== "automatic-draft-only"
+        ) {
+          errors.push(`${item.itemId} listening-selection content is invalid`);
+        }
+      } else {
+        errors.push(`${item.itemId} has unsupported practice kind ${item.kind}`);
+      }
+    }
+  }
+
+  if (!Array.isArray(pack.reviewBatches) || pack.reviewBatches.length !== 9) {
+    errors.push("personal-exchange pack must have one review batch per lesson");
+  } else {
+    const batchLessonIds = pack.reviewBatches.map((batch) => batch.lessonId);
+    if (
+      duplicateValues(batchLessonIds).length > 0
+      || !exactSet(batchLessonIds, [...lessonById.keys()])
+    ) {
+      errors.push("personal-exchange review batches must cover every lesson once");
+    }
+    for (const batch of pack.reviewBatches) {
+      const expectedItemIds = (pack.practiceItems ?? []).filter(
+        (item) => item.lessonId === batch.lessonId,
+      ).map((item) => item.itemId);
+      if (
+        !exactSet(batch.practiceItemIds ?? [], expectedItemIds)
+        || JSON.stringify(batch.requiredRoles) !== JSON.stringify([
+          "native-mandarin-reviewer",
+          "vietnamese-editor",
+          "assessment-editor",
+        ])
+        || batch.state !== "pending"
+        || !Array.isArray(batch.approvals)
+        || batch.approvals.length !== 0
+      ) {
+        errors.push(`${batch.batchId} review batch is incomplete or pre-approved`);
+      }
+    }
+  }
+
+  if (
+    Array.isArray(pack.lexemes)
+    && Array.isArray(pack.lessons)
+    && Array.isArray(pack.practiceItems)
+    && Array.isArray(pack.reviewBatches)
+  ) {
     const expectedCounts = {
       lessons: pack.lessons.length,
       vocabularyDrafts: pack.lexemes.length,
@@ -281,7 +401,17 @@ export const validateHsk1PersonalExchangePackBundle = ({
         (total, lesson) => total + lesson.modelDialogue.turns.length,
         0,
       ),
-      authoredPracticeItems: 0,
+      authoredPracticeItems: pack.practiceItems.length,
+      meaningRecallItems: pack.practiceItems.filter(
+        (item) => item.kind === "meaning-recall",
+      ).length,
+      pinyinRecognitionItems: pack.practiceItems.filter(
+        (item) => item.kind === "pinyin-recognition",
+      ).length,
+      listeningSelectionItems: pack.practiceItems.filter(
+        (item) => item.kind === "listening-selection",
+      ).length,
+      reviewBatches: pack.reviewBatches.length,
       releaseEligibleItems: 0,
     };
     if (JSON.stringify(pack.counts) !== JSON.stringify(expectedCounts)) {

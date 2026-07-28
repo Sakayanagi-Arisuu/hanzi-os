@@ -22,7 +22,11 @@ describe("HSK1 personal-exchange AI-assisted content pack", () => {
       topicBlueprintMappings: 5,
       grammarBlueprintMappings: 32,
       dialogueTurns: 38,
-      authoredPracticeItems: 0,
+      authoredPracticeItems: 321,
+      meaningRecallItems: 107,
+      pinyinRecognitionItems: 107,
+      listeningSelectionItems: 107,
+      reviewBatches: 9,
       releaseEligibleItems: 0,
     });
     expect(bundle.pack).toMatchObject({
@@ -31,11 +35,43 @@ describe("HSK1 personal-exchange AI-assisted content pack", () => {
       releaseEligible: false,
       coverageClaims: {
         unitBlueprintMapped: true,
+        vocabularyPracticeDraftComplete: true,
         authoredPracticeCoverageComplete: false,
         reviewedContentComplete: false,
         hsk1Complete: false,
       },
     });
+  });
+
+  it("authors three non-mastery practice items per vocabulary record", () => {
+    const { pack } = loadHsk1PersonalExchangePackBundle();
+    const aiItems = pack.practiceItems.filter(
+      (item: { officialVocabularyId: string }) =>
+        item.officialVocabularyId === "hsk-vocab-00001",
+    );
+
+    expect(aiItems.map(
+      (item: { kind: string }) => item.kind,
+    ).sort()).toEqual([
+      "listening-selection",
+      "meaning-recall",
+      "pinyin-recognition",
+    ]);
+    expect(aiItems.every(
+      (item: {
+        review: string;
+        measurementEligible: boolean;
+        masteryEligible: boolean;
+      }) =>
+        item.review === "pending"
+        && item.measurementEligible === false
+        && item.masteryEligible === false,
+    )).toBe(true);
+    expect(pack.reviewBatches).toHaveLength(9);
+    expect(pack.reviewBatches.every(
+      (batch: { state: string; approvals: unknown[] }) =>
+        batch.state === "pending" && batch.approvals.length === 0,
+    )).toBe(true);
   });
 
   it("keeps Vietnamese glosses attributable and explicitly unreviewed", () => {

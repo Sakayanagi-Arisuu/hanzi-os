@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **57%**.
+Status: **in progress** at project progress **59%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **57%**.
+Status: **in progress** at project progress **59%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 11 | inventory, authoring scope, Vietnamese draft, lesson/dialogue blueprint, character/grammar |
+| D. Nội dung có coverage HSK0-4 | 30 | 13 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **57** | **Tiến độ hiện tại: 57%** |
+| **Tổng** | **100** | **59** | **Tiến độ hiện tại: 59%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -201,8 +201,17 @@ Lát G3 thứ hai tăng trụ cột D thêm 2 điểm. Unit
 9 lesson blueprint tuần tự, đủ mapping blueprint cho 2 task, 5 topic, 107 từ
 và 32 grammar row, cùng 38 lượt hội thoại mẫu. Validator bắt buộc exact
 partition, prerequisite chain, source digest và trạng thái review-pending.
-Điểm chỉ ghi nhận khối authoring có thể review; authored practice item,
-reviewed gloss/dialogue, learner-visible và release-eligible đều vẫn bằng 0.
+Hai điểm của riêng lát này chỉ ghi nhận khối authoring có thể review; tại ranh
+giới commit đó authored practice item, reviewed gloss/dialogue,
+learner-visible và release-eligible đều bằng 0.
+
+Lát G3 thứ ba tăng trụ cột D thêm 2 điểm. Mỗi một trong 107 từ của unit đầu đã
+có đúng ba practice item draft: meaning recall, pinyin recognition và
+listening selection dùng browser TTS, tổng 321 item. Chín review batch bind
+chính xác item theo lesson và yêu cầu đủ reviewer Mandarin, biên tập viên Việt
+và assessment editor. Validator cấm duplicate option/ID, target lệch lesson,
+pre-approval, measurement hay mastery eligibility. Đây là practice content
+thật ở lớp draft, nhưng vẫn 0 reviewed/release-eligible nên chưa mở trong app.
 
 ## 6. Quy tắc cập nhật phần trăm
 

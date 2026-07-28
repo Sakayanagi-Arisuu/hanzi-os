@@ -15,6 +15,7 @@
     "authoringScoped": 300,
     "vietnameseGlossDrafted": 107,
     "lessonBlueprintVocabularyMapped": 107,
+    "vocabularyPracticeDrafted": 107,
     "pronunciationCompatible": 297,
     "vietnameseGlossReviewed": 0,
     "lessonMapped": 23,
@@ -30,7 +31,8 @@
     "machineDraftGlossReviewPending": 107,
     "draftLessonBlueprints": 9,
     "draftDialogueTurns": 38,
-    "authoredPracticeItems": 0,
+    "authoredPracticeItems": 321,
+    "pendingReviewBatches": 9,
     "pronunciationReviewItems": [
       {
         "officialId": "hsk-vocab-00137",
@@ -61,6 +63,6 @@
   "claims": {
     "hsk1VocabularyComplete": false,
     "hsk1Complete": false,
-    "reason": "AI-assisted content remains draft-only; Vietnamese and Mandarin review, authored practice items, remaining unit packs and release are incomplete."
+    "reason": "AI-assisted content remains draft-only; Vietnamese and Mandarin review, grammar/context practice, remaining unit packs and release are incomplete."
   }
 }

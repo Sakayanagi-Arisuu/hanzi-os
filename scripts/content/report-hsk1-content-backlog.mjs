@@ -59,6 +59,8 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
       vietnameseGlossDrafted: personalPackResult.summary.vocabularyDrafts,
       lessonBlueprintVocabularyMapped:
         personalPackResult.summary.vocabularyDrafts,
+      vocabularyPracticeDrafted:
+        personalPackResult.summary.vocabularyDrafts,
       pronunciationCompatible: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType !== "surface-only",
@@ -96,6 +98,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
       draftLessonBlueprints: personalPackResult.summary.lessons,
       draftDialogueTurns: personalPackResult.summary.dialogueTurns,
       authoredPracticeItems: personalPackResult.summary.authoredPracticeItems,
+      pendingReviewBatches: personalPackResult.summary.reviewBatches,
       pronunciationReviewItems: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType === "surface-only",
@@ -114,7 +117,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
     claims: {
       hsk1VocabularyComplete: false,
       hsk1Complete: false,
-      reason: "AI-assisted content remains draft-only; Vietnamese and Mandarin review, authored practice items, remaining unit packs and release are incomplete.",
+      reason: "AI-assisted content remains draft-only; Vietnamese and Mandarin review, grammar/context practice, remaining unit packs and release are incomplete.",
     },
   };
 };

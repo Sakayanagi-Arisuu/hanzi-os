@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **57%**.
+Active progress: **59%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
-| HSK0-4 content coverage | 11 / 30 | HSK1 has complete authoring scope plus a 107-lexeme/9-lesson personal-exchange draft pack; reviewed Vietnamese, authored practice, remaining HSK1 units and HSK2-4 lessons remain absent. |
+| HSK0-4 content coverage | 13 / 30 | HSK1 has complete scope plus a 107-lexeme/9-lesson/321-practice-item personal-exchange draft pack; review, grammar/context items, remaining HSK1 units and HSK2-4 remain. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -118,8 +118,15 @@ Every commit must update this percentage here and in the active roadmap.
   blueprint partitions for its 2 tasks, 5 topics and 32 grammar rows.
 - The pack explicitly records AI-assisted authorship, CC BY-SA treatment,
   missing Mandarin/Vietnamese/assessment reviewers and browser-TTS-only audio
-  policy. It contains zero authored practice items, zero approved content and
-  zero release-eligible items, so it is not imported into runtime.
+  policy.
+- Added 321 vocabulary practice items: exactly one meaning-recall, one
+  pinyin-recognition and one listening-selection item per lexeme. Distractors
+  are deterministic and distinct; synthetic voice is disclosed; every item is
+  measurement/mastery-ineligible pending review.
+- Added nine exact lesson review batches requiring native Mandarin,
+  Vietnamese editorial and assessment roles. All batches have zero approvals,
+  and the pack still has zero release-eligible item, so it is not imported
+  into runtime.
 
 ## Repository state
 
@@ -373,7 +380,7 @@ Progress accounting rules:
 
 ## Local verification
 
-### Current G3 source-enrichment baseline
+### Current G3 content-authoring baseline
 
 The results below are bound to the exact G3 checkpoint worktree. Any later
 edit to code, configuration or content makes this snapshot stale and requires
@@ -387,23 +394,20 @@ the applicable gates to run again before the next checkpoint commit.
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - personal-exchange draft pack: 9 lesson blueprints, 107 Vietnamese gloss
-    drafts, 32 grammar mappings and 38 dialogue turns; 0 authored practice
-    item and 0 release-eligible item
+    drafts, 32 grammar mappings, 38 dialogue turns, 321 vocabulary practice
+    items and 9 pending review batches; 0 release-eligible item
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 149 files, 1,235 tests passed
+  - Vitest: 149 files, 1,236 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 99 / 98, median 98
+  - Performance: 98 / 95 / 96, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,889 ms; CLS: 0; TBT: 76 ms
-  - the first sample taken immediately after E2E was noisy and failed at
-    median 85 / TBT 541 ms; one independent three-run rerun passed the values
-    above without a source or build change
+  - Median LCP: 1,887 ms; CLS: 0; TBT: 187 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -428,9 +432,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Turn the nine `hsk1-personal-exchange` blueprints into authored practice
-   items and review batches; then repeat the content-pack workflow for
-   `hsk1-time-place-events`.
+1. Repeat the content-pack workflow for `hsk1-time-place-events`; keep the
+   personal-exchange review batches open while grammar/context items are
+   authored.
 2. Finish the remaining G2 placement/progress work when real HSK1 content can
    exercise it; keep all imported content unpublished until schema, provenance
    and applicable linguistic checks pass.
