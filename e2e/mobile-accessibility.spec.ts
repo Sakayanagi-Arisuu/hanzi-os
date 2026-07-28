@@ -107,12 +107,12 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
   const startingGroup = page.getByRole("radiogroup", {
     name: "Điểm xuất phát",
   });
-  const zero = startingGroup.getByRole("radio", { name: /^Khởi nguyên/u });
-  const basic = startingGroup.getByRole("radio", { name: /^Đã khai âm/u });
+  const zero = startingGroup.getByRole("radio", { name: /^HSK0/u });
+  const hsk1 = startingGroup.getByRole("radio", { name: /^HSK1/u });
   await zero.focus();
   await page.keyboard.press("ArrowDown");
-  await expect(basic).toBeFocused();
-  await expect(basic).toHaveAttribute("aria-checked", "true");
+  await expect(hsk1).toBeFocused();
+  await expect(hsk1).toHaveAttribute("aria-checked", "true");
 
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
   await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();

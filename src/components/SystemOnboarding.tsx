@@ -14,9 +14,10 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { ResponsiveHeroBackdrop } from "./ResponsiveHeroBackdrop";
+import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { useLearning } from "../store/LearningStore";
-import type { LearningGoal, Profile, StartingLevel } from "../types";
+import type { LearningGoal, Profile } from "../types";
 
 const goals: Array<{
   id: LearningGoal;
@@ -30,16 +31,7 @@ const goals: Array<{
   { id: "travel", title: "Du lịch", description: "Sinh tồn nhanh trong tình huống thật.", icon: Plane },
 ];
 
-const startingLevels: Array<{
-  id: StartingLevel;
-  title: string;
-  description: string;
-}> = [
-  { id: "zero", title: "Khởi nguyên", description: "Bắt đầu từ thanh điệu và câu chào đầu tiên" },
-  { id: "basic", title: "Đã khai âm", description: "Biết một số từ và mẫu câu đời sống" },
-  { id: "hsk1", title: "Đã học HSK 1", description: "Tự khai báo; không tự mở khóa bài" },
-  { id: "hsk2", title: "Đã học HSK 2+", description: "Tự khai báo; khảo nghiệm chỉ đưa gợi ý" },
-];
+const startingLevels = HSK_STARTING_LEVEL_OPTIONS;
 
 const dailyMinuteOptions = [10, 20, 30] as const;
 const scriptOptions = ["simplified", "traditional"] as const;

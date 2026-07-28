@@ -4,6 +4,7 @@ import {
   RELEASED_STORIES,
   RELEASED_WORD_BY_ID,
 } from "../data/curriculum";
+import { isStartingLevel } from "../learning/startingLevels";
 import { buildLessonResumeExercises } from "../learning/resumeProtocol";
 import type {
   EvidenceMethod,
@@ -191,7 +192,7 @@ const validProfile = (value: unknown) => isRecord(value)
   && ["conversation", "hsk", "career", "travel"].includes(String(value.goal))
   && [10, 20, 30].includes(Number(value.dailyMinutes))
   && ["simplified", "traditional"].includes(String(value.script))
-  && ["zero", "basic", "hsk1", "hsk2"].includes(String(value.startingLevel))
+  && isStartingLevel(value.startingLevel)
   && typeof value.onboarded === "boolean";
 
 const validCompletion = (value: unknown) => isRecord(value)

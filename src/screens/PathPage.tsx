@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { COURSE_UNITS } from "../data/curriculum";
+import { getHskLearningPath } from "../data/hskLearningPaths";
 import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import {
   isLessonReleased,
@@ -28,6 +29,7 @@ const releasedCourseUnits = COURSE_UNITS
 
 export function PathPage() {
   const { state, sync } = useLearning();
+  const selectedPath = getHskLearningPath(state.profile.startingLevel);
   const normalized = useNormalizedLearningProjection();
   const authenticated = sync.session?.authenticated === true;
   const authority = resolveLearningPathAuthority({
@@ -58,9 +60,9 @@ export function PathPage() {
     <div className="content-page path-page">
       <header className="page-hero compact-hero">
         <div>
-          <span className="system-kicker"><Map size={15} /> PERSONAL LEARNING GRAPH</span>
+          <span className="system-kicker"><Map size={15} /> {selectedPath.label} · PERSONAL LEARNING GRAPH</span>
           <h1>Thiên Lộ</h1>
-          <p>Mỗi nút chỉ khai mở khi kết quả truy hồi ở bài tiên quyết đạt ngưỡng 70%.</p>
+          <p><strong>{selectedPath.title}.</strong> {selectedPath.description} {selectedPath.availabilityNote}</p>
           {mode === "anonymous" && !state.diagnostic.completed && <Link className="hero-inline-action" to="/assessment">Khảo nghiệm căn cơ <ChevronRight size={16} /></Link>}
         </div>
         <div className="path-overview">

@@ -102,6 +102,18 @@ describe("learning-state backup restore", () => {
     expect(result.ok).toBe(true);
   });
 
+  it("restores an HSK4 starting-level preference without granting progress", () => {
+    const state = fixture();
+    state.profile.startingLevel = "hsk4";
+
+    const result = parseLearningStateImport(state, INITIAL_LEARNING_STATE);
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.state.profile.startingLevel).toBe("hsk4");
+    expect(result.state.completedLessons).toEqual({});
+  });
+
   it("rejects duplicate idempotency keys instead of silently dropping history", () => {
     const state = fixture();
     state.evidence[1].idempotencyKey = state.evidence[0].idempotencyKey;

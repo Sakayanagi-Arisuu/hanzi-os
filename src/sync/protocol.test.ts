@@ -57,6 +57,25 @@ describe("sync wire protocol", () => {
     expect(await hasValidSyncOperationHash({ ...input, ownerKey: "siwc_account" })).toBe(true);
   });
 
+  it("accepts HSK4 as a durable starting-level preference", async () => {
+    const input = await operation();
+    input.document.state.profile.startingLevel = "hsk4";
+    input.document.profile.value.startingLevel = "hsk4";
+
+    expect(parseSyncPushOperation(input)).toMatchObject({ ok: true });
+  });
+
+  it("rejects starting levels outside the active HSK0-4 contract", async () => {
+    const input = await operation();
+    input.document.state.profile.startingLevel = "hsk5" as "hsk4";
+    input.document.profile.value.startingLevel = "hsk5" as "hsk4";
+
+    expect(parseSyncPushOperation(input)).toEqual({
+      ok: false,
+      reason: "Cloud document is invalid.",
+    });
+  });
+
   it("detects a modified durable payload", async () => {
     const input = await operation();
     input.document.state.profile.name = "Tampered";

@@ -218,6 +218,20 @@ describe("trusted persisted learning state", () => {
     });
   });
 
+  it("persists the HSK4 starting-level preference without changing mastery", () => {
+    const before = persistedFixture();
+    before.profile.startingLevel = "hsk4";
+    const result = parsePersistedLearningState(
+      JSON.parse(JSON.stringify(before)) as unknown,
+      INITIAL_LEARNING_STATE,
+    );
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.state.profile.startingLevel).toBe("hsk4");
+    expect(result.state.skillMastery).toEqual(before.skillMastery);
+  });
+
   it("recomputes authority-bearing aggregates instead of accepting aggregate-only claims", () => {
     const state = structuredClone(INITIAL_LEARNING_STATE);
     state.completedLessons["boot-1"] = {

@@ -1,4 +1,5 @@
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
+import { isStartingLevel } from "../learning/startingLevels";
 import {
   canonicalStringify,
   sha256Hex,
@@ -201,7 +202,7 @@ const isProfileShape = (value: unknown) => isRecord(value)
   && ["conversation", "hsk", "career", "travel"].includes(String(value.goal))
   && [10, 20, 30].includes(Number(value.dailyMinutes))
   && ["simplified", "traditional"].includes(String(value.script))
-  && ["zero", "basic", "hsk1", "hsk2"].includes(String(value.startingLevel))
+  && isStartingLevel(value.startingLevel)
   && typeof value.onboarded === "boolean";
 
 const isDiagnosticShape = (value: unknown) => isRecord(value)

@@ -23,6 +23,7 @@ import { useRef, useState } from "react";
 import { Link } from "react-router";
 import { ConfirmModal, useSystemFeedback } from "../components/SystemFeedback";
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
 import { getReleasedLessonProgress } from "../lib/adaptive";
 import { chatGPTSignInPath, chatGPTSignOutPath } from "../lib/chatgptAuthPaths";
 import {
@@ -34,7 +35,7 @@ import { parseLearningStateImport } from "../lib/learningStateImport";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { INITIAL_LEARNING_STATE, useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
-import type { LearningGoal, Profile, StartingLevel } from "../types";
+import type { LearningGoal, Profile } from "../types";
 
 const goals: Array<{ id: LearningGoal; label: string; description: string; icon: typeof Target }> = [
   { id: "conversation", label: "Giao tiếp", description: "Ưu tiên nghe và nói đời sống", icon: MessageCircle },
@@ -43,12 +44,10 @@ const goals: Array<{ id: LearningGoal; label: string; description: string; icon:
   { id: "travel", label: "Du lịch", description: "Ưu tiên tình huống sinh tồn", icon: Plane },
 ];
 
-const startingLevels: Array<{ id: StartingLevel; label: string }> = [
-  { id: "zero", label: "Khởi nguyên" },
-  { id: "basic", label: "Đã khai âm" },
-  { id: "hsk1", label: "Đã học HSK 1" },
-  { id: "hsk2", label: "Đã học HSK 2+" },
-];
+const startingLevels = HSK_STARTING_LEVEL_OPTIONS.map((item) => ({
+  id: item.id,
+  label: item.title,
+}));
 
 const dailyMinuteOptions = [10, 20, 30] as const;
 const scriptOptions = ["simplified", "traditional"] as const;

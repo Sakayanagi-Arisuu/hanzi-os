@@ -1,5 +1,6 @@
 import { getChatGPTUser } from "../../chatgpt-auth";
 import { CONTENT_VERSION } from "../../../src/data/curriculum";
+import { isStartingLevel } from "../../../src/learning/startingLevels";
 import { deriveAccountKey } from "../../../src/lib/accountKey";
 import { readBoundedRequestText } from "../../../src/server/boundedRequestBody";
 import { getD1Database, SyncBackendUnavailableError } from "../../../src/server/d1";
@@ -140,9 +141,7 @@ const validateDocumentBounds = (document: CloudSyncDocumentV1) => {
     || !(["simplified", "traditional"] as const).includes(
       profile.script as "simplified",
     )
-    || !(["zero", "basic", "hsk1", "hsk2"] as const).includes(
-      profile.startingLevel as "zero",
-    )
+    || !isStartingLevel(profile.startingLevel)
     || typeof profile.onboarded !== "boolean"
   ) {
     return "Profile projection is invalid.";

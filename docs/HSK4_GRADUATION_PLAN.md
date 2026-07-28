@@ -73,6 +73,8 @@ nhất.
 
 ### G0 — Pivot và baseline
 
+Status: **complete** at project progress **44%**.
+
 - Đóng lát cắt production đang dở.
 - Dọn artefact build/test cục bộ.
 - Chốt thước đo 100 điểm và source of truth mới.
@@ -129,20 +131,25 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 
 ## 5. Thước đo tiến độ 100 điểm
 
-| Trụ cột | Điểm tối đa | Baseline 28/07 | Cách ghi nhận |
+| Trụ cột | Điểm tối đa | Hiện tại | Cách ghi nhận |
 | --- | ---: | ---: | --- |
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 3 | blueprint, prerequisite, placement và level progress |
+| C. Lộ trình HSK0-4 khác biệt | 15 | 5 | năm blueprint, prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 2 | inventory, mapping, lesson, dialogue/reader, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **42** | **Tiến độ hiện tại: 42%** |
+| **Tổng** | **100** | **44** | **Tiến độ hiện tại: 44%** |
 
-42% là baseline chi tiết cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
+42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
 lexeme, 14 lesson và 1 graded text hiện tại chỉ là lát foundation rất nhỏ so với
 khối nội dung mới nên trụ cột D chưa được tính cao.
+
+G0 tăng trụ cột C thêm 2 điểm: code hiện có năm level profile HSK0-4 khác nhau
+về skill weight, activity, exit evidence và assessment mode; onboarding/profile
+nhận HSK3/HSK4, còn giá trị `basic` cũ vẫn đọc được như HSK1. Đây mới là
+curriculum contract, chưa phải coverage nội dung.
 
 ## 6. Quy tắc cập nhật phần trăm
 

@@ -1,4 +1,5 @@
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { isStartingLevel } from "../learning/startingLevels";
 import type {
   EvidenceMethod,
   EvidenceOutcome,
@@ -121,7 +122,7 @@ export function parseLearningStateImport(
     || !["conversation", "hsk", "career", "travel"].includes(String(profile.goal))
     || ![10, 20, 30].includes(Number(profile.dailyMinutes))
     || !["simplified", "traditional"].includes(String(profile.script))
-    || !["zero", "basic", "hsk1", "hsk2"].includes(String(profile.startingLevel))
+    || !isStartingLevel(profile.startingLevel)
     || typeof profile.onboarded !== "boolean"
   ) {
     return { ok: false, error: "Cấu hình người học trong bản sao không hợp lệ." };

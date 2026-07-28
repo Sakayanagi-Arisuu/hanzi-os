@@ -1,4 +1,7 @@
 import type { State } from "ts-fsrs";
+import type { StartingLevel } from "./learning/startingLevels";
+
+export type { StartingLevel } from "./learning/startingLevels";
 
 export type Skill =
   | "pronunciation"
@@ -10,8 +13,6 @@ export type Skill =
   | "grammar";
 
 export type LearningGoal = "conversation" | "hsk" | "career" | "travel";
-
-export type StartingLevel = "zero" | "basic" | "hsk1" | "hsk2";
 
 export type ContentReleaseState =
   | "draft"
