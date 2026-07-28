@@ -22,12 +22,13 @@ describe("HSK1 task scenarios and assessment blueprint", () => {
       modelDialogueTurns: 60,
       guidedRoleplayItems: 15,
       reviewBatches: 15,
-      authoredLevelCheckItems: 0,
+      authoredLevelCheckItems: 50,
       measurementEligibleItems: 0,
       releaseEligibleItems: 0,
     });
     expect(bundle.pack.levelAssessmentBlueprint).toMatchObject({
       state: "uncalibrated-draft",
+      objectiveItemBankId: "hsk1-level-check-items-2026.07",
       learnerVisible: false,
       passingStandard: null,
       grantsMastery: false,

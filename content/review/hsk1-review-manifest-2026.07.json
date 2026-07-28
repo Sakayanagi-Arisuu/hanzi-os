@@ -11,14 +11,15 @@
     "allRequiredRolesMustApproveExactTargets": true
   },
   "counts": {
-    "sourceArtifacts": 5,
-    "reviewBatches": 75,
-    "pendingBatches": 75,
+    "sourceArtifacts": 6,
+    "reviewBatches": 85,
+    "pendingBatches": 85,
     "approvals": 0,
     "vocabularyBatches": 25,
     "characterBatches": 15,
     "grammarBatches": 20,
-    "taskBatches": 15
+    "taskBatches": 15,
+    "assessmentBatches": 10
   },
   "sources": [
     {
@@ -73,13 +74,27 @@
       "sourceKind": "task-assessment",
       "sourceId": "hsk1-task-assessment-2026.07",
       "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
-      "sha256": "sha256:5bdc327f4ffc47fa6ff84e5e1262fc78e86b5f43146ac782ba85a3cf0302e6e3",
+      "sha256": "sha256:770540d09ef7fb9c945bba0db010c04e4c8ad51d7da9c18addbe9bb9f743987b",
       "targetCounts": {
         "tasks": 15,
         "topics": 30,
         "practiceItems": 15
       },
       "reviewBatchCount": 15
+    },
+    {
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "relativePath": "content/drafts/hsk1-level-check-items-2026.07.json",
+      "sha256": "sha256:aabc9fd7a4406301a299daeb68970ab7d2c179664e4e3e6c9fbbfe910b7fb83a",
+      "targetCounts": {
+        "objectiveItems": 50,
+        "listeningItems": 15,
+        "readingItems": 15,
+        "vocabularyItems": 10,
+        "grammarItems": 10
+      },
+      "reviewBatchCount": 10
     }
   ],
   "reviewBatches": [
@@ -96,6 +111,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 33,
+        "assessmentItems": 0,
         "vocabulary": 11,
         "characters": 0,
         "grammarRows": 0,
@@ -116,6 +132,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 48,
+        "assessmentItems": 0,
         "vocabulary": 16,
         "characters": 0,
         "grammarRows": 0,
@@ -136,6 +153,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
@@ -156,6 +174,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 39,
+        "assessmentItems": 0,
         "vocabulary": 13,
         "characters": 0,
         "grammarRows": 0,
@@ -176,6 +195,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
@@ -196,6 +216,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 42,
+        "assessmentItems": 0,
         "vocabulary": 14,
         "characters": 0,
         "grammarRows": 0,
@@ -216,6 +237,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 51,
+        "assessmentItems": 0,
         "vocabulary": 17,
         "characters": 0,
         "grammarRows": 0,
@@ -236,6 +258,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 24,
+        "assessmentItems": 0,
         "vocabulary": 8,
         "characters": 0,
         "grammarRows": 0,
@@ -256,6 +279,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 12,
+        "assessmentItems": 0,
         "vocabulary": 4,
         "characters": 0,
         "grammarRows": 0,
@@ -276,6 +300,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 45,
+        "assessmentItems": 0,
         "vocabulary": 15,
         "characters": 0,
         "grammarRows": 0,
@@ -296,6 +321,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 30,
+        "assessmentItems": 0,
         "vocabulary": 10,
         "characters": 0,
         "grammarRows": 0,
@@ -316,6 +342,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
@@ -336,6 +363,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 27,
+        "assessmentItems": 0,
         "vocabulary": 9,
         "characters": 0,
         "grammarRows": 0,
@@ -356,6 +384,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 72,
+        "assessmentItems": 0,
         "vocabulary": 24,
         "characters": 0,
         "grammarRows": 0,
@@ -376,6 +405,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 33,
+        "assessmentItems": 0,
         "vocabulary": 11,
         "characters": 0,
         "grammarRows": 0,
@@ -396,6 +426,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
@@ -416,6 +447,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 66,
+        "assessmentItems": 0,
         "vocabulary": 22,
         "characters": 0,
         "grammarRows": 0,
@@ -436,6 +468,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
@@ -456,6 +489,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 24,
+        "assessmentItems": 0,
         "vocabulary": 8,
         "characters": 0,
         "grammarRows": 0,
@@ -476,6 +510,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 30,
+        "assessmentItems": 0,
         "vocabulary": 10,
         "characters": 0,
         "grammarRows": 0,
@@ -496,6 +531,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 39,
+        "assessmentItems": 0,
         "vocabulary": 13,
         "characters": 0,
         "grammarRows": 0,
@@ -516,6 +552,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 27,
+        "assessmentItems": 0,
         "vocabulary": 9,
         "characters": 0,
         "grammarRows": 0,
@@ -536,6 +573,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 21,
+        "assessmentItems": 0,
         "vocabulary": 7,
         "characters": 0,
         "grammarRows": 0,
@@ -556,6 +594,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
@@ -576,6 +615,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 21,
+        "assessmentItems": 0,
         "vocabulary": 7,
         "characters": 0,
         "grammarRows": 0,
@@ -596,6 +636,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 34,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 17,
         "grammarRows": 0,
@@ -616,6 +657,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -636,6 +678,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -656,6 +699,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -676,6 +720,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -696,6 +741,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -716,6 +762,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 38,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 19,
         "grammarRows": 0,
@@ -736,6 +783,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 18,
         "grammarRows": 0,
@@ -756,6 +804,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 36,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 18,
         "grammarRows": 0,
@@ -776,6 +825,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -796,6 +846,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 32,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 16,
         "grammarRows": 0,
@@ -816,6 +867,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 30,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 15,
         "grammarRows": 0,
@@ -836,6 +888,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 40,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 20,
         "grammarRows": 0,
@@ -856,6 +909,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 28,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 14,
         "grammarRows": 0,
@@ -876,6 +930,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 26,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 13,
         "grammarRows": 0,
@@ -896,6 +951,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 2,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 2,
@@ -916,6 +972,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 4,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 4,
@@ -936,6 +993,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 2,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 2,
@@ -956,6 +1014,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 2,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 2,
@@ -976,6 +1035,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 3,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 3,
@@ -996,6 +1056,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 6,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 6,
@@ -1016,6 +1077,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 9,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 9,
@@ -1036,6 +1098,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 3,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 3,
@@ -1056,6 +1119,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 1,
@@ -1076,6 +1140,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 1,
@@ -1096,6 +1161,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 4,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 4,
@@ -1116,6 +1182,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 3,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 3,
@@ -1136,6 +1203,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 7,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 7,
@@ -1156,6 +1224,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 9,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 9,
@@ -1176,6 +1245,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 1,
@@ -1196,6 +1266,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 3,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 3,
@@ -1216,6 +1287,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 2,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 2,
@@ -1236,6 +1308,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 2,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 2,
@@ -1256,6 +1329,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 1,
@@ -1276,6 +1350,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 1,
@@ -1296,6 +1371,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1316,6 +1392,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1336,6 +1413,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1356,6 +1434,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1376,6 +1455,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1396,6 +1476,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1416,6 +1497,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1436,6 +1518,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1456,6 +1539,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1476,6 +1560,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1496,6 +1581,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1516,6 +1602,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1536,6 +1623,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1556,6 +1644,7 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
@@ -1576,11 +1665,225 @@
       "approvalCount": 0,
       "targetCounts": {
         "practiceItems": 1,
+        "assessmentItems": 0,
         "vocabulary": 0,
         "characters": 0,
         "grammarRows": 0,
         "tasks": 1,
         "topics": 4
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:listening-review-1",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:listening-review-2",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:listening-review-3",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:reading-review-1",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:reading-review-2",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:reading-review-3",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:vocabulary-grammar-review-1",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:vocabulary-grammar-review-2",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:vocabulary-grammar-review-3",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-level-check-items-2026.07:vocabulary-grammar-review-4",
+      "sourceKind": "level-check-objective-items",
+      "sourceId": "hsk1-level-check-items-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 5,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
       }
     }
   ]

@@ -61,7 +61,7 @@ export const validateHsk1ReviewManifestBundle = ({
         batch.state !== "pending"
         || batch.approvalCount !== 0
         || !Array.isArray(batch.requiredRoles)
-        || batch.requiredRoles.length !== 3
+        || batch.requiredRoles.length < 3
         || !exactSet(batch.requiredRoles, expected.reviewBatches.find(
           (candidate) => candidate.batchId === batch.batchId,
         )?.requiredRoles ?? []),

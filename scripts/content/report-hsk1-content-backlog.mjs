@@ -172,6 +172,8 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
       authoredTaskPracticeItems:
         taskPackResult.summary.guidedRoleplayItems,
       pendingTaskReviewBatches: taskPackResult.summary.reviewBatches,
+      pendingAssessmentReviewBatches:
+        reviewManifestResult.summary.assessmentBatches,
       boundedReviewManifestBatches:
         reviewManifestResult.summary.reviewBatches,
       boundedReviewManifestApprovals:
@@ -194,7 +196,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
     claims: {
       hsk1VocabularyComplete: false,
       hsk1Complete: false,
-      reason: "All HSK1 inventory sections have AI-assisted draft mappings and practice, but human review, complete stroke metadata, authored/calibrated level-check items and release are incomplete.",
+      reason: "All HSK1 inventory sections and 50 objective level-check items have AI-assisted drafts, but human review, complete stroke metadata, independent assessment forms, reviewed audio, calibration and release are incomplete.",
     },
   };
 };

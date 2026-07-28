@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **70%**.
+Active progress: **71%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
@@ -19,7 +19,7 @@ Active progress: **70%**.
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 9 / 15 | Five profiles now have a cycle-safe 18-unit graph; HSK1 has six differentiated authoring units, while calibrated placement and full level progress remain. |
 | HSK0-4 content coverage | 23 / 30 | All HSK1 vocabulary, character, grammar, task and topic inventory has contextual draft practice; human review, complete stroke metadata and HSK2-4 remain. |
-| HSK0-4 assessment/mock | 4 / 10 | Diagnostic authority and an uncalibrated four-section HSK1 level-check blueprint exist; authored scored exams and timed mocks do not. |
+| HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
 The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
@@ -155,11 +155,15 @@ Every commit must update this percentage here and in the active roadmap.
   food, school and work topics now bind to the intended scenario lessons.
 - Added all 15 HSK1 task scenarios and all 30 topic prompts, with 60 model
   dialogue turns and 15 guided roleplays. The associated level-check blueprint
-  plans 55 items across four sections but has zero authored scored item, no
-  cut score and no calibration evidence.
-- Added an exact-hash review manifest over five HSK1 draft artifacts. It
-  exports 75 pending batches (25 vocabulary, 15 character, 20 grammar and 15
-  task), contains zero approval and cannot publish content.
+  plans 55 items across four sections; 50 objective drafts are authored but
+  none is scored, reviewed, calibrated or eligible for mastery.
+- Added the learner-hidden HSK1 objective item bank: 15 listening, 15 reading,
+  10 vocabulary and 10 grammar items, each bound to an exact draft entity.
+  Listening audio remains null and requires reviewed human/licensed recordings.
+  Source-exposed drafts require independent alternate forms before calibration.
+- Expanded the exact-hash review manifest to six HSK1 draft artifacts and 85
+  pending batches (25 vocabulary, 15 character, 20 grammar, 15 task and 10
+  assessment). It contains zero approval and cannot publish content.
 
 ## Repository state
 
@@ -438,21 +442,24 @@ the applicable gates to run again before the next checkpoint commit.
     0 measurement-eligible or release-eligible item
   - HSK1 task/assessment draft pack: 30 topic prompts, 15 task scenarios, 60
     dialogue turns, 15 roleplay self-checks and 15 pending review batches;
-    level-check blueprint plans 55 items but authors/scores 0
-  - exact-hash HSK1 review manifest: 5 source artifacts and 75 pending batches
+    level-check blueprint plans 55 items and binds 50 objective drafts
+  - hidden HSK1 objective item bank: 15 listening, 15 reading, 10 vocabulary
+    and 10 grammar items in 10 pending review batches; 0 reviewed audio,
+    independent form, calibrated or measurement-eligible item
+  - exact-hash HSK1 review manifest: 6 source artifacts and 85 pending batches
     with 0 approval; manifest assignment readiness does not publish content
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 154 files, 1,256 tests passed
+  - Vitest: 155 files, 1,261 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 89 / 98 / 98, median 98
+  - Performance: 96 / 94 / 95, median 95
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,895 ms; CLS: 0; TBT: 80 ms
+  - Median LCP: 1,931 ms; CLS: 0; TBT: 201 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -477,10 +484,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author the hidden HSK1 level-check objective item bank and a local
-   review-assignment/import workflow against the exact 75-batch manifest;
-   keep cut scores, mastery and publication disabled until calibration and
-   approvals exist.
+1. Add a local review-assignment/export/import workflow against the exact
+   85-batch manifest; keep cut scores, mastery and publication disabled until
+   calibration and approvals exist.
 2. Finish the remaining G2 placement/progress work when reviewed HSK1 content can
    exercise it; keep all imported content unpublished until schema, provenance
    and applicable linguistic checks pass.

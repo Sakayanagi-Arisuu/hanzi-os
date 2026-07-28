@@ -191,15 +191,28 @@
         "topics": 30,
         "dialogueTurns": 60,
         "authoredPracticeItems": 15,
-        "authoredLevelCheckItems": 0,
+        "authoredLevelCheckItems": 50,
         "calibrated": false,
         "reviewed": false,
         "learnerVisible": false
       },
+      "hsk1LevelCheckObjectiveBank": {
+        "objectiveItems": 50,
+        "listeningItems": 15,
+        "readingItems": 15,
+        "vocabularyItems": 10,
+        "grammarItems": 10,
+        "reviewedItems": 0,
+        "calibratedItems": 0,
+        "measurementEligibleItems": 0,
+        "independentFormsComplete": false,
+        "reviewedAudioComplete": false,
+        "learnerVisible": false
+      },
       "hsk1HumanReviewQueue": {
-        "sourceArtifacts": 5,
-        "reviewBatches": 75,
-        "pendingBatches": 75,
+        "sourceArtifacts": 6,
+        "reviewBatches": 85,
+        "pendingBatches": 85,
         "approvals": 0
       }
     },

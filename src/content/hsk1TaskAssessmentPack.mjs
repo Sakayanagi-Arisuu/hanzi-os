@@ -23,10 +23,10 @@ const REQUIRED_ROLES = [
   "task-pedagogy-reviewer",
 ];
 const EXPECTED_SECTIONS = [
-  ["listening-objective", "listening", 15],
-  ["reading-objective", "reading", 15],
-  ["vocabulary-grammar-objective", "vocabulary-grammar", 20],
-  ["task-performance", "integrated-task-performance", 5],
+  ["listening-objective", "listening", 15, 15],
+  ["reading-objective", "reading", 15, 15],
+  ["vocabulary-grammar-objective", "vocabulary-grammar", 20, 20],
+  ["task-performance", "integrated-task-performance", 5, 0],
 ];
 const isRecord = (value) =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -341,6 +341,7 @@ export const validateHsk1TaskAssessmentPackBundle = ({
   const assessment = pack.levelAssessmentBlueprint;
   if (
     assessment?.blueprintId !== "hsk1-level-check-2026.07"
+    || assessment?.objectiveItemBankId !== "hsk1-level-check-items-2026.07"
     || assessment?.state !== "uncalibrated-draft"
     || assessment?.learnerVisible !== false
     || assessment?.passingStandard !== null
@@ -351,14 +352,19 @@ export const validateHsk1TaskAssessmentPackBundle = ({
   ) {
     errors.push("HSK1 level assessment must remain an uncalibrated hidden blueprint");
   } else {
-    for (const [index, [sectionId, skill, plannedItemCount]] of
+    for (const [index, [
+      sectionId,
+      skill,
+      plannedItemCount,
+      authoredItemCount,
+    ]] of
       EXPECTED_SECTIONS.entries()) {
       const section = assessment.sections[index];
       if (
         section.sectionId !== sectionId
         || section.skill !== skill
         || section.plannedItemCount !== plannedItemCount
-        || section.authoredItemCount !== 0
+        || section.authoredItemCount !== authoredItemCount
       ) {
         errors.push(`${sectionId} assessment section is invalid`);
       }

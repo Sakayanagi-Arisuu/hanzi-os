@@ -21,6 +21,10 @@ import {
   assertValidHsk1TaskAssessmentPackBundle,
   loadHsk1TaskAssessmentPackBundle,
 } from "../../src/content/hsk1TaskAssessmentPack.mjs";
+import {
+  assertValidHsk1LevelCheckItemBankBundle,
+  loadHsk1LevelCheckItemBankBundle,
+} from "../../src/content/hsk1LevelCheckItemBank.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK1_REVIEW_MANIFEST_RELATIVE_PATH =
@@ -37,6 +41,8 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
   assertValidHsk1GrammarContextPackBundle(grammar);
   const task = loadHsk1TaskAssessmentPackBundle(root);
   assertValidHsk1TaskAssessmentPackBundle(task);
+  const levelCheck = loadHsk1LevelCheckItemBankBundle(root);
+  assertValidHsk1LevelCheckItemBankBundle(levelCheck);
 
   const sources = [
     {
@@ -101,6 +107,20 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
         practiceItems: task.pack.counts.guidedRoleplayItems,
       },
     },
+    {
+      sourceKind: "level-check-objective-items",
+      sourceId: levelCheck.bank.bankId,
+      relativePath: "content/drafts/hsk1-level-check-items-2026.07.json",
+      sha256: fileSha256(levelCheck.bankPath),
+      batches: levelCheck.bank.reviewBatches,
+      targetCounts: {
+        objectiveItems: levelCheck.bank.counts.objectiveItems,
+        listeningItems: levelCheck.bank.counts.listeningItems,
+        readingItems: levelCheck.bank.counts.readingItems,
+        vocabularyItems: levelCheck.bank.counts.vocabularyItems,
+        grammarItems: levelCheck.bank.counts.grammarItems,
+      },
+    },
   ];
   const reviewBatches = sources.flatMap((source) =>
     source.batches.map((batch) => ({
@@ -111,7 +131,8 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
       state: batch.state,
       approvalCount: batch.approvals.length,
       targetCounts: {
-        practiceItems: batch.practiceItemIds.length,
+        practiceItems: batch.practiceItemIds?.length ?? 0,
+        assessmentItems: batch.itemIds?.length ?? 0,
         vocabulary:
           source.sourceKind.startsWith("vocabulary")
             ? batch.practiceItemIds.length / 3
@@ -156,6 +177,9 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
       ).length,
       taskBatches: reviewBatches.filter(
         (batch) => batch.sourceKind === "task-assessment",
+      ).length,
+      assessmentBatches: reviewBatches.filter(
+        (batch) => batch.sourceKind === "level-check-objective-items",
       ).length,
     },
     sources: sources.map(({ batches, ...source }) => ({

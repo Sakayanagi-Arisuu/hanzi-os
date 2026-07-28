@@ -8,19 +8,20 @@ import {
 } from "./hsk1ReviewManifest.mjs";
 
 describe("HSK1 bounded human-review manifest", () => {
-  it("exports 75 exact pending batches without duplicating draft content", () => {
+  it("exports 85 exact pending batches without duplicating draft content", () => {
     const bundle = loadHsk1ReviewManifestBundle();
     const result = assertValidHsk1ReviewManifestBundle(bundle);
 
     expect(result.summary).toEqual({
-      sourceArtifacts: 5,
-      reviewBatches: 75,
-      pendingBatches: 75,
+      sourceArtifacts: 6,
+      reviewBatches: 85,
+      pendingBatches: 85,
       approvals: 0,
       vocabularyBatches: 25,
       characterBatches: 15,
       grammarBatches: 20,
       taskBatches: 15,
+      assessmentBatches: 10,
     });
     expect(bundle.manifest.policy).toMatchObject({
       exactSourceHashRequired: true,

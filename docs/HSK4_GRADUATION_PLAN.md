@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **70%**.
+Status: **in progress** at project progress **71%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **70%**.
+Status: **in progress** at project progress **71%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -143,9 +143,9 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 23 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar/task |
-| E. Assessment và mock HSK0-4 | 10 | 4 | diagnostic, level-check blueprint, timed mock và rubric |
+| E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **70** | **Tiến độ hiện tại: 70%** |
+| **Tổng** | **100** | **71** | **Tiến độ hiện tại: 71%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -252,6 +252,16 @@ section với 55 item dự kiến nhưng giữ 0 authored scored item, không cu
 không mastery hay prerequisite waiver cho tới khi review và calibration.
 Manifest review ghim exact hash của 5 artifact và xuất 75 batch đang chờ, gồm
 25 vocabulary, 15 character, 20 grammar và 15 task batch; approval vẫn bằng 0.
+
+Lát G3 thứ tám tăng trụ cột E thêm 1 điểm. Blueprint HSK1 hiện có một bank 50
+câu khách quan ẩn: 15 nghe, 15 đọc, 10 từ vựng và 10 ngữ pháp. Mỗi câu gắn với
+đúng scenario turn, vocabulary draft hoặc grammar example và được chia vào 10
+review batch. Phần nghe chưa có audio; browser TTS chỉ phục vụ preview biên tập.
+Vì các câu hiện tái dùng nguồn draft đã có thể xuất hiện khi học, policy bắt
+buộc tạo alternate form độc lập, duyệt audio, review ngôn ngữ/assessment và
+hiệu chuẩn pilot trước khi đo lường. Cả 50 câu vẫn 0 measurement/mastery/
+release-eligible; không có cut score hay prerequisite waiver. Manifest mới
+ghim 6 artifact và 85 batch đang chờ, approval vẫn bằng 0.
 
 ## 6. Quy tắc cập nhật phần trăm
 

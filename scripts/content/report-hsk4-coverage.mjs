@@ -30,6 +30,10 @@ import {
   loadHsk1TaskAssessmentPackBundle,
 } from "../../src/content/hsk1TaskAssessmentPack.mjs";
 import {
+  assertValidHsk1LevelCheckItemBankBundle,
+  loadHsk1LevelCheckItemBankBundle,
+} from "../../src/content/hsk1LevelCheckItemBank.mjs";
+import {
   assertValidHsk1ReviewManifestBundle,
   loadHsk1ReviewManifestBundle,
 } from "../../src/content/hsk1ReviewManifest.mjs";
@@ -76,6 +80,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1TaskPack = loadHsk1TaskAssessmentPackBundle(root);
   const hsk1TaskPackResult =
     assertValidHsk1TaskAssessmentPackBundle(hsk1TaskPack);
+  const hsk1LevelCheck = loadHsk1LevelCheckItemBankBundle(root);
+  const hsk1LevelCheckResult =
+    assertValidHsk1LevelCheckItemBankBundle(hsk1LevelCheck);
   const hsk1ReviewManifest = loadHsk1ReviewManifestBundle(root);
   const hsk1ReviewManifestResult =
     assertValidHsk1ReviewManifestBundle(hsk1ReviewManifest);
@@ -312,6 +319,27 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk1TaskPackResult.summary.authoredLevelCheckItems,
           calibrated: false,
           reviewed: false,
+          learnerVisible: false,
+        },
+        hsk1LevelCheckObjectiveBank: {
+          objectiveItems:
+            hsk1LevelCheckResult.summary.objectiveItems,
+          listeningItems:
+            hsk1LevelCheckResult.summary.listeningItems,
+          readingItems:
+            hsk1LevelCheckResult.summary.readingItems,
+          vocabularyItems:
+            hsk1LevelCheckResult.summary.vocabularyItems,
+          grammarItems:
+            hsk1LevelCheckResult.summary.grammarItems,
+          reviewedItems:
+            hsk1LevelCheckResult.summary.reviewedItems,
+          calibratedItems:
+            hsk1LevelCheckResult.summary.calibratedItems,
+          measurementEligibleItems:
+            hsk1LevelCheckResult.summary.measurementEligibleItems,
+          independentFormsComplete: false,
+          reviewedAudioComplete: false,
           learnerVisible: false,
         },
         hsk1HumanReviewQueue: {

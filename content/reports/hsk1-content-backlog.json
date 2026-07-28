@@ -24,7 +24,7 @@
     "tasksScenarioDraftMapped": 15,
     "topicsPromptDraftMapped": 30,
     "taskPracticeDrafted": 15,
-    "authoredLevelCheckItems": 0,
+    "authoredLevelCheckItems": 50,
     "pronunciationCompatible": 297,
     "vietnameseGlossReviewed": 0,
     "lessonMapped": 23,
@@ -51,7 +51,8 @@
     "draftTaskDialogueTurns": 60,
     "authoredTaskPracticeItems": 15,
     "pendingTaskReviewBatches": 15,
-    "boundedReviewManifestBatches": 75,
+    "pendingAssessmentReviewBatches": 10,
+    "boundedReviewManifestBatches": 85,
     "boundedReviewManifestApprovals": 0,
     "pronunciationReviewItems": [
       {
@@ -83,6 +84,6 @@
   "claims": {
     "hsk1VocabularyComplete": false,
     "hsk1Complete": false,
-    "reason": "All HSK1 inventory sections have AI-assisted draft mappings and practice, but human review, complete stroke metadata, authored/calibrated level-check items and release are incomplete."
+    "reason": "All HSK1 inventory sections and 50 objective level-check items have AI-assisted drafts, but human review, complete stroke metadata, independent assessment forms, reviewed audio, calibration and release are incomplete."
   }
 }
