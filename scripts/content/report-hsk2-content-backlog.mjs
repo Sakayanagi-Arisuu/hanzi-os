@@ -29,6 +29,10 @@ import {
   assertValidHsk2SituationalDialoguesBundle,
   loadHsk2SituationalDialoguesBundle,
 } from "../../src/content/hsk2SituationalDialogues.mjs";
+import {
+  assertValidHsk2ShortTextProductionBundle,
+  loadHsk2ShortTextProductionBundle,
+} from "../../src/content/hsk2ShortTextProduction.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -54,6 +58,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const situationalBundle = loadHsk2SituationalDialoguesBundle(root);
   const situationalResult =
     assertValidHsk2SituationalDialoguesBundle(situationalBundle);
+  const productionBundle = loadHsk2ShortTextProductionBundle(root);
+  const productionResult =
+    assertValidHsk2ShortTextProductionBundle(productionBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -82,8 +89,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       grammarContextPackSha256: fileSha256(grammarBundle.packPath),
       situationalDialoguePackId: situationalBundle.pack.packId,
       situationalDialoguePackSha256: fileSha256(situationalBundle.packPath),
+      shortTextProductionPackId: productionBundle.pack.packId,
+      shortTextProductionPackSha256: fileSha256(productionBundle.packPath),
     },
-    stage: "situational-dialogue-authoring",
+    stage: "short-text-production-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -122,6 +131,11 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         situationalResult.summary.situationalLessons,
       modelDialogueTurnsDrafted:
         situationalResult.summary.modelDialogueTurns,
+      shortTextProductionLessons: productionResult.summary.lessons,
+      shortTextProductionPromptUnits: productionResult.summary.promptUnits,
+      shortTextModelSentences: productionResult.summary.modelSentences,
+      productiveCharacterPromptMappings:
+        productionResult.summary.targetCharacterPromptMappings,
       pronunciationCompatible:
         entries.length - pronunciationReviewItems.length,
       vietnameseGlossReviewed: 0,
@@ -174,6 +188,20 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         situationalResult.summary.audioDependentDialogues,
       reviewedDialogueAudio:
         situationalResult.summary.reviewedAudioDialogues,
+      authoredDictationPrompts: productionResult.summary.dictationPrompts,
+      authoredReconstructionPrompts:
+        productionResult.summary.reconstructionPrompts,
+      authoredGuidedMessagePrompts:
+        productionResult.summary.guidedMessagePrompts,
+      authoredPictureDescriptionPrompts:
+        productionResult.summary.pictureDescriptionPrompts,
+      pendingProductionReviewBatches:
+        productionResult.summary.reviewBatches,
+      productionApprovals: productionResult.summary.approvals,
+      audioDependentDictationPrompts:
+        productionResult.summary.audioDependentPrompts,
+      reviewedDictationAudioPrompts:
+        productionResult.summary.reviewedAudioPrompts,
       characterContextGaps: characterBundle.pack.characters.filter(
         (item) => item.primaryContext === null,
       ).map((item) => ({
@@ -195,7 +223,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks and topics have bounded draft practice or situational context, but short-text production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
+        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics and short-text production stages have bounded draft practice or context, but assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
     },
   };
 };

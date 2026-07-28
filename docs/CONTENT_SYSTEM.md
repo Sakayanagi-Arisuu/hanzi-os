@@ -266,6 +266,28 @@ editorial, task-pedagogy và audio-rights review đều pending hoặc
 `blocked-no-audio`. Pack giữ 0 approval và 0 measurement/mastery/
 release-eligible item.
 
+`content/drafts/hsk2-short-text-production-2026.07.json` hiện thực hóa đủ 10
+blueprint productive-text theo bốn bậc: 36 prompt nghe-chép, 36 prompt dựng
+câu, 16 prompt viết tin nhắn ba câu và 16 prompt mô tả cảnh, tổng 104 prompt
+và 168 câu mẫu Hán tự–Pinyin–nghĩa Việt. Số prompt của từng bài lấy trực tiếp
+từ `minimumPromptUnits` trong blueprint, không dùng một ngân hàng nhỏ chung
+cho mọi stage.
+
+Cả 125 recognition character HSK2 được bind vào đúng bài và xuất hiện trong
+đáp án của đúng một prompt trong bài đó. Validator kiểm exact character
+partition, mảnh dựng câu khớp đáp án, ba ý bắt buộc/ba câu mẫu của guided
+production và source hash. `留` có ngữ cảnh hỗ trợ draft là `留学生`, nhưng
+report vẫn giữ đúng gap: chưa có cumulative official HSK1–2 vocabulary context
+cho chữ này.
+
+Chạy `content:hsk2:short-text-production -- --write` để tái tạo; `--check`
+cùng `content:hsk2:short-text-production:validate` là gate bắt buộc. Ba mươi
+sáu prompt nghe-chép có `audio: null`; toàn bộ prompt chỉ
+`self-reveal-revision-only`. Mười review batch chờ native Mandarin,
+Vietnamese editorial, writing-pedagogy và assessment review; batch nghe-chép
+còn chờ audio-rights. Vì vậy pack có 0 approval, measurement/mastery và
+release-eligible item, không được coi là writing hoặc HSK2 mastery.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

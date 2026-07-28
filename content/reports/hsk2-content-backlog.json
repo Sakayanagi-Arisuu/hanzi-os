@@ -17,9 +17,11 @@
     "grammarContextPackId": "hsk2-grammar-context-2026.07",
     "grammarContextPackSha256": "sha256:af2a00eefa7c1e40f30a0711102b40bb5ca70bf2f2fed90fc3385ea20f19f9fb",
     "situationalDialoguePackId": "hsk2-situational-dialogues-2026.07",
-    "situationalDialoguePackSha256": "sha256:07b5c1b0992ae76035b48d4f600aa69c5ce20d26b3acbafe2a18f685bf6234bd"
+    "situationalDialoguePackSha256": "sha256:07b5c1b0992ae76035b48d4f600aa69c5ce20d26b3acbafe2a18f685bf6234bd",
+    "shortTextProductionPackId": "hsk2-short-text-production-2026.07",
+    "shortTextProductionPackSha256": "sha256:b1be18996f253d505d3bb4190a43aa1592a56bc834c5753cbb233b1ca251485a"
   },
-  "stage": "situational-dialogue-authoring",
+  "stage": "short-text-production-authoring",
   "coverage": {
     "officialVocabulary": 200,
     "dictionaryMatched": 200,
@@ -42,6 +44,10 @@
     "topicPromptDrafts": 34,
     "situationalDialogueDrafts": 20,
     "modelDialogueTurnsDrafted": 120,
+    "shortTextProductionLessons": 10,
+    "shortTextProductionPromptUnits": 104,
+    "shortTextModelSentences": 168,
+    "productiveCharacterPromptMappings": 125,
     "pronunciationCompatible": 194,
     "vietnameseGlossReviewed": 0,
     "lessonMapped": 0,
@@ -77,6 +83,14 @@
     "situationalDialogueApprovals": 0,
     "audioDependentDialogues": 20,
     "reviewedDialogueAudio": 0,
+    "authoredDictationPrompts": 36,
+    "authoredReconstructionPrompts": 36,
+    "authoredGuidedMessagePrompts": 16,
+    "authoredPictureDescriptionPrompts": 16,
+    "pendingProductionReviewBatches": 10,
+    "productionApprovals": 0,
+    "audioDependentDictationPrompts": 36,
+    "reviewedDictationAudioPrompts": 0,
     "characterContextGaps": [
       {
         "officialCharacterId": "hsk2-character-050",
@@ -138,6 +152,6 @@
   "claims": {
     "hsk2VocabularyComplete": false,
     "hsk2Complete": false,
-    "reason": "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks and topics have bounded draft practice or situational context, but short-text production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete."
+    "reason": "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics and short-text production stages have bounded draft practice or context, but assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete."
   }
 }

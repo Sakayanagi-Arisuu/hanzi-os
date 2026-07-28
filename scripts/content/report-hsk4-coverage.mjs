@@ -42,6 +42,10 @@ import {
   loadHsk2SituationalDialoguesBundle,
 } from "../../src/content/hsk2SituationalDialogues.mjs";
 import {
+  assertValidHsk2ShortTextProductionBundle,
+  loadHsk2ShortTextProductionBundle,
+} from "../../src/content/hsk2ShortTextProduction.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -120,6 +124,10 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     loadHsk2SituationalDialoguesBundle(root);
   const hsk2SituationalDialoguesResult =
     assertValidHsk2SituationalDialoguesBundle(hsk2SituationalDialogues);
+  const hsk2ShortTextProduction =
+    loadHsk2ShortTextProductionBundle(root);
+  const hsk2ShortTextProductionResult =
+    assertValidHsk2ShortTextProductionBundle(hsk2ShortTextProduction);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -457,6 +465,32 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           approvals: hsk2SituationalDialoguesResult.summary.approvals,
           measurementEligibleItems:
             hsk2SituationalDialoguesResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2ShortTextProduction: {
+          lessons: hsk2ShortTextProductionResult.summary.lessons,
+          promptUnits: hsk2ShortTextProductionResult.summary.promptUnits,
+          dictationPrompts:
+            hsk2ShortTextProductionResult.summary.dictationPrompts,
+          reconstructionPrompts:
+            hsk2ShortTextProductionResult.summary.reconstructionPrompts,
+          guidedMessagePrompts:
+            hsk2ShortTextProductionResult.summary.guidedMessagePrompts,
+          pictureDescriptionPrompts:
+            hsk2ShortTextProductionResult.summary.pictureDescriptionPrompts,
+          modelSentences:
+            hsk2ShortTextProductionResult.summary.modelSentences,
+          targetCharacterPromptMappings:
+            hsk2ShortTextProductionResult.summary
+              .targetCharacterPromptMappings,
+          reviewedAudioPrompts:
+            hsk2ShortTextProductionResult.summary.reviewedAudioPrompts,
+          reviewBatches:
+            hsk2ShortTextProductionResult.summary.reviewBatches,
+          approvals: hsk2ShortTextProductionResult.summary.approvals,
+          measurementEligibleItems:
+            hsk2ShortTextProductionResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

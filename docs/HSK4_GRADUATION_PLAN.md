@@ -361,6 +361,17 @@ Vietnamese editorial, task-pedagogy và audio-rights review. Tất cả audio v�
 short-text production, assessment, review/audio, runtime promotion và toàn bộ
 HSK3–4 vẫn còn.
 
+Lát G3 HSK2 thứ bảy không tăng điểm, nên tiến độ giữ ở **78%**. Mười blueprint
+productive-text đã có đủ ngưỡng 104 prompt theo bốn bậc: 36 nghe-chép, 36 dựng
+câu, 16 tin nhắn ba câu và 16 mô tả cảnh; 168 câu mẫu Hán tự–Pinyin–nghĩa
+Việt dùng cho tự sửa. Cả 125 recognition character xuất hiện trong đáp án của
+đúng một prompt thuộc bài được gán, còn `留学生` chỉ là ngữ cảnh hỗ trợ draft
+chứ không xóa gap official-vocabulary của `留`. Ba mươi sáu audio vẫn `null`;
+10 review batch chưa có approval và mọi item vẫn
+measurement/mastery/release-ineligible. Trụ cột D giữ 29/30 để không tuyên bố
+coverage HSK0–4 hoàn chỉnh khi assessment HSK2 và toàn bộ content HSK3–4 chưa
+có.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
