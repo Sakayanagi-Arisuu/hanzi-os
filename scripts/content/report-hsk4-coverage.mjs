@@ -26,6 +26,14 @@ import {
   loadHsk1GrammarContextPackBundle,
 } from "../../src/content/hsk1GrammarContextPack.mjs";
 import {
+  assertValidHsk1TaskAssessmentPackBundle,
+  loadHsk1TaskAssessmentPackBundle,
+} from "../../src/content/hsk1TaskAssessmentPack.mjs";
+import {
+  assertValidHsk1ReviewManifestBundle,
+  loadHsk1ReviewManifestBundle,
+} from "../../src/content/hsk1ReviewManifest.mjs";
+import {
   assertValidHskSyllabusBundle,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
@@ -65,6 +73,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1GrammarPack = loadHsk1GrammarContextPackBundle(root);
   const hsk1GrammarPackResult =
     assertValidHsk1GrammarContextPackBundle(hsk1GrammarPack);
+  const hsk1TaskPack = loadHsk1TaskAssessmentPackBundle(root);
+  const hsk1TaskPackResult =
+    assertValidHsk1TaskAssessmentPackBundle(hsk1TaskPack);
+  const hsk1ReviewManifest = loadHsk1ReviewManifestBundle(root);
+  const hsk1ReviewManifestResult =
+    assertValidHsk1ReviewManifestBundle(hsk1ReviewManifest);
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -287,6 +301,25 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk1GrammarPackResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
+        },
+        hsk1TaskAssessment: {
+          tasks: hsk1TaskPackResult.summary.taskScenarios,
+          topics: hsk1TaskPackResult.summary.topicDrafts,
+          dialogueTurns: hsk1TaskPackResult.summary.modelDialogueTurns,
+          authoredPracticeItems:
+            hsk1TaskPackResult.summary.guidedRoleplayItems,
+          authoredLevelCheckItems:
+            hsk1TaskPackResult.summary.authoredLevelCheckItems,
+          calibrated: false,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk1HumanReviewQueue: {
+          sourceArtifacts:
+            hsk1ReviewManifestResult.summary.sourceArtifacts,
+          reviewBatches: hsk1ReviewManifestResult.summary.reviewBatches,
+          pendingBatches: hsk1ReviewManifestResult.summary.pendingBatches,
+          approvals: hsk1ReviewManifestResult.summary.approvals,
         },
       },
       learningMaterials: {

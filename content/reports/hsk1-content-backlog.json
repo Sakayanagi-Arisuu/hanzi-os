@@ -21,6 +21,10 @@
     "charactersWithPinnedStrokeMetadata": 0,
     "grammarRowsDraftMapped": 66,
     "grammarPracticeDrafted": 66,
+    "tasksScenarioDraftMapped": 15,
+    "topicsPromptDraftMapped": 30,
+    "taskPracticeDrafted": 15,
+    "authoredLevelCheckItems": 0,
     "pronunciationCompatible": 297,
     "vietnameseGlossReviewed": 0,
     "lessonMapped": 23,
@@ -44,6 +48,11 @@
     "draftGrammarModelExamples": 66,
     "authoredGrammarPracticeItems": 66,
     "pendingGrammarReviewBatches": 20,
+    "draftTaskDialogueTurns": 60,
+    "authoredTaskPracticeItems": 15,
+    "pendingTaskReviewBatches": 15,
+    "boundedReviewManifestBatches": 75,
+    "boundedReviewManifestApprovals": 0,
     "pronunciationReviewItems": [
       {
         "officialId": "hsk-vocab-00137",
@@ -74,6 +83,6 @@
   "claims": {
     "hsk1VocabularyComplete": false,
     "hsk1Complete": false,
-    "reason": "HSK1 vocabulary, recognition characters and grammar rows have AI-assisted draft practice, but human review, complete stroke metadata, calibrated assessment, task-level evidence and release are incomplete."
+    "reason": "All HSK1 inventory sections have AI-assisted draft mappings and practice, but human review, complete stroke metadata, authored/calibrated level-check items and release are incomplete."
   }
 }

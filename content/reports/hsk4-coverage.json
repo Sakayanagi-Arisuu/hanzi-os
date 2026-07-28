@@ -185,6 +185,22 @@
         "measurementEligibleItems": 0,
         "reviewed": false,
         "learnerVisible": false
+      },
+      "hsk1TaskAssessment": {
+        "tasks": 15,
+        "topics": 30,
+        "dialogueTurns": 60,
+        "authoredPracticeItems": 15,
+        "authoredLevelCheckItems": 0,
+        "calibrated": false,
+        "reviewed": false,
+        "learnerVisible": false
+      },
+      "hsk1HumanReviewQueue": {
+        "sourceArtifacts": 5,
+        "reviewBatches": 75,
+        "pendingBatches": 75,
+        "approvals": 0
       }
     },
     "learningMaterials": {

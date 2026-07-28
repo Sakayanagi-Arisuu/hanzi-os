@@ -1,0 +1,1587 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "hsk1-review-manifest-2026.07",
+  "state": "ready-for-human-review-assignment",
+  "learnerVisible": false,
+  "releaseEligible": false,
+  "policy": {
+    "exactSourceHashRequired": true,
+    "manifestDuplicatesContent": false,
+    "reviewDoesNotPublish": true,
+    "allRequiredRolesMustApproveExactTargets": true
+  },
+  "counts": {
+    "sourceArtifacts": 5,
+    "reviewBatches": 75,
+    "pendingBatches": 75,
+    "approvals": 0,
+    "vocabularyBatches": 25,
+    "characterBatches": 15,
+    "grammarBatches": 20,
+    "taskBatches": 15
+  },
+  "sources": [
+    {
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "relativePath": "content/drafts/hsk1-personal-exchange-2026.07.json",
+      "sha256": "sha256:3518d598a8cea63a65029c0ddbc9526fe98baab0a142bfab40c60aa9070c9969",
+      "targetCounts": {
+        "lessons": 9,
+        "vocabulary": 107,
+        "practiceItems": 321
+      },
+      "reviewBatchCount": 9
+    },
+    {
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244",
+      "targetCounts": {
+        "lessons": 16,
+        "vocabulary": 193,
+        "practiceItems": 579
+      },
+      "reviewBatchCount": 16
+    },
+    {
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "relativePath": "content/drafts/hsk1-character-foundation-2026.07.json",
+      "sha256": "sha256:c0c9bbdad6800ca7dc7a313f901ffabce846325ab854896df1d8b57bfc14fe99",
+      "targetCounts": {
+        "lessons": 15,
+        "characters": 246,
+        "practiceItems": 492
+      },
+      "reviewBatchCount": 15
+    },
+    {
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
+      "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718",
+      "targetCounts": {
+        "lessons": 20,
+        "grammarRows": 66,
+        "practiceItems": 66
+      },
+      "reviewBatchCount": 20
+    },
+    {
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
+      "sha256": "sha256:5bdc327f4ffc47fa6ff84e5e1262fc78e86b5f43146ac782ba85a3cf0302e6e3",
+      "targetCounts": {
+        "tasks": 15,
+        "topics": 30,
+        "practiceItems": 15
+      },
+      "reviewBatchCount": 15
+    }
+  ],
+  "reviewBatches": [
+    {
+      "batchId": "hsk1-pe-01-polite-open-close:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 33,
+        "vocabulary": 11,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-02-pronouns-and-groups:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 48,
+        "vocabulary": 16,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-03-name-identity-age:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-04-family:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 39,
+        "vocabulary": 13,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-05-friends-and-pets:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-06-description-and-feeling:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 42,
+        "vocabulary": 14,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-07-ability-intention-negation:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 51,
+        "vocabulary": 17,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-08-phone-and-conversation:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 24,
+        "vocabulary": 8,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-09-personal-routine:review-v1",
+      "sourceKind": "vocabulary-personal-exchange",
+      "sourceId": "hsk1-personal-exchange-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 12,
+        "vocabulary": 4,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 45,
+        "vocabulary": 15,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:02-calendar:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 30,
+        "vocabulary": 10,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 27,
+        "vocabulary": 9,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:05-location:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 72,
+        "vocabulary": 24,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 33,
+        "vocabulary": 11,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-daily-life:01-quantity-and-money:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-daily-life:02-food-and-drink:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 66,
+        "vocabulary": 22,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-daily-life:03-shopping-and-clothing:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-daily-life:04-health-and-home:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 24,
+        "vocabulary": 8,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-travel-leisure:01-transport:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 30,
+        "vocabulary": 10,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-travel-leisure:02-media-and-leisure:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 39,
+        "vocabulary": 13,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-study-work:01-school-levels:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 27,
+        "vocabulary": 9,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-study-work:02-people-and-language:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 21,
+        "vocabulary": 7,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-study-work:03-study-and-materials:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-study-work:04-work-and-schedule:review-v1",
+      "sourceKind": "vocabulary-communicative-units",
+      "sourceId": "hsk1-communicative-units-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 21,
+        "vocabulary": 7,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:01:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 34,
+        "vocabulary": 0,
+        "characters": 17,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:02:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:03:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:04:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:05:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:06:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:07:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 38,
+        "vocabulary": 0,
+        "characters": 19,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:08:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 0,
+        "characters": 18,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:09:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 36,
+        "vocabulary": 0,
+        "characters": 18,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:10:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:11:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 32,
+        "vocabulary": 0,
+        "characters": 16,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:12:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 30,
+        "vocabulary": 0,
+        "characters": 15,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:13:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 40,
+        "vocabulary": 0,
+        "characters": 20,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:14:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 28,
+        "vocabulary": 0,
+        "characters": 14,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-character-foundation:15:review-v1",
+      "sourceKind": "character-foundation",
+      "sourceId": "hsk1-character-foundation-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 26,
+        "vocabulary": 0,
+        "characters": 13,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-01-polite-open-close:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 2,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 2,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-02-pronouns-and-groups:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 4,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 4,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-03-name-identity-age:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 2,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 2,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-04-family:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 2,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 2,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-05-friends-and-pets:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 3,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 3,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-06-description-and-feeling:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 6,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 6,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-07-ability-intention-negation:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 9,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-08-phone-and-conversation:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 3,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 3,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-pe-09-personal-routine:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 1,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 1,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:02-calendar:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 4,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 4,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:03-week-and-day-parts:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 3,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 3,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:04-clock-and-duration:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 7,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 7,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:05-location:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 9,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events:06-weather-and-residence:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 1,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-daily-life:01-quantity-and-money:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 3,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 3,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-daily-life:02-food-and-drink:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 2,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 2,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-travel-leisure:01-transport:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 2,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 2,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-travel-leisure:02-media-and-leisure:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 1,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-study-work:03-study-and-materials:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk1-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 1,
+        "tasks": 0,
+        "topics": 0
+      }
+    },
+    {
+      "batchId": "hsk1-task-01:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-02:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-03:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 4
+      }
+    },
+    {
+      "batchId": "hsk1-task-04:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-05:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-06:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2
+      }
+    },
+    {
+      "batchId": "hsk1-task-07:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 4
+      }
+    },
+    {
+      "batchId": "hsk1-task-08:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 3
+      }
+    },
+    {
+      "batchId": "hsk1-task-09:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-10:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-11:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-12:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1
+      }
+    },
+    {
+      "batchId": "hsk1-task-13:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 3
+      }
+    },
+    {
+      "batchId": "hsk1-task-14:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 3
+      }
+    },
+    {
+      "batchId": "hsk1-task-15:scenario-review-v1",
+      "sourceKind": "task-assessment",
+      "sourceId": "hsk1-task-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 4
+      }
+    }
+  ]
+}

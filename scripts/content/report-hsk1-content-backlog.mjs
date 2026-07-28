@@ -25,6 +25,14 @@ import {
   assertValidHsk1GrammarContextPackBundle,
   loadHsk1GrammarContextPackBundle,
 } from "../../src/content/hsk1GrammarContextPack.mjs";
+import {
+  assertValidHsk1TaskAssessmentPackBundle,
+  loadHsk1TaskAssessmentPackBundle,
+} from "../../src/content/hsk1TaskAssessmentPack.mjs";
+import {
+  assertValidHsk1ReviewManifestBundle,
+  loadHsk1ReviewManifestBundle,
+} from "../../src/content/hsk1ReviewManifest.mjs";
 
 export const HSK1_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
   "content/reports/hsk1-content-backlog.json";
@@ -47,6 +55,12 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
   const grammarPackBundle = loadHsk1GrammarContextPackBundle(root);
   const grammarPackResult =
     assertValidHsk1GrammarContextPackBundle(grammarPackBundle);
+  const taskPackBundle = loadHsk1TaskAssessmentPackBundle(root);
+  const taskPackResult =
+    assertValidHsk1TaskAssessmentPackBundle(taskPackBundle);
+  const reviewManifestBundle = loadHsk1ReviewManifestBundle(root);
+  const reviewManifestResult =
+    assertValidHsk1ReviewManifestBundle(reviewManifestBundle);
   const totalDraftedVocabulary =
     personalPackResult.summary.vocabularyDrafts
     + communicativePackResult.summary.vocabularyDrafts;
@@ -93,6 +107,11 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
       grammarRowsDraftMapped: grammarPackResult.summary.grammarDrafts,
       grammarPracticeDrafted:
         grammarPackResult.summary.guidedPracticeItems,
+      tasksScenarioDraftMapped: taskPackResult.summary.taskScenarios,
+      topicsPromptDraftMapped: taskPackResult.summary.topicDrafts,
+      taskPracticeDrafted: taskPackResult.summary.guidedRoleplayItems,
+      authoredLevelCheckItems:
+        taskPackResult.summary.authoredLevelCheckItems,
       pronunciationCompatible: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType !== "surface-only",
@@ -149,6 +168,14 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
         grammarPackResult.summary.guidedPracticeItems,
       pendingGrammarReviewBatches:
         grammarPackResult.summary.reviewBatches,
+      draftTaskDialogueTurns: taskPackResult.summary.modelDialogueTurns,
+      authoredTaskPracticeItems:
+        taskPackResult.summary.guidedRoleplayItems,
+      pendingTaskReviewBatches: taskPackResult.summary.reviewBatches,
+      boundedReviewManifestBatches:
+        reviewManifestResult.summary.reviewBatches,
+      boundedReviewManifestApprovals:
+        reviewManifestResult.summary.approvals,
       pronunciationReviewItems: entries.filter(
         (entry) => entry.sourceMatches.some(
           (source) => source.matchType === "surface-only",
@@ -167,7 +194,7 @@ export const buildHsk1ContentBacklogReport = (root = process.cwd()) => {
     claims: {
       hsk1VocabularyComplete: false,
       hsk1Complete: false,
-      reason: "HSK1 vocabulary, recognition characters and grammar rows have AI-assisted draft practice, but human review, complete stroke metadata, calibrated assessment, task-level evidence and release are incomplete.",
+      reason: "All HSK1 inventory sections have AI-assisted draft mappings and practice, but human review, complete stroke metadata, authored/calibrated level-check items and release are incomplete.",
     },
   };
 };

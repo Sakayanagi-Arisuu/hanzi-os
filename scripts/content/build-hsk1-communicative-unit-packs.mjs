@@ -266,7 +266,7 @@ const UNIT_PLANS = [
         vocabularySequences: [33, 55, 56, 80, 163, 185, 186, 232, 236],
         grammarOrdinals: [17, 18, 58, 59, 60, 61, 62],
         taskOrdinals: [],
-        topicOrdinals: [6],
+        topicOrdinals: [],
         dialogue: [
           ["A", "现在几点？", "Xiànzài jǐ diǎn?", "Bây giờ là mấy giờ?"],
           ["B", "现在八点半。", "Xiànzài bā diǎn bàn.", "Bây giờ là tám giờ rưỡi."],
@@ -280,7 +280,7 @@ const UNIT_PLANS = [
         objectiveVi: "Hỏi và chỉ vị trí bằng từ để hỏi, từ chỉ định và phương vị.",
         vocabularySequences: [11, 110, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 175, 212, 213, 226, 239, 279, 280, 281, 282, 283, 284],
         grammarOrdinals: [2, 3, 10, 21, 33, 34, 40, 51, 52],
-        taskOrdinals: [4],
+        taskOrdinals: [5],
         topicOrdinals: [7],
         dialogue: [
           ["A", "你在哪里？", "Nǐ zài nǎlǐ?", "Bạn đang ở đâu?"],
@@ -295,8 +295,8 @@ const UNIT_PLANS = [
         objectiveVi: "Mô tả thời tiết hiện tại và nói nơi mình đang sống.",
         vocabularySequences: [29, 31, 109, 169, 208, 227, 251, 267, 271, 286, 294],
         grammarOrdinals: [32],
-        taskOrdinals: [5],
-        topicOrdinals: [],
+        taskOrdinals: [4],
+        topicOrdinals: [6],
         dialogue: [
           ["A", "今天天气怎么样？", "Jīntiān tiānqì zěnmeyàng?", "Hôm nay thời tiết thế nào?"],
           ["B", "今天很热，不下雨。", "Jīntiān hěn rè, bù xiàyǔ.", "Hôm nay rất nóng, không mưa."],
@@ -315,8 +315,8 @@ const UNIT_PLANS = [
         objectiveVi: "Hỏi số lượng, giá tiền và dùng lượng từ trong trao đổi ngắn.",
         vocabularySequences: [46, 47, 60, 85, 104, 105, 164, 180, 258, 261, 262, 268],
         grammarOrdinals: [12, 13, 63],
-        taskOrdinals: [3],
-        topicOrdinals: [4, 5],
+        taskOrdinals: [9],
+        topicOrdinals: [17],
         dialogue: [
           ["A", "这个多少钱？", "Zhè ge duōshao qián?", "Cái này bao nhiêu tiền?"],
           ["B", "五块钱。", "Wǔ kuài qián.", "Năm tệ."],
@@ -330,8 +330,8 @@ const UNIT_PLANS = [
         objectiveVi: "Gọi món và nói lựa chọn ăn uống trong các bữa hằng ngày.",
         vocabularySequences: [8, 9, 16, 17, 21, 50, 51, 72, 77, 84, 90, 125, 126, 127, 151, 159, 192, 193, 216, 224, 274, 300],
         grammarOrdinals: [7, 25],
-        taskOrdinals: [7, 9],
-        topicOrdinals: [11, 12, 16, 17],
+        taskOrdinals: [7, 15],
+        topicOrdinals: [11, 12, 29, 30],
         dialogue: [
           ["A", "你想吃什么？", "Nǐ xiǎng chī shénme?", "Bạn muốn ăn gì?"],
           ["B", "我想吃米饭。", "Wǒ xiǎng chī mǐfàn.", "Tôi muốn ăn cơm."],
@@ -345,8 +345,8 @@ const UNIT_PLANS = [
         objectiveVi: "Hỏi giá, đánh giá đắt rẻ và trao đổi khi mua quần áo.",
         vocabularySequences: [19, 23, 34, 40, 65, 89, 116, 117, 157, 174, 255, 278],
         grammarOrdinals: [],
-        taskOrdinals: [10],
-        topicOrdinals: [18, 19, 29],
+        taskOrdinals: [3],
+        topicOrdinals: [4, 5, 16, 18],
         dialogue: [
           ["A", "这件衣服贵吗？", "Zhè jiàn yīfu guì ma?", "Bộ quần áo này đắt không?"],
           ["B", "不贵，很便宜。", "Bú guì, hěn piányi.", "Không đắt, rất rẻ."],
@@ -360,8 +360,8 @@ const UNIT_PLANS = [
         objectiveVi: "Nói tình trạng sức khỏe và xác định đồ vật cơ bản trong phòng.",
         vocabularySequences: [12, 52, 100, 183, 256, 257, 260, 295],
         grammarOrdinals: [],
-        taskOrdinals: [15],
-        topicOrdinals: [30],
+        taskOrdinals: [10],
+        topicOrdinals: [19],
         dialogue: [
           ["A", "你怎么了？", "Nǐ zěnme le?", "Bạn bị làm sao?"],
           ["B", "我生病了。", "Wǒ shēngbìng le.", "Tôi bị ốm."],
@@ -381,7 +381,7 @@ const UNIT_PLANS = [
         vocabularySequences: [20, 22, 54, 81, 83, 97, 98, 106, 167, 298],
         grammarOrdinals: [53, 54],
         taskOrdinals: [8],
-        topicOrdinals: [13, 14],
+        topicOrdinals: [13, 14, 15],
         dialogue: [
           ["A", "你怎么去那边？", "Nǐ zěnme qù nàbiān?", "Bạn đến bên kia bằng cách nào?"],
           ["B", "我坐出租车去。", "Wǒ zuò chūzūchē qù.", "Tôi đi taxi đến đó."],
@@ -396,7 +396,7 @@ const UNIT_PLANS = [
         vocabularySequences: [18, 37, 38, 39, 58, 75, 99, 101, 209, 210, 214, 246, 299],
         grammarOrdinals: [41],
         taskOrdinals: [11],
-        topicOrdinals: [15, 20],
+        topicOrdinals: [20],
         dialogue: [
           ["A", "你喜欢看电影吗？", "Nǐ xǐhuan kàn diànyǐng ma?", "Bạn thích xem phim không?"],
           ["B", "喜欢，我也喜欢听歌。", "Xǐhuan, wǒ yě xǐhuan tīng gē.", "Có, tôi cũng thích nghe nhạc."],
@@ -416,7 +416,7 @@ const UNIT_PLANS = [
         vocabularySequences: [27, 28, 179, 237, 238, 248, 250, 292, 293],
         grammarOrdinals: [],
         taskOrdinals: [12],
-        topicOrdinals: [21, 22],
+        topicOrdinals: [23],
         dialogue: [
           ["A", "你在哪个学校上学？", "Nǐ zài nǎ ge xuéxiào shàngxué?", "Bạn học ở trường nào?"],
           ["B", "我在中学上学。", "Wǒ zài zhōngxué shàngxué.", "Tôi học ở trường trung học."],
@@ -431,7 +431,7 @@ const UNIT_PLANS = [
         vocabularySequences: [69, 70, 107, 211, 289, 290, 296],
         grammarOrdinals: [],
         taskOrdinals: [],
-        topicOrdinals: [23, 24],
+        topicOrdinals: [24],
         dialogue: [
           ["A", "你是汉语老师吗？", "Nǐ shì Hànyǔ lǎoshī ma?", "Bạn là giáo viên tiếng Trung phải không?"],
           ["B", "不是，我是大学生。", "Bú shì, wǒ shì dàxuéshēng.", "Không, tôi là sinh viên đại học."],
@@ -446,7 +446,7 @@ const UNIT_PLANS = [
         vocabularySequences: [10, 36, 42, 43, 103, 190, 191, 220, 240, 247, 249, 288],
         grammarOrdinals: [55],
         taskOrdinals: [13],
-        topicOrdinals: [25, 26],
+        topicOrdinals: [21, 22, 25],
         dialogue: [
           ["A", "你在看什么？", "Nǐ zài kàn shénme?", "Bạn đang xem gì?"],
           ["B", "我在看汉语书。", "Wǒ zài kàn Hànyǔ shū.", "Tôi đang đọc sách tiếng Trung."],
@@ -461,7 +461,7 @@ const UNIT_PLANS = [
         vocabularySequences: [62, 63, 118, 176, 177, 228, 229],
         grammarOrdinals: [],
         taskOrdinals: [14],
-        topicOrdinals: [27, 28],
+        topicOrdinals: [26, 27, 28],
         dialogue: [
           ["A", "你几点上班？", "Nǐ jǐ diǎn shàngbān?", "Bạn đi làm lúc mấy giờ?"],
           ["B", "我八点上班。", "Wǒ bā diǎn shàngbān.", "Tôi đi làm lúc tám giờ."],

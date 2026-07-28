@@ -65,6 +65,58 @@ describe("HSK1 communicative AI-assisted content packs", () => {
     )).toHaveLength(16);
   });
 
+  it("keeps official task and topic semantics on the intended lessons", () => {
+    const { collection } = loadHsk1CommunicativeUnitPacksBundle();
+    const lessons = collection.packs.flatMap(
+      (pack: { lessons: Array<{
+        lessonId: string;
+        taskIds: string[];
+        topicIds: string[];
+      }> }) => pack.lessons,
+    );
+    const lesson = (suffix: string) => lessons.find(
+      (item: { lessonId: string }) => item.lessonId.endsWith(suffix),
+    );
+
+    expect(lesson("05-location")).toMatchObject({
+      taskIds: ["hsk1-task-05"],
+      topicIds: ["hsk1-topic-007"],
+    });
+    expect(lesson("06-weather-and-residence")).toMatchObject({
+      taskIds: ["hsk1-task-04"],
+      topicIds: ["hsk1-topic-006"],
+    });
+    expect(lesson("02-food-and-drink")).toMatchObject({
+      taskIds: ["hsk1-task-07", "hsk1-task-15"],
+      topicIds: [
+        "hsk1-topic-011",
+        "hsk1-topic-012",
+        "hsk1-topic-029",
+        "hsk1-topic-030",
+      ],
+    });
+    expect(lesson("04-health-and-home")).toMatchObject({
+      taskIds: ["hsk1-task-10"],
+      topicIds: ["hsk1-topic-019"],
+    });
+    expect(lesson("01-transport")).toMatchObject({
+      taskIds: ["hsk1-task-08"],
+      topicIds: [
+        "hsk1-topic-013",
+        "hsk1-topic-014",
+        "hsk1-topic-015",
+      ],
+    });
+    expect(lesson("04-work-and-schedule")).toMatchObject({
+      taskIds: ["hsk1-task-14"],
+      topicIds: [
+        "hsk1-topic-026",
+        "hsk1-topic-027",
+        "hsk1-topic-028",
+      ],
+    });
+  });
+
   it("fails closed on premature visibility, approval or mastery eligibility", () => {
     const bundle = loadHsk1CommunicativeUnitPacksBundle();
     const collection = structuredClone(bundle.collection);

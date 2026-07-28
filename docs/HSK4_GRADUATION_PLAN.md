@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **68%**.
+Status: **in progress** at project progress **70%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **68%**.
+Status: **in progress** at project progress **70%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 9 | năm blueprint, HSK1 sáu unit, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 22 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar |
-| E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
+| D. Nội dung có coverage HSK0-4 | 30 | 23 | inventory, authoring scope, Vietnamese draft, lesson/dialogue và practice draft, character/grammar/task |
+| E. Assessment và mock HSK0-4 | 10 | 4 | diagnostic, level-check blueprint, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **68** | **Tiến độ hiện tại: 68%** |
+| **Tổng** | **100** | **70** | **Tiến độ hiện tại: 70%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -242,6 +242,16 @@ mapping, nội dung model-answer và trạng thái review. Mọi bài tạo câu
 self-reveal-only, 0 measurement/mastery-eligible và 0 release-eligible. Lớp
 draft hiện phủ vocabulary, recognition character và grammar HSK1, nhưng task
 evidence, assessment hiệu chuẩn, human review và runtime promotion vẫn thiếu.
+
+Lát G3 thứ bảy tăng trụ cột D thêm 1 điểm và E thêm 1 điểm. Mapping task/topic
+đã được kiểm tra lại theo nghĩa của tiêu đề chính thức, sửa các gắn kết sai
+giữa thời tiết/vị trí, sản phẩm/khám bệnh, đi lại/giải trí và học tập/công
+việc. Cả 15 task và 30 topic hiện có draft context đúng lesson, 15 scenario,
+60 lượt hội thoại và 15 guided roleplay. Level-check blueprint định nghĩa bốn
+section với 55 item dự kiến nhưng giữ 0 authored scored item, không cut score,
+không mastery hay prerequisite waiver cho tới khi review và calibration.
+Manifest review ghim exact hash của 5 artifact và xuất 75 batch đang chờ, gồm
+25 vocabulary, 15 character, 20 grammar và 15 task batch; approval vẫn bằng 0.
 
 ## 6. Quy tắc cập nhật phần trăm
 

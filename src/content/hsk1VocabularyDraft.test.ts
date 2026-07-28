@@ -87,6 +87,10 @@ describe("HSK1 CC-CEDICT source-enrichment draft", () => {
       charactersWithPinnedStrokeMetadata: 0,
       grammarRowsDraftMapped: 66,
       grammarPracticeDrafted: 66,
+      tasksScenarioDraftMapped: 15,
+      topicsPromptDraftMapped: 30,
+      taskPracticeDrafted: 15,
+      authoredLevelCheckItems: 0,
       pronunciationCompatible: 297,
       vietnameseGlossReviewed: 0,
       lessonMapped: 23,
@@ -109,6 +113,11 @@ describe("HSK1 CC-CEDICT source-enrichment draft", () => {
       draftGrammarModelExamples: 66,
       authoredGrammarPracticeItems: 66,
       pendingGrammarReviewBatches: 20,
+      draftTaskDialogueTurns: 60,
+      authoredTaskPracticeItems: 15,
+      pendingTaskReviewBatches: 15,
+      boundedReviewManifestBatches: 75,
+      boundedReviewManifestApprovals: 0,
     });
     expect(report.editorialQueue.pronunciationReviewItems).toEqual([
       {
