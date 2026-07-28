@@ -74,6 +74,26 @@ Public build cũng không copy stroke JSON. `foundation-2026.07.6` đã có sour
 snapshot và character candidate thật, nhưng chưa có owner, package-level license
 approval, native review, promotion hay runtime character projection.
 
+## Inventory tham chiếu HSK0-4
+
+`content/sources/hsk-syllabus-2026/source.json` ghim đề cương HSK có hiệu lực
+từ July 2026 bằng URL, ngày phát hành/truy cập, số trang và SHA-256.
+`scripts/content/extract-hsk-syllabus.py` chỉ trích inventory HSK1-4 có giới
+hạn gồm task, topic, vocabulary, recognition character và grammar row; source
+PDF không được phân phối trong repo. Validator kiểm source identity, page range,
+count, sequence và level boundary, còn `content:hsk4:report` đối chiếu inventory
+với runtime hiện tại.
+
+Để tái tạo, cài đúng các phiên bản trong
+`scripts/content/requirements-hsk-syllabus.txt`, đặt PDF đã kiểm checksum tại
+`tmp/pdfs/hsk-syllabus-2026.pdf`, rồi chạy `npm run content:hsk4:extract`.
+
+Inventory này là dữ liệu tham chiếu cho curriculum authoring, không phải
+runtime package hoặc release evidence. Rights vẫn `pending`; một mục được nhập
+không tự mở lesson, cấp mastery, trở thành nội dung đã review hay tạo claim
+coverage. Mọi claim HSK1-4 vẫn phải qua mapping, practice, review và release
+gate tương ứng.
+
 ## Knowledge item
 
 ### Lexeme

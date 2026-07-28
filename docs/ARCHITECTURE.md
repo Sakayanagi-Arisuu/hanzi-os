@@ -104,6 +104,14 @@ principal, chưa có API/CLI/dashboard, principal thật, assignment thật, hos
 D1 hay Sites deployment. Những boundary đó không được suy diễn từ việc bảng
 và repository đã tồn tại.
 
+Roadmap đồ án HSK0-4 bổ sung một lớp reference inventory nằm ngoài immutable
+content packages và learner runtime. Descriptor ghim exact official PDF;
+extractor tái tạo inventory HSK1-4; validator khóa identity/count/page/sequence/
+level; coverage report chỉ đo mapping thực có trong package hiện tại. Lớp này
+không có quyền thay đổi registry, publication, prerequisite, mastery hoặc
+coverage claim. Quyền sử dụng nguồn vẫn `pending`, và source PDF không nằm
+trong repository.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text

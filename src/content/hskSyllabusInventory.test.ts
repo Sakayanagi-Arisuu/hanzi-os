@@ -1,0 +1,141 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { describe, expect, it } from "vitest";
+import {
+  assertValidHskSyllabusBundle,
+  loadHskSyllabusBundle,
+  validateHskSyllabusBundle,
+} from "./hskSyllabusInventory.mjs";
+import {
+  buildHsk4CoverageReport,
+  HSK4_COVERAGE_REPORT_RELATIVE_PATH,
+  serializeHsk4CoverageReport,
+} from "../../scripts/content/report-hsk4-coverage.mjs";
+
+describe("pinned official HSK1-4 syllabus inventory", () => {
+  it("validates the exact source identity, boundaries and section counts", () => {
+    const bundle = loadHskSyllabusBundle();
+    const result = assertValidHskSyllabusBundle(bundle);
+
+    expect(result.counts.vocabulary).toEqual({
+      "1": 300,
+      "2": 200,
+      "3": 500,
+      "4": 1000,
+    });
+    expect(bundle.inventory.vocabulary[0]).toMatchObject({
+      sequence: 1,
+      level: 1,
+      word: "爱",
+    });
+    expect(bundle.inventory.vocabulary[299]).toMatchObject({
+      sequence: 300,
+      level: 1,
+    });
+    expect(bundle.inventory.vocabulary[300]).toMatchObject({
+      sequence: 301,
+      level: 2,
+    });
+    expect(bundle.inventory.vocabulary[1999]).toMatchObject({
+      sequence: 2000,
+      level: 4,
+      word: "作者",
+    });
+  });
+
+  it("fails closed on sequence or source-identity drift", () => {
+    const bundle = loadHskSyllabusBundle();
+    const inventory = structuredClone(bundle.inventory);
+    inventory.vocabulary[300].sequence = 302;
+    inventory.sourcePdfSha256 = "sha256:".padEnd(71, "0");
+
+    const result = validateHskSyllabusBundle({
+      source: bundle.source,
+      inventory,
+    });
+
+    expect(result.valid).toBe(false);
+    expect(result.errors).toEqual(expect.arrayContaining([
+      "inventory source identity does not match the pinned descriptor",
+      "vocabulary sequence must be exactly 1..2000",
+    ]));
+  });
+
+  it("fails closed when vocabulary crosses an official level boundary", () => {
+    const bundle = loadHskSyllabusBundle();
+    const inventory = structuredClone(bundle.inventory);
+    inventory.vocabulary[299].level = 2;
+    inventory.vocabulary[300].level = 1;
+
+    const result = validateHskSyllabusBundle({
+      source: bundle.source,
+      inventory,
+    });
+
+    expect(result.valid).toBe(false);
+    expect(result.errors).toEqual(expect.arrayContaining([
+      "hsk-vocab-00300 level 2 does not match sequence 300",
+      "hsk-vocab-00301 level 1 does not match sequence 301",
+    ]));
+  });
+
+  it("removes verified watermark fragments without changing real labels", () => {
+    const { inventory } = loadHskSyllabusBundle();
+    const topicById = new Map(inventory.topics.map(
+      (item: { id: string }) => [item.id, item],
+    ));
+    const grammarById = new Map(inventory.grammarRows.map(
+      (item: { id: string }) => [item.id, item],
+    ));
+
+    expect(topicById.get("hsk3-topic-027")).toMatchObject({ group: "学习情况" });
+    expect(topicById.get("hsk3-topic-040")).toMatchObject({ domain: "自然与环境" });
+    expect(topicById.get("hsk3-topic-053")).toMatchObject({ group: "风俗传统" });
+    expect(topicById.get("hsk4-topic-073")).toMatchObject({ topic: "国粹" });
+    expect(grammarById.get("hsk1-grammar-row-004"))
+      .toMatchObject({ categoryName: "动词" });
+    expect(grammarById.get("hsk3-grammar-row-067"))
+      .toMatchObject({ detail: "“把”字句1" });
+  });
+
+  it("reports current coverage without making an HSK completion claim", () => {
+    const report = buildHsk4CoverageReport();
+
+    expect(report.currentCoverage.vocabulary).toMatchObject({
+      officialTotal: 2000,
+      runtimeTotal: 24,
+      runtimeMapped: 23,
+      unmatchedRuntime: [{
+        runtimeId: "yuenan",
+        simplified: "越南",
+        pinyin: "Yuènán",
+      }],
+      pinyinDrift: [{
+        runtimeId: "xuesheng",
+        simplified: "学生",
+        runtimePinyin: "xuésheng",
+        officialPinyin: "xuéshēng",
+      }],
+      coveragePercent: 1.15,
+    });
+    expect(report.currentCoverage.recognitionCharacters).toMatchObject({
+      officialTotal: 1096,
+      authoringTotal: 7,
+      authoringMapped: 7,
+      releasedMapped: 0,
+      releasedCoveragePercent: 0,
+    });
+    expect(report.coverageClaims.every((claim) => claim.complete === false))
+      .toBe(true);
+  });
+
+  it("keeps the checked coverage report deterministic", () => {
+    const checked = readFileSync(
+      join(process.cwd(), HSK4_COVERAGE_REPORT_RELATIVE_PATH),
+      "utf8",
+    );
+    expect(checked).toBe(
+      serializeHsk4CoverageReport(buildHsk4CoverageReport()),
+    );
+  });
+});

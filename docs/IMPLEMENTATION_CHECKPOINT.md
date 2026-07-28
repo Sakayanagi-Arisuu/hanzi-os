@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **44%**.
+Active progress: **47%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 5 / 15 | Five typed level profiles now differ by skill weight, activity, exit evidence and assessment; inventory-backed graph/placement remain. |
-| HSK0-4 content coverage | 2 / 30 | Runtime currently exposes 24 HSK1 lexemes, 14 lessons and 1 graded text; official HSK1-4 inventory is not imported. |
+| HSK0-4 content coverage | 5 / 30 | Pinned official HSK1-4 inventory and deterministic gap report exist; only 23/2,000 official vocabulary entries currently map to runtime and no task/topic/grammar mapping exists. |
 | HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -39,6 +39,25 @@ Every commit must update this percentage here and in the active roadmap.
 - Onboarding, Profile, Path, local persistence, backup import and sync protocol
   all accept the expanded level contract. Self-declaration still grants no
   lesson completion, mastery or prerequisite unlock.
+
+### Active G1 slice completed
+
+- Pinned the official syllabus descriptor to its URL, 406-page PDF SHA-256,
+  publication/effective dates, extraction tooling versions and exact page
+  ranges. The PDF itself is not redistributed and the rights decision remains
+  explicitly pending.
+- Added a deterministic extractor and committed data inventory for HSK1-4:
+  84 task rows, 195 topics, 2,000 vocabulary entries, 1,096 recognition
+  characters and 332 grammar rows.
+- Added fail-closed validation for source identity, exact section counts,
+  sequence, level boundaries, page ranges, duplicate IDs and required fields.
+- Added a checked coverage report. The current runtime maps 23 of 2,000 official
+  vocabulary entries (1.15% overall; 7.67% of the HSK1 increment), reports
+  `越南` as unmatched and detects a pinyin drift for `学生`. Seven character
+  records map in authoring but none are released; task/topic/grammar mappings
+  remain zero.
+- All four HSK completion claims remain false. Inventory presence does not
+  publish content, unlock lessons or count as mastery/review evidence.
 
 ## Repository state
 
@@ -292,9 +311,9 @@ Progress accounting rules:
 
 ## Local verification
 
-### Current G0 complete baseline
+### Current G1 complete baseline
 
-The results below are bound to the exact G0 checkpoint worktree. Any later
+The results below are bound to the exact G1 checkpoint worktree. Any later
 edit to code, configuration or content makes this snapshot stale and requires
 the applicable gates to run again before the next checkpoint commit.
 
@@ -302,16 +321,17 @@ the applicable gates to run again before the next checkpoint commit.
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 13 migrations, 26 restored tables, 4 editorial
     events and 5 editorial authority triggers
-  - Vitest: 143 files, 1,205 tests passed
+  - pinned HSK1-4 source/inventory validation and checked coverage report
+  - Vitest: 144 files, 1,211 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 392.0 KiB
 - `npm run test:e2e`: 18 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 95 / 95 / 98, median 95
+  - Performance: 98 / 93 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,902 ms; CLS: 0; TBT: 214 ms
+  - Median LCP: 1,896 ms; CLS: 0; TBT: 129 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -336,9 +356,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Start G1 by pinning the current official syllabus source and producing a
-   deterministic inventory/coverage report before bulk lesson authoring.
-2. Keep all imported content unpublished until its schema, provenance and
+1. Start G2 by defining inventory mapping records, a cycle-safe curriculum
+   graph and placement behavior for the five distinct HSK0-4 paths.
+2. Keep all mapped/imported content unpublished until its schema, provenance and
    applicable linguistic checks pass.
 3. Leave operator auth, commerce, hosted pilot and Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes

@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "target": "local-graduation-hsk0-4",
+  "source": {
+    "sourceId": "cti-hsk-syllabus-2026",
+    "pdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
+    "inventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3",
+    "effective": "2026-07",
+    "rightsDecision": "pending"
+  },
+  "contentVersion": "foundation-2026.07.6",
+  "officialInventory": {
+    "tasks": {
+      "1": 15,
+      "2": 17,
+      "3": 22,
+      "4": 30
+    },
+    "topics": {
+      "1": 30,
+      "2": 34,
+      "3": 54,
+      "4": 77
+    },
+    "vocabulary": {
+      "1": 300,
+      "2": 200,
+      "3": 500,
+      "4": 1000
+    },
+    "recognitionCharacters": {
+      "1": 246,
+      "2": 125,
+      "3": 284,
+      "4": 441
+    },
+    "grammarRows": {
+      "1": 66,
+      "2": 75,
+      "3": 96,
+      "4": 95
+    }
+  },
+  "currentCoverage": {
+    "vocabulary": {
+      "officialTotal": 2000,
+      "runtimeTotal": 24,
+      "runtimeMapped": 23,
+      "unmatchedRuntime": [
+        {
+          "runtimeId": "yuenan",
+          "simplified": "越南",
+          "pinyin": "Yuènán"
+        }
+      ],
+      "pinyinDrift": [
+        {
+          "runtimeId": "xuesheng",
+          "simplified": "学生",
+          "runtimePinyin": "xuésheng",
+          "officialPinyin": "xuéshēng"
+        }
+      ],
+      "coveragePercent": 1.15,
+      "byLevel": [
+        {
+          "level": 1,
+          "officialIncremental": 300,
+          "runtimeMapped": 23,
+          "coveragePercent": 7.67
+        },
+        {
+          "level": 2,
+          "officialIncremental": 200,
+          "runtimeMapped": 0,
+          "coveragePercent": 0
+        },
+        {
+          "level": 3,
+          "officialIncremental": 500,
+          "runtimeMapped": 0,
+          "coveragePercent": 0
+        },
+        {
+          "level": 4,
+          "officialIncremental": 1000,
+          "runtimeMapped": 0,
+          "coveragePercent": 0
+        }
+      ]
+    },
+    "recognitionCharacters": {
+      "officialTotal": 1096,
+      "authoringTotal": 7,
+      "authoringMapped": 7,
+      "releasedMapped": 0,
+      "releasedCoveragePercent": 0,
+      "byLevel": [
+        {
+          "level": 1,
+          "officialIncremental": 246,
+          "authoringMapped": 7,
+          "releasedMapped": 0,
+          "releasedCoveragePercent": 0
+        },
+        {
+          "level": 2,
+          "officialIncremental": 125,
+          "authoringMapped": 0,
+          "releasedMapped": 0,
+          "releasedCoveragePercent": 0
+        },
+        {
+          "level": 3,
+          "officialIncremental": 284,
+          "authoringMapped": 0,
+          "releasedMapped": 0,
+          "releasedCoveragePercent": 0
+        },
+        {
+          "level": 4,
+          "officialIncremental": 441,
+          "authoringMapped": 0,
+          "releasedMapped": 0,
+          "releasedCoveragePercent": 0
+        }
+      ]
+    },
+    "mappings": {
+      "tasks": 0,
+      "topics": 0,
+      "grammarRows": 0
+    },
+    "learningMaterials": {
+      "runtimeLessons": 14,
+      "runtimeGradedTexts": 1
+    }
+  },
+  "coverageClaims": [
+    {
+      "level": 1,
+      "complete": false,
+      "reason": "Official inventory exists, but task/topic/grammar coverage and reviewed learning mappings are incomplete."
+    },
+    {
+      "level": 2,
+      "complete": false,
+      "reason": "Official inventory exists, but task/topic/grammar coverage and reviewed learning mappings are incomplete."
+    },
+    {
+      "level": 3,
+      "complete": false,
+      "reason": "Official inventory exists, but task/topic/grammar coverage and reviewed learning mappings are incomplete."
+    },
+    {
+      "level": 4,
+      "complete": false,
+      "reason": "Official inventory exists, but task/topic/grammar coverage and reviewed learning mappings are incomplete."
+    }
+  ]
+}

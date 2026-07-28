@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "cti-hsk-syllabus-2026",
+  "title": "Syllabus for the Chinese Proficiency Test",
+  "publisher": "Center for Language Education and Cooperation",
+  "canonicalUrl": "https://hsk.cn-bj.ufileos.com/3.0/%E6%96%B0%E7%89%88HSK%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B21219.pdf",
+  "indexUrl": "https://www.chinesetest.cn/syllabus",
+  "published": "2025-11",
+  "effective": "2026-07",
+  "retrievedAt": "2026-07-28",
+  "pdfPages": 406,
+  "pdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
+  "rights": {
+    "license": null,
+    "decision": "pending",
+    "note": "Official public syllabus used as a local curriculum reference. The source PDF is not redistributed in this repository."
+  },
+  "pdfPageRanges": {
+    "tasks": {
+      "1": [5, 8],
+      "2": [9, 13],
+      "3": [14, 20],
+      "4": [21, 31]
+    },
+    "topics": {
+      "1": [59, 60],
+      "2": [61, 62],
+      "3": [63, 65],
+      "4": [66, 68]
+    },
+    "vocabulary": {
+      "1": [80, 87],
+      "2": [87, 92],
+      "3": [92, 104],
+      "4": [105, 129]
+    },
+    "recognitionCharacters": {
+      "1": [356, 357],
+      "2": [358, 358],
+      "3": [359, 360],
+      "4": [361, 363]
+    },
+    "grammar": {
+      "1": [386, 388],
+      "2": [389, 391],
+      "3": [392, 394],
+      "4": [395, 397]
+    }
+  },
+  "expectedCounts": {
+    "tasks": {
+      "1": 15,
+      "2": 17,
+      "3": 22,
+      "4": 30
+    },
+    "topics": {
+      "1": 30,
+      "2": 34,
+      "3": 54,
+      "4": 77
+    },
+    "vocabulary": {
+      "1": 300,
+      "2": 200,
+      "3": 500,
+      "4": 1000
+    },
+    "recognitionCharacters": {
+      "1": 246,
+      "2": 125,
+      "3": 284,
+      "4": 441
+    },
+    "grammarRows": {
+      "1": 66,
+      "2": 75,
+      "3": 96,
+      "4": 95
+    }
+  },
+  "extraction": {
+    "script": "scripts/content/extract-hsk-syllabus.py",
+    "requirements": "scripts/content/requirements-hsk-syllabus.txt",
+    "pypdfVersion": "6.10.0",
+    "pdfplumberVersion": "0.11.9"
+  }
+}

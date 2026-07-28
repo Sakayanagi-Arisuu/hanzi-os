@@ -84,6 +84,8 @@ Exit: repo sạch, baseline xanh, roadmap mới và level contract có test.
 
 ### G1 — Official inventory và coverage report
 
+Status: **complete** at project progress **47%**.
+
 - Lưu source descriptor với URL, ngày truy cập, checksum và edition.
 - Xây importer/parser tách task, topic, vocabulary, character và grammar HSK1-4.
 - Lưu inventory dạng dữ liệu, không hard-code hàng nghìn mục trong component.
@@ -136,10 +138,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 5 | năm blueprint, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 2 | inventory, mapping, lesson, dialogue/reader, character/grammar |
+| D. Nội dung có coverage HSK0-4 | 30 | 5 | inventory, mapping, lesson, dialogue/reader, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **44** | **Tiến độ hiện tại: 44%** |
+| **Tổng** | **100** | **47** | **Tiến độ hiện tại: 47%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -150,6 +152,14 @@ G0 tăng trụ cột C thêm 2 điểm: code hiện có năm level profile HSK0-
 về skill weight, activity, exit evidence và assessment mode; onboarding/profile
 nhận HSK3/HSK4, còn giá trị `basic` cũ vẫn đọc được như HSK1. Đây mới là
 curriculum contract, chưa phải coverage nội dung.
+
+G1 tăng trụ cột D thêm 3 điểm: source descriptor ghim chính xác đề cương, parser
+tái tạo deterministic inventory gồm 84 task, 195 topic, 2.000 vocabulary,
+1.096 recognition character và 332 grammar row cho HSK1-4. Validator kiểm
+checksum/page/count/sequence/level; checked report đo runtime hiện tại chỉ khớp
+23/2.000 vocabulary (1,15%), 0 released character và chưa có mapping
+task/topic/grammar. Vì vậy mọi claim hoàn thành HSK1-4 vẫn là `false`; phần
+inventory không được tính như lesson/practice đã hoàn thiện.
 
 ## 6. Quy tắc cập nhật phần trăm
 
