@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "reportId": "hsk1-content-backlog-2026.07.28",
+  "generatedFrom": {
+    "draftId": "hsk1-vocabulary-2026.07.28",
+    "sourceId": "cc-cedict-2026-07-28",
+    "sourceSnapshotSha256": "sha256:6655798e7ce57310e2566e20c0783c65305da203535e6f365f13dab6b8e8a316",
+    "syllabusInventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
+  },
+  "stage": "draft-source-enrichment",
+  "coverage": {
+    "officialVocabulary": 300,
+    "dictionaryMatched": 300,
+    "englishSourceSenseReady": 300,
+    "pronunciationCompatible": 297,
+    "vietnameseGlossReviewed": 0,
+    "lessonMapped": 23,
+    "learnerVisible": 0,
+    "releaseEligible": 0
+  },
+  "editorialQueue": {
+    "multipleSourceMatches": 23,
+    "pronunciationReviewPending": 3,
+    "definitionReviewPending": 300,
+    "partOfSpeechReviewPending": 300,
+    "usageExampleReviewPending": 300,
+    "pronunciationReviewItems": [
+      {
+        "officialId": "hsk-vocab-00137",
+        "simplified": "那边",
+        "officialPinyin": "nàbiān",
+        "sourceNumberedPinyin": [
+          "na4 bian5"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00139",
+        "simplified": "那里",
+        "officialPinyin": "nàlǐ",
+        "sourceNumberedPinyin": [
+          "na4 li5"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00248",
+        "simplified": "学生",
+        "officialPinyin": "xuéshēng",
+        "sourceNumberedPinyin": [
+          "xue2 sheng5"
+        ]
+      }
+    ]
+  },
+  "claims": {
+    "hsk1VocabularyComplete": false,
+    "hsk1Complete": false,
+    "reason": "Source enrichment is draft-only; Vietnamese review, examples, practice mapping and release remain incomplete."
+  }
+}

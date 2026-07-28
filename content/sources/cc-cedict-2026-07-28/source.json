@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "cc-cedict-2026-07-28",
+  "title": "CC-CEDICT",
+  "publisher": "CC-CEDICT community / MDBG",
+  "canonicalUrl": "https://cc-cedict.org/editor/editor.php?handler=Download",
+  "downloadUrl": "https://cc-cedict.org/editor/editor_export_cedict.php?c=gz",
+  "retrievedAt": "2026-07-28",
+  "upstreamStatus": "latest-non-verified-editor-export",
+  "format": "cedict-v1-gzip",
+  "snapshot": {
+    "byteLength": 3965099,
+    "uncompressedByteLength": 9823478,
+    "entryCount": 124725,
+    "sha256": "sha256:6655798e7ce57310e2566e20c0783c65305da203535e6f365f13dab6b8e8a316"
+  },
+  "rights": {
+    "declaredLicense": "CC-BY-SA-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "evidenceUrl": "https://cc-cedict.org/editor/editor.php?handler=Download",
+    "derivedArtifactLicense": "CC-BY-SA-4.0",
+    "legalReview": "pending",
+    "attributionFile": "content/sources/cc-cedict-2026-07-28/ATTRIBUTION.md"
+  }
+}

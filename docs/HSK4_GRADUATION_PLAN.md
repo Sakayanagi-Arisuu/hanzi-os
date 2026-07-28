@@ -107,6 +107,8 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
+Status: **in progress** at project progress **53%**.
+
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
 - Bổ sung character practice, grammar note và remediation.
@@ -140,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 8 | năm blueprint, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 6 | inventory, mapping, lesson, dialogue/reader, character/grammar |
+| D. Nội dung có coverage HSK0-4 | 30 | 8 | inventory, mapping, source-backed draft, lesson, dialogue/reader, character/grammar |
 | E. Assessment và mock HSK0-4 | 10 | 3 | diagnostic, level checks, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **51** | **Tiến độ hiện tại: 51%** |
+| **Tổng** | **100** | **53** | **Tiến độ hiện tại: 53%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -171,6 +173,17 @@ HSK2-4 không bị thay bằng lộ trình beginner khi content đích chưa ph�
 Diagnostic foundation chưa hiệu chuẩn chỉ được ghi là observed, không cấp
 mastery hay prerequisite waiver. G2 chưa complete vì placement đã hiệu chuẩn,
 topic/task/grammar mapping và level progress đầy đủ vẫn còn thiếu.
+
+Lát G3 đầu tăng trụ cột D thêm 2 điểm. Toàn bộ 300 mục từ vựng HSK1 đã có
+backlog biên tập draft ghim vào đúng inventory chính thức và snapshot
+CC-CEDICT SHA-256. Cả 300 mục có English source sense; 297 mục tương thích phát
+âm trực tiếp hoặc qua quy tắc biến điệu chuẩn, 3 mục khác thanh giữa hai nguồn
+được liệt kê tường minh, và 23 mục có nhiều source match phải được biên tập.
+Pipeline tái tạo/validator/report đều fail-closed và file attribution ghi rõ
+CC BY-SA 4.0. Điểm này chỉ ghi nhận source enrichment đầy đủ và review queue
+có thể thi hành; 0 nghĩa tiếng Việt đã review, 0 mục release-eligible và chỉ
+23 mục có lesson mapping, nên claim hoàn thành từ vựng HSK1 và HSK1 vẫn là
+`false`.
 
 ## 6. Quy tắc cập nhật phần trăm
 

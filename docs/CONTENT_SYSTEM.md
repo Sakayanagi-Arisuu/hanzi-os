@@ -101,6 +101,24 @@ official vocabulary reference từ surface + pinyin của runtime: hiện có 23
 được lesson-map, còn `越南` được giữ trong danh sách chưa ánh xạ. Mapping state
 vẫn `partial`; task, topic và grammar chưa được gán nên không tạo claim HSK.
 
+## Backlog từ vựng HSK1
+
+`content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT
+editor export bằng byte length, entry count và SHA-256. Source khai báo
+CC BY-SA 4.0; attribution và thay đổi khi lọc/chuẩn hóa được ghi tại
+`ATTRIBUTION.md`, còn legal review cấp dự án vẫn `pending`. Không tự động tải
+từ MDBG vì website đó cấm scripted access.
+
+`content:hsk1:import -- --write` đọc snapshot gzip cục bộ, kiểm header license,
+hash và count rồi đối chiếu đúng 300 mục HSK1 theo surface + pinyin. Artifact
+compact trong `content/drafts/` giữ English source senses, phát âm số/dấu,
+source-line digest và trạng thái biên tập. Hiện 297 mục tương thích phát âm, 3
+mục cần giải quyết tone drift và 23 mục có nhiều source match.
+
+Đây không phải nội dung learner-ready: nghĩa tiếng Việt, ví dụ, review và
+release eligibility đều bằng 0. Validator/report bắt buộc giữ draft
+learner-hidden và không cho source enrichment biến thành coverage claim.
+
 ## Knowledge item
 
 ### Lexeme
