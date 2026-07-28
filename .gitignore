@@ -8,6 +8,7 @@ playwright-report/
 test-results/
 .lighthouse-profile-*/
 content/.governance.lock
+content/review/local/
 
 # Local environment files and secrets. Keep explicit example templates visible.
 .env

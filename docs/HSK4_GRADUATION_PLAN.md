@@ -263,6 +263,16 @@ hiệu chuẩn pilot trước khi đo lường. Cả 50 câu vẫn 0 measurement
 release-eligible; không có cut score hay prerequisite waiver. Manifest mới
 ghim 6 artifact và 85 batch đang chờ, approval vẫn bằng 0.
 
+Lát G3 thứ chín không tăng điểm, nên tiến độ vẫn là **71%**. Repo đã có workflow
+local để liệt kê, xuất assignment và nhập review receipt cho đúng 85 batch,
+258 assignment theo role và 2.181 target tham chiếu chính xác. Mọi assignment
+bind manifest/source/target hash và reviewer phải quyết định từng target; sửa
+scope hoặc source làm import fail. Receipt chỉ được lưu trong thư mục local
+Git-ignore, không sửa draft/manifest/runtime, không hiệu chuẩn hay cấp mastery.
+Audio-rights reviewer cũng không thể approve listening batch khi audio còn
+null. Công cụ này làm review queue có thể vận hành nhưng chưa có review người
+thật, nên không được tính thêm phần trăm.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

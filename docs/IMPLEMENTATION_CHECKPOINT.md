@@ -164,6 +164,15 @@ Every commit must update this percentage here and in the active roadmap.
 - Expanded the exact-hash review manifest to six HSK1 draft artifacts and 85
   pending batches (25 vocabulary, 15 character, 20 grammar, 15 task and 10
   assessment). It contains zero approval and cannot publish content.
+- Added the local HSK1 review workflow over the exact manifest: 85 batches,
+  258 required role assignments and 2,181 normalized exact target references.
+  Exported assignments bind manifest/source/target hashes and require one
+  decision per target; imports create idempotent Git-ignored receipts only.
+- Reviewer/operator identities remain declared local metadata. The workflow
+  does not mutate source drafts, manifest approvals, runtime, calibration or
+  mastery, and absent listening audio cannot receive audio-rights approval.
+  Active progress therefore remains 71% until real review evidence closes a
+  named roadmap deliverable.
 
 ## Repository state
 
@@ -448,18 +457,20 @@ the applicable gates to run again before the next checkpoint commit.
     independent form, calibrated or measurement-eligible item
   - exact-hash HSK1 review manifest: 6 source artifacts and 85 pending batches
     with 0 approval; manifest assignment readiness does not publish content
+  - local HSK1 review workflow: 85 exact batches, 258 role assignments and
+    2,181 normalized target references; 0 manifest approval or runtime mutation
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 155 files, 1,261 tests passed
+  - Vitest: 156 files, 1,268 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 96 / 94 / 95, median 95
+  - Performance: 99 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,931 ms; CLS: 0; TBT: 201 ms
+  - Median LCP: 1,910 ms; CLS: 0; TBT: 73 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -484,13 +495,15 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Add a local review-assignment/export/import workflow against the exact
-   85-batch manifest; keep cut scores, mastery and publication disabled until
-   calibration and approvals exist.
-2. Finish the remaining G2 placement/progress work when reviewed HSK1 content can
-   exercise it; keep all imported content unpublished until schema, provenance
-   and applicable linguistic checks pass.
-3. Leave operator auth, commerce, hosted pilot and Sites frozen until the
+1. Use the exact local workflow for a bounded human HSK1 review sample; do not
+   promote receipts or assessment items until all required roles and
+   calibration evidence exist.
+2. Continue the active content factory with the HSK0 pronunciation bootcamp,
+   then HSK2 authoring, while the human HSK1 review track proceeds separately.
+3. Finish the remaining G2 placement/progress work when reviewed content can
+   exercise it; keep imports unpublished until provenance and linguistic gates
+   pass.
+4. Leave operator auth, commerce, hosted pilot and Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes
    production work.
 
