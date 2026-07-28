@@ -238,6 +238,17 @@ Every commit must update this percentage here and in the active roadmap.
   The pack has zero reviewed audio, approval, measurement/mastery or
   release-eligible item; grammar, character, task production and assessment
   content remain open. This deliverable raises active progress to **76%**.
+- Added 250 character-practice items over all 125 HSK2 recognition characters
+  in the ten short-production blueprints: 124 character-in-word items, one
+  isolated recognition item and 125 glyph-copy self-checks.
+- The checked report records `留` as the one character without a cumulative
+  HSK1-2 vocabulary context instead of inventing a mapping. All radical,
+  stroke-count and stroke-data fields remain null; stroke order and writing
+  mastery are neither taught nor assessed.
+- Ten character review batches remain pending with zero approval,
+  measurement/mastery or release-eligible item. Active progress remains
+  **76%** because grammar, task production, assessment and HSK3-4 content are
+  still substantially larger remaining deliverables.
 
 ## Repository state
 
@@ -542,16 +553,19 @@ the applicable gates to run again before the next checkpoint commit.
     200 meaning-recall, 200 pinyin-recognition and 200 listening-selection
     items across 20 situational lessons; 0 reviewed audio, measurement/mastery
     or release-eligible item
-  - Vitest: 161 files, 1,291 tests passed
+  - HSK2 character-practice pack: 125 character drafts and 250 practice items
+    across 10 production lessons; 124 cumulative vocabulary contexts plus the
+    explicit `留` gap, 0 pinned stroke metadata or writing-mastery claim
+  - Vitest: 162 files, 1,295 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 98 / 92, median 98
+  - Performance: 97 / 90 / 98, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,899 ms; CLS: 0; TBT: 98 ms
+  - Median LCP: 1,904 ms; CLS: 0; TBT: 171 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

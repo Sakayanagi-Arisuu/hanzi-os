@@ -30,6 +30,10 @@ import {
   loadHsk2VocabularyPracticeBundle,
 } from "../../src/content/hsk2VocabularyPractice.mjs";
 import {
+  assertValidHsk2CharacterPracticeBundle,
+  loadHsk2CharacterPracticeBundle,
+} from "../../src/content/hsk2CharacterPractice.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -98,6 +102,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2VocabularyPractice = loadHsk2VocabularyPracticeBundle(root);
   const hsk2VocabularyPracticeResult =
     assertValidHsk2VocabularyPracticeBundle(hsk2VocabularyPractice);
+  const hsk2CharacterPractice = loadHsk2CharacterPracticeBundle(root);
+  const hsk2CharacterPracticeResult =
+    assertValidHsk2CharacterPracticeBundle(hsk2CharacterPractice);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -380,6 +387,25 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk2VocabularyPracticeResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk2VocabularyPracticeResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2CharacterPractice: {
+          lessons: hsk2CharacterPracticeResult.summary.lessons,
+          characters: hsk2CharacterPracticeResult.summary.characterDrafts,
+          vocabularyContextMapped:
+            hsk2CharacterPracticeResult.summary
+              .charactersWithVocabularyContext,
+          vocabularyContextGaps:
+            hsk2CharacterPracticeResult.summary
+              .charactersWithoutVocabularyContext,
+          pinnedStrokeMetadata:
+            hsk2CharacterPracticeResult.summary
+              .charactersWithPinnedStrokeMetadata,
+          authoredPracticeItems:
+            hsk2CharacterPracticeResult.summary.authoredPracticeItems,
+          measurementEligibleItems:
+            hsk2CharacterPracticeResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

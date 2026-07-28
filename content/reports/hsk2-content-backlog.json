@@ -11,7 +11,9 @@
     "lessonBlueprintPackId": "hsk2-lesson-blueprints-2026.07",
     "lessonBlueprintPackSha256": "sha256:75d13e22d8dde51859cd99d64a38a37626405a8dfa571e26d8665a7c245e08ab",
     "vocabularyPracticePackId": "hsk2-vocabulary-practice-2026.07",
-    "vocabularyPracticePackSha256": "sha256:ac4f0b55fd3af1620463d47ba9e270f305b28c3fcca95e2e604def649830295f"
+    "vocabularyPracticePackSha256": "sha256:ac4f0b55fd3af1620463d47ba9e270f305b28c3fcca95e2e604def649830295f",
+    "characterPracticePackId": "hsk2-character-practice-2026.07",
+    "characterPracticePackSha256": "sha256:d8b4f5ab3acd6f6c7ca52ed40b9632a7e2a1692656de8a5eb2bc830c6ccd6a1b"
   },
   "stage": "vocabulary-practice-authoring",
   "coverage": {
@@ -23,6 +25,9 @@
     "lessonBlueprintVocabularyMapped": 200,
     "vocabularyPracticeDrafted": 200,
     "recognitionCharactersDraftMapped": 125,
+    "characterPracticeDrafted": 125,
+    "charactersWithVocabularyContext": 124,
+    "charactersWithPinnedStrokeMetadata": 0,
     "grammarRowsDraftMapped": 75,
     "tasksScenarioDraftMapped": 17,
     "topicsPromptDraftMapped": 34,
@@ -50,6 +55,15 @@
     "vocabularyPracticeApprovals": 0,
     "audioDependentVocabularyItems": 200,
     "reviewedVocabularyAudioItems": 0,
+    "authoredCharacterPracticeItems": 250,
+    "pendingCharacterReviewBatches": 10,
+    "characterPracticeApprovals": 0,
+    "characterContextGaps": [
+      {
+        "officialCharacterId": "hsk2-character-050",
+        "character": "留"
+      }
+    ],
     "pronunciationReviewItems": [
       {
         "officialId": "hsk-vocab-00356",
@@ -105,6 +119,6 @@
   "claims": {
     "hsk2VocabularyComplete": false,
     "hsk2Complete": false,
-    "reason": "All 200 HSK2 vocabulary items have Vietnamese and three-mode practice drafts inside the exact lesson blueprint, but grammar, character and production practice, assessment prompts, linguistic review, audio and runtime release are incomplete."
+    "reason": "All HSK2 vocabulary items and recognition characters have bounded draft practice, but grammar and task production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete."
   }
 }

@@ -163,6 +163,19 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk2CharacterPractice,
+    ).toEqual({
+      lessons: 10,
+      characters: 125,
+      vocabularyContextMapped: 124,
+      vocabularyContextGaps: 1,
+      pinnedStrokeMetadata: 0,
+      authoredPracticeItems: 250,
+      measurementEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2VocabularyPractice,
     ).toEqual({
       lessons: 20,

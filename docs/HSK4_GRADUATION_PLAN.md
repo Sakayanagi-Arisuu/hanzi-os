@@ -327,6 +327,16 @@ nghe vẫn không có audio đã duyệt; toàn pack có 0 approval, measurement
 mastery và release-eligible item. Grammar/character/production practice,
 assessment và human review còn thiếu nên HSK2 completion tiếp tục `false`.
 
+Lát G3 HSK2 thứ tư không tăng điểm, nên tiến độ giữ ở **76%**. Cả 125
+recognition character đã được gắn vào 10 blueprint production và có 250
+practice item: 124 nhận diện trong từ, một nhận diện glyph độc lập và 125 bài
+tự chép hình dạng. Report nêu tường minh `留` không có ngữ cảnh vocabulary
+HSK1–2 thay vì bịa mapping. Pack có 0 pinned stroke metadata, không dạy/chấm
+thứ tự nét, không suy diễn writing mastery và giữ 0 approval/
+measurement/release-eligible item. Lát này lấp một backlog con nhưng chưa đủ
+thay đổi điểm D vì grammar, task production, assessment và toàn bộ HSK3–4 vẫn
+rất lớn.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

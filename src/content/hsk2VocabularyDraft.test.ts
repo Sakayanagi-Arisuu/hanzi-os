@@ -76,6 +76,9 @@ describe("HSK2 CC-CEDICT source-enrichment draft", () => {
       lessonBlueprintVocabularyMapped: 200,
       vocabularyPracticeDrafted: 200,
       recognitionCharactersDraftMapped: 125,
+      characterPracticeDrafted: 125,
+      charactersWithVocabularyContext: 124,
+      charactersWithPinnedStrokeMetadata: 0,
       grammarRowsDraftMapped: 75,
       tasksScenarioDraftMapped: 17,
       topicsPromptDraftMapped: 34,
@@ -103,6 +106,13 @@ describe("HSK2 CC-CEDICT source-enrichment draft", () => {
       vocabularyPracticeApprovals: 0,
       audioDependentVocabularyItems: 200,
       reviewedVocabularyAudioItems: 0,
+      authoredCharacterPracticeItems: 250,
+      pendingCharacterReviewBatches: 10,
+      characterPracticeApprovals: 0,
+      characterContextGaps: [{
+        officialCharacterId: "hsk2-character-050",
+        character: "留",
+      }],
     });
     expect(report.claims).toMatchObject({
       hsk2VocabularyComplete: false,

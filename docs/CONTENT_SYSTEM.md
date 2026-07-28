@@ -217,6 +217,18 @@ và browser TTS chỉ để luyện draft; 0 item measurement/mastery/release-el
 Grammar, character, dialogue/task production và assessment HSK2 vẫn là các
 lát authoring tiếp theo.
 
+`content/drafts/hsk2-character-practice-2026.07.json` phủ cả 125 recognition
+character bằng 250 item trong 10 bài production: 124 bài nhận diện chữ trong
+từ ngữ cảnh, 1 bài nhận diện glyph độc lập cho `留`, và 125 bài tự chép hình
+dạng. `留` được ghi thành gap vì không xuất hiện trong vocabulary HSK1–2,
+không bị gắn giả vào một từ HSK2.
+
+`content:hsk2:character-practice -- --write` tái tạo pack; `--check` và
+`content:hsk2:character-practice:validate` kiểm exact character/lesson/context
+partition, option, review batch và gap nói trên. Cả 125 chữ vẫn có radical,
+stroke count và stroke data bằng `null`; bài tự chép không dạy/chấm thứ tự nét
+và không suy diễn writing mastery từ recognition hay self-check.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

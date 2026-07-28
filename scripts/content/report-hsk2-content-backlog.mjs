@@ -17,6 +17,10 @@ import {
   assertValidHsk2VocabularyPracticeBundle,
   loadHsk2VocabularyPracticeBundle,
 } from "../../src/content/hsk2VocabularyPractice.mjs";
+import {
+  assertValidHsk2CharacterPracticeBundle,
+  loadHsk2CharacterPracticeBundle,
+} from "../../src/content/hsk2CharacterPractice.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -33,6 +37,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const practiceBundle = loadHsk2VocabularyPracticeBundle(root);
   const practiceResult =
     assertValidHsk2VocabularyPracticeBundle(practiceBundle);
+  const characterBundle = loadHsk2CharacterPracticeBundle(root);
+  const characterResult =
+    assertValidHsk2CharacterPracticeBundle(characterBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -55,6 +62,8 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       lessonBlueprintPackSha256: fileSha256(blueprintBundle.packPath),
       vocabularyPracticePackId: practiceBundle.pack.packId,
       vocabularyPracticePackSha256: fileSha256(practiceBundle.packPath),
+      characterPracticePackId: characterBundle.pack.packId,
+      characterPracticePackSha256: fileSha256(characterBundle.packPath),
     },
     stage: "vocabulary-practice-authoring",
     coverage: {
@@ -74,6 +83,11 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       vocabularyPracticeDrafted: practiceResult.summary.vocabularyDrafts,
       recognitionCharactersDraftMapped:
         blueprintResult.summary.recognitionCharacterBlueprintMappings,
+      characterPracticeDrafted: characterResult.summary.characterDrafts,
+      charactersWithVocabularyContext:
+        characterResult.summary.charactersWithVocabularyContext,
+      charactersWithPinnedStrokeMetadata:
+        characterResult.summary.charactersWithPinnedStrokeMetadata,
       grammarRowsDraftMapped:
         blueprintResult.summary.grammarBlueprintMappings,
       tasksScenarioDraftMapped:
@@ -115,6 +129,16 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       audioDependentVocabularyItems:
         practiceResult.summary.audioDependentItems,
       reviewedVocabularyAudioItems: practiceResult.summary.reviewedAudioItems,
+      authoredCharacterPracticeItems:
+        characterResult.summary.authoredPracticeItems,
+      pendingCharacterReviewBatches: characterResult.summary.reviewBatches,
+      characterPracticeApprovals: characterResult.summary.approvals,
+      characterContextGaps: characterBundle.pack.characters.filter(
+        (item) => item.primaryContext === null,
+      ).map((item) => ({
+        officialCharacterId: item.officialCharacterId,
+        character: item.character,
+      })),
       pronunciationReviewItems: pronunciationReviewItems.map((entry) => ({
         officialId: entry.officialId,
         simplified: entry.simplified,
@@ -130,7 +154,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All 200 HSK2 vocabulary items have Vietnamese and three-mode practice drafts inside the exact lesson blueprint, but grammar, character and production practice, assessment prompts, linguistic review, audio and runtime release are incomplete.",
+        "All HSK2 vocabulary items and recognition characters have bounded draft practice, but grammar and task production, assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
     },
   };
 };
