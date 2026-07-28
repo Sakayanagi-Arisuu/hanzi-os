@@ -164,6 +164,32 @@ thuộc đúng một unit và đúng một strand/module phù hợp. Con số 40
 blueprint chỉ là kế hoạch authoring: scope vẫn learner-hidden, không phải
 lesson/practice coverage, không cấp mastery và không tạo claim HSK2 hoàn thành.
 
+## Backlog từ vựng HSK2
+
+`content/sources/cc-cedict-debian-2026-04-03/source.json` ghim riêng Debian
+source repack `cc-cedict_0.0~repack20260403.orig.tar.xz` cùng SHA-256/byte
+length của archive và member `cedict_ts.u8`. Payload khai báo CC BY-SA 4.0;
+attribution được giữ cạnh descriptor và legal review vẫn `pending`. Repo không
+phân phối archive hoặc payload nguồn.
+
+Để tái tạo, tải đúng archive từ URL trong descriptor, giải nén duy nhất member
+`cedict_ts.u8` vào `tmp/cedict-debian/`, rồi chạy:
+
+```powershell
+npm run content:hsk2:import -- --archive-file tmp/cedict-debian/cc-cedict_0.0~repack20260403.orig.tar.xz --source-file tmp/cedict-debian/cedict_ts.u8 --write
+```
+
+Importer kiểm độc lập hash/byte length của cả archive và payload, header
+license, entry count và exact HSK2 surface/pinyin trước khi tạo compact draft.
+Validator cùng checked backlog report là quality gate thường trực. Kết quả
+hiện tại có 200/200 mục HSK2 khớp nguồn, 232 source match, 26 mục nhiều ứng
+viên và 6 mục cần duyệt khác biệt phát âm.
+
+Đây mới là source enrichment: 0 nghĩa Việt được duyệt, 0 lesson blueprint đã
+map từ vựng, 0 practice, 0 learner-visible và 0 release-eligible. Bước tiếp
+theo mới author 40 lesson blueprint theo ba unit HSK2, không được dùng con số
+200/200 để tuyên bố hoàn thành HSK2.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

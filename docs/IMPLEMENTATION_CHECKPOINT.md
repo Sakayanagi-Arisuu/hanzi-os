@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **73%**.
+Active progress: **74%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
-| HSK0-4 content coverage | 24 / 30 | HSK0 has a source-bound 12-lesson pronunciation draft and HSK1 vocabulary, character, grammar, task and topic inventory has contextual draft practice; reviewed audio/content, complete stroke metadata and HSK2-4 remain. |
+| HSK0-4 content coverage | 25 / 30 | HSK0 has a source-bound 12-lesson pronunciation draft, HSK1 inventory has contextual draft practice, and all 200 HSK2 vocabulary records have source-enrichment backlog entries; reviewed content, audio, stroke metadata and HSK2 lesson/practice remain. |
 | HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -201,6 +201,19 @@ Every commit must update this percentage here and in the active roadmap.
   and remains excluded from runtime. This named G3 authoring deliverable raises
   content coverage by one point; active progress is now **72%**, while HSK0
   completion remains false until human review, audio and runtime promotion.
+- Pinned a separate Debian CC-CEDICT source repack for HSK2 with exact archive
+  and UTF-8 payload identities, CC BY-SA attribution and pending legal review.
+  The full archive and dictionary payload remain local reconstruction inputs,
+  not redistributed repository content.
+- Added a deterministic importer and learner-hidden compact backlog for all
+  200 official HSK2 vocabulary records. It retains 232 exact source matches,
+  isolates 26 records with multiple candidates and queues 6 pronunciation
+  drifts rather than silently normalizing them.
+- The HSK2 backlog and integrated coverage report explicitly retain 0
+  Vietnamese draft/review, lesson mapping, practice, learner-visible and
+  release-eligible item. Vocabulary and level completion claims remain false.
+  This bounded source-enrichment deliverable raises content coverage by one
+  point and active project progress to **74%**.
 
 ## Repository state
 
@@ -494,16 +507,19 @@ the applicable gates to run again before the next checkpoint commit.
     2,181 normalized target references; 0 manifest approval or runtime mutation
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - Vitest: 158 files, 1,278 tests passed
+  - pinned Debian CC-CEDICT source identity and HSK2 draft/report validation:
+    200/200 source-matched, 232 source matches, 26 multiple-match records,
+    194 pronunciation-compatible and 0 release-eligible
+  - Vitest: 159 files, 1,282 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 99 / 98, median 98
+  - Performance: 99 / 99 / 99, median 99
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,914 ms; CLS: 0; TBT: 54 ms
+  - Median LCP: 1,870 ms; CLS: 0; TBT: 57 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

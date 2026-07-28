@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "reportId": "hsk2-content-backlog-2026.07.28",
+  "generatedFrom": {
+    "draftId": "hsk2-vocabulary-2026.07.28",
+    "sourceId": "cc-cedict-debian-2026-04-03",
+    "sourceArchiveSha256": "sha256:31dc21c362e973c6ecd1688539d0861dbc524fc22aed10161fbf96ee4fa46567",
+    "sourceSnapshotSha256": "sha256:919b24deb8b799c6f4a0de7c29590905b2775ffdb999b1c22a75f3a1000db5a0",
+    "syllabusInventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3",
+    "scopeId": "hsk2-authoring-scope-2026.07"
+  },
+  "stage": "source-enrichment",
+  "coverage": {
+    "officialVocabulary": 200,
+    "dictionaryMatched": 200,
+    "englishSourceSenseReady": 200,
+    "authoringScoped": 200,
+    "vietnameseGlossDrafted": 0,
+    "lessonBlueprintVocabularyMapped": 0,
+    "vocabularyPracticeDrafted": 0,
+    "recognitionCharactersDraftMapped": 0,
+    "grammarRowsDraftMapped": 0,
+    "tasksScenarioDraftMapped": 0,
+    "topicsPromptDraftMapped": 0,
+    "pronunciationCompatible": 194,
+    "vietnameseGlossReviewed": 0,
+    "lessonMapped": 0,
+    "learnerVisible": 0,
+    "releaseEligible": 0
+  },
+  "editorialQueue": {
+    "multipleSourceMatches": 26,
+    "pronunciationReviewPending": 6,
+    "definitionReviewPending": 200,
+    "partOfSpeechReviewPending": 200,
+    "usageExampleReviewPending": 200,
+    "machineDraftGlossReviewPending": 0,
+    "plannedLessonBlueprints": 40,
+    "pronunciationReviewItems": [
+      {
+        "officialId": "hsk-vocab-00356",
+        "simplified": "后面",
+        "officialPinyin": "hòumiàn",
+        "sourceNumberedPinyin": [
+          "hou4 mian5"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00361",
+        "simplified": "回来",
+        "officialPinyin": "huílái",
+        "sourceNumberedPinyin": [
+          "hui2 lai5"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00362",
+        "simplified": "回去",
+        "officialPinyin": "huíqù",
+        "sourceNumberedPinyin": [
+          "hui2 qu5"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00418",
+        "simplified": "起来",
+        "officialPinyin": "qǐlái",
+        "sourceNumberedPinyin": [
+          "qi3 lai5",
+          "qi5 lai5"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00451",
+        "simplified": "网上",
+        "officialPinyin": "wǎngshang",
+        "sourceNumberedPinyin": [
+          "wang3 shang4"
+        ]
+      },
+      {
+        "officialId": "hsk-vocab-00458",
+        "simplified": "下来",
+        "officialPinyin": "xiàlái",
+        "sourceNumberedPinyin": [
+          "xia4 lai5"
+        ]
+      }
+    ]
+  },
+  "claims": {
+    "hsk2VocabularyComplete": false,
+    "hsk2Complete": false,
+    "reason": "All 200 official HSK2 vocabulary records have source senses and an authoring scope, but Vietnamese glosses, lesson blueprints, practice, linguistic review, audio, assessment and runtime release are incomplete."
+  }
+}

@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **73%**.
+Status: **in progress** at project progress **74%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **73%**.
+Status: **in progress** at project progress **74%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -142,10 +142,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 10 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 24 | inventory, authoring scope, HSK0 pronunciation draft, Vietnamese draft, lesson/dialogue và practice draft, character/grammar/task |
+| D. Nội dung có coverage HSK0-4 | 30 | 25 | inventory, authoring scope, HSK0 pronunciation draft, HSK1 contextual drafts và HSK2 vocabulary source backlog |
 | E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **73** | **Tiến độ hiện tại: 73%** |
+| **Tổng** | **100** | **74** | **Tiến độ hiện tại: 74%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -296,6 +296,16 @@ grammar row và 125 recognition character. Scope dự kiến 40 lesson blueprint
 nhưng chưa author lesson/practice nào, vẫn learner-hidden, không cấp mastery
 và giữ mọi claim lesson coverage, reviewed content, HSK2 completion là
 `false`; vì vậy lát này không tăng điểm nội dung trụ cột D.
+
+Lát G3 HSK2 đầu tăng trụ cột D thêm 1 điểm, đưa tiến độ lên **74%**. Một
+Debian source repack của CC-CEDICT được ghim riêng bằng hash/byte length cho
+cả archive và payload; importer deterministic đã lọc đúng 200/200 từ HSK2 từ
+124.863 dòng nguồn. Backlog có 232 source match, tách 26 mục nhiều ứng viên và
+6 mục lệch phát âm vào review queue. Validator, checked backlog report và
+coverage report đều giữ trạng thái fail-closed. Điểm này chỉ ghi nhận source
+enrichment có provenance để bắt đầu authoring: nghĩa Việt draft/review, lesson
+mapping, practice, learner-visible và release-eligible hiện vẫn bằng 0; claim
+hoàn thành vocabulary HSK2 và HSK2 đều là `false`.
 
 ## 6. Quy tắc cập nhật phần trăm
 

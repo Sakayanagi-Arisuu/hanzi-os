@@ -18,6 +18,10 @@ import {
   loadHsk2CurriculumScopeBundle,
 } from "../../src/content/hsk2CurriculumScope.mjs";
 import {
+  assertValidHsk2VocabularyDraftBundle,
+  loadHsk2VocabularyDraftBundle,
+} from "../../src/content/hsk2VocabularyDraft.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -77,6 +81,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
+  const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
+  const hsk2VocabularyResult =
+    assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -304,6 +311,20 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           measurementEligibleActivities:
             hsk0PronunciationResult.summary.measurementEligibleActivities,
           reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2VocabularyBacklog: {
+          officialVocabulary:
+            hsk2VocabularyResult.counts.officialVocabulary,
+          sourceMatched: hsk2VocabularyResult.counts.sourceMatched,
+          sourceMatches: hsk2VocabularyResult.counts.sourceMatches,
+          multipleSourceMatchEntries:
+            hsk2VocabularyResult.counts.multipleSourceMatchEntries,
+          pronunciationReviewPending:
+            hsk2VocabularyResult.counts.pronunciationReviewPending,
+          vietnameseGlossReviewed:
+            hsk2VocabularyResult.counts.vietnameseGlossReviewed,
+          releaseEligible: hsk2VocabularyResult.counts.releaseEligible,
           learnerVisible: false,
         },
         hsk1PersonalExchange: {

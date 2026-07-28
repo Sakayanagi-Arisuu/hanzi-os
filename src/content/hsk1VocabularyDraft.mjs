@@ -169,13 +169,17 @@ export const parseCedictText = (text) => {
   return entries;
 };
 
-export const buildHsk1VocabularyDraft = ({
+export const buildVocabularyDraftForLevel = ({
+  level,
+  draftId,
   descriptor,
   inventory,
   inventorySha256,
   cedictEntries,
 }) => {
-  const hsk1Vocabulary = inventory.vocabulary.filter((item) => item.level === 1);
+  const levelVocabulary = inventory.vocabulary.filter(
+    (item) => item.level === level,
+  );
   const bySimplified = new Map();
   for (const entry of cedictEntries) {
     const candidates = bySimplified.get(entry.simplified) ?? [];
@@ -183,7 +187,7 @@ export const buildHsk1VocabularyDraft = ({
     bySimplified.set(entry.simplified, candidates);
   }
 
-  const entries = hsk1Vocabulary.map((official) => {
+  const entries = levelVocabulary.map((official) => {
     const variants = officialPinyinVariants(official.pinyin);
     const candidates = bySimplified.get(official.word) ?? [];
     const caseSensitiveMatches =
@@ -244,8 +248,8 @@ export const buildHsk1VocabularyDraft = ({
 
   return {
     schemaVersion: 1,
-    draftId: "hsk1-vocabulary-2026.07.28",
-    level: 1,
+    draftId,
+    level,
     state: "draft",
     learnerVisible: false,
     releaseEligible: false,
@@ -279,6 +283,13 @@ export const buildHsk1VocabularyDraft = ({
   };
 };
 
+export const buildHsk1VocabularyDraft = (options) =>
+  buildVocabularyDraftForLevel({
+    ...options,
+    level: 1,
+    draftId: "hsk1-vocabulary-2026.07.28",
+  });
+
 export const serializeHsk1VocabularyDraft = (draft) =>
   `${JSON.stringify(draft)}\n`;
 
@@ -305,10 +316,17 @@ const requireString = (errors, value, field, maxLength = 2_000) => {
   }
 };
 
-export const validateHsk1VocabularyDraftBundle = ({
+export const validateVocabularyDraftBundleForLevel = ({
   descriptor,
   draft,
   syllabus,
+}, {
+  level,
+  draftId,
+  expectedCount,
+  label,
+  expectedUpstreamStatus,
+  expectedFormat,
 }) => {
   const errors = [];
   try {
@@ -321,12 +339,15 @@ export const validateHsk1VocabularyDraftBundle = ({
     return { valid: false, errors: ["CC-CEDICT descriptor schemaVersion must be 1"] };
   }
   if (!isRecord(draft) || draft.schemaVersion !== 1) {
-    return { valid: false, errors: ["HSK1 vocabulary draft schemaVersion must be 1"] };
+    return {
+      valid: false,
+      errors: [`${label} vocabulary draft schemaVersion must be 1`],
+    };
   }
   requireString(errors, descriptor.sourceId, "descriptor.sourceId", 120);
   if (
-    descriptor.upstreamStatus !== "latest-non-verified-editor-export"
-    || descriptor.format !== "cedict-v1-gzip"
+    descriptor.upstreamStatus !== expectedUpstreamStatus
+    || descriptor.format !== expectedFormat
   ) {
     errors.push("CC-CEDICT upstream status and format must remain explicit");
   }
@@ -349,11 +370,13 @@ export const validateHsk1VocabularyDraftBundle = ({
     errors.push("descriptor snapshot metrics must be pinned");
   }
   if (
-    draft.state !== "draft"
+    draft.draftId !== draftId
+    || draft.level !== level
+    || draft.state !== "draft"
     || draft.learnerVisible !== false
     || draft.releaseEligible !== false
   ) {
-    errors.push("HSK1 source enrichment must remain draft and learner-hidden");
+    errors.push(`${label} source enrichment must remain draft and learner-hidden`);
   }
   if (
     draft.sourceId !== descriptor.sourceId
@@ -377,10 +400,15 @@ export const validateHsk1VocabularyDraftBundle = ({
   }
 
   const officialEntries = syllabus.inventory.vocabulary.filter(
-    (item) => item.level === 1,
+    (item) => item.level === level,
   );
-  if (!Array.isArray(draft.entries) || draft.entries.length !== 300) {
-    errors.push("draft.entries must contain exactly 300 HSK1 vocabulary items");
+  if (
+    !Array.isArray(draft.entries)
+    || draft.entries.length !== expectedCount
+  ) {
+    errors.push(
+      `draft.entries must contain exactly ${expectedCount} ${label} vocabulary items`,
+    );
   } else {
     for (const [index, entry] of draft.entries.entries()) {
       const official = officialEntries[index];
@@ -512,6 +540,16 @@ export const validateHsk1VocabularyDraftBundle = ({
     counts: draft.counts,
   };
 };
+
+export const validateHsk1VocabularyDraftBundle = (bundle) =>
+  validateVocabularyDraftBundleForLevel(bundle, {
+    level: 1,
+    draftId: "hsk1-vocabulary-2026.07.28",
+    expectedCount: 300,
+    label: "HSK1",
+    expectedUpstreamStatus: "latest-non-verified-editor-export",
+    expectedFormat: "cedict-v1-gzip",
+  });
 
 export const assertValidHsk1VocabularyDraftBundle = (bundle) => {
   const result = validateHsk1VocabularyDraftBundle(bundle);

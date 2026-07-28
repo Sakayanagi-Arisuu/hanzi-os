@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "sourceId": "cc-cedict-debian-2026-04-03",
+  "title": "CC-CEDICT Debian source repack",
+  "publisher": "Debian",
+  "canonicalUrl": "https://packages.debian.org/sid/source/cc-cedict",
+  "downloadUrl": "https://deb.debian.org/debian/pool/main/c/cc-cedict/cc-cedict_0.0~repack20260403.orig.tar.xz",
+  "upstreamProjectUrl": "https://cc-cedict.org/editor/editor.php?handler=Download",
+  "retrievedAt": "2026-07-28",
+  "upstreamStatus": "debian-source-repack-20260403",
+  "format": "cedict-v1-tar-xz-with-utf8-payload",
+  "archive": {
+    "filename": "cc-cedict_0.0~repack20260403.orig.tar.xz",
+    "byteLength": 2811864,
+    "sha256": "sha256:31dc21c362e973c6ecd1688539d0861dbc524fc22aed10161fbf96ee4fa46567",
+    "debianPublishedMd5": "1a108e1c8a591960596aa5af074d0096"
+  },
+  "snapshot": {
+    "memberPath": "cedict_ts.u8",
+    "byteLength": 9853482,
+    "entryCount": 124863,
+    "sha256": "sha256:919b24deb8b799c6f4a0de7c29590905b2775ffdb999b1c22a75f3a1000db5a0"
+  },
+  "rights": {
+    "declaredLicense": "CC-BY-SA-4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "evidenceUrl": "https://metadata.ftp-master.debian.org/changelogs/main/c/cc-cedict/cc-cedict_0.0~repack20260403-1_copyright",
+    "derivedArtifactLicense": "CC-BY-SA-4.0",
+    "legalReview": "pending",
+    "attributionFile": "content/sources/cc-cedict-debian-2026-04-03/ATTRIBUTION.md"
+  }
+}

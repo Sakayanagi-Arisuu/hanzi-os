@@ -162,6 +162,18 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       reviewed: false,
       learnerVisible: false,
     });
+    expect(
+      report.currentCoverage.draftBlueprintMappings.hsk2VocabularyBacklog,
+    ).toEqual({
+      officialVocabulary: 200,
+      sourceMatched: 200,
+      sourceMatches: 232,
+      multipleSourceMatchEntries: 26,
+      pronunciationReviewPending: 6,
+      vietnameseGlossReviewed: 0,
+      releaseEligible: 0,
+      learnerVisible: false,
+    });
     expect(report.coverageClaims.every((claim) => claim.complete === false))
       .toBe(true);
   });
