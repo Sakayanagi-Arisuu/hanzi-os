@@ -7,21 +7,23 @@
     "sourceArchiveSha256": "sha256:31dc21c362e973c6ecd1688539d0861dbc524fc22aed10161fbf96ee4fa46567",
     "sourceSnapshotSha256": "sha256:919b24deb8b799c6f4a0de7c29590905b2775ffdb999b1c22a75f3a1000db5a0",
     "syllabusInventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3",
-    "scopeId": "hsk2-authoring-scope-2026.07"
+    "scopeId": "hsk2-authoring-scope-2026.07",
+    "lessonBlueprintPackId": "hsk2-lesson-blueprints-2026.07",
+    "lessonBlueprintPackSha256": "sha256:75d13e22d8dde51859cd99d64a38a37626405a8dfa571e26d8665a7c245e08ab"
   },
-  "stage": "source-enrichment",
+  "stage": "lesson-blueprint-authoring",
   "coverage": {
     "officialVocabulary": 200,
     "dictionaryMatched": 200,
     "englishSourceSenseReady": 200,
     "authoringScoped": 200,
     "vietnameseGlossDrafted": 0,
-    "lessonBlueprintVocabularyMapped": 0,
+    "lessonBlueprintVocabularyMapped": 200,
     "vocabularyPracticeDrafted": 0,
-    "recognitionCharactersDraftMapped": 0,
-    "grammarRowsDraftMapped": 0,
-    "tasksScenarioDraftMapped": 0,
-    "topicsPromptDraftMapped": 0,
+    "recognitionCharactersDraftMapped": 125,
+    "grammarRowsDraftMapped": 75,
+    "tasksScenarioDraftMapped": 17,
+    "topicsPromptDraftMapped": 34,
     "pronunciationCompatible": 194,
     "vietnameseGlossReviewed": 0,
     "lessonMapped": 0,
@@ -36,6 +38,11 @@
     "usageExampleReviewPending": 200,
     "machineDraftGlossReviewPending": 0,
     "plannedLessonBlueprints": 40,
+    "draftLessonBlueprints": 40,
+    "pendingBlueprintReviewBatches": 40,
+    "blueprintApprovals": 0,
+    "authoredPracticeItems": 0,
+    "authoredAssessmentPrompts": 0,
     "pronunciationReviewItems": [
       {
         "officialId": "hsk-vocab-00356",
@@ -91,6 +98,6 @@
   "claims": {
     "hsk2VocabularyComplete": false,
     "hsk2Complete": false,
-    "reason": "All 200 official HSK2 vocabulary records have source senses and an authoring scope, but Vietnamese glosses, lesson blueprints, practice, linguistic review, audio, assessment and runtime release are incomplete."
+    "reason": "All official HSK2 inventory sections are assigned to 40 lesson blueprints, but Vietnamese glosses, practice, assessment prompts, linguistic review, audio and runtime release are incomplete."
   }
 }

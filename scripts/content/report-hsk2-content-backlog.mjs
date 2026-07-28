@@ -9,6 +9,11 @@ import {
   assertValidHsk2CurriculumScopeBundle,
   loadHsk2CurriculumScopeBundle,
 } from "../../src/content/hsk2CurriculumScope.mjs";
+import {
+  assertValidHsk2LessonBlueprintsBundle,
+  loadHsk2LessonBlueprintsBundle,
+} from "../../src/content/hsk2LessonBlueprints.mjs";
+import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
   "content/reports/hsk2-content-backlog.json";
@@ -18,6 +23,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   assertValidHsk2VocabularyDraftBundle(vocabularyBundle);
   const scopeBundle = loadHsk2CurriculumScopeBundle(root);
   const scopeResult = assertValidHsk2CurriculumScopeBundle(scopeBundle);
+  const blueprintBundle = loadHsk2LessonBlueprintsBundle(root);
+  const blueprintResult =
+    assertValidHsk2LessonBlueprintsBundle(blueprintBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -36,8 +44,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       syllabusInventorySha256:
         vocabularyBundle.draft.syllabusInventorySha256,
       scopeId: scopeBundle.scope.scopeId,
+      lessonBlueprintPackId: blueprintBundle.pack.packId,
+      lessonBlueprintPackSha256: fileSha256(blueprintBundle.packPath),
     },
-    stage: "source-enrichment",
+    stage: "lesson-blueprint-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -50,12 +60,17 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       ).length,
       authoringScoped: scopeResult.summary.vocabulary,
       vietnameseGlossDrafted: 0,
-      lessonBlueprintVocabularyMapped: 0,
+      lessonBlueprintVocabularyMapped:
+        blueprintResult.summary.vocabularyBlueprintMappings,
       vocabularyPracticeDrafted: 0,
-      recognitionCharactersDraftMapped: 0,
-      grammarRowsDraftMapped: 0,
-      tasksScenarioDraftMapped: 0,
-      topicsPromptDraftMapped: 0,
+      recognitionCharactersDraftMapped:
+        blueprintResult.summary.recognitionCharacterBlueprintMappings,
+      grammarRowsDraftMapped:
+        blueprintResult.summary.grammarBlueprintMappings,
+      tasksScenarioDraftMapped:
+        blueprintResult.summary.taskBlueprintMappings,
+      topicsPromptDraftMapped:
+        blueprintResult.summary.topicBlueprintMappings,
       pronunciationCompatible:
         entries.length - pronunciationReviewItems.length,
       vietnameseGlossReviewed: 0,
@@ -79,6 +94,12 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       ).length,
       machineDraftGlossReviewPending: 0,
       plannedLessonBlueprints: scopeResult.summary.plannedLessonBlueprints,
+      draftLessonBlueprints: blueprintResult.summary.lessons,
+      pendingBlueprintReviewBatches: blueprintResult.summary.reviewBatches,
+      blueprintApprovals: blueprintResult.summary.approvals,
+      authoredPracticeItems: blueprintResult.summary.authoredPracticeItems,
+      authoredAssessmentPrompts:
+        blueprintResult.summary.authoredAssessmentPrompts,
       pronunciationReviewItems: pronunciationReviewItems.map((entry) => ({
         officialId: entry.officialId,
         simplified: entry.simplified,
@@ -94,7 +115,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All 200 official HSK2 vocabulary records have source senses and an authoring scope, but Vietnamese glosses, lesson blueprints, practice, linguistic review, audio, assessment and runtime release are incomplete.",
+        "All official HSK2 inventory sections are assigned to 40 lesson blueprints, but Vietnamese glosses, practice, assessment prompts, linguistic review, audio and runtime release are incomplete.",
     },
   };
 };

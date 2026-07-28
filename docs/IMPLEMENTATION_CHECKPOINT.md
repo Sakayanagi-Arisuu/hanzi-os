@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **74%**.
+Active progress: **75%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
-| HSK0-4 content coverage | 25 / 30 | HSK0 has a source-bound 12-lesson pronunciation draft, HSK1 inventory has contextual draft practice, and all 200 HSK2 vocabulary records have source-enrichment backlog entries; reviewed content, audio, stroke metadata and HSK2 lesson/practice remain. |
+| HSK0-4 content coverage | 26 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has a 200-record source backlog plus 40 exact-mapped lesson blueprints; reviewed content, audio and HSK2 practice remain. |
 | HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -209,11 +209,24 @@ Every commit must update this percentage here and in the active roadmap.
   200 official HSK2 vocabulary records. It retains 232 exact source matches,
   isolates 26 records with multiple candidates and queues 6 pronunciation
   drifts rather than silently normalizing them.
-- The HSK2 backlog and integrated coverage report explicitly retain 0
-  Vietnamese draft/review, lesson mapping, practice, learner-visible and
-  release-eligible item. Vocabulary and level completion claims remain false.
-  This bounded source-enrichment deliverable raises content coverage by one
+- At the source-only checkpoint, the HSK2 backlog retained 0 Vietnamese
+  draft/review, blueprint/runtime lesson mapping, practice, learner-visible and
+  release-eligible item. Vocabulary and level completion claims remained false.
+  That bounded source-enrichment deliverable raised content coverage by one
   point and active project progress to **74%**.
+- Added a deterministic HSK2 lesson-blueprint pack with 20 situational
+  dialogue lessons, 10 sentence/grammar-chain lessons and 10 dictation or
+  short-production lessons. One ordered prerequisite chain spans all 40
+  blueprints without making them learner-visible.
+- The blueprints exact-partition all 17 tasks, 34 topics, 200 vocabulary
+  records, 75 grammar rows and 125 recognition characters from the pinned
+  scope. Evidence modes, required practice kinds and audio requirements stay
+  distinct across the three units.
+- Forty pending blueprint review batches require native Mandarin curriculum,
+  Vietnamese editorial and assessment roles. Authored practice, assessment
+  prompts, rubrics, approvals and release-eligible lessons all remain zero;
+  HSK2 completion stays false. This named authoring deliverable raises active
+  progress to **75%**.
 
 ## Repository state
 
@@ -510,16 +523,20 @@ the applicable gates to run again before the next checkpoint commit.
   - pinned Debian CC-CEDICT source identity and HSK2 draft/report validation:
     200/200 source-matched, 232 source matches, 26 multiple-match records,
     194 pronunciation-compatible and 0 release-eligible
-  - Vitest: 159 files, 1,282 tests passed
+  - exact HSK2 lesson-blueprint pack: 40 lessons split 20 situational,
+    10 sentence-chain and 10 short-production; all 17 tasks, 34 topics,
+    200 vocabulary, 75 grammar rows and 125 recognition characters mapped;
+    0 authored practice, assessment prompt, approval or release-eligible lesson
+  - Vitest: 160 files, 1,286 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 99 / 99, median 99
+  - Performance: 98 / 97 / 99, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,870 ms; CLS: 0; TBT: 57 ms
+  - Median LCP: 1,885 ms; CLS: 0; TBT: 106 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

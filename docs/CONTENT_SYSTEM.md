@@ -186,9 +186,22 @@ hiện tại có 200/200 mục HSK2 khớp nguồn, 232 source match, 26 mục n
 viên và 6 mục cần duyệt khác biệt phát âm.
 
 Đây mới là source enrichment: 0 nghĩa Việt được duyệt, 0 lesson blueprint đã
-map từ vựng, 0 practice, 0 learner-visible và 0 release-eligible. Bước tiếp
-theo mới author 40 lesson blueprint theo ba unit HSK2, không được dùng con số
-200/200 để tuyên bố hoàn thành HSK2.
+map từ vựng ở checkpoint nguồn, 0 practice, 0 learner-visible và 0
+release-eligible. Không được dùng con số 200/200 để tuyên bố hoàn thành HSK2.
+
+`content/drafts/hsk2-lesson-blueprints-2026.07.json` hiện thực hóa đúng 40
+lesson blueprint từ scope: 20 bài hội thoại tình huống, 10 bài chuỗi
+câu/ngữ pháp và 10 bài nghe-chép/viết ngắn. Generator exact-partition đủ 17
+task, 34 topic, 200 vocabulary, 75 grammar row và 125 recognition character;
+dependency là một chuỗi không dangling qua ba unit. Mỗi bài có objective,
+practice/assessment plan và audio requirement phù hợp với loại evidence.
+
+Chạy `content:hsk2:lesson-blueprints -- --write` để tái tạo; `--check` cùng
+`content:hsk2:lesson-blueprints:validate` là gate bắt buộc. Bốn mươi review
+batch mới chỉ nhắm vào blueprint và đều chờ native Mandarin curriculum,
+Vietnamese editorial và assessment review. Pack cố ý giữ 0 authored practice,
+0 assessment prompt, 0 rubric, 0 approval và 0 release-eligible lesson; bước
+tiếp theo mới author nội dung ngữ cảnh và ngân hàng luyện tập cho từng bài.
 
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38

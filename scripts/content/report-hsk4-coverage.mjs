@@ -22,6 +22,10 @@ import {
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
 import {
+  assertValidHsk2LessonBlueprintsBundle,
+  loadHsk2LessonBlueprintsBundle,
+} from "../../src/content/hsk2LessonBlueprints.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -84,6 +88,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
     assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
+  const hsk2LessonBlueprints = loadHsk2LessonBlueprintsBundle(root);
+  const hsk2LessonBlueprintsResult =
+    assertValidHsk2LessonBlueprintsBundle(hsk2LessonBlueprints);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -325,6 +332,28 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           vietnameseGlossReviewed:
             hsk2VocabularyResult.counts.vietnameseGlossReviewed,
           releaseEligible: hsk2VocabularyResult.counts.releaseEligible,
+          learnerVisible: false,
+        },
+        hsk2LessonBlueprints: {
+          lessons: hsk2LessonBlueprintsResult.summary.lessons,
+          situationalDialogueLessons:
+            hsk2LessonBlueprintsResult.summary.situationalDialogueLessons,
+          sentenceChainLessons:
+            hsk2LessonBlueprintsResult.summary.sentenceChainLessons,
+          shortTextProductionLessons:
+            hsk2LessonBlueprintsResult.summary.shortTextProductionLessons,
+          tasks: hsk2LessonBlueprintsResult.summary.taskBlueprintMappings,
+          topics: hsk2LessonBlueprintsResult.summary.topicBlueprintMappings,
+          vocabulary:
+            hsk2LessonBlueprintsResult.summary.vocabularyBlueprintMappings,
+          grammarRows:
+            hsk2LessonBlueprintsResult.summary.grammarBlueprintMappings,
+          recognitionCharacters:
+            hsk2LessonBlueprintsResult.summary
+              .recognitionCharacterBlueprintMappings,
+          authoredPracticeItems:
+            hsk2LessonBlueprintsResult.summary.authoredPracticeItems,
+          reviewed: false,
           learnerVisible: false,
         },
         hsk1PersonalExchange: {
