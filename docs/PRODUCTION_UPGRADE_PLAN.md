@@ -1,5 +1,11 @@
 # HANZI.OS Production Upgrade Plan
 
+> **Deferred on 28 July 2026.** The active delivery target is now the
+> local-first HSK0-4 graduation product in
+> `docs/HSK4_GRADUATION_PLAN.md`. This production roadmap is preserved for
+> later resumption; production-only work must not interrupt the active
+> curriculum/content critical path.
+
 ## 1. North star
 
 HANZI.OS must help a learner demonstrably retain and use Mandarin for the goal they selected. XP, ranks, streaks and visual effects support that outcome; they never substitute for evidence of learning.

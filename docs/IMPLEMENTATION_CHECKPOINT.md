@@ -4,10 +4,34 @@ Date: 28 July 2026
 
 This is a local engineering checkpoint, not production release evidence.
 
+## Active HSK0-4 graduation scope
+
+The active source of truth is now `docs/HSK4_GRADUATION_PLAN.md`. The target is
+a local-first graduation and personal-study product with distinct HSK0, HSK1,
+HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
+pilot, operational qualification and Sites are deferred.
+
+Active progress: **42%**.
+
+| Pillar | Earned / max | Current evidence |
+| --- | ---: | --- |
+| Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
+| Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
+| Distinct HSK0-4 paths | 3 / 15 | Foundation graph exists, but five explicit level blueprints and placement routing do not. |
+| HSK0-4 content coverage | 2 / 30 | Runtime currently exposes 24 HSK1 lexemes, 14 lessons and 1 graded text; official HSK1-4 inventory is not imported. |
+| HSK0-4 assessment/mock | 3 / 10 | Descriptive diagnostic and assessment authority exist; level exams and timed mocks do not. |
+| Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
+
+This detailed baseline replaces the earlier rough 55-60% estimate for the new
+scope. It is lower because “deep HSK4 content” now has an explicit 30-point
+denominator while the current runtime content remains a small foundation.
+Every commit must update this percentage here and in the active roadmap.
+
 ## Repository state
 
-- Branch: `codex/production-upgrade-checkpoint`
+- Branch: `codex/hsk4-graduation`
 - Base commit: `5cc78673cd91445adbcad8f69286c0b9081d1d1d`
+- Production checkpoint carried forward: `594cf83`.
 - This branch contains a reviewed local engineering checkpoint split into
   auditable commits. No release tag, saved Sites version, deployment or
   production evidence was created.
@@ -23,7 +47,7 @@ This is a local engineering checkpoint, not production release evidence.
   Freeze both files until the final Sites step; no saved version or deployment
   has occurred.
 
-## Production roadmap progress estimate
+## Deferred production roadmap progress estimate
 
 Headline estimate: **55.1% of the original production roadmap** as of
 28 July 2026.
@@ -299,20 +323,15 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Freeze this checkpoint; every later task must name one bounded workstream.
-2. Complete E3 by putting authenticated operator identity, capability/role
-   authorization and server-materialized actor/time in front of the E3a
-   persistence kernel. Keep it server-only and do not expose an API or
-   editorial dashboard until that trusted-principal workflow is green.
-3. Obtain an attributable legal/license decision for the pinned
-   Make Me a Hanzi and CJKVI/CHISE records; replace a source rather than
-   weakening the gate if its terms are unsuitable.
-4. Obtain independent native linguistic review for the exact seven-character
-   candidate and record changes as a new immutable version.
-5. Only after those gates, expand a reviewed A0 inventory and run
-   pilot/calibration work before making assessment or coverage claims.
-6. Leave Sites ownership, saved version and deployment until the final release
-   step.
+1. Complete G0 with a typed contract for five distinct HSK0-4 level profiles
+   and backward-compatible learner profile validation.
+2. Start G1 by pinning the current official syllabus source and producing a
+   deterministic inventory/coverage report before bulk lesson authoring.
+3. Keep all imported content unpublished until its schema, provenance and
+   applicable linguistic checks pass.
+4. Leave operator auth, commerce, hosted pilot and Sites frozen until the
+   active HSK0-4 graduation roadmap is complete or the user explicitly resumes
+   production work.
 
-Do not resume the previous open-ended "Phase 2 and all later phases" goal. Use
-one bounded milestone and stop at a green, reviewable checkpoint.
+Use one bounded G0-G5 slice at a time and end each commit with updated active
+progress in both roadmap and checkpoint.

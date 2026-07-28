@@ -6,7 +6,8 @@ Optimize for demonstrable Mandarin learning. XP, ranks, streaks and effects supp
 
 ## Source of truth
 
-- Product and production roadmap: `docs/PRODUCTION_UPGRADE_PLAN.md`
+- Active HSK0-4 graduation roadmap: `docs/HSK4_GRADUATION_PLAN.md`
+- Deferred production roadmap: `docs/PRODUCTION_UPGRADE_PLAN.md`
 - Architecture target: `docs/ARCHITECTURE.md`
 - Mastery model: `docs/MASTERY_SYSTEM.md`
 - Content rules: `docs/CONTENT_SYSTEM.md`
@@ -40,5 +41,9 @@ verification gates.
 - Do not claim HSK or goal coverage beyond published, reviewed content.
 - Preserve reduced-motion, keyboard and mobile usability.
 - Never bypass a failing quality gate with force flags.
+- Update the active HSK0-4 percentage in both the active roadmap and checkpoint
+  in every commit; generated files and line counts do not earn progress.
+- Keep production-only operator, commerce, hosted pilot and Sites work out of
+  the active critical path until the user explicitly resumes it.
 - Read the current checkpoint before starting a new phase; do not repeat a
   completed slice or expand an uncommitted checkpoint.

@@ -43,15 +43,16 @@ npm run start
 - [Hệ thống nội dung](docs/CONTENT_SYSTEM.md)
 - [Mô hình làm chủ và thích ứng](docs/MASTERY_SYSTEM.md)
 - [Roadmap thương mại hóa](docs/ROADMAP.md)
-- [Kế hoạch nâng cấp production](docs/PRODUCTION_UPGRADE_PLAN.md)
+- [Kế hoạch đồ án HSK0-4 đang hoạt động](docs/HSK4_GRADUATION_PLAN.md)
+- [Kế hoạch nâng cấp production đang tạm hoãn](docs/PRODUCTION_UPGRADE_PLAN.md)
 
 ## Ranh giới của bản foundation
 
 Đây là một vertical slice giàu tính năng cho trải nghiệm học cốt lõi. Mã nguồn
 Phase 1 đã bổ sung nền đăng nhập ChatGPT tùy chọn, D1 schema có version,
 local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v4
-và xóa tài khoản. Restore rehearsal cục bộ hiện áp dụng 12 migration
-`0000`–`0011` trên graph 25 bảng, gồm cả FSRS card/review log, Reader session
+và xóa tài khoản. Restore rehearsal cục bộ hiện áp dụng 13 migration
+`0000`–`0012` trên graph 26 bảng, gồm cả FSRS card/review log, Reader session
 versioned và trigger khóa outbox vào đúng reset epoch. Những kiểm tra này không
 thay thế hosted
 provisioning, hosted backup/restore hoặc kiểm chứng đa thiết bị trên dịch vụ
