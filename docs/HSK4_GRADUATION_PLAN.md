@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **79%**.
+Status: **in progress** at project progress **80%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **79%**.
+Status: **in progress** at project progress **80%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -117,6 +117,8 @@ Status: **in progress** at project progress **79%**.
 Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng trống.
 
 ### G4 — Content factory HSK3-4
+
+Status: **in progress** at project progress **80%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -141,11 +143,11 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | --- | ---: | ---: | --- |
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 10 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, prerequisite, placement và level progress |
+| C. Lộ trình HSK0-4 khác biệt | 15 | 11 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, HSK3 scope cấp đoạn/tường thuật/sản sinh, prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character/grammar và situational-dialogue practice |
 | E. Assessment và mock HSK0-4 | 10 | 6 | diagnostic, level-check blueprint, 2 form HSK2 độc lập ở lớp nguồn, objective/performance draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **79** | **Tiến độ hiện tại: 79%** |
+| **Tổng** | **100** | **80** | **Tiến độ hiện tại: 80%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -392,6 +394,17 @@ Git-ignore có tính idempotent. Không receipt nào được nhập vào manife
 không runtime/calibration/mastery mutation, và audio-rights không thể approve
 khi audio còn thiếu. Đây là khả năng vận hành review queue, không phải bằng
 chứng human review nên không được cộng tiến độ.
+
+Lát G4 HSK3 đầu tăng trụ cột C thêm 1 điểm, đưa tiến độ lên **80%**. Scope
+HSK3 giữ đúng ba unit graph nhưng định nghĩa lộ trình khác HSK2: input cấp
+đoạn, tường thuật/liên kết diễn ngôn và sản sinh có hướng dẫn. Năm discourse
+domain gắn ngữ nghĩa exact-partition đủ 22 task/54 topic; năm grammar module
+phủ đủ 96 row; 500 từ và 284 recognition character được đặt ở lớp paragraph
+input mà chưa bịa semantic cluster trước source review. Scope dự kiến 55
+lesson và năm stage sản sinh với tối thiểu 92 prompt: ghi chú ý chính/chi tiết,
+dựng liên kết đoạn, kể lại từ ghi chú, viết đoạn 6–8 câu và giải thích/so sánh
+bằng lời. Đây chỉ là learner-hidden architecture; lesson/practice/review/
+runtime/HSK3 completion đều còn `false`, nên không tăng điểm nội dung.
 
 ## 6. Quy tắc cập nhật phần trăm
 

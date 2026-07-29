@@ -11,13 +11,13 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **79%**.
+Active progress: **80%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
-| Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
+| Distinct HSK0-4 paths | 11 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units, HSK2 has an exact three-unit scope, and HSK3 now has a distinct paragraph-input, narration and guided-production scope. |
 | HSK0-4 content coverage | 29 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has exact blueprints plus vocabulary, character, grammar, situational-dialogue and short-text production drafts; reviewed content and audio remain. |
 | HSK0-4 assessment/mock | 6 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and two source-disjoint 86-item HSK2 form drafts exist; reviewed audio/rubrics, calibrated scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
@@ -307,6 +307,19 @@ Every commit must update this percentage here and in the active roadmap.
 - The workflow cannot approve absent audio rights and never mutates draft
   content, manifest approvals, runtime, calibration or mastery. No human
   receipt exists, so this packaging slice keeps active progress at **79%**.
+- Added the graph- and inventory-bound HSK3 scope with three ordered units:
+  paragraph listening/reading input, narration/discourse linking and guided
+  paragraph/spoken production. It does not reuse the HSK2 situational/
+  sentence-chain/short-text route shape.
+- Five semantic discourse domains exact-partition all 22 tasks and 54 topics;
+  five grammar modules exact-partition all 96 rows. All 500 vocabulary records
+  and 284 recognition characters are scoped to paragraph input without
+  inventing source-unreviewed semantic clusters.
+- The scope plans 55 lesson blueprints and five production stages with at
+  least 92 prompts: main-idea/detail notes, cohesion reconstruction, retelling,
+  six-to-eight-sentence paragraphs and spoken explanation/comparison. It is
+  learner-hidden and grants no lesson coverage or mastery. This differentiated
+  route raises active progress to **80%**.
 
 ## Repository state
 
@@ -576,6 +589,10 @@ the applicable gates to run again before the next checkpoint commit.
   - exact HSK2 authoring scope: 3 graph units, 4 situational strands, 4 grammar
     modules, 4 production stages, 17 tasks, 34 topics, 200 vocabulary, 75
     grammar rows and 125 recognition characters
+  - exact HSK3 authoring scope: 3 graph units, 5 discourse domains, 5 grammar
+    modules, 5 production stages, 55 planned lesson blueprints, 92 planned
+    prompt units, 22 tasks, 54 topics, 500 vocabulary, 96 grammar rows and 284
+    recognition characters; 0 lesson/practice/release coverage
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -633,16 +650,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 168 files, 1,323 tests passed
+  - Vitest: 169 files, 1,327 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 98 / 98, median 98
+  - Performance: 97 / 98 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median performance: 98; LCP: 1,883 ms; CLS: 0; TBT: 88 ms
+  - Median LCP: 1,901 ms; CLS: 0; TBT: 139 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 

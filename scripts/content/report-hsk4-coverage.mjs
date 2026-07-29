@@ -18,6 +18,10 @@ import {
   loadHsk2CurriculumScopeBundle,
 } from "../../src/content/hsk2CurriculumScope.mjs";
 import {
+  assertValidHsk3CurriculumScopeBundle,
+  loadHsk3CurriculumScopeBundle,
+} from "../../src/content/hsk3CurriculumScope.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -113,6 +117,8 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
+  const hsk3Scope = loadHsk3CurriculumScopeBundle(root);
+  const hsk3ScopeResult = assertValidHsk3CurriculumScopeBundle(hsk3Scope);
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
     assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
@@ -343,6 +349,23 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           recognitionCharacters:
             hsk2ScopeResult.summary.recognitionCharacters,
           grammarRows: hsk2ScopeResult.summary.grammarRows,
+          lessonPracticeCoverageComplete: false,
+        },
+        hsk3: {
+          units: hsk3ScopeResult.summary.units,
+          discourseDomains: hsk3ScopeResult.summary.discourseDomains,
+          grammarModules: hsk3ScopeResult.summary.grammarModules,
+          productionStages: hsk3ScopeResult.summary.productionStages,
+          plannedLessonBlueprints:
+            hsk3ScopeResult.summary.plannedLessonBlueprints,
+          plannedMinimumPromptUnits:
+            hsk3ScopeResult.summary.plannedMinimumPromptUnits,
+          tasks: hsk3ScopeResult.summary.tasks,
+          topics: hsk3ScopeResult.summary.topics,
+          vocabulary: hsk3ScopeResult.summary.vocabulary,
+          recognitionCharacters:
+            hsk3ScopeResult.summary.recognitionCharacters,
+          grammarRows: hsk3ScopeResult.summary.grammarRows,
           lessonPracticeCoverageComplete: false,
         },
       },

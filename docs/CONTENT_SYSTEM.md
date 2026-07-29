@@ -318,6 +318,27 @@ manifest, draft, runtime, calibration hay mastery. Approval audio-rights bị
 chặn khi audio tương ứng còn vắng. Receipt local cũng không tự trở thành
 approval hoặc bằng chứng release.
 
+## Scope authoring HSK3
+
+`content/curriculum/hsk3-scope.json` bind exact graph và inventory HSK3 thành
+ba unit khác HSK2: input nghe/đọc cấp đoạn; tường thuật và liên kết diễn ngôn;
+sản sinh đoạn/nói có hướng dẫn. Năm discourse domain exact-partition 22 task
+và 54 topic theo đời sống cá nhân, học tập–công việc, tự nhiên–môi trường,
+xã hội–văn nghệ–thể thao và văn hóa–truyền thống. Năm grammar module
+exact-partition 96 row.
+
+Scope đặt 500 vocabulary và 284 recognition character ở lớp paragraph input
+nhưng ghi rõ semantic clustering còn cần source review; không gán nghĩa giả từ
+thứ tự inventory. Kế hoạch có 55 lesson blueprint và năm production stage với
+tối thiểu 92 prompt: note ý chính/chi tiết, dựng cohesion, kể lại từ ghi chú,
+viết đoạn 6–8 câu và giải thích/so sánh bằng lời.
+
+Chạy `content:hsk3:scope -- --write` để tái tạo; `--check` và
+`content:hsk3:scope:validate` khóa graph/source digest, exact partition,
+distinct evidence modes và fail-closed claims. Scope vẫn learner-hidden, chưa
+phải lesson/practice coverage, không cấp mastery và không chứng minh HSK3 hoàn
+thành.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

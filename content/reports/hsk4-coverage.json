@@ -154,6 +154,20 @@
         "recognitionCharacters": 125,
         "grammarRows": 75,
         "lessonPracticeCoverageComplete": false
+      },
+      "hsk3": {
+        "units": 3,
+        "discourseDomains": 5,
+        "grammarModules": 5,
+        "productionStages": 5,
+        "plannedLessonBlueprints": 55,
+        "plannedMinimumPromptUnits": 92,
+        "tasks": 22,
+        "topics": 54,
+        "vocabulary": 500,
+        "recognitionCharacters": 284,
+        "grammarRows": 96,
+        "lessonPracticeCoverageComplete": false
       }
     },
     "draftBlueprintMappings": {
