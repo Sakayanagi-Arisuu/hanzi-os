@@ -25,6 +25,10 @@ import {
   loadHsk4CurriculumScopeBundle,
 } from "../../src/content/hsk4CurriculumScope.mjs";
 import {
+  assertValidHsk4LessonBlueprintsBundle,
+  loadHsk4LessonBlueprintsBundle,
+} from "../../src/content/hsk4LessonBlueprints.mjs";
+import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
 import {
@@ -171,6 +175,13 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4LessonBlueprints = loadHsk4LessonBlueprintsBundle(root);
+  const hsk4LessonBlueprintsResult =
+    assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
+  const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
+  const hsk4VocabularyResult = {
+    counts: hsk4Vocabulary.draft.counts,
+  };
   const hsk3LevelAssessment = loadHsk3LevelAssessmentBundle(root);
   const hsk3LevelAssessmentResult =
     assertValidHsk3LevelAssessmentBundle(hsk3LevelAssessment);
@@ -583,6 +594,59 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk0PronunciationResult.summary.reviewedAudioActivities,
           measurementEligibleActivities:
             hsk0PronunciationResult.summary.measurementEligibleActivities,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4VocabularyBacklog: {
+          officialVocabulary:
+            hsk4VocabularyResult.counts.officialVocabulary,
+          sourceMatched: hsk4VocabularyResult.counts.sourceMatched,
+          sourceMatches: hsk4VocabularyResult.counts.sourceMatches,
+          multipleSourceMatchEntries:
+            hsk4VocabularyResult.counts.multipleSourceMatchEntries,
+          pronunciationReviewPending:
+            hsk4VocabularyResult.counts.pronunciationReviewPending,
+          sourceCoverageGaps:
+            hsk4VocabularyResult.counts.officialVocabulary
+            - hsk4VocabularyResult.counts.sourceMatched,
+          vietnameseGlossReviewed:
+            hsk4VocabularyResult.counts.vietnameseGlossReviewed,
+          releaseEligible: hsk4VocabularyResult.counts.releaseEligible,
+          learnerVisible: false,
+        },
+        hsk4LessonBlueprints: {
+          lessons: hsk4LessonBlueprintsResult.summary.lessons,
+          deepComprehensionLessons:
+            hsk4LessonBlueprintsResult.summary.deepComprehensionLessons,
+          summaryArgumentLessons:
+            hsk4LessonBlueprintsResult.summary.summaryArgumentLessons,
+          timedIntegrationLessons:
+            hsk4LessonBlueprintsResult.summary.timedIntegrationLessons,
+          tasks: hsk4LessonBlueprintsResult.summary.taskBlueprintMappings,
+          topics: hsk4LessonBlueprintsResult.summary.topicBlueprintMappings,
+          vocabulary:
+            hsk4LessonBlueprintsResult.summary.vocabularyBlueprintMappings,
+          grammarRows:
+            hsk4LessonBlueprintsResult.summary.grammarBlueprintMappings,
+          recognitionCharacters:
+            hsk4LessonBlueprintsResult.summary
+              .recognitionCharacterBlueprintMappings,
+          sourceSenseKeywordMatches:
+            hsk4LessonBlueprintsResult.summary.sourceSenseKeywordMatches,
+          foundationFallbackVocabulary:
+            hsk4LessonBlueprintsResult.summary.foundationFallbackVocabulary,
+          charactersWithIncrementalVocabularyContext:
+            hsk4LessonBlueprintsResult.summary
+              .charactersWithIncrementalVocabularyContext,
+          charactersWithoutIncrementalVocabularyContext:
+            hsk4LessonBlueprintsResult.summary
+              .charactersWithoutIncrementalVocabularyContext,
+          timedLessonBlueprints:
+            hsk4LessonBlueprintsResult.summary.timedLessonBlueprints,
+          plannedMinimumPromptUnits:
+            hsk4LessonBlueprintsResult.summary.plannedMinimumPromptUnits,
+          authoredPracticeItems:
+            hsk4LessonBlueprintsResult.summary.authoredPracticeItems,
           reviewed: false,
           learnerVisible: false,
         },

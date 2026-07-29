@@ -176,7 +176,9 @@ export const buildVocabularyDraftForLevel = ({
   inventory,
   inventorySha256,
   cedictEntries,
+  allowedUnmatchedOfficialIds = [],
 }) => {
+  const allowedUnmatched = new Set(allowedUnmatchedOfficialIds);
   const levelVocabulary = inventory.vocabulary.filter(
     (item) => item.level === level,
   );
@@ -210,7 +212,10 @@ export const buildVocabularyDraftForLevel = ({
         matchType: "surface-only",
         caseFolded: true,
       }));
-    if (sourceMatches.length === 0) {
+    if (
+      sourceMatches.length === 0
+      && !allowedUnmatched.has(official.id)
+    ) {
       throw new Error(
         `${official.id} ${official.word} ${official.pinyin} has no CC-CEDICT surface match`,
       );
@@ -220,6 +225,7 @@ export const buildVocabularyDraftForLevel = ({
     if (sourceMatches.some((source) => source.matchType === "surface-only")) {
       issueCodes.push("source-pronunciation-drift");
     }
+    if (sourceMatches.length === 0) issueCodes.push("source-coverage-gap");
     return {
       officialId: official.id,
       sequence: official.sequence,
@@ -268,7 +274,9 @@ export const buildVocabularyDraftForLevel = ({
     },
     counts: {
       officialVocabulary: entries.length,
-      sourceMatched: entries.length,
+      sourceMatched: entries.filter(
+        (entry) => entry.sourceMatches.length > 0,
+      ).length,
       sourceMatches: sourceMatchCount,
       multipleSourceMatchEntries,
       pronunciationReviewPending: entries.filter(
@@ -327,8 +335,10 @@ export const validateVocabularyDraftBundleForLevel = ({
   label,
   expectedUpstreamStatus,
   expectedFormat,
+  allowedUnmatchedOfficialIds = [],
 }) => {
   const errors = [];
+  const allowedUnmatched = new Set(allowedUnmatchedOfficialIds);
   try {
     assertValidHskSyllabusBundle(syllabus);
   } catch (error) {
@@ -425,7 +435,12 @@ export const validateVocabularyDraftBundleForLevel = ({
         continue;
       }
       const variants = officialPinyinVariants(official.pinyin);
-      if (!Array.isArray(entry.sourceMatches) || entry.sourceMatches.length < 1) {
+      if (!Array.isArray(entry.sourceMatches)) {
+        errors.push(`${official.id} must have at least one source match`);
+      } else if (
+        entry.sourceMatches.length === 0
+        && !allowedUnmatched.has(official.id)
+      ) {
         errors.push(`${official.id} must have at least one source match`);
       } else {
         for (const [sourceIndex, source] of entry.sourceMatches.entries()) {
@@ -493,6 +508,12 @@ export const validateVocabularyDraftBundleForLevel = ({
         (source) => source.matchType === "surface-only",
       )) {
         expectedIssues.push("source-pronunciation-drift");
+      }
+      if (
+        entry.sourceMatches?.length === 0
+        && allowedUnmatched.has(official.id)
+      ) {
+        expectedIssues.push("source-coverage-gap");
       }
       if (
         entry.editorial?.vietnameseGloss !== null
