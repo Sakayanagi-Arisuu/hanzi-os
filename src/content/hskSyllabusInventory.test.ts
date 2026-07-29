@@ -269,6 +269,26 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings
+        .hsk3NarrationGrammarModulesDraft,
+    ).toEqual({
+      completedModules: 1,
+      lessons: 3,
+      grammarDrafts: 21,
+      modelExamples: 21,
+      correctionPairs: 21,
+      modelNarrations: 3,
+      modelNarrationLines: 18,
+      grammarInParagraphItems: 21,
+      discourseErrorCorrectionItems: 21,
+      orderedRetellingItems: 3,
+      authoredPracticeItems: 45,
+      reviewBatches: 3,
+      measurementEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2CharacterPractice,
     ).toEqual({
       lessons: 10,

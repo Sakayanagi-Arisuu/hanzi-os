@@ -459,6 +459,21 @@ audio vẫn silent, 25 review batch có 0 approval và toàn bộ pack còn
 learner-hidden, measurement/mastery/release-ineligible. Đây là authoring
 coverage của mạch paragraph, không phải claim HSK3 đã review hay hoàn thành.
 
+`content/drafts/hsk3-reference-quantity-narration-grammar-2026.07.json` là
+module narration/grammar HSK3 đầu tiên. Ba lesson exact-partition 21 grammar
+row về quy chiếu, lượng từ, cụm từ và dựng câu thành 21 giải thích có giới hạn
+dùng, 21 ví dụ, 21 cặp sửa lỗi, ba đoạn tường thuật mẫu/18 dòng và 45 practice
+item: 21 grammar-in-paragraph, 21 discourse-error-correction và ba bài kể lại
+có thứ tự.
+
+Chạy `content:hsk3:reference-quantity-narration -- --write` để tái tạo;
+`--check` và `content:hsk3:reference-quantity-narration:validate` khóa exact
+official row, blueprint, prerequisite và item partition. Grammar-writing và
+speaking-retelling được giữ thành hai loại evidence; bài tự sửa hoặc tự thu
+không cấp mastery. Ba review batch có 0 approval và pack vẫn learner-hidden.
+Theo blueprint, recognition character không nằm trong 15 narration/grammar
+lesson mà được exact-partition riêng ở 15 guided-production lesson.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

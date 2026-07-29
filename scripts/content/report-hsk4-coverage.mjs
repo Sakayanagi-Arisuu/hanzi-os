@@ -54,6 +54,10 @@ import {
   loadHsk3CultureTraditionDomainPackBundle,
 } from "../../src/content/hsk3CultureTraditionDomainPack.mjs";
 import {
+  assertValidHsk3ReferenceQuantityNarrationPackBundle,
+  loadHsk3ReferenceQuantityNarrationPackBundle,
+} from "../../src/content/hsk3ReferenceQuantityNarrationPack.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -184,6 +188,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3CultureTraditionDomainResult =
     assertValidHsk3CultureTraditionDomainPackBundle(
       hsk3CultureTraditionDomain,
+    );
+  const hsk3ReferenceQuantityNarration =
+    loadHsk3ReferenceQuantityNarrationPackBundle(root);
+  const hsk3ReferenceQuantityNarrationResult =
+    assertValidHsk3ReferenceQuantityNarrationPackBundle(
+      hsk3ReferenceQuantityNarration,
     );
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
@@ -661,6 +671,37 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             + hsk3SocietyArtsSportsDomainResult.summary.reviewBatches
             + hsk3CultureTraditionDomainResult.summary.reviewBatches,
           reviewedAudioItems: 0,
+          measurementEligibleItems: 0,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk3NarrationGrammarModulesDraft: {
+          completedModules:
+            hsk3ReferenceQuantityNarrationResult.summary
+              .completedNarrationGrammarModules,
+          lessons: hsk3ReferenceQuantityNarrationResult.summary.lessons,
+          grammarDrafts:
+            hsk3ReferenceQuantityNarrationResult.summary.grammarDrafts,
+          modelExamples:
+            hsk3ReferenceQuantityNarrationResult.summary.modelExamples,
+          correctionPairs:
+            hsk3ReferenceQuantityNarrationResult.summary.correctionPairs,
+          modelNarrations:
+            hsk3ReferenceQuantityNarrationResult.summary.modelNarrations,
+          modelNarrationLines:
+            hsk3ReferenceQuantityNarrationResult.summary.modelNarrationLines,
+          grammarInParagraphItems:
+            hsk3ReferenceQuantityNarrationResult.summary
+              .grammarInParagraphItems,
+          discourseErrorCorrectionItems:
+            hsk3ReferenceQuantityNarrationResult.summary
+              .discourseErrorCorrectionItems,
+          orderedRetellingItems:
+            hsk3ReferenceQuantityNarrationResult.summary.orderedRetellingItems,
+          authoredPracticeItems:
+            hsk3ReferenceQuantityNarrationResult.summary.authoredPracticeItems,
+          reviewBatches:
+            hsk3ReferenceQuantityNarrationResult.summary.reviewBatches,
           measurementEligibleItems: 0,
           reviewed: false,
           learnerVisible: false,

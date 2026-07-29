@@ -486,6 +486,16 @@ measurement/mastery/release-ineligible. Mốc paragraph đã hoàn thành nhưng
 lesson narration/grammar, 15 guided production, assessment, review và runtime
 HSK3 còn thiếu, nên chưa dùng điểm D cuối cùng hay tuyên bố HSK3 hoàn thành.
 
+Module quy chiếu–số lượng HSK3 giữ tiến độ ở **81%** và mở mạch
+narration/grammar bằng 3/15 lesson cùng 21/96 official grammar row. Lát này có
+21 giải thích kèm giới hạn dùng, 21 ví dụ, 21 cặp sửa lỗi, ba tường thuật
+mẫu/18 dòng và 45 practice item: 21 grammar-in-paragraph, 21
+discourse-error-correction, ba ordered retelling. Grammar-writing và
+speaking-retelling không suy diễn lẫn nhau; tự đối chiếu và browser ASR không
+cấp mastery. Ba batch có 0 approval, pack learner-hidden và 12 narration
+lesson, 15 guided-production lesson với 284 character mapping, assessment,
+review và runtime HSK3 vẫn còn thiếu nên chưa cộng điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
