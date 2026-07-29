@@ -383,6 +383,16 @@ Every commit must update this percentage here and in the active roadmap.
   audio-dependent items remain silent and all 15 batches have zero approval.
   The remaining paragraph, narration/grammar, guided production, assessment,
   runtime and HSK3 completion work keeps active progress at **81%**.
+- Authored all five HSK3 society/arts/sports paragraph lessons across modern
+  life, city services, performing arts, sports introduction and competition
+  reporting. The exact partition adds 96 vocabulary drafts, 10 eight-line
+  texts and 358 practice items: 288 vocabulary items, 50 comprehension items,
+  ten note grids and ten summaries/retellings.
+- Four of five paragraph domains now total 20/25 paragraph lessons, 403
+  vocabulary drafts, 40 texts/320 lines and 1,489 practice items. All 543
+  audio-dependent items remain silent and all 20 batches have zero approval.
+  The final paragraph domain plus narration/grammar, guided production,
+  assessment, runtime and HSK3 completion keep progress at **81%**.
 
 ## Repository state
 
@@ -685,9 +695,14 @@ the applicable gates to run again before the next checkpoint commit.
     comprehension items, 10 note grids and 10 summaries/retellings; 370 total
     practice items, 135 audio-dependent and 0 reviewed audio, approval,
     measurement/mastery or release eligibility
-  - current combined HSK3 paragraph authoring: 3/5 discourse domains, 15/25
-    paragraph lessons, 307 vocabulary drafts, 30 texts/240 lines and 1,131
-    practice items; 412 audio-dependent, 15 pending review batches and 0
+  - complete HSK3 society/arts/sports paragraph domain draft: 5 lessons, 96
+    vocabulary drafts, 10 texts/80 lines, 288 vocabulary items, 50
+    comprehension items, 10 note grids and 10 summaries/retellings; 358 total
+    practice items, 131 audio-dependent and 0 reviewed audio, approval,
+    measurement/mastery or release eligibility
+  - current combined HSK3 paragraph authoring: 4/5 discourse domains, 20/25
+    paragraph lessons, 403 vocabulary drafts, 40 texts/320 lines and 1,489
+    practice items; 543 audio-dependent, 20 pending review batches and 0
     learner-visible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
@@ -746,16 +761,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 175 files, 1,354 tests passed
+  - Vitest: 176 files, 1,359 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 98 / 98, median 98
+  - Performance: 99 / 99 / 97, median 99
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,890 ms; CLS: 0; TBT: 93 ms
+  - Median LCP: 1,885 ms; CLS: 0; TBT: 63 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -780,9 +795,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author the five HSK3 society/arts/sports paragraph lessons with bounded
+1. Complete the five HSK3 culture/tradition paragraph lessons with bounded
    Vietnamese drafts, graded reading/listening texts and skill-separated
-   comprehension, then complete the final culture/tradition paragraph domain.
+   comprehension, closing all 25 paragraph-input lessons.
 2. Continue HSK3 character, grammar, narration and productive practice behind
    the same unpublished review gates, while human HSK1/2 review and HSK0 audio
    sourcing proceed as separate tracks.

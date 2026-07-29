@@ -427,6 +427,20 @@ text/240 dòng và 1.131 practice item. 412 item phụ thuộc audio vẫn silen
 review batch có 0 approval; không artifact nào được learner-visible hoặc dùng
 cho measurement/mastery/release trước human review.
 
+`content/drafts/hsk3-society-arts-sports-paragraph-domain-2026.07.json` là
+domain paragraph thứ tư, gồm đời sống hiện đại, phát triển đô thị, hoạt động
+văn nghệ, giới thiệu thể thao và báo cáo thi đấu. Năm lesson exact-partition
+96 vocabulary blueprint thành 10 graded text/80 dòng, 288 vocabulary item,
+50 câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể lại—358 practice item.
+Chạy `content:hsk3:society-arts-sports-domain -- --write` để tái tạo; `--check`
+và `content:hsk3:society-arts-sports-domain:validate` áp cùng source,
+prerequisite, text coverage và fail-closed review contract.
+
+Bốn domain cộng dồn có 20/25 paragraph lesson, 403 vocabulary draft, 40
+text/320 dòng và 1.489 practice item. 543 item phụ thuộc audio vẫn silent,
+20 review batch có 0 approval và không item nào đủ điều kiện measurement,
+mastery, learner visibility hay release.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

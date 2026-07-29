@@ -464,6 +464,17 @@ vẫn learner-hidden, measurement/mastery/release-ineligible. Hai domain
 paragraph, 30 lesson narration/grammar và guided production, assessment,
 review và runtime HSK3 còn thiếu nên chưa dùng điểm D cuối cùng.
 
+Lát xã hội–nghệ thuật–thể thao HSK3 tiếp tục giữ tiến độ ở **81%**. Năm lesson
+mới bao quát thay đổi đời sống, dịch vụ đô thị, văn nghệ, giới thiệu thể thao
+và báo cáo thi đấu; 96 vocabulary blueprint tạo 10 graded text/80 dòng, 288
+vocabulary practice, 50 câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể
+lại—358 practice item. Bốn domain paragraph cộng dồn đạt 20/25 lesson, 403
+vocabulary draft, 40 text/320 dòng và 1.489 practice item. 543 item phụ thuộc
+audio vẫn silent, 20 batch có 0 approval và toàn bộ content learner-hidden,
+measurement/mastery/release-ineligible. Domain văn hóa–truyền thống, 30 lesson
+narration/grammar và guided production, assessment, review và runtime HSK3
+còn thiếu nên chưa dùng điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
