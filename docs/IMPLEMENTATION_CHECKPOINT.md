@@ -425,6 +425,17 @@ Every commit must update this percentage here and in the active roadmap.
   batches have zero approval and remain learner-hidden; nine narration
   lessons plus guided production, assessment, review and runtime keep
   progress at **81%**.
+- Authored the HSK3 event/complements/voice narration module: three lessons
+  exact-partition 18 grammar rows for event sequencing, result/potential/
+  directional complements, 把/被 and existential change into 18 bounded
+  explanations/examples/correction pairs, three six-line narrations and 39
+  practice items.
+- The three completed modules now total 9/15 narration lessons, 66/96 grammar
+  rows, nine narrations/54 lines and 141 practice items. Exact prerequisite,
+  official-row provenance and skill-separated evidence remain fail-closed.
+  All nine batches have zero approval and remain learner-hidden; six
+  narration lessons plus guided production, assessment, review and runtime
+  keep progress at **81%**.
 
 ## Repository state
 
@@ -746,9 +757,9 @@ the applicable gates to run again before the next checkpoint commit.
     narrations/18 lines and 45 practice items (21 grammar-in-paragraph, 21
     discourse corrections and 3 ordered retellings); 3 pending review batches
     and 0 measurement/mastery/release-eligible item
-  - current combined HSK3 narration/grammar authoring: 2/5 modules, 6/15
-    lessons, 48/96 exact grammar rows, 48 explanations/examples/correction
-    pairs, 6 model narrations/36 lines and 102 practice items; 6 pending review
+  - current combined HSK3 narration/grammar authoring: 3/5 modules, 9/15
+    lessons, 66/96 exact grammar rows, 66 explanations/examples/correction
+    pairs, 9 model narrations/54 lines and 141 practice items; 9 pending review
     batches and 0 measurement/mastery/release-eligible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
@@ -807,16 +818,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 179 files, 1,372 tests passed
+  - Vitest: 180 files, 1,375 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 97 / 97, median 97
+  - Performance: 96 / 91 / 97, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,886 ms; CLS: 0; TBT: 150 ms
+  - Median LCP: 1,964 ms; CLS: 0; TBT: 179 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -841,8 +852,8 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Complete the remaining 9 HSK3 narration/grammar lessons, starting with
-   event/complements/voice, using exact grammar mappings, bounded
+1. Complete the remaining 6 HSK3 narration/grammar lessons, starting with
+   comparison/description/evaluation, using exact grammar mappings, bounded
    explanations, model narration, correction and skill-separated practice.
 2. Continue the 15 guided-production lessons with their separate exact
    recognition-character mappings behind

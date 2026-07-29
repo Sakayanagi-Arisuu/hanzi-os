@@ -62,6 +62,10 @@ import {
   loadHsk3ModalityTimeNarrationPackBundle,
 } from "../../src/content/hsk3ModalityTimeNarrationPack.mjs";
 import {
+  assertValidHsk3EventComplementsNarrationPackBundle,
+  loadHsk3EventComplementsNarrationPackBundle,
+} from "../../src/content/hsk3EventComplementsNarrationPack.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -204,6 +208,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3ModalityTimeNarrationResult =
     assertValidHsk3ModalityTimeNarrationPackBundle(
       hsk3ModalityTimeNarration,
+    );
+  const hsk3EventComplementsNarration =
+    loadHsk3EventComplementsNarrationPackBundle(root);
+  const hsk3EventComplementsNarrationResult =
+    assertValidHsk3EventComplementsNarrationPackBundle(
+      hsk3EventComplementsNarration,
     );
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
@@ -687,45 +697,58 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         },
         hsk3NarrationGrammarModulesDraft: {
           completedModules:
-            hsk3ModalityTimeNarrationResult.summary
+            hsk3EventComplementsNarrationResult.summary
               .completedNarrationGrammarModules,
           lessons:
             hsk3ReferenceQuantityNarrationResult.summary.lessons
-            + hsk3ModalityTimeNarrationResult.summary.lessons,
+            + hsk3ModalityTimeNarrationResult.summary.lessons
+            + hsk3EventComplementsNarrationResult.summary.lessons,
           grammarDrafts:
             hsk3ReferenceQuantityNarrationResult.summary.grammarDrafts
-            + hsk3ModalityTimeNarrationResult.summary.grammarDrafts,
+            + hsk3ModalityTimeNarrationResult.summary.grammarDrafts
+            + hsk3EventComplementsNarrationResult.summary.grammarDrafts,
           modelExamples:
             hsk3ReferenceQuantityNarrationResult.summary.modelExamples
-            + hsk3ModalityTimeNarrationResult.summary.modelExamples,
+            + hsk3ModalityTimeNarrationResult.summary.modelExamples
+            + hsk3EventComplementsNarrationResult.summary.modelExamples,
           correctionPairs:
             hsk3ReferenceQuantityNarrationResult.summary.correctionPairs
-            + hsk3ModalityTimeNarrationResult.summary.correctionPairs,
+            + hsk3ModalityTimeNarrationResult.summary.correctionPairs
+            + hsk3EventComplementsNarrationResult.summary.correctionPairs,
           modelNarrations:
             hsk3ReferenceQuantityNarrationResult.summary.modelNarrations
-            + hsk3ModalityTimeNarrationResult.summary.modelNarrations,
+            + hsk3ModalityTimeNarrationResult.summary.modelNarrations
+            + hsk3EventComplementsNarrationResult.summary.modelNarrations,
           modelNarrationLines:
             hsk3ReferenceQuantityNarrationResult.summary.modelNarrationLines
-            + hsk3ModalityTimeNarrationResult.summary.modelNarrationLines,
+            + hsk3ModalityTimeNarrationResult.summary.modelNarrationLines
+            + hsk3EventComplementsNarrationResult.summary.modelNarrationLines,
           grammarInParagraphItems:
             hsk3ReferenceQuantityNarrationResult.summary
               .grammarInParagraphItems
             + hsk3ModalityTimeNarrationResult.summary
+              .grammarInParagraphItems
+            + hsk3EventComplementsNarrationResult.summary
               .grammarInParagraphItems,
           discourseErrorCorrectionItems:
             hsk3ReferenceQuantityNarrationResult.summary
               .discourseErrorCorrectionItems
             + hsk3ModalityTimeNarrationResult.summary
+              .discourseErrorCorrectionItems
+            + hsk3EventComplementsNarrationResult.summary
               .discourseErrorCorrectionItems,
           orderedRetellingItems:
             hsk3ReferenceQuantityNarrationResult.summary.orderedRetellingItems
-            + hsk3ModalityTimeNarrationResult.summary.orderedRetellingItems,
+            + hsk3ModalityTimeNarrationResult.summary.orderedRetellingItems
+            + hsk3EventComplementsNarrationResult.summary.orderedRetellingItems,
           authoredPracticeItems:
             hsk3ReferenceQuantityNarrationResult.summary.authoredPracticeItems
-            + hsk3ModalityTimeNarrationResult.summary.authoredPracticeItems,
+            + hsk3ModalityTimeNarrationResult.summary.authoredPracticeItems
+            + hsk3EventComplementsNarrationResult.summary.authoredPracticeItems,
           reviewBatches:
             hsk3ReferenceQuantityNarrationResult.summary.reviewBatches
-            + hsk3ModalityTimeNarrationResult.summary.reviewBatches,
+            + hsk3ModalityTimeNarrationResult.summary.reviewBatches
+            + hsk3EventComplementsNarrationResult.summary.reviewBatches,
           measurementEligibleItems: 0,
           reviewed: false,
           learnerVisible: false,

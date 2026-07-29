@@ -506,6 +506,16 @@ measurement/mastery/release-ineligible. Chín narration lesson, 15 guided
 production lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng
 điểm D cuối cùng.
 
+Module event–complement–voice HSK3 giữ tiến độ ở **81%**, bổ sung ba lesson,
+18 grammar row, 18 ví dụ/cặp sửa lỗi, ba tường thuật mẫu/18 dòng và 39
+practice item. Ba module cộng dồn đạt 9/15 narration lesson, 66/96 grammar
+row, chín tường thuật/54 dòng và 141 practice item. Exact prerequisite,
+official-row source binding và skill-separated evidence đều fail-closed; chín
+batch có 0 approval và toàn bộ pack learner-hidden,
+measurement/mastery/release-ineligible. Sáu narration lesson, 15 guided
+production lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng
+điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
