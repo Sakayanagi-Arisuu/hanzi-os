@@ -514,6 +514,20 @@ grammar row, 12 tường thuật/72 dòng và 170 practice item; 12 batch có 0
 approval và không item nào đủ điều kiện measurement, mastery, learner
 visibility hay release.
 
+`content/drafts/hsk3-discourse-linking-narration-grammar-2026.07.json` là
+module narration/grammar thứ năm và cuối cùng với ba lesson về liên kết thông
+tin văn nghệ, trình tự thi đấu–giới thiệu ẩm thực và điều kiện–mục đích trong
+trải nghiệm phong tục. Pack exact-partition 17 grammar row thành 17 giải thích
+có giới hạn dùng, ví dụ và cặp sửa lỗi, ba tường thuật mẫu/18 dòng cùng 37
+practice item. `如果` không bị biến thành điều kiện duy nhất; `只有……才……`
+và `只要……就……` giữ riêng nghĩa điều kiện cần và đủ.
+
+Chạy `content:hsk3:discourse-linking-narration -- --write` để tái tạo;
+`--check` và `content:hsk3:discourse-linking-narration:validate` áp contract
+dùng chung. Cả năm module đạt 15/15 narration lesson, 96/96 grammar row, 15
+tường thuật/90 dòng và 207 practice item; 15 batch có 0 approval và không
+item nào đủ điều kiện measurement, mastery, learner visibility hay release.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

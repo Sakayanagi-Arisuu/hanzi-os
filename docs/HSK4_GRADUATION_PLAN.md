@@ -526,6 +526,16 @@ measurement/mastery/release-ineligible. Ba narration lesson, 15 guided
 production lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng
 điểm D cuối cùng.
 
+Module discourse-linking HSK3 giữ tiến độ ở **81%**, bổ sung ba lesson, 17
+grammar row, 17 ví dụ/cặp sửa lỗi, ba tường thuật mẫu/18 dòng và 37 practice
+item. Cả năm module đã đạt 15/15 narration lesson, 96/96 official grammar
+row, 15 tường thuật/90 dòng và 207 practice item. Điều kiện giả định, cần và
+đủ được tách nghĩa; liên kết trình tự, đồng thời, tăng tiến và nhượng bộ không
+được thay thế lẫn nhau. 15 batch có 0 approval và toàn bộ pack learner-hidden,
+measurement/mastery/release-ineligible. Narration authoring đã hoàn thành
+nhưng 15 guided-production lesson, assessment, review và runtime HSK3 còn
+thiếu nên chưa dùng điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

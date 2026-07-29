@@ -448,6 +448,18 @@ Every commit must update this percentage here and in the active roadmap.
   batches have zero approval and remain learner-hidden; three narration
   lessons plus guided production, assessment, review and runtime keep
   progress at **81%**.
+- Authored the fifth and final HSK3 discourse-linking narration module: three
+  lessons exact-partition 17 grammar rows for arts information, match/food
+  sequencing and custom-related condition/purpose into 17 bounded
+  explanations/examples/correction pairs, three six-line narrations and 37
+  practice items.
+- All five narration modules now total 15/15 lessons, 96/96 official grammar
+  rows, 15 narrations/90 lines and 207 practice items. Hypothetical, necessary
+  and sufficient conditions remain distinct; sequence, concurrency,
+  progression and concession cannot substitute for one another. All 15
+  batches have zero approval and remain learner-hidden. Narration authoring is
+  complete, but guided production, assessment, review and runtime keep active
+  progress at **81%**.
 
 ## Repository state
 
@@ -769,9 +781,9 @@ the applicable gates to run again before the next checkpoint commit.
     narrations/18 lines and 45 practice items (21 grammar-in-paragraph, 21
     discourse corrections and 3 ordered retellings); 3 pending review batches
     and 0 measurement/mastery/release-eligible item
-  - current combined HSK3 narration/grammar authoring: 4/5 modules, 12/15
-    lessons, 79/96 exact grammar rows, 79 explanations/examples/correction
-    pairs, 12 model narrations/72 lines and 170 practice items; 12 pending review
+  - complete HSK3 narration/grammar authoring: 5/5 modules, 15/15 lessons,
+    96/96 exact grammar rows, 96 explanations/examples/correction pairs, 15
+    model narrations/90 lines and 207 practice items; 15 pending review
     batches and 0 measurement/mastery/release-eligible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
@@ -830,16 +842,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 181 files, 1,379 tests passed
+  - Vitest: 182 files, 1,383 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 93 / 98 / 98, median 98
+  - Performance: 95 / 98 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,894 ms; CLS: 0; TBT: 116 ms
+  - Median LCP: 1,874 ms; CLS: 0; TBT: 160 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -864,18 +876,15 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Complete the final 3 HSK3 narration/grammar lessons in discourse linking
-   and complex sentences, using exact grammar mappings, bounded explanations,
-   model narration, correction and skill-separated practice.
-2. Continue the 15 guided-production lessons with their separate exact
+1. Author the 15 HSK3 guided-production lessons with their separate exact
    recognition-character mappings behind
    the same unpublished review gates, while human HSK1/2 review and HSK0 audio
    sourcing proceed as separate tracks.
-3. Add HSK3 skill-separated assessment only after its learning-source
+2. Add HSK3 skill-separated assessment only after its learning-source
    partitions exist; finish remaining G2 placement/progress work when reviewed
    content can exercise it; keep imports unpublished until provenance and
    linguistic gates pass.
-4. Leave operator auth, commerce, hosted pilot and Sites frozen until the
+3. Leave operator auth, commerce, hosted pilot and Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes
    production work.
 
