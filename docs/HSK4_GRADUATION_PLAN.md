@@ -516,6 +516,16 @@ measurement/mastery/release-ineligible. Sáu narration lesson, 15 guided
 production lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng
 điểm D cuối cùng.
 
+Module comparison–description–evaluation HSK3 giữ tiến độ ở **81%**, bổ sung
+ba lesson, 13 grammar row, 13 ví dụ/cặp sửa lỗi, ba tường thuật mẫu/18 dòng và
+29 practice item. Bốn module cộng dồn đạt 12/15 narration lesson, 79/96
+grammar row, 12 tường thuật/72 dòng và 170 practice item. Các mẫu so sánh khóa
+cùng phương diện/điều kiện và không cho phép kết luận vượt dữ liệu; 12 batch
+có 0 approval và toàn bộ pack learner-hidden,
+measurement/mastery/release-ineligible. Ba narration lesson, 15 guided
+production lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng
+điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

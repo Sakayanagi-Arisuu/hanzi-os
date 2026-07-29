@@ -436,6 +436,18 @@ Every commit must update this percentage here and in the active roadmap.
   All nine batches have zero approval and remain learner-hidden; six
   narration lessons plus guided production, assessment, review and runtime
   keep progress at **81%**.
+- Authored the HSK3 comparison/description/evaluation narration module: three
+  lessons exact-partition 13 grammar rows for natural change, environmental
+  description and scoped social-service comparison into 13 bounded
+  explanations/examples/correction pairs, three six-line narrations and 29
+  practice items.
+- The four completed modules now total 12/15 narration lessons, 79/96 grammar
+  rows, 12 narrations/72 lines and 170 practice items. Comparisons require the
+  same dimension and conditions; `不比` cannot be inflated into a stronger
+  conclusion and narration claims cannot exceed their evidence. All 12
+  batches have zero approval and remain learner-hidden; three narration
+  lessons plus guided production, assessment, review and runtime keep
+  progress at **81%**.
 
 ## Repository state
 
@@ -757,9 +769,9 @@ the applicable gates to run again before the next checkpoint commit.
     narrations/18 lines and 45 practice items (21 grammar-in-paragraph, 21
     discourse corrections and 3 ordered retellings); 3 pending review batches
     and 0 measurement/mastery/release-eligible item
-  - current combined HSK3 narration/grammar authoring: 3/5 modules, 9/15
-    lessons, 66/96 exact grammar rows, 66 explanations/examples/correction
-    pairs, 9 model narrations/54 lines and 141 practice items; 9 pending review
+  - current combined HSK3 narration/grammar authoring: 4/5 modules, 12/15
+    lessons, 79/96 exact grammar rows, 79 explanations/examples/correction
+    pairs, 12 model narrations/72 lines and 170 practice items; 12 pending review
     batches and 0 measurement/mastery/release-eligible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
@@ -818,16 +830,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 180 files, 1,375 tests passed
+  - Vitest: 181 files, 1,379 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 96 / 91 / 97, median 96
+  - Performance: 93 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,964 ms; CLS: 0; TBT: 179 ms
+  - Median LCP: 1,894 ms; CLS: 0; TBT: 116 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -852,9 +864,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Complete the remaining 6 HSK3 narration/grammar lessons, starting with
-   comparison/description/evaluation, using exact grammar mappings, bounded
-   explanations, model narration, correction and skill-separated practice.
+1. Complete the final 3 HSK3 narration/grammar lessons in discourse linking
+   and complex sentences, using exact grammar mappings, bounded explanations,
+   model narration, correction and skill-separated practice.
 2. Continue the 15 guided-production lessons with their separate exact
    recognition-character mappings behind
    the same unpublished review gates, while human HSK1/2 review and HSK0 audio

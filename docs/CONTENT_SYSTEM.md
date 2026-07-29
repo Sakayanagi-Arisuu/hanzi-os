@@ -499,6 +499,21 @@ chín tường thuật/54 dòng và 141 practice item; chín batch có 0 approva
 không item nào đủ điều kiện measurement, mastery, learner visibility hay
 release.
 
+`content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
+là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
+nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack
+exact-partition 13 grammar row thành 13 giải thích có giới hạn dùng, ví dụ và
+cặp sửa lỗi, ba tường thuật mẫu/18 dòng cùng 29 practice item. Câu so sánh
+phải giữ cùng phương diện/điều kiện; `不比` không tự bị diễn giải thành
+`没有……那么`, và kết luận không được vượt dữ liệu trong đoạn.
+
+Chạy `content:hsk3:comparison-evaluation-narration -- --write` để tái tạo;
+`--check` và `content:hsk3:comparison-evaluation-narration:validate` áp
+contract dùng chung. Bốn module cộng dồn đạt 12/15 narration lesson, 79/96
+grammar row, 12 tường thuật/72 dòng và 170 practice item; 12 batch có 0
+approval và không item nào đủ điều kiện measurement, mastery, learner
+visibility hay release.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

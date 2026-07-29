@@ -54,17 +54,9 @@ import {
   loadHsk3CultureTraditionDomainPackBundle,
 } from "../../src/content/hsk3CultureTraditionDomainPack.mjs";
 import {
-  assertValidHsk3ReferenceQuantityNarrationPackBundle,
-  loadHsk3ReferenceQuantityNarrationPackBundle,
-} from "../../src/content/hsk3ReferenceQuantityNarrationPack.mjs";
-import {
-  assertValidHsk3ModalityTimeNarrationPackBundle,
-  loadHsk3ModalityTimeNarrationPackBundle,
-} from "../../src/content/hsk3ModalityTimeNarrationPack.mjs";
-import {
-  assertValidHsk3EventComplementsNarrationPackBundle,
-  loadHsk3EventComplementsNarrationPackBundle,
-} from "../../src/content/hsk3EventComplementsNarrationPack.mjs";
+  assertValidHsk3ComparisonEvaluationNarrationPackBundle,
+  loadHsk3ComparisonEvaluationNarrationPackBundle,
+} from "../../src/content/hsk3ComparisonEvaluationNarrationPack.mjs";
 import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
@@ -197,24 +189,27 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk3CultureTraditionDomainPackBundle(
       hsk3CultureTraditionDomain,
     );
-  const hsk3ReferenceQuantityNarration =
-    loadHsk3ReferenceQuantityNarrationPackBundle(root);
-  const hsk3ReferenceQuantityNarrationResult =
-    assertValidHsk3ReferenceQuantityNarrationPackBundle(
-      hsk3ReferenceQuantityNarration,
-    );
-  const hsk3ModalityTimeNarration =
-    loadHsk3ModalityTimeNarrationPackBundle(root);
-  const hsk3ModalityTimeNarrationResult =
-    assertValidHsk3ModalityTimeNarrationPackBundle(
-      hsk3ModalityTimeNarration,
+  const hsk3ComparisonEvaluationNarration =
+    loadHsk3ComparisonEvaluationNarrationPackBundle(root);
+  const hsk3ComparisonEvaluationNarrationResult =
+    assertValidHsk3ComparisonEvaluationNarrationPackBundle(
+      hsk3ComparisonEvaluationNarration,
     );
   const hsk3EventComplementsNarration =
-    loadHsk3EventComplementsNarrationPackBundle(root);
-  const hsk3EventComplementsNarrationResult =
-    assertValidHsk3EventComplementsNarrationPackBundle(
-      hsk3EventComplementsNarration,
-    );
+    hsk3ComparisonEvaluationNarration.prerequisiteBundles[0];
+  const hsk3ModalityTimeNarration =
+    hsk3EventComplementsNarration.prerequisiteBundles[0];
+  const hsk3ReferenceQuantityNarration =
+    hsk3ModalityTimeNarration.prerequisiteBundles[0];
+  const hsk3ReferenceQuantityNarrationResult = {
+    summary: hsk3ReferenceQuantityNarration.pack.counts,
+  };
+  const hsk3ModalityTimeNarrationResult = {
+    summary: hsk3ModalityTimeNarration.pack.counts,
+  };
+  const hsk3EventComplementsNarrationResult = {
+    summary: hsk3EventComplementsNarration.pack.counts,
+  };
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
     assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
@@ -697,38 +692,47 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         },
         hsk3NarrationGrammarModulesDraft: {
           completedModules:
-            hsk3EventComplementsNarrationResult.summary
+            hsk3ComparisonEvaluationNarrationResult.summary
               .completedNarrationGrammarModules,
           lessons:
             hsk3ReferenceQuantityNarrationResult.summary.lessons
             + hsk3ModalityTimeNarrationResult.summary.lessons
-            + hsk3EventComplementsNarrationResult.summary.lessons,
+            + hsk3EventComplementsNarrationResult.summary.lessons
+            + hsk3ComparisonEvaluationNarrationResult.summary.lessons,
           grammarDrafts:
             hsk3ReferenceQuantityNarrationResult.summary.grammarDrafts
             + hsk3ModalityTimeNarrationResult.summary.grammarDrafts
-            + hsk3EventComplementsNarrationResult.summary.grammarDrafts,
+            + hsk3EventComplementsNarrationResult.summary.grammarDrafts
+            + hsk3ComparisonEvaluationNarrationResult.summary.grammarDrafts,
           modelExamples:
             hsk3ReferenceQuantityNarrationResult.summary.modelExamples
             + hsk3ModalityTimeNarrationResult.summary.modelExamples
-            + hsk3EventComplementsNarrationResult.summary.modelExamples,
+            + hsk3EventComplementsNarrationResult.summary.modelExamples
+            + hsk3ComparisonEvaluationNarrationResult.summary.modelExamples,
           correctionPairs:
             hsk3ReferenceQuantityNarrationResult.summary.correctionPairs
             + hsk3ModalityTimeNarrationResult.summary.correctionPairs
-            + hsk3EventComplementsNarrationResult.summary.correctionPairs,
+            + hsk3EventComplementsNarrationResult.summary.correctionPairs
+            + hsk3ComparisonEvaluationNarrationResult.summary.correctionPairs,
           modelNarrations:
             hsk3ReferenceQuantityNarrationResult.summary.modelNarrations
             + hsk3ModalityTimeNarrationResult.summary.modelNarrations
-            + hsk3EventComplementsNarrationResult.summary.modelNarrations,
+            + hsk3EventComplementsNarrationResult.summary.modelNarrations
+            + hsk3ComparisonEvaluationNarrationResult.summary.modelNarrations,
           modelNarrationLines:
             hsk3ReferenceQuantityNarrationResult.summary.modelNarrationLines
             + hsk3ModalityTimeNarrationResult.summary.modelNarrationLines
-            + hsk3EventComplementsNarrationResult.summary.modelNarrationLines,
+            + hsk3EventComplementsNarrationResult.summary.modelNarrationLines
+            + hsk3ComparisonEvaluationNarrationResult.summary
+              .modelNarrationLines,
           grammarInParagraphItems:
             hsk3ReferenceQuantityNarrationResult.summary
               .grammarInParagraphItems
             + hsk3ModalityTimeNarrationResult.summary
               .grammarInParagraphItems
             + hsk3EventComplementsNarrationResult.summary
+              .grammarInParagraphItems
+            + hsk3ComparisonEvaluationNarrationResult.summary
               .grammarInParagraphItems,
           discourseErrorCorrectionItems:
             hsk3ReferenceQuantityNarrationResult.summary
@@ -736,19 +740,26 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             + hsk3ModalityTimeNarrationResult.summary
               .discourseErrorCorrectionItems
             + hsk3EventComplementsNarrationResult.summary
+              .discourseErrorCorrectionItems
+            + hsk3ComparisonEvaluationNarrationResult.summary
               .discourseErrorCorrectionItems,
           orderedRetellingItems:
             hsk3ReferenceQuantityNarrationResult.summary.orderedRetellingItems
             + hsk3ModalityTimeNarrationResult.summary.orderedRetellingItems
-            + hsk3EventComplementsNarrationResult.summary.orderedRetellingItems,
+            + hsk3EventComplementsNarrationResult.summary.orderedRetellingItems
+            + hsk3ComparisonEvaluationNarrationResult.summary
+              .orderedRetellingItems,
           authoredPracticeItems:
             hsk3ReferenceQuantityNarrationResult.summary.authoredPracticeItems
             + hsk3ModalityTimeNarrationResult.summary.authoredPracticeItems
-            + hsk3EventComplementsNarrationResult.summary.authoredPracticeItems,
+            + hsk3EventComplementsNarrationResult.summary.authoredPracticeItems
+            + hsk3ComparisonEvaluationNarrationResult.summary
+              .authoredPracticeItems,
           reviewBatches:
             hsk3ReferenceQuantityNarrationResult.summary.reviewBatches
             + hsk3ModalityTimeNarrationResult.summary.reviewBatches
-            + hsk3EventComplementsNarrationResult.summary.reviewBatches,
+            + hsk3EventComplementsNarrationResult.summary.reviewBatches
+            + hsk3ComparisonEvaluationNarrationResult.summary.reviewBatches,
           measurementEligibleItems: 0,
           reviewed: false,
           learnerVisible: false,
