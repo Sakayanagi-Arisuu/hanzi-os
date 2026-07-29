@@ -354,6 +354,12 @@
         "reviewed": false,
         "learnerVisible": false
       },
+      "hsk3HumanReviewQueue": {
+        "sourceArtifacts": 18,
+        "reviewBatches": 122,
+        "pendingBatches": 122,
+        "approvals": 0
+      },
       "hsk2VocabularyBacklog": {
         "officialVocabulary": 200,
         "sourceMatched": 200,

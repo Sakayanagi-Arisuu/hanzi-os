@@ -364,6 +364,14 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk3HumanReviewQueue,
+    ).toEqual({
+      sourceArtifacts: 18,
+      reviewBatches: 122,
+      pendingBatches: 122,
+      approvals: 0,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2CharacterPractice,
     ).toEqual({
       lessons: 10,

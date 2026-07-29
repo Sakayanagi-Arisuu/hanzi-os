@@ -608,6 +608,16 @@ measurement/mastery, prerequisite waiver hay release eligibility. Vì source
 và đáp án còn nằm trong repository, form cũng chưa được phép phát cho learner.
 Đây là assessment draft có validator, không phải bài thi HSK3 đã hiệu chuẩn.
 
+Lát đóng gói review HSK3 giữ tiến độ ở **82%**. Manifest bind exact SHA-256
+của 18 artifact và 122 batch: 55 blueprint, 25 paragraph, 15 narration,
+15 guided-production và 12 assessment. Workflow local phân rã thành 423 lượt
+phân vai và 3.037 target cụ thể, kiểm tra timestamp/identity/target digest,
+chống sửa assignment và chỉ ghi receipt bất biến. Audio-rights không thể
+approve khi audio HSK3 còn vắng; import receipt không sửa manifest, content,
+runtime, calibration hay mastery. Đây là hạ tầng sẵn sàng giao cho người
+review, không phải bằng chứng 122 batch đã được con người duyệt, nên không cộng
+điểm review hoặc content.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

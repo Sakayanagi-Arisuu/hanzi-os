@@ -34,6 +34,9 @@ import {
   loadHsk3LevelAssessmentBundle,
 } from "../../src/content/hsk3LevelAssessment.mjs";
 import {
+  loadHsk3ReviewManifestBundle,
+} from "../../src/content/hsk3ReviewManifest.mjs";
+import {
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
 import {
@@ -165,6 +168,13 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3LevelAssessment = loadHsk3LevelAssessmentBundle(root);
   const hsk3LevelAssessmentResult =
     assertValidHsk3LevelAssessmentBundle(hsk3LevelAssessment);
+  const hsk3ReviewManifest = loadHsk3ReviewManifestBundle(root);
+  const hsk3ReviewManifestResult =
+    assertPinnedReviewManifestForReport({
+      root,
+      manifest: hsk3ReviewManifest.manifest,
+      expectedId: "hsk3-review-manifest-2026.07",
+    });
   const hsk3StructuredExplanation =
     hsk3LevelAssessment.sourceBundle;
   const hsk3StructuredExplanationResult =
@@ -1024,6 +1034,13 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk3LevelAssessmentResult.summary.releaseEligibleItems,
           reviewed: false,
           learnerVisible: false,
+        },
+        hsk3HumanReviewQueue: {
+          sourceArtifacts:
+            hsk3ReviewManifestResult.summary.sourceArtifacts,
+          reviewBatches: hsk3ReviewManifestResult.summary.reviewBatches,
+          pendingBatches: hsk3ReviewManifestResult.summary.pendingBatches,
+          approvals: hsk3ReviewManifestResult.summary.approvals,
         },
         hsk2VocabularyBacklog: {
           officialVocabulary:
