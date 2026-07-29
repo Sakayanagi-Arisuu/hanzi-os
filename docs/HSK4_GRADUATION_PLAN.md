@@ -429,6 +429,16 @@ review và không có measurement/mastery/release eligibility. Đây là content
 thật nhưng mới 1/55 lesson HSK3, chưa đủ một mốc coverage toàn cấp để cộng điểm
 D hoặc tuyên bố HSK3 hoàn thành.
 
+Lát hoàn thiện domain đời sống cá nhân HSK3 giữ tiến độ ở **81%**. Bốn lesson
+còn lại bổ sung 80 nghĩa Việt, 8 graded text/64 dòng và 296 practice item; cộng
+pack đầu thành đúng 5/5 paragraph lesson, 100 vocabulary draft, 10 đoạn/80 dòng
+Hanzi–Pinyin–Việt và 370 practice item. Năm mươi câu hiểu đoạn tách ý chính,
+chi tiết, trình tự, nguyên nhân–kết quả, quy chiếu và suy luận đơn; 10 note grid
+và 10 bài tóm tắt/kể lại làm cầu sang kỹ năng sản sinh. Một trăm ba mươi lăm
+item phụ thuộc audio vẫn silent, năm batch có 0 approval và toàn bộ content
+chưa qua human review/release. Đây là một trong năm discourse domain của
+paragraph input và mới 5/55 lesson toàn HSK3, nên chưa dùng điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

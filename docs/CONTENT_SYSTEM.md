@@ -378,6 +378,22 @@ kể lại tạo 27 item phụ thuộc audio; audio vẫn `null`, browser TTS ch
 Pack source-exposed không dùng để calibrate assessment; human review, rubric,
 measurement, mastery và release đều bằng 0.
 
+`content/drafts/hsk3-personal-paragraph-domain-2026.07.json` hoàn thiện bốn
+lesson đời sống cá nhân còn lại: ăn uống–mua sắm, đi lại, sức khỏe và gia
+đình–nơi ở. Artifact bind exact hash của pack lesson đầu, blueprint và
+vocabulary source. Bốn lesson thêm 80 nghĩa Việt, 8 đoạn/64 dòng, 240
+vocabulary item, 40 câu hiểu đoạn, 8 note grid và 8 bài tóm tắt/kể lại—296
+practice item. Mọi vocabulary ID của từng lesson phải xuất hiện trong chính
+hai đoạn của lesson đó.
+
+Khi cộng pack đầu, miền đời sống cá nhân có đủ 5/5 paragraph lesson, 100
+vocabulary draft, 10 đoạn/80 dòng và 370 practice item. Có 135 item phụ thuộc
+audio nhưng 0 audio được review. Chạy `content:hsk3:personal-domain -- --write`
+để tái tạo; `--check` và `content:hsk3:personal-domain:validate` bắt exact
+partition, text coverage, practice answer/options, duplicate ID, prior-pack
+hash và bốn review batch. Hoàn thành authoring draft của một domain không tự
+hoàn thành HSK3 hoặc cấp mastery.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

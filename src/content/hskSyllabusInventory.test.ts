@@ -230,6 +230,25 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk3PersonalDomainDraft,
+    ).toEqual({
+      lessons: 5,
+      vocabularyDrafts: 100,
+      authoredTexts: 10,
+      authoredTextLines: 80,
+      vocabularyPracticeItems: 300,
+      comprehensionItems: 50,
+      noteGridItems: 10,
+      guidedSummaryItems: 10,
+      authoredPracticeItems: 370,
+      audioDependentItems: 135,
+      reviewBatches: 5,
+      reviewedAudioItems: 0,
+      measurementEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2CharacterPractice,
     ).toEqual({
       lessons: 10,
