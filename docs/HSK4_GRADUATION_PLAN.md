@@ -144,7 +144,7 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 12 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, HSK3 có 55 lesson blueprint cấp đoạn/tường thuật/sản sinh, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory; HSK0 pronunciation; HSK1 contextual drafts; HSK2 authoring; HSK3 paragraph, narration và 2/5 guided-production stage |
+| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory; HSK0 pronunciation; HSK1 contextual drafts; HSK2 authoring; HSK3 paragraph, narration và 3/5 guided-production stage |
 | E. Assessment và mock HSK0-4 | 10 | 6 | diagnostic, level-check blueprint, 2 form HSK2 độc lập ở lớp nguồn, objective/performance draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
 | **Tổng** | **100** | **81** | **Tiến độ hiện tại: 81%** |
@@ -557,6 +557,20 @@ và đáp án đều bind exact paragraph source; tự sắp xếp, xem model v�
 không cấp writing mastery. Stage tạo 0 character ownership claim mới, có 0
 approval và vẫn learner-hidden, measurement/mastery/release-ineligible. Chín
 guided-production lesson, assessment, review và runtime HSK3 còn thiếu nên
+chưa dùng điểm D cuối cùng.
+
+Stage event-retelling HSK3 tiếp tục giữ tiến độ ở **81%**, author thêm 3
+guided-production lesson và dùng đúng một lần toàn bộ 20 graded-listening text
+của bốn domain học tập, tự nhiên, xã hội và văn hóa (160 dòng). Phân bố 7 bài
+kể từ thẻ bốn ý, 7 bài kể thay đổi–nguyên nhân và 6 bài kể có mở–thân–kết.
+Mỗi prompt bind tám dòng nguồn, bốn ý bắt buộc và model
+Hanzi/Pinyin/Vietnamese đã có; quy trình học là nghe–ghi chú–thu lần một–xem
+mẫu–tự sửa–thu lần hai. Browser TTS không cấp listening mastery, bản tự thu
+chưa có reviewed rubric không cấp speaking mastery. Ba stage cộng dồn đạt
+9/15 lesson, 64 prompt, 62 source binding/496 dòng và 9 review batch; 36
+prompt audio-dependent có 0 reviewed audio, 20 prompt tự thu có 0 reviewed
+rubric và tất cả vẫn learner-hidden, measurement/mastery/release-ineligible.
+Sáu guided-production lesson, assessment, review và runtime HSK3 còn thiếu nên
 chưa dùng điểm D cuối cùng.
 
 ## 6. Quy tắc cập nhật phần trăm
