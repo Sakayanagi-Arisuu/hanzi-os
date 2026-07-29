@@ -474,6 +474,18 @@ không cấp mastery. Ba review batch có 0 approval và pack vẫn learner-hidd
 Theo blueprint, recognition character không nằm trong 15 narration/grammar
 lesson mà được exact-partition riêng ở 15 guided-production lesson.
 
+`content/drafts/hsk3-modality-time-narration-grammar-2026.07.json` là module
+narration/grammar thứ hai với ba lesson về nhu cầu–lời khuyên sức khỏe, thời
+điểm–góc nhìn trong học tập và thái độ–tần suất trong chuyện gia đình. Pack
+exact-partition 27 grammar row thành 27 giải thích có giới hạn dùng, ví dụ và
+cặp sửa lỗi, ba tường thuật mẫu/18 dòng cùng 57 practice item.
+
+Chạy `content:hsk3:modality-time-narration -- --write` để tái tạo; `--check`
+và `content:hsk3:modality-time-narration:validate` áp contract dùng chung.
+Hai module cộng dồn đạt 6/15 narration lesson, 48/96 grammar row, sáu tường
+thuật/36 dòng và 102 practice item; sáu batch có 0 approval và không item nào
+đủ điều kiện measurement, mastery, learner visibility hay release.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

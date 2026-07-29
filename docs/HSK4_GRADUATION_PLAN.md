@@ -496,6 +496,16 @@ cấp mastery. Ba batch có 0 approval, pack learner-hidden và 12 narration
 lesson, 15 guided-production lesson với 284 character mapping, assessment,
 review và runtime HSK3 vẫn còn thiếu nên chưa cộng điểm D cuối cùng.
 
+Module modality–time–viewpoint HSK3 giữ tiến độ ở **81%**, bổ sung ba lesson,
+27 grammar row, 27 ví dụ/cặp sửa lỗi, ba tường thuật mẫu/18 dòng và 57
+practice item. Hai module cộng dồn đạt 6/15 narration lesson, 48/96 grammar
+row, 6 tường thuật/36 dòng và 102 practice item. Các mẫu khái quát và góc nhìn
+được buộc nêu phạm vi thay vì biến nhận định cá nhân thành sự thật; sáu batch
+có 0 approval và toàn bộ pack learner-hidden,
+measurement/mastery/release-ineligible. Chín narration lesson, 15 guided
+production lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng
+điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

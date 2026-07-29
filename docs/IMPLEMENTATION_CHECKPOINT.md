@@ -415,6 +415,16 @@ Every commit must update this percentage here and in the active roadmap.
   cannot grant mastery. All three batches have zero approval and remain
   learner-hidden. The remaining 12 narration lessons, 15 guided-production
   lessons, assessment, review and runtime keep progress at **81%**.
+- Authored the HSK3 modality/time/viewpoint narration module: three lessons
+  exact-partition 27 grammar rows for health advice, learning viewpoints and
+  family attitude into 27 explanations/examples/correction pairs, three
+  six-line narrations and 57 practice items.
+- The two completed modules now total 6/15 narration lessons, 48/96 grammar
+  rows, six narrations/36 lines and 102 practice items. Viewpoint and
+  generalization patterns explicitly retain scope and exceptions. All six
+  batches have zero approval and remain learner-hidden; nine narration
+  lessons plus guided production, assessment, review and runtime keep
+  progress at **81%**.
 
 ## Repository state
 
@@ -736,6 +746,10 @@ the applicable gates to run again before the next checkpoint commit.
     narrations/18 lines and 45 practice items (21 grammar-in-paragraph, 21
     discourse corrections and 3 ordered retellings); 3 pending review batches
     and 0 measurement/mastery/release-eligible item
+  - current combined HSK3 narration/grammar authoring: 2/5 modules, 6/15
+    lessons, 48/96 exact grammar rows, 48 explanations/examples/correction
+    pairs, 6 model narrations/36 lines and 102 practice items; 6 pending review
+    batches and 0 measurement/mastery/release-eligible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -793,16 +807,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 178 files, 1,368 tests passed
+  - Vitest: 179 files, 1,372 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 87 / 98 / 99, median 98
+  - Performance: 98 / 97 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,900 ms; CLS: 0; TBT: 86 ms
+  - Median LCP: 1,886 ms; CLS: 0; TBT: 150 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -827,8 +841,8 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Complete the remaining 12 HSK3 narration/grammar lessons, starting with
-   modality/time/viewpoint, using exact grammar mappings, bounded
+1. Complete the remaining 9 HSK3 narration/grammar lessons, starting with
+   event/complements/voice, using exact grammar mappings, bounded
    explanations, model narration, correction and skill-separated practice.
 2. Continue the 15 guided-production lessons with their separate exact
    recognition-character mappings behind

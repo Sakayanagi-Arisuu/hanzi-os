@@ -58,6 +58,10 @@ import {
   loadHsk3ReferenceQuantityNarrationPackBundle,
 } from "../../src/content/hsk3ReferenceQuantityNarrationPack.mjs";
 import {
+  assertValidHsk3ModalityTimeNarrationPackBundle,
+  loadHsk3ModalityTimeNarrationPackBundle,
+} from "../../src/content/hsk3ModalityTimeNarrationPack.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -194,6 +198,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3ReferenceQuantityNarrationResult =
     assertValidHsk3ReferenceQuantityNarrationPackBundle(
       hsk3ReferenceQuantityNarration,
+    );
+  const hsk3ModalityTimeNarration =
+    loadHsk3ModalityTimeNarrationPackBundle(root);
+  const hsk3ModalityTimeNarrationResult =
+    assertValidHsk3ModalityTimeNarrationPackBundle(
+      hsk3ModalityTimeNarration,
     );
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
@@ -677,31 +687,45 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         },
         hsk3NarrationGrammarModulesDraft: {
           completedModules:
-            hsk3ReferenceQuantityNarrationResult.summary
+            hsk3ModalityTimeNarrationResult.summary
               .completedNarrationGrammarModules,
-          lessons: hsk3ReferenceQuantityNarrationResult.summary.lessons,
+          lessons:
+            hsk3ReferenceQuantityNarrationResult.summary.lessons
+            + hsk3ModalityTimeNarrationResult.summary.lessons,
           grammarDrafts:
-            hsk3ReferenceQuantityNarrationResult.summary.grammarDrafts,
+            hsk3ReferenceQuantityNarrationResult.summary.grammarDrafts
+            + hsk3ModalityTimeNarrationResult.summary.grammarDrafts,
           modelExamples:
-            hsk3ReferenceQuantityNarrationResult.summary.modelExamples,
+            hsk3ReferenceQuantityNarrationResult.summary.modelExamples
+            + hsk3ModalityTimeNarrationResult.summary.modelExamples,
           correctionPairs:
-            hsk3ReferenceQuantityNarrationResult.summary.correctionPairs,
+            hsk3ReferenceQuantityNarrationResult.summary.correctionPairs
+            + hsk3ModalityTimeNarrationResult.summary.correctionPairs,
           modelNarrations:
-            hsk3ReferenceQuantityNarrationResult.summary.modelNarrations,
+            hsk3ReferenceQuantityNarrationResult.summary.modelNarrations
+            + hsk3ModalityTimeNarrationResult.summary.modelNarrations,
           modelNarrationLines:
-            hsk3ReferenceQuantityNarrationResult.summary.modelNarrationLines,
+            hsk3ReferenceQuantityNarrationResult.summary.modelNarrationLines
+            + hsk3ModalityTimeNarrationResult.summary.modelNarrationLines,
           grammarInParagraphItems:
             hsk3ReferenceQuantityNarrationResult.summary
+              .grammarInParagraphItems
+            + hsk3ModalityTimeNarrationResult.summary
               .grammarInParagraphItems,
           discourseErrorCorrectionItems:
             hsk3ReferenceQuantityNarrationResult.summary
+              .discourseErrorCorrectionItems
+            + hsk3ModalityTimeNarrationResult.summary
               .discourseErrorCorrectionItems,
           orderedRetellingItems:
-            hsk3ReferenceQuantityNarrationResult.summary.orderedRetellingItems,
+            hsk3ReferenceQuantityNarrationResult.summary.orderedRetellingItems
+            + hsk3ModalityTimeNarrationResult.summary.orderedRetellingItems,
           authoredPracticeItems:
-            hsk3ReferenceQuantityNarrationResult.summary.authoredPracticeItems,
+            hsk3ReferenceQuantityNarrationResult.summary.authoredPracticeItems
+            + hsk3ModalityTimeNarrationResult.summary.authoredPracticeItems,
           reviewBatches:
-            hsk3ReferenceQuantityNarrationResult.summary.reviewBatches,
+            hsk3ReferenceQuantityNarrationResult.summary.reviewBatches
+            + hsk3ModalityTimeNarrationResult.summary.reviewBatches,
           measurementEligibleItems: 0,
           reviewed: false,
           learnerVisible: false,
