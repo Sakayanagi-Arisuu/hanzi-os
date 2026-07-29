@@ -21,6 +21,10 @@ import {
   assertValidHsk3CurriculumScopeBundle,
 } from "../../src/content/hsk3CurriculumScope.mjs";
 import {
+  assertValidHsk4CurriculumScopeBundle,
+  loadHsk4CurriculumScopeBundle,
+} from "../../src/content/hsk4CurriculumScope.mjs";
+import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
 import {
@@ -165,6 +169,8 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
+  const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
+  const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
   const hsk3LevelAssessment = loadHsk3LevelAssessmentBundle(root);
   const hsk3LevelAssessmentResult =
     assertValidHsk3LevelAssessmentBundle(hsk3LevelAssessment);
@@ -533,6 +539,26 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk3ScopeResult.summary.recognitionCharacters,
           grammarRows: hsk3ScopeResult.summary.grammarRows,
           lessonPracticeCoverageComplete: false,
+        },
+        hsk4: {
+          units: hsk4ScopeResult.summary.units,
+          discourseDomains: hsk4ScopeResult.summary.discourseDomains,
+          grammarModules: hsk4ScopeResult.summary.grammarModules,
+          integrationStages: hsk4ScopeResult.summary.integrationStages,
+          timedIntegrationStages:
+            hsk4ScopeResult.summary.timedIntegrationStages,
+          plannedLessonBlueprints:
+            hsk4ScopeResult.summary.plannedLessonBlueprints,
+          plannedMinimumPromptUnits:
+            hsk4ScopeResult.summary.plannedMinimumPromptUnits,
+          tasks: hsk4ScopeResult.summary.tasks,
+          topics: hsk4ScopeResult.summary.topics,
+          vocabulary: hsk4ScopeResult.summary.vocabulary,
+          recognitionCharacters:
+            hsk4ScopeResult.summary.recognitionCharacters,
+          grammarRows: hsk4ScopeResult.summary.grammarRows,
+          lessonPracticeCoverageComplete: false,
+          calibratedMockComplete: false,
         },
       },
       draftBlueprintMappings: {

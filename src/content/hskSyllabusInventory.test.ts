@@ -159,6 +159,22 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       grammarRows: 96,
       lessonPracticeCoverageComplete: false,
     });
+    expect(report.currentCoverage.authoringScope.hsk4).toEqual({
+      units: 3,
+      discourseDomains: 6,
+      grammarModules: 5,
+      integrationStages: 6,
+      timedIntegrationStages: 3,
+      plannedLessonBlueprints: 78,
+      plannedMinimumPromptUnits: 106,
+      tasks: 30,
+      topics: 77,
+      vocabulary: 1000,
+      recognitionCharacters: 441,
+      grammarRows: 95,
+      lessonPracticeCoverageComplete: false,
+      calibratedMockComplete: false,
+    });
     expect(
       report.currentCoverage.draftBlueprintMappings.hsk0PronunciationBootcamp,
     ).toEqual({

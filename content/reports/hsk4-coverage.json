@@ -168,6 +168,22 @@
         "recognitionCharacters": 284,
         "grammarRows": 96,
         "lessonPracticeCoverageComplete": false
+      },
+      "hsk4": {
+        "units": 3,
+        "discourseDomains": 6,
+        "grammarModules": 5,
+        "integrationStages": 6,
+        "timedIntegrationStages": 3,
+        "plannedLessonBlueprints": 78,
+        "plannedMinimumPromptUnits": 106,
+        "tasks": 30,
+        "topics": 77,
+        "vocabulary": 1000,
+        "recognitionCharacters": 441,
+        "grammarRows": 95,
+        "lessonPracticeCoverageComplete": false,
+        "calibratedMockComplete": false
       }
     },
     "draftBlueprintMappings": {
