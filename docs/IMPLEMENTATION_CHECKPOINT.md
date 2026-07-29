@@ -18,7 +18,7 @@ Active progress: **81%**.
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 12 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units, HSK2 has an exact three-unit scope, and HSK3 now has 55 distinct paragraph-input, narration and guided-production lesson blueprints. |
-| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 has complete paragraph/narration drafts and 4/5 guided-production stages. Review, runtime publication and HSK4 content remain. |
+| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted. Assessment, review, runtime publication and HSK4 content remain. |
 | HSK0-4 assessment/mock | 6 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and two source-disjoint 86-item HSK2 form drafts exist; reviewed audio/rubrics, calibrated scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -509,6 +509,18 @@ Every commit must update this percentage here and in the active roadmap.
   Four stages now total 12/15 lessons, 80 prompts, 78 source artifacts/624
   lines and 12 pending batches. Progress remains **81%** while the final three
   guided-production lessons, assessment, review and runtime remain.
+- Authored the fifth and final HSK3 guided-production stage for structured
+  spoken explanation: 12 dual-source listening/speaking prompts split evenly
+  across choice-with-reason, criteria-based comparison and bounded viewpoint.
+  They bind 18 exact listening texts/144 lines through 24 source inputs.
+- Each prompt requires evidence from both sources, a limit or counterpoint,
+  at least 4–6 spoken sentences and two recording attempts. Across the stage
+  that is at least 64 spoken sentences and 24 recordings. Browser TTS,
+  revealed models and self-recordings remain non-mastery until reviewed audio
+  and a reviewed speaking rubric exist. All five stages now total 15/15
+  lessons, 92 prompts, 96 source artifacts/768 lines and 15 pending batches.
+  Guided-production authoring is complete, but assessment, human review,
+  runtime publication and HSK4 content keep progress at **81%**.
 
 ## Repository state
 
@@ -858,6 +870,15 @@ the applicable gates to run again before the next checkpoint commit.
     at least 106 learner-written sentences, 21 exact model evidence summaries,
     3 pending batches and 0 reviewed rubric or
     measurement/mastery/release-eligible item
+  - fifth HSK3 guided-production stage: final 3 lessons and 12 dual-source
+    listening/speaking prompts over 18 exact listening texts/144 lines and 24
+    input bindings: 4 choice–reason, 4 criteria-comparison and 4 bounded
+    viewpoint explanations; at least 64 spoken sentences and 24 recording
+    attempts, 3 pending batches and 0 reviewed audio/rubric or
+    measurement/mastery/release-eligible item
+  - complete HSK3 guided-production authoring: 5/5 stages, 15/15 lessons, 92
+    prompts, 96 source artifacts/768 lines, 117 source input bindings, 15
+    pending batches and 0 measurement/mastery/release-eligible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -915,16 +936,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 186 files, 1,399 tests passed
+  - Vitest: 187 files, 1,403 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 92 / 96 / 98, median 96
+  - Performance: 94 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,963 ms; CLS: 0; TBT: 162 ms
+  - Median LCP: 1,899 ms; CLS: 0; TBT: 94 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -949,14 +970,11 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author the final 3 HSK3 guided-production lessons for structured spoken
-   explanation and comparison, while consuming the exact
-   paragraph-bound recognition-character prerequisite without creating new
-   ownership claims.
-   Keep the same unpublished review gates while human HSK1/2 review and HSK0
-   audio sourcing proceed as separate tracks.
-2. Add HSK3 skill-separated assessment only after its learning-source
-   partitions exist; finish remaining G2 placement/progress work when reviewed
+1. Add HSK3 skill-separated assessment now that all learning-source
+   partitions exist. Keep forms source-disjoint where required and keep
+   reviewed audio/rubrics, calibration and prerequisite authority fail-closed.
+2. Package HSK3 review manifests/workflow, then finish remaining G2
+   placement/progress work when reviewed
    content can exercise it; keep imports unpublished until provenance and
    linguistic gates pass.
 3. Leave operator auth, commerce, hosted pilot and Sites frozen until the

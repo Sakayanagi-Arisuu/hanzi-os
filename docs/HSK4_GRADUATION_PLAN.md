@@ -144,7 +144,7 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 12 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, HSK3 có 55 lesson blueprint cấp đoạn/tường thuật/sản sinh, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory; HSK0 pronunciation; HSK1 contextual drafts; HSK2 authoring; HSK3 paragraph, narration và 4/5 guided-production stage |
+| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory; HSK0 pronunciation; HSK1 contextual drafts; HSK2 authoring; HSK3 paragraph, narration và 5/5 guided-production stage |
 | E. Assessment và mock HSK0-4 | 10 | 6 | diagnostic, level-check blueprint, 2 form HSK2 độc lập ở lớp nguồn, objective/performance draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
 | **Tổng** | **100** | **81** | **Tiến độ hiện tại: 81%** |
@@ -584,6 +584,19 @@ cộng dồn đạt 12/15 lesson, 80 prompt, 78 source artifact/624 dòng và 12
 batch; toàn bộ vẫn learner-hidden, measurement/mastery/release-ineligible.
 Ba guided-production lesson cuối, assessment, review và runtime HSK3 còn
 thiếu nên chưa dùng điểm D cuối cùng.
+
+Stage structured-explanation HSK3 tiếp tục giữ tiến độ ở **81%** và đóng đủ
+15/15 guided-production lesson. 12 prompt nghe–nói hai nguồn được chia đều
+thành giải thích lựa chọn–lý do, so sánh theo tiêu chí và nêu quan điểm có
+giới hạn. Stage bind 18 listening text/144 dòng qua 24 input source; mỗi prompt
+phải dùng bằng chứng hai nguồn, nêu điều kiện hoặc phản biện, nói tối thiểu
+4–6 câu và thu hai lần. Tổng stage yêu cầu ít nhất 64 câu nói và 24 bản thu.
+Browser TTS, model reveal và bản tự thu không cấp mastery khi chưa có reviewed
+audio/rubric. Năm stage cộng dồn đạt 15/15 lesson, 92 prompt, 96 source
+artifact/768 dòng, 117 input binding và 15 review batch; tất cả vẫn
+learner-hidden, measurement/mastery/release-ineligible. Guided-production
+authoring đã hoàn thành, nhưng assessment, human review, runtime HSK3 và HSK4
+content còn thiếu nên chưa dùng điểm D cuối cùng.
 
 ## 6. Quy tắc cập nhật phần trăm
 
