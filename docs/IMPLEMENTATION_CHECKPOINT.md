@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **81%**.
+Active progress: **82%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
@@ -19,7 +19,7 @@ Active progress: **81%**.
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 12 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units, HSK2 has an exact three-unit scope, and HSK3 now has 55 distinct paragraph-input, narration and guided-production lesson blueprints. |
 | HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted. Assessment, review, runtime publication and HSK4 content remain. |
-| HSK0-4 assessment/mock | 6 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and two source-disjoint 86-item HSK2 form drafts exist; reviewed audio/rubrics, calibrated scored exams and timed mocks do not. |
+| HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint 86-item form pairs for HSK2 and HSK3 exist; reviewed audio/rubrics, calibrated scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
 The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
@@ -879,6 +879,11 @@ the applicable gates to run again before the next checkpoint commit.
   - complete HSK3 guided-production authoring: 5/5 stages, 15/15 lessons, 92
     prompts, 96 source artifacts/768 lines, 117 source input bindings, 15
     pending batches and 0 measurement/mastery/release-eligible item
+  - HSK3 level-assessment draft bank: 2 source-disjoint forms, 86 items per
+    form, 108 objective items and 64 speaking/writing responses across 12
+    pending review batches; 56 audio-dependent items, 0 reviewed audio,
+    review, calibration, measurement, mastery, prerequisite waiver or
+    release-eligible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -936,16 +941,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 187 files, 1,403 tests passed
+  - Vitest: 188 files, 1,407 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 94 / 98 / 98, median 98
+  - Performance: 98 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,899 ms; CLS: 0; TBT: 94 ms
+  - Median LCP: 1,898 ms; CLS: 0; TBT: 76 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -970,10 +975,10 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Add HSK3 skill-separated assessment now that all learning-source
-   partitions exist. Keep forms source-disjoint where required and keep
-   reviewed audio/rubrics, calibration and prerequisite authority fail-closed.
-2. Package HSK3 review manifests/workflow, then finish remaining G2
+1. Package the complete HSK3 draft chain into exact-hash review manifests and
+   a local assignment workflow; keep approval, runtime import, calibration,
+   mastery and prerequisite authority fail-closed.
+2. Finish remaining G2
    placement/progress work when reviewed
    content can exercise it; keep imports unpublished until provenance and
    linguistic gates pass.

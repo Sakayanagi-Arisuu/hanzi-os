@@ -28,8 +28,11 @@ import {
 } from "../../src/content/hsk3LessonBlueprints.mjs";
 import {
   assertValidHsk3StructuredExplanationPackBundle,
-  loadHsk3StructuredExplanationPackBundle,
 } from "../../src/content/hsk3StructuredExplanationPack.mjs";
+import {
+  assertValidHsk3LevelAssessmentBundle,
+  loadHsk3LevelAssessmentBundle,
+} from "../../src/content/hsk3LevelAssessment.mjs";
 import {
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -159,8 +162,11 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
+  const hsk3LevelAssessment = loadHsk3LevelAssessmentBundle(root);
+  const hsk3LevelAssessmentResult =
+    assertValidHsk3LevelAssessmentBundle(hsk3LevelAssessment);
   const hsk3StructuredExplanation =
-    loadHsk3StructuredExplanationPackBundle(root);
+    hsk3LevelAssessment.sourceBundle;
   const hsk3StructuredExplanationResult =
     assertValidHsk3StructuredExplanationPackBundle(
       hsk3StructuredExplanation,
@@ -971,6 +977,51 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             + hsk3StructuredExplanationResult.summary.reviewBatches,
           approvals: 0,
           releaseEligibleItems: 0,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk3LevelAssessmentDraft: {
+          forms: hsk3LevelAssessmentResult.summary.forms,
+          itemsPerForm: hsk3LevelAssessmentResult.summary.itemsPerForm,
+          totalItems: hsk3LevelAssessmentResult.summary.totalItems,
+          objectiveItems:
+            hsk3LevelAssessmentResult.summary.objectiveItems,
+          constructedResponseItems:
+            hsk3LevelAssessmentResult.summary.constructedResponseItems,
+          listeningItems:
+            hsk3LevelAssessmentResult.summary.listeningItems,
+          readingItems:
+            hsk3LevelAssessmentResult.summary.readingItems,
+          vocabularyItems:
+            hsk3LevelAssessmentResult.summary.vocabularyItems,
+          grammarItems:
+            hsk3LevelAssessmentResult.summary.grammarItems,
+          speakingItems:
+            hsk3LevelAssessmentResult.summary.speakingItems,
+          writingItems:
+            hsk3LevelAssessmentResult.summary.writingItems,
+          audioDependentItems:
+            hsk3LevelAssessmentResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk3LevelAssessmentResult.summary.reviewedAudioItems,
+          sourceEntityOverlapBetweenForms:
+            hsk3LevelAssessmentResult.summary
+              .sourceEntityOverlapBetweenForms,
+          reviewBatches:
+            hsk3LevelAssessmentResult.summary.reviewBatches,
+          reviewedItems:
+            hsk3LevelAssessmentResult.summary.reviewedItems,
+          calibratedItems:
+            hsk3LevelAssessmentResult.summary.calibratedItems,
+          measurementEligibleItems:
+            hsk3LevelAssessmentResult.summary.measurementEligibleItems,
+          masteryEligibleItems:
+            hsk3LevelAssessmentResult.summary.masteryEligibleItems,
+          prerequisiteWaiverEligibleItems:
+            hsk3LevelAssessmentResult.summary
+              .prerequisiteWaiverEligibleItems,
+          releaseEligibleItems:
+            hsk3LevelAssessmentResult.summary.releaseEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },
