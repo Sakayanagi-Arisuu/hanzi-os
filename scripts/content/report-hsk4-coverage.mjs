@@ -38,6 +38,10 @@ import {
   loadHsk3PersonalDomainPackBundle,
 } from "../../src/content/hsk3PersonalDomainPack.mjs";
 import {
+  assertValidHsk3StudyWorkDomainPackBundle,
+  loadHsk3StudyWorkDomainPackBundle,
+} from "../../src/content/hsk3StudyWorkDomainPack.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -148,6 +152,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3PersonalDomain = loadHsk3PersonalDomainPackBundle(root);
   const hsk3PersonalDomainResult =
     assertValidHsk3PersonalDomainPackBundle(hsk3PersonalDomain);
+  const hsk3StudyWorkDomain = loadHsk3StudyWorkDomainPackBundle(root);
+  const hsk3StudyWorkDomainResult =
+    assertValidHsk3StudyWorkDomainPackBundle(hsk3StudyWorkDomain);
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
     assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
@@ -534,6 +541,58 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           reviewBatches:
             hsk3PersonalParagraphResult.summary.reviewBatches
             + hsk3PersonalDomainResult.summary.reviewBatches,
+          reviewedAudioItems: 0,
+          measurementEligibleItems: 0,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk3ParagraphDomainsDraft: {
+          completedDomains:
+            hsk3StudyWorkDomainResult.summary.completedParagraphDomainCount,
+          lessons:
+            hsk3PersonalParagraphResult.summary.lessons
+            + hsk3PersonalDomainResult.summary.lessons
+            + hsk3StudyWorkDomainResult.summary.lessons,
+          vocabularyDrafts:
+            hsk3PersonalParagraphResult.summary.vocabularyDrafts
+            + hsk3PersonalDomainResult.summary.vocabularyDrafts
+            + hsk3StudyWorkDomainResult.summary.vocabularyDrafts,
+          authoredTexts:
+            hsk3PersonalParagraphResult.summary.authoredTexts
+            + hsk3PersonalDomainResult.summary.authoredTexts
+            + hsk3StudyWorkDomainResult.summary.authoredTexts,
+          authoredTextLines:
+            hsk3PersonalParagraphResult.summary.authoredTextLines
+            + hsk3PersonalDomainResult.summary.authoredTextLines
+            + hsk3StudyWorkDomainResult.summary.authoredTextLines,
+          vocabularyPracticeItems:
+            hsk3PersonalParagraphResult.summary.vocabularyPracticeItems
+            + hsk3PersonalDomainResult.summary.vocabularyPracticeItems
+            + hsk3StudyWorkDomainResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk3PersonalParagraphResult.summary.comprehensionItems
+            + hsk3PersonalDomainResult.summary.comprehensionItems
+            + hsk3StudyWorkDomainResult.summary.comprehensionItems,
+          noteGridItems:
+            hsk3PersonalParagraphResult.summary.noteGridItems
+            + hsk3PersonalDomainResult.summary.noteGridItems
+            + hsk3StudyWorkDomainResult.summary.noteGridItems,
+          guidedSummaryItems:
+            hsk3PersonalParagraphResult.summary.guidedSummaryItems
+            + hsk3PersonalDomainResult.summary.guidedSummaryItems
+            + hsk3StudyWorkDomainResult.summary.guidedSummaryItems,
+          authoredPracticeItems:
+            hsk3PersonalParagraphResult.summary.authoredPracticeItems
+            + hsk3PersonalDomainResult.summary.authoredPracticeItems
+            + hsk3StudyWorkDomainResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk3PersonalParagraphResult.summary.audioDependentItems
+            + hsk3PersonalDomainResult.summary.audioDependentItems
+            + hsk3StudyWorkDomainResult.summary.audioDependentItems,
+          reviewBatches:
+            hsk3PersonalParagraphResult.summary.reviewBatches
+            + hsk3PersonalDomainResult.summary.reviewBatches
+            + hsk3StudyWorkDomainResult.summary.reviewBatches,
           reviewedAudioItems: 0,
           measurementEligibleItems: 0,
           reviewed: false,

@@ -439,6 +439,20 @@ item phụ thuộc audio vẫn silent, năm batch có 0 approval và toàn bộ 
 chưa qua human review/release. Đây là một trong năm discourse domain của
 paragraph input và mới 5/55 lesson toàn HSK3, nên chưa dùng điểm D cuối cùng.
 
+Lát domain học tập–công việc HSK3 tiếp tục giữ tiến độ ở **81%**. Năm lesson
+mới exact-partition 107 vocabulary blueprint thành 10 graded
+reading/listening text với 80 dòng Hanzi–Pinyin–Việt, 321 vocabulary practice,
+50 câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể lại—391 practice item.
+Cộng domain đời sống cá nhân, 2/5 discourse domain và 10/25 paragraph lesson
+đã được author, bao phủ 207 vocabulary draft, 20 text/160 dòng và 761 practice
+item. Bộ dựng/validator dùng chung khóa source và prerequisite digest, exact
+partition, text coverage, item identity và fail-closed eligibility để ba
+domain paragraph còn lại không nhân bản logic. 277 item cộng dồn phụ thuộc
+audio vẫn silent; 10 batch có 0 approval và không nội dung nào learner-visible,
+measurement/mastery hay release-eligible. Vì 15 narration/grammar, 15 guided
+production, assessment, review và runtime HSK3 vẫn chưa được author, lát này
+chưa dùng điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

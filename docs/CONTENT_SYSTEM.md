@@ -394,6 +394,25 @@ partition, text coverage, practice answer/options, duplicate ID, prior-pack
 hash và bốn review batch. Hoàn thành authoring draft của một domain không tự
 hoàn thành HSK3 hoặc cấp mastery.
 
+`content/drafts/hsk3-study-work-paragraph-domain-2026.07.json` là domain
+paragraph thứ hai, gồm đủ 5 lesson môn học–phương pháp, môi trường trường học,
+quy trình văn phòng, phối hợp đồng nghiệp và kinh nghiệm nghề nghiệp. Artifact
+exact-partition 107 vocabulary blueprint thành 10 graded text/80 dòng, 321
+vocabulary item, 50 câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể lại—391
+practice item. Khi cộng domain đời sống cá nhân, HSK3 hiện có 2/5 paragraph
+domain, 10/25 paragraph lesson, 207 vocabulary draft, 20 text/160 dòng và 761
+practice item.
+
+Logic dựng và validation dùng chung nằm ở
+`scripts/content/hsk3-paragraph-domain-builder.mjs` và
+`src/content/hsk3ParagraphDomainPack.mjs`; các domain tiếp theo phải dùng cùng
+contract thay vì sao chép validator. Chạy
+`content:hsk3:study-work-domain -- --write` để tái tạo; `--check` và
+`content:hsk3:study-work-domain:validate` khóa source/prerequisite hash, exact
+vocabulary partition, text coverage, đáp án/options, ID và năm review batch.
+142 item mới phụ thuộc audio vẫn có audio `null`; review, approval,
+measurement, mastery, learner visibility và release eligibility đều bằng 0.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107
