@@ -223,6 +223,29 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk2LevelAssessment,
+    ).toEqual({
+      forms: 2,
+      itemsPerForm: 86,
+      totalItems: 172,
+      objectiveItems: 120,
+      constructedResponseItems: 52,
+      listeningItems: 30,
+      readingItems: 30,
+      vocabularyItems: 30,
+      grammarItems: 30,
+      speakingItems: 20,
+      writingItems: 32,
+      sourceEntityOverlapBetweenForms: 0,
+      reviewBatches: 12,
+      reviewedItems: 0,
+      calibratedItems: 0,
+      measurementEligibleItems: 0,
+      independentFormsComplete: true,
+      reviewedAudioComplete: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2VocabularyPractice,
     ).toEqual({
       lessons: 20,

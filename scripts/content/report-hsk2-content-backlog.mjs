@@ -33,6 +33,10 @@ import {
   assertValidHsk2ShortTextProductionBundle,
   loadHsk2ShortTextProductionBundle,
 } from "../../src/content/hsk2ShortTextProduction.mjs";
+import {
+  assertValidHsk2LevelAssessmentBundle,
+  loadHsk2LevelAssessmentBundle,
+} from "../../src/content/hsk2LevelAssessment.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -61,6 +65,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const productionBundle = loadHsk2ShortTextProductionBundle(root);
   const productionResult =
     assertValidHsk2ShortTextProductionBundle(productionBundle);
+  const assessmentBundle = loadHsk2LevelAssessmentBundle(root);
+  const assessmentResult =
+    assertValidHsk2LevelAssessmentBundle(assessmentBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -91,8 +98,10 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       situationalDialoguePackSha256: fileSha256(situationalBundle.packPath),
       shortTextProductionPackId: productionBundle.pack.packId,
       shortTextProductionPackSha256: fileSha256(productionBundle.packPath),
+      levelAssessmentBankId: assessmentBundle.bank.bankId,
+      levelAssessmentBankSha256: fileSha256(assessmentBundle.bankPath),
     },
-    stage: "short-text-production-authoring",
+    stage: "level-assessment-authoring",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -136,6 +145,12 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       shortTextModelSentences: productionResult.summary.modelSentences,
       productiveCharacterPromptMappings:
         productionResult.summary.targetCharacterPromptMappings,
+      levelAssessmentForms: assessmentResult.summary.forms,
+      levelAssessmentDraftItems: assessmentResult.summary.totalItems,
+      levelAssessmentObjectiveItems:
+        assessmentResult.summary.objectiveItems,
+      levelAssessmentConstructedResponseItems:
+        assessmentResult.summary.constructedResponseItems,
       pronunciationCompatible:
         entries.length - pronunciationReviewItems.length,
       vietnameseGlossReviewed: 0,
@@ -202,6 +217,28 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         productionResult.summary.audioDependentPrompts,
       reviewedDictationAudioPrompts:
         productionResult.summary.reviewedAudioPrompts,
+      levelAssessmentListeningItems:
+        assessmentResult.summary.listeningItems,
+      levelAssessmentReadingItems:
+        assessmentResult.summary.readingItems,
+      levelAssessmentVocabularyItems:
+        assessmentResult.summary.vocabularyItems,
+      levelAssessmentGrammarItems:
+        assessmentResult.summary.grammarItems,
+      levelAssessmentSpeakingItems:
+        assessmentResult.summary.speakingItems,
+      levelAssessmentWritingItems:
+        assessmentResult.summary.writingItems,
+      pendingAssessmentReviewBatches:
+        assessmentResult.summary.reviewBatches,
+      reviewedAssessmentItems:
+        assessmentResult.summary.reviewedItems,
+      calibratedAssessmentItems:
+        assessmentResult.summary.calibratedItems,
+      assessmentSourceEntityOverlapBetweenForms:
+        assessmentResult.summary.sourceEntityOverlapBetweenForms,
+      measurementEligibleAssessmentItems:
+        assessmentResult.summary.measurementEligibleItems,
       characterContextGaps: characterBundle.pack.characters.filter(
         (item) => item.primaryContext === null,
       ).map((item) => ({
@@ -223,7 +260,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics and short-text production stages have bounded draft practice or context, but assessment prompts, complete vocabulary context/stroke metadata, linguistic review, audio and runtime release are incomplete.",
+        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics, short-text production and two source-disjoint level-assessment forms have bounded drafts, but complete vocabulary context/stroke metadata, linguistic review, audio, calibration and runtime release are incomplete.",
     },
   };
 };

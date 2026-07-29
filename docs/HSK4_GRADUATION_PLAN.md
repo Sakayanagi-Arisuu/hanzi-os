@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **78%**.
+Status: **in progress** at project progress **79%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **78%**.
+Status: **in progress** at project progress **79%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -143,9 +143,9 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 10 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character/grammar và situational-dialogue practice |
-| E. Assessment và mock HSK0-4 | 10 | 5 | diagnostic, level-check blueprint, 50 objective item draft, timed mock và rubric |
+| E. Assessment và mock HSK0-4 | 10 | 6 | diagnostic, level-check blueprint, 2 form HSK2 độc lập ở lớp nguồn, objective/performance draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **78** | **Tiến độ hiện tại: 78%** |
+| **Tổng** | **100** | **79** | **Tiến độ hiện tại: 79%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -371,6 +371,17 @@ chứ không xóa gap official-vocabulary của `留`. Ba mươi sáu audio vẫ
 measurement/mastery/release-ineligible. Trụ cột D giữ 29/30 để không tuyên bố
 coverage HSK0–4 hoàn chỉnh khi assessment HSK2 và toàn bộ content HSK3–4 chưa
 có.
+
+Lát assessment HSK2 đầu tăng trụ cột E thêm 1 điểm, đưa tiến độ lên **79%**.
+Hai form nguồn độc lập, mỗi form 86 mục, đã được author thành bank 172 mục:
+30 nghe, 30 đọc, 30 từ vựng, 30 ngữ pháp, 20 nói và 32 viết. Tổng 120 câu
+khách quan và 52 bài tạo lập đều khai báo đúng một kỹ năng; 20 bài nói phủ đủ
+17 task/34 topic và 32 bài viết lấy từ toàn bộ prompt message/picture. Hai
+form có 0 thực thể nguồn trùng nhau và 12 review batch chia exact toàn bank.
+Đây vẫn là source-exposed draft: 30 audio là `null`, rubric chưa duyệt,
+cut score/calibration chưa có, và mọi item đều 0 measurement/mastery/
+prerequisite-waiver/release-eligible. Điểm tăng chỉ ghi nhận independent-form
+authoring có thể review, không tuyên bố bài cuối cấp HSK2 đã sẵn sàng.
 
 ## 6. Quy tắc cập nhật phần trăm
 

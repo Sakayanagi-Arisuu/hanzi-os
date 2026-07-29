@@ -1,6 +1,6 @@
 # HANZI.OS implementation checkpoint
 
-Date: 28 July 2026
+Date: 29 July 2026
 
 This is a local engineering checkpoint, not production release evidence.
 
@@ -11,15 +11,15 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **78%**.
+Active progress: **79%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 10 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units and HSK2 has an exact three-unit scope with four situational strands, four grammar modules and four production stages. |
-| HSK0-4 content coverage | 29 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has exact blueprints plus vocabulary, character, grammar, situational-dialogue and short-text production drafts; assessment, reviewed content and audio remain. |
-| HSK0-4 assessment/mock | 5 / 10 | Diagnostic authority, an uncalibrated HSK1 blueprint and 50 hidden source-bound objective item drafts exist; reviewed independent forms, scored exams and timed mocks do not. |
+| HSK0-4 content coverage | 29 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has exact blueprints plus vocabulary, character, grammar, situational-dialogue and short-text production drafts; reviewed content and audio remain. |
+| HSK0-4 assessment/mock | 6 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and two source-disjoint 86-item HSK2 form drafts exist; reviewed audio/rubrics, calibrated scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
 The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
@@ -285,6 +285,19 @@ Every commit must update this percentage here and in the active roadmap.
   measurement/mastery/release-ineligible. Active progress remains **78%**
   rather than exhausting the content pillar while HSK2 assessment and all
   HSK3-4 content remain open.
+- Added two source-disjoint HSK2 assessment forms with 86 items each: 15
+  listening, 15 reading, 15 vocabulary, 15 grammar, 10 speaking and 16 writing
+  per form. Across both forms the bank contains 120 objective items and 52
+  constructed responses, while exact source-entity overlap remains zero.
+- Speaking prompts cover all 17 official tasks and 34 topics through the 20
+  situational lessons; writing prompts cover all 32 guided-message and
+  picture-description sources. Every item contributes to exactly one declared
+  skill, and 12 section/form review batches exact-partition the 172 items.
+- All 30 listening audio references remain null. The bank is source-exposed,
+  unreviewed and uncalibrated, with no cut score, measurement, mastery,
+  prerequisite waiver or release eligibility. Independent authoring raises
+  the assessment pillar by one point and active progress to **79%**; it does
+  not make the HSK2 level check issuable.
 
 ## Repository state
 
@@ -604,7 +617,11 @@ the applicable gates to run again before the next checkpoint commit.
     picture-description), 168 model sentences, 125 exact character-prompt
     mappings and 10 pending review batches; 0 reviewed audio, approval,
     measurement/mastery or release-eligible item
-  - Vitest: 165 files, 1,309 tests passed
+  - HSK2 level-assessment draft bank: 2 source-disjoint forms, 86 items per
+    form, 120 objective items and 52 speaking/writing responses across 12
+    pending review batches; 0 reviewed audio, calibration, measurement,
+    mastery, prerequisite waiver or release-eligible item
+  - Vitest: 166 files, 1,314 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
@@ -613,7 +630,7 @@ the applicable gates to run again before the next checkpoint commit.
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,875 ms; CLS: 0; TBT: 126 ms
+  - Median performance: 98; LCP: 1,887 ms; CLS: 0; TBT: 84 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -638,12 +655,13 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Use the exact local workflow for a bounded human HSK1 review sample; do not
-   promote receipts or assessment items until all required roles and
-   calibration evidence exist.
-2. Continue the active HSK2 content factory with bounded, skill-separated
-   assessment prompts and independent-form planning, while the human HSK1
-   review track and HSK0 audio sourcing proceed separately.
+1. Package the HSK2 draft artifacts and 172 assessment items into one
+   exact-hash, role-separated local review manifest and workflow; do not
+   promote receipts or items until all required roles and calibration evidence
+   exist.
+2. Start the distinct HSK3 scope/content factory after the HSK2 review queue is
+   executable, while human HSK1/2 review and HSK0 audio sourcing proceed as
+   separate tracks.
 3. Finish the remaining G2 placement/progress work when reviewed content can
    exercise it; keep imports unpublished until provenance and linguistic gates
    pass.

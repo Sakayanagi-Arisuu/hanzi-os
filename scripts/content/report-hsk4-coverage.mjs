@@ -46,6 +46,10 @@ import {
   loadHsk2ShortTextProductionBundle,
 } from "../../src/content/hsk2ShortTextProduction.mjs";
 import {
+  assertValidHsk2LevelAssessmentBundle,
+  loadHsk2LevelAssessmentBundle,
+} from "../../src/content/hsk2LevelAssessment.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -128,6 +132,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     loadHsk2ShortTextProductionBundle(root);
   const hsk2ShortTextProductionResult =
     assertValidHsk2ShortTextProductionBundle(hsk2ShortTextProduction);
+  const hsk2LevelAssessment = loadHsk2LevelAssessmentBundle(root);
+  const hsk2LevelAssessmentResult =
+    assertValidHsk2LevelAssessmentBundle(hsk2LevelAssessment);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -492,6 +499,35 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           measurementEligibleItems:
             hsk2ShortTextProductionResult.summary.measurementEligibleItems,
           reviewed: false,
+          learnerVisible: false,
+        },
+        hsk2LevelAssessment: {
+          forms: hsk2LevelAssessmentResult.summary.forms,
+          itemsPerForm: hsk2LevelAssessmentResult.summary.itemsPerForm,
+          totalItems: hsk2LevelAssessmentResult.summary.totalItems,
+          objectiveItems:
+            hsk2LevelAssessmentResult.summary.objectiveItems,
+          constructedResponseItems:
+            hsk2LevelAssessmentResult.summary.constructedResponseItems,
+          listeningItems:
+            hsk2LevelAssessmentResult.summary.listeningItems,
+          readingItems: hsk2LevelAssessmentResult.summary.readingItems,
+          vocabularyItems:
+            hsk2LevelAssessmentResult.summary.vocabularyItems,
+          grammarItems: hsk2LevelAssessmentResult.summary.grammarItems,
+          speakingItems: hsk2LevelAssessmentResult.summary.speakingItems,
+          writingItems: hsk2LevelAssessmentResult.summary.writingItems,
+          sourceEntityOverlapBetweenForms:
+            hsk2LevelAssessmentResult.summary
+              .sourceEntityOverlapBetweenForms,
+          reviewBatches: hsk2LevelAssessmentResult.summary.reviewBatches,
+          reviewedItems: hsk2LevelAssessmentResult.summary.reviewedItems,
+          calibratedItems:
+            hsk2LevelAssessmentResult.summary.calibratedItems,
+          measurementEligibleItems:
+            hsk2LevelAssessmentResult.summary.measurementEligibleItems,
+          independentFormsComplete: true,
+          reviewedAudioComplete: false,
           learnerVisible: false,
         },
         hsk1PersonalExchange: {

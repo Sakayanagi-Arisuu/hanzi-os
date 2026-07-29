@@ -288,6 +288,21 @@ Vietnamese editorial, writing-pedagogy và assessment review; batch nghe-chép
 còn chờ audio-rights. Vì vậy pack có 0 approval, measurement/mastery và
 release-eligible item, không được coi là writing hoặc HSK2 mastery.
 
+`content/drafts/hsk2-level-assessment-2026.07.json` chứa hai form HSK2
+source-disjoint, mỗi form 86 mục: 15 nghe, 15 đọc, 15 từ vựng, 15 ngữ pháp,
+10 nói và 16 viết. Tổng bank có 120 mục khách quan và 52 constructed response.
+Mỗi item chỉ ghi evidence cho đúng một skill; speaking phủ toàn bộ 17 task/34
+topic, còn writing dùng đủ 32 prompt guided-message/picture-description. Hai
+form không chia sẻ source entity và 12 batch form/section exact-partition đủ
+172 item.
+
+Chạy `content:hsk2:level-assessment -- --write` để tái tạo; `--check` cùng
+`content:hsk2:level-assessment:validate` khóa source hash, form partition,
+skill isolation, option/answer, coverage và fail-closed eligibility. Đây là
+source-exposed authoring bank, chưa phải đề có thể phát hành: 30 audio vẫn
+`null`, speaking/writing rubric chưa review, chưa có cut score hoặc calibration,
+và 0 item được dùng cho measurement, mastery, prerequisite waiver hay release.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107
