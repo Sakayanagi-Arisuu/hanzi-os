@@ -493,8 +493,10 @@ mẫu/18 dòng và 45 practice item: 21 grammar-in-paragraph, 21
 discourse-error-correction, ba ordered retelling. Grammar-writing và
 speaking-retelling không suy diễn lẫn nhau; tự đối chiếu và browser ASR không
 cấp mastery. Ba batch có 0 approval, pack learner-hidden và 12 narration
-lesson, 15 guided-production lesson với 284 character mapping, assessment,
-review và runtime HSK3 vẫn còn thiếu nên chưa cộng điểm D cuối cùng.
+lesson, 15 guided-production lesson, assessment, review và runtime HSK3 vẫn
+còn thiếu nên chưa cộng điểm D cuối cùng. 284 character mapping thực tế đã
+được exact-partition ở paragraph-input theo ngữ cảnh từ vựng; guided
+production tiêu thụ prerequisite này thay vì nhận ownership mới.
 
 Module modality–time–viewpoint HSK3 giữ tiến độ ở **81%**, bổ sung ba lesson,
 27 grammar row, 27 ví dụ/cặp sửa lỗi, ba tường thuật mẫu/18 dòng và 57
@@ -535,6 +537,16 @@ row, 15 tường thuật/90 dòng và 207 practice item. Điều kiện giả đ
 measurement/mastery/release-ineligible. Narration authoring đã hoàn thành
 nhưng 15 guided-production lesson, assessment, review và runtime HSK3 còn
 thiếu nên chưa dùng điểm D cuối cùng.
+
+Stage main-idea/detail-notes HSK3 giữ tiến độ ở **81%**, author 3/15 guided
+production lesson với 24 prompt unit trên 24 source text/192 dòng. Tám prompt
+đọc, tám prompt nghe và tám prompt đối chiếu nghe–đọc tạo 16 input đọc, 16
+input nghe; mọi prompt bind dòng bằng chứng, bốn ô trả lời và checklist tự
+sửa. Stage tạo 0 character ownership claim mới, model reveal/TTS không cấp
+mastery; 16 prompt audio-dependent chưa review, ba batch có 0 approval và pack
+learner-hidden, measurement/mastery/release-ineligible. 12 guided-production
+lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng điểm D cuối
+cùng.
 
 ## 6. Quy tắc cập nhật phần trăm
 

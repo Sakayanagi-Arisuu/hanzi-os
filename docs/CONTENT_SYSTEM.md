@@ -472,7 +472,9 @@ official row, blueprint, prerequisite và item partition. Grammar-writing và
 speaking-retelling được giữ thành hai loại evidence; bài tự sửa hoặc tự thu
 không cấp mastery. Ba review batch có 0 approval và pack vẫn learner-hidden.
 Theo blueprint, recognition character không nằm trong 15 narration/grammar
-lesson mà được exact-partition riêng ở 15 guided-production lesson.
+lesson. Cả 284 mapping đã được exact-partition ở 25 paragraph-input lesson
+theo ngữ cảnh từ vựng; guided production chỉ tiêu thụ prerequisite này và
+không tạo ownership hoặc character-mastery claim mới.
 
 `content/drafts/hsk3-modality-time-narration-grammar-2026.07.json` là module
 narration/grammar thứ hai với ba lesson về nhu cầu–lời khuyên sức khỏe, thời
@@ -527,6 +529,20 @@ Chạy `content:hsk3:discourse-linking-narration -- --write` để tái tạo;
 dùng chung. Cả năm module đạt 15/15 narration lesson, 96/96 grammar row, 15
 tường thuật/90 dòng và 207 practice item; 15 batch có 0 approval và không
 item nào đủ điều kiện measurement, mastery, learner visibility hay release.
+
+`content/drafts/hsk3-main-idea-detail-notes-2026.07.json` mở guided production
+bằng ba lesson/24 prompt unit trên 24 văn bản nguồn/192 dòng. Tám prompt dùng
+đọc, tám dùng nghe và tám buộc đối chiếu một bài đọc với một bài nghe, nên
+tổng cộng có 16 prompt chứa input đọc và 16 prompt chứa input nghe. Mỗi prompt
+bind exact source text, dòng bằng chứng, bốn ô ghi chú và checklist tự sửa;
+xem model chỉ mở vòng revision, không cấp mastery.
+
+Chạy `content:hsk3:guided-notes -- --write` để tái tạo; `--check` và
+`content:hsk3:guided-notes:validate` khóa paragraph-source chain, narration
+prerequisite, exact prompt count và evidence separation. 16 prompt phụ thuộc
+audio vẫn chưa có audio review; ba batch có 0 approval, toàn bộ stage
+learner-hidden và measurement/mastery/release-ineligible. Stage tiêu thụ 284
+character mapping từ paragraph prerequisite nhưng tạo 0 ownership claim mới.
 
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38

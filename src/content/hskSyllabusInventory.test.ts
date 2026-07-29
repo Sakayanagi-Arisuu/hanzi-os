@@ -289,6 +289,30 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings
+        .hsk3GuidedProductionStagesDraft,
+    ).toEqual({
+      lessons: 3,
+      completedGuidedProductionStages: 1,
+      completedGuidedProductionLessons: 3,
+      sourceTexts: 24,
+      sourceTextLines: 192,
+      promptUnits: 24,
+      readingInputPromptUnits: 16,
+      listeningInputPromptUnits: 16,
+      integratedListeningReadingPromptUnits: 8,
+      revisionChecklists: 24,
+      audioDependentPromptUnits: 16,
+      reviewedAudioPromptUnits: 0,
+      measurementEligibleItems: 0,
+      masteryEligibleItems: 0,
+      reviewBatches: 3,
+      approvals: 0,
+      releaseEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2CharacterPractice,
     ).toEqual({
       lessons: 10,

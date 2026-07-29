@@ -54,9 +54,9 @@ import {
   loadHsk3CultureTraditionDomainPackBundle,
 } from "../../src/content/hsk3CultureTraditionDomainPack.mjs";
 import {
-  assertValidHsk3DiscourseLinkingNarrationPackBundle,
-  loadHsk3DiscourseLinkingNarrationPackBundle,
-} from "../../src/content/hsk3DiscourseLinkingNarrationPack.mjs";
+  assertValidHsk3GuidedNotesPackBundle,
+  loadHsk3GuidedNotesPackBundle,
+} from "../../src/content/hsk3GuidedNotesPack.mjs";
 import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
@@ -189,12 +189,13 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk3CultureTraditionDomainPackBundle(
       hsk3CultureTraditionDomain,
     );
-  const hsk3DiscourseLinkingNarration =
-    loadHsk3DiscourseLinkingNarrationPackBundle(root);
-  const hsk3DiscourseLinkingNarrationResult =
-    assertValidHsk3DiscourseLinkingNarrationPackBundle(
-      hsk3DiscourseLinkingNarration,
-    );
+  const hsk3GuidedNotes = loadHsk3GuidedNotesPackBundle(root);
+  const hsk3GuidedNotesResult =
+    assertValidHsk3GuidedNotesPackBundle(hsk3GuidedNotes);
+  const hsk3DiscourseLinkingNarration = hsk3GuidedNotes.narrationBundle;
+  const hsk3DiscourseLinkingNarrationResult = {
+    summary: hsk3DiscourseLinkingNarration.pack.counts,
+  };
   const hsk3ComparisonEvaluationNarration =
     hsk3DiscourseLinkingNarration.prerequisiteBundles[0];
   const hsk3EventComplementsNarration =
@@ -779,6 +780,11 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             + hsk3ComparisonEvaluationNarrationResult.summary.reviewBatches
             + hsk3DiscourseLinkingNarrationResult.summary.reviewBatches,
           measurementEligibleItems: 0,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk3GuidedProductionStagesDraft: {
+          ...hsk3GuidedNotesResult.summary,
           reviewed: false,
           learnerVisible: false,
         },
