@@ -373,6 +373,16 @@ Every commit must update this percentage here and in the active roadmap.
 - All 277 combined audio-dependent items remain silent and all ten batches
   have zero approval. Narration/grammar, guided production, assessment,
   runtime and HSK3 completion remain false, so active progress stays **81%**.
+- Authored all five HSK3 nature/environment paragraph lessons across
+  climate/seasons, plants/animals, landscape/directions, environmental state
+  and protection responses. The exact partition adds 100 vocabulary drafts,
+  10 eight-line texts and 370 practice items: 300 vocabulary items, 50
+  comprehension items, ten note grids and ten summaries/retellings.
+- Three of five paragraph domains now total 15/25 paragraph lessons, 307
+  vocabulary drafts, 30 texts/240 lines and 1,131 practice items. All 412
+  audio-dependent items remain silent and all 15 batches have zero approval.
+  The remaining paragraph, narration/grammar, guided production, assessment,
+  runtime and HSK3 completion work keeps active progress at **81%**.
 
 ## Repository state
 
@@ -670,9 +680,15 @@ the applicable gates to run again before the next checkpoint commit.
     comprehension items, 10 note grids and 10 summaries/retellings; 391 total
     practice items, 142 audio-dependent and 0 reviewed audio, approval,
     measurement/mastery or release eligibility
-  - combined HSK3 paragraph authoring: 2/5 discourse domains, 10/25 paragraph
-    lessons, 207 vocabulary drafts, 20 texts/160 lines and 761 practice items;
-    277 audio-dependent, 10 pending review batches and 0 learner-visible item
+  - complete HSK3 nature/environment paragraph domain draft: 5 lessons, 100
+    vocabulary drafts, 10 texts/80 lines, 300 vocabulary items, 50
+    comprehension items, 10 note grids and 10 summaries/retellings; 370 total
+    practice items, 135 audio-dependent and 0 reviewed audio, approval,
+    measurement/mastery or release eligibility
+  - current combined HSK3 paragraph authoring: 3/5 discourse domains, 15/25
+    paragraph lessons, 307 vocabulary drafts, 30 texts/240 lines and 1,131
+    practice items; 412 audio-dependent, 15 pending review batches and 0
+    learner-visible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -730,16 +746,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 174 files, 1,349 tests passed
+  - Vitest: 175 files, 1,354 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 96 / 95 / 96, median 96
+  - Performance: 97 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,969 ms; CLS: 0; TBT: 178 ms
+  - Median LCP: 1,890 ms; CLS: 0; TBT: 93 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -764,9 +780,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author the five HSK3 nature/environment paragraph lessons with bounded
+1. Author the five HSK3 society/arts/sports paragraph lessons with bounded
    Vietnamese drafts, graded reading/listening texts and skill-separated
-   comprehension, then continue through the remaining two paragraph domains.
+   comprehension, then complete the final culture/tradition paragraph domain.
 2. Continue HSK3 character, grammar, narration and productive practice behind
    the same unpublished review gates, while human HSK1/2 review and HSK0 audio
    sourcing proceed as separate tracks.

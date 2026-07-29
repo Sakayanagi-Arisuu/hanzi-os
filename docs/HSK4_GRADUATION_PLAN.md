@@ -453,6 +453,17 @@ measurement/mastery hay release-eligible. Vì 15 narration/grammar, 15 guided
 production, assessment, review và runtime HSK3 vẫn chưa được author, lát này
 chưa dùng điểm D cuối cùng.
 
+Lát tự nhiên–môi trường HSK3 giữ tiến độ ở **81%**. Năm lesson mới bao quát
+khí hậu, động thực vật, cảnh quan/phương hướng, hiện trạng và giải pháp môi
+trường; 100 vocabulary blueprint được exact-partition thành 10 graded
+text/80 dòng, 300 vocabulary practice, 50 câu hiểu đoạn, 10 note grid và 10
+bài tóm tắt/kể lại—370 practice item. Ba domain paragraph cộng dồn đạt 15/25
+lesson, 307 vocabulary draft, 30 text/240 dòng và 1.131 practice item. 412
+item phụ thuộc audio vẫn silent; 15 batch có 0 approval và toàn bộ content
+vẫn learner-hidden, measurement/mastery/release-ineligible. Hai domain
+paragraph, 30 lesson narration/grammar và guided production, assessment,
+review và runtime HSK3 còn thiếu nên chưa dùng điểm D cuối cùng.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

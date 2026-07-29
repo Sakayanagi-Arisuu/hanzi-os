@@ -413,6 +413,20 @@ vocabulary partition, text coverage, đáp án/options, ID và năm review batch
 142 item mới phụ thuộc audio vẫn có audio `null`; review, approval,
 measurement, mastery, learner visibility và release eligibility đều bằng 0.
 
+`content/drafts/hsk3-nature-environment-paragraph-domain-2026.07.json` hoàn
+thiện domain paragraph thứ ba: khí hậu–mùa, động thực vật, cảnh quan–phương
+hướng, hiện trạng môi trường và giải pháp bảo vệ. Năm lesson exact-partition
+100 vocabulary blueprint thành 10 graded text/80 dòng, 300 vocabulary item,
+50 câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể lại—370 practice item.
+Chạy `content:hsk3:nature-environment-domain -- --write` để tái tạo; `--check`
+và `content:hsk3:nature-environment-domain:validate` giữ cùng contract
+source/prerequisite/text/practice/review fail-closed.
+
+Ba domain cộng dồn có 15/25 paragraph lesson, 307 vocabulary draft, 30
+text/240 dòng và 1.131 practice item. 412 item phụ thuộc audio vẫn silent, 15
+review batch có 0 approval; không artifact nào được learner-visible hoặc dùng
+cho measurement/mastery/release trước human review.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107
