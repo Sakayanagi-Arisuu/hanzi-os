@@ -177,6 +177,39 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk3VocabularyBacklog,
+    ).toEqual({
+      officialVocabulary: 500,
+      sourceMatched: 500,
+      sourceMatches: 529,
+      multipleSourceMatchEntries: 24,
+      pronunciationReviewPending: 8,
+      vietnameseGlossReviewed: 0,
+      releaseEligible: 0,
+      learnerVisible: false,
+    });
+    expect(
+      report.currentCoverage.draftBlueprintMappings.hsk3LessonBlueprints,
+    ).toEqual({
+      lessons: 55,
+      paragraphInputLessons: 25,
+      narrationGrammarLessons: 15,
+      guidedProductionLessons: 15,
+      tasks: 22,
+      topics: 54,
+      vocabulary: 500,
+      grammarRows: 96,
+      recognitionCharacters: 284,
+      sourceSenseKeywordMatches: 287,
+      foundationFallbackVocabulary: 213,
+      charactersWithIncrementalVocabularyContext: 283,
+      charactersWithoutIncrementalVocabularyContext: 1,
+      plannedMinimumPromptUnits: 92,
+      authoredPracticeItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk2CharacterPractice,
     ).toEqual({
       lessons: 10,

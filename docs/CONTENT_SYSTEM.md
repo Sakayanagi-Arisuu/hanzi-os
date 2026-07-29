@@ -339,6 +339,30 @@ distinct evidence modes và fail-closed claims. Scope vẫn learner-hidden, chư
 phải lesson/practice coverage, không cấp mastery và không chứng minh HSK3 hoàn
 thành.
 
+Nguồn làm giàu HSK3 dùng cùng Debian CC-CEDICT repack đã ghim cho HSK2:
+archive `cc-cedict_0.0~repack20260403.orig.tar.xz` và payload
+`cedict_ts.u8` đều phải khớp byte length/SHA-256 trong source descriptor.
+`content:hsk3:import` chỉ chạy với hai file reconstruction local và sinh
+`content/drafts/hsk3-vocabulary-2026.07.29.json`; artifact đã commit chứa đủ
+500 mục HSK3, 529 source match, 24 mục nhiều candidate và 8 pronunciation
+review item. Không source sense tiếng Anh nào được coi là nghĩa Việt đã review.
+
+`content/drafts/hsk3-lesson-blueprints-2026.07.json` hiện thực hóa 55 lesson:
+25 paragraph input, 15 narration/grammar và 15 guided production. Nó
+exact-partition 22 task, 54 topic, 500 vocabulary, 96 grammar row và 284
+recognition character, dùng một chuỗi prerequisite không cycle. Năm production
+stage giữ tối thiểu 92 prompt unit nhưng chưa author prompt.
+
+Phân loại từ vựng dùng keyword score trên chữ giản thể và source sense. 287 mục
+có ít nhất một tín hiệu; 213 từ chức năng/liên miền không đủ tín hiệu được ghi
+rõ `cross-domain-foundation-fallback`, không được tuyên bố là semantic match.
+283/284 chữ có context trong chính 500 từ tăng thêm; một gap được giữ tường
+minh. Chạy `content:hsk3:lesson-blueprints -- --write` để tái tạo; `--check`,
+`content:hsk3:vocabulary:validate` và
+`content:hsk3:lesson-blueprints:validate` là gate bắt buộc. Tất cả 55 review
+batch đang pending; practice, rubric, approval, measurement, mastery, learner
+visibility và release eligibility vẫn bằng 0.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **80%**.
+Status: **in progress** at project progress **81%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **80%**.
+Status: **in progress** at project progress **81%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **80%**.
+Status: **in progress** at project progress **81%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -143,11 +143,11 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | --- | ---: | ---: | --- |
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 11 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, HSK3 scope cấp đoạn/tường thuật/sản sinh, prerequisite, placement và level progress |
+| C. Lộ trình HSK0-4 khác biệt | 15 | 12 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, HSK3 có 55 lesson blueprint cấp đoạn/tường thuật/sản sinh, prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character/grammar và situational-dialogue practice |
 | E. Assessment và mock HSK0-4 | 10 | 6 | diagnostic, level-check blueprint, 2 form HSK2 độc lập ở lớp nguồn, objective/performance draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **80** | **Tiến độ hiện tại: 80%** |
+| **Tổng** | **100** | **81** | **Tiến độ hiện tại: 81%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -405,6 +405,19 @@ lesson và năm stage sản sinh với tối thiểu 92 prompt: ghi chú ý chí
 dựng liên kết đoạn, kể lại từ ghi chú, viết đoạn 6–8 câu và giải thích/so sánh
 bằng lời. Đây chỉ là learner-hidden architecture; lesson/practice/review/
 runtime/HSK3 completion đều còn `false`, nên không tăng điểm nội dung.
+
+Lát G4 HSK3 thứ hai tăng trụ cột C thêm 1 điểm, đưa tiến độ lên **81%**.
+Pipeline CC-CEDICT ghim đúng archive/payload và làm giàu đủ 500/500 mục từ
+HSK3: 529 source match, 24 mục nhiều candidate và 8 pronunciation review item.
+Trên nguồn đó, 55 lesson blueprint được tạo thành 25 bài paragraph input, 15
+bài narration/grammar và 15 bài guided production, với một chuỗi prerequisite
+không cycle và exact partition đủ 22 task, 54 topic, 500 vocabulary, 96 grammar
+row và 284 recognition character. Phân loại ghi rõ 287 source-sense keyword
+match, 213 cross-domain foundation fallback không mang claim ngữ nghĩa, 283
+character có context trong increment và một gap. Điểm tăng ghi nhận lesson
+architecture/prerequisite có thể kiểm chứng trong G2, không tính generated
+file hay số dòng. Cả 55 batch vẫn pending và authored practice/rubric/approval/
+measurement/mastery/runtime/release đều bằng 0, nên trụ cột D không tăng.
 
 ## 6. Quy tắc cập nhật phần trăm
 

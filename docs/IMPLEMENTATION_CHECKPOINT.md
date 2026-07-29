@@ -11,13 +11,13 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **80%**.
+Active progress: **81%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
-| Distinct HSK0-4 paths | 11 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units, HSK2 has an exact three-unit scope, and HSK3 now has a distinct paragraph-input, narration and guided-production scope. |
+| Distinct HSK0-4 paths | 12 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1 has six units, HSK2 has an exact three-unit scope, and HSK3 now has 55 distinct paragraph-input, narration and guided-production lesson blueprints. |
 | HSK0-4 content coverage | 29 / 30 | HSK0 has a source-bound pronunciation draft, HSK1 has contextual draft practice, and HSK2 has exact blueprints plus vocabulary, character, grammar, situational-dialogue and short-text production drafts; reviewed content and audio remain. |
 | HSK0-4 assessment/mock | 6 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and two source-disjoint 86-item HSK2 form drafts exist; reviewed audio/rubrics, calibrated scored exams and timed mocks do not. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
@@ -320,6 +320,22 @@ Every commit must update this percentage here and in the active roadmap.
   six-to-eight-sentence paragraphs and spoken explanation/comparison. It is
   learner-hidden and grants no lesson coverage or mastery. This differentiated
   route raises active progress to **80%**.
+- Pinned the HSK3 vocabulary enrichment to the exact Debian CC-CEDICT archive
+  and UTF-8 payload already governed in the source descriptor. All 500 official
+  HSK3 records resolve to 529 source matches; 24 multiple-candidate records and
+  8 pronunciation drifts remain explicit review work.
+- Added 55 learner-hidden HSK3 lesson blueprints: 25 paragraph input, 15
+  narration/grammar and 15 guided production. One ordered prerequisite chain
+  exact-partitions all 22 tasks, 54 topics, 500 vocabulary records, 96 grammar
+  rows and 284 recognition characters.
+- Source-sense scoring provides a declared signal for 287 vocabulary records;
+  213 cross-domain/function records remain explicitly labelled foundation
+  fallback rather than receiving a false semantic claim. 283 characters have
+  an incremental vocabulary context and one gap remains visible.
+- All 55 review batches are pending and the pack has zero authored practice,
+  rubric, approval, measurement/mastery or release eligibility. This closes a
+  named G2 lesson-architecture/prerequisite deliverable and raises active
+  progress to **81%** without increasing content coverage.
 
 ## Repository state
 
@@ -592,7 +608,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact HSK3 authoring scope: 3 graph units, 5 discourse domains, 5 grammar
     modules, 5 production stages, 55 planned lesson blueprints, 92 planned
     prompt units, 22 tasks, 54 topics, 500 vocabulary, 96 grammar rows and 284
-    recognition characters; 0 lesson/practice/release coverage
+    recognition characters
+  - pinned HSK3 CC-CEDICT draft: 500/500 source-matched, 529 source matches,
+    24 multiple-match records, 8 pronunciation review items and 0
+    release-eligible item
+  - exact HSK3 lesson-blueprint pack: 25 paragraph-input, 15
+    narration/grammar and 15 guided-production lessons; all 22 tasks, 54
+    topics, 500 vocabulary, 96 grammar rows and 284 recognition characters
+    mapped; 287 source-sense keyword matches, 213 declared foundation
+    fallbacks, 283 incremental character contexts and one gap; 0 authored
+    practice, approval, mastery or release-eligible lesson
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -650,16 +675,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 169 files, 1,327 tests passed
+  - Vitest: 171 files, 1,334 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 98 / 97, median 97
+  - Performance: 98 / 95 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,901 ms; CLS: 0; TBT: 139 ms
+  - Median LCP: 1,878 ms; CLS: 0; TBT: 79 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -684,12 +709,12 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Start the distinct HSK3 scope and lesson architecture from the pinned
-   inventory, with paragraph/retelling/narrative strands that do not reuse the
-   HSK2 route shape.
-2. Author bounded HSK3 vocabulary/character/grammar/reading/listening and
-   productive practice behind the same unpublished review gates, while human
-   HSK1/2 review and HSK0 audio sourcing proceed as separate tracks.
+1. Author the first bounded HSK3 paragraph-input content pack: Vietnamese
+   editorial drafts, graded reading/listening source text and skill-separated
+   comprehension practice for a coherent lesson group.
+2. Continue HSK3 character, grammar, narration and productive practice behind
+   the same unpublished review gates, while human HSK1/2 review and HSK0 audio
+   sourcing proceed as separate tracks.
 3. Add HSK3 skill-separated assessment only after its learning-source
    partitions exist; finish remaining G2 placement/progress work when reviewed
    content can exercise it; keep imports unpublished until provenance and

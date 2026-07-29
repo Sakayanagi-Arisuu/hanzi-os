@@ -22,6 +22,14 @@ import {
   loadHsk3CurriculumScopeBundle,
 } from "../../src/content/hsk3CurriculumScope.mjs";
 import {
+  assertValidHsk3VocabularyDraftBundle,
+  loadHsk3VocabularyDraftBundle,
+} from "../../src/content/hsk3VocabularyDraft.mjs";
+import {
+  assertValidHsk3LessonBlueprintsBundle,
+  loadHsk3LessonBlueprintsBundle,
+} from "../../src/content/hsk3LessonBlueprints.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -119,6 +127,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk3Scope = loadHsk3CurriculumScopeBundle(root);
   const hsk3ScopeResult = assertValidHsk3CurriculumScopeBundle(hsk3Scope);
+  const hsk3Vocabulary = loadHsk3VocabularyDraftBundle(root);
+  const hsk3VocabularyResult =
+    assertValidHsk3VocabularyDraftBundle(hsk3Vocabulary);
+  const hsk3LessonBlueprints = loadHsk3LessonBlueprintsBundle(root);
+  const hsk3LessonBlueprintsResult =
+    assertValidHsk3LessonBlueprintsBundle(hsk3LessonBlueprints);
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
     assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
@@ -391,6 +405,54 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk0PronunciationResult.summary.reviewedAudioActivities,
           measurementEligibleActivities:
             hsk0PronunciationResult.summary.measurementEligibleActivities,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk3VocabularyBacklog: {
+          officialVocabulary:
+            hsk3VocabularyResult.counts.officialVocabulary,
+          sourceMatched: hsk3VocabularyResult.counts.sourceMatched,
+          sourceMatches: hsk3VocabularyResult.counts.sourceMatches,
+          multipleSourceMatchEntries:
+            hsk3VocabularyResult.counts.multipleSourceMatchEntries,
+          pronunciationReviewPending:
+            hsk3VocabularyResult.counts.pronunciationReviewPending,
+          vietnameseGlossReviewed:
+            hsk3VocabularyResult.counts.vietnameseGlossReviewed,
+          releaseEligible: hsk3VocabularyResult.counts.releaseEligible,
+          learnerVisible: false,
+        },
+        hsk3LessonBlueprints: {
+          lessons: hsk3LessonBlueprintsResult.summary.lessons,
+          paragraphInputLessons:
+            hsk3LessonBlueprintsResult.summary.paragraphInputLessons,
+          narrationGrammarLessons:
+            hsk3LessonBlueprintsResult.summary.narrationGrammarLessons,
+          guidedProductionLessons:
+            hsk3LessonBlueprintsResult.summary.guidedProductionLessons,
+          tasks: hsk3LessonBlueprintsResult.summary.taskBlueprintMappings,
+          topics: hsk3LessonBlueprintsResult.summary.topicBlueprintMappings,
+          vocabulary:
+            hsk3LessonBlueprintsResult.summary.vocabularyBlueprintMappings,
+          grammarRows:
+            hsk3LessonBlueprintsResult.summary.grammarBlueprintMappings,
+          recognitionCharacters:
+            hsk3LessonBlueprintsResult.summary
+              .recognitionCharacterBlueprintMappings,
+          sourceSenseKeywordMatches:
+            hsk3LessonBlueprintsResult.summary.sourceSenseKeywordMatches,
+          foundationFallbackVocabulary:
+            hsk3LessonBlueprintsResult.summary.foundationFallbackVocabulary,
+          charactersWithIncrementalVocabularyContext:
+            hsk3LessonBlueprintsResult.summary
+              .charactersWithIncrementalVocabularyContext,
+          charactersWithoutIncrementalVocabularyContext:
+            hsk3LessonBlueprintsResult.summary
+              .charactersWithoutIncrementalVocabularyContext,
+          plannedMinimumPromptUnits:
+            hsk3LessonBlueprintsResult.summary.plannedMinimumPromptUnits,
+          authoredPracticeItems:
+            hsk3LessonBlueprintsResult.summary.authoredPracticeItems,
           reviewed: false,
           learnerVisible: false,
         },
