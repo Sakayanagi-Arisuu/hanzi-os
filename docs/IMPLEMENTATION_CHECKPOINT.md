@@ -393,6 +393,18 @@ Every commit must update this percentage here and in the active roadmap.
   audio-dependent items remain silent and all 20 batches have zero approval.
   The final paragraph domain plus narration/grammar, guided production,
   assessment, runtime and HSK3 completion keep progress at **81%**.
+- Authored all five HSK3 culture/tradition paragraph lessons across regional
+  cuisine, table etiquette, festivals, bounded regional comparison and
+  intercultural visits. The exact partition adds 97 vocabulary drafts, ten
+  eight-line texts and 361 practice items: 291 vocabulary items, 50
+  comprehension items, ten note grids and ten summaries/retellings.
+- All five paragraph domains now close 25/25 paragraph-input lessons and all
+  500 HSK3 vocabulary mappings with 50 texts/400 lines and 1,850 practice
+  items. Cultural comparisons require sources and limitations rather than
+  turning examples into universal rules. All 675 audio-dependent items remain
+  silent, all 25 batches have zero approval and all content remains hidden.
+  Narration/grammar, guided production, assessment, runtime and HSK3
+  completion keep active progress at **81%**.
 
 ## Repository state
 
@@ -700,9 +712,14 @@ the applicable gates to run again before the next checkpoint commit.
     comprehension items, 10 note grids and 10 summaries/retellings; 358 total
     practice items, 131 audio-dependent and 0 reviewed audio, approval,
     measurement/mastery or release eligibility
-  - current combined HSK3 paragraph authoring: 4/5 discourse domains, 20/25
-    paragraph lessons, 403 vocabulary drafts, 40 texts/320 lines and 1,489
-    practice items; 543 audio-dependent, 20 pending review batches and 0
+  - complete HSK3 culture/tradition paragraph domain draft: 5 lessons, 97
+    vocabulary drafts, 10 texts/80 lines, 291 vocabulary items, 50
+    comprehension items, 10 note grids and 10 summaries/retellings; 361 total
+    practice items, 132 audio-dependent and 0 reviewed audio, approval,
+    measurement/mastery or release eligibility
+  - current combined HSK3 paragraph authoring: 5/5 discourse domains, 25/25
+    paragraph lessons, all 500 vocabulary drafts, 50 texts/400 lines and 1,850
+    practice items; 675 audio-dependent, 25 pending review batches and 0
     learner-visible item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
@@ -761,16 +778,19 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 176 files, 1,359 tests passed
+  - Vitest: 177 files, 1,364 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 99 / 97, median 99
+  - Performance: 96 / 98 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,885 ms; CLS: 0; TBT: 63 ms
+  - Median LCP: 1,881 ms; CLS: 0; TBT: 162 ms
+  - One immediately preceding cold three-run sample had median performance 94
+    from TBT variance and failed closed; the repeated sample above passed
+    without a code or threshold change.
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -795,10 +815,10 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Complete the five HSK3 culture/tradition paragraph lessons with bounded
-   Vietnamese drafts, graded reading/listening texts and skill-separated
-   comprehension, closing all 25 paragraph-input lessons.
-2. Continue HSK3 character, grammar, narration and productive practice behind
+1. Author the 15 HSK3 narration/grammar lessons with exact grammar and
+   recognition-character mappings, bounded explanations, model narration,
+   reconstruction and skill-separated practice.
+2. Continue the 15 guided-production lessons behind
    the same unpublished review gates, while human HSK1/2 review and HSK0 audio
    sourcing proceed as separate tracks.
 3. Add HSK3 skill-separated assessment only after its learning-source

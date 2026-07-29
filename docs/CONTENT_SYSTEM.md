@@ -441,6 +441,24 @@ text/320 dòng và 1.489 practice item. 543 item phụ thuộc audio vẫn silen
 20 review batch có 0 approval và không item nào đủ điều kiện measurement,
 mastery, learner visibility hay release.
 
+`content/drafts/hsk3-culture-tradition-paragraph-domain-2026.07.json` đóng
+domain paragraph HSK3 thứ năm bằng 5 lesson về ẩm thực vùng miền, phép lịch sự
+bàn ăn, lễ hội, so sánh vùng và giao tiếp liên văn hóa. Pack exact-partition
+97 vocabulary blueprint thành 10 graded text/80 dòng, 291 vocabulary item, 50
+câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể lại, tổng 361 practice item.
+Các đoạn so sánh văn hóa yêu cầu nêu nguồn, giới hạn và sự đa dạng nội vùng
+thay vì biến một ví dụ thành quy tắc tuyệt đối.
+
+Chạy `content:hsk3:culture-tradition-domain -- --write` để tái tạo; `--check`
+và `content:hsk3:culture-tradition-domain:validate` khóa exact source,
+prerequisite, text coverage và fail-closed review contract.
+
+Năm domain cộng dồn đóng đúng 25/25 paragraph-input lesson và toàn bộ 500
+vocabulary HSK3: 50 text/400 dòng cùng 1.850 practice item. 675 item phụ thuộc
+audio vẫn silent, 25 review batch có 0 approval và toàn bộ pack còn
+learner-hidden, measurement/mastery/release-ineligible. Đây là authoring
+coverage của mạch paragraph, không phải claim HSK3 đã review hay hoàn thành.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

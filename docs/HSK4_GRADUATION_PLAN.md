@@ -475,6 +475,17 @@ measurement/mastery/release-ineligible. Domain văn hóa–truyền thống, 30 
 narration/grammar và guided production, assessment, review và runtime HSK3
 còn thiếu nên chưa dùng điểm D cuối cùng.
 
+Lát văn hóa–truyền thống HSK3 giữ tiến độ ở **81%** và đóng đủ 5/5 discourse
+domain, 25/25 paragraph-input lesson cùng toàn bộ 500 vocabulary HSK3. Năm
+lesson cuối bổ sung 10 graded text/80 dòng và 361 practice item: 291
+vocabulary item, 50 câu hiểu đoạn, 10 note grid và 10 bài tóm tắt/kể lại. Toàn
+mạch paragraph hiện có 50 text/400 dòng, 1.850 practice item và 675 item phụ
+thuộc audio. Nội dung văn hóa nêu giới hạn nguồn và tránh khái quát vùng miền;
+25 batch vẫn có 0 approval và toàn bộ pack learner-hidden,
+measurement/mastery/release-ineligible. Mốc paragraph đã hoàn thành nhưng 15
+lesson narration/grammar, 15 guided production, assessment, review và runtime
+HSK3 còn thiếu, nên chưa dùng điểm D cuối cùng hay tuyên bố HSK3 hoàn thành.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

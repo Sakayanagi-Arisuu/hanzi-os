@@ -50,6 +50,10 @@ import {
   loadHsk3SocietyArtsSportsDomainPackBundle,
 } from "../../src/content/hsk3SocietyArtsSportsDomainPack.mjs";
 import {
+  assertValidHsk3CultureTraditionDomainPackBundle,
+  loadHsk3CultureTraditionDomainPackBundle,
+} from "../../src/content/hsk3CultureTraditionDomainPack.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -174,6 +178,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3SocietyArtsSportsDomainResult =
     assertValidHsk3SocietyArtsSportsDomainPackBundle(
       hsk3SocietyArtsSportsDomain,
+    );
+  const hsk3CultureTraditionDomain =
+    loadHsk3CultureTraditionDomainPackBundle(root);
+  const hsk3CultureTraditionDomainResult =
+    assertValidHsk3CultureTraditionDomainPackBundle(
+      hsk3CultureTraditionDomain,
     );
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
@@ -568,32 +578,36 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
         },
         hsk3ParagraphDomainsDraft: {
           completedDomains:
-            hsk3SocietyArtsSportsDomainResult.summary
+            hsk3CultureTraditionDomainResult.summary
               .completedParagraphDomainCount,
           lessons:
             hsk3PersonalParagraphResult.summary.lessons
             + hsk3PersonalDomainResult.summary.lessons
             + hsk3StudyWorkDomainResult.summary.lessons
             + hsk3NatureEnvironmentDomainResult.summary.lessons
-            + hsk3SocietyArtsSportsDomainResult.summary.lessons,
+            + hsk3SocietyArtsSportsDomainResult.summary.lessons
+            + hsk3CultureTraditionDomainResult.summary.lessons,
           vocabularyDrafts:
             hsk3PersonalParagraphResult.summary.vocabularyDrafts
             + hsk3PersonalDomainResult.summary.vocabularyDrafts
             + hsk3StudyWorkDomainResult.summary.vocabularyDrafts
             + hsk3NatureEnvironmentDomainResult.summary.vocabularyDrafts
-            + hsk3SocietyArtsSportsDomainResult.summary.vocabularyDrafts,
+            + hsk3SocietyArtsSportsDomainResult.summary.vocabularyDrafts
+            + hsk3CultureTraditionDomainResult.summary.vocabularyDrafts,
           authoredTexts:
             hsk3PersonalParagraphResult.summary.authoredTexts
             + hsk3PersonalDomainResult.summary.authoredTexts
             + hsk3StudyWorkDomainResult.summary.authoredTexts
             + hsk3NatureEnvironmentDomainResult.summary.authoredTexts
-            + hsk3SocietyArtsSportsDomainResult.summary.authoredTexts,
+            + hsk3SocietyArtsSportsDomainResult.summary.authoredTexts
+            + hsk3CultureTraditionDomainResult.summary.authoredTexts,
           authoredTextLines:
             hsk3PersonalParagraphResult.summary.authoredTextLines
             + hsk3PersonalDomainResult.summary.authoredTextLines
             + hsk3StudyWorkDomainResult.summary.authoredTextLines
             + hsk3NatureEnvironmentDomainResult.summary.authoredTextLines
-            + hsk3SocietyArtsSportsDomainResult.summary.authoredTextLines,
+            + hsk3SocietyArtsSportsDomainResult.summary.authoredTextLines
+            + hsk3CultureTraditionDomainResult.summary.authoredTextLines,
           vocabularyPracticeItems:
             hsk3PersonalParagraphResult.summary.vocabularyPracticeItems
             + hsk3PersonalDomainResult.summary.vocabularyPracticeItems
@@ -601,43 +615,51 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             + hsk3NatureEnvironmentDomainResult.summary
               .vocabularyPracticeItems
             + hsk3SocietyArtsSportsDomainResult.summary
+              .vocabularyPracticeItems
+            + hsk3CultureTraditionDomainResult.summary
               .vocabularyPracticeItems,
           comprehensionItems:
             hsk3PersonalParagraphResult.summary.comprehensionItems
             + hsk3PersonalDomainResult.summary.comprehensionItems
             + hsk3StudyWorkDomainResult.summary.comprehensionItems
             + hsk3NatureEnvironmentDomainResult.summary.comprehensionItems
-            + hsk3SocietyArtsSportsDomainResult.summary.comprehensionItems,
+            + hsk3SocietyArtsSportsDomainResult.summary.comprehensionItems
+            + hsk3CultureTraditionDomainResult.summary.comprehensionItems,
           noteGridItems:
             hsk3PersonalParagraphResult.summary.noteGridItems
             + hsk3PersonalDomainResult.summary.noteGridItems
             + hsk3StudyWorkDomainResult.summary.noteGridItems
             + hsk3NatureEnvironmentDomainResult.summary.noteGridItems
-            + hsk3SocietyArtsSportsDomainResult.summary.noteGridItems,
+            + hsk3SocietyArtsSportsDomainResult.summary.noteGridItems
+            + hsk3CultureTraditionDomainResult.summary.noteGridItems,
           guidedSummaryItems:
             hsk3PersonalParagraphResult.summary.guidedSummaryItems
             + hsk3PersonalDomainResult.summary.guidedSummaryItems
             + hsk3StudyWorkDomainResult.summary.guidedSummaryItems
             + hsk3NatureEnvironmentDomainResult.summary.guidedSummaryItems
-            + hsk3SocietyArtsSportsDomainResult.summary.guidedSummaryItems,
+            + hsk3SocietyArtsSportsDomainResult.summary.guidedSummaryItems
+            + hsk3CultureTraditionDomainResult.summary.guidedSummaryItems,
           authoredPracticeItems:
             hsk3PersonalParagraphResult.summary.authoredPracticeItems
             + hsk3PersonalDomainResult.summary.authoredPracticeItems
             + hsk3StudyWorkDomainResult.summary.authoredPracticeItems
             + hsk3NatureEnvironmentDomainResult.summary.authoredPracticeItems
-            + hsk3SocietyArtsSportsDomainResult.summary.authoredPracticeItems,
+            + hsk3SocietyArtsSportsDomainResult.summary.authoredPracticeItems
+            + hsk3CultureTraditionDomainResult.summary.authoredPracticeItems,
           audioDependentItems:
             hsk3PersonalParagraphResult.summary.audioDependentItems
             + hsk3PersonalDomainResult.summary.audioDependentItems
             + hsk3StudyWorkDomainResult.summary.audioDependentItems
             + hsk3NatureEnvironmentDomainResult.summary.audioDependentItems
-            + hsk3SocietyArtsSportsDomainResult.summary.audioDependentItems,
+            + hsk3SocietyArtsSportsDomainResult.summary.audioDependentItems
+            + hsk3CultureTraditionDomainResult.summary.audioDependentItems,
           reviewBatches:
             hsk3PersonalParagraphResult.summary.reviewBatches
             + hsk3PersonalDomainResult.summary.reviewBatches
             + hsk3StudyWorkDomainResult.summary.reviewBatches
             + hsk3NatureEnvironmentDomainResult.summary.reviewBatches
-            + hsk3SocietyArtsSportsDomainResult.summary.reviewBatches,
+            + hsk3SocietyArtsSportsDomainResult.summary.reviewBatches
+            + hsk3CultureTraditionDomainResult.summary.reviewBatches,
           reviewedAudioItems: 0,
           measurementEligibleItems: 0,
           reviewed: false,
