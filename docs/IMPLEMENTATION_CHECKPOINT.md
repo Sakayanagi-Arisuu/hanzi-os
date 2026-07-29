@@ -336,6 +336,18 @@ Every commit must update this percentage here and in the active roadmap.
   rubric, approval, measurement/mastery or release eligibility. This closes a
   named G2 lesson-architecture/prerequisite deliverable and raises active
   progress to **81%** without increasing content coverage.
+- Authored the first HSK3 paragraph-input content pack for the
+  identity/transactions lesson: 20 Vietnamese AI-assisted glosses and two
+  eight-line Hanzi-Pinyin-Vietnamese texts, one graded reading and one graded
+  listening. Every lesson vocabulary record appears in the authored texts.
+- Added 60 vocabulary items, ten reading/listening comprehension items, two
+  note grids and two guided summaries or retellings: 74 practice items total.
+  Main idea, detail, sequence, reference and simple inference remain separate
+  item kinds.
+- Twenty-seven items require listening or recorded retelling and retain null
+  audio. One exact review batch has zero approvals; measurement, mastery and
+  release eligibility remain zero. At 1/55 authored HSK3 lessons this bounded
+  slice keeps active progress at **81%**.
 
 ## Repository state
 
@@ -618,6 +630,11 @@ the applicable gates to run again before the next checkpoint commit.
     mapped; 287 source-sense keyword matches, 213 declared foundation
     fallbacks, 283 incremental character contexts and one gap; 0 authored
     practice, approval, mastery or release-eligible lesson
+  - first HSK3 paragraph-input content pack: 1 lesson, 20 vocabulary drafts,
+    2 eight-line Hanzi-Pinyin-Vietnamese texts, 60 vocabulary items, 10
+    comprehension items, 2 note grids and 2 guided summaries/retellings;
+    74 total practice items, 27 audio-dependent and 0 measurement/mastery/
+    release-eligible
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -675,16 +692,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 171 files, 1,334 tests passed
+  - Vitest: 172 files, 1,339 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 95 / 98, median 98
+  - Performance: 92 / 98 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,878 ms; CLS: 0; TBT: 79 ms
+  - Median LCP: 1,875 ms; CLS: 0; TBT: 158 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -709,9 +726,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author the first bounded HSK3 paragraph-input content pack: Vietnamese
-   editorial drafts, graded reading/listening source text and skill-separated
-   comprehension practice for a coherent lesson group.
+1. Complete the other four personal-life paragraph lessons with bounded
+   Vietnamese drafts, graded reading/listening texts and skill-separated
+   comprehension practice, then package the five-lesson domain review queue.
 2. Continue HSK3 character, grammar, narration and productive practice behind
    the same unpublished review gates, while human HSK1/2 review and HSK0 audio
    sourcing proceed as separate tracks.

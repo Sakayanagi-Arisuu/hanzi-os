@@ -30,6 +30,10 @@ import {
   loadHsk3LessonBlueprintsBundle,
 } from "../../src/content/hsk3LessonBlueprints.mjs";
 import {
+  assertValidHsk3PersonalParagraphPackBundle,
+  loadHsk3PersonalParagraphPackBundle,
+} from "../../src/content/hsk3PersonalParagraphPack.mjs";
+import {
   assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -133,6 +137,10 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3LessonBlueprints = loadHsk3LessonBlueprintsBundle(root);
   const hsk3LessonBlueprintsResult =
     assertValidHsk3LessonBlueprintsBundle(hsk3LessonBlueprints);
+  const hsk3PersonalParagraph =
+    loadHsk3PersonalParagraphPackBundle(root);
+  const hsk3PersonalParagraphResult =
+    assertValidHsk3PersonalParagraphPackBundle(hsk3PersonalParagraph);
   const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
   const hsk2VocabularyResult =
     assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
@@ -453,6 +461,35 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk3LessonBlueprintsResult.summary.plannedMinimumPromptUnits,
           authoredPracticeItems:
             hsk3LessonBlueprintsResult.summary.authoredPracticeItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk3PersonalParagraph: {
+          lessons: hsk3PersonalParagraphResult.summary.lessons,
+          vocabularyDrafts:
+            hsk3PersonalParagraphResult.summary.vocabularyDrafts,
+          authoredTexts: hsk3PersonalParagraphResult.summary.authoredTexts,
+          authoredTextLines:
+            hsk3PersonalParagraphResult.summary.authoredTextLines,
+          vocabularyPracticeItems:
+            hsk3PersonalParagraphResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk3PersonalParagraphResult.summary.comprehensionItems,
+          readingComprehensionItems:
+            hsk3PersonalParagraphResult.summary.readingComprehensionItems,
+          listeningComprehensionItems:
+            hsk3PersonalParagraphResult.summary.listeningComprehensionItems,
+          noteGridItems: hsk3PersonalParagraphResult.summary.noteGridItems,
+          guidedSummaryItems:
+            hsk3PersonalParagraphResult.summary.guidedSummaryItems,
+          authoredPracticeItems:
+            hsk3PersonalParagraphResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk3PersonalParagraphResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk3PersonalParagraphResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk3PersonalParagraphResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

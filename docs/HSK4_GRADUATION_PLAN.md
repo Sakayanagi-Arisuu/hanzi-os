@@ -419,6 +419,16 @@ architecture/prerequisite có thể kiểm chứng trong G2, không tính genera
 file hay số dòng. Cả 55 batch vẫn pending và authored practice/rubric/approval/
 measurement/mastery/runtime/release đều bằng 0, nên trụ cột D không tăng.
 
+Lát G4 HSK3 paragraph đầu giữ tiến độ ở **81%**. Lesson hồ sơ/giao dịch đã có
+20 nghĩa Việt AI-assisted, một graded reading và một graded listening với 16
+dòng Hanzi–Pinyin–Việt dùng đủ 20 từ blueprint. Sáu mươi vocabulary item, 10
+câu hiểu đoạn tách đọc/nghe, hai note grid và hai bài tóm tắt/kể lại tạo tổng
+74 practice item. Hai mươi bảy item phụ thuộc audio vẫn có `audio: null`; cả
+pack source-exposed, chưa qua Mandarin/Vietnamese/assessment/audio-rights
+review và không có measurement/mastery/release eligibility. Đây là content
+thật nhưng mới 1/55 lesson HSK3, chưa đủ một mốc coverage toàn cấp để cộng điểm
+D hoặc tuyên bố HSK3 hoàn thành.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

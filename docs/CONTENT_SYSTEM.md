@@ -363,6 +363,21 @@ minh. Chạy `content:hsk3:lesson-blueprints -- --write` để tái tạo; `--ch
 batch đang pending; practice, rubric, approval, measurement, mastery, learner
 visibility và release eligibility vẫn bằng 0.
 
+`content/drafts/hsk3-personal-paragraph-identity-2026.07.json` là content pack
+thật đầu tiên của blueprint HSK3. Một lesson hồ sơ/giao dịch có 20 nghĩa Việt
+AI-assisted, một graded reading và một graded listening gồm 16 dòng
+Hanzi–Pinyin–Việt. Cả 20 từ blueprint xuất hiện trong hai đoạn; pack thêm 60
+vocabulary item, 10 câu hiểu ý chính/chi tiết/trình tự/quy chiếu/suy luận đơn,
+hai note grid và hai bài tóm tắt/kể lại, tổng 74 practice item.
+
+Chạy `content:hsk3:personal-paragraph -- --write` để tái tạo; `--check` và
+`content:hsk3:personal-paragraph:validate` khóa source hash, exact lesson
+vocabulary, sự hiện diện của từ trong đoạn, đáp án/options và review batch.
+Hai mươi listening-selection, năm câu hiểu nghe, một note grid nghe và một bài
+kể lại tạo 27 item phụ thuộc audio; audio vẫn `null`, browser TTS chỉ preview.
+Pack source-exposed không dùng để calibrate assessment; human review, rubric,
+measurement, mastery và release đều bằng 0.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107
