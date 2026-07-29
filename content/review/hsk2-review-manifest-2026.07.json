@@ -1,0 +1,3078 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "hsk2-review-manifest-2026.07",
+  "state": "ready-for-human-review-assignment",
+  "learnerVisible": false,
+  "releaseEligible": false,
+  "policy": {
+    "exactSourceHashRequired": true,
+    "manifestDuplicatesContent": false,
+    "reviewDoesNotPublish": true,
+    "reviewDoesNotCalibrate": true,
+    "reviewDoesNotGrantMastery": true,
+    "allRequiredRolesMustApproveExactTargets": true
+  },
+  "counts": {
+    "sourceArtifacts": 7,
+    "reviewBatches": 122,
+    "pendingBatches": 122,
+    "approvals": 0,
+    "blueprintBatches": 40,
+    "vocabularyBatches": 20,
+    "characterBatches": 10,
+    "grammarBatches": 10,
+    "situationalBatches": 20,
+    "productionBatches": 10,
+    "assessmentBatches": 12
+  },
+  "sources": [
+    {
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "relativePath": "content/drafts/hsk2-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:17724b4ca36b34495583c7db2f7e740d49c7462c3d449e5aaac779af7f5ec0d1",
+      "targetCounts": {
+        "lessons": 40
+      },
+      "reviewBatchCount": 40
+    },
+    {
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "relativePath": "content/drafts/hsk2-vocabulary-practice-2026.07.json",
+      "sha256": "sha256:974127f566d617533800e9d0f3312196769ce35aff899773e7da7713894fe78d",
+      "targetCounts": {
+        "vocabulary": 200,
+        "practiceItems": 600
+      },
+      "reviewBatchCount": 20
+    },
+    {
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "relativePath": "content/drafts/hsk2-character-practice-2026.07.json",
+      "sha256": "sha256:29e50329008eb8aefea960458dc98be0aa46bf22f746fdf82e308876b3c1967b",
+      "targetCounts": {
+        "characters": 125,
+        "practiceItems": 250
+      },
+      "reviewBatchCount": 10
+    },
+    {
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "relativePath": "content/drafts/hsk2-grammar-context-2026.07.json",
+      "sha256": "sha256:af2a00eefa7c1e40f30a0711102b40bb5ca70bf2f2fed90fc3385ea20f19f9fb",
+      "targetCounts": {
+        "grammarRows": 75,
+        "practiceItems": 75
+      },
+      "reviewBatchCount": 10
+    },
+    {
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "relativePath": "content/drafts/hsk2-situational-dialogues-2026.07.json",
+      "sha256": "sha256:07b5c1b0992ae76035b48d4f600aa69c5ce20d26b3acbafe2a18f685bf6234bd",
+      "targetCounts": {
+        "dialogues": 20,
+        "tasks": 17,
+        "topics": 34,
+        "practiceItems": 20
+      },
+      "reviewBatchCount": 20
+    },
+    {
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "relativePath": "content/drafts/hsk2-short-text-production-2026.07.json",
+      "sha256": "sha256:b1be18996f253d505d3bb4190a43aa1592a56bc834c5753cbb233b1ca251485a",
+      "targetCounts": {
+        "prompts": 104
+      },
+      "reviewBatchCount": 10
+    },
+    {
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "relativePath": "content/drafts/hsk2-level-assessment-2026.07.json",
+      "sha256": "sha256:ef26fb9fd697eb622f080d64a3c2e3c22c0545341a42a98262784b82588680a3",
+      "targetCounts": {
+        "forms": 2,
+        "assessmentItems": 172,
+        "objectiveItems": 120,
+        "constructedResponseItems": 52
+      },
+      "reviewBatchCount": 12
+    }
+  ],
+  "reviewBatches": [
+    {
+      "batchId": "hsk2-person-events-environment-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-04:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-05:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-04:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-05:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-04:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-05:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-04:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-05:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-04:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-aspect-time-experience-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-aspect-time-experience-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-complements-and-motion-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-complements-and-motion-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-clause-linking-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-clause-linking-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-03:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-guided-message-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-guided-message-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-picture-description-lesson-01:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-picture-description-lesson-02:blueprint-review-v1",
+      "sourceKind": "lesson-blueprints",
+      "sourceId": "hsk2-lesson-blueprints-2026.07",
+      "requiredRoles": [
+        "native-mandarin-curriculum-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 1,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-01:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 9,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 27,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-02:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 16,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 48,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-03:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 8,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 24,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-04:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 2,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 6,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-05:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 3,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 9,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-01:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 14,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 42,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-02:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 10,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 30,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-03:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 9,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 27,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-04:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 12,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 36,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-05:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 7,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 21,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-01:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 21,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 63,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-02:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 15,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 45,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-03:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 18,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 54,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-04:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 16,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 48,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-05:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 4,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 12,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-01:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 17,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 51,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-02:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 6,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 18,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-03:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 4,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 12,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-04:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 4,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 12,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-05:vocabulary-review-v1",
+      "sourceKind": "vocabulary-practice",
+      "sourceId": "hsk2-vocabulary-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 5,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 15,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-01:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 13,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 26,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-02:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 13,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 26,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-03:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 13,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 26,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-01:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 13,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 26,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-02:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 13,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 26,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-03:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 12,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 24,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-guided-message-lesson-01:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 12,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 24,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-guided-message-lesson-02:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 12,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 24,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-picture-description-lesson-01:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 12,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 24,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-picture-description-lesson-02:character-review-v1",
+      "sourceKind": "character-practice",
+      "sourceId": "hsk2-character-practice-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "character-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 12,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 24,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-01:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 9,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-02:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 9,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-03:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 9,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-reference-description-comparison-lesson-04:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 9,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-aspect-time-experience-lesson-01:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 10,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 10,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-aspect-time-experience-lesson-02:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 9,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 9,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-complements-and-motion-lesson-01:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 6,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 6,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-complements-and-motion-lesson-02:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 5,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 5,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-clause-linking-lesson-01:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 5,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 5,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-clause-linking-lesson-02:grammar-review-v1",
+      "sourceKind": "grammar-context",
+      "sourceId": "hsk2-grammar-context-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "grammar-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 4,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 4,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-01:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-02:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-03:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-04:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-person-events-environment-lesson-05:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-01:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 3,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-02:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 3,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-03:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-04:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-daily-needs-family-lesson-05:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-01:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-02:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-03:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-04:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-travel-leisure-lesson-05:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-01:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-02:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-03:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 3,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-04:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 2,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-study-work-culture-lesson-05:situational-review-v1",
+      "sourceKind": "situational-dialogues",
+      "sourceId": "hsk2-situational-dialogues-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "task-pedagogy-reviewer",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 1,
+        "topics": 1,
+        "dialogues": 1,
+        "practiceItems": 1,
+        "prompts": 0,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-01:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 12,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-02:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 12,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-dictation-lesson-03:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 12,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-01:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 12,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-02:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 12,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-sentence-reconstruction-lesson-03:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 12,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-guided-message-lesson-01:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 8,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-guided-message-lesson-02:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 8,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-picture-description-lesson-01:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 8,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-picture-description-lesson-02:short-text-production-review-v1",
+      "sourceKind": "short-text-production",
+      "sourceId": "hsk2-short-text-production-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "writing-pedagogy-reviewer",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 8,
+        "assessmentItems": 0
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-a:listening-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-a:reading-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-a:vocabulary-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-a:grammar-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-a:speaking-performance:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "speaking-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 10
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-a:writing-performance:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "writing-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 16
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-b:listening-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "audio-rights-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-b:reading-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-b:vocabulary-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-b:grammar-objective:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 15
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-b:speaking-performance:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "speaking-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 10
+      }
+    },
+    {
+      "batchId": "hsk2-level-assessment-2026.07:hsk2-level-form-b:writing-performance:review-v1",
+      "sourceKind": "level-assessment",
+      "sourceId": "hsk2-level-assessment-2026.07",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor",
+        "writing-pedagogy-reviewer"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "lessons": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "dialogues": 0,
+        "practiceItems": 0,
+        "prompts": 0,
+        "assessmentItems": 16
+      }
+    }
+  ]
+}

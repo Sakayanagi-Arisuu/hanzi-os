@@ -298,6 +298,15 @@ Every commit must update this percentage here and in the active roadmap.
   prerequisite waiver or release eligibility. Independent authoring raises
   the assessment pillar by one point and active progress to **79%**; it does
   not make the HSK2 level check issuable.
+- Added an exact-hash HSK2 review manifest over seven source artifacts and all
+  122 pending batches: 40 blueprint, 20 vocabulary, 10 character, 10 grammar,
+  20 situational, 10 short-text production and 12 assessment batches.
+- The local workflow resolves 405 role assignments and 1,732 normalized exact
+  targets. Exports bind manifest/source/target hashes and require one decision
+  per target; imports create idempotent Git-ignored receipts only.
+- The workflow cannot approve absent audio rights and never mutates draft
+  content, manifest approvals, runtime, calibration or mastery. No human
+  receipt exists, so this packaging slice keeps active progress at **79%**.
 
 ## Repository state
 
@@ -621,16 +630,19 @@ the applicable gates to run again before the next checkpoint commit.
     form, 120 objective items and 52 speaking/writing responses across 12
     pending review batches; 0 reviewed audio, calibration, measurement,
     mastery, prerequisite waiver or release-eligible item
-  - Vitest: 166 files, 1,314 tests passed
+  - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
+    batches; local workflow resolves 405 role assignments and 1,732 exact
+    targets with 0 manifest approval or runtime/calibration/mastery mutation
+  - Vitest: 168 files, 1,323 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 95 / 98 / 97, median 97
+  - Performance: 98 / 98 / 98, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median performance: 98; LCP: 1,887 ms; CLS: 0; TBT: 84 ms
+  - Median performance: 98; LCP: 1,883 ms; CLS: 0; TBT: 88 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -655,16 +667,16 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Package the HSK2 draft artifacts and 172 assessment items into one
-   exact-hash, role-separated local review manifest and workflow; do not
-   promote receipts or items until all required roles and calibration evidence
-   exist.
-2. Start the distinct HSK3 scope/content factory after the HSK2 review queue is
-   executable, while human HSK1/2 review and HSK0 audio sourcing proceed as
-   separate tracks.
-3. Finish the remaining G2 placement/progress work when reviewed content can
-   exercise it; keep imports unpublished until provenance and linguistic gates
-   pass.
+1. Start the distinct HSK3 scope and lesson architecture from the pinned
+   inventory, with paragraph/retelling/narrative strands that do not reuse the
+   HSK2 route shape.
+2. Author bounded HSK3 vocabulary/character/grammar/reading/listening and
+   productive practice behind the same unpublished review gates, while human
+   HSK1/2 review and HSK0 audio sourcing proceed as separate tracks.
+3. Add HSK3 skill-separated assessment only after its learning-source
+   partitions exist; finish remaining G2 placement/progress work when reviewed
+   content can exercise it; keep imports unpublished until provenance and
+   linguistic gates pass.
 4. Leave operator auth, commerce, hosted pilot and Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes
    production work.

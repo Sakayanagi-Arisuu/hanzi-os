@@ -383,6 +383,16 @@ cut score/calibration chưa có, và mọi item đều 0 measurement/mastery/
 prerequisite-waiver/release-eligible. Điểm tăng chỉ ghi nhận independent-form
 authoring có thể review, không tuyên bố bài cuối cấp HSK2 đã sẵn sàng.
 
+Lát đóng gói review HSK2 không tăng điểm, nên tiến độ giữ ở **79%**. Manifest
+ghim exact hash của 7 artifact và gom đúng 122 batch đang chờ: 40 blueprint,
+20 vocabulary, 10 character, 10 grammar, 20 situational, 10 short-text và 12
+assessment. Workflow local giải được 405 assignment theo role và 1.732 target
+tham chiếu; export bind manifest/source/target digest, import chỉ tạo receipt
+Git-ignore có tính idempotent. Không receipt nào được nhập vào manifest,
+không runtime/calibration/mastery mutation, và audio-rights không thể approve
+khi audio còn thiếu. Đây là khả năng vận hành review queue, không phải bằng
+chứng human review nên không được cộng tiến độ.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

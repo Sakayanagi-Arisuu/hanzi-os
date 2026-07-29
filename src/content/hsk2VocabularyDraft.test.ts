@@ -151,6 +151,9 @@ describe("HSK2 CC-CEDICT source-enrichment draft", () => {
       calibratedAssessmentItems: 0,
       assessmentSourceEntityOverlapBetweenForms: 0,
       measurementEligibleAssessmentItems: 0,
+      boundedReviewManifestSources: 7,
+      boundedReviewManifestBatches: 122,
+      boundedReviewManifestApprovals: 0,
       characterContextGaps: [{
         officialCharacterId: "hsk2-character-050",
         character: "留",

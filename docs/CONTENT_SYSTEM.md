@@ -303,6 +303,21 @@ source-exposed authoring bank, chưa phải đề có thể phát hành: 30 audi
 `null`, speaking/writing rubric chưa review, chưa có cut score hoặc calibration,
 và 0 item được dùng cho measurement, mastery, prerequisite waiver hay release.
 
+`content/review/hsk2-review-manifest-2026.07.json` là queue review exact-hash
+cho 7 artifact HSK2 và 122 batch. Chạy `content:hsk2:review-manifest
+-- --write` để tái tạo; `--check`,
+`content:hsk2:review-manifest:validate` và
+`content:hsk2:review-workflow:validate` là các gate. Lệnh
+`content:hsk2:review:list` liệt kê batch; `content:hsk2:review:export` tạo một
+assignment theo role với target digest; reviewer chỉ hoàn thiện `response`
+trước khi chạy `content:hsk2:review:import`.
+
+Workflow giải 405 assignment và 1.732 target chính xác. Receipt được lưu dưới
+`content/review/local/hsk2/`, đã Git-ignore và ghi idempotent; nó không sửa
+manifest, draft, runtime, calibration hay mastery. Approval audio-rights bị
+chặn khi audio tương ứng còn vắng. Receipt local cũng không tự trở thành
+approval hoặc bằng chứng release.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

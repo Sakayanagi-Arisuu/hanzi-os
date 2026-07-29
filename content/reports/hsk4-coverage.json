@@ -281,6 +281,12 @@
         "reviewedAudioComplete": false,
         "learnerVisible": false
       },
+      "hsk2HumanReviewQueue": {
+        "sourceArtifacts": 7,
+        "reviewBatches": 122,
+        "pendingBatches": 122,
+        "approvals": 0
+      },
       "hsk1PersonalExchange": {
         "lessons": 9,
         "tasks": 2,

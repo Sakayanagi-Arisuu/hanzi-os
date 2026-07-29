@@ -50,6 +50,10 @@ import {
   loadHsk2LevelAssessmentBundle,
 } from "../../src/content/hsk2LevelAssessment.mjs";
 import {
+  assertValidHsk2ReviewManifestBundle,
+  loadHsk2ReviewManifestBundle,
+} from "../../src/content/hsk2ReviewManifest.mjs";
+import {
   assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
@@ -135,6 +139,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2LevelAssessment = loadHsk2LevelAssessmentBundle(root);
   const hsk2LevelAssessmentResult =
     assertValidHsk2LevelAssessmentBundle(hsk2LevelAssessment);
+  const hsk2ReviewManifest = loadHsk2ReviewManifestBundle(root);
+  const hsk2ReviewManifestResult =
+    assertValidHsk2ReviewManifestBundle(hsk2ReviewManifest);
   const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
   const hsk1PersonalPackResult =
     assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
@@ -529,6 +536,13 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           independentFormsComplete: true,
           reviewedAudioComplete: false,
           learnerVisible: false,
+        },
+        hsk2HumanReviewQueue: {
+          sourceArtifacts:
+            hsk2ReviewManifestResult.summary.sourceArtifacts,
+          reviewBatches: hsk2ReviewManifestResult.summary.reviewBatches,
+          pendingBatches: hsk2ReviewManifestResult.summary.pendingBatches,
+          approvals: hsk2ReviewManifestResult.summary.approvals,
         },
         hsk1PersonalExchange: {
           lessons: hsk1PersonalPackResult.summary.lessons,

@@ -37,6 +37,10 @@ import {
   assertValidHsk2LevelAssessmentBundle,
   loadHsk2LevelAssessmentBundle,
 } from "../../src/content/hsk2LevelAssessment.mjs";
+import {
+  assertValidHsk2ReviewManifestBundle,
+  loadHsk2ReviewManifestBundle,
+} from "../../src/content/hsk2ReviewManifest.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK2_CONTENT_BACKLOG_REPORT_RELATIVE_PATH =
@@ -68,6 +72,9 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
   const assessmentBundle = loadHsk2LevelAssessmentBundle(root);
   const assessmentResult =
     assertValidHsk2LevelAssessmentBundle(assessmentBundle);
+  const reviewManifestBundle = loadHsk2ReviewManifestBundle(root);
+  const reviewManifestResult =
+    assertValidHsk2ReviewManifestBundle(reviewManifestBundle);
   const entries = vocabularyBundle.draft.entries;
   const pronunciationReviewItems = entries.filter(
     (entry) => entry.sourceMatches.some(
@@ -100,8 +107,11 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       shortTextProductionPackSha256: fileSha256(productionBundle.packPath),
       levelAssessmentBankId: assessmentBundle.bank.bankId,
       levelAssessmentBankSha256: fileSha256(assessmentBundle.bankPath),
+      reviewManifestId: reviewManifestBundle.manifest.manifestId,
+      reviewManifestSha256:
+        fileSha256(reviewManifestBundle.manifestPath),
     },
-    stage: "level-assessment-authoring",
+    stage: "human-review-packaging",
     coverage: {
       officialVocabulary: entries.length,
       dictionaryMatched: entries.filter(
@@ -239,6 +249,12 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
         assessmentResult.summary.sourceEntityOverlapBetweenForms,
       measurementEligibleAssessmentItems:
         assessmentResult.summary.measurementEligibleItems,
+      boundedReviewManifestSources:
+        reviewManifestResult.summary.sourceArtifacts,
+      boundedReviewManifestBatches:
+        reviewManifestResult.summary.reviewBatches,
+      boundedReviewManifestApprovals:
+        reviewManifestResult.summary.approvals,
       characterContextGaps: characterBundle.pack.characters.filter(
         (item) => item.primaryContext === null,
       ).map((item) => ({
@@ -260,7 +276,7 @@ export const buildHsk2ContentBacklogReport = (root = process.cwd()) => {
       hsk2VocabularyComplete: false,
       hsk2Complete: false,
       reason:
-        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics, short-text production and two source-disjoint level-assessment forms have bounded drafts, but complete vocabulary context/stroke metadata, linguistic review, audio, calibration and runtime release are incomplete.",
+        "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics, short-text production and two source-disjoint level-assessment forms have bounded drafts plus an exact-hash review queue, but complete vocabulary context/stroke metadata, human review, audio, calibration and runtime release are incomplete.",
     },
   };
 };

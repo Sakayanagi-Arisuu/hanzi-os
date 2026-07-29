@@ -21,9 +21,11 @@
     "shortTextProductionPackId": "hsk2-short-text-production-2026.07",
     "shortTextProductionPackSha256": "sha256:b1be18996f253d505d3bb4190a43aa1592a56bc834c5753cbb233b1ca251485a",
     "levelAssessmentBankId": "hsk2-level-assessment-2026.07",
-    "levelAssessmentBankSha256": "sha256:ef26fb9fd697eb622f080d64a3c2e3c22c0545341a42a98262784b82588680a3"
+    "levelAssessmentBankSha256": "sha256:ef26fb9fd697eb622f080d64a3c2e3c22c0545341a42a98262784b82588680a3",
+    "reviewManifestId": "hsk2-review-manifest-2026.07",
+    "reviewManifestSha256": "sha256:3a3bc838810c812738564a2b03bf18c7956f06361859bc098f529d1b93dd7852"
   },
-  "stage": "level-assessment-authoring",
+  "stage": "human-review-packaging",
   "coverage": {
     "officialVocabulary": 200,
     "dictionaryMatched": 200,
@@ -108,6 +110,9 @@
     "calibratedAssessmentItems": 0,
     "assessmentSourceEntityOverlapBetweenForms": 0,
     "measurementEligibleAssessmentItems": 0,
+    "boundedReviewManifestSources": 7,
+    "boundedReviewManifestBatches": 122,
+    "boundedReviewManifestApprovals": 0,
     "characterContextGaps": [
       {
         "officialCharacterId": "hsk2-character-050",
@@ -169,6 +174,6 @@
   "claims": {
     "hsk2VocabularyComplete": false,
     "hsk2Complete": false,
-    "reason": "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics, short-text production and two source-disjoint level-assessment forms have bounded drafts, but complete vocabulary context/stroke metadata, linguistic review, audio, calibration and runtime release are incomplete."
+    "reason": "All HSK2 vocabulary items, recognition characters, official grammar rows, tasks, topics, short-text production and two source-disjoint level-assessment forms have bounded drafts plus an exact-hash review queue, but complete vocabulary context/stroke metadata, human review, audio, calibration and runtime release are incomplete."
   }
 }
