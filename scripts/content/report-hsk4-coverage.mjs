@@ -27,9 +27,9 @@ import {
   assertValidHsk3LessonBlueprintsBundle,
 } from "../../src/content/hsk3LessonBlueprints.mjs";
 import {
-  assertValidHsk3EventRetellingPackBundle,
-  loadHsk3EventRetellingPackBundle,
-} from "../../src/content/hsk3EventRetellingPack.mjs";
+  assertValidHsk3GuidedParagraphPackBundle,
+  loadHsk3GuidedParagraphPackBundle,
+} from "../../src/content/hsk3GuidedParagraphPack.mjs";
 import {
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
@@ -159,9 +159,13 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
-  const hsk3EventRetelling = loadHsk3EventRetellingPackBundle(root);
-  const hsk3EventRetellingResult =
-    assertValidHsk3EventRetellingPackBundle(hsk3EventRetelling);
+  const hsk3GuidedParagraph = loadHsk3GuidedParagraphPackBundle(root);
+  const hsk3GuidedParagraphResult =
+    assertValidHsk3GuidedParagraphPackBundle(hsk3GuidedParagraph);
+  const hsk3EventRetelling = hsk3GuidedParagraph.prerequisiteBundle;
+  const hsk3EventRetellingResult = {
+    summary: hsk3EventRetelling.pack.counts,
+  };
   const hsk3CohesionReconstruction =
     hsk3EventRetelling.prerequisiteBundle;
   const hsk3CohesionReconstructionResult = {
@@ -173,7 +177,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     summary: hsk3GuidedNotes.pack.counts,
   };
   const hsk3CultureTraditionDomain =
-    hsk3EventRetelling.paragraphBundle;
+    hsk3GuidedParagraph.paragraphBundle;
   const hsk3CultureTraditionDomainResult = {
     summary: hsk3CultureTraditionDomain.pack.counts,
   };
@@ -202,7 +206,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     summary: hsk3PersonalParagraph.pack.counts,
   };
   const hsk3LessonBlueprints =
-    hsk3EventRetelling.blueprintBundle;
+    hsk3GuidedParagraph.blueprintBundle;
   const hsk3LessonBlueprintsResult =
     assertValidHsk3LessonBlueprintsBundle(hsk3LessonBlueprints);
   const hsk3Vocabulary = hsk3LessonBlueprints.vocabularyBundle;
@@ -828,30 +832,43 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           lessons:
             hsk3GuidedNotesResult.summary.lessons
             + hsk3CohesionReconstructionResult.summary.lessons
-            + hsk3EventRetellingResult.summary.lessons,
+            + hsk3EventRetellingResult.summary.lessons
+            + hsk3GuidedParagraphResult.summary.lessons,
           completedGuidedProductionStages:
-            hsk3EventRetellingResult.summary
+            hsk3GuidedParagraphResult.summary
               .completedGuidedProductionStages,
           completedGuidedProductionLessons:
-            hsk3EventRetellingResult.summary
+            hsk3GuidedParagraphResult.summary
               .completedGuidedProductionLessons,
           sourceTexts:
             hsk3GuidedNotesResult.summary.sourceTexts
             + hsk3CohesionReconstructionResult.summary.sourceTexts
-            + hsk3EventRetellingResult.summary.sourceTexts,
+            + hsk3EventRetellingResult.summary.sourceTexts
+            + hsk3GuidedParagraphResult.summary.sourceTexts,
           sourceTextLines:
             hsk3GuidedNotesResult.summary.sourceTextLines
             + hsk3CohesionReconstructionResult.summary.sourceTextLines
-            + hsk3EventRetellingResult.summary.sourceTextLines,
+            + hsk3EventRetellingResult.summary.sourceTextLines
+            + hsk3GuidedParagraphResult.summary.sourceTextLines,
+          sourceInputBindings:
+            hsk3GuidedNotesResult.summary.promptUnits
+            + hsk3GuidedNotesResult.summary
+              .integratedListeningReadingPromptUnits
+            + hsk3CohesionReconstructionResult.summary.promptUnits
+            + hsk3EventRetellingResult.summary.promptUnits
+            + hsk3GuidedParagraphResult.summary.sourceInputBindings,
           sourceGuidedSummaries:
-            hsk3EventRetellingResult.summary.sourceGuidedSummaries,
+            hsk3EventRetellingResult.summary.sourceGuidedSummaries
+            + hsk3GuidedParagraphResult.summary.sourceGuidedSummaries,
           promptUnits:
             hsk3GuidedNotesResult.summary.promptUnits
             + hsk3CohesionReconstructionResult.summary.promptUnits
-            + hsk3EventRetellingResult.summary.promptUnits,
+            + hsk3EventRetellingResult.summary.promptUnits
+            + hsk3GuidedParagraphResult.summary.promptUnits,
           readingInputPromptUnits:
             hsk3GuidedNotesResult.summary.readingInputPromptUnits
-            + hsk3CohesionReconstructionResult.summary.promptUnits,
+            + hsk3CohesionReconstructionResult.summary.promptUnits
+            + hsk3GuidedParagraphResult.summary.promptUnits,
           listeningInputPromptUnits:
             hsk3GuidedNotesResult.summary.listeningInputPromptUnits
             + hsk3EventRetellingResult.summary.promptUnits,
@@ -878,10 +895,23 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
               .structuredRetellingPromptUnits,
           modelRetellings:
             hsk3EventRetellingResult.summary.modelRetellings,
+          sixSentencePromptUnits:
+            hsk3GuidedParagraphResult.summary.sixSentencePromptUnits,
+          comparisonPromptUnits:
+            hsk3GuidedParagraphResult.summary.comparisonPromptUnits,
+          eightSentencePromptUnits:
+            hsk3GuidedParagraphResult.summary.eightSentencePromptUnits,
+          dualSourcePromptUnits:
+            hsk3GuidedParagraphResult.summary.dualSourcePromptUnits,
+          modelEvidenceSummaries:
+            hsk3GuidedParagraphResult.summary.modelEvidenceSummaries,
+          minimumRequiredSentences:
+            hsk3GuidedParagraphResult.summary.minimumRequiredSentences,
           revisionChecklists:
             hsk3GuidedNotesResult.summary.revisionChecklists
             + hsk3CohesionReconstructionResult.summary.revisionChecklists
-            + hsk3EventRetellingResult.summary.revisionChecklists,
+            + hsk3EventRetellingResult.summary.revisionChecklists
+            + hsk3GuidedParagraphResult.summary.revisionChecklists,
           audioDependentPromptUnits:
             hsk3GuidedNotesResult.summary.audioDependentPromptUnits
             + hsk3EventRetellingResult.summary.audioDependentPromptUnits,
@@ -897,7 +927,8 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           reviewBatches:
             hsk3GuidedNotesResult.summary.reviewBatches
             + hsk3CohesionReconstructionResult.summary.reviewBatches
-            + hsk3EventRetellingResult.summary.reviewBatches,
+            + hsk3EventRetellingResult.summary.reviewBatches
+            + hsk3GuidedParagraphResult.summary.reviewBatches,
           approvals: 0,
           releaseEligibleItems: 0,
           reviewed: false,
