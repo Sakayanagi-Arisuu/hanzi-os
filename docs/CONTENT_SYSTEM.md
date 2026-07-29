@@ -544,6 +544,22 @@ audio vẫn chưa có audio review; ba batch có 0 approval, toàn bộ stage
 learner-hidden và measurement/mastery/release-ineligible. Stage tiêu thụ 284
 character mapping từ paragraph prerequisite nhưng tạo 0 ownership claim mới.
 
+`content/drafts/hsk3-cohesion-reconstruction-2026.07.json` là stage guided
+production HSK3 thứ hai. Ba lesson tạo 20 prompt unit đọc–viết trên 18 văn bản
+nguồn/144 dòng: bảy bài tái dựng thứ tự thời gian, bảy bài khôi phục chính xác
+từ nối/tham chiếu và sáu bài tái dựng kèm giải thích bốn quyết định nối khối.
+Khối, đáp án cloze và dòng bằng chứng đều được sao chép exact từ paragraph
+source đã khóa hash; không được tự viết lại nguồn để làm đáp án khớp.
+
+Chạy `content:hsk3:cohesion-reconstruction -- --write` để tái tạo; `--check`
+và `content:hsk3:cohesion-reconstruction:validate` khóa lesson blueprint,
+guided-notes prerequisite, source-text partition, đáp án và trạng thái
+fail-closed. Hai stage cộng dồn đạt 6/15 guided-production lesson và 44 prompt
+unit trên 42 source binding/336 dòng. Sáu batch còn pending; source/model
+reveal chỉ hỗ trợ revision, không hiệu chuẩn assessment hay cấp writing
+mastery. Stage tiếp tục dùng 284 character mapping của paragraph prerequisite
+và tạo 0 ownership claim mới.
+
 `content/drafts/hsk1-personal-exchange-2026.07.json` là content pack đầu tiên
 được sinh từ scope: 107 nghĩa Việt AI-assisted draft, 9 lesson blueprint, 38
 lượt hội thoại mẫu và exact blueprint mapping cho 2 task, 5 topic, 107

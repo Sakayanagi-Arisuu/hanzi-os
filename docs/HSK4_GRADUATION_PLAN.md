@@ -144,7 +144,7 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 12 | năm blueprint, HSK1 sáu unit, HSK2 scope nhiều mạch, HSK3 có 55 lesson blueprint cấp đoạn/tường thuật/sản sinh, prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory, HSK0 pronunciation, HSK1 contextual drafts, HSK2 blueprints, vocabulary/character/grammar và situational-dialogue practice |
+| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory; HSK0 pronunciation; HSK1 contextual drafts; HSK2 authoring; HSK3 paragraph, narration và 2/5 guided-production stage |
 | E. Assessment và mock HSK0-4 | 10 | 6 | diagnostic, level-check blueprint, 2 form HSK2 độc lập ở lớp nguồn, objective/performance draft, timed mock và rubric |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
 | **Tổng** | **100** | **81** | **Tiến độ hiện tại: 81%** |
@@ -547,6 +547,17 @@ mastery; 16 prompt audio-dependent chưa review, ba batch có 0 approval và pac
 learner-hidden, measurement/mastery/release-ineligible. 12 guided-production
 lesson, assessment, review và runtime HSK3 còn thiếu nên chưa dùng điểm D cuối
 cùng.
+
+Stage cohesion-reconstruction HSK3 tiếp tục giữ tiến độ ở **81%**, author thêm
+3 guided-production lesson và 20 prompt đọc–viết trên 18 source text/144 dòng:
+7 bài dựng thứ tự theo mốc thời gian, 7 bài khôi phục từ nối/tham chiếu và 6
+bài dựng thứ tự kèm giải thích bằng chứng. Hai stage cộng dồn đạt 6/15 lesson,
+44 prompt unit, 42 source binding/336 dòng và 6 review batch. Từng block, cloze
+và đáp án đều bind exact paragraph source; tự sắp xếp, xem model và revision
+không cấp writing mastery. Stage tạo 0 character ownership claim mới, có 0
+approval và vẫn learner-hidden, measurement/mastery/release-ineligible. Chín
+guided-production lesson, assessment, review và runtime HSK3 còn thiếu nên
+chưa dùng điểm D cuối cùng.
 
 ## 6. Quy tắc cập nhật phần trăm
 

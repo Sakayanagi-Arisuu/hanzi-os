@@ -19,110 +19,68 @@ import {
 } from "../../src/content/hsk2CurriculumScope.mjs";
 import {
   assertValidHsk3CurriculumScopeBundle,
-  loadHsk3CurriculumScopeBundle,
 } from "../../src/content/hsk3CurriculumScope.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
-  loadHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
 import {
   assertValidHsk3LessonBlueprintsBundle,
-  loadHsk3LessonBlueprintsBundle,
 } from "../../src/content/hsk3LessonBlueprints.mjs";
 import {
-  assertValidHsk3PersonalParagraphPackBundle,
-  loadHsk3PersonalParagraphPackBundle,
-} from "../../src/content/hsk3PersonalParagraphPack.mjs";
+  assertValidHsk3CohesionReconstructionPackBundle,
+  loadHsk3CohesionReconstructionPackBundle,
+} from "../../src/content/hsk3CohesionReconstructionPack.mjs";
 import {
-  assertValidHsk3PersonalDomainPackBundle,
-  loadHsk3PersonalDomainPackBundle,
-} from "../../src/content/hsk3PersonalDomainPack.mjs";
-import {
-  assertValidHsk3StudyWorkDomainPackBundle,
-  loadHsk3StudyWorkDomainPackBundle,
-} from "../../src/content/hsk3StudyWorkDomainPack.mjs";
-import {
-  assertValidHsk3NatureEnvironmentDomainPackBundle,
-  loadHsk3NatureEnvironmentDomainPackBundle,
-} from "../../src/content/hsk3NatureEnvironmentDomainPack.mjs";
-import {
-  assertValidHsk3SocietyArtsSportsDomainPackBundle,
-  loadHsk3SocietyArtsSportsDomainPackBundle,
-} from "../../src/content/hsk3SocietyArtsSportsDomainPack.mjs";
-import {
-  assertValidHsk3CultureTraditionDomainPackBundle,
-  loadHsk3CultureTraditionDomainPackBundle,
-} from "../../src/content/hsk3CultureTraditionDomainPack.mjs";
-import {
-  assertValidHsk3GuidedNotesPackBundle,
-  loadHsk3GuidedNotesPackBundle,
-} from "../../src/content/hsk3GuidedNotesPack.mjs";
-import {
-  assertValidHsk2VocabularyDraftBundle,
   loadHsk2VocabularyDraftBundle,
 } from "../../src/content/hsk2VocabularyDraft.mjs";
 import {
-  assertValidHsk2LessonBlueprintsBundle,
   loadHsk2LessonBlueprintsBundle,
 } from "../../src/content/hsk2LessonBlueprints.mjs";
 import {
-  assertValidHsk2VocabularyPracticeBundle,
   loadHsk2VocabularyPracticeBundle,
 } from "../../src/content/hsk2VocabularyPractice.mjs";
 import {
-  assertValidHsk2CharacterPracticeBundle,
   loadHsk2CharacterPracticeBundle,
 } from "../../src/content/hsk2CharacterPractice.mjs";
 import {
-  assertValidHsk2GrammarContextBundle,
   loadHsk2GrammarContextBundle,
 } from "../../src/content/hsk2GrammarContext.mjs";
 import {
-  assertValidHsk2SituationalDialoguesBundle,
   loadHsk2SituationalDialoguesBundle,
 } from "../../src/content/hsk2SituationalDialogues.mjs";
 import {
-  assertValidHsk2ShortTextProductionBundle,
   loadHsk2ShortTextProductionBundle,
 } from "../../src/content/hsk2ShortTextProduction.mjs";
 import {
-  assertValidHsk2LevelAssessmentBundle,
   loadHsk2LevelAssessmentBundle,
 } from "../../src/content/hsk2LevelAssessment.mjs";
 import {
-  assertValidHsk2ReviewManifestBundle,
   loadHsk2ReviewManifestBundle,
 } from "../../src/content/hsk2ReviewManifest.mjs";
 import {
-  assertValidHsk1PersonalExchangePackBundle,
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
 import {
-  assertValidHsk1CommunicativeUnitPacksBundle,
   loadHsk1CommunicativeUnitPacksBundle,
 } from "../../src/content/hsk1CommunicativeUnitPacks.mjs";
 import {
-  assertValidHsk1CharacterFoundationPackBundle,
   loadHsk1CharacterFoundationPackBundle,
 } from "../../src/content/hsk1CharacterFoundationPack.mjs";
 import {
-  assertValidHsk1GrammarContextPackBundle,
   loadHsk1GrammarContextPackBundle,
 } from "../../src/content/hsk1GrammarContextPack.mjs";
 import {
-  assertValidHsk1TaskAssessmentPackBundle,
   loadHsk1TaskAssessmentPackBundle,
 } from "../../src/content/hsk1TaskAssessmentPack.mjs";
 import {
-  assertValidHsk1LevelCheckItemBankBundle,
   loadHsk1LevelCheckItemBankBundle,
 } from "../../src/content/hsk1LevelCheckItemBank.mjs";
 import {
-  assertValidHsk1ReviewManifestBundle,
   loadHsk1ReviewManifestBundle,
 } from "../../src/content/hsk1ReviewManifest.mjs";
 import {
   assertValidHskSyllabusBundle,
+  fileSha256,
   loadHskSyllabusBundle,
 } from "../../src/content/hskSyllabusInventory.mjs";
 
@@ -141,6 +99,54 @@ const normalizePinyin = (value) =>
 const percentage = (covered, total) =>
   total === 0 ? 0 : Number(((covered / total) * 100).toFixed(2));
 
+const assertPinnedReviewManifestForReport = ({
+  root,
+  manifest,
+  expectedId,
+}) => {
+  const sources = Array.isArray(manifest?.sources)
+    ? manifest.sources
+    : [];
+  const batches = Array.isArray(manifest?.reviewBatches)
+    ? manifest.reviewBatches
+    : [];
+  const pendingBatches = batches.filter(
+    (batch) => batch.state === "pending",
+  ).length;
+  const approvals = batches.reduce(
+    (total, batch) => total + (batch.approvalCount ?? 0),
+    0,
+  );
+  if (
+    manifest?.manifestId !== expectedId
+    || manifest?.state !== "ready-for-human-review-assignment"
+    || manifest?.learnerVisible !== false
+    || manifest?.releaseEligible !== false
+    || sources.length === 0
+    || new Set(batches.map((batch) => batch.batchId)).size
+      !== batches.length
+    || pendingBatches !== batches.length
+    || approvals !== 0
+    || manifest?.counts?.sourceArtifacts !== sources.length
+    || manifest?.counts?.reviewBatches !== batches.length
+    || manifest?.counts?.pendingBatches !== pendingBatches
+    || manifest?.counts?.approvals !== approvals
+  ) {
+    throw new Error(`${expectedId} report binding is invalid`);
+  }
+  for (const source of sources) {
+    if (
+      typeof source.relativePath !== "string"
+      || !source.relativePath.startsWith("content/")
+      || source.relativePath.includes("..")
+      || fileSha256(join(root, source.relativePath)) !== source.sha256
+    ) {
+      throw new Error(`${expectedId} report source binding is stale`);
+    }
+  }
+  return { summary: manifest.counts };
+};
+
 export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const syllabus = loadHskSyllabusBundle(root);
   assertValidHskSyllabusBundle(syllabus);
@@ -153,45 +159,56 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk1ScopeResult = assertValidHsk1CurriculumScopeBundle(hsk1Scope);
   const hsk2Scope = loadHsk2CurriculumScopeBundle(root);
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
-  const hsk3Scope = loadHsk3CurriculumScopeBundle(root);
-  const hsk3ScopeResult = assertValidHsk3CurriculumScopeBundle(hsk3Scope);
-  const hsk3Vocabulary = loadHsk3VocabularyDraftBundle(root);
-  const hsk3VocabularyResult =
-    assertValidHsk3VocabularyDraftBundle(hsk3Vocabulary);
-  const hsk3LessonBlueprints = loadHsk3LessonBlueprintsBundle(root);
+  const hsk3CohesionReconstruction =
+    loadHsk3CohesionReconstructionPackBundle(root);
+  const hsk3CohesionReconstructionResult =
+    assertValidHsk3CohesionReconstructionPackBundle(
+      hsk3CohesionReconstruction,
+    );
+  const hsk3GuidedNotes =
+    hsk3CohesionReconstruction.prerequisiteBundle;
+  const hsk3GuidedNotesResult = {
+    summary: hsk3GuidedNotes.pack.counts,
+  };
+  const hsk3CultureTraditionDomain =
+    hsk3CohesionReconstruction.paragraphBundle;
+  const hsk3CultureTraditionDomainResult = {
+    summary: hsk3CultureTraditionDomain.pack.counts,
+  };
+  const hsk3SocietyArtsSportsDomain =
+    hsk3CultureTraditionDomain.prerequisiteBundles[0];
+  const hsk3SocietyArtsSportsDomainResult = {
+    summary: hsk3SocietyArtsSportsDomain.pack.counts,
+  };
+  const hsk3NatureEnvironmentDomain =
+    hsk3SocietyArtsSportsDomain.prerequisiteBundles[0];
+  const hsk3NatureEnvironmentDomainResult = {
+    summary: hsk3NatureEnvironmentDomain.pack.counts,
+  };
+  const hsk3StudyWorkDomain =
+    hsk3NatureEnvironmentDomain.prerequisiteBundles[0];
+  const hsk3StudyWorkDomainResult = {
+    summary: hsk3StudyWorkDomain.pack.counts,
+  };
+  const hsk3PersonalDomain =
+    hsk3StudyWorkDomain.prerequisiteBundles[0];
+  const hsk3PersonalDomainResult = {
+    summary: hsk3PersonalDomain.pack.counts,
+  };
+  const hsk3PersonalParagraph = hsk3PersonalDomain.priorLessonBundle;
+  const hsk3PersonalParagraphResult = {
+    summary: hsk3PersonalParagraph.pack.counts,
+  };
+  const hsk3LessonBlueprints =
+    hsk3CohesionReconstruction.blueprintBundle;
   const hsk3LessonBlueprintsResult =
     assertValidHsk3LessonBlueprintsBundle(hsk3LessonBlueprints);
-  const hsk3PersonalParagraph =
-    loadHsk3PersonalParagraphPackBundle(root);
-  const hsk3PersonalParagraphResult =
-    assertValidHsk3PersonalParagraphPackBundle(hsk3PersonalParagraph);
-  const hsk3PersonalDomain = loadHsk3PersonalDomainPackBundle(root);
-  const hsk3PersonalDomainResult =
-    assertValidHsk3PersonalDomainPackBundle(hsk3PersonalDomain);
-  const hsk3StudyWorkDomain = loadHsk3StudyWorkDomainPackBundle(root);
-  const hsk3StudyWorkDomainResult =
-    assertValidHsk3StudyWorkDomainPackBundle(hsk3StudyWorkDomain);
-  const hsk3NatureEnvironmentDomain =
-    loadHsk3NatureEnvironmentDomainPackBundle(root);
-  const hsk3NatureEnvironmentDomainResult =
-    assertValidHsk3NatureEnvironmentDomainPackBundle(
-      hsk3NatureEnvironmentDomain,
-    );
-  const hsk3SocietyArtsSportsDomain =
-    loadHsk3SocietyArtsSportsDomainPackBundle(root);
-  const hsk3SocietyArtsSportsDomainResult =
-    assertValidHsk3SocietyArtsSportsDomainPackBundle(
-      hsk3SocietyArtsSportsDomain,
-    );
-  const hsk3CultureTraditionDomain =
-    loadHsk3CultureTraditionDomainPackBundle(root);
-  const hsk3CultureTraditionDomainResult =
-    assertValidHsk3CultureTraditionDomainPackBundle(
-      hsk3CultureTraditionDomain,
-    );
-  const hsk3GuidedNotes = loadHsk3GuidedNotesPackBundle(root);
-  const hsk3GuidedNotesResult =
-    assertValidHsk3GuidedNotesPackBundle(hsk3GuidedNotes);
+  const hsk3Vocabulary = hsk3LessonBlueprints.vocabularyBundle;
+  const hsk3VocabularyResult =
+    assertValidHsk3VocabularyDraftBundle(hsk3Vocabulary);
+  const hsk3Scope = hsk3LessonBlueprints.scopeBundle;
+  const hsk3ScopeResult =
+    assertValidHsk3CurriculumScopeBundle(hsk3Scope);
   const hsk3DiscourseLinkingNarration = hsk3GuidedNotes.narrationBundle;
   const hsk3DiscourseLinkingNarrationResult = {
     summary: hsk3DiscourseLinkingNarration.pack.counts,
@@ -216,57 +233,79 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk3ComparisonEvaluationNarrationResult = {
     summary: hsk3ComparisonEvaluationNarration.pack.counts,
   };
-  const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
-  const hsk2VocabularyResult =
-    assertValidHsk2VocabularyDraftBundle(hsk2Vocabulary);
-  const hsk2LessonBlueprints = loadHsk2LessonBlueprintsBundle(root);
-  const hsk2LessonBlueprintsResult =
-    assertValidHsk2LessonBlueprintsBundle(hsk2LessonBlueprints);
-  const hsk2VocabularyPractice = loadHsk2VocabularyPracticeBundle(root);
-  const hsk2VocabularyPracticeResult =
-    assertValidHsk2VocabularyPracticeBundle(hsk2VocabularyPractice);
-  const hsk2CharacterPractice = loadHsk2CharacterPracticeBundle(root);
-  const hsk2CharacterPracticeResult =
-    assertValidHsk2CharacterPracticeBundle(hsk2CharacterPractice);
-  const hsk2GrammarContext = loadHsk2GrammarContextBundle(root);
-  const hsk2GrammarContextResult =
-    assertValidHsk2GrammarContextBundle(hsk2GrammarContext);
-  const hsk2SituationalDialogues =
-    loadHsk2SituationalDialoguesBundle(root);
-  const hsk2SituationalDialoguesResult =
-    assertValidHsk2SituationalDialoguesBundle(hsk2SituationalDialogues);
-  const hsk2ShortTextProduction =
-    loadHsk2ShortTextProductionBundle(root);
-  const hsk2ShortTextProductionResult =
-    assertValidHsk2ShortTextProductionBundle(hsk2ShortTextProduction);
-  const hsk2LevelAssessment = loadHsk2LevelAssessmentBundle(root);
-  const hsk2LevelAssessmentResult =
-    assertValidHsk2LevelAssessmentBundle(hsk2LevelAssessment);
   const hsk2ReviewManifest = loadHsk2ReviewManifestBundle(root);
   const hsk2ReviewManifestResult =
-    assertValidHsk2ReviewManifestBundle(hsk2ReviewManifest);
-  const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
-  const hsk1PersonalPackResult =
-    assertValidHsk1PersonalExchangePackBundle(hsk1PersonalPack);
-  const hsk1CommunicativePacks =
-    loadHsk1CommunicativeUnitPacksBundle(root);
-  const hsk1CommunicativePacksResult =
-    assertValidHsk1CommunicativeUnitPacksBundle(hsk1CommunicativePacks);
-  const hsk1CharacterPack = loadHsk1CharacterFoundationPackBundle(root);
-  const hsk1CharacterPackResult =
-    assertValidHsk1CharacterFoundationPackBundle(hsk1CharacterPack);
-  const hsk1GrammarPack = loadHsk1GrammarContextPackBundle(root);
-  const hsk1GrammarPackResult =
-    assertValidHsk1GrammarContextPackBundle(hsk1GrammarPack);
-  const hsk1TaskPack = loadHsk1TaskAssessmentPackBundle(root);
-  const hsk1TaskPackResult =
-    assertValidHsk1TaskAssessmentPackBundle(hsk1TaskPack);
-  const hsk1LevelCheck = loadHsk1LevelCheckItemBankBundle(root);
-  const hsk1LevelCheckResult =
-    assertValidHsk1LevelCheckItemBankBundle(hsk1LevelCheck);
+    assertPinnedReviewManifestForReport({
+      root,
+      manifest: hsk2ReviewManifest.manifest,
+      expectedId: "hsk2-review-manifest-2026.07",
+    });
+  const hsk2Vocabulary = loadHsk2VocabularyDraftBundle(root);
+  const hsk2VocabularyResult = {
+    counts: hsk2Vocabulary.draft.counts,
+  };
+  const hsk2LessonBlueprints = loadHsk2LessonBlueprintsBundle(root);
+  const hsk2LessonBlueprintsResult = {
+    summary: hsk2LessonBlueprints.pack.counts,
+  };
+  const hsk2VocabularyPractice = loadHsk2VocabularyPracticeBundle(root);
+  const hsk2VocabularyPracticeResult = {
+    summary: hsk2VocabularyPractice.pack.counts,
+  };
+  const hsk2CharacterPractice = loadHsk2CharacterPracticeBundle(root);
+  const hsk2CharacterPracticeResult = {
+    summary: hsk2CharacterPractice.pack.counts,
+  };
+  const hsk2GrammarContext = loadHsk2GrammarContextBundle(root);
+  const hsk2GrammarContextResult = {
+    summary: hsk2GrammarContext.pack.counts,
+  };
+  const hsk2SituationalDialogues =
+    loadHsk2SituationalDialoguesBundle(root);
+  const hsk2SituationalDialoguesResult = {
+    summary: hsk2SituationalDialogues.pack.counts,
+  };
+  const hsk2ShortTextProduction =
+    loadHsk2ShortTextProductionBundle(root);
+  const hsk2ShortTextProductionResult = {
+    summary: hsk2ShortTextProduction.pack.counts,
+  };
+  const hsk2LevelAssessment = loadHsk2LevelAssessmentBundle(root);
+  const hsk2LevelAssessmentResult = {
+    summary: hsk2LevelAssessment.bank.counts,
+  };
   const hsk1ReviewManifest = loadHsk1ReviewManifestBundle(root);
   const hsk1ReviewManifestResult =
-    assertValidHsk1ReviewManifestBundle(hsk1ReviewManifest);
+    assertPinnedReviewManifestForReport({
+      root,
+      manifest: hsk1ReviewManifest.manifest,
+      expectedId: "hsk1-review-manifest-2026.07",
+    });
+  const hsk1PersonalPack = loadHsk1PersonalExchangePackBundle(root);
+  const hsk1PersonalPackResult = {
+    summary: hsk1PersonalPack.pack.counts,
+  };
+  const hsk1CommunicativePacks =
+    loadHsk1CommunicativeUnitPacksBundle(root);
+  const hsk1CommunicativePacksResult = {
+    summary: hsk1CommunicativePacks.collection.counts,
+  };
+  const hsk1CharacterPack = loadHsk1CharacterFoundationPackBundle(root);
+  const hsk1CharacterPackResult = {
+    summary: hsk1CharacterPack.pack.counts,
+  };
+  const hsk1GrammarPack = loadHsk1GrammarContextPackBundle(root);
+  const hsk1GrammarPackResult = {
+    summary: hsk1GrammarPack.pack.counts,
+  };
+  const hsk1TaskPack = loadHsk1TaskAssessmentPackBundle(root);
+  const hsk1TaskPackResult = {
+    summary: hsk1TaskPack.pack.counts,
+  };
+  const hsk1LevelCheck = loadHsk1LevelCheckItemBankBundle(root);
+  const hsk1LevelCheckResult = {
+    summary: hsk1LevelCheck.bank.counts,
+  };
   const registry = readJson(join(root, "content/registry.json"));
   const current = registry.packages.find(
     (item) => item.contentVersion === registry.currentContentVersion,
@@ -784,7 +823,55 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
           learnerVisible: false,
         },
         hsk3GuidedProductionStagesDraft: {
-          ...hsk3GuidedNotesResult.summary,
+          lessons:
+            hsk3GuidedNotesResult.summary.lessons
+            + hsk3CohesionReconstructionResult.summary.lessons,
+          completedGuidedProductionStages:
+            hsk3CohesionReconstructionResult.summary
+              .completedGuidedProductionStages,
+          completedGuidedProductionLessons:
+            hsk3CohesionReconstructionResult.summary
+              .completedGuidedProductionLessons,
+          sourceTexts:
+            hsk3GuidedNotesResult.summary.sourceTexts
+            + hsk3CohesionReconstructionResult.summary.sourceTexts,
+          sourceTextLines:
+            hsk3GuidedNotesResult.summary.sourceTextLines
+            + hsk3CohesionReconstructionResult.summary.sourceTextLines,
+          promptUnits:
+            hsk3GuidedNotesResult.summary.promptUnits
+            + hsk3CohesionReconstructionResult.summary.promptUnits,
+          readingInputPromptUnits:
+            hsk3GuidedNotesResult.summary.readingInputPromptUnits
+            + hsk3CohesionReconstructionResult.summary.promptUnits,
+          listeningInputPromptUnits:
+            hsk3GuidedNotesResult.summary.listeningInputPromptUnits,
+          integratedListeningReadingPromptUnits:
+            hsk3GuidedNotesResult.summary
+              .integratedListeningReadingPromptUnits,
+          temporalOrderingPromptUnits:
+            hsk3CohesionReconstructionResult.summary
+              .temporalOrderingPromptUnits,
+          referenceLinkerPromptUnits:
+            hsk3CohesionReconstructionResult.summary
+              .referenceLinkerPromptUnits,
+          orderRationalePromptUnits:
+            hsk3CohesionReconstructionResult.summary
+              .orderRationalePromptUnits,
+          revisionChecklists:
+            hsk3GuidedNotesResult.summary.revisionChecklists
+            + hsk3CohesionReconstructionResult.summary.revisionChecklists,
+          audioDependentPromptUnits:
+            hsk3GuidedNotesResult.summary.audioDependentPromptUnits,
+          reviewedAudioPromptUnits:
+            hsk3GuidedNotesResult.summary.reviewedAudioPromptUnits,
+          measurementEligibleItems: 0,
+          masteryEligibleItems: 0,
+          reviewBatches:
+            hsk3GuidedNotesResult.summary.reviewBatches
+            + hsk3CohesionReconstructionResult.summary.reviewBatches,
+          approvals: 0,
+          releaseEligibleItems: 0,
           reviewed: false,
           learnerVisible: false,
         },
