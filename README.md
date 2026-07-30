@@ -45,6 +45,7 @@ npm run start
 - [Roadmap thương mại hóa](docs/ROADMAP.md)
 - [Kế hoạch đồ án HSK0-4 đang hoạt động](docs/HSK4_GRADUATION_PLAN.md)
 - [Walkthrough demo local HSK0 → HSK1](docs/HSK01_LOCAL_DEMO.md)
+- [Đóng gói và kiểm chứng local release candidate](docs/LOCAL_RELEASE_CANDIDATE.md)
 - [Kế hoạch nâng cấp production đang tạm hoãn](docs/PRODUCTION_UPGRADE_PLAN.md)
 
 ## Ranh giới của bản foundation

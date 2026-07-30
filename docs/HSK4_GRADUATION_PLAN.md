@@ -777,6 +777,15 @@ evidence + 2 remediation evidence với idempotency/provenance và skill bucket
 daily/character vẫn khóa và HSK2-4 vẫn unavailable. Runbook ghi rõ đây là local
 prototype, không phải mastery server, HSK completion hay production evidence.
 
+Lát nền đóng gói local candidate hiện **giữ tiến độ ở 89%** cho tới khi receipt
+đã được tạo từ clean source và toàn bộ gate xanh. Contract mới allow-list 10
+artifact, 4 gate và 8 Playwright acceptance binding cho demo, mobile, keyboard,
+reduced-motion, offline shell, owner-safe reset và backup export/import/reload.
+Validator cấm claim production/hosted/review/calibration/Sites, xác nhận readiness
+vẫn có 9 gate pending/23 blocker và phát hiện test title hoặc artifact bị thiếu.
+Test backup cũng đã chuyển sang tải file thật qua UI, import và reload; phần hạ
+tầng này chưa tự kiếm điểm F nếu chưa có machine-readable receipt.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

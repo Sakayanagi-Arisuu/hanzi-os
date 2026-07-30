@@ -569,6 +569,15 @@ Every commit must update this percentage here and in the active roadmap.
 - Added the defense runbook `docs/HSK01_LOCAL_DEMO.md` with reproduction steps,
   expected ledger, architecture links and explicit limits. This earns one G5
   QA point; it does not publish content or claim HSK/production readiness.
+- Added the local-candidate contract/runner foundation while keeping active
+  progress at **89%** until a clean-source receipt exists. The contract binds 10
+  artifacts, four allow-listed gates and eight exact Playwright cases covering
+  demo, mobile, keyboard, reduced motion, offline shell, owner-safe reset and
+  real UI backup export/import/reload. Its validator requires all 9 production
+  gates/23 blockers to remain fail-closed and prohibits production, hosted,
+  human-review, calibration or Sites claims. A code/content/config edit after
+  the tested revision makes the candidate stale; runner infrastructure alone
+  does not earn another G5 point.
 
 ## Repository state
 
@@ -822,9 +831,9 @@ Progress accounting rules:
 
 ## Local verification
 
-### Current G3 content-authoring and G5 demo baseline
+### Current G3 content-authoring and G5 demo/candidate baseline
 
-The results below are bound to the exact G3 checkpoint worktree. Any later
+The results below are bound to the exact G3/G5 checkpoint worktree. Any later
 edit to code, configuration or content makes this snapshot stale and requires
 the applicable gates to run again before the next checkpoint commit.
 

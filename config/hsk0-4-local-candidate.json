@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "candidateId": "hsk0-4-local-graduation-2026.07.1",
+  "kind": "local-graduation-release-candidate",
+  "claimBoundary": {
+    "environment": "local",
+    "productionReady": false,
+    "hostedEvidence": false,
+    "humanReviewEvidence": false,
+    "assessmentCalibrationEvidence": false,
+    "sitesVerified": false
+  },
+  "sourcePolicy": {
+    "runFromCleanGitHead": true,
+    "receiptRelativePath": "local-release-candidate/evidence-index.json",
+    "allowedPostRunPaths": [
+      "docs/HSK4_GRADUATION_PLAN.md",
+      "docs/IMPLEMENTATION_CHECKPOINT.md",
+      "local-release-candidate/evidence-index.json"
+    ]
+  },
+  "artifacts": [
+    {
+      "id": "runtime-catalog",
+      "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
+      "role": "checked learner-visible HSK runtime projection"
+    },
+    {
+      "id": "demo-contract",
+      "relativePath": "content/demo/hsk0-1-local-demo.json",
+      "role": "no-progress HSK0 to HSK1 UI walkthrough contract"
+    },
+    {
+      "id": "demo-runbook",
+      "relativePath": "docs/HSK01_LOCAL_DEMO.md",
+      "role": "repeatable defense walkthrough and limitations"
+    },
+    {
+      "id": "candidate-runbook",
+      "relativePath": "docs/LOCAL_RELEASE_CANDIDATE.md",
+      "role": "local candidate reproduction, verification and claim boundary"
+    },
+    {
+      "id": "architecture",
+      "relativePath": "docs/ARCHITECTURE.md",
+      "role": "local-first architecture and authority boundaries"
+    },
+    {
+      "id": "mastery-policy",
+      "relativePath": "docs/MASTERY_SYSTEM.md",
+      "role": "skill-separated mastery and remediation rules"
+    },
+    {
+      "id": "content-policy",
+      "relativePath": "docs/CONTENT_SYSTEM.md",
+      "role": "content visibility, review and release rules"
+    },
+    {
+      "id": "production-readiness",
+      "relativePath": "config/production-readiness.json",
+      "role": "fail-closed production blockers"
+    },
+    {
+      "id": "deferred-production-roadmap",
+      "relativePath": "docs/PRODUCTION_UPGRADE_PLAN.md",
+      "role": "explicitly deferred hosted production scope"
+    },
+    {
+      "id": "deferred-sites-binding",
+      "relativePath": ".openai/hosting.json",
+      "role": "preserved Sites binding; not deployment evidence"
+    }
+  ],
+  "gates": [
+    {
+      "id": "technical-baseline",
+      "npmArguments": ["run", "check"]
+    },
+    {
+      "id": "browser-acceptance",
+      "npmArguments": ["run", "test:e2e", "--", "--reporter=json"]
+    },
+    {
+      "id": "local-lighthouse",
+      "npmArguments": ["run", "test:lighthouse"]
+    },
+    {
+      "id": "production-dependency-audit",
+      "npmArguments": ["audit", "--omit=dev"]
+    }
+  ],
+  "acceptanceMatrix": [
+    {
+      "id": "hsk0-hsk1-real-ui-demo",
+      "capability": "checked HSK0 to HSK1 walkthrough",
+      "testFile": "e2e/hsk01-local-demo.spec.ts",
+      "testTitle": "walks the real local UI from the HSK0 bridge to the first HSK1 unlock"
+    },
+    {
+      "id": "mobile-layout-and-command-sheet",
+      "capability": "mobile routing, focus and horizontal overflow",
+      "testFile": "e2e/mobile-accessibility.spec.ts",
+      "testTitle": "keeps the mobile command sheet keyboard-safe and routes without overflow"
+    },
+    {
+      "id": "keyboard-destructive-dialog",
+      "capability": "keyboard focus trap, escape and trigger restore",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "traps keyboard focus in destructive dialogs and restores the trigger"
+    },
+    {
+      "id": "keyboard-single-select",
+      "capability": "keyboard radiogroup selection across learner surfaces",
+      "testFile": "e2e/mobile-accessibility.spec.ts",
+      "testTitle": "exposes single-select state and supports arrow navigation"
+    },
+    {
+      "id": "reduced-motion",
+      "capability": "reduced decorative motion without blocked interaction",
+      "testFile": "e2e/mobile-accessibility.spec.ts",
+      "testTitle": "short-circuits decorative motion without blocking interaction"
+    },
+    {
+      "id": "offline-shell",
+      "capability": "interactive local app recovery while offline",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "recovers the interactive app offline after an online controlled load"
+    },
+    {
+      "id": "owner-safe-reset",
+      "capability": "learning reset without deleting durable sync identity",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "resets progress without deleting the durable sync identity"
+    },
+    {
+      "id": "backup-export-import-reload",
+      "capability": "real UI backup export, import and durable reload",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "exports, restores and reloads a validated local JSON backup"
+    }
+  ]
+}

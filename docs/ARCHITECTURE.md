@@ -401,6 +401,15 @@ production chỉ được cân nhắc sau khi có:
   `attestable: false`; production
   evidence chỉ hợp lệ từ clean exact HEAD và khi mọi gate đã được phê duyệt cùng
   bind source revision, content manifest và build digest.
+- Local graduation candidate dùng một đường evidence tách biệt. Contract
+  `config/hsk0-4-local-candidate.json` allow-list đúng bốn gate local, các
+  artifact kiến trúc/demo/giới hạn và tám Playwright case của ma trận G5. Runner
+  chỉ nhận clean Git HEAD, bind exact revision/tree, hash build cùng artifact và
+  ghi receipt deterministic; verifier làm stale ngay khi code/config/content
+  đổi sau revision đã test. Receipt luôn giữ production, hosted, review,
+  calibration và Sites evidence bằng `false`, đồng thời chụp các blocker từ
+  readiness manifest. Vì vậy nó không đi qua hoặc thay thế production release
+  evidence ở trên.
 - Snapshot kỹ thuật local ngày 30/07/2026 qua 215 file/1.549 Vitest và 20/20 E2E.
   Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 396.7 KiB; đây
   không phải đo lường initial transfer thực tế. Ba Lighthouse cold-profile đạt

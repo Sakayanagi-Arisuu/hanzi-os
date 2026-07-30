@@ -380,23 +380,29 @@ test("traps keyboard focus in destructive dialogs and restores the trigger", asy
   await expect(trigger).toBeFocused();
 });
 
-test("restores a validated local JSON backup", async ({ page }) => {
+test("exports, restores and reloads a validated local JSON backup", async ({ page }) => {
   await finishOnboarding(page);
-  const backup = await page.evaluate(() => {
-    const state = JSON.parse(localStorage.getItem("hanzi-os-learning-state-v1") ?? "{}");
-    state.profile.name = "Hành giả phục hồi";
-    return state;
-  });
   await page.goto("/profile");
-  await page.locator('input[type="file"]').setInputFiles({
-    name: "hanzi-os-backup.json",
-    mimeType: "application/json",
-    buffer: Buffer.from(JSON.stringify(backup)),
-  });
+  await page.getByLabel("Tên hiển thị").fill("Hành giả phục hồi");
+  await page.getByRole("button", { name: "Lưu cấu hình" }).click();
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("button", {
+    name: "Xuất bản phục hồi hiện tại",
+  }).click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toMatch(/^hanzi-os-recovery-\d{4}-\d{2}-\d{2}\.json$/u);
+  const backupPath = await download.path();
+  expect(backupPath).not.toBeNull();
+
+  await page.getByLabel("Tên hiển thị").fill("Trạng thái tạm thời");
+  await page.getByRole("button", { name: "Lưu cấu hình" }).click();
+  await page.locator('input[type="file"]').setInputFiles(backupPath!);
   await expect(page.getByLabel("Tên hiển thị")).toHaveValue("Hành giả phục hồi");
   await expect.poll(() => page.evaluate(() =>
     JSON.parse(localStorage.getItem("hanzi-os-learning-state-v1") ?? "{}").profile?.name
   )).toBe("Hành giả phục hồi");
+  await page.reload();
+  await expect(page.getByLabel("Tên hiển thị")).toHaveValue("Hành giả phục hồi");
 });
 
 test("recovers the interactive app offline after an online controlled load", async ({ page, context }) => {
