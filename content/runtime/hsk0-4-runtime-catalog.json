@@ -1,14 +1,19 @@
 {
   "schemaVersion": 1,
   "catalogId": "hsk0-4-local-runtime-2026.07.1",
-  "compilerVersion": "hsk-runtime-curriculum-compiler-v1",
+  "compilerVersion": "hsk-runtime-curriculum-compiler-v2",
   "runtimeContentVersion": "foundation-2026.07.6",
-  "importIdempotencyKey": "sha256:a7252e9d9228101588f832e183b7b9f8124763828f1b958184608dbb8d7cc72d",
+  "importIdempotencyKey": "sha256:a7a8068085b3eb953bd684cb769604417523f0e54881fb7ac68a85e727c38fd6",
   "sourceBindings": {
     "curriculumGraph": {
       "graphId": "hsk0-4-graduation-2026.07.2",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
       "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
+    },
+    "unitReleasePolicy": {
+      "policyId": "hsk0-4-unit-release-policy-2026.07.1",
+      "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
+      "sha256": "sha256:46703526632f9ea16b991cb30cfb1f2da6247b1be6d47540bc9fd6a66ac14a47"
     },
     "contentRegistry": {
       "relativePath": "content/registry.json",
@@ -30,6 +35,9 @@
   "policy": {
     "sanitizedRuntimeCatalogOnly": true,
     "requiresBetaOrPublishedLessonState": true,
+    "requiresExplicitUnitReleaseAuthorization": true,
+    "releaseAuthorizationGrantsContentReviewApproval": false,
+    "releaseAuthorizationGrantsMastery": false,
     "requiresCompleteUnitPrerequisiteClosure": true,
     "draftArtifactImportsAllowed": false,
     "reviewManifestApprovalPublishesContent": false,
@@ -259,16 +267,21 @@
   "counts": {
     "paths": 5,
     "units": 4,
+    "mappedSourceUnits": 6,
+    "releaseAuthorizedUnits": 4,
+    "eligibleUnits": 4,
     "sourceReleasedLessons": 14,
     "eligibleLessons": 8,
     "mappedLessons": 8,
-    "prerequisiteBlockedLessons": 6,
-    "prerequisiteBlockedUnits": 2,
+    "releaseAuthorizationBlockedLessons": 6,
+    "releaseAuthorizationBlockedUnits": 2,
+    "prerequisiteBlockedAuthorizedLessons": 0,
+    "prerequisiteBlockedAuthorizedUnits": 0,
     "pathsWithTargetContent": 2,
     "pathsWithoutTargetContent": 3,
     "completionClaims": 0,
     "authoringUnitMetadataExcluded": 14,
     "draftArtifactsImported": 0
   },
-  "integritySha256": "sha256:53b5f48b301a5093d924914f6e0f719d18a01c12ea7508ba14748b93d6949607"
+  "integritySha256": "sha256:cc129724f811976de198ee698e1ba87fa143f40cc725ca009cbbafea6e6450fc"
 }

@@ -22,11 +22,16 @@ describe("sanitized HSK runtime curriculum catalog", () => {
     expect(result.summary).toEqual({
       paths: 5,
       units: 4,
+      mappedSourceUnits: 6,
+      releaseAuthorizedUnits: 4,
+      eligibleUnits: 4,
       sourceReleasedLessons: 14,
       eligibleLessons: 8,
       mappedLessons: 8,
-      prerequisiteBlockedLessons: 6,
-      prerequisiteBlockedUnits: 2,
+      releaseAuthorizationBlockedLessons: 6,
+      releaseAuthorizationBlockedUnits: 2,
+      prerequisiteBlockedAuthorizedLessons: 0,
+      prerequisiteBlockedAuthorizedUnits: 0,
       pathsWithTargetContent: 2,
       pathsWithoutTargetContent: 3,
       completionClaims: 0,
@@ -84,6 +89,9 @@ describe("sanitized HSK runtime curriculum catalog", () => {
     expect(serialized).not.toContain("productionEligible");
     expect(catalog.policy).toMatchObject({
       sanitizedRuntimeCatalogOnly: true,
+      requiresExplicitUnitReleaseAuthorization: true,
+      releaseAuthorizationGrantsContentReviewApproval: false,
+      releaseAuthorizationGrantsMastery: false,
       requiresCompleteUnitPrerequisiteClosure: true,
       draftArtifactImportsAllowed: false,
       reviewManifestApprovalPublishesContent: false,
@@ -145,6 +153,10 @@ describe("sanitized HSK runtime curriculum catalog", () => {
   it("rejects lesson mappings that bypass their unit prerequisites", () => {
     const { source } = loadHskRuntimeCatalogBundle();
     const unsafeSource = structuredClone(source);
+    unsafeSource.unitReleasePolicy.units.push({
+      unitId: "hsk1-daily-life",
+      lessonIds: ["daily-1", "daily-2", "daily-3", "daily-4"],
+    });
     const dailyUnit = unsafeSource.graphBundle.graph.units.find(
       (unit: { unitId: string }) => unit.unitId === "hsk1-daily-life",
     );
@@ -152,6 +164,33 @@ describe("sanitized HSK runtime curriculum catalog", () => {
 
     expect(() => projectHskRuntimeCatalog(unsafeSource)).toThrow(
       "daily-1 runtime lesson prerequisite is outside its eligible unit prerequisite closure",
+    );
+  });
+
+  it("does not activate a mapped unit without explicit authorization", () => {
+    const { source } = loadHskRuntimeCatalogBundle();
+    const catalog = projectHskRuntimeCatalog(source);
+
+    expect(catalog.units.map((unit: { unitId: string }) => unit.unitId))
+      .not.toContain("hsk1-daily-life");
+    expect(catalog.lessonMappings.map((mapping: { lessonId: string }) =>
+      mapping.lessonId
+    )).not.toContain("daily-1");
+    expect(catalog.counts).toMatchObject({
+      mappedSourceUnits: 6,
+      releaseAuthorizedUnits: 4,
+      releaseAuthorizationBlockedUnits: 2,
+      releaseAuthorizationBlockedLessons: 6,
+    });
+  });
+
+  it("rejects release authorization that does not bind the exact unit lessons", () => {
+    const { source } = loadHskRuntimeCatalogBundle();
+    const unsafeSource = structuredClone(source);
+    unsafeSource.unitReleasePolicy.units[3].lessonIds = ["survival-1"];
+
+    expect(() => projectHskRuntimeCatalog(unsafeSource)).toThrow(
+      "hsk1-personal-exchange unit-release authorization is invalid",
     );
   });
 

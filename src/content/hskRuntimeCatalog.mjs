@@ -10,14 +10,29 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK_RUNTIME_CATALOG_RELATIVE_PATH =
   "content/runtime/hsk0-4-runtime-catalog.json";
+export const HSK_RUNTIME_UNIT_RELEASE_POLICY_RELATIVE_PATH =
+  "content/curriculum/hsk0-4-unit-release-policy.json";
 export const HSK_RUNTIME_CATALOG_ID =
   "hsk0-4-local-runtime-2026.07.1";
+export const HSK_RUNTIME_UNIT_RELEASE_POLICY_ID =
+  "hsk0-4-unit-release-policy-2026.07.1";
 export const HSK_RUNTIME_COMPILER_VERSION =
-  "hsk-runtime-curriculum-compiler-v1";
+  "hsk-runtime-curriculum-compiler-v2";
 
 const RELEASED_STATES = new Set(["beta", "published"]);
 const PATH_IDS = ["hsk0", "hsk1", "hsk2", "hsk3", "hsk4"];
 const SAFE_PACKAGE_PATH = /^packages\/[a-z0-9][a-z0-9._-]*$/u;
+const UNIT_RELEASE_POLICY_ROOT_KEYS = [
+  "authorizationScope",
+  "curriculumGraphId",
+  "grantsContentReviewApproval",
+  "grantsMastery",
+  "policyId",
+  "runtimeContentVersion",
+  "schemaVersion",
+  "units",
+];
+const UNIT_RELEASE_KEYS = ["lessonIds", "unitId"];
 
 const isRecord = (value) =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -39,6 +54,9 @@ const sha256Json = (value) =>
   }`;
 const repositoryRelativePath = (root, path) =>
   relative(root, path).replaceAll("\\", "/");
+const hasExactKeys = (value, expectedKeys) =>
+  isRecord(value)
+  && exact(Object.keys(value).sort(), [...expectedKeys].sort());
 
 const resolveContainedPackagePath = (root, relativePath) => {
   if (
@@ -63,6 +81,10 @@ export const loadHskRuntimeCatalogSourceBundle = (
   root = process.cwd(),
 ) => {
   const graphBundle = loadHskCurriculumGraphBundle(root);
+  const unitReleasePolicyPath = resolve(
+    root,
+    HSK_RUNTIME_UNIT_RELEASE_POLICY_RELATIVE_PATH,
+  );
   const registryPath = resolve(root, "content/registry.json");
   const registry = readJson(registryPath);
   const currentEntries = Array.isArray(registry.packages)
@@ -90,6 +112,8 @@ export const loadHskRuntimeCatalogSourceBundle = (
   return {
     root,
     graphBundle,
+    unitReleasePolicyPath,
+    unitReleasePolicy: readJson(unitReleasePolicyPath),
     registryPath,
     registry,
     registryEntry,
@@ -114,6 +138,7 @@ const assertValidSourceBundle = (source) => {
     manifest,
     itemCatalog,
     runtimeCatalog,
+    unitReleasePolicy,
   } = source;
   if (
     !isRecord(registry)
@@ -209,6 +234,65 @@ const assertValidSourceBundle = (source) => {
   ) {
     throw new Error("HSK curriculum graph path is unexpected");
   }
+  if (
+    repositoryRelativePath(source.root, source.unitReleasePolicyPath)
+      !== HSK_RUNTIME_UNIT_RELEASE_POLICY_RELATIVE_PATH
+  ) {
+    throw new Error("HSK unit-release policy path is unexpected");
+  }
+  if (
+    !hasExactKeys(unitReleasePolicy, UNIT_RELEASE_POLICY_ROOT_KEYS)
+    || unitReleasePolicy.schemaVersion !== 1
+    || unitReleasePolicy.policyId !== HSK_RUNTIME_UNIT_RELEASE_POLICY_ID
+    || unitReleasePolicy.curriculumGraphId !== graph.graphId
+    || unitReleasePolicy.runtimeContentVersion !== runtimeCatalog.contentVersion
+    || unitReleasePolicy.authorizationScope !== "runtime-unit-activation-only"
+    || unitReleasePolicy.grantsContentReviewApproval !== false
+    || unitReleasePolicy.grantsMastery !== false
+    || !Array.isArray(unitReleasePolicy.units)
+    || unitReleasePolicy.units.length === 0
+  ) {
+    throw new Error("HSK unit-release policy identity is invalid");
+  }
+  const graphUnitIds = new Set(graph.units.map((unit) => unit.unitId));
+  const policyUnitIds = unitReleasePolicy.units.map((unit) => unit?.unitId);
+  if (duplicateValues(policyUnitIds).length > 0) {
+    throw new Error("HSK unit-release policy contains duplicate units");
+  }
+  const graphMappingsByUnit = new Map(
+    graph.units.map((unit) => [
+      unit.unitId,
+      graph.lessonMappings
+        .filter((mapping) => mapping.unitId === unit.unitId)
+        .map((mapping) => mapping.lessonId),
+    ]),
+  );
+  const releasedRuntimeLessonIds = new Set(
+    runtimeCatalog.lessons.map((lesson) => lesson.id),
+  );
+  for (const unitRelease of unitReleasePolicy.units) {
+    if (
+      !hasExactKeys(unitRelease, UNIT_RELEASE_KEYS)
+      || typeof unitRelease.unitId !== "string"
+      || !graphUnitIds.has(unitRelease.unitId)
+      || !Array.isArray(unitRelease.lessonIds)
+      || unitRelease.lessonIds.length === 0
+      || unitRelease.lessonIds.some(
+        (lessonId) =>
+          typeof lessonId !== "string"
+          || !releasedRuntimeLessonIds.has(lessonId),
+      )
+      || duplicateValues(unitRelease.lessonIds).length > 0
+      || !exact(
+        unitRelease.lessonIds,
+        graphMappingsByUnit.get(unitRelease.unitId),
+      )
+    ) {
+      throw new Error(
+        `${unitRelease?.unitId ?? "unknown"} unit-release authorization is invalid`,
+      );
+    }
+  }
 };
 
 const buildSourceBindings = (source) => ({
@@ -219,6 +303,14 @@ const buildSourceBindings = (source) => ({
       source.graphBundle.graphPath,
     ),
     sha256: fileSha256(source.graphBundle.graphPath),
+  },
+  unitReleasePolicy: {
+    policyId: source.unitReleasePolicy.policyId,
+    relativePath: repositoryRelativePath(
+      source.root,
+      source.unitReleasePolicyPath,
+    ),
+    sha256: fileSha256(source.unitReleasePolicyPath),
   },
   contentRegistry: {
     relativePath: repositoryRelativePath(
@@ -250,6 +342,30 @@ const buildSourceBindings = (source) => ({
   },
 });
 
+export const resolveRuntimeEligibleUnitIds = (
+  graph,
+  releaseAuthorizedUnitIds,
+) => {
+  const eligibleUnitIds = new Set();
+  let expanded = true;
+  while (expanded) {
+    expanded = false;
+    for (const unit of graph.units) {
+      if (
+        releaseAuthorizedUnitIds.has(unit.unitId)
+        && !eligibleUnitIds.has(unit.unitId)
+        && unit.prerequisiteUnitIds.every((unitId) =>
+          eligibleUnitIds.has(unitId)
+        )
+      ) {
+        eligibleUnitIds.add(unit.unitId);
+        expanded = true;
+      }
+    }
+  }
+  return eligibleUnitIds;
+};
+
 export const projectHskRuntimeCatalog = (source) => {
   assertValidSourceBundle(source);
   const graph = source.graphBundle.graph;
@@ -271,23 +387,13 @@ export const projectHskRuntimeCatalog = (source) => {
   const mappedUnitIds = new Set(
     graph.lessonMappings.map((mapping) => mapping.unitId),
   );
-  const runtimeEligibleUnitIds = new Set();
-  let expanded = true;
-  while (expanded) {
-    expanded = false;
-    for (const unit of graph.units) {
-      if (
-        mappedUnitIds.has(unit.unitId)
-        && !runtimeEligibleUnitIds.has(unit.unitId)
-        && unit.prerequisiteUnitIds.every((unitId) =>
-          runtimeEligibleUnitIds.has(unitId)
-        )
-      ) {
-        runtimeEligibleUnitIds.add(unit.unitId);
-        expanded = true;
-      }
-    }
-  }
+  const releaseAuthorizedUnitIds = new Set(
+    source.unitReleasePolicy.units.map((unit) => unit.unitId),
+  );
+  const runtimeEligibleUnitIds = resolveRuntimeEligibleUnitIds(
+    graph,
+    releaseAuthorizedUnitIds,
+  );
   const prerequisiteUnitClosure = (unitId) => {
     const closure = new Set();
     const queue = [...(graphUnitById.get(unitId)?.prerequisiteUnitIds ?? [])];
@@ -439,6 +545,9 @@ export const projectHskRuntimeCatalog = (source) => {
     policy: {
       sanitizedRuntimeCatalogOnly: true,
       requiresBetaOrPublishedLessonState: true,
+      requiresExplicitUnitReleaseAuthorization: true,
+      releaseAuthorizationGrantsContentReviewApproval: false,
+      releaseAuthorizationGrantsMastery: false,
       requiresCompleteUnitPrerequisiteClosure: true,
       draftArtifactImportsAllowed: false,
       reviewManifestApprovalPublishesContent: false,
@@ -454,15 +563,27 @@ export const projectHskRuntimeCatalog = (source) => {
     counts: {
       paths: paths.length,
       units: units.length,
+      mappedSourceUnits: mappedUnitIds.size,
+      releaseAuthorizedUnits: releaseAuthorizedUnitIds.size,
+      eligibleUnits: runtimeEligibleUnitIds.size,
       sourceReleasedLessons: runtime.lessons.length,
       eligibleLessons: lessonMappings.length,
       mappedLessons: new Set(
         lessonMappings.map((mapping) => mapping.lessonId),
       ).size,
-      prerequisiteBlockedLessons:
-        allLessonMappings.length - lessonMappings.length,
-      prerequisiteBlockedUnits:
-        mappedUnitIds.size - runtimeEligibleUnitIds.size,
+      releaseAuthorizationBlockedLessons: allLessonMappings.filter(
+        (mapping) => !releaseAuthorizedUnitIds.has(mapping.unitId),
+      ).length,
+      releaseAuthorizationBlockedUnits: [...mappedUnitIds].filter(
+        (unitId) => !releaseAuthorizedUnitIds.has(unitId),
+      ).length,
+      prerequisiteBlockedAuthorizedLessons: allLessonMappings.filter(
+        (mapping) =>
+          releaseAuthorizedUnitIds.has(mapping.unitId)
+          && !runtimeEligibleUnitIds.has(mapping.unitId),
+      ).length,
+      prerequisiteBlockedAuthorizedUnits: [...releaseAuthorizedUnitIds]
+        .filter((unitId) => !runtimeEligibleUnitIds.has(unitId)).length,
       pathsWithTargetContent: paths.filter(
         (path) => path.targetContentAvailable,
       ).length,
@@ -536,6 +657,10 @@ export const validateHskRuntimeCatalogBundle = ({
     if (
       catalog.policy.sanitizedRuntimeCatalogOnly !== true
       || catalog.policy.requiresBetaOrPublishedLessonState !== true
+      || catalog.policy.requiresExplicitUnitReleaseAuthorization !== true
+      || catalog.policy.releaseAuthorizationGrantsContentReviewApproval
+        !== false
+      || catalog.policy.releaseAuthorizationGrantsMastery !== false
       || catalog.policy.requiresCompleteUnitPrerequisiteClosure !== true
       || catalog.policy.draftArtifactImportsAllowed !== false
       || catalog.policy.reviewManifestApprovalPublishesContent !== false
@@ -562,11 +687,16 @@ export const validateHskRuntimeCatalogBundle = ({
     )
     || expected.counts.paths !== 5
     || expected.counts.units !== 4
+    || expected.counts.mappedSourceUnits !== 6
+    || expected.counts.releaseAuthorizedUnits !== 4
+    || expected.counts.eligibleUnits !== 4
     || expected.counts.sourceReleasedLessons !== 14
     || expected.counts.eligibleLessons !== 8
     || expected.counts.mappedLessons !== 8
-    || expected.counts.prerequisiteBlockedLessons !== 6
-    || expected.counts.prerequisiteBlockedUnits !== 2
+    || expected.counts.releaseAuthorizationBlockedLessons !== 6
+    || expected.counts.releaseAuthorizationBlockedUnits !== 2
+    || expected.counts.prerequisiteBlockedAuthorizedLessons !== 0
+    || expected.counts.prerequisiteBlockedAuthorizedUnits !== 0
     || expected.counts.pathsWithTargetContent !== 2
     || expected.counts.pathsWithoutTargetContent !== 3
     || expected.counts.completionClaims !== 0

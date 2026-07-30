@@ -141,6 +141,23 @@ Every commit must update this percentage here and in the active roadmap.
   First-lesson parity is exact, downstream authorization is empty and the
   explicit unit-release gate/package/receipt remain blockers. This packaging
   is learner-hidden and adds no coverage, so progress remains **90%**.
+- Added a checked, exact-hash unit-release policy and compiler v2 boundary.
+  Runtime eligibility now requires an explicit unit authorization as well as
+  released lesson state and complete prerequisite closure. The policy
+  allow-lists only the existing 4 units/8 lessons and explicitly grants
+  neither content-review approval nor mastery; the 2 other source-mapped units
+  and their 6 lessons remain withheld. Source mapping or prerequisite
+  completion alone can no longer publish a unit. Active progress remains
+  **90%** because learner coverage did not change.
+- Rebound the single-lesson dry-run to the new boundary: it still rejects the
+  incomplete 1/6-unit request, but no longer predicts an implicit daily-life
+  spillover. Added a second checked dry-run over the atomic handoff using the
+  production eligibility resolver. A complete six-lesson test projection
+  activates only `hsk1-time-place-events`; `hsk1-daily-life` and all four
+  `daily-*` lessons remain withheld without separate authorization. Test
+  fixtures never authorize import, all real review/audio/package/receipt slots
+  stay false and graph/policy/runtime bytes are unchanged, so progress stays
+  **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1134,23 +1151,28 @@ deliverable.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - checked HSK runtime curriculum projection: 5 path shells, 4
-    prerequisite-complete units, 8 eligible lesson mappings, 6 released
-    lessons blocked behind 2 prerequisite-gap units, 14 authoring-unit metadata
-    records excluded, 0 draft imports and 0 completion claims
+  - checked HSK runtime curriculum projection: 5 path shells, 6 mapped source
+    units, an explicit allow-list of 4 units, 4 prerequisite-complete eligible
+    units and 8 eligible lesson mappings; 6 released source lessons across 2
+    units remain authorization-blocked, 14 authoring-unit metadata records are
+    excluded and draft imports/completion claims remain 0
   - first HSK1 lesson promotion handoff: 67 exact content targets, 2 pending
     batches, 6 missing attributable role receipts and 16 missing reviewed audio
     assets; target version/receipt contract defined with 0 runtime mutation,
     learner visibility, completion or mastery claim
-  - first-lesson promotion dry-run: real evidence contract false, prerequisite
-    safety false and import authorization false; 5/6 target-unit lessons are
-    missing, while one partial mapping would unintentionally activate
-    `hsk1-daily-life` plus 4 existing lessons; complete test fixtures remain
-    non-authoritative and no graph/runtime bytes are written
+  - first-lesson promotion dry-run: real evidence contract false, atomic safety
+    false and import authorization false because 5/6 target-unit lessons are
+    missing; explicit unit authorization now prevents implicit downstream
+    activation, complete test fixtures remain non-authoritative and no graph,
+    policy or runtime bytes are written
   - atomic `hsk1-time-place-events` handoff: 6 lessons, 425 exact content
     targets, 15 pending batches/45 missing role receipts and 90 missing reviewed
     audio assets; first-lesson parity exact, downstream authorization empty and
     0 runtime mutation, visibility, completion or mastery claim
+  - atomic unit promotion dry-run: complete six-lesson test projection opens
+    exactly 1 explicitly authorized unit while `hsk1-daily-life` and its 4
+    mapped lessons stay withheld; real review/audio/package/receipt evidence
+    and import authorization remain false
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1159,9 +1181,9 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 221 files, 1,582 tests passed
+  - Vitest: 222 files, 1,591 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 396.7 KiB
+    ceiling: 396.8 KiB
 - `npm run test:e2e`: 21 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
   - Performance: 98 / 96 / 96, median 96
@@ -1193,15 +1215,16 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Add an explicit unit-release allowlist to the checked curriculum/runtime
-   projection so source mappings and prerequisite completion no longer imply
-   publication. Preserve the current four eligible units/eight lessons.
-2. Extend the dry-run against the atomic handoff: a complete test-only unit may
-   activate `hsk1-time-place-events` but must leave `hsk1-daily-life` and its
-   four source lessons withheld without a separate release authorization.
-3. Only after that compiler boundary is green and real approvals/audio exist,
-   create a versioned package. Keep the G5 candidate stale and operator auth,
-   commerce, hosted pilot and Sites frozen.
+1. Produce a reviewer-usable, learner-hidden packet for the atomic
+   `hsk1-time-place-events` unit: exact text/pinyin/Vietnamese targets, batch
+   checklists and the 90-item audio recording/rights manifest. Do not convert
+   the packet into approvals.
+2. Accept only attributable native-language, pedagogy and audio-rights
+   receipts that bind the exact handoff hashes; keep the unit blocked while any
+   of the 45 review slots or 90 audio targets is incomplete.
+3. Only after real evidence exists, create a versioned package, explicit unit
+   authorization and idempotent promotion receipt. Keep the G5 candidate stale
+   and operator auth, commerce, hosted pilot and Sites frozen.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

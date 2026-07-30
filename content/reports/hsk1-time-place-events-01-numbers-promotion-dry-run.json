@@ -17,7 +17,7 @@
     {
       "id": "handoff",
       "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-      "sha256": "sha256:6e15bc312d558836cb6c6cec07ea56e9e45b23b75b44b6054b9a49c6c52eb918"
+      "sha256": "sha256:fb6cb0bcba5f8db4cb55e2af2b07dc691b0d1c9ca0482b3984f2c27a4a4a300c"
     },
     {
       "id": "curriculumGraph",
@@ -25,9 +25,14 @@
       "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
     },
     {
+      "id": "unitReleasePolicy",
+      "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
+      "sha256": "sha256:46703526632f9ea16b991cb30cfb1f2da6247b1be6d47540bc9fd6a66ac14a47"
+    },
+    {
       "id": "runtimeCatalog",
       "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
-      "sha256": "sha256:783c51900512751884d00b7c69759bf8b6bd4fc95d5d7492a7c8ac8e4ae78412"
+      "sha256": "sha256:16dc1008232c037dd545fb1058efeb202e5844206cd40660cd8b7b6a14f8890e"
     }
   ],
   "result": {
@@ -43,9 +48,7 @@
       "promotion receipt binding is required"
     ],
     "safetyErrors": [
-      "atomic six-lesson unit release is incomplete",
-      "promotion would activate unintended downstream units",
-      "promotion would expose unintended downstream lessons"
+      "atomic six-lesson unit release is incomplete"
     ],
     "unitBoundary": {
       "expectedLessonIds": [
@@ -75,36 +78,31 @@
         "hsk0-pronunciation-control",
         "hsk1-personal-exchange"
       ],
+      "currentReleaseAuthorizedUnitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control",
+        "hsk1-personal-exchange"
+      ],
       "requestedUnitId": "hsk1-time-place-events",
       "requestedLessonIds": [
         "hsk1-time-place-events:01-numbers"
       ],
+      "requestedUnitReleaseAuthorization": true,
       "newlyEligibleUnitIds": [
-        "hsk1-time-place-events",
-        "hsk1-daily-life"
+        "hsk1-time-place-events"
       ],
-      "unintendedNewlyEligibleUnitIds": [
-        "hsk1-daily-life"
-      ],
-      "unintendedLessonIds": [
-        "daily-1",
-        "daily-2",
-        "daily-3",
-        "daily-4"
-      ],
+      "unintendedNewlyEligibleUnitIds": [],
+      "unintendedLessonIds": [],
       "prospectiveHsk1TargetLessonIds": [
         "survival-1",
         "survival-2",
         "survival-3",
         "survival-4",
-        "hsk1-time-place-events:01-numbers",
-        "daily-1",
-        "daily-2",
-        "daily-3",
-        "daily-4"
+        "hsk1-time-place-events:01-numbers"
       ],
       "completionClaim": false,
-      "prospectiveCatalogSha256": "sha256:be4debdbd22f6c3d6f5242bbd3f310cca55d0cd5c205ec9d2a6dc193b8ba9060"
+      "prospectiveCatalogSha256": "sha256:57a96dd2d873e68e88aa88bb6f8e7f112c1cc50139f372ec73147167bca97d84"
     },
     "evidenceSummary": {
       "requiredReviewReceipts": 6,

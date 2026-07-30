@@ -25,8 +25,8 @@ describe("HSK1 first-lesson promotion dry-run", () => {
       prerequisiteSafe: false,
       importAuthorized: false,
       missingUnitLessons: 5,
-      unintendedUnits: 1,
-      unintendedLessons: 4,
+      unintendedUnits: 0,
+      unintendedLessons: 0,
     });
     expect(bundle.report.result.evidenceSummary).toEqual({
       requiredReviewReceipts: 6,
@@ -41,18 +41,14 @@ describe("HSK1 first-lesson promotion dry-run", () => {
     );
   });
 
-  it("detects the four-lesson downstream activation spillover", () => {
+  it("keeps downstream units withheld behind explicit release authorization", () => {
     const { report } = loadHsk1LessonPromotionDryRunBundle();
 
-    expect(report.result.activation.unintendedNewlyEligibleUnitIds).toEqual([
-      "hsk1-daily-life",
+    expect(report.result.activation.newlyEligibleUnitIds).toEqual([
+      "hsk1-time-place-events",
     ]);
-    expect(report.result.activation.unintendedLessonIds).toEqual([
-      "daily-1",
-      "daily-2",
-      "daily-3",
-      "daily-4",
-    ]);
+    expect(report.result.activation.unintendedNewlyEligibleUnitIds).toEqual([]);
+    expect(report.result.activation.unintendedLessonIds).toEqual([]);
     expect(report.result.unitBoundary.missingLessonIds).toEqual([
       "hsk1-time-place-events:02-calendar",
       "hsk1-time-place-events:03-week-and-day-parts",
@@ -74,8 +70,6 @@ describe("HSK1 first-lesson promotion dry-run", () => {
     expect(result.importAuthorized).toBe(false);
     expect(result.safetyErrors).toEqual([
       "atomic six-lesson unit release is incomplete",
-      "promotion would activate unintended downstream units",
-      "promotion would expose unintended downstream lessons",
     ]);
   });
 

@@ -35,7 +35,7 @@
     {
       "id": "promotionQueue",
       "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-      "sha256": "sha256:c29ee8dd0f78c230adbcf880e3f006320ae85e95e4ba6dfff9fefb66894e14d3"
+      "sha256": "sha256:7a3dab27913b3ebc9aca2d49728f14ce61187c239df7ccdd76c8afd245996873"
     }
   ],
   "targetBundle": {
@@ -64,7 +64,7 @@
       {
         "id": "promotionQueue",
         "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-        "sha256": "sha256:c29ee8dd0f78c230adbcf880e3f006320ae85e95e4ba6dfff9fefb66894e14d3"
+        "sha256": "sha256:7a3dab27913b3ebc9aca2d49728f14ce61187c239df7ccdd76c8afd245996873"
       }
     ],
     "contentTargets": [
@@ -813,7 +813,7 @@
       }
     ]
   },
-  "targetBundleSha256": "sha256:5751546c634e26f9b58b7750dc2817286aaf4ba86db6868793335483955e93ea",
+  "targetBundleSha256": "sha256:4d2d7f4c30d1fc875e0994b2d53bc75ba5a2234fbdf82dcf55de93dc97ad7cad",
   "requiredReviewReceipts": [
     {
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
@@ -862,7 +862,7 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-runtime-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:5751546c634e26f9b58b7750dc2817286aaf4ba86db6868793335483955e93ea",
+    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:4d2d7f4c30d1fc875e0994b2d53bc75ba5a2234fbdf82dcf55de93dc97ad7cad",
     "requiredBindings": [
       "handoffSha256",
       "targetBundleSha256",
@@ -872,7 +872,7 @@
       "reviewReceiptSha256s",
       "audioAssetSha256s"
     ],
-    "targetBundleSha256": "sha256:5751546c634e26f9b58b7750dc2817286aaf4ba86db6868793335483955e93ea",
+    "targetBundleSha256": "sha256:4d2d7f4c30d1fc875e0994b2d53bc75ba5a2234fbdf82dcf55de93dc97ad7cad",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },

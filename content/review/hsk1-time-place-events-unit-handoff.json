@@ -40,7 +40,7 @@
     {
       "id": "firstLessonHandoff",
       "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-      "sha256": "sha256:6e15bc312d558836cb6c6cec07ea56e9e45b23b75b44b6054b9a49c6c52eb918"
+      "sha256": "sha256:fb6cb0bcba5f8db4cb55e2af2b07dc691b0d1c9ca0482b3984f2c27a4a4a300c"
     }
   ],
   "targetBundle": {
@@ -84,7 +84,7 @@
       {
         "id": "firstLessonHandoff",
         "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-        "sha256": "sha256:6e15bc312d558836cb6c6cec07ea56e9e45b23b75b44b6054b9a49c6c52eb918"
+        "sha256": "sha256:fb6cb0bcba5f8db4cb55e2af2b07dc691b0d1c9ca0482b3984f2c27a4a4a300c"
       }
     ],
     "perLesson": [
@@ -5295,7 +5295,7 @@
       }
     ]
   },
-  "unitReleaseDigest": "sha256:1213481fe80a8a4a9236f9a48d680fe5f876adc9dfaca69168aabb875df0cfcb",
+  "unitReleaseDigest": "sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
   "requiredReviewReceipts": [
     {
       "lessonId": "hsk1-time-place-events:01-numbers",
@@ -5662,8 +5662,8 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-atomic-unit-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:1213481fe80a8a4a9236f9a48d680fe5f876adc9dfaca69168aabb875df0cfcb",
-    "unitReleaseDigest": "sha256:1213481fe80a8a4a9236f9a48d680fe5f876adc9dfaca69168aabb875df0cfcb",
+    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
+    "unitReleaseDigest": "sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },

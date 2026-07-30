@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "reportId": "hsk1-time-place-events-unit-promotion-dry-run-2026.07.1",
+  "state": "safe-test-projection-real-evidence-blocked",
+  "policy": {
+    "dryRunOnly": true,
+    "completeTestFixtureMayAuthorizeImport": false,
+    "explicitUnitReleaseAuthorizationRequired": true,
+    "sourceMappingAloneActivatesUnit": false,
+    "prerequisiteCompletionAloneActivatesUnit": false,
+    "downstreamAuthorizationInherited": false,
+    "writesCurriculumGraph": false,
+    "writesUnitReleasePolicy": false,
+    "writesRuntimeCatalog": false,
+    "exposesLearnerContent": false,
+    "grantsCompletionOrMastery": false
+  },
+  "sourceBindings": [
+    {
+      "id": "atomicUnitHandoff",
+      "relativePath": "content/review/hsk1-time-place-events-unit-handoff.json",
+      "sha256": "sha256:acb0fc4a15e8fb37384e93addaa23e3400232c6b526e13361c38078be4795e60"
+    },
+    {
+      "id": "curriculumGraph",
+      "relativePath": "content/curriculum/hsk0-4-graph.json",
+      "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
+    },
+    {
+      "id": "unitReleasePolicy",
+      "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
+      "sha256": "sha256:46703526632f9ea16b991cb30cfb1f2da6247b1be6d47540bc9fd6a66ac14a47"
+    },
+    {
+      "id": "runtimeCatalog",
+      "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
+      "sha256": "sha256:16dc1008232c037dd545fb1058efeb202e5844206cd40660cd8b7b6a14f8890e"
+    }
+  ],
+  "result": {
+    "atomicUnitComplete": true,
+    "targetUnitActivates": true,
+    "downstreamBoundarySafe": true,
+    "testProjectionSafe": true,
+    "realReviewReceiptsPresent": false,
+    "realReviewedAudioPresent": false,
+    "realRuntimePackagePresent": false,
+    "realPromotionReceiptPresent": false,
+    "importAuthorized": false,
+    "activation": {
+      "fixtureKind": "complete-atomic-unit-shape-only",
+      "targetUnitId": "hsk1-time-place-events",
+      "targetLessonIds": [
+        "hsk1-time-place-events:01-numbers",
+        "hsk1-time-place-events:02-calendar",
+        "hsk1-time-place-events:03-week-and-day-parts",
+        "hsk1-time-place-events:04-clock-and-duration",
+        "hsk1-time-place-events:05-location",
+        "hsk1-time-place-events:06-weather-and-residence"
+      ],
+      "atomicLessonCount": 6,
+      "unitReleaseDigest": "sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
+      "currentReleaseAuthorizedUnitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control",
+        "hsk1-personal-exchange"
+      ],
+      "prospectiveReleaseAuthorizedUnitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control",
+        "hsk1-personal-exchange",
+        "hsk1-time-place-events"
+      ],
+      "currentEligibleUnitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control",
+        "hsk1-personal-exchange"
+      ],
+      "prospectiveEligibleUnitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control",
+        "hsk1-personal-exchange",
+        "hsk1-time-place-events"
+      ],
+      "newlyEligibleUnitIds": [
+        "hsk1-time-place-events"
+      ],
+      "unintendedNewlyEligibleUnitIds": [],
+      "requiredDownstreamUnitStillWithheld": true,
+      "requiredDownstreamLessonIdsStillWithheld": [
+        "daily-1",
+        "daily-2",
+        "daily-3",
+        "daily-4"
+      ],
+      "allMappedLessonIdsStillWithheld": [
+        "daily-1",
+        "daily-2",
+        "daily-3",
+        "daily-4",
+        "characters-1",
+        "characters-2"
+      ],
+      "prospectiveHsk1TargetLessonIds": [
+        "survival-1",
+        "survival-2",
+        "survival-3",
+        "survival-4",
+        "hsk1-time-place-events:01-numbers",
+        "hsk1-time-place-events:02-calendar",
+        "hsk1-time-place-events:03-week-and-day-parts",
+        "hsk1-time-place-events:04-clock-and-duration",
+        "hsk1-time-place-events:05-location",
+        "hsk1-time-place-events:06-weather-and-residence"
+      ],
+      "completionClaim": false
+    }
+  },
+  "claims": {
+    "humanReviewPresent": false,
+    "reviewedAudioPresent": false,
+    "runtimePackagePresent": false,
+    "promotionReceiptPresent": false,
+    "unitReleasePolicyMutated": false,
+    "runtimeMutated": false,
+    "learnerContentExposed": false,
+    "completionGranted": false,
+    "masteryGranted": false
+  }
+}

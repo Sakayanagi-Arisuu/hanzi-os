@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "policyId": "hsk0-4-unit-release-policy-2026.07.1",
+  "curriculumGraphId": "hsk0-4-graduation-2026.07.2",
+  "runtimeContentVersion": "foundation-2026.07.6",
+  "authorizationScope": "runtime-unit-activation-only",
+  "grantsContentReviewApproval": false,
+  "grantsMastery": false,
+  "units": [
+    {
+      "unitId": "hsk0-tone-basics",
+      "lessonIds": [
+        "boot-1"
+      ]
+    },
+    {
+      "unitId": "hsk0-first-interaction",
+      "lessonIds": [
+        "boot-2"
+      ]
+    },
+    {
+      "unitId": "hsk0-pronunciation-control",
+      "lessonIds": [
+        "boot-3",
+        "boot-4"
+      ]
+    },
+    {
+      "unitId": "hsk1-personal-exchange",
+      "lessonIds": [
+        "survival-1",
+        "survival-2",
+        "survival-3",
+        "survival-4"
+      ]
+    }
+  ]
+}

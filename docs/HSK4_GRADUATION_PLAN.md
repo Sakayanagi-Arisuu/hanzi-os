@@ -837,6 +837,18 @@ asset/rights. Downstream authorization rỗng và explicit unit-release gate,
 runtime package, promotion receipt đều thiếu. Không có approval, visibility,
 completion hay mastery claim.
 
+Lát compiler boundary tiếp tục **giữ tiến độ ở 90%**. Checked unit-release
+policy có source hash riêng và allow-list đúng 4 unit/8 lesson hiện có; 2 unit
+đã có source mapping cùng 6 lesson không còn được suy diễn là đã phát hành.
+Compiler v2 yêu cầu đồng thời trạng thái lesson hợp lệ, explicit unit
+authorization và prerequisite closure; authorization không cấp review hay
+mastery. Dry-run lesson đơn đã được rebound: nó vẫn bị chặn vì thiếu 5/6
+lesson nhưng không còn làm `hsk1-daily-life` mở ngoài ý muốn. Dry-run nguyên
+unit dùng chính resolver production chứng minh fixture đủ 6 lesson chỉ có thể
+mở `hsk1-time-place-events`; `hsk1-daily-life` và `daily-1..4` vẫn bị giữ khi
+không có authorization riêng. Fixture không authorize import, không sửa graph,
+policy/runtime và không tạo learner coverage, nên chưa cộng điểm.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

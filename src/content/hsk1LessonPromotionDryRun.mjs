@@ -7,6 +7,10 @@ import {
   loadHsk1LessonPromotionHandoffBundle,
 } from "./hsk1LessonPromotionHandoff.mjs";
 import { fileSha256 } from "./hskSyllabusInventory.mjs";
+import {
+  HSK_RUNTIME_UNIT_RELEASE_POLICY_RELATIVE_PATH,
+  resolveRuntimeEligibleUnitIds,
+} from "./hskRuntimeCatalog.mjs";
 
 export const HSK1_LESSON_PROMOTION_DRY_RUN_RELATIVE_PATH =
   "content/reports/hsk1-time-place-events-01-numbers-promotion-dry-run.json";
@@ -60,34 +64,28 @@ const sourceBinding = (root, id, relativePath) => ({
   sha256: fileSha256(resolve(root, relativePath)),
 });
 
-const eligibleUnitIds = (graph, mappedUnitIds) => {
-  const eligible = new Set();
-  let expanded = true;
-  while (expanded) {
-    expanded = false;
-    for (const unit of graph.units) {
-      if (
-        mappedUnitIds.has(unit.unitId)
-        && !eligible.has(unit.unitId)
-        && unit.prerequisiteUnitIds.every((unitId) => eligible.has(unitId))
-      ) {
-        eligible.add(unit.unitId);
-        expanded = true;
-      }
-    }
-  }
-  return eligible;
-};
-
-const projectActivation = async ({ root, graph, runtime, handoff, lessonIds }) => {
+const projectActivation = async ({
+  root,
+  graph,
+  runtime,
+  unitReleasePolicy,
+  handoff,
+  lessonIds,
+}) => {
   const targetPack = handoff.targetBundle;
-  const mappedBefore = new Set(
-    graph.lessonMappings.map((mapping) => mapping.unitId),
+  const authorizedBefore = new Set(
+    unitReleasePolicy.units.map((unit) => unit.unitId),
   );
-  const eligibleBefore = eligibleUnitIds(graph, mappedBefore);
-  const mappedAfter = new Set(mappedBefore);
-  mappedAfter.add(TARGET_UNIT_ID);
-  const eligibleAfter = eligibleUnitIds(graph, mappedAfter);
+  const eligibleBefore = resolveRuntimeEligibleUnitIds(
+    graph,
+    authorizedBefore,
+  );
+  const authorizedAfter = new Set(authorizedBefore);
+  authorizedAfter.add(TARGET_UNIT_ID);
+  const eligibleAfter = resolveRuntimeEligibleUnitIds(
+    graph,
+    authorizedAfter,
+  );
   const newlyEligibleUnitIds = graph.units
     .map((unit) => unit.unitId)
     .filter((unitId) => eligibleAfter.has(unitId) && !eligibleBefore.has(unitId));
@@ -108,8 +106,12 @@ const projectActivation = async ({ root, graph, runtime, handoff, lessonIds }) =
     currentEligibleUnitIds: graph.units
       .map((unit) => unit.unitId)
       .filter((unitId) => eligibleBefore.has(unitId)),
+    currentReleaseAuthorizedUnitIds: graph.units
+      .map((unit) => unit.unitId)
+      .filter((unitId) => authorizedBefore.has(unitId)),
     requestedUnitId: targetPack.unitId,
     requestedLessonIds: lessonIds,
+    requestedUnitReleaseAuthorization: true,
     newlyEligibleUnitIds,
     unintendedNewlyEligibleUnitIds,
     unintendedLessonIds,
@@ -379,6 +381,10 @@ export const loadHsk1LessonPromotionDryRunSources = (
   handoffBundle: loadHsk1LessonPromotionHandoffBundle(root),
   graph: JSON.parse(readFileSync(resolve(root, GRAPH_RELATIVE_PATH), "utf8")),
   runtime: JSON.parse(readFileSync(resolve(root, RUNTIME_RELATIVE_PATH), "utf8")),
+  unitReleasePolicy: JSON.parse(readFileSync(
+    resolve(root, HSK_RUNTIME_UNIT_RELEASE_POLICY_RELATIVE_PATH),
+    "utf8",
+  )),
 });
 
 export const evaluateHsk1LessonPromotionDryRun = async ({
@@ -407,6 +413,7 @@ export const evaluateHsk1LessonPromotionDryRun = async ({
     root: source.root,
     graph: source.graph,
     runtime: source.runtime,
+    unitReleasePolicy: source.unitReleasePolicy,
     handoff,
     lessonIds: requestedLessonIds,
   });
@@ -538,6 +545,7 @@ export const buildHsk1LessonPromotionTestEvidence = async (source) => {
     root: source.root,
     graph: source.graph,
     runtime: source.runtime,
+    unitReleasePolicy: source.unitReleasePolicy,
     handoff,
     lessonIds: packageCore.lessonIds,
   });
@@ -581,6 +589,11 @@ export const projectCheckedHsk1LessonPromotionDryRun = async (
         HSK1_LESSON_PROMOTION_HANDOFF_RELATIVE_PATH,
       ),
       sourceBinding(source.root, "curriculumGraph", GRAPH_RELATIVE_PATH),
+      sourceBinding(
+        source.root,
+        "unitReleasePolicy",
+        HSK_RUNTIME_UNIT_RELEASE_POLICY_RELATIVE_PATH,
+      ),
       sourceBinding(source.root, "runtimeCatalog", RUNTIME_RELATIVE_PATH),
     ],
     result,
