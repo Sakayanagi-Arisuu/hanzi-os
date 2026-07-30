@@ -26,16 +26,17 @@ import {
 } from "../../src/content/hsk4CurriculumScope.mjs";
 import {
   assertValidHsk4LessonBlueprintsBundle,
-  loadHsk4LessonBlueprintsBundle,
 } from "../../src/content/hsk4LessonBlueprints.mjs";
 import {
   assertValidHsk4PersonalCommunityLongFormPackBundle,
-  loadHsk4PersonalCommunityLongFormPackBundle,
 } from "../../src/content/hsk4PersonalCommunityLongFormPack.mjs";
 import {
   assertValidHsk4EducationWorkLongFormPackBundle,
-  loadHsk4EducationWorkLongFormPackBundle,
 } from "../../src/content/hsk4EducationWorkLongFormPack.mjs";
+import {
+  assertValidHsk4NatureTechnologyLongFormPackBundle,
+  loadHsk4NatureTechnologyLongFormPackBundle,
+} from "../../src/content/hsk4NatureTechnologyLongFormPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -183,18 +184,23 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
-  const hsk4LessonBlueprints = loadHsk4LessonBlueprintsBundle(root);
-  const hsk4LessonBlueprintsResult =
-    assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
+  const hsk4NatureTechnology =
+    loadHsk4NatureTechnologyLongFormPackBundle(root);
+  const hsk4NatureTechnologyResult =
+    assertValidHsk4NatureTechnologyLongFormPackBundle(hsk4NatureTechnology);
+  const hsk4EducationWork =
+    hsk4NatureTechnology.prerequisiteBundles[0];
+  const hsk4EducationWorkResult =
+    assertValidHsk4EducationWorkLongFormPackBundle(hsk4EducationWork);
   const hsk4PersonalCommunity =
-    loadHsk4PersonalCommunityLongFormPackBundle(root);
+    hsk4EducationWork.prerequisiteBundles[0];
   const hsk4PersonalCommunityResult =
     assertValidHsk4PersonalCommunityLongFormPackBundle(
       hsk4PersonalCommunity,
     );
-  const hsk4EducationWork = loadHsk4EducationWorkLongFormPackBundle(root);
-  const hsk4EducationWorkResult =
-    assertValidHsk4EducationWorkLongFormPackBundle(hsk4EducationWork);
+  const hsk4LessonBlueprints = hsk4NatureTechnology.blueprintBundle;
+  const hsk4LessonBlueprintsResult =
+    assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
   const hsk4VocabularyResult = {
     counts: hsk4Vocabulary.draft.counts,
@@ -739,6 +745,42 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4EducationWorkResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4EducationWorkResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4NatureTechnologyLongFormDraft: {
+          lessons: hsk4NatureTechnologyResult.summary.lessons,
+          completedLongFormDomains:
+            hsk4NatureTechnologyResult.summary.completedLongFormDomains,
+          completedLongFormLessons:
+            hsk4NatureTechnologyResult.summary.completedLongFormLessons,
+          mappedTopics: hsk4NatureTechnologyResult.summary.mappedTopics,
+          targetLexemeContexts:
+            hsk4NatureTechnologyResult.summary.targetLexemeContexts,
+          authoredTexts: hsk4NatureTechnologyResult.summary.authoredTexts,
+          authoredParagraphs:
+            hsk4NatureTechnologyResult.summary.authoredParagraphs,
+          vocabularyPracticeItems:
+            hsk4NatureTechnologyResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk4NatureTechnologyResult.summary.comprehensionItems,
+          evidenceBoundComprehensionItems:
+            hsk4NatureTechnologyResult.summary
+              .evidenceBoundComprehensionItems,
+          inferenceItems:
+            hsk4NatureTechnologyResult.summary.inferenceItems,
+          noteMapItems: hsk4NatureTechnologyResult.summary.noteMapItems,
+          noteMapNodes: hsk4NatureTechnologyResult.summary.noteMapNodes,
+          synthesisPrompts:
+            hsk4NatureTechnologyResult.summary.synthesisPrompts,
+          authoredPracticeItems:
+            hsk4NatureTechnologyResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4NatureTechnologyResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk4NatureTechnologyResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk4NatureTechnologyResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

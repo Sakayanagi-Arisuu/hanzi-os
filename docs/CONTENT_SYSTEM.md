@@ -528,6 +528,15 @@ và quan điểm về quản lý/môi trường làm việc. Lát này cũng có
 note map và 6 cross-source synthesis. Chính sách ẩn/fail-closed giống miền
 trước; hash prerequisite làm thay đổi upstream không thể âm thầm bỏ qua.
 
+`content/drafts/hsk4-nature-technology-long-form-2026.07.json` nối miền thứ
+hai và đưa cumulative HSK4 lên 18/36 long-form lesson. Sáu lesson mới phân
+tích vai trò trong quan trắc/bảo tồn, tiến trình thử–so–sửa, nguyên nhân và
+đánh đổi môi trường, hiệu quả theo phạm vi, claim khoa học với confound, cùng
+tiêu chuẩn kỹ thuật–công chúng. Lát này giữ cùng hợp đồng 12 nguồn/36 đoạn,
+60 target lexeme, 180 vocabulary item, 60 evidence question, 12 bounded
+inference, 12 note map và 6 synthesis. Validator không cho mở rộng kết quả
+cục bộ thành claim toàn cầu hoặc biến tương quan thành quan hệ nhân quả.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

@@ -661,6 +661,15 @@ chỉ số so sánh, claim nghề nghiệp và quan điểm môi trường làm 
 luận đều có phạm vi và bằng chứng đoạn. Review/audio/measurement/mastery/
 release vẫn bằng 0, còn 4 domain/24 lesson nên chưa tăng trụ cột D.
 
+Miền tự nhiên/công nghệ giữ **84%** và nâng cumulative long-form lên 18/36
+lesson, 3/6 domain. Lát mới thêm 12 nguồn/36 đoạn, 60 target lexeme, 180 item
+từ vựng, 60 câu hỏi bind bằng chứng, 12 bounded inference, 12 note map và 6
+cross-source synthesis. Lũy kế ba miền đạt 36 nguồn/108 đoạn và 774 practice
+item. Các lesson buộc tách vai trò, dòng thời gian thử–so–sửa, nguyên nhân với
+đánh đổi, phạm vi chỉ số, claim khoa học và tiêu chuẩn người dùng; tương quan
+không được nâng thành nhân quả. Còn 3 domain/18 lesson và toàn bộ human/audio
+review nên chưa tăng điểm D.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

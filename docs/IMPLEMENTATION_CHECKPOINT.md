@@ -18,7 +18,7 @@ Active progress: **84%**.
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has 12/36 deep-comprehension lessons across two of six domains. Remaining HSK4 domains, summary/argument, integration, review and runtime publication remain. |
+| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has 18/36 deep-comprehension lessons across three of six domains. Remaining HSK4 domains, summary/argument, integration, review and runtime publication remain. |
 | HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint 86-item form pairs for HSK2 and HSK3 exist; HSK3 review packaging is exact-hash/local-only, while reviewed audio/rubrics, calibrated scored exams and timed mocks do not exist. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -914,6 +914,12 @@ the applicable gates to run again before the next checkpoint commit.
     12 bounded inferences, 12 note maps/60 nodes and 6 cross-source synthesis
     prompts add 258 practice items; source hash chaining, review, audio,
     measurement/mastery and release stay fail-closed
+  - HSK4 nature/technology long-form draft raises the chain to 18/36 lessons
+    and 3/6 domains; it adds 12 three-paragraph sources, 60 target lexeme
+    contexts, 180 vocabulary items, 60 evidence-bound questions, 12 bounded
+    inferences, 12 note maps/60 nodes and 6 cross-source synthesis prompts;
+    the 258 new practice items preserve correlation/causation and scope
+    boundaries with 0 review, measurement/mastery or release eligibility
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -971,18 +977,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 195 files, 1,435 tests passed
+  - Vitest: 196 files, 1,438 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 96 / 95 / 99, median 96
+  - Performance: 98 / 93 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,885 ms; CLS: 0; TBT: 184 ms
-  - One immediately preceding cold profile produced median 94 from transient
-    TBT variance; the clean rerun above passed without a bundle/code change
+  - Median LCP: 1,920 ms; CLS: 0; TBT: 134 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1007,7 +1011,7 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Continue the remaining 4 HSK4 long-form domains (24 lessons), preserving
+1. Continue the remaining 3 HSK4 long-form domains (18 lessons), preserving
    multiple paragraphs, explicit source evidence, bounded inference and note
    maps without forcing semantic-fallback vocabulary into unrelated texts.
 2. Add summary/argument and timed-integration packs, then build the separate
