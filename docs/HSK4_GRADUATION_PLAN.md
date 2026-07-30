@@ -700,6 +700,16 @@ và phạm vi diễn giải. Điểm D đạt 30/30 cho deliverable content-cove
 định danh; điều này **không** tuyên bố HSK4 hoàn thành, vì 24 summary/argument
 lesson, 18 integration lesson, assessment/mock, review và runtime vẫn mở.
 
+Module precision/reference/quantity mở 6/24 summary–argument lesson và 1/5
+grammar module nhưng tiến độ vẫn giữ **85%** vì pillar D đã đạt trần 30/30;
+không cộng điểm chỉ vì thêm artifact hay dòng code. Sáu lesson bind 12 nguồn
+đọc/nghe bằng exact hash, phủ 36 grammar row và thêm 78 practice item: 12
+fact/interpretation audit, 12 paraphrase, 6 summary 100–180 chữ, 6 argument
+160–280 chữ, 6 spoken defense cùng 36 grammar application. Ba rubric theo
+skill vẫn là draft, 30 item audio-dependent chưa có audio review và không
+item nào đủ measurement, mastery hay release. Còn 18 summary–argument lesson,
+18 integration lesson, assessment/mock, review và runtime.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

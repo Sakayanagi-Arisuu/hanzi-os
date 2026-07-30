@@ -44,8 +44,11 @@ import {
 } from "../../src/content/hsk4ArtsSportsExchangeLongFormPack.mjs";
 import {
   assertValidHsk4CultureHistoryLongFormPackBundle,
-  loadHsk4CultureHistoryLongFormPackBundle,
 } from "../../src/content/hsk4CultureHistoryLongFormPack.mjs";
+import {
+  assertValidHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle,
+  loadHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle,
+} from "../../src/content/hsk4PrecisionReferenceQuantitySummaryArgumentPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -193,8 +196,14 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4PrecisionReferenceQuantity =
+    loadHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle(root);
+  const hsk4PrecisionReferenceQuantityResult =
+    assertValidHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle(
+      hsk4PrecisionReferenceQuantity,
+    );
   const hsk4CultureHistory =
-    loadHsk4CultureHistoryLongFormPackBundle(root);
+    hsk4PrecisionReferenceQuantity.prerequisiteBundles[0];
   const hsk4CultureHistoryResult =
     assertValidHsk4CultureHistoryLongFormPackBundle(hsk4CultureHistory);
   const hsk4ArtsSportsExchange =
@@ -221,7 +230,8 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk4PersonalCommunityLongFormPackBundle(
       hsk4PersonalCommunity,
     );
-  const hsk4LessonBlueprints = hsk4CultureHistory.blueprintBundle;
+  const hsk4LessonBlueprints =
+    hsk4PrecisionReferenceQuantity.blueprintBundle;
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
@@ -915,6 +925,52 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4CultureHistoryResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4CultureHistoryResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4PrecisionReferenceQuantitySummaryArgumentDraft: {
+          lessons:
+            hsk4PrecisionReferenceQuantityResult.summary.lessons,
+          completedSummaryArgumentModules:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .completedSummaryArgumentModules,
+          completedSummaryArgumentLessons:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .completedSummaryArgumentLessons,
+          sourceBindings:
+            hsk4PrecisionReferenceQuantityResult.summary.sourceBindings,
+          grammarTargets:
+            hsk4PrecisionReferenceQuantityResult.summary.grammarTargets,
+          grammarPracticeItems:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .grammarPracticeItems,
+          sourceAuditItems:
+            hsk4PrecisionReferenceQuantityResult.summary.sourceAuditItems,
+          paraphraseItems:
+            hsk4PrecisionReferenceQuantityResult.summary.paraphraseItems,
+          structuredSummaryPrompts:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .structuredSummaryPrompts,
+          structuredArgumentPrompts:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .structuredArgumentPrompts,
+          spokenDefensePrompts:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .spokenDefensePrompts,
+          authoredPracticeItems:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .authoredPracticeItems,
+          audioDependentItems:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .audioDependentItems,
+          learnerRecordingItems:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .learnerRecordingItems,
+          reviewedRubrics:
+            hsk4PrecisionReferenceQuantityResult.summary.reviewedRubrics,
+          measurementEligibleItems:
+            hsk4PrecisionReferenceQuantityResult.summary
+              .measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

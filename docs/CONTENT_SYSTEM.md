@@ -569,6 +569,17 @@ inference, 12 note map và 6 synthesis đưa toàn chuỗi lên 72 nguồn/216 �
 HSK4: summary/argument, integration, assessment, review và release vẫn là
 các gate riêng.
 
+`content/drafts/hsk4-precision-reference-quantity-summary-argument-2026.07.json`
+mở chuỗi summary/argument với 6/24 lesson và 1/5 grammar module. Mỗi lesson
+bind hash chính xác tới một nguồn đọc và một nguồn nghe từ long-form chain,
+phủ đúng các grammar row blueprint giao, rồi cung cấp fact/interpretation
+audit, source-bounded paraphrase, summary 100–180 chữ, argument 160–280 chữ
+có phản biện/giới hạn và spoken defense ba phút. Lát đầu có 12 source
+binding, 36 grammar target/application và 78 practice item; 30 item phụ
+thuộc audio, 6 learner recording và toàn bộ rubric vẫn là draft chờ human
+review. Nó không tạo assessment form, calibration, mastery hoặc runtime
+publication.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack
