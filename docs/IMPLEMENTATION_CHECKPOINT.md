@@ -18,7 +18,7 @@ Active progress: **84%**.
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted. Assessment, review, runtime publication and HSK4 content remain. |
+| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has 6/36 deep-comprehension lessons in one of six domains. Remaining HSK4 domains, summary/argument, integration, review and runtime publication remain. |
 | HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint 86-item form pairs for HSK2 and HSK3 exist; HSK3 review packaging is exact-hash/local-only, while reviewed audio/rubrics, calibrated scored exams and timed mocks do not exist. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -902,6 +902,12 @@ the applicable gates to run again before the next checkpoint commit.
     inventory is mapped once, 9 lessons plan timed evidence, 106 minimum
     prompt units are allocated and 78 review batches remain pending; 0
     authored practice/prompt, calibration, release or mastery claim
+  - HSK4 personal/community long-form draft: 6/36 deep-comprehension lessons
+    and 1/6 domains, 12 three-paragraph reading/listening sources, 60 targeted
+    lexeme contexts, 180 vocabulary items, 60 evidence-bound comprehension
+    items, 12 bounded inferences, 12 note maps/60 nodes and 6 cross-source
+    synthesis prompts; 258 practice items and 6 review batches remain
+    learner-hidden with 0 reviewed audio, measurement/mastery or release item
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -959,16 +965,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 193 files, 1,427 tests passed
+  - Vitest: 194 files, 1,431 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 97 / 98, median 97
+  - Performance: 95 / 99 / 96, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,964 ms; CLS: 0; TBT: 92 ms
+  - Median LCP: 1,885 ms; CLS: 0; TBT: 198 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -993,8 +999,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author HSK4 long-form input packs by discourse domain, including multiple
-   paragraphs, explicit source evidence, inference checks and note maps.
+1. Continue the remaining 5 HSK4 long-form domains (30 lessons), preserving
+   multiple paragraphs, explicit source evidence, bounded inference and note
+   maps without forcing semantic-fallback vocabulary into unrelated texts.
 2. Add summary/argument and timed-integration packs, then build the separate
    HSK4 assessment/mock chain. Keep imports unpublished until provenance,
    linguistic, audio/rubric and calibration gates pass.

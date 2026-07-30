@@ -501,6 +501,23 @@ chín tường thuật/54 dòng và 141 practice item; chín batch có 0 approva
 không item nào đủ điều kiện measurement, mastery, learner visibility hay
 release.
 
+## HSK4 long-form authoring
+
+`content/drafts/hsk4-personal-community-long-form-2026.07.json` là miền đầu
+tiên của 36 lesson deep-comprehension HSK4. Sáu lesson phủ đúng 27 topic đời
+sống cá nhân/cộng đồng bằng 12 nguồn đọc/nghe, mỗi nguồn có ba đoạn và không
+hiển thị Pinyin toàn bài mặc định; 60 target lexeme có Pinyin theo yêu cầu.
+Mỗi nguồn có năm câu hỏi theo main claim, detail, bằng chứng liên đoạn, suy
+luận có ranh giới và giới hạn phạm vi; mỗi câu bind paragraph ID thay vì chỉ
+giữ đáp án.
+
+Pack còn có 12 evidence note map, 6 bài tổng hợp hai nguồn và 180 item luyện
+60 từ mục tiêu, tổng 258 practice item. Chỉ từ thực sự xuất hiện có chủ đích
+trong nguồn mới được tính `targetLexemeContexts`; những mục blueprint phân
+theo foundation fallback không bị chèn vào văn bản không liên quan. Đây là
+draft learner-hidden: audio là `null`, TTS chỉ preview, review/rubric/
+measurement/mastery/release đều pending hoặc false.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

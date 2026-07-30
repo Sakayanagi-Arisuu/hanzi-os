@@ -641,6 +641,17 @@ timed evidence và tổng prompt plan tối thiểu 106. Toàn bộ practice, pr
 rubric, review, calibration, visibility, release và mastery vẫn bằng 0/pending;
 blueprint coverage không phải authored lesson coverage.
 
+Miền long-form HSK4 đầu tiên giữ tiến độ ở **84%** và hoàn thành 6/36 lesson
+deep-comprehension thuộc đời sống cá nhân/cộng đồng. Pack có 12 nguồn ba đoạn
+(36 đoạn), 60 target lexeme có nghĩa Việt draft và 180 item từ vựng, 60 câu
+hỏi đọc/nghe đều bind đoạn bằng chứng, 12 bounded-inference item, 12 note map
+với 60 nút và 6 bài viết tổng hợp hai nguồn; tổng cộng 258 practice item. Văn
+bản chỉ dùng các target lexeme được author có chủ đích, không nhét 103 mục
+fallback còn lại của domain vào ngữ cảnh giả để tạo claim coverage. Audio,
+native/Vietnamese/assessment review, rubric, measurement, mastery, visibility
+và release vẫn bằng 0/pending. Còn 5/6 domain và 30/36 lesson long-form nên
+chưa cộng điểm trụ cột D.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

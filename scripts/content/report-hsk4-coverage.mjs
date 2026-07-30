@@ -29,6 +29,10 @@ import {
   loadHsk4LessonBlueprintsBundle,
 } from "../../src/content/hsk4LessonBlueprints.mjs";
 import {
+  assertValidHsk4PersonalCommunityLongFormPackBundle,
+  loadHsk4PersonalCommunityLongFormPackBundle,
+} from "../../src/content/hsk4PersonalCommunityLongFormPack.mjs";
+import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
 import {
@@ -178,6 +182,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk4LessonBlueprints = loadHsk4LessonBlueprintsBundle(root);
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
+  const hsk4PersonalCommunity =
+    loadHsk4PersonalCommunityLongFormPackBundle(root);
+  const hsk4PersonalCommunityResult =
+    assertValidHsk4PersonalCommunityLongFormPackBundle(
+      hsk4PersonalCommunity,
+    );
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
   const hsk4VocabularyResult = {
     counts: hsk4Vocabulary.draft.counts,
@@ -647,6 +657,46 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4LessonBlueprintsResult.summary.plannedMinimumPromptUnits,
           authoredPracticeItems:
             hsk4LessonBlueprintsResult.summary.authoredPracticeItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4PersonalCommunityLongFormDraft: {
+          lessons: hsk4PersonalCommunityResult.summary.lessons,
+          completedLongFormDomains:
+            hsk4PersonalCommunityResult.summary.completedLongFormDomains,
+          completedLongFormLessons:
+            hsk4PersonalCommunityResult.summary.completedLongFormLessons,
+          mappedTopics:
+            hsk4PersonalCommunityResult.summary.mappedTopics,
+          targetLexemeContexts:
+            hsk4PersonalCommunityResult.summary.targetLexemeContexts,
+          authoredTexts:
+            hsk4PersonalCommunityResult.summary.authoredTexts,
+          authoredParagraphs:
+            hsk4PersonalCommunityResult.summary.authoredParagraphs,
+          vocabularyPracticeItems:
+            hsk4PersonalCommunityResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk4PersonalCommunityResult.summary.comprehensionItems,
+          evidenceBoundComprehensionItems:
+            hsk4PersonalCommunityResult.summary
+              .evidenceBoundComprehensionItems,
+          inferenceItems:
+            hsk4PersonalCommunityResult.summary.inferenceItems,
+          noteMapItems:
+            hsk4PersonalCommunityResult.summary.noteMapItems,
+          noteMapNodes:
+            hsk4PersonalCommunityResult.summary.noteMapNodes,
+          synthesisPrompts:
+            hsk4PersonalCommunityResult.summary.synthesisPrompts,
+          authoredPracticeItems:
+            hsk4PersonalCommunityResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4PersonalCommunityResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk4PersonalCommunityResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk4PersonalCommunityResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },
