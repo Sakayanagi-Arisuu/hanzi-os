@@ -586,6 +586,12 @@ Every commit must update this percentage here and in the active roadmap.
   vulnerability. The receipt keeps 9 production gates/23 blockers open and
   every production/hosted/review/calibration/Sites claim false. This earns one
   G5 point and raises active progress to **90%**.
+- Post-commit verification exposed key-order-sensitive equality between the
+  canonical receipt and insertion-ordered runtime objects. The verifier now
+  compares canonical JSON for boundary, exact gate command, acceptance,
+  production-blocker and build records. Regression coverage pins reordered
+  objects and changed values. Progress stays **90%**, but the source change
+  intentionally makes the previous receipt stale until a clean regeneration.
 
 ## Repository state
 

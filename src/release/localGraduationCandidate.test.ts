@@ -5,6 +5,7 @@ import {
   assertAllowedPostRunChanges,
   bindAcceptanceResults,
   buildLocalCandidateReceipt,
+  canonicalJsonEqual,
   collectPlaywrightCases,
   LOCAL_CANDIDATE_CONTRACT_PATH,
   loadLocalCandidateContract,
@@ -181,6 +182,18 @@ describe("HSK0-4 local graduation candidate", () => {
       cleanAtGateFinish: true,
     });
     expect(receipt.productionReadiness.status).toBe("blocked");
+  });
+
+  it("compares canonical receipt objects independently of JSON key order", () => {
+    expect(canonicalJsonEqual(
+      { zebra: 1, alpha: { two: 2, one: 1 } },
+      { alpha: { one: 1, two: 2 }, zebra: 1 },
+    )).toBe(true);
+    expect(canonicalJsonEqual(
+      [{ id: "gate", command: "npm run check", status: "passed" }],
+      [{ status: "passed", command: "npm run check", id: "gate" }],
+    )).toBe(true);
+    expect(canonicalJsonEqual({ status: "passed" }, { status: "failed" })).toBe(false);
   });
 
   it("requires every production gate to remain pending for this local-only candidate", () => {

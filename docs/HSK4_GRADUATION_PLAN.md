@@ -796,6 +796,12 @@ config, content, test binding, artifact hoặc build lệch đều làm candidat
 Receipt đồng thời giữ production blocked với 9 gate/23 blocker và mọi claim
 production/hosted/review/calibration/Sites bằng `false`.
 
+Verifier hậu commit đã phát hiện phép so sánh ban đầu phụ thuộc thứ tự key JSON
+dù receipt được canonicalize. Regression chuyển mọi contract/gate/acceptance/
+build comparison sang canonical JSON, đồng thời kiểm exact command thay vì chỉ
+trạng thái `passed`. Sửa lỗi này giữ tiến độ ở **90%** và bắt buộc tái tạo
+candidate từ clean source; không nới stale-source policy.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

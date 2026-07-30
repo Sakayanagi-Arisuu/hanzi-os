@@ -56,6 +56,9 @@ const equalStringArrays = (left, right) =>
   && left.length === right.length
   && left.every((item, index) => item === right[index]);
 
+export const canonicalJsonEqual = (left, right) =>
+  serializeCanonicalJson(left) === serializeCanonicalJson(right);
+
 const toPortablePath = (path) => path.split(sep).join("/");
 
 const normalizeTestFile = (file) => {
@@ -639,7 +642,7 @@ export const verifyLocalCandidate = async (root = process.cwd()) => {
     receipt.schemaVersion !== LOCAL_CANDIDATE_RECEIPT_SCHEMA_VERSION
     || receipt.candidateId !== inputs.contract.candidateId
     || receipt.kind !== EXPECTED_KIND
-    || JSON.stringify(receipt.claimBoundary) !== JSON.stringify(inputs.contract.claimBoundary)
+    || !canonicalJsonEqual(receipt.claimBoundary, inputs.contract.claimBoundary)
   ) {
     throw new Error("Local candidate evidence receipt identity is invalid");
   }
@@ -679,11 +682,12 @@ export const verifyLocalCandidate = async (root = process.cwd()) => {
     assertReceiptHash(expected, recorded, expected.relativePath);
   }
 
-  if (
-    !Array.isArray(receipt.gates)
-    || receipt.gates.length !== inputs.contract.gates.length
-    || receipt.gates.some((gate) => gate.status !== "passed")
-  ) {
+  const expectedGates = inputs.contract.gates.map((gate) => ({
+    id: gate.id,
+    command: `npm ${gate.npmArguments.join(" ")}`,
+    status: "passed",
+  }));
+  if (!canonicalJsonEqual(receipt.gates, expectedGates)) {
     throw new Error("Local candidate gate results are incomplete");
   }
   if (
@@ -697,15 +701,15 @@ export const verifyLocalCandidate = async (root = process.cwd()) => {
     ...item,
     status: "passed",
   }));
-  if (JSON.stringify(receipt.acceptanceMatrix) !== JSON.stringify(expectedAcceptance)) {
+  if (!canonicalJsonEqual(receipt.acceptanceMatrix, expectedAcceptance)) {
     throw new Error("Local candidate acceptance bindings are stale");
   }
-  if (JSON.stringify(receipt.productionReadiness) !== JSON.stringify(inputs.productionReadiness)) {
+  if (!canonicalJsonEqual(receipt.productionReadiness, inputs.productionReadiness)) {
     throw new Error("Local candidate production blocker summary is stale");
   }
 
   const currentBuild = await buildDistIdentity(root);
-  if (JSON.stringify(currentBuild) !== JSON.stringify(receipt.build)) {
+  if (!canonicalJsonEqual(currentBuild, receipt.build)) {
     throw new Error("Local candidate build is missing or stale");
   }
   return {
