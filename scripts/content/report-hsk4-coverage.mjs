@@ -61,9 +61,12 @@ import {
   assertValidHsk4ArgumentLogicConcessionSummaryArgumentPackBundle,
 } from "../../src/content/hsk4ArgumentLogicConcessionSummaryArgumentPack.mjs";
 import {
-  assertValidHsk4TimedSectionalRehearsalIntegrationPackBundle,
-  loadHsk4TimedSectionalRehearsalIntegrationPackBundle,
-} from "../../src/content/hsk4TimedSectionalRehearsalIntegrationPack.mjs";
+  assertValidHsk4LevelAssessmentBundle,
+  loadHsk4LevelAssessmentBundle,
+} from "../../src/content/hsk4LevelAssessment.mjs";
+import {
+  loadHsk4ReviewManifestBundle,
+} from "../../src/content/hsk4ReviewManifest.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -211,12 +214,22 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4LevelAssessment = loadHsk4LevelAssessmentBundle(root);
+  const hsk4LevelAssessmentResult =
+    assertValidHsk4LevelAssessmentBundle(hsk4LevelAssessment);
+  const hsk4ReviewManifest =
+    loadHsk4ReviewManifestBundle(root);
+  const hsk4ReviewManifestResult =
+    assertPinnedReviewManifestForReport({
+      root,
+      manifest: hsk4ReviewManifest.manifest,
+      expectedId: "hsk4-review-manifest-2026.07",
+    });
   const hsk4TimedSectionalRehearsal =
-    loadHsk4TimedSectionalRehearsalIntegrationPackBundle(root);
-  const hsk4TimedSectionalRehearsalResult =
-    assertValidHsk4TimedSectionalRehearsalIntegrationPackBundle(
-      hsk4TimedSectionalRehearsal,
-    );
+    hsk4LevelAssessment.integrationBundle;
+  const hsk4TimedSectionalRehearsalResult = {
+    summary: hsk4TimedSectionalRehearsal.pack.counts,
+  };
   const hsk4StructuredSpokenDefense =
     hsk4TimedSectionalRehearsal.prerequisiteBundles[0];
   const hsk4StructuredSpokenDefenseResult = {
@@ -1133,6 +1146,95 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4IntegrationResult.summary.releaseEligibleItems,
           reviewed: false,
           learnerVisible: false,
+        },
+        hsk4LevelAssessmentDraft: {
+          forms: hsk4LevelAssessmentResult.summary.forms,
+          itemsPerForm: hsk4LevelAssessmentResult.summary.itemsPerForm,
+          totalItems: hsk4LevelAssessmentResult.summary.totalItems,
+          objectiveItems:
+            hsk4LevelAssessmentResult.summary.objectiveItems,
+          constructedResponseItems:
+            hsk4LevelAssessmentResult.summary.constructedResponseItems,
+          listeningItems:
+            hsk4LevelAssessmentResult.summary.listeningItems,
+          readingItems:
+            hsk4LevelAssessmentResult.summary.readingItems,
+          vocabularyItems:
+            hsk4LevelAssessmentResult.summary.vocabularyItems,
+          grammarItems:
+            hsk4LevelAssessmentResult.summary.grammarItems,
+          officialVocabularyBindings:
+            hsk4LevelAssessmentResult.summary.officialVocabularyBindings,
+          officialGrammarBindings:
+            hsk4LevelAssessmentResult.summary.officialGrammarBindings,
+          speakingItems:
+            hsk4LevelAssessmentResult.summary.speakingItems,
+          writingItems:
+            hsk4LevelAssessmentResult.summary.writingItems,
+          audioDependentItems:
+            hsk4LevelAssessmentResult.summary.audioDependentItems,
+          sourceFamilies:
+            hsk4LevelAssessmentResult.summary.sourceFamilies,
+          sourceFamiliesPerForm:
+            hsk4LevelAssessmentResult.summary.sourceFamiliesPerForm,
+          equivalentGroups:
+            hsk4LevelAssessmentResult.summary.equivalentGroups,
+          sourceIdOverlapBetweenForms:
+            hsk4LevelAssessmentResult.summary
+              .sourceIdOverlapBetweenForms,
+          sourceExposureOverlapBetweenForms:
+            hsk4LevelAssessmentResult.summary
+              .sourceExposureOverlapBetweenForms,
+          sourceTextHashOverlapBetweenForms:
+            hsk4LevelAssessmentResult.summary
+              .sourceTextHashOverlapBetweenForms,
+          sourceContentOverlapBetweenForms:
+            hsk4LevelAssessmentResult.summary
+              .sourceContentOverlapBetweenForms,
+          learningSourceIdOverlap:
+            hsk4LevelAssessmentResult.summary.learningSourceIdOverlap,
+          learningSourceTextHashOverlap:
+            hsk4LevelAssessmentResult.summary
+              .learningSourceTextHashOverlap,
+          learningSourceContentOverlap:
+            hsk4LevelAssessmentResult.summary
+              .learningSourceContentOverlap,
+          mockItemsPerForm:
+            hsk4LevelAssessmentResult.summary.mockItemsPerForm,
+          mockAlternateItemsPerForm:
+            hsk4LevelAssessmentResult.summary.mockAlternateItemsPerForm,
+          mockPlannedDurationSeconds:
+            hsk4LevelAssessmentResult.summary
+              .mockPlannedDurationSeconds,
+          reviewBatches:
+            hsk4LevelAssessmentResult.summary.reviewBatches,
+          reviewedItems:
+            hsk4LevelAssessmentResult.summary.reviewedItems,
+          reviewedAudioItems:
+            hsk4LevelAssessmentResult.summary.reviewedAudioItems,
+          calibratedItems:
+            hsk4LevelAssessmentResult.summary.calibratedItems,
+          measurementEligibleItems:
+            hsk4LevelAssessmentResult.summary
+              .measurementEligibleItems,
+          masteryEligibleItems:
+            hsk4LevelAssessmentResult.summary.masteryEligibleItems,
+          prerequisiteWaiverEligibleItems:
+            hsk4LevelAssessmentResult.summary
+              .prerequisiteWaiverEligibleItems,
+          releaseEligibleItems:
+            hsk4LevelAssessmentResult.summary.releaseEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4HumanReviewQueue: {
+          sourceArtifacts:
+            hsk4ReviewManifestResult.summary.sourceArtifacts,
+          reviewBatches:
+            hsk4ReviewManifestResult.summary.reviewBatches,
+          pendingBatches:
+            hsk4ReviewManifestResult.summary.pendingBatches,
+          approvals: hsk4ReviewManifestResult.summary.approvals,
         },
         hsk4SummaryArgumentDraft: {
           lessons: hsk4SummaryArgumentResult.summary.lessons,

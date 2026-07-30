@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **85%**.
+Status: **in progress** at project progress **86%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **85%**.
+Status: **in progress** at project progress **86%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **85%**.
+Status: **in progress** at project progress **86%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -145,9 +145,9 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
-| E. Assessment và mock HSK0-4 | 10 | 7 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2 và HSK3, objective/performance draft; timed mock và rubric đã review còn thiếu |
+| E. Assessment và mock HSK0-4 | 10 | 8 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2, HSK3 và HSK4, objective/performance draft; reviewed audio/rubric và calibration còn thiếu |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **85** | **Tiến độ hiện tại: 85%** |
+| **Tổng** | **100** | **86** | **Tiến độ hiện tại: 86%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -718,6 +718,25 @@ review/calibrate. Sáu mươi long-form source không trùng (30 đọc + 30 ngh
 chỉ là source-exposed practice với response contract, 18 review batch pending
 và 0 measurement/mastery/release eligibility. Còn assessment/mock độc lập,
 human/audio/rubric review, calibration và runtime local-first.
+
+Lát assessment HSK4 tăng trụ cột E thêm 1 điểm và đưa tiến độ lên **86%**.
+Hai pool nguồn độc lập có 96 item mỗi form, gồm 144 câu khách quan và 48
+speaking/writing response trên toàn bank. Mười hai source family assessment
+riêng tạo 24 văn bản/72 đoạn và không trùng ID, exposure, hash hay nội dung
+với form còn lại hoặc 72 nguồn học HSK4. Mỗi form có mock blueprint chọn 54
+item trong 6.000 giây và giữ 42 alternate; 36 câu từ vựng và 36 câu ngữ pháp
+bind trực tiếp inventory HSK4 chính thức. Sáu mươi item phụ thuộc audio, 12
+batch và toàn bộ review, calibration, measurement, mastery, prerequisite
+waiver, visibility và release vẫn bằng 0/pending, nên đây là bank draft có
+thể kiểm định chứ chưa phải chứng nhận HSK4 đã hiệu chuẩn.
+
+Lát đóng gói review HSK4 giữ tiến độ ở **86%**. Manifest ghim exact SHA-256
+của 19 artifact và 168 batch: 78 blueprint, 36 long-form, 24
+summary/argument, 18 integration và 12 assessment. Workflow local phân rã
+thành 629 lượt phân vai và 2.979 exact target, chống sửa assignment, ghi
+receipt idempotent ngoài Git và không sửa content, manifest, runtime,
+calibration hay mastery. Audio-rights không thể approve khi audio còn
+`null`; 0 approval nghĩa là assignment readiness chưa phải human review.
 
 ## 6. Quy tắc cập nhật phần trăm
 

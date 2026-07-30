@@ -407,6 +407,56 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings
+        .hsk4LevelAssessmentDraft,
+    ).toEqual({
+      forms: 2,
+      itemsPerForm: 96,
+      totalItems: 192,
+      objectiveItems: 144,
+      constructedResponseItems: 48,
+      listeningItems: 36,
+      readingItems: 36,
+      vocabularyItems: 36,
+      grammarItems: 36,
+      officialVocabularyBindings: 36,
+      officialGrammarBindings: 36,
+      speakingItems: 24,
+      writingItems: 24,
+      audioDependentItems: 60,
+      sourceFamilies: 12,
+      sourceFamiliesPerForm: 6,
+      equivalentGroups: 96,
+      sourceIdOverlapBetweenForms: 0,
+      sourceExposureOverlapBetweenForms: 0,
+      sourceTextHashOverlapBetweenForms: 0,
+      sourceContentOverlapBetweenForms: 0,
+      learningSourceIdOverlap: 0,
+      learningSourceTextHashOverlap: 0,
+      learningSourceContentOverlap: 0,
+      mockItemsPerForm: 54,
+      mockAlternateItemsPerForm: 42,
+      mockPlannedDurationSeconds: 6000,
+      reviewBatches: 12,
+      reviewedItems: 0,
+      reviewedAudioItems: 0,
+      calibratedItems: 0,
+      measurementEligibleItems: 0,
+      masteryEligibleItems: 0,
+      prerequisiteWaiverEligibleItems: 0,
+      releaseEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
+      report.currentCoverage.draftBlueprintMappings.hsk4HumanReviewQueue,
+    ).toEqual({
+      sourceArtifacts: 19,
+      reviewBatches: 168,
+      pendingBatches: 168,
+      approvals: 0,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk4SummaryArgumentDraft,
     ).toEqual({
       lessons: 24,

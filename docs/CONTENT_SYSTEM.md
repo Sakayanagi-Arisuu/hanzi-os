@@ -593,6 +593,24 @@ chỉ là source-exposed rehearsal, không phải confidential mock hay measurem
 Mười tám review batch vẫn pending, audio/rubric/calibration chưa review và
 toàn bộ item tiếp tục learner-hidden, mastery/release-ineligible.
 
+`content/drafts/hsk4-level-assessment-2026.07.json` là bank đánh giá HSK4
+độc lập với content học: hai form có 96 item mỗi form, 12 source family riêng,
+24 văn bản/72 đoạn và 96 cặp tương đương. Mỗi form gồm 18 listening, 18
+reading, 18 vocabulary, 18 grammar, 12 speaking và 12 writing item; mock
+blueprint lấy 54 item trong 6.000 giây và giữ 42 alternate. Câu vocabulary và
+grammar bind exact inventory HSK4; nguồn, exposure, hash và nội dung giữa hai
+form cũng như với nguồn học đều không trùng. Audio/rubric/calibration còn
+pending nên toàn bank không được issuance, measurement, mastery hay release.
+
+`content/review/hsk4-review-manifest-2026.07.json` ghim exact SHA-256 của 19
+artifact HSK4 và 168 batch đang chờ. Các lệnh `content:hsk4:review:list`,
+`content:hsk4:review:export`, `content:hsk4:review:import` và
+`content:hsk4:review-workflow:validate` phân rã 629 role assignment/2.979
+target, bind hash tới từng assignment và chỉ ghi receipt idempotent trong
+thư mục local bị Git-ignore. Workflow không tự sửa draft/manifest/runtime,
+không hiệu chuẩn hay cấp mastery; audio-rights approval bị chặn nếu audio
+nguồn vẫn là `null`.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack
