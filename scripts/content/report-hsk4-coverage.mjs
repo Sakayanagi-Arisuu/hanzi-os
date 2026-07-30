@@ -47,8 +47,20 @@ import {
 } from "../../src/content/hsk4CultureHistoryLongFormPack.mjs";
 import {
   assertValidHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle,
-  loadHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle,
 } from "../../src/content/hsk4PrecisionReferenceQuantitySummaryArgumentPack.mjs";
+import {
+  assertValidHsk4StanceComparisonRhetoricSummaryArgumentPackBundle,
+} from "../../src/content/hsk4StanceComparisonRhetoricSummaryArgumentPack.mjs";
+import {
+  assertValidHsk4EventAgencyVoiceSummaryArgumentPackBundle,
+} from "../../src/content/hsk4EventAgencyVoiceSummaryArgumentPack.mjs";
+import {
+  assertValidHsk4InformationOrderCohesionSummaryArgumentPackBundle,
+} from "../../src/content/hsk4InformationOrderCohesionSummaryArgumentPack.mjs";
+import {
+  assertValidHsk4ArgumentLogicConcessionSummaryArgumentPackBundle,
+  loadHsk4ArgumentLogicConcessionSummaryArgumentPackBundle,
+} from "../../src/content/hsk4ArgumentLogicConcessionSummaryArgumentPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -196,12 +208,80 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4ArgumentLogicConcession =
+    loadHsk4ArgumentLogicConcessionSummaryArgumentPackBundle(root);
+  const hsk4ArgumentLogicConcessionResult =
+    assertValidHsk4ArgumentLogicConcessionSummaryArgumentPackBundle(
+      hsk4ArgumentLogicConcession,
+    );
+  const hsk4InformationOrderCohesion =
+    hsk4ArgumentLogicConcession.prerequisiteBundles[0];
+  const hsk4InformationOrderCohesionResult =
+    assertValidHsk4InformationOrderCohesionSummaryArgumentPackBundle(
+      hsk4InformationOrderCohesion,
+    );
+  const hsk4EventAgencyVoice =
+    hsk4InformationOrderCohesion.prerequisiteBundles[0];
+  const hsk4EventAgencyVoiceResult =
+    assertValidHsk4EventAgencyVoiceSummaryArgumentPackBundle(
+      hsk4EventAgencyVoice,
+    );
+  const hsk4StanceComparisonRhetoric =
+    hsk4EventAgencyVoice.prerequisiteBundles[0];
+  const hsk4StanceComparisonRhetoricResult =
+    assertValidHsk4StanceComparisonRhetoricSummaryArgumentPackBundle(
+      hsk4StanceComparisonRhetoric,
+    );
   const hsk4PrecisionReferenceQuantity =
-    loadHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle(root);
+    hsk4StanceComparisonRhetoric.prerequisiteBundles[0];
   const hsk4PrecisionReferenceQuantityResult =
     assertValidHsk4PrecisionReferenceQuantitySummaryArgumentPackBundle(
       hsk4PrecisionReferenceQuantity,
     );
+  const hsk4SummaryArgumentModuleResults = [
+    hsk4PrecisionReferenceQuantityResult,
+    hsk4StanceComparisonRhetoricResult,
+    hsk4EventAgencyVoiceResult,
+    hsk4InformationOrderCohesionResult,
+    hsk4ArgumentLogicConcessionResult,
+  ];
+  const sumHsk4SummaryArgumentField = (field) =>
+    hsk4SummaryArgumentModuleResults.reduce(
+      (total, result) => total + result.summary[field],
+      0,
+    );
+  const hsk4SummaryArgumentResult = {
+    summary: {
+      lessons: sumHsk4SummaryArgumentField("lessons"),
+      completedSummaryArgumentModules:
+        hsk4ArgumentLogicConcessionResult.summary
+          .completedSummaryArgumentModules,
+      completedSummaryArgumentLessons:
+        hsk4ArgumentLogicConcessionResult.summary
+          .completedSummaryArgumentLessons,
+      sourceBindings: sumHsk4SummaryArgumentField("sourceBindings"),
+      grammarTargets: sumHsk4SummaryArgumentField("grammarTargets"),
+      grammarPracticeItems:
+        sumHsk4SummaryArgumentField("grammarPracticeItems"),
+      sourceAuditItems: sumHsk4SummaryArgumentField("sourceAuditItems"),
+      paraphraseItems: sumHsk4SummaryArgumentField("paraphraseItems"),
+      structuredSummaryPrompts:
+        sumHsk4SummaryArgumentField("structuredSummaryPrompts"),
+      structuredArgumentPrompts:
+        sumHsk4SummaryArgumentField("structuredArgumentPrompts"),
+      spokenDefensePrompts:
+        sumHsk4SummaryArgumentField("spokenDefensePrompts"),
+      authoredPracticeItems:
+        sumHsk4SummaryArgumentField("authoredPracticeItems"),
+      audioDependentItems:
+        sumHsk4SummaryArgumentField("audioDependentItems"),
+      learnerRecordingItems:
+        sumHsk4SummaryArgumentField("learnerRecordingItems"),
+      reviewedRubrics: sumHsk4SummaryArgumentField("reviewedRubrics"),
+      measurementEligibleItems:
+        sumHsk4SummaryArgumentField("measurementEligibleItems"),
+    },
+  };
   const hsk4CultureHistory =
     hsk4PrecisionReferenceQuantity.prerequisiteBundles[0];
   const hsk4CultureHistoryResult =
@@ -231,7 +311,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
       hsk4PersonalCommunity,
     );
   const hsk4LessonBlueprints =
-    hsk4PrecisionReferenceQuantity.blueprintBundle;
+    hsk4ArgumentLogicConcession.blueprintBundle;
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
@@ -925,6 +1005,43 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4CultureHistoryResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4CultureHistoryResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4SummaryArgumentDraft: {
+          lessons: hsk4SummaryArgumentResult.summary.lessons,
+          completedSummaryArgumentModules:
+            hsk4SummaryArgumentResult.summary
+              .completedSummaryArgumentModules,
+          completedSummaryArgumentLessons:
+            hsk4SummaryArgumentResult.summary
+              .completedSummaryArgumentLessons,
+          sourceBindings:
+            hsk4SummaryArgumentResult.summary.sourceBindings,
+          grammarTargets:
+            hsk4SummaryArgumentResult.summary.grammarTargets,
+          grammarPracticeItems:
+            hsk4SummaryArgumentResult.summary.grammarPracticeItems,
+          sourceAuditItems:
+            hsk4SummaryArgumentResult.summary.sourceAuditItems,
+          paraphraseItems:
+            hsk4SummaryArgumentResult.summary.paraphraseItems,
+          structuredSummaryPrompts:
+            hsk4SummaryArgumentResult.summary.structuredSummaryPrompts,
+          structuredArgumentPrompts:
+            hsk4SummaryArgumentResult.summary.structuredArgumentPrompts,
+          spokenDefensePrompts:
+            hsk4SummaryArgumentResult.summary.spokenDefensePrompts,
+          authoredPracticeItems:
+            hsk4SummaryArgumentResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4SummaryArgumentResult.summary.audioDependentItems,
+          learnerRecordingItems:
+            hsk4SummaryArgumentResult.summary.learnerRecordingItems,
+          reviewedRubrics:
+            hsk4SummaryArgumentResult.summary.reviewedRubrics,
+          measurementEligibleItems:
+            hsk4SummaryArgumentResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

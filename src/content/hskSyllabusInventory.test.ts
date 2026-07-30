@@ -378,6 +378,28 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk4SummaryArgumentDraft,
+    ).toEqual({
+      lessons: 24,
+      completedSummaryArgumentModules: 5,
+      completedSummaryArgumentLessons: 24,
+      sourceBindings: 48,
+      grammarTargets: 95,
+      grammarPracticeItems: 95,
+      sourceAuditItems: 48,
+      paraphraseItems: 48,
+      structuredSummaryPrompts: 24,
+      structuredArgumentPrompts: 24,
+      spokenDefensePrompts: 24,
+      authoredPracticeItems: 263,
+      audioDependentItems: 120,
+      learnerRecordingItems: 24,
+      reviewedRubrics: 0,
+      measurementEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings
         .hsk4PrecisionReferenceQuantitySummaryArgumentDraft,
     ).toEqual({
