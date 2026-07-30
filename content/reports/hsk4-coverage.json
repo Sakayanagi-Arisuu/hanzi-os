@@ -365,6 +365,33 @@
         "reviewed": false,
         "learnerVisible": false
       },
+      "hsk4IntegrationDraft": {
+        "lessons": 18,
+        "completedIntegrationStages": 6,
+        "completedIntegrationLessons": 18,
+        "sourceBindings": 60,
+        "uniqueSourceTexts": 60,
+        "readingSourceBindings": 30,
+        "listeningSourceBindings": 30,
+        "promptUnits": 106,
+        "skillEvidenceUnits": {
+          "listening": 29,
+          "reading": 29,
+          "speaking": 11,
+          "writing": 37
+        },
+        "timedPromptUnits": 44,
+        "audioDependentPromptUnits": 69,
+        "learnerRecordingPromptUnits": 11,
+        "reviewedRubrics": 0,
+        "measurementEligibleItems": 0,
+        "masteryEligibleItems": 0,
+        "reviewBatches": 18,
+        "approvals": 0,
+        "releaseEligibleItems": 0,
+        "reviewed": false,
+        "learnerVisible": false
+      },
       "hsk4SummaryArgumentDraft": {
         "lessons": 24,
         "completedSummaryArgumentModules": 5,

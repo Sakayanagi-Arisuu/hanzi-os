@@ -707,8 +707,17 @@ chỉ vì thêm artifact hay dòng code. Hai mươi bốn lesson bind 48 nguồn
 48 fact/interpretation audit, 48 paraphrase, 24 summary 100–180 chữ,
 24 argument 160–280 chữ, 24 spoken defense cùng 95 grammar application.
 Ba rubric family, 120 item audio-dependent và 24 learner recording vẫn chờ
-human review; không item nào đủ measurement, mastery hay release. Còn
-18 integration lesson, assessment/mock, review và runtime local-first.
+human review; không item nào đủ measurement, mastery hay release.
+
+Chuỗi 6/6 integration stage đã hoàn tất bản nháp 18/18 lesson nhưng tiến độ
+vẫn giữ **85%** vì pillar D đã đạt trần và timed rehearsal chưa phải mock đã
+review/calibrate. Sáu mươi long-form source không trùng (30 đọc + 30 nghe)
+được bind vào đúng 106 prompt: 29 listening, 29 reading, 11 speaking và
+37 writing primary-skill evidence unit. Bốn mươi bốn prompt có thời gian,
+69 prompt phụ thuộc audio và 11 prompt yêu cầu learner recording; tất cả
+chỉ là source-exposed practice với response contract, 18 review batch pending
+và 0 measurement/mastery/release eligibility. Còn assessment/mock độc lập,
+human/audio/rubric review, calibration và runtime local-first.
 
 ## 6. Quy tắc cập nhật phần trăm
 

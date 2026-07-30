@@ -581,6 +581,18 @@ recording. Cả 24 review batch, ba rubric family, audio, measurement, mastery
 và release vẫn fail-closed, nên hoàn tất bản nháp không tạo assessment form,
 calibration hay runtime publication.
 
+Sáu pack `hsk4-*-integration-2026.07.json` hoàn tất 18/18 integration lesson
+trên đúng sáu stage: structure map, inference/evidence check, cross-text
+synthesis, structured writing, spoken defense và sectional rehearsal. Chuỗi
+bind 60 long-form source không trùng (30 đọc + 30 nghe) và author đúng 106
+prompt theo blueprint; mỗi prompt chỉ đóng góp cho một primary skill, tạo
+29 listening, 29 reading, 11 speaking và 37 writing evidence unit. Có 44
+timed-practice prompt, 69 prompt phụ thuộc audio và 11 learner recording.
+Response contract khóa độ dài, section, số nguồn và revision pass; timed work
+chỉ là source-exposed rehearsal, không phải confidential mock hay measurement.
+Mười tám review batch vẫn pending, audio/rubric/calibration chưa review và
+toàn bộ item tiếp tục learner-hidden, mastery/release-ineligible.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

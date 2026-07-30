@@ -59,8 +59,11 @@ import {
 } from "../../src/content/hsk4InformationOrderCohesionSummaryArgumentPack.mjs";
 import {
   assertValidHsk4ArgumentLogicConcessionSummaryArgumentPackBundle,
-  loadHsk4ArgumentLogicConcessionSummaryArgumentPackBundle,
 } from "../../src/content/hsk4ArgumentLogicConcessionSummaryArgumentPack.mjs";
+import {
+  assertValidHsk4TimedSectionalRehearsalIntegrationPackBundle,
+  loadHsk4TimedSectionalRehearsalIntegrationPackBundle,
+} from "../../src/content/hsk4TimedSectionalRehearsalIntegrationPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -208,8 +211,94 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4TimedSectionalRehearsal =
+    loadHsk4TimedSectionalRehearsalIntegrationPackBundle(root);
+  const hsk4TimedSectionalRehearsalResult =
+    assertValidHsk4TimedSectionalRehearsalIntegrationPackBundle(
+      hsk4TimedSectionalRehearsal,
+    );
+  const hsk4StructuredSpokenDefense =
+    hsk4TimedSectionalRehearsal.prerequisiteBundles[0];
+  const hsk4StructuredSpokenDefenseResult = {
+    summary: hsk4StructuredSpokenDefense.pack.counts,
+  };
+  const hsk4StructuredWrittenArgument =
+    hsk4StructuredSpokenDefense.prerequisiteBundles[0];
+  const hsk4StructuredWrittenArgumentResult = {
+    summary: hsk4StructuredWrittenArgument.pack.counts,
+  };
+  const hsk4CrossTextSynthesis =
+    hsk4StructuredWrittenArgument.prerequisiteBundles[0];
+  const hsk4CrossTextSynthesisResult = {
+    summary: hsk4CrossTextSynthesis.pack.counts,
+  };
+  const hsk4InferenceEvidenceCheck =
+    hsk4CrossTextSynthesis.prerequisiteBundles[0];
+  const hsk4InferenceEvidenceCheckResult = {
+    summary: hsk4InferenceEvidenceCheck.pack.counts,
+  };
+  const hsk4LongInputStructureMap =
+    hsk4InferenceEvidenceCheck.prerequisiteBundles[0];
+  const hsk4LongInputStructureMapResult = {
+    summary: hsk4LongInputStructureMap.pack.counts,
+  };
+  const hsk4IntegrationStageResults = [
+    hsk4LongInputStructureMapResult,
+    hsk4InferenceEvidenceCheckResult,
+    hsk4CrossTextSynthesisResult,
+    hsk4StructuredWrittenArgumentResult,
+    hsk4StructuredSpokenDefenseResult,
+    hsk4TimedSectionalRehearsalResult,
+  ];
+  const sumHsk4IntegrationField = (field) =>
+    hsk4IntegrationStageResults.reduce(
+      (total, result) => total + result.summary[field],
+      0,
+    );
+  const hsk4IntegrationResult = {
+    summary: {
+      lessons: sumHsk4IntegrationField("lessons"),
+      completedIntegrationStages:
+        hsk4TimedSectionalRehearsalResult.summary
+          .completedIntegrationStages,
+      completedIntegrationLessons:
+        hsk4TimedSectionalRehearsalResult.summary
+          .completedIntegrationLessons,
+      sourceBindings: sumHsk4IntegrationField("sourceBindings"),
+      uniqueSourceTexts: sumHsk4IntegrationField("uniqueSourceTexts"),
+      readingSourceBindings:
+        sumHsk4IntegrationField("readingSourceBindings"),
+      listeningSourceBindings:
+        sumHsk4IntegrationField("listeningSourceBindings"),
+      promptUnits: sumHsk4IntegrationField("promptUnits"),
+      skillEvidenceUnits: Object.fromEntries(
+        ["listening", "reading", "speaking", "writing"].map((skill) => [
+          skill,
+          hsk4IntegrationStageResults.reduce(
+            (total, result) =>
+              total + result.summary.skillEvidenceUnits[skill],
+            0,
+          ),
+        ]),
+      ),
+      timedPromptUnits: sumHsk4IntegrationField("timedPromptUnits"),
+      audioDependentPromptUnits:
+        sumHsk4IntegrationField("audioDependentPromptUnits"),
+      learnerRecordingPromptUnits:
+        sumHsk4IntegrationField("learnerRecordingPromptUnits"),
+      reviewedRubrics: sumHsk4IntegrationField("reviewedRubrics"),
+      measurementEligibleItems:
+        sumHsk4IntegrationField("measurementEligibleItems"),
+      masteryEligibleItems:
+        sumHsk4IntegrationField("masteryEligibleItems"),
+      reviewBatches: sumHsk4IntegrationField("reviewBatches"),
+      approvals: sumHsk4IntegrationField("approvals"),
+      releaseEligibleItems:
+        sumHsk4IntegrationField("releaseEligibleItems"),
+    },
+  };
   const hsk4ArgumentLogicConcession =
-    loadHsk4ArgumentLogicConcessionSummaryArgumentPackBundle(root);
+    hsk4LongInputStructureMap.summaryArgumentHeadBundle;
   const hsk4ArgumentLogicConcessionResult =
     assertValidHsk4ArgumentLogicConcessionSummaryArgumentPackBundle(
       hsk4ArgumentLogicConcession,
@@ -311,7 +400,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
       hsk4PersonalCommunity,
     );
   const hsk4LessonBlueprints =
-    hsk4ArgumentLogicConcession.blueprintBundle;
+    hsk4TimedSectionalRehearsal.blueprintBundle;
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
@@ -1005,6 +1094,43 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4CultureHistoryResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4CultureHistoryResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4IntegrationDraft: {
+          lessons: hsk4IntegrationResult.summary.lessons,
+          completedIntegrationStages:
+            hsk4IntegrationResult.summary.completedIntegrationStages,
+          completedIntegrationLessons:
+            hsk4IntegrationResult.summary.completedIntegrationLessons,
+          sourceBindings:
+            hsk4IntegrationResult.summary.sourceBindings,
+          uniqueSourceTexts:
+            hsk4IntegrationResult.summary.uniqueSourceTexts,
+          readingSourceBindings:
+            hsk4IntegrationResult.summary.readingSourceBindings,
+          listeningSourceBindings:
+            hsk4IntegrationResult.summary.listeningSourceBindings,
+          promptUnits: hsk4IntegrationResult.summary.promptUnits,
+          skillEvidenceUnits:
+            hsk4IntegrationResult.summary.skillEvidenceUnits,
+          timedPromptUnits:
+            hsk4IntegrationResult.summary.timedPromptUnits,
+          audioDependentPromptUnits:
+            hsk4IntegrationResult.summary.audioDependentPromptUnits,
+          learnerRecordingPromptUnits:
+            hsk4IntegrationResult.summary.learnerRecordingPromptUnits,
+          reviewedRubrics:
+            hsk4IntegrationResult.summary.reviewedRubrics,
+          measurementEligibleItems:
+            hsk4IntegrationResult.summary.measurementEligibleItems,
+          masteryEligibleItems:
+            hsk4IntegrationResult.summary.masteryEligibleItems,
+          reviewBatches:
+            hsk4IntegrationResult.summary.reviewBatches,
+          approvals: hsk4IntegrationResult.summary.approvals,
+          releaseEligibleItems:
+            hsk4IntegrationResult.summary.releaseEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

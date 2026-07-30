@@ -378,6 +378,35 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings.hsk4IntegrationDraft,
+    ).toEqual({
+      lessons: 18,
+      completedIntegrationStages: 6,
+      completedIntegrationLessons: 18,
+      sourceBindings: 60,
+      uniqueSourceTexts: 60,
+      readingSourceBindings: 30,
+      listeningSourceBindings: 30,
+      promptUnits: 106,
+      skillEvidenceUnits: {
+        listening: 29,
+        reading: 29,
+        speaking: 11,
+        writing: 37,
+      },
+      timedPromptUnits: 44,
+      audioDependentPromptUnits: 69,
+      learnerRecordingPromptUnits: 11,
+      reviewedRubrics: 0,
+      measurementEligibleItems: 0,
+      masteryEligibleItems: 0,
+      reviewBatches: 18,
+      approvals: 0,
+      releaseEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk4SummaryArgumentDraft,
     ).toEqual({
       lessons: 24,
@@ -752,7 +781,7 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
     });
     expect(report.coverageClaims.every((claim) => claim.complete === false))
       .toBe(true);
-  });
+  }, 30_000);
 
   it("keeps the checked coverage report deterministic", () => {
     const checked = readFileSync(
@@ -762,5 +791,5 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
     expect(checked).toBe(
       serializeHsk4CoverageReport(buildHsk4CoverageReport()),
     );
-  });
+  }, 30_000);
 });

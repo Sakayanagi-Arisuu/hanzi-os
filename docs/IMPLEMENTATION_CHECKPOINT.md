@@ -18,8 +18,8 @@ Active progress: **85%**.
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension and 24/24 summary-argument lessons. The remaining 18 integration lessons, assessment/mock, review and runtime publication stay open and no HSK4 completion claim exists. |
-| HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint 86-item form pairs for HSK2 and HSK3 exist; HSK3 review packaging is exact-hash/local-only, while reviewed audio/rubrics, calibrated scored exams and timed mocks do not exist. |
+| HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension, 24/24 summary-argument and 18/18 integration lessons. Assessment/mock, review and runtime publication stay open and no HSK4 completion claim exists. |
+| HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint 86-item form pairs for HSK2 and HSK3 exist; HSK4 has source-exposed timed rehearsal but no confidential form or scoring authority. Reviewed audio/rubrics, calibrated scored exams and timed mocks do not exist. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
 The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
@@ -949,6 +949,14 @@ the applicable gates to run again before the next checkpoint commit.
     spoken defenses; 120 audio-dependent items, 24 recordings and all three
     rubric families remain unreviewed, with 0 measurement/mastery/release
     eligibility
+  - complete HSK4 integration draft chain: 18/18 lessons over 6/6 stages,
+    60 unique long-form source bindings (30 reading + 30 listening) and all
+    106 blueprint prompt units; primary-skill evidence is separated into
+    29 listening, 29 reading, 11 speaking and 37 writing prompts, with 44
+    timed-practice prompts, 69 audio-dependent prompts and 11 learner
+    recordings; response contracts bind length, sections, sources and
+    revision passes, while 18 review batches remain pending and every prompt
+    has 0 measurement/mastery/release eligibility
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -1006,16 +1014,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 204 files, 1,462 tests passed
+  - Vitest: 210 files, 1,480 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 95 / 94, median 95
+  - Performance: 98 / 98 / 97, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,917 ms; CLS: 0; TBT: 205 ms
+  - Median LCP: 1,890 ms; CLS: 0; TBT: 120 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1040,12 +1048,12 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Add all 18 HSK4 integration lessons across the six blueprint stages,
-   preserving exact source evidence, skill separation, timing contracts and
-   fail-closed productive rubrics.
-2. Build the separate
-   HSK4 assessment/mock chain. Keep imports unpublished until provenance,
+1. Build the separate HSK4 assessment/mock chain with source-disjoint forms,
+   skill-specific scoring authority and explicit calibration boundaries.
+   Keep imports unpublished until provenance,
    linguistic, audio/rubric and calibration gates pass.
+2. Package the complete HSK4 source chain for exact-hash local review without
+   converting assignment readiness into approval or learner visibility.
 3. Leave operator auth, commerce, hosted pilot and Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes
    production work.
