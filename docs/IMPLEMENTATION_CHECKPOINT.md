@@ -11,14 +11,14 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **84%**.
+Active progress: **85%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 content coverage | 29 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has 30/36 deep-comprehension lessons across five of six domains. The final HSK4 domain, summary/argument, integration, review and runtime publication remain. |
+| HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension lessons across six domains. Summary/argument, integration, review and runtime publication still remain and no HSK4 completion claim exists. |
 | HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint 86-item form pairs for HSK2 and HSK3 exist; HSK3 review packaging is exact-hash/local-only, while reviewed audio/rubrics, calibrated scored exams and timed mocks do not exist. |
 | Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
 
@@ -934,6 +934,13 @@ the applicable gates to run again before the next checkpoint commit.
     prompts; the cumulative five-domain draft now contains 60 sources/180
     paragraphs and 1,290 practice items, with 0 review, measurement/mastery
     or release eligibility
+  - HSK4 culture/history long-form draft completes 36/36 lessons and 6/6
+    domains; it adds 12 three-paragraph sources, 60 target lexeme contexts,
+    180 vocabulary items, 60 evidence-bound questions, 12 bounded inferences,
+    12 note maps/60 nodes and 6 cross-source synthesis prompts; the complete
+    deep-comprehension chain contains 72 sources/216 paragraphs, 360 target
+    lexeme contexts and 1,548 practice items, with 0 review, measurement/
+    mastery or release eligibility
   - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
     66 grammar rows and 246 recognition characters
   - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
@@ -991,16 +998,16 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 198 files, 1,444 tests passed
+  - Vitest: 199 files, 1,447 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 394.8 KiB
 - `npm run test:e2e`: 19 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 96 / 98, median 98
+  - Performance: 98 / 98 / 97, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,967 ms; CLS: 0; TBT: 105 ms
+  - Median LCP: 1,897 ms; CLS: 0; TBT: 84 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1025,10 +1032,9 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Complete the final HSK4 long-form domain (6 lessons), preserving
-   multiple paragraphs, explicit source evidence, bounded inference and note
-   maps without forcing semantic-fallback vocabulary into unrelated texts.
-2. Add summary/argument and timed-integration packs, then build the separate
+1. Add the 24 HSK4 summary/argument lessons, preserving exact source evidence,
+   paraphrase boundaries and skill-specific productive rubrics.
+2. Add timed-integration packs, then build the separate
    HSK4 assessment/mock chain. Keep imports unpublished until provenance,
    linguistic, audio/rubric and calibration gates pass.
 3. Leave operator auth, commerce, hosted pilot and Sites frozen until the

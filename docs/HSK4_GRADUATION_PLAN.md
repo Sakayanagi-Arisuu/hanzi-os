@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **84%**.
+Status: **in progress** at project progress **85%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **84%**.
+Status: **in progress** at project progress **85%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **84%**.
+Status: **in progress** at project progress **85%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -144,10 +144,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 29 | inventory; HSK0 pronunciation; HSK1 contextual drafts; HSK2 authoring; HSK3 paragraph, narration và 5/5 guided-production stage |
+| D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
 | E. Assessment và mock HSK0-4 | 10 | 7 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2 và HSK3, objective/performance draft; timed mock và rubric đã review còn thiếu |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **84** | **Tiến độ hiện tại: 84%** |
+| **Tổng** | **100** | **85** | **Tiến độ hiện tại: 85%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -689,6 +689,16 @@ trị, quá trình sáng tạo khỏi công thức cố định, hỗ trợ th�
 nhân quả, chỉ số thi đấu khỏi hiệu quả toàn diện và câu chuyện danh nhân khỏi
 thống kê chính xác. Còn 1 domain/6 lesson và toàn bộ human/audio review nên
 chưa tăng điểm D.
+
+Miền văn hóa/lịch sử hoàn tất 36/36 deep-comprehension lesson và 6/6 domain,
+đưa tiến độ lên **85%**. Lát cuối thêm 12 nguồn/36 đoạn, 60 target lexeme,
+180 item từ vựng, 60 câu hỏi evidence-bound, 12 bounded inference, 12 note
+map và 6 synthesis; toàn chuỗi đạt 72 nguồn/216 đoạn, 360 target lexeme
+context và 1.548 practice item. Phân tích tục ngữ, ẩm thực, tập tục, lễ nghi,
+di tích và nhân vật lịch sử đều phải giữ provenance, nhiều nguồn, độ bất định
+và phạm vi diễn giải. Điểm D đạt 30/30 cho deliverable content-coverage đã
+định danh; điều này **không** tuyên bố HSK4 hoàn thành, vì 24 summary/argument
+lesson, 18 integration lesson, assessment/mock, review và runtime vẫn mở.
 
 ## 6. Quy tắc cập nhật phần trăm
 

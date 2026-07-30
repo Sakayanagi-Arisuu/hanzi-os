@@ -558,6 +558,17 @@ inference, 12 note map và 6 synthesis. Story, win rate, attendance và
 self-report không được tự biến thành bằng chứng nhân quả hoặc hiệu quả toàn
 diện; mọi review, audio, measurement, mastery và release vẫn fail-closed.
 
+`content/drafts/hsk4-culture-history-long-form-2026.07.json` nối miền văn
+nghệ/thể thao/giao lưu và hoàn tất 36/36 long-form lesson trên 6/6 domain.
+Sáu lesson cuối phân tích vai trò trong diễn giải tục ngữ/ẩm thực, tiến trình
+đổi cửa hàng/lễ hội, nguyên nhân phục hưng và hình thành tập tục, so sánh lễ
+nghi, claim về di tích và tổng hợp quan điểm lịch sử. Hợp đồng 12 nguồn/36
+đoạn, 60 target lexeme, 180 vocabulary item, 60 evidence question, 12 bounded
+inference, 12 note map và 6 synthesis đưa toàn chuỗi lên 72 nguồn/216 đoạn và
+1.548 practice item. Hoàn tất deep-comprehension không mở runtime hay cấp
+HSK4: summary/argument, integration, assessment, review và release vẫn là
+các gate riêng.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

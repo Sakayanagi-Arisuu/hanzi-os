@@ -41,8 +41,11 @@ import {
 } from "../../src/content/hsk4SocietyEconomyLongFormPack.mjs";
 import {
   assertValidHsk4ArtsSportsExchangeLongFormPackBundle,
-  loadHsk4ArtsSportsExchangeLongFormPackBundle,
 } from "../../src/content/hsk4ArtsSportsExchangeLongFormPack.mjs";
+import {
+  assertValidHsk4CultureHistoryLongFormPackBundle,
+  loadHsk4CultureHistoryLongFormPackBundle,
+} from "../../src/content/hsk4CultureHistoryLongFormPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -190,8 +193,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4CultureHistory =
+    loadHsk4CultureHistoryLongFormPackBundle(root);
+  const hsk4CultureHistoryResult =
+    assertValidHsk4CultureHistoryLongFormPackBundle(hsk4CultureHistory);
   const hsk4ArtsSportsExchange =
-    loadHsk4ArtsSportsExchangeLongFormPackBundle(root);
+    hsk4CultureHistory.prerequisiteBundles[0];
   const hsk4ArtsSportsExchangeResult =
     assertValidHsk4ArtsSportsExchangeLongFormPackBundle(
       hsk4ArtsSportsExchange,
@@ -214,7 +221,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk4PersonalCommunityLongFormPackBundle(
       hsk4PersonalCommunity,
     );
-  const hsk4LessonBlueprints = hsk4ArtsSportsExchange.blueprintBundle;
+  const hsk4LessonBlueprints = hsk4CultureHistory.blueprintBundle;
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
@@ -872,6 +879,42 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4ArtsSportsExchangeResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4ArtsSportsExchangeResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4CultureHistoryLongFormDraft: {
+          lessons: hsk4CultureHistoryResult.summary.lessons,
+          completedLongFormDomains:
+            hsk4CultureHistoryResult.summary.completedLongFormDomains,
+          completedLongFormLessons:
+            hsk4CultureHistoryResult.summary.completedLongFormLessons,
+          mappedTopics: hsk4CultureHistoryResult.summary.mappedTopics,
+          targetLexemeContexts:
+            hsk4CultureHistoryResult.summary.targetLexemeContexts,
+          authoredTexts: hsk4CultureHistoryResult.summary.authoredTexts,
+          authoredParagraphs:
+            hsk4CultureHistoryResult.summary.authoredParagraphs,
+          vocabularyPracticeItems:
+            hsk4CultureHistoryResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk4CultureHistoryResult.summary.comprehensionItems,
+          evidenceBoundComprehensionItems:
+            hsk4CultureHistoryResult.summary
+              .evidenceBoundComprehensionItems,
+          inferenceItems:
+            hsk4CultureHistoryResult.summary.inferenceItems,
+          noteMapItems: hsk4CultureHistoryResult.summary.noteMapItems,
+          noteMapNodes: hsk4CultureHistoryResult.summary.noteMapNodes,
+          synthesisPrompts:
+            hsk4CultureHistoryResult.summary.synthesisPrompts,
+          authoredPracticeItems:
+            hsk4CultureHistoryResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4CultureHistoryResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk4CultureHistoryResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk4CultureHistoryResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },
