@@ -870,6 +870,19 @@ tái dùng audio bytes, path escape/symlink và đổi nhãn fixture thành evid
 thật. Fixture đủ 45/45 + 90/90 chỉ chứng minh contract, vẫn không có package
 authority, visibility, completion hay mastery nên chưa cộng điểm.
 
+Versioned package planner tiếp tục **giữ tiến độ ở 90%** vì đây là audit
+fail-closed, chưa phải learner coverage. Planner pin đúng nhánh package
+`foundation-2026.07.6` → `foundation-2026.07.7`, atomic digest và evidence
+baseline 0/45 + 0/90, rồi chứng minh 87 runtime catalog item vẫn có 0 payload
+cuối. Sáu lesson authoring ID chứa dấu `:` không hợp lệ với package schema và
+được đề xuất mapping sang sáu ID an toàn nhưng chưa authorize; 81 lexeme còn
+7 lựa chọn traditional cần biên tập, 2 lệch phát âm nguồn, 42 bộ example chưa
+có candidate theo surface match và 81 tag set chưa được author. Chinese title,
+minutes, XP hỗ trợ và skill vector của cả sáu lesson cũng chưa tồn tại. Planner
+đồng thời tách 45 draft-review receipt khỏi bốn package-governance approval,
+ghi rõ owner/license/audio descriptor/package/unit authorization/promotion
+receipt đều thiếu và không ghi registry, package, policy hay runtime.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

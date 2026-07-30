@@ -178,6 +178,19 @@ Every commit must update this percentage here and in the active roadmap.
   unsafe paths/symlinks, hash drift and fixture relabeling fail closed. A
   complete 45/45 + 90/90 test fixture proves the contract but remains
   non-authoritative, so active progress stays **90%**.
+- Added a checked, versioned package planner for the atomic unit. It binds the
+  current `foundation-2026.07.6` package and planned `.07.7` successor, exact
+  handoff/evidence hashes and the runtime schema without writing any package,
+  registry, policy or runtime bytes. The plan finds 87 required catalog items
+  and 0 finalized payloads: all 6 authoring lesson IDs require an explicit safe
+  runtime-ID mapping; 81 lexemes include 7 unresolved traditional choices, 2
+  source-pronunciation reconciliations, 42 missing example triples and 81
+  missing tag sets. All six lessons still need Chinese titles, duration, XP
+  support values and skill vectors. It also keeps draft review separate from
+  package content-owner/native/source-license/audio-rights governance and
+  reports all real evidence, owner/license, audio descriptor, package,
+  authorization and promotion-receipt blockers. No release or learning claim
+  changed, so active progress remains **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1199,6 +1212,10 @@ deliverable.
   - unit evidence readiness: checked real baseline 0/45 approved review slots
     and 0/90 reviewed audio/rights records; a complete test-only fixture passes
     all hashes but remains package-ineligible and never authorizes import
+  - atomic unit package plan: 87 required runtime catalog items/0 finalized,
+    6 unsafe authoring lesson IDs, 7 traditional decisions, 2 pronunciation
+    reconciliations and 42 missing example triples; `.07.7`, governance,
+    authorization and receipt remain absent and no mutation is permitted
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1207,7 +1224,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 224 files, 1,603 tests passed
+  - Vitest: 225 files, 1,606 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.8 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1241,15 +1258,17 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Run the checked reviewer workflow with real attributable Mandarin,
+1. Author the exact 87-item runtime projection draft, including safe lesson-ID
+   mappings and every missing runtime field, then extend the reviewer contract
+   so no unreviewed projection value can enter a package.
+2. Run the combined checked workflow with real attributable Mandarin,
    Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
-   any exact-hash slot or audio target is incomplete.
-2. Add a versioned package planner that consumes only a complete
-   repository-real evidence result and remains non-mutating while the current
-   0/45 + 0/90 baseline is blocked.
-3. Only after real evidence exists, create the immutable package, explicit unit
-   authorization and idempotent promotion receipt. Keep the G5 candidate stale
-   and operator auth, commerce, hosted pilot and Sites frozen.
+   any exact-hash projection slot, original 45 role slot or 90 audio target is
+   incomplete.
+3. Only after real evidence exists, create and validate the immutable `.07.7`
+   package, explicit unit authorization and idempotent promotion receipt. Keep
+   the G5 candidate stale and operator auth, commerce, hosted pilot and Sites
+   frozen.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

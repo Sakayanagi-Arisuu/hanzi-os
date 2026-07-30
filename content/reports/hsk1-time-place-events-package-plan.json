@@ -1,0 +1,405 @@
+{
+  "schemaVersion": 1,
+  "planId": "hsk1-time-place-events-package-plan-2026.07.1",
+  "state": "blocked-before-package-materialization",
+  "unitId": "hsk1-time-place-events",
+  "policy": {
+    "planningOnly": true,
+    "mutatesRegistryOrPackage": false,
+    "checkedEvidenceMustBeRepositoryReal": true,
+    "testFixturesNeverAuthorizeMaterialization": true,
+    "runtimePayloadsMustBeExplicitAndReviewed": true,
+    "authoringIdsMayRequireRuntimeIdProjection": true,
+    "sourceAmbiguitiesCannotBeGuessed": true,
+    "packageGovernanceReviewsAreSeparateFromDraftReviewSlots": true,
+    "unitAuthorizationFollowsImmutablePackageValidation": true,
+    "grantsReleaseCompletionOrMastery": false
+  },
+  "sourceBindings": [
+    {
+      "id": "evidenceReadiness",
+      "relativePath": "content/reports/hsk1-time-place-events-evidence-readiness.json",
+      "sha256": "sha256:cb5e55a6943a5526d4ec835ebd7abccef02b5065663beec84c31463615934687"
+    },
+    {
+      "id": "registry",
+      "relativePath": "content/registry.json",
+      "sha256": "sha256:110c093a0b33a9100df0c0a142441201d186817f90e46e46ef728577e946ecb8"
+    },
+    {
+      "id": "baseManifest",
+      "relativePath": "content/packages/foundation-2026.07.6/manifest.json",
+      "sha256": "sha256:3bf94fc4c18e6dba1deca5593a600e9c105ad38d19d42709b08bdfec478ca3b3"
+    },
+    {
+      "id": "baseItemCatalog",
+      "relativePath": "content/packages/foundation-2026.07.6/item-catalog.json",
+      "sha256": "sha256:f55a25c6a3c23fd78b56d5a70357eee99c1e0a3ef9ea55482029af48997c0143"
+    },
+    {
+      "id": "baseRuntimeCatalog",
+      "relativePath": "content/packages/foundation-2026.07.6/runtime-catalog.json",
+      "sha256": "sha256:206b975144664425d1226df01318a64fc7bb06e6dc57eedcbf34549b98262cd4"
+    },
+    {
+      "id": "unitReleasePolicy",
+      "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
+      "sha256": "sha256:46703526632f9ea16b991cb30cfb1f2da6247b1be6d47540bc9fd6a66ac14a47"
+    },
+    {
+      "id": "vocabularySource",
+      "relativePath": "content/drafts/hsk1-vocabulary-2026.07.28.json",
+      "sha256": "sha256:75450078da75cfdacbf3827ff24fde00a554d3087985cafcf90c06f1ed2a2af6"
+    },
+    {
+      "id": "runtimeTypes",
+      "relativePath": "src/content/types.ts",
+      "sha256": "sha256:3b705197127c4dc41095d0348b497d9c3002a4b8e9cf09c4a66fbf130541e38a"
+    },
+    {
+      "id": "runtimeProjection",
+      "relativePath": "src/content/runtimeCatalogProjection.ts",
+      "sha256": "sha256:32c4019fd3ee2735c25c2705e7408553de495a6f8905b60979acc61672b8336d"
+    }
+  ],
+  "packageIdentity": {
+    "basePackageVersion": "foundation-2026.07.6",
+    "targetPackageVersion": "foundation-2026.07.7",
+    "targetPackageRelativePath": "content/packages/foundation-2026.07.7",
+    "authoringReleaseVersion": "hsk1-time-place-events-2026.07.1",
+    "unitReleaseDigest": "sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
+    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628"
+  },
+  "evidence": {
+    "mode": "repository-real",
+    "requiredReviewSlots": 45,
+    "approvedReviewSlots": 0,
+    "requiredAudioTargets": 90,
+    "reviewedAudioTargets": 0,
+    "complete": false,
+    "readyForPackage": false
+  },
+  "runtimeProjection": {
+    "requiredCatalogItems": 87,
+    "finalizedCatalogItems": 0,
+    "lexemes": {
+      "requiredLexemePayloads": 81,
+      "finalizedLexemePayloads": 0,
+      "safeRuntimeItemIds": 81,
+      "fieldReadiness": {
+        "simplifiedDrafts": 81,
+        "pinyinDrafts": 81,
+        "vietnameseMeaningDrafts": 81,
+        "partOfSpeechDrafts": 81,
+        "deterministicHskLevelValues": 81,
+        "unambiguousTraditionalSourceCandidates": 74,
+        "traditionalEditorialDecisionIds": [
+          "hsk-vocab-00162",
+          "hsk-vocab-00149",
+          "hsk-vocab-00080",
+          "hsk-vocab-00110",
+          "hsk-vocab-00133",
+          "hsk-vocab-00139",
+          "hsk-vocab-00282"
+        ],
+        "sourcePronunciationReconciliationIds": [
+          "hsk-vocab-00137",
+          "hsk-vocab-00139"
+        ],
+        "surfaceMatchDialogueExampleCandidateIds": [
+          "hsk-vocab-00002",
+          "hsk-vocab-00007",
+          "hsk-vocab-00049",
+          "hsk-vocab-00095",
+          "hsk-vocab-00111",
+          "hsk-vocab-00160",
+          "hsk-vocab-00184",
+          "hsk-vocab-00198",
+          "hsk-vocab-00094",
+          "hsk-vocab-00129",
+          "hsk-vocab-00207",
+          "hsk-vocab-00269",
+          "hsk-vocab-00076",
+          "hsk-vocab-00230",
+          "hsk-vocab-00243",
+          "hsk-vocab-00273",
+          "hsk-vocab-00275",
+          "hsk-vocab-00033",
+          "hsk-vocab-00055",
+          "hsk-vocab-00056",
+          "hsk-vocab-00186",
+          "hsk-vocab-00232",
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00175",
+          "hsk-vocab-00226",
+          "hsk-vocab-00279",
+          "hsk-vocab-00282",
+          "hsk-vocab-00169",
+          "hsk-vocab-00208",
+          "hsk-vocab-00227",
+          "hsk-vocab-00267",
+          "hsk-vocab-00271",
+          "hsk-vocab-00294"
+        ],
+        "missingExampleTripleIds": [
+          "hsk-vocab-00006",
+          "hsk-vocab-00112",
+          "hsk-vocab-00113",
+          "hsk-vocab-00162",
+          "hsk-vocab-00173",
+          "hsk-vocab-00223",
+          "hsk-vocab-00254",
+          "hsk-vocab-00093",
+          "hsk-vocab-00128",
+          "hsk-vocab-00149",
+          "hsk-vocab-00168",
+          "hsk-vocab-00172",
+          "hsk-vocab-00297",
+          "hsk-vocab-00005",
+          "hsk-vocab-00178",
+          "hsk-vocab-00215",
+          "hsk-vocab-00217",
+          "hsk-vocab-00244",
+          "hsk-vocab-00245",
+          "hsk-vocab-00291",
+          "hsk-vocab-00080",
+          "hsk-vocab-00163",
+          "hsk-vocab-00185",
+          "hsk-vocab-00236",
+          "hsk-vocab-00132",
+          "hsk-vocab-00135",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00239",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284",
+          "hsk-vocab-00029",
+          "hsk-vocab-00031",
+          "hsk-vocab-00109",
+          "hsk-vocab-00251",
+          "hsk-vocab-00286"
+        ],
+        "authoredTagSets": 0,
+        "missingTagSetIds": [
+          "hsk-vocab-00002",
+          "hsk-vocab-00006",
+          "hsk-vocab-00007",
+          "hsk-vocab-00049",
+          "hsk-vocab-00095",
+          "hsk-vocab-00111",
+          "hsk-vocab-00112",
+          "hsk-vocab-00113",
+          "hsk-vocab-00160",
+          "hsk-vocab-00162",
+          "hsk-vocab-00173",
+          "hsk-vocab-00184",
+          "hsk-vocab-00198",
+          "hsk-vocab-00223",
+          "hsk-vocab-00254",
+          "hsk-vocab-00093",
+          "hsk-vocab-00094",
+          "hsk-vocab-00128",
+          "hsk-vocab-00129",
+          "hsk-vocab-00149",
+          "hsk-vocab-00168",
+          "hsk-vocab-00172",
+          "hsk-vocab-00207",
+          "hsk-vocab-00269",
+          "hsk-vocab-00297",
+          "hsk-vocab-00005",
+          "hsk-vocab-00076",
+          "hsk-vocab-00178",
+          "hsk-vocab-00215",
+          "hsk-vocab-00217",
+          "hsk-vocab-00230",
+          "hsk-vocab-00243",
+          "hsk-vocab-00244",
+          "hsk-vocab-00245",
+          "hsk-vocab-00273",
+          "hsk-vocab-00275",
+          "hsk-vocab-00291",
+          "hsk-vocab-00033",
+          "hsk-vocab-00055",
+          "hsk-vocab-00056",
+          "hsk-vocab-00080",
+          "hsk-vocab-00163",
+          "hsk-vocab-00185",
+          "hsk-vocab-00186",
+          "hsk-vocab-00232",
+          "hsk-vocab-00236",
+          "hsk-vocab-00011",
+          "hsk-vocab-00110",
+          "hsk-vocab-00131",
+          "hsk-vocab-00132",
+          "hsk-vocab-00133",
+          "hsk-vocab-00134",
+          "hsk-vocab-00135",
+          "hsk-vocab-00136",
+          "hsk-vocab-00137",
+          "hsk-vocab-00138",
+          "hsk-vocab-00139",
+          "hsk-vocab-00140",
+          "hsk-vocab-00141",
+          "hsk-vocab-00175",
+          "hsk-vocab-00212",
+          "hsk-vocab-00213",
+          "hsk-vocab-00226",
+          "hsk-vocab-00239",
+          "hsk-vocab-00279",
+          "hsk-vocab-00280",
+          "hsk-vocab-00281",
+          "hsk-vocab-00282",
+          "hsk-vocab-00283",
+          "hsk-vocab-00284",
+          "hsk-vocab-00029",
+          "hsk-vocab-00031",
+          "hsk-vocab-00109",
+          "hsk-vocab-00169",
+          "hsk-vocab-00208",
+          "hsk-vocab-00227",
+          "hsk-vocab-00251",
+          "hsk-vocab-00267",
+          "hsk-vocab-00271",
+          "hsk-vocab-00286",
+          "hsk-vocab-00294"
+        ]
+      },
+      "unresolvedRuntimeFields": [
+        "traditional",
+        "pinyinNumbered",
+        "example",
+        "examplePinyin",
+        "exampleMeaning",
+        "tags"
+      ],
+      "projectionReviewRequired": true
+    },
+    "lessons": {
+      "requiredLessonPayloads": 6,
+      "finalizedLessonPayloads": 0,
+      "unsafeAuthoringLessonIds": [
+        "hsk1-time-place-events:01-numbers",
+        "hsk1-time-place-events:02-calendar",
+        "hsk1-time-place-events:03-week-and-day-parts",
+        "hsk1-time-place-events:04-clock-and-duration",
+        "hsk1-time-place-events:05-location",
+        "hsk1-time-place-events:06-weather-and-residence"
+      ],
+      "proposedRuntimeIdMappings": [
+        {
+          "authoringId": "hsk1-time-place-events:01-numbers",
+          "runtimeId": "hsk1-time-place-events-01-numbers",
+          "authorized": false
+        },
+        {
+          "authoringId": "hsk1-time-place-events:02-calendar",
+          "runtimeId": "hsk1-time-place-events-02-calendar",
+          "authorized": false
+        },
+        {
+          "authoringId": "hsk1-time-place-events:03-week-and-day-parts",
+          "runtimeId": "hsk1-time-place-events-03-week-and-day-parts",
+          "authorized": false
+        },
+        {
+          "authoringId": "hsk1-time-place-events:04-clock-and-duration",
+          "runtimeId": "hsk1-time-place-events-04-clock-and-duration",
+          "authorized": false
+        },
+        {
+          "authoringId": "hsk1-time-place-events:05-location",
+          "runtimeId": "hsk1-time-place-events-05-location",
+          "authorized": false
+        },
+        {
+          "authoringId": "hsk1-time-place-events:06-weather-and-residence",
+          "runtimeId": "hsk1-time-place-events-06-weather-and-residence",
+          "authorized": false
+        }
+      ],
+      "fieldReadiness": {
+        "unitIdDrafts": 6,
+        "vietnameseTitleDrafts": 6,
+        "vietnameseObjectiveDrafts": 6,
+        "wordIdPartitions": 6,
+        "prerequisitePartitions": 6,
+        "chineseTitles": 0,
+        "durationMinutes": 0,
+        "xpSupportValues": 0,
+        "skillVectors": 0
+      },
+      "unresolvedRuntimeFields": [
+        "runtimeId",
+        "chineseTitle",
+        "minutes",
+        "xp",
+        "skills"
+      ],
+      "projectionReviewRequired": true
+    }
+  },
+  "governance": {
+    "requiredPackageReviewRoles": [
+      "content-owner",
+      "native-linguistic",
+      "source-license",
+      "audio-rights"
+    ],
+    "attributablePackageReviewApprovals": 0,
+    "contentOwnerMetadataPresent": false,
+    "sourceLicenseMetadataPresent": false,
+    "audioImportDescriptorPresent": false,
+    "draftReviewReceiptsDoNotSubstituteForPackageGovernance": true
+  },
+  "materialization": {
+    "targetPackagePresent": false,
+    "unitReleaseAuthorizationPresent": false,
+    "promotionReceiptPresent": false,
+    "ready": false,
+    "blockers": [
+      "REAL_REVIEW_AND_AUDIO_EVIDENCE_INCOMPLETE",
+      "REVIEWED_RUNTIME_PROJECTION_MISSING",
+      "CONTENT_OWNER_METADATA_MISSING",
+      "SOURCE_LICENSE_METADATA_MISSING",
+      "PACKAGE_GOVERNANCE_APPROVALS_MISSING",
+      "AUDIO_IMPORT_DESCRIPTOR_MISSING",
+      "TARGET_PACKAGE_MISSING",
+      "UNIT_RELEASE_AUTHORIZATION_MISSING",
+      "PROMOTION_RECEIPT_MISSING"
+    ]
+  },
+  "actionsInDependencyOrder": [
+    "AUTHOR_SAFE_RUNTIME_ID_AND_PAYLOAD_PROJECTION",
+    "REVIEW_EXACT_RUNTIME_PROJECTION_AND_RESOLVE_SOURCE_AMBIGUITIES",
+    "COLLECT_REAL_45_ROLE_AND_90_AUDIO_EVIDENCE",
+    "BIND_CONTENT_OWNER_SOURCE_LICENSE_AND_AUDIO_IMPORT_DESCRIPTOR",
+    "CREATE_AND_VALIDATE_IMMUTABLE_FOUNDATION_2026_07_7_PACKAGE",
+    "COLLECT_PACKAGE_GOVERNANCE_APPROVALS",
+    "AUTHORIZE_ONLY_HSK1_TIME_PLACE_EVENTS_UNIT",
+    "ISSUE_HASH_BOUND_PROMOTION_RECEIPT"
+  ],
+  "claims": {
+    "runtimeProjectionComplete": false,
+    "evidenceComplete": false,
+    "packageGovernanceComplete": false,
+    "runtimePackagePresent": false,
+    "unitReleaseAuthorized": false,
+    "importAuthorized": false,
+    "runtimeMutated": false,
+    "learnerContentExposed": false,
+    "completionGranted": false,
+    "masteryGranted": false
+  }
+}
