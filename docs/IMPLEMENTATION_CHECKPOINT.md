@@ -167,6 +167,17 @@ Every commit must update this percentage here and in the active roadmap.
   review and rights requirements. The accompanying guide uses the existing
   assignment/receipt workflow. All slots/assets remain empty and the packet is
   explicitly non-authoritative, so active progress remains **90%**.
+- Added a checked unit evidence-intake/readiness gate plus live local status
+  command. The checked repository baseline truthfully reports 0/45 approved
+  review slots and 0/90 reviewed audio/rights records, with package readiness
+  and import authorization false. Local assignment/receipt pairs are
+  revalidated against the current manifest and handoff digest; audio records
+  bind inspected canonical WAV bytes, speaker provenance/consent, rights
+  evidence, independent native review and audio-rights review. Duplicate
+  slots/targets, reviewer reuse across roles in one batch, reused audio bytes,
+  unsafe paths/symlinks, hash drift and fixture relabeling fail closed. A
+  complete 45/45 + 90/90 test fixture proves the contract but remains
+  non-authoritative, so active progress stays **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1185,6 +1196,9 @@ deliverable.
   - atomic unit reviewer packet: 425 exact content payloads, 6 indexed lessons,
     15 review batches/45 role checklists and 90 source-hash-bound recording
     scripts with 0 completed review slot, 0 reviewed audio and 0 release item
+  - unit evidence readiness: checked real baseline 0/45 approved review slots
+    and 0/90 reviewed audio/rights records; a complete test-only fixture passes
+    all hashes but remains package-ineligible and never authorizes import
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1193,7 +1207,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 223 files, 1,596 tests passed
+  - Vitest: 224 files, 1,603 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.8 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1227,13 +1241,13 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Add a fail-closed unit evidence-intake/readiness evaluator for the 45 local
-   review receipts and 90 inspected WAV/rights records. Test fixtures may prove
-   the contract but must never authorize import.
-2. Run the checked reviewer workflow with real attributable Mandarin,
+1. Run the checked reviewer workflow with real attributable Mandarin,
    Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
    any exact-hash slot or audio target is incomplete.
-3. Only after real evidence exists, create a versioned package, explicit unit
+2. Add a versioned package planner that consumes only a complete
+   repository-real evidence result and remains non-mutating while the current
+   0/45 + 0/90 baseline is blocked.
+3. Only after real evidence exists, create the immutable package, explicit unit
    authorization and idempotent promotion receipt. Keep the G5 candidate stale
    and operator auth, commerce, hosted pilot and Sites frozen.
 

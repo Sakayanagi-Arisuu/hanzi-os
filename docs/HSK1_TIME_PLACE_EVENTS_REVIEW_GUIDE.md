@@ -41,12 +41,36 @@ The import writes an idempotent local receipt only. It does not edit the source
 draft, review manifest, unit handoff, release policy or runtime. Requested
 changes must be applied to source and assigned again against the new hash.
 
+The unit evidence evaluator discovers completed assignment/receipt pairs in
+the existing ignored `content/review/local/assignments/` and
+`content/review/local/receipts/` directories. It requires one approved receipt
+for every exact batch/role slot and rejects reuse of one reviewer across roles
+inside the same batch.
+
 ## Audio production workflow
 
 Each audio entry provides an exact transcript/script hash and a Windows-safe
 `.wav` filename. Record one target per file using mono PCM signed 16-bit WAV at
 16, 24, 44.1 or 48 kHz. Dialogue targets retain speaker labels; vocabulary
 targets include tone-marked pinyin for pronunciation guidance.
+
+Place ignored local audio evidence under this shape:
+
+```text
+content/review/local/hsk1-time-place-events/
+  records/<safe-record-id>.json
+  audio/assets/<packet-expected-filename>.wav
+  audio/evidence/<speaker-consent-file>
+  audio/evidence/<rights-grant-file>
+```
+
+Each record must bind the packet `audioTargetId` and `sourceTargetSha256`, the
+asset relative path/hash plus inspected WAV metadata, speaker ID/language/time,
+speaker-consent path/hash, rights path/hash, and two exact approved receipts:
+`native-mandarin-audio-review` and `audio-rights-review`. The native reviewer,
+rights reviewer and speaker must be distinct. Both receipts and the enclosing
+record carry canonical SHA-256 digests; the evaluator recomputes them from the
+actual local bytes.
 
 For every asset, retain all of the following outside the checked packet until
 the import contract is implemented:
@@ -60,6 +84,18 @@ the import contract is implemented:
 Browser TTS can remain a disclosed practice fallback, but it cannot satisfy a
 release audio target. Missing or partial audio keeps the whole six-lesson unit
 blocked.
+
+Check live local readiness at any time:
+
+```powershell
+npm run content:hsk1:unit-evidence:status
+```
+
+An incomplete but well-formed workspace reports blockers without mutating
+anything. Invalid hashes, non-canonical WAV, path escape/symlink, duplicate
+slot/target, reused audio bytes, reviewer-role reuse or fixture relabeling fail
+validation. Even a complete test fixture remains non-authoritative and cannot
+authorize import.
 
 ## Completion boundary
 

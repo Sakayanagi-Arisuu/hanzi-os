@@ -859,6 +859,17 @@ native review và rights evidence đều bắt buộc. Guide mô tả workflow a
 receipt và recording nhưng không tự điền review/audio, không publish hay cấp
 mastery, nên deliverable này chỉ gỡ nút thắt vận hành và chưa cộng điểm.
 
+Unit evidence-intake gate tiếp tục **giữ tiến độ ở 90%**. Checked readiness
+report bind handoff và reviewer packet, hiện trung thực 0/45 approved receipt,
+0/90 reviewed WAV/rights record, `readyForPackage=false` và
+`importAuthorized=false`. Dynamic local status đọc assignment/receipt đã có,
+kiểm lại exact manifest hash và target digest; audio record phải bind bytes WAV
+được inspect, speaker/consent/rights, native review và rights review độc lập.
+Gate cấm duplicate slot/target, một reviewer kiêm nhiều role trong cùng batch,
+tái dùng audio bytes, path escape/symlink và đổi nhãn fixture thành evidence
+thật. Fixture đủ 45/45 + 90/90 chỉ chứng minh contract, vẫn không có package
+authority, visibility, completion hay mastery nên chưa cộng điểm.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
