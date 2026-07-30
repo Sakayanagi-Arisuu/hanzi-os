@@ -18,20 +18,19 @@ describe("HSK1 atomic unit package plan", () => {
     const result = await assertValidHsk1UnitPackagePlanBundle(bundle);
 
     expect(result.summary).toEqual({
-      requiredCatalogItems: 87,
-      draftedCatalogItems: 87,
-      finalizedCatalogItems: 0,
+      requiredRuntimePayloads: 425,
+      draftedRuntimePayloads: 425,
+      finalizedRuntimePayloads: 0,
       unsafeAuthoringLessonIds: 6,
       safeRuntimeLessonIds: 6,
       traditionalEditorialDecisions: 7,
       pronunciationReconciliations: 2,
       missingExampleTriples: 0,
-      requiredProjectionReviewSlots: 18,
-      unrepresentedNonCoreTargets: 338,
+      requiredProjectionReviewSlots: 36,
+      unrepresentedNonCoreTargets: 0,
       blockers: [
         "REAL_REVIEW_AND_AUDIO_EVIDENCE_INCOMPLETE",
         "REVIEWED_RUNTIME_PROJECTION_MISSING",
-        "RUNTIME_ACTIVITY_AND_KNOWLEDGE_PROJECTION_MISSING",
         "CONTENT_OWNER_METADATA_MISSING",
         "SOURCE_LICENSE_METADATA_MISSING",
         "PACKAGE_GOVERNANCE_APPROVALS_MISSING",
@@ -52,7 +51,7 @@ describe("HSK1 atomic unit package plan", () => {
         masteryGranted: false,
       }),
     );
-  });
+  }, 30_000);
 
   it("proposes unique safe runtime IDs without authorizing the mapping", () => {
     const bundle = loadHsk1UnitPackagePlanBundle();

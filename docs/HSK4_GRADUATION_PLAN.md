@@ -266,12 +266,12 @@ review batch. Phần nghe chưa có audio; browser TTS chỉ phục vụ preview
 Vì các câu hiện tái dùng nguồn draft đã có thể xuất hiện khi học, policy bắt
 buộc tạo alternate form độc lập, duyệt audio, review ngôn ngữ/assessment và
 hiệu chuẩn pilot trước khi đo lường. Cả 50 câu vẫn 0 measurement/mastery/
-release-eligible; không có cut score hay prerequisite waiver. Manifest mới
-ghim 7 artifact và 91 batch đang chờ, approval vẫn bằng 0.
+release-eligible; không có cut score hay prerequisite waiver. Manifest hiện
+ghim 8 artifact và 97 batch đang chờ, approval vẫn bằng 0.
 
 Lát G3 thứ chín không tăng điểm, nên tiến độ vẫn là **71%**. Repo đã có workflow
-local để liệt kê, xuất assignment và nhập review receipt cho đúng 91 batch,
-276 assignment theo role và 2.268 target tham chiếu chính xác. Mọi assignment
+local để liệt kê, xuất assignment và nhập review receipt cho đúng 97 batch,
+294 assignment theo role và 2.606 target tham chiếu chính xác. Mọi assignment
 bind manifest/source/target hash và reviewer phải quyết định từng target; sửa
 scope hoặc source làm import fail. Receipt chỉ được lưu trong thư mục local
 Git-ignore, không sửa draft/manifest/runtime, không hiệu chuẩn hay cấp mastery.
@@ -850,8 +850,8 @@ không có authorization riêng. Fixture không authorize import, không sửa g
 policy/runtime và không tạo learner coverage, nên chưa cộng điểm.
 
 Checked reviewer packet cho atomic unit cũng **giữ tiến độ ở 90%**. Packet
-learner-hidden giải tham chiếu đủ 425 exact-hash source target và 87 runtime-core
-payload thành dữ liệu reviewer có thể đọc, nhóm theo 6 lesson, giữ 21 batch/63
+learner-hidden giải tham chiếu đủ 425 exact-hash source target và 425 runtime
+payload thành dữ liệu reviewer có thể đọc, nhóm theo 6 lesson, giữ 27 batch/81
 role slot cùng checklist riêng
 cho Mandarin, tiếng Việt, assessment, grammar và task pedagogy. Audio manifest
 đưa đủ script, tên WAV an toàn và source hash cho 90 target: 6 lesson dialogue,
@@ -861,26 +861,26 @@ receipt và recording nhưng không tự điền review/audio, không publish ha
 mastery, nên deliverable này chỉ gỡ nút thắt vận hành và chưa cộng điểm.
 
 Unit evidence-intake gate tiếp tục **giữ tiến độ ở 90%**. Checked readiness
-report bind handoff và reviewer packet, hiện trung thực 0/63 approved receipt,
+report bind handoff và reviewer packet, hiện trung thực 0/81 approved receipt,
 0/90 reviewed WAV/rights record, `readyForPackage=false` và
 `importAuthorized=false`. Dynamic local status đọc assignment/receipt đã có,
 kiểm lại exact manifest hash và target digest; audio record phải bind bytes WAV
 được inspect, speaker/consent/rights, native review và rights review độc lập.
 Gate cấm duplicate slot/target, một reviewer kiêm nhiều role trong cùng batch,
 tái dùng audio bytes, path escape/symlink và đổi nhãn fixture thành evidence
-thật. Fixture đủ 63/63 + 90/90 chỉ chứng minh contract, vẫn không có package
+thật. Fixture đủ 81/81 + 90/90 chỉ chứng minh contract, vẫn không có package
 authority, visibility, completion hay mastery nên chưa cộng điểm.
 
 Versioned package planner tiếp tục **giữ tiến độ ở 90%** vì đây là audit
 fail-closed, chưa phải learner coverage. Planner pin đúng nhánh package
 `foundation-2026.07.6` → `foundation-2026.07.7`, atomic digest và evidence
-baseline 0/63 + 0/90. Runtime-core projection đã author đủ 87/87 payload nhưng
+baseline 0/81 + 0/90. Hai runtime projection đã author đủ 425/425 payload nhưng
 0 payload được review/finalize: sáu authoring ID dấu `:` có mapping sang ID an
 toàn, 81 lexeme có traditional/numbered pinyin/example/tag và sáu lesson có đủ
-metadata runtime. Planner đồng thời phát hiện 338/425 target dialogue, practice,
-grammar và task chưa được runtime schema tiêu thụ, nên thêm blocker activity/
-knowledge projection thay vì cho package làm rơi phần nội dung chuyên sâu. Nó
-cũng tách 63 draft/projection receipt khỏi bốn package-governance approval,
+metadata runtime; 338 dialogue, practice, grammar và task target còn lại có
+projection 1-1 với source payload, safe ID và version riêng. Khoảng trống biểu
+diễn hiện bằng 0 nhưng review, evidence và package vẫn bị khóa. Planner cũng
+tách 81 draft/projection receipt khỏi bốn package-governance approval,
 ghi rõ owner/license/audio descriptor/package/unit authorization/promotion
 receipt đều thiếu và không ghi registry, package, policy hay runtime.
 
@@ -890,10 +890,22 @@ lesson payload đúng schema, 6 safe runtime lesson ID, một prerequisite nối
 `survival-4`, 42 câu ví dụ AI-assisted mới và 39 candidate lấy exact-hash từ
 dialogue. Bảy lựa chọn traditional, hai hòa giải phát âm nguồn và ba chuẩn hóa
 erhua cho parser đều được ghi provenance; parser có regression cho `nǎr/zhèr`.
-Sáu batch/18 slot projection đã vào manifest/workflow, đưa tổng HSK1 lên 7
-artifact, 91 batch, 276 role assignment và 2.268 exact target. Artifact tự khai
-338 non-core target chưa biểu diễn, có 0 approval/release item và cấm import,
-nên chưa cộng điểm hay tạo completion/mastery claim.
+Sáu batch/18 slot core projection đã vào manifest/workflow. Activity projection
+tiếp theo giữ nguyên 338 source payload theo schema versioned 1-1, gồm 36
+dialogue, 271 activity và 31 knowledge payload; 120 payload bind đúng 90 audio
+target. Tổng HSK1 hiện là 8 artifact, 97 batch, 294 role assignment và 2.606
+exact target, với khoảng trống biểu diễn bằng 0. Cả hai projection vẫn có 0
+approval/finalized/release item và cấm import, nên chưa cộng điểm hay tạo
+completion/mastery claim.
+
+Runtime activity/dialogue/knowledge projection slice tiếp tục **giữ tiến độ ở
+90%**. Checked artifact tạo đúng một runtime payload versioned cho mỗi một trong
+338 non-core source target, giữ nguyên exact source payload và phân vùng theo 6
+lesson bằng ID runtime an toàn. Sáu batch/18 slot mới mở rộng reviewer packet
+lên 425 source + 425 runtime payload, 27 batch/81 slot; package planner nay báo
+425/425 payload đã draft và 0 target không biểu diễn. Vì tất cả vẫn
+review-pending, 0 finalized, learner-hidden và không measurement/mastery, lát
+này hoàn tất schema boundary nhưng chưa tăng learner coverage.
 
 ## 6. Quy tắc cập nhật phần trăm
 

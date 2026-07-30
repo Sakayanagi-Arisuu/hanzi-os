@@ -13,6 +13,11 @@ import {
   HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
   loadHsk1UnitRuntimeProjectionBundle,
 } from "./hsk1UnitRuntimeProjection.mjs";
+import {
+  assertValidHsk1UnitRuntimeActivityProjectionBundle,
+  HSK1_UNIT_RUNTIME_ACTIVITY_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeActivityProjectionBundle,
+} from "./hsk1UnitRuntimeActivityProjection.mjs";
 import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK1_UNIT_REVIEWER_PACKET_RELATIVE_PATH =
@@ -170,6 +175,8 @@ export const loadHsk1UnitReviewerPacketSources = (
   root,
   handoffBundle: loadHsk1UnitPromotionHandoffBundle(root),
   runtimeProjectionBundle: loadHsk1UnitRuntimeProjectionBundle(root),
+  runtimeActivityProjectionBundle:
+    loadHsk1UnitRuntimeActivityProjectionBundle(root),
 });
 
 export const projectHsk1UnitReviewerPacket = async (source) => {
@@ -177,8 +184,13 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
   await assertValidHsk1UnitRuntimeProjectionBundle(
     source.runtimeProjectionBundle,
   );
+  await assertValidHsk1UnitRuntimeActivityProjectionBundle(
+    source.runtimeActivityProjectionBundle,
+  );
   const handoff = source.handoffBundle.handoff;
   const runtimeProjection = source.runtimeProjectionBundle.projection;
+  const runtimeActivityProjection =
+    source.runtimeActivityProjectionBundle.projection;
   const handoffSource = source.handoffBundle.source;
   const communicativeCollection =
     handoffSource.firstHandoffBundle.source.communicativeBundle.collection;
@@ -217,7 +229,10 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
     }));
   }
   const projectionReviewContexts = await Promise.all(
-    runtimeProjection.reviewBatches.map((batch) =>
+    [
+      ...runtimeProjection.reviewBatches,
+      ...runtimeActivityProjection.reviewBatches,
+    ].map((batch) =>
       resolveHsk1ReviewBatch(source.root, batch.batchId)
     ),
   );
@@ -310,6 +325,11 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
         "runtimeProjectionDraft",
         HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
       ),
+      sourceBinding(
+        source.root,
+        "runtimeActivityProjectionDraft",
+        HSK1_UNIT_RUNTIME_ACTIVITY_PROJECTION_RELATIVE_PATH,
+      ),
     ],
     reviewerChecklists: ROLE_CHECKLISTS,
     audioRecordingPolicy: {
@@ -328,7 +348,12 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
       projectionSha256: runtimeProjection.projectionSha256,
       lexemes: runtimeProjection.lexemes,
       lessons: runtimeProjection.lessons,
-      runtimeRepresentability: runtimeProjection.runtimeRepresentability,
+      activityProjectionId: runtimeActivityProjection.projectionId,
+      activityProjectionSha256:
+        runtimeActivityProjection.projectionSha256,
+      nonCorePayloads: runtimeActivityProjection.payloads,
+      runtimeRepresentability:
+        runtimeActivityProjection.runtimeRepresentability,
     },
     reviewBatches,
     reviewSlots,
@@ -337,9 +362,11 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
       lessons: lessonIndex.length,
       contentTargets: contentTargets.length,
       runtimeProjectionTargets:
-        runtimeProjection.lexemes.length + runtimeProjection.lessons.length,
+        runtimeProjection.lexemes.length
+        + runtimeProjection.lessons.length
+        + runtimeActivityProjection.payloads.length,
       unrepresentedNonCoreTargets:
-        runtimeProjection.runtimeRepresentability.unrepresentedNonCoreTargets,
+        runtimeActivityProjection.runtimeRepresentability.unrepresentedTargets,
       reviewBatches: reviewBatches.length,
       reviewSlots: reviewSlots.length,
       audioTargets: audioRecordingManifest.length,

@@ -40,9 +40,9 @@ describe("HSK1 local review assignment/import contract", () => {
     await expect(validateHsk1ReviewWorkflow()).resolves.toEqual({
       manifestId: "hsk1-review-manifest-2026.07",
       manifestSha256: expect.stringMatching(/^sha256:[a-f0-9]{64}$/u),
-      batches: 91,
-      roleAssignments: 276,
-      exactTargets: expect.any(Number),
+      batches: 97,
+      roleAssignments: 294,
+      exactTargets: 2606,
       approvalsImportedIntoManifest: 0,
       runtimeMutations: 0,
     });

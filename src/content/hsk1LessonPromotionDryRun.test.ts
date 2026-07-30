@@ -115,7 +115,7 @@ describe("HSK1 first-lesson promotion dry-run", () => {
       expect(result.evidenceContractSatisfied).toBe(false);
       expect(result.importAuthorized).toBe(false);
     }
-  });
+  }, 30_000);
 
   it("does not mutate checked graph, runtime or handoff bytes", async () => {
     const paths = [

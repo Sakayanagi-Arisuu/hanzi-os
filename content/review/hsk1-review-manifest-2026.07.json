@@ -11,16 +11,16 @@
     "allRequiredRolesMustApproveExactTargets": true
   },
   "counts": {
-    "sourceArtifacts": 7,
-    "reviewBatches": 91,
-    "pendingBatches": 91,
+    "sourceArtifacts": 8,
+    "reviewBatches": 97,
+    "pendingBatches": 97,
     "approvals": 0,
     "vocabularyBatches": 25,
     "characterBatches": 15,
     "grammarBatches": 20,
     "taskBatches": 15,
     "assessmentBatches": 10,
-    "runtimeProjectionBatches": 6
+    "runtimeProjectionBatches": 12
   },
   "sources": [
     {
@@ -106,6 +106,19 @@
         "runtimePayloads": 87,
         "lexemes": 81,
         "lessons": 6
+      },
+      "reviewBatchCount": 6
+    },
+    {
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "relativePath": "content/drafts/hsk1-time-place-events-runtime-activity-projection-2026.07.json",
+      "sha256": "sha256:9d0f32f17932f77d36dd48238bae2dbbae1aa772812114dfa18d1e7a2beb7109",
+      "targetCounts": {
+        "runtimePayloads": 338,
+        "dialoguePayloads": 36,
+        "activityPayloads": 271,
+        "knowledgePayloads": 31
       },
       "reviewBatchCount": 6
     }
@@ -2114,6 +2127,138 @@
         "tasks": 0,
         "topics": 0,
         "runtimePayloads": 12
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events-01-numbers-runtime-activity-projection-review-v1",
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "runtimePayloads": 51
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events-02-calendar-runtime-activity-projection-review-v1",
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "runtimePayloads": 49
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events-03-week-and-day-parts-runtime-activity-projection-review-v1",
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "runtimePayloads": 46
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events-04-clock-and-duration-runtime-activity-projection-review-v1",
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "runtimePayloads": 45
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events-05-location-runtime-activity-projection-review-v1",
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "runtimePayloads": 101
+      }
+    },
+    {
+      "batchId": "hsk1-time-place-events-06-weather-and-residence-runtime-activity-projection-review-v1",
+      "sourceKind": "runtime-activity-projection",
+      "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "requiredRoles": [
+        "native-mandarin-reviewer",
+        "vietnamese-editor",
+        "assessment-editor"
+      ],
+      "state": "pending",
+      "approvalCount": 0,
+      "targetCounts": {
+        "practiceItems": 0,
+        "assessmentItems": 0,
+        "vocabulary": 0,
+        "characters": 0,
+        "grammarRows": 0,
+        "tasks": 0,
+        "topics": 0,
+        "runtimePayloads": 46
       }
     }
   ]

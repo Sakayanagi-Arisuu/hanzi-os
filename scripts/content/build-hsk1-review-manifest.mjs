@@ -29,6 +29,10 @@ import {
   HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
   loadHsk1UnitRuntimeProjectionBundle,
 } from "../../src/content/hsk1UnitRuntimeProjection.mjs";
+import {
+  HSK1_UNIT_RUNTIME_ACTIVITY_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeActivityProjectionBundle,
+} from "../../src/content/hsk1UnitRuntimeActivityProjection.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK1_REVIEW_MANIFEST_RELATIVE_PATH =
@@ -56,6 +60,19 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
     || runtimeProjection.projection.releaseEligible !== false
   ) {
     throw new Error("HSK1 runtime projection is not review-manifest eligible");
+  }
+  const runtimeActivityProjection =
+    loadHsk1UnitRuntimeActivityProjectionBundle(root);
+  if (
+    runtimeActivityProjection.projection.state
+      !== "ai-assisted-runtime-activity-projection-draft"
+    || runtimeActivityProjection.projection.counts.runtimePayloads !== 338
+    || runtimeActivityProjection.projection.counts.approvals !== 0
+    || runtimeActivityProjection.projection.releaseEligible !== false
+  ) {
+    throw new Error(
+      "HSK1 runtime activity projection is not review-manifest eligible",
+    );
   }
 
   const sources = [
@@ -148,6 +165,23 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
         lessons: runtimeProjection.projection.counts.lessons,
       },
     },
+    {
+      sourceKind: "runtime-activity-projection",
+      sourceId: runtimeActivityProjection.projection.projectionId,
+      relativePath: HSK1_UNIT_RUNTIME_ACTIVITY_PROJECTION_RELATIVE_PATH,
+      sha256: fileSha256(runtimeActivityProjection.projectionPath),
+      batches: runtimeActivityProjection.projection.reviewBatches,
+      targetCounts: {
+        runtimePayloads:
+          runtimeActivityProjection.projection.counts.runtimePayloads,
+        dialoguePayloads:
+          runtimeActivityProjection.projection.counts.dialoguePayloads,
+        activityPayloads:
+          runtimeActivityProjection.projection.counts.activityPayloads,
+        knowledgePayloads:
+          runtimeActivityProjection.projection.counts.knowledgePayloads,
+      },
+    },
   ];
   const reviewBatches = sources.flatMap((source) =>
     source.batches.map((batch) => ({
@@ -210,7 +244,7 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
         (batch) => batch.sourceKind === "level-check-objective-items",
       ).length,
       runtimeProjectionBatches: reviewBatches.filter(
-        (batch) => batch.sourceKind === "runtime-core-projection",
+        (batch) => batch.sourceKind.startsWith("runtime-"),
       ).length,
     },
     sources: sources.map(({ batches, ...source }) => ({

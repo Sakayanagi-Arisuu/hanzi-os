@@ -20,10 +20,10 @@ describe("HSK1 time/place/events reviewer packet", () => {
     expect(result.summary).toEqual({
       lessons: 6,
       contentTargets: 425,
-      runtimeProjectionTargets: 87,
-      unrepresentedNonCoreTargets: 338,
-      reviewBatches: 21,
-      reviewSlots: 63,
+      runtimeProjectionTargets: 425,
+      unrepresentedNonCoreTargets: 0,
+      reviewBatches: 27,
+      reviewSlots: 81,
       audioTargets: 90,
       dialogueAudioTargets: 6,
       vocabularyAudioTargets: 81,
@@ -62,10 +62,10 @@ describe("HSK1 time/place/events reviewer packet", () => {
     });
   });
 
-  it("maps all 63 review slots to role-specific checklists", () => {
+  it("maps all 81 review slots to role-specific checklists", () => {
     const { packet } = loadHsk1UnitReviewerPacketBundle();
 
-    expect(packet.reviewSlots).toHaveLength(63);
+    expect(packet.reviewSlots).toHaveLength(81);
     expect(packet.reviewSlots.every((slot: {
       requiredChecklistIds: string[];
       packetChecklistState: string;
@@ -77,15 +77,18 @@ describe("HSK1 time/place/events reviewer packet", () => {
     )).toBe(true);
   });
 
-  it("shows every runtime-core payload while preserving the non-core schema gap", () => {
+  it("shows all 425 runtime payloads without a representability gap", () => {
     const { packet } = loadHsk1UnitReviewerPacketBundle();
 
     expect(packet.runtimeProjectionTargets.lexemes).toHaveLength(81);
     expect(packet.runtimeProjectionTargets.lessons).toHaveLength(6);
+    expect(packet.runtimeProjectionTargets.nonCorePayloads).toHaveLength(338);
     expect(packet.runtimeProjectionTargets.runtimeRepresentability).toMatchObject({
       directlyProjectedCoreTargets: 87,
-      unrepresentedNonCoreTargets: 338,
-      packageImportMustRemainBlocked: true,
+      directlyProjectedNonCoreTargets: 338,
+      directlyProjectedTotalTargets: 425,
+      unrepresentedTargets: 0,
+      packageImportMustRemainBlockedUntilReview: true,
     });
   });
 

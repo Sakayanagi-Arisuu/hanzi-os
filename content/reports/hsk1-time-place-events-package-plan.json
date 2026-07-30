@@ -19,7 +19,7 @@
     {
       "id": "evidenceReadiness",
       "relativePath": "content/reports/hsk1-time-place-events-evidence-readiness.json",
-      "sha256": "sha256:b064fd93b668efc96ad48b671b5509c873903a2d62ffc9e034004cc74f09bcda"
+      "sha256": "sha256:1c292bff66551ad8675e22a31596c5d13ccb6d44214368622094d7572c35e5be"
     },
     {
       "id": "registry",
@@ -57,6 +57,11 @@
       "sha256": "sha256:73a5c009a68d401cfed2e573043f0e0b9e26901811da6163b0f24cbbfd64aa7d"
     },
     {
+      "id": "runtimeActivityProjectionDraft",
+      "relativePath": "content/drafts/hsk1-time-place-events-runtime-activity-projection-2026.07.json",
+      "sha256": "sha256:9d0f32f17932f77d36dd48238bae2dbbae1aa772812114dfa18d1e7a2beb7109"
+    },
+    {
       "id": "runtimeTypes",
       "relativePath": "src/content/types.ts",
       "sha256": "sha256:3b705197127c4dc41095d0348b497d9c3002a4b8e9cf09c4a66fbf130541e38a"
@@ -72,12 +77,12 @@
     "targetPackageVersion": "foundation-2026.07.7",
     "targetPackageRelativePath": "content/packages/foundation-2026.07.7",
     "authoringReleaseVersion": "hsk1-time-place-events-2026.07.1",
-    "unitReleaseDigest": "sha256:0338411476d7c1c021fb196f975f4b355211f013e87eeb0cb99377a56eb13565",
-    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:0338411476d7c1c021fb196f975f4b355211f013e87eeb0cb99377a56eb13565"
+    "unitReleaseDigest": "sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2",
+    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2"
   },
   "evidence": {
     "mode": "repository-real",
-    "requiredReviewSlots": 63,
+    "requiredReviewSlots": 81,
     "approvedReviewSlots": 0,
     "requiredAudioTargets": 90,
     "reviewedAudioTargets": 0,
@@ -85,13 +90,28 @@
     "readyForPackage": false
   },
   "runtimeProjection": {
-    "requiredCatalogItems": 87,
-    "draftedCatalogItems": 87,
-    "finalizedCatalogItems": 0,
-    "projectionId": "hsk1-time-place-events-runtime-projection-2026.07.1",
-    "projectionSha256": "sha256:769bd186e9b97b8747bca691e6955711a4080f45a880ecff824f55c45d6ed948",
-    "reviewBatches": 6,
-    "requiredReviewSlots": 18,
+    "requiredRuntimePayloads": 425,
+    "draftedRuntimePayloads": 425,
+    "finalizedRuntimePayloads": 0,
+    "core": {
+      "requiredCatalogItems": 87,
+      "draftedCatalogItems": 87,
+      "finalizedCatalogItems": 0,
+      "projectionId": "hsk1-time-place-events-runtime-projection-2026.07.1",
+      "projectionSha256": "sha256:769bd186e9b97b8747bca691e6955711a4080f45a880ecff824f55c45d6ed948"
+    },
+    "nonCore": {
+      "requiredPayloads": 338,
+      "draftedPayloads": 338,
+      "finalizedPayloads": 0,
+      "projectionId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
+      "projectionSha256": "sha256:9f0bce13cb8666546c127bbb32da448a81359886fe0935642d816beb511ffabc",
+      "dialoguePayloads": 36,
+      "activityPayloads": 271,
+      "knowledgePayloads": 31
+    },
+    "reviewBatches": 12,
+    "requiredReviewSlots": 36,
     "approvals": 0,
     "sourceGapAudit": {
       "lexemes": {
@@ -375,20 +395,11 @@
     "representability": {
       "sourceContentTargets": 425,
       "directlyProjectedCoreTargets": 87,
-      "unrepresentedNonCoreTargets": 338,
-      "unrepresentedTargetCounts": {
-        "dialogue-turn": 24,
-        "grammar-draft": 25,
-        "grammar-practice": 25,
-        "task-dialogue-turn": 12,
-        "task-practice": 3,
-        "task-scenario": 3,
-        "topic-draft": 3,
-        "vocabulary-practice": 243
-      },
-      "requiredNextSchemaSurface": "versioned lesson activity/dialogue and knowledge projection",
-      "exactReviewedPracticeCurrentlyConsumedByRuntime": false,
-      "packageImportMustRemainBlocked": true
+      "directlyProjectedNonCoreTargets": 338,
+      "directlyProjectedTotalTargets": 425,
+      "unrepresentedTargets": 0,
+      "exactSourcePayloadsPreserved": 338,
+      "packageImportMustRemainBlockedUntilReview": true
     }
   },
   "governance": {
@@ -412,7 +423,6 @@
     "blockers": [
       "REAL_REVIEW_AND_AUDIO_EVIDENCE_INCOMPLETE",
       "REVIEWED_RUNTIME_PROJECTION_MISSING",
-      "RUNTIME_ACTIVITY_AND_KNOWLEDGE_PROJECTION_MISSING",
       "CONTENT_OWNER_METADATA_MISSING",
       "SOURCE_LICENSE_METADATA_MISSING",
       "PACKAGE_GOVERNANCE_APPROVALS_MISSING",
@@ -423,10 +433,8 @@
     ]
   },
   "actionsInDependencyOrder": [
-    "AUTHOR_SAFE_RUNTIME_ID_AND_PAYLOAD_PROJECTION",
-    "AUTHOR_VERSIONED_RUNTIME_ACTIVITY_DIALOGUE_AND_KNOWLEDGE_PROJECTION",
     "REVIEW_EXACT_RUNTIME_PROJECTION_AND_RESOLVE_SOURCE_AMBIGUITIES",
-    "COLLECT_REAL_45_ROLE_AND_90_AUDIO_EVIDENCE",
+    "COLLECT_REAL_81_ROLE_AND_90_AUDIO_EVIDENCE",
     "BIND_CONTENT_OWNER_SOURCE_LICENSE_AND_AUDIO_IMPORT_DESCRIPTOR",
     "CREATE_AND_VALIDATE_IMMUTABLE_FOUNDATION_2026_07_7_PACKAGE",
     "COLLECT_PACKAGE_GOVERNANCE_APPROVALS",

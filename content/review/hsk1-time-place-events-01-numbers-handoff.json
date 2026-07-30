@@ -30,12 +30,12 @@
     {
       "id": "reviewManifest",
       "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-      "sha256": "sha256:12e920aab0dc90e010037655ec5e0cbb73b92c3f71c0feadb1db4f449f6ce672"
+      "sha256": "sha256:1108715742c704a0401460ab7c651b6e14d77d0be542b84a4842c73dfb899153"
     },
     {
       "id": "promotionQueue",
       "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-      "sha256": "sha256:33e0bd150a9cd63a93222c1bddd7fb664fa99094595867e173ad5fc1c9683493"
+      "sha256": "sha256:810c02409a32c0b60787ca9ab2d47c5f62da4621c591a76f14de39b8c0dab3f3"
     }
   ],
   "targetBundle": {
@@ -59,12 +59,12 @@
       {
         "id": "reviewManifest",
         "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-        "sha256": "sha256:12e920aab0dc90e010037655ec5e0cbb73b92c3f71c0feadb1db4f449f6ce672"
+        "sha256": "sha256:1108715742c704a0401460ab7c651b6e14d77d0be542b84a4842c73dfb899153"
       },
       {
         "id": "promotionQueue",
         "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-        "sha256": "sha256:33e0bd150a9cd63a93222c1bddd7fb664fa99094595867e173ad5fc1c9683493"
+        "sha256": "sha256:810c02409a32c0b60787ca9ab2d47c5f62da4621c591a76f14de39b8c0dab3f3"
       }
     ],
     "contentTargets": [
@@ -815,7 +815,7 @@
       }
     ]
   },
-  "targetBundleSha256": "sha256:f4284a2b3d1eaf0f5a9abba8bc210b58462cc42f8d2fd7d9644aae59a96ba3b4",
+  "targetBundleSha256": "sha256:4a9046468f71f96159047f865f5c47678fb0a2206a43c1acb61463c9f37615df",
   "requiredReviewReceipts": [
     {
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
@@ -864,7 +864,7 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-runtime-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:f4284a2b3d1eaf0f5a9abba8bc210b58462cc42f8d2fd7d9644aae59a96ba3b4",
+    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:4a9046468f71f96159047f865f5c47678fb0a2206a43c1acb61463c9f37615df",
     "requiredBindings": [
       "handoffSha256",
       "targetBundleSha256",
@@ -874,7 +874,7 @@
       "reviewReceiptSha256s",
       "audioAssetSha256s"
     ],
-    "targetBundleSha256": "sha256:f4284a2b3d1eaf0f5a9abba8bc210b58462cc42f8d2fd7d9644aae59a96ba3b4",
+    "targetBundleSha256": "sha256:4a9046468f71f96159047f865f5c47678fb0a2206a43c1acb61463c9f37615df",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },
