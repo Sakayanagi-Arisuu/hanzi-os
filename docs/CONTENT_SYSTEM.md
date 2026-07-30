@@ -537,6 +537,17 @@ tiêu chuẩn kỹ thuật–công chúng. Lát này giữ cùng hợp đồng 1
 inference, 12 note map và 6 synthesis. Validator không cho mở rộng kết quả
 cục bộ thành claim toàn cầu hoặc biến tương quan thành quan hệ nhân quả.
 
+`content/drafts/hsk4-society-economy-long-form-2026.07.json` nối miền tự
+nhiên/công nghệ và đưa cumulative HSK4 lên 24/36 long-form lesson. Sáu lesson
+mới phân tích vai trò của nguồn dữ liệu công, tiến trình mở rộng kinh doanh,
+điều kiện của thị trường, so sánh nhiều chỉ số hiệu quả, bằng chứng hạ tầng và
+tổng hợp quan điểm về đổi mới kinh tế. Lát này tiếp tục hợp đồng 12 nguồn/36
+đoạn, 60 target lexeme, 180 vocabulary item, 60 evidence question, 12 bounded
+inference, 12 note map và 6 synthesis. Validator buộc câu hỏi liên đoạn dùng
+ít nhất hai paragraph ID, giữ selection bias, exposure, confound và phạm vi
+chỉ số trong kết luận; mọi review, audio, measurement, mastery và release vẫn
+fail-closed.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

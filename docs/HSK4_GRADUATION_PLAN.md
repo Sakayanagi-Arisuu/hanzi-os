@@ -670,6 +670,16 @@ item. Các lesson buộc tách vai trò, dòng thời gian thử–so–sửa, n
 không được nâng thành nhân quả. Còn 3 domain/18 lesson và toàn bộ human/audio
 review nên chưa tăng điểm D.
 
+Miền xã hội/kinh tế tiếp tục giữ **84%** và nâng cumulative long-form lên
+24/36 lesson, 4/6 domain. Sáu lesson mới thêm 12 nguồn/36 đoạn, 60 target
+lexeme, 180 item từ vựng, 60 câu hỏi bind bằng chứng, 12 bounded inference,
+12 note map và 6 cross-source synthesis; lũy kế bốn miền đạt 48 nguồn/144
+đoạn và 1.032 practice item. Nội dung phân biệt dữ liệu công cộng, tiến trình
+kinh doanh, điều kiện của thị trường, chỉ số hiệu quả, bằng chứng hạ tầng và
+quan điểm về đổi mới kinh tế; thay đổi trước/sau, trung bình hoặc một chỉ số
+không được tự nâng thành nhân quả hay thành công toàn diện. Còn 2 domain/12
+lesson và toàn bộ human/audio review nên chưa tăng điểm D.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

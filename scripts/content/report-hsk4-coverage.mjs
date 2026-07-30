@@ -35,8 +35,11 @@ import {
 } from "../../src/content/hsk4EducationWorkLongFormPack.mjs";
 import {
   assertValidHsk4NatureTechnologyLongFormPackBundle,
-  loadHsk4NatureTechnologyLongFormPackBundle,
 } from "../../src/content/hsk4NatureTechnologyLongFormPack.mjs";
+import {
+  assertValidHsk4SocietyEconomyLongFormPackBundle,
+  loadHsk4SocietyEconomyLongFormPackBundle,
+} from "../../src/content/hsk4SocietyEconomyLongFormPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -184,8 +187,12 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4SocietyEconomy =
+    loadHsk4SocietyEconomyLongFormPackBundle(root);
+  const hsk4SocietyEconomyResult =
+    assertValidHsk4SocietyEconomyLongFormPackBundle(hsk4SocietyEconomy);
   const hsk4NatureTechnology =
-    loadHsk4NatureTechnologyLongFormPackBundle(root);
+    hsk4SocietyEconomy.prerequisiteBundles[0];
   const hsk4NatureTechnologyResult =
     assertValidHsk4NatureTechnologyLongFormPackBundle(hsk4NatureTechnology);
   const hsk4EducationWork =
@@ -198,7 +205,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk4PersonalCommunityLongFormPackBundle(
       hsk4PersonalCommunity,
     );
-  const hsk4LessonBlueprints = hsk4NatureTechnology.blueprintBundle;
+  const hsk4LessonBlueprints = hsk4SocietyEconomy.blueprintBundle;
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
@@ -781,6 +788,42 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4NatureTechnologyResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4NatureTechnologyResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4SocietyEconomyLongFormDraft: {
+          lessons: hsk4SocietyEconomyResult.summary.lessons,
+          completedLongFormDomains:
+            hsk4SocietyEconomyResult.summary.completedLongFormDomains,
+          completedLongFormLessons:
+            hsk4SocietyEconomyResult.summary.completedLongFormLessons,
+          mappedTopics: hsk4SocietyEconomyResult.summary.mappedTopics,
+          targetLexemeContexts:
+            hsk4SocietyEconomyResult.summary.targetLexemeContexts,
+          authoredTexts: hsk4SocietyEconomyResult.summary.authoredTexts,
+          authoredParagraphs:
+            hsk4SocietyEconomyResult.summary.authoredParagraphs,
+          vocabularyPracticeItems:
+            hsk4SocietyEconomyResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk4SocietyEconomyResult.summary.comprehensionItems,
+          evidenceBoundComprehensionItems:
+            hsk4SocietyEconomyResult.summary
+              .evidenceBoundComprehensionItems,
+          inferenceItems:
+            hsk4SocietyEconomyResult.summary.inferenceItems,
+          noteMapItems: hsk4SocietyEconomyResult.summary.noteMapItems,
+          noteMapNodes: hsk4SocietyEconomyResult.summary.noteMapNodes,
+          synthesisPrompts:
+            hsk4SocietyEconomyResult.summary.synthesisPrompts,
+          authoredPracticeItems:
+            hsk4SocietyEconomyResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4SocietyEconomyResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk4SocietyEconomyResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk4SocietyEconomyResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

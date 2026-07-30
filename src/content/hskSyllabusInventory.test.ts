@@ -303,6 +303,31 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       learnerVisible: false,
     });
     expect(
+      report.currentCoverage.draftBlueprintMappings
+        .hsk4SocietyEconomyLongFormDraft,
+    ).toEqual({
+      lessons: 6,
+      completedLongFormDomains: 4,
+      completedLongFormLessons: 24,
+      mappedTopics: 9,
+      targetLexemeContexts: 60,
+      authoredTexts: 12,
+      authoredParagraphs: 36,
+      vocabularyPracticeItems: 180,
+      comprehensionItems: 60,
+      evidenceBoundComprehensionItems: 60,
+      inferenceItems: 12,
+      noteMapItems: 12,
+      noteMapNodes: 60,
+      synthesisPrompts: 6,
+      authoredPracticeItems: 258,
+      audioDependentItems: 96,
+      reviewedAudioItems: 0,
+      measurementEligibleItems: 0,
+      reviewed: false,
+      learnerVisible: false,
+    });
+    expect(
       report.currentCoverage.draftBlueprintMappings.hsk3VocabularyBacklog,
     ).toEqual({
       officialVocabulary: 500,
