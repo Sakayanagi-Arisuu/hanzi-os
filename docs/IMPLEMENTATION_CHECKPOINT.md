@@ -133,6 +133,14 @@ Every commit must update this percentage here and in the active roadmap.
   hash-bound test fixtures satisfy the evidence contract but never authorize
   import; graph/runtime bytes remain unchanged. This safety work adds no
   learner coverage, so active progress stays **90%**.
+- Added an atomic handoff for all six `hsk1-time-place-events` lessons. Its
+  unit-release digest binds 425 exact content targets: 6 blueprints, 81
+  vocabulary drafts, 24 communicative turns, 243 vocabulary items, 25 grammar
+  rows/items, 3 topics, 3 task scenarios, 12 task turns and 3 roleplays. The
+  15 batches require 45 role receipts and 90 audio targets remain empty.
+  First-lesson parity is exact, downstream authorization is empty and the
+  explicit unit-release gate/package/receipt remain blockers. This packaging
+  is learner-hidden and adds no coverage, so progress remains **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1139,6 +1147,10 @@ deliverable.
     missing, while one partial mapping would unintentionally activate
     `hsk1-daily-life` plus 4 existing lessons; complete test fixtures remain
     non-authoritative and no graph/runtime bytes are written
+  - atomic `hsk1-time-place-events` handoff: 6 lessons, 425 exact content
+    targets, 15 pending batches/45 missing role receipts and 90 missing reviewed
+    audio assets; first-lesson parity exact, downstream authorization empty and
+    0 runtime mutation, visibility, completion or mastery claim
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1147,7 +1159,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 220 files, 1,576 tests passed
+  - Vitest: 221 files, 1,582 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.7 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1181,14 +1193,13 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Expand the exact-hash handoff atomically across the remaining five
-   `hsk1-time-place-events` lessons. Preserve per-lesson review/audio slots and
-   bind all 6 lessons to one unit release digest without fabricating evidence.
-2. Extend the dry-run so a complete test-only six-lesson unit has zero
-   unintended downstream activation: `hsk1-daily-life` must remain withheld
-   until an explicit later promotion request, not open merely because its
-   prerequisite unit has a mapping.
-3. Only after the full-unit contract is safe and real approvals/audio exist,
+1. Add an explicit unit-release allowlist to the checked curriculum/runtime
+   projection so source mappings and prerequisite completion no longer imply
+   publication. Preserve the current four eligible units/eight lessons.
+2. Extend the dry-run against the atomic handoff: a complete test-only unit may
+   activate `hsk1-time-place-events` but must leave `hsk1-daily-life` and its
+   four source lessons withheld without a separate release authorization.
+3. Only after that compiler boundary is green and real approvals/audio exist,
    create a versioned package. Keep the G5 candidate stale and operator auth,
    commerce, hosted pilot and Sites frozen.
 

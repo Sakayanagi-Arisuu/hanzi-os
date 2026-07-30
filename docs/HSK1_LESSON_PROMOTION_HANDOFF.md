@@ -80,3 +80,22 @@ Complete hash-bound test fixtures can satisfy all 6 review, 16 audio, package
 and receipt slots, but fixtures never authorize import and the one-lesson run
 still fails both safety boundaries. The dry-run writes neither graph nor
 runtime bytes.
+
+## Atomic unit handoff
+
+The follow-up artifact
+`content/review/hsk1-time-place-events-unit-handoff.json` binds the complete
+unit instead of treating lesson 1 as independently publishable. Its exact
+unit-release digest covers:
+
+- all 6 lesson blueprints, 81 vocabulary drafts, 24 communicative dialogue
+  turns and 243 vocabulary practice items;
+- 25 grammar rows plus 25 grammar practice items;
+- 3 topics, 3 task scenarios, 12 task-dialogue turns and 3 roleplay items;
+- 15 review batches requiring 45 role-specific receipts;
+- 90 audio targets: 6 lesson dialogues, 81 vocabulary listening items and
+  3 task dialogues.
+
+All evidence slots remain empty. The handoff explicitly authorizes no
+downstream unit and records the missing explicit unit-release gate as a
+blocker. It neither replaces the per-lesson handoff nor imports content.

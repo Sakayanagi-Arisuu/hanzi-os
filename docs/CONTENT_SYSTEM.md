@@ -197,6 +197,13 @@ từ đó ngoài ý muốn mở `hsk1-daily-life` và `daily-1..4`. Vì vậy pr
 ngoài request. Fixture hash-bound có thể chứng minh contract evidence nhưng
 luôn `importAuthorized: false`; current graph/runtime bytes không bị sửa.
 
+Atomic unit handoff tiếp theo bind đủ 6 lesson của
+`hsk1-time-place-events` vào một release digest: 425 content target, 15 review
+batch/45 role receipt và 90 audio target. Nó gồm đủ vocabulary, grammar,
+task/topic, communicative/task dialogue và practice reference nhưng chỉ lưu
+ID/pointer/hash. Tất cả evidence slot vẫn rỗng, downstream authorization là
+empty và explicit unit-release gate vẫn là blocker; không có runtime import.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT

@@ -829,6 +829,14 @@ compiler sẽ mở ngoài ý muốn unit `hsk1-daily-life` cùng `daily-1..4`, t
 receipt, 16 audio, package và receipt chỉ chứng minh hash contract; fixture
 không bao giờ authorize import và dry-run không sửa graph/runtime.
 
+Atomic six-lesson handoff **giữ tiến độ ở 90%** vì vẫn là packaging
+learner-hidden. Unit release digest bind 425 content target gồm đủ 6 lesson,
+81 vocabulary, 25 grammar row, 3 topic/task và toàn bộ 271 practice item;
+15 review batch cần 45 role receipt, còn 90 audio target chưa có reviewed
+asset/rights. Downstream authorization rỗng và explicit unit-release gate,
+runtime package, promotion receipt đều thiếu. Không có approval, visibility,
+completion hay mastery claim.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
