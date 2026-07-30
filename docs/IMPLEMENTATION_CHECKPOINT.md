@@ -106,6 +106,15 @@ Every commit must update this percentage here and in the active roadmap.
   accepted and HSK5 is rejected; authenticated sync now covers HSK4.
 - G2 remains open until calibrated placement authority, topic/task/grammar
   mappings and complete per-level progress behavior exist.
+- Added a checked HSK1-4 runtime promotion queue bound to 16 exact graph,
+  runtime, scope, authoring and review artifacts. It distinguishes 213 authored
+  lesson blueprints from 0 blueprint approval, 497 review batches/0 approval
+  records, 4 learner-visible HSK1 target lessons, 6 prerequisite-blocked source
+  lessons, 3 unavailable paths and 0 completion claim. The earliest dependency-
+  valid gap is `hsk1-time-place-events` (6 lessons, 243 practice items and 81
+  listening items), but attributable review, reviewed audio and a versioned
+  runtime import are all missing. This audit mutates/exposes nothing and keeps
+  active progress at **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -846,11 +855,13 @@ Progress accounting rules:
 
 ## Local verification
 
-### Current G3 content-authoring and G5 demo/candidate baseline
+### Current G2 runtime-gap audit and G3/G5 baseline
 
-The results below are bound to the exact G3/G5 checkpoint worktree. Any later
-edit to code, configuration or content makes this snapshot stale and requires
-the applicable gates to run again before the next checkpoint commit.
+The current `npm run check` result is rebound at each engineering checkpoint.
+The G5 receipt remains exact evidence for source `83e967d`; any later code,
+configuration or content edit intentionally makes that candidate stale until
+the next local release checkpoint rather than erasing the completed G5
+deliverable.
 
 - `npm run check`: all constituent gates pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
@@ -1143,17 +1154,17 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Audit the remaining G2/G3/G4 learner-runtime gap now that the local
-   candidate and complete G5 acceptance matrix are reproducible. Produce a
-   machine-readable promotion queue that distinguishes authored, reviewed,
-   prerequisite-complete and learner-visible coverage per level.
-2. Promote only review-complete, prerequisite-complete content in dependency
-   order, starting at the earliest HSK1 gap before HSK2, HSK3 and HSK4. Do not
-   use draft volume, synthetic audio or self-checks as release evidence.
-3. Keep the candidate stale after any code/config/content change until the
-   next clean checkpoint run. Leave operator auth, commerce, hosted pilot and
-   Sites frozen until the active HSK0-4 graduation roadmap is complete or the
-   user explicitly resumes production work.
+1. Prepare a bounded review/promotion handoff for the first
+   `hsk1-time-place-events` lesson. Bind exact Mandarin/Vietnamese/practice/audio
+   targets and define the versioned import receipt, but keep it learner-hidden
+   while any attributable role or reviewed audio is missing.
+2. Implement a fail-closed dry-run that accepts only the complete exact-hash
+   review handoff and proves the resulting unit would preserve prerequisite
+   closure. Do not mutate registry/runtime until real approvals exist.
+3. Then repeat in dependency order through the six-lesson unit before
+   `hsk1-daily-life`, HSK2, HSK3 or HSK4. Keep the G5 candidate stale until the
+   next release checkpoint and leave operator auth, commerce, hosted pilot and
+   Sites frozen.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

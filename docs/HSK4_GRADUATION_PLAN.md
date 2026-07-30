@@ -803,6 +803,16 @@ trạng thái `passed`. Sửa lỗi này giữ tiến độ ở **90%** và bắ
 candidate từ clean source; không nới stale-source policy.
 Receipt đã được tái tạo từ source sửa lỗi và sẵn sàng cho verify hậu commit.
 
+Lát audit promotion queue **giữ tiến độ ở 90%** vì kiểm kê khoảng trống không
+tự tạo learner coverage. Checked projection bind 16 source artifact và tách
+213 authored blueprint khỏi 0 blueprint approval, 497 review batch/0 approval
+record, 4 HSK1 target lesson visible, 6 source lesson bị prerequisite chặn,
+3 path HSK2-4 unavailable và 0 completion claim. Candidate dependency sớm nhất
+là `hsk1-time-place-events` với 6 lesson, 243 practice item và 81 listening
+item; prerequisite runtime trước unit đã hiện diện nhưng human review, reviewed
+audio và versioned runtime import đều thiếu. Queue không sửa runtime hay expose
+draft, nên chưa cộng điểm G2/G3/G4.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

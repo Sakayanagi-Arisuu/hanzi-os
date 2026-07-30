@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "reportId": "hsk0-4-runtime-promotion-queue-2026.07.1",
+  "sourceBindings": [
+    {
+      "id": "graph",
+      "relativePath": "content/curriculum/hsk0-4-graph.json",
+      "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
+    },
+    {
+      "id": "runtime",
+      "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
+      "sha256": "sha256:783c51900512751884d00b7c69759bf8b6bd4fc95d5d7492a7c8ac8e4ae78412"
+    },
+    {
+      "id": "hsk1Scope",
+      "relativePath": "content/curriculum/hsk1-scope.json",
+      "sha256": "sha256:96bea61080b2a8ecaca294e7fad8fbbadf417d19a83633f1d793024e81c58a73"
+    },
+    {
+      "id": "hsk1Personal",
+      "relativePath": "content/drafts/hsk1-personal-exchange-2026.07.json",
+      "sha256": "sha256:3518d598a8cea63a65029c0ddbc9526fe98baab0a142bfab40c60aa9070c9969"
+    },
+    {
+      "id": "hsk1Communicative",
+      "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+    },
+    {
+      "id": "hsk1Characters",
+      "relativePath": "content/drafts/hsk1-character-foundation-2026.07.json",
+      "sha256": "sha256:c0c9bbdad6800ca7dc7a313f901ffabce846325ab854896df1d8b57bfc14fe99"
+    },
+    {
+      "id": "hsk1Review",
+      "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
+      "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+    },
+    {
+      "id": "hsk2Scope",
+      "relativePath": "content/curriculum/hsk2-scope.json",
+      "sha256": "sha256:7e9f071a15095d06fcaf32521e92bfbc46bc66a81c042d5e372b9bb20004f9dd"
+    },
+    {
+      "id": "hsk2Blueprints",
+      "relativePath": "content/drafts/hsk2-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:17724b4ca36b34495583c7db2f7e740d49c7462c3d449e5aaac779af7f5ec0d1"
+    },
+    {
+      "id": "hsk2Review",
+      "relativePath": "content/review/hsk2-review-manifest-2026.07.json",
+      "sha256": "sha256:3a3bc838810c812738564a2b03bf18c7956f06361859bc098f529d1b93dd7852"
+    },
+    {
+      "id": "hsk3Scope",
+      "relativePath": "content/curriculum/hsk3-scope.json",
+      "sha256": "sha256:06ba985ee481f197a7f87ac40895f3172a706314d17738c19eff359d043a1def"
+    },
+    {
+      "id": "hsk3Blueprints",
+      "relativePath": "content/drafts/hsk3-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:b7feed4dd3eaba2502a33fc18f3aa3b56529410a1103c7f215a4f52b627e40f8"
+    },
+    {
+      "id": "hsk3Review",
+      "relativePath": "content/review/hsk3-review-manifest-2026.07.json",
+      "sha256": "sha256:3c22d5888645b928e0fe8bd1121908bfff2898a5781067a70fd0d25574f7e7f7"
+    },
+    {
+      "id": "hsk4Scope",
+      "relativePath": "content/curriculum/hsk4-scope.json",
+      "sha256": "sha256:57c82100a0767e62dda0c7b7129505ab4e1688b2253d746bd6d4fbd36d2b3596"
+    },
+    {
+      "id": "hsk4Blueprints",
+      "relativePath": "content/drafts/hsk4-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:0591e0b5203801c25c88c652ef6d2ee2e7374143bdc1ee5b65e092ad50947ada"
+    },
+    {
+      "id": "hsk4Review",
+      "relativePath": "content/review/hsk4-review-manifest-2026.07.json",
+      "sha256": "sha256:e6648cfe987b6e189c94e2848c50a606a9f4b733dc5a9b81caa40b8d513a0db7"
+    }
+  ],
+  "policy": {
+    "informationalOnly": true,
+    "mutatesRuntime": false,
+    "exposesDraftContent": false,
+    "reviewManifestApprovalPublishesContent": false,
+    "requiresAttributableHumanReview": true,
+    "requiresReviewedAudioForListening": true,
+    "requiresPrerequisiteRuntimeClosure": true,
+    "requiresVersionedRuntimeImport": true,
+    "grantsCompletionOrMastery": false
+  },
+  "summary": {
+    "levels": 4,
+    "graphUnits": 15,
+    "authoredLessonBlueprints": 213,
+    "blueprintApprovedLessons": 0,
+    "reviewBatches": 497,
+    "approvalRecords": 0,
+    "learnerVisibleTargetLessons": 4,
+    "prerequisiteBlockedSourceLessons": 6,
+    "unavailablePaths": 3,
+    "completionClaims": 0,
+    "promotionReadyUnits": 0
+  },
+  "levels": [
+    {
+      "pathId": "hsk1",
+      "officialExamLevel": 1,
+      "runtimeState": "partial",
+      "completionClaim": false,
+      "authoredLessonBlueprintCount": 40,
+      "blueprintApprovedLessonCount": 0,
+      "levelReview": {
+        "manifestId": "hsk1-review-manifest-2026.07",
+        "reviewBatchCount": 85,
+        "pendingBatchCount": 85,
+        "approvedBatchCount": 0,
+        "approvalRecordCount": 0,
+        "releaseEligible": false
+      },
+      "learnerVisibleTargetLessonCount": 4,
+      "sourceReleasedLessonCount": 10,
+      "prerequisiteBlockedSourceLessonCount": 6,
+      "units": [
+        {
+          "unitId": "hsk1-personal-exchange",
+          "sequence": 1,
+          "graphState": "foundation",
+          "prerequisiteUnitIds": [
+            "hsk0-pronunciation-control"
+          ],
+          "authoredLessonBlueprintCount": 9,
+          "blueprintReviewBatchCount": 9,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 321,
+          "audioDependentItemCount": 107,
+          "sourceReleasedLessonIds": [
+            "survival-1",
+            "survival-2",
+            "survival-3",
+            "survival-4"
+          ],
+          "learnerVisibleLessonIds": [
+            "survival-1",
+            "survival-2",
+            "survival-3",
+            "survival-4"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "REVIEWED_AUDIO_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk1-time-place-events",
+          "sequence": 2,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk1-personal-exchange"
+          ],
+          "authoredLessonBlueprintCount": 6,
+          "blueprintReviewBatchCount": 6,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 243,
+          "audioDependentItemCount": 81,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "REVIEWED_AUDIO_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk1-daily-life",
+          "sequence": 3,
+          "graphState": "foundation",
+          "prerequisiteUnitIds": [
+            "hsk1-time-place-events"
+          ],
+          "authoredLessonBlueprintCount": 4,
+          "blueprintReviewBatchCount": 4,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 162,
+          "audioDependentItemCount": 54,
+          "sourceReleasedLessonIds": [
+            "daily-1",
+            "daily-2",
+            "daily-3",
+            "daily-4"
+          ],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "REVIEWED_AUDIO_MISSING",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING"
+          ]
+        },
+        {
+          "unitId": "hsk1-travel-leisure",
+          "sequence": 4,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk1-daily-life"
+          ],
+          "authoredLessonBlueprintCount": 2,
+          "blueprintReviewBatchCount": 2,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 69,
+          "audioDependentItemCount": 23,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "REVIEWED_AUDIO_MISSING",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk1-study-work",
+          "sequence": 5,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk1-travel-leisure"
+          ],
+          "authoredLessonBlueprintCount": 4,
+          "blueprintReviewBatchCount": 4,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 105,
+          "audioDependentItemCount": 35,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "REVIEWED_AUDIO_MISSING",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk1-character-foundation",
+          "sequence": 6,
+          "graphState": "foundation",
+          "prerequisiteUnitIds": [
+            "hsk1-study-work"
+          ],
+          "authoredLessonBlueprintCount": 15,
+          "blueprintReviewBatchCount": 15,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 492,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [
+            "characters-1",
+            "characters-2"
+          ],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        }
+      ]
+    },
+    {
+      "pathId": "hsk2",
+      "officialExamLevel": 2,
+      "runtimeState": "unavailable",
+      "completionClaim": false,
+      "authoredLessonBlueprintCount": 40,
+      "blueprintApprovedLessonCount": 0,
+      "levelReview": {
+        "manifestId": "hsk2-review-manifest-2026.07",
+        "reviewBatchCount": 122,
+        "pendingBatchCount": 122,
+        "approvedBatchCount": 0,
+        "approvalRecordCount": 0,
+        "releaseEligible": false
+      },
+      "learnerVisibleTargetLessonCount": 0,
+      "sourceReleasedLessonCount": 0,
+      "prerequisiteBlockedSourceLessonCount": 0,
+      "units": [
+        {
+          "unitId": "hsk2-situational-dialogue",
+          "sequence": 1,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk1-character-foundation"
+          ],
+          "authoredLessonBlueprintCount": 20,
+          "blueprintReviewBatchCount": 20,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk2-sentence-chains",
+          "sequence": 2,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk2-situational-dialogue"
+          ],
+          "authoredLessonBlueprintCount": 10,
+          "blueprintReviewBatchCount": 10,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk2-short-text-production",
+          "sequence": 3,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk2-sentence-chains"
+          ],
+          "authoredLessonBlueprintCount": 10,
+          "blueprintReviewBatchCount": 10,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        }
+      ]
+    },
+    {
+      "pathId": "hsk3",
+      "officialExamLevel": 3,
+      "runtimeState": "unavailable",
+      "completionClaim": false,
+      "authoredLessonBlueprintCount": 55,
+      "blueprintApprovedLessonCount": 0,
+      "levelReview": {
+        "manifestId": "hsk3-review-manifest-2026.07",
+        "reviewBatchCount": 122,
+        "pendingBatchCount": 122,
+        "approvedBatchCount": 0,
+        "approvalRecordCount": 0,
+        "releaseEligible": false
+      },
+      "learnerVisibleTargetLessonCount": 0,
+      "sourceReleasedLessonCount": 0,
+      "prerequisiteBlockedSourceLessonCount": 0,
+      "units": [
+        {
+          "unitId": "hsk3-paragraph-input",
+          "sequence": 1,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk2-short-text-production"
+          ],
+          "authoredLessonBlueprintCount": 25,
+          "blueprintReviewBatchCount": 25,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk3-narration",
+          "sequence": 2,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk3-paragraph-input"
+          ],
+          "authoredLessonBlueprintCount": 15,
+          "blueprintReviewBatchCount": 15,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk3-guided-production",
+          "sequence": 3,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk3-narration"
+          ],
+          "authoredLessonBlueprintCount": 15,
+          "blueprintReviewBatchCount": 15,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        }
+      ]
+    },
+    {
+      "pathId": "hsk4",
+      "officialExamLevel": 4,
+      "runtimeState": "unavailable",
+      "completionClaim": false,
+      "authoredLessonBlueprintCount": 78,
+      "blueprintApprovedLessonCount": 0,
+      "levelReview": {
+        "manifestId": "hsk4-review-manifest-2026.07",
+        "reviewBatchCount": 168,
+        "pendingBatchCount": 168,
+        "approvedBatchCount": 0,
+        "approvalRecordCount": 0,
+        "releaseEligible": false
+      },
+      "learnerVisibleTargetLessonCount": 0,
+      "sourceReleasedLessonCount": 0,
+      "prerequisiteBlockedSourceLessonCount": 0,
+      "units": [
+        {
+          "unitId": "hsk4-deep-comprehension",
+          "sequence": 1,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk3-guided-production"
+          ],
+          "authoredLessonBlueprintCount": 36,
+          "blueprintReviewBatchCount": 36,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk4-summary-argument",
+          "sequence": 2,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk4-deep-comprehension"
+          ],
+          "authoredLessonBlueprintCount": 24,
+          "blueprintReviewBatchCount": 24,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        },
+        {
+          "unitId": "hsk4-timed-integration",
+          "sequence": 3,
+          "graphState": "planned",
+          "prerequisiteUnitIds": [
+            "hsk4-summary-argument"
+          ],
+          "authoredLessonBlueprintCount": 18,
+          "blueprintReviewBatchCount": 18,
+          "blueprintApprovedLessonCount": 0,
+          "authoredPracticeItemCount": 0,
+          "audioDependentItemCount": 0,
+          "sourceReleasedLessonIds": [],
+          "learnerVisibleLessonIds": [],
+          "prerequisiteRuntimeClosurePresent": false,
+          "promotionState": "blocked",
+          "blockers": [
+            "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+            "LESSON_REVIEW_INCOMPLETE",
+            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+          ]
+        }
+      ]
+    }
+  ],
+  "nextPromotionCandidate": {
+    "pathId": "hsk1",
+    "unitId": "hsk1-time-place-events",
+    "authoredLessonBlueprintCount": 6,
+    "authoredPracticeItemCount": 243,
+    "audioDependentItemCount": 81,
+    "sourceReleasedLessonCount": 0,
+    "blueprintApprovedLessonCount": 0,
+    "blockers": [
+      "LEVEL_HUMAN_REVIEW_INCOMPLETE",
+      "LESSON_REVIEW_INCOMPLETE",
+      "REVIEWED_AUDIO_MISSING",
+      "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+    ],
+    "requiredAction": "complete attributable review and reviewed audio, then import into a versioned runtime package and recompile prerequisite closure"
+  }
+}

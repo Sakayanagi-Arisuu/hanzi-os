@@ -166,6 +166,20 @@ này là cấu hình QA learner-hidden, không phải content package, runtime i
 review approval hay coverage claim. Walkthrough tương ứng được ghi tại
 `docs/HSK01_LOCAL_DEMO.md`.
 
+`content:hsk:promotion-queue` tạo báo cáo kiểm toán learner-hidden tại
+`content/reports/hsk0-4-runtime-promotion-queue.json`. Projection bind exact
+graph, runtime catalog, bốn scope, bốn review manifest và các pack lesson
+blueprint. Nó tách riêng số lesson đã author, blueprint đã approve, batch review,
+prerequisite closure, source lesson beta/published và target lesson thực sự hiện
+cho learner; tuyệt đối không lấy draft count làm review hay publication.
+Checkpoint hiện có 213 blueprint HSK1-4, 497 review batch, 0 approval record,
+4 target lesson visible, 6 source lesson bị prerequisite chặn, 3 path
+unavailable và 0 completion claim. Candidate sớm nhất là
+`hsk1-time-place-events`: prerequisite runtime trước nó đã có, nhưng 6 lesson/
+243 practice/81 listening item vẫn thiếu attributable review, reviewed audio và
+versioned runtime import. Report chỉ là queue thông tin, không sửa runtime,
+expose draft, cấp completion/mastery hay biến approval manifest thành publish.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT
