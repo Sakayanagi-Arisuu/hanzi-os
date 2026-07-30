@@ -24,12 +24,19 @@ lesson + assessment. Validator kiểm strict payload schema, typed prerequisite
 graph, lesson knowledge membership, toàn registry/lineage và live-source drift
 của package runtime-bound.
 
-Client chỉ import `runtime-catalog.json`: allow-listed projection gồm 24 lexeme,
-14 lesson beta/published và 1 graded text. Draft/review content, owner/license,
-review/evidence, audio governance, item hash và payload grammar/pronunciation/
-character/communicative-function không đi vào runtime bundle. Full authoring
-inventory được tái dựng từ immutable item catalog trong tooling, không từ
-runtime projection.
+Client chỉ import hai projection đã sanitize. `runtime-catalog.json` chứa
+allow-list 24 lexeme, 14 lesson beta/published và 1 graded text.
+`content/runtime/hsk0-4-runtime-catalog.json` là projection curriculum
+deterministic bind exact graph, registry, manifest, item catalog và runtime
+catalog bằng version/hash, import idempotency key và integrity digest. Nó chỉ
+giữ 4 unit có prerequisite closure đầy đủ cùng 8 mapping. Sáu lesson dù đã ở
+runtime beta/published vẫn bị chặn vì hai unit của chúng đứng sau unit chưa
+phát hành; metadata của tổng cộng 14 unit không đủ điều kiện, official inventory
+ID và draft/review payload bị loại, nên HSK2-4 vẫn là path rỗng fail-closed.
+Draft/review content, owner/license, review/evidence, audio governance, item
+hash và payload grammar/pronunciation/character/communicative-function không
+đi vào learner bundle. Full authoring inventory được tái dựng từ immutable item
+catalog trong tooling, không từ runtime projection.
 
 Package vẫn là candidate: owner/license đều rỗng, review envelope v2 không có
 approval, coverage envelope v2 không có claim, audio catalog rỗng và chưa có
@@ -113,11 +120,17 @@ coverage claim. Quyền sử dụng nguồn vẫn `pending`, và source PDF khô
 trong repository.
 
 Graph HSK0-4 bind exact inventory hash và content version nhưng không có quyền
-phát hành. Client chỉ đọc projection nhỏ của graph để chọn đúng lát lesson:
-HSK0 và HSK1 dùng mapping foundation hiện có; HSK2-4 fail closed thay vì nhận
-ngầm cùng lộ trình beginner. Self-declaration chỉ chọn target view; diagnostic
-foundation chưa hiệu chuẩn không cấp mastery hay prerequisite waiver. D1
-profile constraint đã mở tương thích tới HSK4 qua migration bảo toàn row cũ.
+phát hành. Tooling biên dịch graph này cùng package runtime đã sanitize thành
+artifact learner-side; client không còn import authoring graph trực tiếp.
+Projection chỉ giữ unit/lesson beta hoặc published có toàn bộ prerequisite unit
+đã khả dụng, loại metadata của unit chưa phát hành hoặc bị chặn và được gate
+bằng exact source projection. HSK0 dùng 4 lesson; HSK1 dùng 4 lesson
+personal-exchange cùng bridge HSK0, còn 6 lesson daily/character bị giữ lại sau
+các unit time/travel/work chưa phát hành. HSK2-4 fail closed thay vì nhận ngầm
+cùng lộ trình beginner.
+Self-declaration chỉ chọn target view; diagnostic foundation chưa hiệu chuẩn
+không cấp mastery hay prerequisite waiver. D1 profile constraint đã mở tương
+thích tới HSK4 qua migration bảo toàn row cũ.
 
 ## 2. Kiến trúc production đề xuất
 

@@ -10,6 +10,7 @@ import {
   VOCABULARY,
 } from "./curriculum";
 import {
+  getActivePathReleasedLessons,
   getNextLesson,
   getReleasedLessonProgress,
   isLessonPassed,
@@ -105,11 +106,12 @@ describe("release policy", () => {
     if (!released) throw new Error("Missing released root lesson fixture");
     const state = stateWithScores({ [draft.id]: 100, [released.id]: 100 });
     const progress = getReleasedLessonProgress(state);
+    const activeLessons = getActivePathReleasedLessons("hsk1");
 
     expect(progress).toMatchObject({
       completedCount: 1,
-      totalCount: RELEASED_LESSONS.length,
-      remainingCount: RELEASED_LESSONS.length - 1,
+      totalCount: activeLessons.length,
+      remainingCount: activeLessons.length - 1,
     });
     expect(getNextLesson(state)?.id).not.toBe(draft.id);
   });

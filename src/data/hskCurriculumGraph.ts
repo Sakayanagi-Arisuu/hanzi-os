@@ -1,56 +1,80 @@
-import graphJson from "../../content/curriculum/hsk0-4-graph.json";
+import runtimeCatalogJson from "../../content/runtime/hsk0-4-runtime-catalog.json";
 import type { StartingLevel } from "../learning/startingLevels";
+import { CONTENT_VERSION } from "./curriculum";
 
 export type HskCurriculumPathId = "hsk0" | "hsk1" | "hsk2" | "hsk3" | "hsk4";
-
-type OfficialInventoryCounts = {
-  tasks: number;
-  topics: number;
-  vocabulary: number;
-  recognitionCharacters: number;
-  grammarRows: number;
-};
 
 type HskCurriculumPathRecord = {
   pathId: HskCurriculumPathId;
   stageIndex: number;
-  officialExamLevel: number | null;
   prerequisitePathIds: HskCurriculumPathId[];
   unitIds: string[];
   placementPolicy:
     | "open-foundation"
     | "verified-placement-or-prerequisite-completion";
-  officialInventory: OfficialInventoryCounts | null;
+  runtimeState: "partial" | "unavailable";
+  targetLessonIds: string[];
+  releasedLessonCount: number;
+  mappedOfficialVocabularyCount: number;
+  targetContentAvailable: boolean;
+  completionClaim: false;
 };
 
 type HskCurriculumUnitRecord = {
   unitId: string;
   pathId: HskCurriculumPathId;
   sequence: number;
-  status: "foundation" | "planned";
   title: string;
   objective: string;
   prerequisiteUnitIds: string[];
+  runtimeState: "partial";
+  lessonIds: string[];
+  releasedLessonCount: number;
+  mappedOfficialVocabularyCount: number;
 };
 
 type HskLessonMappingRecord = {
   lessonId: string;
+  lessonVersion: string;
   unitId: string;
-  mappingState: "partial";
-  officialVocabularyIds: string[];
-  unmappedRuntimeWordIds: string[];
+  releaseState: "beta" | "published";
+  mappedOfficialVocabularyCount: number;
 };
 
-type HskCurriculumGraphArtifact = {
+type HskRuntimeCatalogArtifact = {
   schemaVersion: 1;
-  graphId: string;
+  catalogId: string;
   runtimeContentVersion: string;
+  sourceBindings: {
+    curriculumGraph: {
+      graphId: string;
+    };
+  };
+  policy: {
+    sanitizedRuntimeCatalogOnly: true;
+    requiresCompleteUnitPrerequisiteClosure: true;
+    draftArtifactImportsAllowed: false;
+    selfDeclarationGrantsMastery: false;
+    uncalibratedAssessmentGrantsPrerequisiteWaiver: false;
+  };
   paths: HskCurriculumPathRecord[];
   units: HskCurriculumUnitRecord[];
   lessonMappings: HskLessonMappingRecord[];
 };
 
-const GRAPH = graphJson as unknown as HskCurriculumGraphArtifact;
+const GRAPH =
+  runtimeCatalogJson as unknown as HskRuntimeCatalogArtifact;
+if (
+  GRAPH.runtimeContentVersion !== CONTENT_VERSION
+  || GRAPH.policy.sanitizedRuntimeCatalogOnly !== true
+  || GRAPH.policy.requiresCompleteUnitPrerequisiteClosure !== true
+  || GRAPH.policy.draftArtifactImportsAllowed !== false
+  || GRAPH.policy.selfDeclarationGrantsMastery !== false
+  || GRAPH.policy.uncalibratedAssessmentGrantsPrerequisiteWaiver
+    !== false
+) {
+  throw new Error("HSK runtime curriculum catalog is stale or unsafe.");
+}
 const PATH_BY_ID = new Map(GRAPH.paths.map((path) => [path.pathId, path]));
 const UNIT_BY_ID = new Map(GRAPH.units.map((unit) => [unit.unitId, unit]));
 const LESSON_MAPPINGS_BY_UNIT = new Map<string, HskLessonMappingRecord[]>();
@@ -108,7 +132,7 @@ export const getHskCurriculumView = (
   const path = PATH_BY_ID.get(pathId) ?? PATH_BY_ID.get("hsk0")!;
   const units = path.unitIds.map((unitId) => UNIT_BY_ID.get(unitId)!)
     .filter(Boolean);
-  const targetLessonIds = lessonIdsForUnits(path.unitIds);
+  const targetLessonIds = [...path.targetLessonIds];
   const bridgeLessonIds = targetLessonIds.length === 0
     ? []
     : lessonIdsForUnits(transitivePrerequisiteUnitIds(path));
@@ -116,20 +140,15 @@ export const getHskCurriculumView = (
     ...bridgeLessonIds,
     ...targetLessonIds,
   ])];
-  const mappedOfficialVocabularyCount = new Set(
-    GRAPH.lessonMappings
-      .filter((mapping) => targetLessonIds.includes(mapping.lessonId))
-      .flatMap((mapping) => mapping.officialVocabularyIds),
-  ).size;
   return {
-    graphId: GRAPH.graphId,
+    graphId: GRAPH.sourceBindings.curriculumGraph.graphId,
     path,
     units,
     targetLessonIds,
     bridgeLessonIds,
     visibleLessonIds,
-    mappedOfficialVocabularyCount,
-    targetContentAvailable: targetLessonIds.length > 0,
+    mappedOfficialVocabularyCount: path.mappedOfficialVocabularyCount,
+    targetContentAvailable: path.targetContentAvailable,
   };
 };
 

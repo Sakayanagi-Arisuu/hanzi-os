@@ -14,7 +14,7 @@ import {
 import { useMemo, useState } from "react";
 import { Link } from "react-router";
 import { useSystemFeedback } from "../components/SystemFeedback";
-import { isMistakeFromReleasedContent } from "../lib/adaptive";
+import { isMistakeFromActivePathContent } from "../lib/adaptive";
 import { makeIdempotencyKey } from "../lib/evidence";
 import {
   evaluateRemediationAttempt,
@@ -70,8 +70,13 @@ export function LocalMistakesPage() {
   const { state, actions } = useLearning();
   const { notify } = useSystemFeedback();
   const visibleMistakes = useMemo(
-    () => state.mistakes.filter(isMistakeFromReleasedContent),
-    [state.mistakes],
+    () => state.mistakes.filter((mistake) =>
+      isMistakeFromActivePathContent(
+        mistake,
+        state.profile.startingLevel,
+      )
+    ),
+    [state.mistakes, state.profile.startingLevel],
   );
   const unresolved = useMemo(
     () => visibleMistakes.filter((mistake) => !mistake.resolved),

@@ -41,6 +41,24 @@ test("does not substitute beginner lessons for an HSK4 target", async ({ page })
   await expect(page.locator(".lesson-node")).toHaveCount(0);
 });
 
+test("does not bypass an unpublished HSK1 prerequisite unit", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("heading", {
+    name: /Đánh thức một ngôn ngữ mới/i,
+  })).toBeVisible();
+  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
+  await page.getByRole("radiogroup", { name: "Điểm xuất phát" })
+    .getByRole("radio", { name: /^HSK1/u })
+    .click();
+  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
+  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
+
+  await page.goto("/lesson/daily-1");
+  await expect(page.getByRole("heading", {
+    name: "Nội dung này chưa được phát hành",
+  })).toBeVisible();
+});
+
 test("does not expose a historical draft lesson opened by direct URL", async ({ page }) => {
   await finishOnboarding(page);
   await page.goto("/lesson/characters-3");

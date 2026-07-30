@@ -54,7 +54,10 @@ import {
   runtimeMatchesSessionBinding,
   submissionReceiptMatchesSessionBinding,
 } from "../learning/normalizedLessonUiAuthority";
-import { isLessonReleased } from "../lib/adaptive";
+import {
+  isLessonIdAvailableForStartingLevel,
+  isLessonReleased,
+} from "../lib/adaptive";
 import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
@@ -150,14 +153,18 @@ export function AuthenticatedLessonPage() {
 
 function AuthenticatedLessonPageScope() {
   const { lessonId } = useParams();
-  const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
-  const unavailableLesson = Boolean(
-    requestedLesson && !isLessonReleased(requestedLesson),
-  );
-  const lesson = requestedLesson && isLessonReleased(requestedLesson)
-    ? requestedLesson
-    : undefined;
   const { state, actions, sync } = useLearning();
+  const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
+  const availableForPath = Boolean(
+    requestedLesson
+    && isLessonReleased(requestedLesson)
+    && isLessonIdAvailableForStartingLevel(
+      requestedLesson.id,
+      state.profile.startingLevel,
+    ),
+  );
+  const unavailableLesson = Boolean(requestedLesson && !availableForPath);
+  const lesson = availableForPath ? requestedLesson : undefined;
   const authority = useNormalizedLearningProjection();
   const refreshProjection = authority.refresh;
   const [records, setRecords] = useState<LearningCommandOutboxRecord[] | null>(

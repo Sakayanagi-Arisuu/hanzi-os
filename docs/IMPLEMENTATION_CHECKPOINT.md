@@ -11,11 +11,11 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **86%**.
+Active progress: **87%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
-| Application/offline learning foundation | 17 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist. |
+| Application/offline learning foundation | 18 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist; the HSK path now consumes a deterministic, version-bound, fail-closed runtime projection rather than the authoring graph. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
 | HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension, 24/24 summary-argument and 18/18 integration lessons. Human review and runtime publication stay open and no HSK4 completion claim exists. |
@@ -67,13 +67,24 @@ Every commit must update this percentage here and in the active roadmap.
 - Mapped all 14 released runtime lessons to HSK0/1 units and to the exact 23
   official vocabulary records they currently teach. `越南` remains explicitly
   unmapped; no task/topic/grammar mapping was invented.
-- Anonymous Path and Dashboard now use the selected graph slice. HSK0 exposes
-  the four boot lessons, HSK1 retains the prerequisite bridge plus ten target
-  lessons, and HSK2-4 expose no lower-level substitute while their target
-  packages are unpublished.
+- Anonymous Path and Dashboard now use the selected runtime projection. HSK0
+  exposes four boot lessons; HSK1 retains the prerequisite bridge plus four
+  personal-exchange lessons. Six daily/character lessons remain withheld
+  behind unpublished time/travel/work prerequisite units, and HSK2-4 expose no
+  lower-level substitute while their target packages are unpublished.
 - Placement is fail-closed: self-declaration chooses the target view only;
   the current uncalibrated diagnostic remains observed-only and grants neither
   mastery nor a prerequisite waiver.
+- Added a deterministic local-first HSK runtime compiler bound to the exact
+  curriculum graph, registry, package manifest, item catalog and sanitized
+  runtime catalog. Its checked artifact carries source/content/schema versions,
+  source hashes, an import idempotency key and an integrity digest.
+- The learner bundle now receives only five path shells, four units with a
+  complete prerequisite closure and eight eligible lesson mappings. Six
+  beta/published daily/character lessons are withheld behind two blocked units;
+  metadata for all 14 ineligible authoring units, official inventory
+  identifiers and every draft/review payload are excluded. HSK2-4 remain empty
+  and fail-closed; no completion, mastery or prerequisite-waiver claim exists.
 - Expanded the D1 `profiles.starting_level` constraint with a data-preserving
   migration. Restore rehearsal proves an existing HSK2 row survives, HSK4 is
   accepted and HSK5 is rejected; authenticated sync now covers HSK4.
@@ -780,7 +791,9 @@ The results below are bound to the exact G3 checkpoint worktree. Any later
 edit to code, configuration or content makes this snapshot stale and requires
 the applicable gates to run again before the next checkpoint commit.
 
-- `npm run check`: pass
+- `npm run check`: all constituent gates pass; the single wrapper reached the
+  240-second terminal limit after restore and at Vitest startup, so the full
+  Vitest suite and production build were completed separately
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
     HSK4 profile persistence, 4 editorial events and 5 editorial triggers
@@ -1025,16 +1038,20 @@ the applicable gates to run again before the next checkpoint commit.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - Vitest: 213 files, 1,498 tests passed
+  - checked HSK runtime curriculum projection: 5 path shells, 4
+    prerequisite-complete units, 8 eligible lesson mappings, 6 released
+    lessons blocked behind 2 prerequisite-gap units, 14 authoring-unit metadata
+    records excluded, 0 draft imports and 0 completion claims
+  - Vitest: 214 files, 1,505 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 394.8 KiB
-- `npm run test:e2e`: 19 tests passed
+    ceiling: 394.5 KiB
+- `npm run test:e2e`: 20 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 99 / 98 / 98, median 98
+  - Performance: 93 / 96 / 97, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,886 ms; CLS: 0; TBT: 110 ms
+  - Median LCP: 1,881 ms; CLS: 0; TBT: 191 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1059,12 +1076,12 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Define and implement the local-first runtime content schema/compiler over
-   reviewed release manifests. Draft artifacts must remain excluded, and
-   imports must preserve source/content/schema versions plus idempotency.
-2. Integrate the five distinct level paths, thin demo seed and skill-separated
-   learning evidence into the local app without converting draft assessment
-   or review readiness into mastery.
+1. Extend the versioned local runtime adapter from the checked HSK path catalog
+   to lesson/activity payloads and attempt provenance. Keep all draft content
+   excluded and preserve content/activity/schema versions plus idempotency.
+2. Build a thin local demo seed and skill-separated evidence walkthrough on
+   the currently released HSK0/1 slice. HSK2-4 must remain unavailable until
+   reviewed content is promoted through the same compiler boundary.
 3. Leave operator auth, commerce, hosted pilot and Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes
    production work.

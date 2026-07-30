@@ -21,6 +21,11 @@ export const getActivePathReleasedLessons = (
   return RELEASED_LESSONS.filter((lesson) => visibleLessonIds.has(lesson.id));
 };
 
+export const isLessonIdAvailableForStartingLevel = (
+  lessonId: string,
+  startingLevel: LearningState["profile"]["startingLevel"],
+) => getHskCurriculumView(startingLevel).visibleLessonIds.includes(lessonId);
+
 export const isLessonReleased = (lesson: Lesson) =>
   lesson.releaseState === "beta" || lesson.releaseState === "published";
 
@@ -32,6 +37,14 @@ export const isMistakeFromReleasedContent = (
 ) => mistake.lessonId === "review"
   ? Boolean(mistake.wordId && RELEASED_WORD_BY_ID.has(mistake.wordId))
   : isLessonIdReleased(mistake.lessonId);
+
+export const isMistakeFromActivePathContent = (
+  mistake: Pick<MistakeRecord, "lessonId" | "wordId">,
+  startingLevel: LearningState["profile"]["startingLevel"],
+) => mistake.lessonId === "review"
+  ? isMistakeFromReleasedContent(mistake)
+  : isMistakeFromReleasedContent(mistake)
+    && isLessonIdAvailableForStartingLevel(mistake.lessonId, startingLevel);
 
 export const isLessonPassed = (lesson: Lesson, state: LearningState) =>
   isLessonReleased(lesson) &&
@@ -114,7 +127,14 @@ export const getGoalReadiness = (state: LearningState) => {
 
 export const isLessonUnlocked = (lesson: Lesson, state: LearningState) => {
   const releasedLesson = RELEASED_LESSON_BY_ID.get(lesson.id);
-  if (!releasedLesson || !isLessonReleased(releasedLesson)) return false;
+  if (
+    !releasedLesson
+    || !isLessonReleased(releasedLesson)
+    || !isLessonIdAvailableForStartingLevel(
+      releasedLesson.id,
+      state.profile.startingLevel,
+    )
+  ) return false;
   if (!Array.isArray(releasedLesson.prerequisiteIds)) return false;
 
   return releasedLesson.prerequisiteIds.every((prerequisiteId) => {
@@ -150,7 +170,10 @@ export const buildDailyMissions = (
 ): DailyMission[] => {
   const unresolved = state.mistakes.filter((mistake) =>
     !mistake.resolved &&
-    isMistakeFromReleasedContent(mistake)
+    isMistakeFromActivePathContent(
+      mistake,
+      state.profile.startingLevel,
+    )
   );
   const nextLesson = getNextLesson(state);
   const goal = GOAL_CONFIG[state.profile.goal];

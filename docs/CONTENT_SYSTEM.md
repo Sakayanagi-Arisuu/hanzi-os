@@ -121,6 +121,21 @@ official vocabulary reference từ surface + pinyin của runtime: hiện có 23
 được lesson-map, còn `越南` được giữ trong danh sách chưa ánh xạ. Mapping state
 vẫn `partial`; task, topic và grammar chưa được gán nên không tạo claim HSK.
 
+`content:hsk:runtime-catalog` biên dịch graph authoring qua đúng
+`content/registry.json`, manifest, item catalog và sanitized runtime catalog
+hiện hành. Output checked tại `content/runtime/hsk0-4-runtime-catalog.json`
+ghim content/schema/source version, canonical SHA-256, import idempotency key
+và integrity digest. Projection chỉ chứa 5 path shell, 4 unit có prerequisite
+closure đầy đủ và 8 lesson mapping. Sáu lesson beta/published thuộc
+daily/character bị chặn vì hai unit đó đứng sau các unit HSK1 chưa phát hành;
+metadata của tổng cộng 14 unit không đủ điều kiện, official inventory ID,
+draft/review artifact và governance payload không được đưa vào learner bundle.
+HSK2-4 vì vậy có target rỗng, `completionClaim: false` và không thể được mở từ
+self-declaration hay diagnostic chưa hiệu chuẩn. `content:graduation:check`
+tái tạo exact projection và fail nếu source drift, artifact bị sửa, runtime có
+lesson ngoài trạng thái beta/published hoặc một mapping cố vượt prerequisite
+unit.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT

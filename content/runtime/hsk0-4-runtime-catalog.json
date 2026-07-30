@@ -1,0 +1,274 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "hsk0-4-local-runtime-2026.07.1",
+  "compilerVersion": "hsk-runtime-curriculum-compiler-v1",
+  "runtimeContentVersion": "foundation-2026.07.6",
+  "importIdempotencyKey": "sha256:a7252e9d9228101588f832e183b7b9f8124763828f1b958184608dbb8d7cc72d",
+  "sourceBindings": {
+    "curriculumGraph": {
+      "graphId": "hsk0-4-graduation-2026.07.2",
+      "relativePath": "content/curriculum/hsk0-4-graph.json",
+      "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
+    },
+    "contentRegistry": {
+      "relativePath": "content/registry.json",
+      "sha256": "sha256:1d5251f890722da231285af358977ba3f7979b443f13432e306957692a2a64f4"
+    },
+    "contentPackage": {
+      "packageId": "foundation-2026.07.6",
+      "contentVersion": "foundation-2026.07.6",
+      "contentSchemaVersion": 6,
+      "itemCatalogSchemaVersion": 4,
+      "manifestRelativePath": "content/packages/foundation-2026.07.6/manifest.json",
+      "manifestSha256": "sha256:c0dc75baaab4ae675986089616ccdd3b252c8f6e8cad425d894d253f4cdca46e",
+      "itemCatalogRelativePath": "content/packages/foundation-2026.07.6/item-catalog.json",
+      "itemCatalogSha256": "sha256:132f5156df04a98cc63564e3cd2a26aa62ac68010c5517d0f8da9562a5b80ea7",
+      "runtimeCatalogRelativePath": "content/packages/foundation-2026.07.6/runtime-catalog.json",
+      "runtimeCatalogSha256": "sha256:20ec5d180fb0d53ce7cdc8d5d6202425291d803c2f1ad2fd1633ef2561768c85"
+    }
+  },
+  "policy": {
+    "sanitizedRuntimeCatalogOnly": true,
+    "requiresBetaOrPublishedLessonState": true,
+    "requiresCompleteUnitPrerequisiteClosure": true,
+    "draftArtifactImportsAllowed": false,
+    "reviewManifestApprovalPublishesContent": false,
+    "inventoryPresencePublishesContent": false,
+    "selfDeclarationGrantsMastery": false,
+    "uncalibratedAssessmentGrantsPrerequisiteWaiver": false,
+    "lessonAttemptsRequireContentAndActivityVersions": true,
+    "mutationCommandsRequireIdempotencyKeys": true
+  },
+  "paths": [
+    {
+      "pathId": "hsk0",
+      "stageIndex": 0,
+      "prerequisitePathIds": [],
+      "unitIds": [
+        "hsk0-tone-basics",
+        "hsk0-first-interaction",
+        "hsk0-pronunciation-control"
+      ],
+      "placementPolicy": "open-foundation",
+      "runtimeState": "partial",
+      "targetLessonIds": [
+        "boot-1",
+        "boot-2",
+        "boot-3",
+        "boot-4"
+      ],
+      "releasedLessonCount": 4,
+      "mappedOfficialVocabularyCount": 11,
+      "targetContentAvailable": true,
+      "completionClaim": false
+    },
+    {
+      "pathId": "hsk1",
+      "stageIndex": 1,
+      "prerequisitePathIds": [
+        "hsk0"
+      ],
+      "unitIds": [
+        "hsk1-personal-exchange"
+      ],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "runtimeState": "partial",
+      "targetLessonIds": [
+        "survival-1",
+        "survival-2",
+        "survival-3",
+        "survival-4"
+      ],
+      "releasedLessonCount": 4,
+      "mappedOfficialVocabularyCount": 12,
+      "targetContentAvailable": true,
+      "completionClaim": false
+    },
+    {
+      "pathId": "hsk2",
+      "stageIndex": 2,
+      "prerequisitePathIds": [
+        "hsk1"
+      ],
+      "unitIds": [],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "runtimeState": "unavailable",
+      "targetLessonIds": [],
+      "releasedLessonCount": 0,
+      "mappedOfficialVocabularyCount": 0,
+      "targetContentAvailable": false,
+      "completionClaim": false
+    },
+    {
+      "pathId": "hsk3",
+      "stageIndex": 3,
+      "prerequisitePathIds": [
+        "hsk2"
+      ],
+      "unitIds": [],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "runtimeState": "unavailable",
+      "targetLessonIds": [],
+      "releasedLessonCount": 0,
+      "mappedOfficialVocabularyCount": 0,
+      "targetContentAvailable": false,
+      "completionClaim": false
+    },
+    {
+      "pathId": "hsk4",
+      "stageIndex": 4,
+      "prerequisitePathIds": [
+        "hsk3"
+      ],
+      "unitIds": [],
+      "placementPolicy": "verified-placement-or-prerequisite-completion",
+      "runtimeState": "unavailable",
+      "targetLessonIds": [],
+      "releasedLessonCount": 0,
+      "mappedOfficialVocabularyCount": 0,
+      "targetContentAvailable": false,
+      "completionClaim": false
+    }
+  ],
+  "units": [
+    {
+      "unitId": "hsk0-tone-basics",
+      "pathId": "hsk0",
+      "sequence": 1,
+      "title": "Thanh điệu và nghe phân biệt",
+      "objective": "Nhận diện bốn thanh và gắn âm với chữ nền.",
+      "prerequisiteUnitIds": [],
+      "runtimeState": "partial",
+      "lessonIds": [
+        "boot-1"
+      ],
+      "releasedLessonCount": 1,
+      "mappedOfficialVocabularyCount": 4
+    },
+    {
+      "unitId": "hsk0-first-interaction",
+      "pathId": "hsk0",
+      "sequence": 2,
+      "title": "Lượt thoại đầu tiên",
+      "objective": "Nghe và phản hồi những lượt chào hỏi tối thiểu.",
+      "prerequisiteUnitIds": [
+        "hsk0-tone-basics"
+      ],
+      "runtimeState": "partial",
+      "lessonIds": [
+        "boot-2"
+      ],
+      "releasedLessonCount": 1,
+      "mappedOfficialVocabularyCount": 3
+    },
+    {
+      "unitId": "hsk0-pronunciation-control",
+      "pathId": "hsk0",
+      "sequence": 3,
+      "title": "Âm đầu khó và tone pair",
+      "objective": "Phân biệt âm đầu khó và kiểm soát chuỗi hai thanh.",
+      "prerequisiteUnitIds": [
+        "hsk0-first-interaction"
+      ],
+      "runtimeState": "partial",
+      "lessonIds": [
+        "boot-3",
+        "boot-4"
+      ],
+      "releasedLessonCount": 2,
+      "mappedOfficialVocabularyCount": 7
+    },
+    {
+      "unitId": "hsk1-personal-exchange",
+      "pathId": "hsk1",
+      "sequence": 1,
+      "title": "Thông tin cá nhân và giao tiếp",
+      "objective": "Hiểu và tạo câu ngắn trong hỏi đáp cá nhân.",
+      "prerequisiteUnitIds": [
+        "hsk0-pronunciation-control"
+      ],
+      "runtimeState": "partial",
+      "lessonIds": [
+        "survival-1",
+        "survival-2",
+        "survival-3",
+        "survival-4"
+      ],
+      "releasedLessonCount": 4,
+      "mappedOfficialVocabularyCount": 12
+    }
+  ],
+  "lessonMappings": [
+    {
+      "lessonId": "boot-1",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk0-tone-basics",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 4
+    },
+    {
+      "lessonId": "boot-2",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk0-first-interaction",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 3
+    },
+    {
+      "lessonId": "boot-3",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk0-pronunciation-control",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 3
+    },
+    {
+      "lessonId": "boot-4",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk0-pronunciation-control",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 4
+    },
+    {
+      "lessonId": "survival-1",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk1-personal-exchange",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 4
+    },
+    {
+      "lessonId": "survival-2",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk1-personal-exchange",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 4
+    },
+    {
+      "lessonId": "survival-3",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk1-personal-exchange",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 3
+    },
+    {
+      "lessonId": "survival-4",
+      "lessonVersion": "foundation-2026.07.6",
+      "unitId": "hsk1-personal-exchange",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 3
+    }
+  ],
+  "counts": {
+    "paths": 5,
+    "units": 4,
+    "sourceReleasedLessons": 14,
+    "eligibleLessons": 8,
+    "mappedLessons": 8,
+    "prerequisiteBlockedLessons": 6,
+    "prerequisiteBlockedUnits": 2,
+    "pathsWithTargetContent": 2,
+    "pathsWithoutTargetContent": 3,
+    "completionClaims": 0,
+    "authoringUnitMetadataExcluded": 14,
+    "draftArtifactsImported": 0
+  },
+  "integritySha256": "sha256:53b5f48b301a5093d924914f6e0f719d18a01c12ea7508ba14748b93d6949607"
+}

@@ -23,7 +23,7 @@ import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
   GOAL_CONFIG,
-  isMistakeFromReleasedContent,
+  isMistakeFromActivePathContent,
 } from "../lib/adaptive";
 import {
   formatObservedEstimate,
@@ -133,7 +133,11 @@ export function AnalyticsPage() {
     normalized.projection?.enrollment?.goal ?? state.profile.goal
   ];
   const unresolved = state.mistakes.filter((mistake) =>
-    !mistake.resolved && isMistakeFromReleasedContent(mistake)
+    !mistake.resolved
+    && isMistakeFromActivePathContent(
+      mistake,
+      state.profile.startingLevel,
+    )
   ).length;
 
   return (

@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **86%**.
+Status: **in progress** at project progress **87%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **86%**.
+Status: **in progress** at project progress **87%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **86%**.
+Status: **in progress** at project progress **87%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -141,13 +141,13 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 
 | Trụ cột | Điểm tối đa | Hiện tại | Cách ghi nhận |
 | --- | ---: | ---: | --- |
-| A. Nền ứng dụng và offline learning loop | 20 | 17 | lesson/reader/review, local persistence, offline, UX và build |
+| A. Nền ứng dụng và offline learning loop | 20 | 18 | lesson/reader/review, local persistence, offline, UX, build và compiler runtime HSK fail-closed |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
 | E. Assessment và mock HSK0-4 | 10 | 8 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2, HSK3 và HSK4, objective/performance draft; reviewed audio/rubric và calibration còn thiếu |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **86** | **Tiến độ hiện tại: 86%** |
+| **Tổng** | **100** | **87** | **Tiến độ hiện tại: 87%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -171,7 +171,9 @@ Lát G2 đầu tăng trụ cột C thêm 3 điểm và D thêm 1 điểm. Graph 
 năm path; sau lát scope HSK1 graph có 18 unit, dependency không cycle và
 placement fail-closed; 14 lesson
 runtime được ánh xạ vào unit HSK0/1 cùng đúng 23 vocabulary item chính thức.
-HSK0 chỉ thấy bốn lesson bootcamp, HSK1 thấy bridge và 10 lesson đích, còn
+Compiler fail-closed hiện chỉ cho HSK0 thấy bốn lesson bootcamp và HSK1 thấy
+bridge cùng bốn lesson personal-exchange; sáu lesson daily/character dù đã ở
+runtime vẫn bị giữ lại vì prerequisite unit time/travel/work chưa phát hành.
 HSK2-4 không bị thay bằng lộ trình beginner khi content đích chưa phát hành.
 Diagnostic foundation chưa hiệu chuẩn chỉ được ghi là observed, không cấp
 mastery hay prerequisite waiver. G2 chưa complete vì placement đã hiệu chuẩn,
@@ -737,6 +739,18 @@ thành 629 lượt phân vai và 2.979 exact target, chống sửa assignment, g
 receipt idempotent ngoài Git và không sửa content, manifest, runtime,
 calibration hay mastery. Audio-rights không thể approve khi audio còn
 `null`; 0 approval nghĩa là assignment readiness chưa phải human review.
+
+Lát runtime local-first tăng trụ cột A thêm 1 điểm và đưa tiến độ lên **87%**.
+Compiler deterministic bind exact graph, registry, manifest, item catalog và
+sanitized runtime catalog bằng version/hash cùng import idempotency key. Artifact
+learner-side chỉ giữ 5 path, 4 unit có prerequisite closure đầy đủ và 8 lesson
+mapping. Sáu lesson beta/published thuộc daily/character bị chặn sau các unit
+time/travel/work chưa phát hành; metadata của tổng cộng 14 unit không đủ điều
+kiện, official inventory ID và mọi draft/review payload đều bị loại. HSK0 có 4
+lesson, HSK1 có 4 lesson đích cùng bridge HSK0, còn HSK2-4 vẫn fail-closed với
+target rỗng và không có completion claim. Client đã chuyển khỏi authoring graph
+sang projection này; source drift, artifact tampering, lesson không ở trạng
+thái beta/published hoặc mapping vượt prerequisite đều làm gate thất bại.
 
 ## 6. Quy tắc cập nhật phần trăm
 

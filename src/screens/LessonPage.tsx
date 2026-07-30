@@ -31,7 +31,11 @@ import {
   type LessonResumePhase,
   type LessonResumeV5,
 } from "../learning/resumeProtocol";
-import { isLessonReleased, isLessonUnlocked } from "../lib/adaptive";
+import {
+  isLessonIdAvailableForStartingLevel,
+  isLessonReleased,
+  isLessonUnlocked,
+} from "../lib/adaptive";
 import { answersMatch, type Exercise } from "../lib/exerciseGeneration";
 import { makeIdempotencyKey } from "../lib/evidence";
 import { removeLegacyLearningResumeStorage } from "../lib/storageKeys";
@@ -80,10 +84,18 @@ export function LessonPage() {
 
 function LocalLessonPage() {
   const { lessonId } = useParams();
-  const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
-  const unavailableLesson = Boolean(requestedLesson && !isLessonReleased(requestedLesson));
-  const lesson = requestedLesson && isLessonReleased(requestedLesson) ? requestedLesson : undefined;
   const { state, actions, sync } = useLearning();
+  const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
+  const availableForPath = Boolean(
+    requestedLesson
+    && isLessonReleased(requestedLesson)
+    && isLessonIdAvailableForStartingLevel(
+      requestedLesson.id,
+      state.profile.startingLevel,
+    ),
+  );
+  const unavailableLesson = Boolean(requestedLesson && !availableForPath);
+  const lesson = availableForPath ? requestedLesson : undefined;
   const lessonUnlocked = Boolean(lesson && isLessonUnlocked(lesson, state));
   const [resumeStatus, setResumeStatus] = useState<"loading" | "ready">("loading");
   const [resumeScope, setResumeScope] = useState<OwnerScopedCacheScope | null>(null);
