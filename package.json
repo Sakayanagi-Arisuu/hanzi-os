@@ -46,6 +46,7 @@
     "content:hsk1:review-manifest:validate": "node scripts/content/validate-hsk1-review-manifest.mjs",
     "content:hsk1:review:list": "node scripts/content/hsk1-review.mjs list",
     "content:hsk1:review:export": "node scripts/content/hsk1-review.mjs export",
+    "content:hsk1:unit-review:export": "node scripts/content/hsk1-review.mjs export-unit",
     "content:hsk1:review:import": "node scripts/content/hsk1-review.mjs import",
     "content:hsk1:review-workflow:validate": "node scripts/content/hsk1-review.mjs validate",
     "content:hsk2:scope": "node scripts/content/build-hsk2-curriculum-scope.mjs",

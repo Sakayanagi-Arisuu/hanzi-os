@@ -907,6 +907,14 @@ lên 425 source + 425 runtime payload, 27 batch/81 slot; package planner nay bá
 review-pending, 0 finalized, learner-hidden và không measurement/mastery, lát
 này hoàn tất schema boundary nhưng chưa tăng learner coverage.
 
+Bulk review-assignment slice tiếp tục **giữ tiến độ ở 90%**. Một roster cục bộ
+được bind với đúng packet ID/hash nay có thể tạo đủ 81 biểu mẫu assignment theo
+batch/role chỉ bằng một lệnh. Contract bắt buộc đúng năm vai trò với năm reviewer
+khác nhau, canonical timestamp và ID an toàn; packet cũ, role thiếu/thừa, reviewer
+dùng lại giữa vai trò hoặc file trùng ID nhưng khác byte đều fail closed. Roster
+và biểu mẫu không phải approval, audio authority, import authority hay mastery,
+nên chỉ giảm thao tác vận hành review thật chứ chưa cộng learner coverage.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

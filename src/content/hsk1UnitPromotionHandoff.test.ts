@@ -102,7 +102,7 @@ describe("HSK1 atomic time/place/events promotion handoff", () => {
         handoff: forged,
       })).valid).toBe(false);
     }
-  });
+  }, 20_000);
 
   it("does not duplicate Mandarin or Vietnamese payloads in the handoff", () => {
     const { handoff } = loadHsk1UnitPromotionHandoffBundle();

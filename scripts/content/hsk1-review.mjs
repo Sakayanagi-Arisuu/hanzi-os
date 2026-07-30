@@ -16,6 +16,8 @@ import {
   assertValidHsk1ReviewManifestBundle,
   loadHsk1ReviewManifestBundle,
 } from "../../src/content/hsk1ReviewManifest.mjs";
+import { buildHsk1UnitReviewAssignmentSet } from
+  "../../src/content/hsk1UnitReviewAssignmentSet.mjs";
 
 const formatJson = (value) => `${JSON.stringify(value, null, 2)}\n`;
 
@@ -103,6 +105,61 @@ const commandExport = async (root, args) => {
   }));
 };
 
+const commandExportUnit = async (root, args) => {
+  const flags = parseFlags(args);
+  const rosterPath = resolve(requiredFlag(flags, "roster"));
+  const roster = JSON.parse(readFileSync(rosterPath, "utf8"));
+  const assignmentSet = await buildHsk1UnitReviewAssignmentSet({
+    root,
+    roster,
+  });
+  const plannedWrites = assignmentSet.documents.map((document) => {
+    const assignmentId = document.assignment.assignmentId;
+    const paths = localPaths(root, assignmentId);
+    return {
+      assignmentId,
+      path: paths.assignmentPath,
+      directory: paths.assignmentsDirectory,
+      serialized: formatJson(document),
+    };
+  });
+
+  for (const planned of plannedWrites) {
+    if (
+      existsSync(planned.path)
+      && readFileSync(planned.path, "utf8") !== planned.serialized
+    ) {
+      throw new Error(
+        `A different assignment already exists: ${planned.assignmentId}`,
+      );
+    }
+  }
+
+  let created = 0;
+  let idempotent = 0;
+  for (const planned of plannedWrites) {
+    mkdirSync(planned.directory, { recursive: true });
+    if (existsSync(planned.path)) {
+      idempotent += 1;
+    } else {
+      writeExclusive(planned.path, JSON.parse(planned.serialized));
+      created += 1;
+    }
+  }
+
+  console.log(formatJson({
+    exported: true,
+    packetId: assignmentSet.packetId,
+    packetSha256: assignmentSet.packetSha256,
+    assignments: assignmentSet.assignmentCount,
+    created,
+    idempotent,
+    directory: plannedWrites[0]?.directory ?? null,
+    note:
+      "Assignment templates only: reviewers must complete and import every response.",
+  }));
+};
+
 const commandImport = async (root, args) => {
   const flags = parseFlags(args);
   const assignmentId = requiredFlag(flags, "assignment-id");
@@ -145,6 +202,7 @@ const main = async () => {
   if (command === "validate") return commandValidate(root);
   if (command === "list") return commandList(root);
   if (command === "export") return commandExport(root, args);
+  if (command === "export-unit") return commandExportUnit(root, args);
   if (command === "import") return commandImport(root, args);
   throw new Error(`Unsupported HSK1 review command: ${command}`);
 };

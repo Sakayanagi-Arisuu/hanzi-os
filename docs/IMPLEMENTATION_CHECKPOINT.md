@@ -1,6 +1,6 @@
 # HANZI.OS implementation checkpoint
 
-Date: 30 July 2026
+Date: 31 July 2026
 
 This is a local engineering checkpoint, not production release evidence.
 
@@ -208,6 +208,14 @@ Every commit must update this percentage here and in the active roadmap.
   batches, 294 role assignments and 2,606 exact targets, with zero
   representability gap. All projection approvals/finalized/release counts stay
   zero, so progress stays **90%**.
+- Added a packet-bound bulk assignment exporter for the atomic HSK1 unit. One
+  ignored local roster now produces all 81 exact batch/role assignment
+  templates, while requiring the current packet hash, exactly five distinct
+  declared role identities and a canonical assignment timestamp. Stale packets,
+  missing/extra roles, reviewer role reuse and conflicting existing bytes fail
+  closed; idempotent reruns are allowed. The roster and templates grant no
+  approval, audio authority, import authority, measurement or mastery, so
+  active progress remains **90%** until real review/audio evidence exists.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1243,7 +1251,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 227 files, 1,618 tests passed
+  - Vitest: 228 files, 1,622 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.9 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1280,7 +1288,8 @@ human, pilot, hosted or ownership gates.
 1. Run the combined checked workflow with real attributable Mandarin,
    Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
    any of the 81 exact-hash role slots or 90 audio targets is
-   incomplete.
+   incomplete. Use the packet-bound bulk roster exporter to create the 81
+   content-review templates without manual per-slot setup.
 2. Only after real evidence exists, create and validate the immutable `.07.7`
    package, explicit unit authorization and idempotent promotion receipt. Keep
    the G5 candidate stale and operator auth, commerce, hosted pilot and Sites
