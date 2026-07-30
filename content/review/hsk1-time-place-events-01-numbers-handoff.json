@@ -1,0 +1,919 @@
+{
+  "schemaVersion": 1,
+  "handoffId": "hsk1-time-place-events-01-numbers-handoff-2026.07.1",
+  "state": "blocked-awaiting-human-review-audio-and-package",
+  "learnerVisible": false,
+  "promotionEligible": false,
+  "policy": {
+    "learnerHidden": true,
+    "informationalHandoffOnly": true,
+    "mutatesRuntime": false,
+    "exposesDraftContent": false,
+    "humanReviewCannotBeSynthesized": true,
+    "exactTargetHashesRequired": true,
+    "reviewedAudioAndRightsRequired": true,
+    "versionedRuntimePackageRequired": true,
+    "importReceiptRequired": true,
+    "grantsCompletionOrMastery": false
+  },
+  "sourceBindings": [
+    {
+      "id": "communicativeCollection",
+      "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+    },
+    {
+      "id": "grammarPack",
+      "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
+      "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+    },
+    {
+      "id": "reviewManifest",
+      "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
+      "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+    },
+    {
+      "id": "promotionQueue",
+      "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
+      "sha256": "sha256:c29ee8dd0f78c230adbcf880e3f006320ae85e95e4ba6dfff9fefb66894e14d3"
+    }
+  ],
+  "targetBundle": {
+    "pathId": "hsk1",
+    "unitId": "hsk1-time-place-events",
+    "lessonId": "hsk1-time-place-events:01-numbers",
+    "sequence": 1,
+    "prerequisiteLessonIds": [],
+    "prerequisiteRuntimeClosurePresent": true,
+    "sourceBindings": [
+      {
+        "id": "communicativeCollection",
+        "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+        "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+      },
+      {
+        "id": "grammarPack",
+        "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
+        "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+      },
+      {
+        "id": "reviewManifest",
+        "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
+        "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+      },
+      {
+        "id": "promotionQueue",
+        "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
+        "sha256": "sha256:c29ee8dd0f78c230adbcf880e3f006320ae85e95e4ba6dfff9fefb66894e14d3"
+      }
+    ],
+    "contentTargets": [
+      {
+        "targetType": "lesson-blueprint",
+        "targetId": "hsk1-time-place-events:01-numbers",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lessons/0",
+        "sha256": "sha256:5dcd5bd42581b615ceaf233700fe545961be43be69c67b1177905c503a32c98b"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00002",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/0",
+        "sha256": "sha256:16735dd81aaee580091d5b2c5c7a5ffd2a501ffaa2ac873441ac2ab7a326e91d"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00006",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/2",
+        "sha256": "sha256:2a3086bd5a5c7754f8fb777da0f9af0f10a2a729129fc2903a9e506401a950b0"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00007",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/3",
+        "sha256": "sha256:5f3637f91fc89acf3758d85d2f48c42d0a3d00b1bc3f606513d434708b4b17fd"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00049",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/8",
+        "sha256": "sha256:423f05304d9286b93be6cd5580338ba66aa6321a44f25e7f4736cc937836a482"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00095",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/15",
+        "sha256": "sha256:79ea214f52f837f9c714f66cbf9f49a2eddeac0f440251ae6e7b0bb8222958bb"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00111",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/18",
+        "sha256": "sha256:4c83c0597a0544ffa5b418c9c0ec3c2a4f100771852a560430dfa8de874745a3"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00112",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/19",
+        "sha256": "sha256:d4d4430554b106553a5d497dc3079d79f406302276f9e9a88f5fc2bb88aa9242"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00113",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/20",
+        "sha256": "sha256:7b84ff0138f47cb8b78b3b79ba517c107d9f6b641f25d390b1b2397fe586016e"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00160",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/52",
+        "sha256": "sha256:31a2c8651e371c829a66a0182e5a1b6dfaaa72c66b0dad8909cf3f2c5cbbd98e"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00162",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/53",
+        "sha256": "sha256:45a28602f93f6ddfd833cc58fe1d0cb4c7ad0bb7648a8b26c6820df6fa476ebd"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00173",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/54",
+        "sha256": "sha256:0a3fccbd8c277baa7a0b378b3b1151339dc72d6efeddb95e0f66b85b47cbc453"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00184",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/55",
+        "sha256": "sha256:2b0d891eec0930a5da7808e7ba1dd72e33dec4ebc2fff16d3db1118f4d4d2eb8"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00198",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/56",
+        "sha256": "sha256:8e1d4220e13e3a5580bac0c7b7b8356c86738906737b3b9286c2f8b2cc475e8b"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00223",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/57",
+        "sha256": "sha256:a0dca7a8ba4909f8cc569e7a899a6eead5398a439c80cb35f99620cb4a295f2f"
+      },
+      {
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00254",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/65",
+        "sha256": "sha256:adfccafd20efdea09b39becb5da0e65554483b27ecc67c35ac60cd5b0053ada6"
+      },
+      {
+        "targetType": "dialogue-turn",
+        "targetId": "hsk1-time-place-events:01-numbers:dialogue-turn-1",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lessons/0/modelDialogue/turns/0",
+        "sha256": "sha256:dc068d89f74692b68110d75011306047f163e4c96d1b998e2545907c010c1b9b"
+      },
+      {
+        "targetType": "dialogue-turn",
+        "targetId": "hsk1-time-place-events:01-numbers:dialogue-turn-2",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lessons/0/modelDialogue/turns/1",
+        "sha256": "sha256:e2309368f567031ca595f51088b4205fe6b8c6ceac55f778fb422a9ec65ba8bd"
+      },
+      {
+        "targetType": "dialogue-turn",
+        "targetId": "hsk1-time-place-events:01-numbers:dialogue-turn-3",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lessons/0/modelDialogue/turns/2",
+        "sha256": "sha256:df6c622c57daa7a0e1569b2fba0747069ff9cc9e987f16db882eaf239c7dc9a2"
+      },
+      {
+        "targetType": "dialogue-turn",
+        "targetId": "hsk1-time-place-events:01-numbers:dialogue-turn-4",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lessons/0/modelDialogue/turns/3",
+        "sha256": "sha256:2aadfbca444ba18373ac867005e0bbdf009b1b095695106cd464d3257942d1fc"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00002:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/0",
+        "sha256": "sha256:ca638dbdbd2d90640e18ee2da6e154131e8be6ba34518e3d523a88dc9c215401"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00002:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/1",
+        "sha256": "sha256:5815e0cae866e7832c6e4ffa16d97eb08c194db233e7c6119e8098028e4b8eb2"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00002:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/2",
+        "sha256": "sha256:2607563cb659458d093fce42f1ab61aafeb0a950189b9a6424a29ea231645221"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00006:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/3",
+        "sha256": "sha256:88a0b825d831388dc5df2b2b9f8997a3fc1e607c1ef80a60e1d7b7f2da16cb4c"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00006:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/4",
+        "sha256": "sha256:3c9f6fda510497c44c7074a7b57ef300b0b195225a67d2d0499096eeb01a210c"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00006:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/5",
+        "sha256": "sha256:e25962eabf8f4430287e333189b5e26b90504450c5588b37d54addcf0ac51e01"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00007:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/6",
+        "sha256": "sha256:cc95f1c4ce2d3cc67b97f3b6dbc5d378ed24245cf6224bf72a2cb3129f410a2f"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00007:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/7",
+        "sha256": "sha256:dd2d0c368e04e0071ecba9475fb91b7fd1355c2d0ba64759fdbcab7226fc65d3"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00007:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/8",
+        "sha256": "sha256:3253dcad345c88bce9d05f157e34b66f767778a2692ead78285b426afd1ade4d"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00049:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/9",
+        "sha256": "sha256:606012560156de5d2ed995b70149cc04cf8bfc25568b1793ca0bb60ef672bb0c"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00049:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/10",
+        "sha256": "sha256:5c128b72014e9d68112a7949f776193a6828b3c6c4f4866f0cb88b813f20bca9"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00049:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/11",
+        "sha256": "sha256:27801b75d9102d10813cba9ef7375b224814181092a517ea107b0628917ea6ef"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00095:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/12",
+        "sha256": "sha256:f8c4dde45869d80a0a412522c6939f9cf31090d52c88837c4522b7dc9a8ed7ce"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00095:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/13",
+        "sha256": "sha256:4bf6ddd6b79be175ee7de3eb08afc5fe7530f64396d01f23b4d63aa81a2b8a17"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00095:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/14",
+        "sha256": "sha256:0abeda1e0bb5444bc4c87cbd027950a877a6085280170474015c81bd50620bf7"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00111:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/15",
+        "sha256": "sha256:4251d04f3972b95f926ca2dd76c1dedbfe3e42511a74bce571aa595fa4e39108"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00111:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/16",
+        "sha256": "sha256:dd532cd9ec67e5008f44746a94137819c7c43cd7e2df602bdf22a943a153b6ed"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00111:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/17",
+        "sha256": "sha256:c8db521d4124f52a24fc197df09e4c6199c0c64253d2b4a2baacc1f0fef73dd7"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00112:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/18",
+        "sha256": "sha256:66853e5a1f2fd1de8171c95fd245cd00ea165f10874cbadffecefc258d9464f8"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00112:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/19",
+        "sha256": "sha256:145ae39ca129e864753450317a5ac40097919f3c7864fc5e8aad47752250f2a3"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00112:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/20",
+        "sha256": "sha256:e7467b6966ae537c80ddbf6432eedfc0a9e91f4e6d9cb5667f22584a7af79536"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00113:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/21",
+        "sha256": "sha256:d94700176980ff5651ce75007177d155a37feb68146dfe3e2b58d0fbdbb58da4"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00113:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/22",
+        "sha256": "sha256:5ccadb98606984420e1c2c3e1bf6e3a19e462da026e01c1a580fe3603c0445ef"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00113:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/23",
+        "sha256": "sha256:f8e3b271de3b0ad728cf0b5eefff3647896ccb0b23d870cc52e1c216b0761b4d"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00160:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/24",
+        "sha256": "sha256:fb59e208c6e39e2efbd4ea82f9b80b0bff4e02082762c8d05abfaf92986d2f97"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00160:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/25",
+        "sha256": "sha256:6a201ffd562b8a3dcc31e4b16c60728289240667784dd3429861a19825463e8b"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00160:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/26",
+        "sha256": "sha256:2140ffc2078a1ca9b030265125c64e113ec47c0f39ac9ba9084a7c910f4393ad"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00162:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/27",
+        "sha256": "sha256:bcd524986fdd855544e172e6957b648e2799689356ba3d0a696eab673a097a02"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00162:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/28",
+        "sha256": "sha256:20f5e7d7a4a7c826cb109193f98f2c103cadfda6fbe84621ca36c0fae56dd1b0"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00162:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/29",
+        "sha256": "sha256:5fb45fc2887536835543b7f4cc770c08a0da6994f2b96a60e0e11819d69e9d37"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00173:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/30",
+        "sha256": "sha256:0baf8c1553bc1f5d4c5423ab4820a9a959eb858b17badbf69bd4c02dd1b3a539"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00173:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/31",
+        "sha256": "sha256:44ad999b40d94234ad39c9fa0a3192ba79073470736af8f41c2ce2e02e1c1922"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00173:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/32",
+        "sha256": "sha256:1b0327f63c98821b71f2e5364c432f33aff2771d5fcdb66fc56f1bbce3a1ce30"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00184:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/33",
+        "sha256": "sha256:af2f3dea17cb67755ae32fd7294c08713a26f9fa2bb7b3b4526773768fdbc329"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00184:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/34",
+        "sha256": "sha256:60848d1819e68820cc5c9adead118caecb77c927088bb1a632a2a0bbad215795"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00184:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/35",
+        "sha256": "sha256:2f8f099f36f7045da75a9bae27e2fd57e9412360e1fca34af335842bcf0ab373"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00198:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/36",
+        "sha256": "sha256:f4e83f7f77a4e1ca590f4e2d877fd70fcec779160281b1fc54fb998441de8518"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00198:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/37",
+        "sha256": "sha256:2a25ac3f33679138a9bfc42e6b53474555b08d970a0584d02030fd4d1d295c7e"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00198:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/38",
+        "sha256": "sha256:643a53b477e9af37205d962399dd4f955145d943ef800d791453cdcda53861f2"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00223:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/39",
+        "sha256": "sha256:2f1de38574bb2d71255d50b9bb4d9b5bd0626436c5da0ebf2e914662722ed3f8"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00223:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/40",
+        "sha256": "sha256:7606c9d05571990638f3840d9c23b0b5c01ea29363fd93b95a04a6a4f0b6ee4a"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00223:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/41",
+        "sha256": "sha256:9d91116b488519bc63a2f0aff85893142497f5c4467a300d9bc3d6ea6c2c870f"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00254:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/42",
+        "sha256": "sha256:285fb6c62ec8381c2c7761b41a1289b3f3a0746ee980cfe7bcc593840a579926"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00254:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/43",
+        "sha256": "sha256:6ca70f663147b0e9f7946c72468f3591d152aff179408ad37c2c7cc65ff80bac"
+      },
+      {
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00254:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/44",
+        "sha256": "sha256:0835c15f735f29920c3e848fd0b6bbf0aa33e47c229b3ba7c4a8f5fffe9573d4"
+      },
+      {
+        "targetType": "grammar-draft",
+        "targetId": "hsk1-grammar-row-011",
+        "sourceId": "grammarPack",
+        "sourcePointer": "/grammarDrafts/10",
+        "sha256": "sha256:15b7bcbf61bbf96d34dcc916d80b904d98553e68570ff2eea1889241fb42279d"
+      },
+      {
+        "targetType": "grammar-practice",
+        "targetId": "hsk1-time-place-events:01-numbers:hsk1-grammar-row-011:guided",
+        "sourceId": "grammarPack",
+        "sourcePointer": "/practiceItems/10",
+        "sha256": "sha256:05504274fda36eab375cff872b5ac952c7178e419a0a1ec7ec63a50c8ce96776"
+      }
+    ],
+    "reviewBatches": [
+      {
+        "batchId": "hsk1-time-place-events:01-numbers:review-v1",
+        "sourceKind": "vocabulary-communicative-units",
+        "sourceId": "hsk1-communicative-units-2026.07",
+        "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+        "targets": {
+          "practiceItemIds": [
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00002:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00002:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00002:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00006:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00006:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00006:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00007:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00007:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00007:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00049:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00049:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00049:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00095:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00095:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00095:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00111:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00111:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00111:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00112:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00112:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00112:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00113:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00113:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00113:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00160:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00160:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00160:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00162:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00162:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00162:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00173:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00173:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00173:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00184:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00184:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00184:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00198:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00198:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00198:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00223:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00223:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00223:pinyin",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00254:listening",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00254:meaning",
+            "hsk1-time-place-events:01-numbers:hsk-vocab-00254:pinyin"
+          ],
+          "vocabularyIds": [
+            "hsk-vocab-00002",
+            "hsk-vocab-00006",
+            "hsk-vocab-00007",
+            "hsk-vocab-00049",
+            "hsk-vocab-00095",
+            "hsk-vocab-00111",
+            "hsk-vocab-00112",
+            "hsk-vocab-00113",
+            "hsk-vocab-00160",
+            "hsk-vocab-00162",
+            "hsk-vocab-00173",
+            "hsk-vocab-00184",
+            "hsk-vocab-00198",
+            "hsk-vocab-00223",
+            "hsk-vocab-00254"
+          ],
+          "characterIds": [],
+          "grammarRowIds": [],
+          "taskIds": [],
+          "topicIds": [],
+          "assessmentItemIds": []
+        },
+        "requiredRoles": [
+          "native-mandarin-reviewer",
+          "vietnamese-editor",
+          "assessment-editor"
+        ],
+        "state": "pending",
+        "approvalCount": 0
+      },
+      {
+        "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
+        "sourceKind": "grammar-context",
+        "sourceId": "hsk1-grammar-context-2026.07",
+        "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+        "targets": {
+          "practiceItemIds": [
+            "hsk1-time-place-events:01-numbers:hsk1-grammar-row-011:guided"
+          ],
+          "vocabularyIds": [],
+          "characterIds": [],
+          "grammarRowIds": [
+            "hsk1-grammar-row-011"
+          ],
+          "taskIds": [],
+          "topicIds": [],
+          "assessmentItemIds": []
+        },
+        "requiredRoles": [
+          "native-mandarin-reviewer",
+          "vietnamese-editor",
+          "grammar-pedagogy-reviewer"
+        ],
+        "state": "pending",
+        "approvalCount": 0
+      }
+    ],
+    "audioRequirements": [
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:dialogue-audio",
+        "targetKind": "model-dialogue",
+        "sourceTargetSha256": "sha256:55970ebc80044ccf8f2e7cb5a1b3b8f671b4c255fd207c2c05929a51360d8179",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00002:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:aa0cf578ec97e5b999142ad5d8ad6352247eb5a438fb56f162170aaef4496ff3",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00006:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:3598664625400ccfbbf860657a9727381f7bbb8b422985fba8960606b00431ca",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00007:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:9d2f4eee9d5603dc737ba017bd97d3f3e6d406a2f4e7e60fed89efe6601470d6",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00049:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:a6dec3dc89cc0f904a7b68ac78b216d511f0503f865fe369c4c60e9f39839f57",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00095:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:6e69354557673438eba1fe7df09b57076cf65bfce485c6f95399b85e23251b49",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00111:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:7163d36605680a2a7dc1c1a5919900b37738122db26683567e917351debab515",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00112:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:dbf9c7e61dfa06ac1b39ea5ec1f0b81241d63ef32dc36b2f3915b2a619ed252f",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00113:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:76a50a5efa5a1dfe2064021890502c843c48db610e4b04da7351ddd5acfec113",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00160:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:fe941863eb3dab2a75a161535c1b78fdb2d3fc00e3eec628e8484c110e1778c3",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00162:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:446a6c7b3bcec9e54721e39b3b5f25c7647d9b9550386f34a255855e37cbdc26",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00173:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:007d9b92baee74d24505dc682c7805fb0bdb0db0ef7f1b45796b826442f95057",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00184:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:f60082b2b3c86265753100ea28763f15c247b3b16dada1c090299852760a5404",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00198:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:e79716b9349614d16864a1db206ab4623fe93b01af5d71b16a35614881ccfdcb",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00223:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:05c68707d314731a03c10c9ce10b28f5f62f9b7e9fc632ac27362876d9673538",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "audioTargetId": "hsk1-time-place-events:01-numbers:hsk-vocab-00254:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:f1bf948854f866be599c45d40217d85c44727994b8a42fa308ec2619a08df46d",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      }
+    ]
+  },
+  "targetBundleSha256": "sha256:5751546c634e26f9b58b7750dc2817286aaf4ba86db6868793335483955e93ea",
+  "requiredReviewReceipts": [
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:review-v1",
+      "role": "native-mandarin-reviewer",
+      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "assignmentDocumentRequired": true,
+      "completedReviewReceiptId": null
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:review-v1",
+      "role": "vietnamese-editor",
+      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "assignmentDocumentRequired": true,
+      "completedReviewReceiptId": null
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:review-v1",
+      "role": "assessment-editor",
+      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "assignmentDocumentRequired": true,
+      "completedReviewReceiptId": null
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
+      "role": "native-mandarin-reviewer",
+      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "assignmentDocumentRequired": true,
+      "completedReviewReceiptId": null
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
+      "role": "vietnamese-editor",
+      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "assignmentDocumentRequired": true,
+      "completedReviewReceiptId": null
+    },
+    {
+      "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
+      "role": "grammar-pedagogy-reviewer",
+      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "assignmentDocumentRequired": true,
+      "completedReviewReceiptId": null
+    }
+  ],
+  "plannedImport": {
+    "receiptSchemaVersion": 1,
+    "receiptKind": "hsk-local-runtime-promotion",
+    "targetContentVersion": "hsk1-time-place-events-2026.07.1",
+    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:5751546c634e26f9b58b7750dc2817286aaf4ba86db6868793335483955e93ea",
+    "requiredBindings": [
+      "handoffSha256",
+      "targetBundleSha256",
+      "runtimePackageSha256",
+      "runtimeCatalogBeforeSha256",
+      "runtimeCatalogAfterSha256",
+      "reviewReceiptSha256s",
+      "audioAssetSha256s"
+    ],
+    "targetBundleSha256": "sha256:5751546c634e26f9b58b7750dc2817286aaf4ba86db6868793335483955e93ea",
+    "runtimePackageSha256": null,
+    "receiptSha256": null
+  },
+  "readiness": {
+    "contentTargetCount": 67,
+    "reviewBatchCount": 2,
+    "requiredRoleReceiptCount": 6,
+    "completedRoleReceiptCount": 0,
+    "audioTargetCount": 16,
+    "reviewedAudioAssetCount": 0,
+    "runtimePackagePresent": false,
+    "promotionReceiptPresent": false,
+    "blockers": [
+      "ATTRIBUTABLE_REVIEW_RECEIPTS_MISSING",
+      "REVIEWED_AUDIO_ASSETS_MISSING",
+      "VERSIONED_RUNTIME_PACKAGE_MISSING",
+      "PROMOTION_RECEIPT_MISSING"
+    ]
+  },
+  "counts": {
+    "lessonBlueprints": 1,
+    "vocabularyDrafts": 15,
+    "dialogueTurns": 4,
+    "vocabularyPracticeItems": 45,
+    "grammarRows": 1,
+    "grammarPracticeItems": 1,
+    "contentTargets": 67,
+    "listeningAudioTargets": 15,
+    "dialogueAudioTargets": 1,
+    "audioTargets": 16,
+    "reviewedAudioAssets": 0,
+    "reviewBatches": 2,
+    "requiredRoleReceipts": 6,
+    "completedRoleReceipts": 0
+  },
+  "claims": {
+    "humanReviewed": false,
+    "audioReviewedAndLicensed": false,
+    "runtimeImported": false,
+    "learnerVisible": false,
+    "grantsCompletion": false,
+    "grantsMastery": false
+  }
+}

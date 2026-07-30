@@ -180,6 +180,16 @@ unavailable và 0 completion claim. Candidate sớm nhất là
 versioned runtime import. Report chỉ là queue thông tin, không sửa runtime,
 expose draft, cấp completion/mastery hay biến approval manifest thành publish.
 
+Candidate đầu tiên được thu hẹp tiếp thành checked handoff cho
+`hsk1-time-place-events:01-numbers`; xem
+`docs/HSK1_LESSON_PROMOTION_HANDOFF.md`. Artifact bind 67 content target bằng
+ID, JSON pointer và canonical hash thay vì lặp payload nháp: 1 blueprint,
+15 vocabulary draft, 4 dialogue turn, 45 vocabulary practice, 1 grammar row và
+1 grammar practice. Hai batch cần 6 role receipt, còn 15 listening audio cộng
+1 dialogue audio đều chưa có reviewed asset/rights. Handoff định nghĩa target
+version và receipt contract nhưng không tạo runtime package, import receipt,
+approval, visibility, completion hay mastery.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT

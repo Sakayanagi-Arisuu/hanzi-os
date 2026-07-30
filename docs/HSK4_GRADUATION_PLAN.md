@@ -813,6 +813,14 @@ item; prerequisite runtime trước unit đã hiện diện nhưng human review,
 audio và versioned runtime import đều thiếu. Queue không sửa runtime hay expose
 draft, nên chưa cộng điểm G2/G3/G4.
 
+Checked handoff cho lesson đầu tiên `hsk1-time-place-events:01-numbers` tiếp tục
+**giữ tiến độ ở 90%**: nó bind 67 content target exact-hash, 2 batch/6 role
+receipt và 16 audio target, đồng thời định nghĩa target version/import receipt
+contract. Cả 6 receipt, 16 reviewed audio asset, runtime package và promotion
+receipt vẫn thiếu; artifact learner-hidden không sao chép draft payload và mọi
+learning/release claim đều false. Đây là review packaging cần thiết, chưa phải
+review, publication hay learner coverage nên chưa cộng điểm.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

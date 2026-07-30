@@ -115,6 +115,15 @@ Every commit must update this percentage here and in the active roadmap.
   listening items), but attributable review, reviewed audio and a versioned
   runtime import are all missing. This audit mutates/exposes nothing and keeps
   active progress at **90%**.
+- Added the exact-hash handoff for the first dependency-valid lesson,
+  `hsk1-time-place-events:01-numbers`. It binds 67 content targets without
+  duplicating draft payloads: 1 blueprint, 15 vocabulary drafts, 4 dialogue
+  turns, 45 vocabulary items, 1 grammar row and 1 grammar item. Its two review
+  batches require 6 attributable role receipts; 15 listening plus 1 dialogue
+  audio target require reviewed assets and rights. All receipt/audio/package
+  slots remain empty, all learning/release claims remain false, and the
+  versioned import contract mutates nothing. Review packaging alone does not
+  add learner coverage, so active progress remains **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1112,6 +1121,10 @@ deliverable.
     prerequisite-complete units, 8 eligible lesson mappings, 6 released
     lessons blocked behind 2 prerequisite-gap units, 14 authoring-unit metadata
     records excluded, 0 draft imports and 0 completion claims
+  - first HSK1 lesson promotion handoff: 67 exact content targets, 2 pending
+    batches, 6 missing attributable role receipts and 16 missing reviewed audio
+    assets; target version/receipt contract defined with 0 runtime mutation,
+    learner visibility, completion or mastery claim
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1120,7 +1133,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 217 files, 1,560 tests passed
+  - Vitest: 219 files, 1,570 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.7 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1154,17 +1167,18 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Prepare a bounded review/promotion handoff for the first
-   `hsk1-time-place-events` lesson. Bind exact Mandarin/Vietnamese/practice/audio
-   targets and define the versioned import receipt, but keep it learner-hidden
-   while any attributable role or reviewed audio is missing.
-2. Implement a fail-closed dry-run that accepts only the complete exact-hash
-   review handoff and proves the resulting unit would preserve prerequisite
-   closure. Do not mutate registry/runtime until real approvals exist.
-3. Then repeat in dependency order through the six-lesson unit before
-   `hsk1-daily-life`, HSK2, HSK3 or HSK4. Keep the G5 candidate stale until the
-   next release checkpoint and leave operator auth, commerce, hosted pilot and
-   Sites frozen.
+1. Implement a fail-closed dry-run over the checked first-lesson handoff. Its
+   real input must remain blocked while any of the 6 attributable review
+   receipts, 16 reviewed audio assets/rights records or runtime-package binding
+   is absent.
+2. Prove the complete path with test-only signed/hash-bound fixtures and verify
+   prerequisite closure plus deterministic receipt/idempotency behavior. Do not
+   write the registry/runtime catalog and do not mistake fixtures for human
+   evidence.
+3. Only after real approvals/audio exist, create the first versioned package;
+   then repeat through the six-lesson unit before `hsk1-daily-life`, HSK2,
+   HSK3 or HSK4. Keep the G5 candidate stale and operator auth, commerce,
+   hosted pilot and Sites frozen.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.
