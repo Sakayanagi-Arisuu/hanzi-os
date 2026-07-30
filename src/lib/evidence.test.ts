@@ -88,6 +88,101 @@ describe("unified learning evidence", () => {
     expect(second.state.skillMastery.vocabulary).toBe(61);
   });
 
+  it("fails closed when one idempotency key is reused for another payload", () => {
+    const first = recordEvidenceInState(
+      stateFixture(),
+      evidenceInput({
+        idempotencyKey: "stable-conflict-key",
+        metadata: {
+          selectedAnswer: "ä½ ",
+          priorExposure: false,
+          lessonVersion: "lesson-v1",
+        },
+      }),
+      FIXED_TIME,
+    );
+    const retry = recordEvidenceInState(
+      first.state,
+      evidenceInput({
+        idempotencyKey: "stable-conflict-key",
+        outcome: "incorrect",
+        score: 0,
+        metadata: {
+          selectedAnswer: "æˆ‘",
+          priorExposure: true,
+          lessonVersion: "lesson-v1",
+        },
+      }),
+      "2026-07-20T04:31:00.000Z",
+    );
+
+    expect(retry).toEqual({
+      state: first.state,
+      inserted: false,
+      conflict: true,
+    });
+    expect(retry.state).toBe(first.state);
+    expect(retry.state.evidence).toHaveLength(1);
+    expect(retry.state.skillMastery.vocabulary).toBe(61);
+  });
+
+  it("accepts an exact retry when only derived exposure has changed", () => {
+    const input = evidenceInput({
+      idempotencyKey: "stable-exposure-retry",
+      metadata: {
+        selectedAnswer: "ä½ ",
+        priorExposure: false,
+        lessonVersion: "lesson-v1",
+      },
+    });
+    const first = recordEvidenceInState(stateFixture(), input, FIXED_TIME);
+    const retry = recordEvidenceInState(first.state, {
+      ...input,
+      metadata: {
+        ...input.metadata,
+        priorExposure: true,
+      },
+    }, "2026-07-20T04:31:00.000Z");
+
+    expect(retry).toEqual({ state: first.state, inserted: false });
+  });
+
+  it.each([
+    ["activity version", { activityVersion: "fixture:activity:2" }],
+    ["activity identity", { activityId: "other-activity" }],
+    ["lesson provenance", {
+      metadata: {
+        selectedAnswer: "same",
+        priorExposure: true,
+        lessonVersion: "lesson-v2",
+      },
+    }],
+  ] as const)("rejects same-key drift in %s", (_label, overrides) => {
+    const original = evidenceInput({
+      idempotencyKey: "stable-version-conflict",
+      metadata: {
+        selectedAnswer: "same",
+        priorExposure: false,
+        lessonVersion: "lesson-v1",
+      },
+    });
+    const first = recordEvidenceInState(
+      stateFixture(),
+      original,
+      FIXED_TIME,
+    );
+    const retry = recordEvidenceInState(first.state, {
+      ...original,
+      ...overrides,
+    }, "2026-07-20T04:31:00.000Z");
+
+    expect(retry).toMatchObject({
+      state: first.state,
+      inserted: false,
+      conflict: true,
+    });
+  });
+
   it("updates only the skill named by eligible evidence", () => {
     const before = stateFixture();
     const result = recordEvidenceInState(before, evidenceInput(), FIXED_TIME);

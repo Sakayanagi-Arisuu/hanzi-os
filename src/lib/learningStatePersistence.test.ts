@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { LESSON_BY_ID, RELEASED_STORIES } from "../data/curriculum";
+import {
+  localLessonActivityProvenance,
+  localLessonEvidenceMetadata,
+  localLessonSessionProvenance,
+  materializeLocalLessonRuntime,
+} from "../learning/localLessonRuntime";
 import { buildLessonResumeExercises } from "../learning/resumeProtocol";
 import { INITIAL_LEARNING_STATE } from "../store/LearningStore";
 import type {
@@ -99,6 +105,74 @@ const lessonSessionEvidence = (
   return { answers, completion, score };
 };
 
+const versionedLessonSessionEvidence = (
+  lessonId: string,
+  sessionId = `lesson-session:${lessonId}:versioned-fixture`,
+) => {
+  const lesson = LESSON_BY_ID.get(lessonId);
+  if (!lesson) throw new Error(`Missing lesson fixture: ${lessonId}`);
+  const result = materializeLocalLessonRuntime(
+    lesson,
+    "simplified",
+    sessionId,
+  );
+  if (!result.ok) throw new Error(result.reason);
+  const { runtime } = result;
+  const answers = runtime.activities.map((activity) => {
+    const provenance = localLessonActivityProvenance(
+      runtime,
+      activity.position,
+    );
+    if (!provenance) throw new Error("Missing activity provenance fixture.");
+    const exercise = activity.exercise;
+    return materializeEvidence({
+      idempotencyKey: `${sessionId}:answer:${exercise.id}`,
+      contentVersion: runtime.contentVersion,
+      activityVersion: activity.activityVersion,
+      source: "lesson",
+      method: methodForExercise(exercise),
+      activityId: activity.activityId,
+      skill: exercise.skill,
+      outcome: "correct",
+      score: 100,
+      metadata: {
+        ...localLessonEvidenceMetadata(provenance),
+        questionId: exercise.id,
+        wordId: exercise.wordId ?? null,
+        selectedAnswer: exercise.correct,
+        correctAnswer: exercise.correct,
+        requiredForPass: exercise.requiredForPass ?? false,
+        priorExposure: false,
+      },
+    }, TIME);
+  });
+  const score = scoreLessonSession(answers, answers.length);
+  if (!score) throw new Error("Versioned lesson fixture has no score.");
+  const completion = materializeEvidence({
+    idempotencyKey: `${sessionId}:complete`,
+    contentVersion: runtime.contentVersion,
+    activityVersion: `${runtime.contentVersion}:${runtime.lessonId}:1`,
+    source: "lesson",
+    method: "lesson-completion",
+    activityId: runtime.lessonId,
+    skill: lesson.skills[0] ?? "vocabulary",
+    outcome: "completed",
+    score: score.gateScore,
+    metadata: {
+      ...localLessonEvidenceMetadata(
+        localLessonSessionProvenance(runtime),
+      ),
+      passed: score.gateScore >= 70,
+      clientScore: score.rawScore,
+      rawScore: score.rawScore,
+      evidenceCount: answers.length,
+      requiredEvidenceCount: score.requiredEvidenceCount,
+      requiredCorrect: score.requiredCorrect,
+    },
+  }, COMPLETION_TIME);
+  return { answers, completion, score, runtime };
+};
+
 const masteryFromEvidence = (
   items: readonly LearningEvidence[],
 ): LearningState["skillMastery"] => {
@@ -184,6 +258,136 @@ const persistedFixture = (): LearningState => {
 };
 
 describe("trusted persisted learning state", () => {
+  it("replays exact checked-catalog provenance without rewriting evidence", () => {
+    const state = structuredClone(INITIAL_LEARNING_STATE);
+    const session = versionedLessonSessionEvidence("boot-1");
+    state.evidence = [...session.answers, session.completion];
+
+    const result = parsePersistedLearningState(
+      JSON.parse(JSON.stringify(state)) as unknown,
+      INITIAL_LEARNING_STATE,
+    );
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.state.evidence).toEqual(state.evidence);
+    expect(result.state.completedLessons["boot-1"]).toMatchObject({
+      score: session.score.gateScore,
+      bestScore: session.score.gateScore,
+      attempts: 1,
+    });
+  });
+
+  it.each([
+    "localRuntimeSchemaVersion",
+    "activitySchemaVersion",
+    "runtimeCatalogSchemaVersion",
+    "runtimeCatalogId",
+    "runtimeCompilerVersion",
+    "runtimeCatalogImportKey",
+    "runtimeCatalogIntegrity",
+    "runtimeGraphId",
+    "runtimePackageId",
+    "contentSchemaVersion",
+    "itemCatalogSchemaVersion",
+    "lessonId",
+    "lessonVersion",
+    "sessionId",
+    "script",
+    "activityPosition",
+    "exerciseId",
+  ])("rejects exact lesson evidence when provenance field %s drifts", (field) => {
+    const state = structuredClone(INITIAL_LEARNING_STATE);
+    const session = versionedLessonSessionEvidence("boot-1");
+    const tampered = structuredClone(session.answers[0]);
+    tampered.metadata = {
+      ...tampered.metadata,
+      [field]: typeof tampered.metadata?.[field] === "number"
+        ? Number(tampered.metadata[field]) + 1
+        : `tampered-${String(tampered.metadata?.[field])}`,
+    };
+    state.evidence = [
+      tampered,
+      ...session.answers.slice(1),
+      session.completion,
+    ];
+
+    const result = parsePersistedLearningState(
+      state,
+      INITIAL_LEARNING_STATE,
+    );
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.state.evidence.some((item) => item.id === tampered.id))
+      .toBe(false);
+    expect(result.state.completedLessons).toEqual({});
+    expect(result.state.evidence.some((item) =>
+      item.method === "lesson-completion"
+    )).toBe(false);
+  });
+
+  it("does not let partial provenance fall back to the legacy validator", () => {
+    const state = persistedFixture();
+    const answer = state.evidence.find((item) =>
+      item.method !== "lesson-completion"
+    );
+    if (!answer) throw new Error("Missing legacy answer fixture.");
+    answer.metadata = {
+      ...answer.metadata,
+      localRuntimeSchemaVersion: 1,
+    };
+
+    const result = parsePersistedLearningState(
+      state,
+      INITIAL_LEARNING_STATE,
+    );
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.state.evidence.some((item) => item.id === answer.id))
+      .toBe(false);
+    expect(result.state.completedLessons).toEqual({});
+  });
+
+  it("does not replay a released lesson blocked by the checked HSK path", () => {
+    const state = structuredClone(INITIAL_LEARNING_STATE);
+    const blocked = lessonSessionEvidence("daily-1");
+    state.evidence = [...blocked.answers, blocked.completion];
+    state.completedLessons["daily-1"] = {
+      score: blocked.score.gateScore,
+      bestScore: blocked.score.gateScore,
+      attempts: 1,
+      completedAt: COMPLETION_TIME,
+    };
+    state.mistakes = [{
+      id: "daily-1:blocked",
+      lessonId: "daily-1",
+      questionId: "blocked",
+      kind: "meaning",
+      skill: "vocabulary",
+      prompt: "blocked",
+      selectedAnswer: "wrong",
+      correctAnswer: "right",
+      explanation: "blocked",
+      occurrences: 1,
+      correctedStreak: 0,
+      resolved: false,
+      lastAttemptAt: TIME,
+    }];
+
+    const result = parsePersistedLearningState(
+      state,
+      INITIAL_LEARNING_STATE,
+    );
+
+    expect(result.ok).toBe(true);
+    if (!result.ok) return;
+    expect(result.state.evidence).toEqual([]);
+    expect(result.state.completedLessons).toEqual({});
+    expect(result.state.mistakes).toEqual([]);
+  });
+
   it("preserves valid local progress, profile, aggregates, mistakes, and evidence on reload", () => {
     const before = persistedFixture();
     const decoded = JSON.parse(JSON.stringify(before)) as unknown;

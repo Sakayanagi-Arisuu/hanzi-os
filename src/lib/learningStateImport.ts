@@ -79,7 +79,8 @@ const sanitizeMetadata = (
   const entries: Array<
     readonly [string, string | number | boolean | null]
   > = [];
-  for (const [key, item] of Object.entries(value).slice(0, 32)) {
+  // Reserve two scalar slots for the mandatory restore trust markers below.
+  for (const [key, item] of Object.entries(value).slice(0, 30)) {
     if (
       !key
       || key.length > 80
@@ -213,7 +214,11 @@ export function parseLearningStateImport(
       verified: false,
       masteryEligible: false,
       occurredAt: new Date(item.occurredAt).toISOString(),
-      metadata: sanitizeMetadata(item.metadata),
+      metadata: {
+        ...sanitizeMetadata(item.metadata),
+        measurementEligible: false,
+        restoredFromBackup: true,
+      },
     }),
   );
   const inspectableActivity = imported.activityLog.map((event) => ({

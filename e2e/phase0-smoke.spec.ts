@@ -1,9 +1,27 @@
+import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 import {
   readIndexedDbStore,
   type OwnerScopedCacheRecord,
   writeCurrentOwnerLocalState,
 } from "./indexedDb";
+
+const runtimeCatalog = JSON.parse(readFileSync(
+  new URL("../content/runtime/hsk0-4-runtime-catalog.json", import.meta.url),
+  "utf8",
+)) as {
+  schemaVersion: number;
+  catalogId: string;
+  runtimeContentVersion: string;
+  importIdempotencyKey: string;
+  integritySha256: string;
+  sourceBindings: {
+    contentPackage: {
+      contentSchemaVersion: number;
+      itemCatalogSchemaVersion: number;
+    };
+  };
+};
 
 const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await page.goto("/");
@@ -84,6 +102,55 @@ test("persists an answered lesson item and resumes the exact session", async ({ 
     const raw = localStorage.getItem("hanzi-os-learning-state-v1");
     return raw ? JSON.parse(raw).evidence.length : 0;
   })).toBe(1);
+  await expect.poll(() => page.evaluate(() => {
+    const raw = localStorage.getItem("hanzi-os-learning-state-v1");
+    const evidence = raw ? JSON.parse(raw).evidence?.[0] : null;
+    return evidence && {
+      schemaVersion: evidence.schemaVersion,
+      contentVersion: evidence.contentVersion,
+      activityVersion: evidence.activityVersion,
+      source: evidence.source,
+      metadata: {
+        localRuntimeSchemaVersion:
+          evidence.metadata?.localRuntimeSchemaVersion,
+        activitySchemaVersion: evidence.metadata?.activitySchemaVersion,
+        runtimeCatalogSchemaVersion:
+          evidence.metadata?.runtimeCatalogSchemaVersion,
+        runtimeCatalogId: evidence.metadata?.runtimeCatalogId,
+        runtimeCatalogImportKey:
+          evidence.metadata?.runtimeCatalogImportKey,
+        runtimeCatalogIntegrity:
+          evidence.metadata?.runtimeCatalogIntegrity,
+        contentSchemaVersion: evidence.metadata?.contentSchemaVersion,
+        itemCatalogSchemaVersion:
+          evidence.metadata?.itemCatalogSchemaVersion,
+        lessonId: evidence.metadata?.lessonId,
+        lessonVersion: evidence.metadata?.lessonVersion,
+        sessionId: evidence.metadata?.sessionId,
+        activityPosition: evidence.metadata?.activityPosition,
+        exerciseId: evidence.metadata?.exerciseId,
+      },
+    };
+  })).toMatchObject({
+    schemaVersion: 1,
+    contentVersion: runtimeCatalog.runtimeContentVersion,
+    source: "lesson",
+    metadata: {
+      localRuntimeSchemaVersion: 1,
+      activitySchemaVersion: 1,
+      runtimeCatalogSchemaVersion: runtimeCatalog.schemaVersion,
+      runtimeCatalogId: runtimeCatalog.catalogId,
+      runtimeCatalogImportKey: runtimeCatalog.importIdempotencyKey,
+      runtimeCatalogIntegrity: runtimeCatalog.integritySha256,
+      contentSchemaVersion:
+        runtimeCatalog.sourceBindings.contentPackage.contentSchemaVersion,
+      itemCatalogSchemaVersion:
+        runtimeCatalog.sourceBindings.contentPackage.itemCatalogSchemaVersion,
+      lessonId: "boot-1",
+      lessonVersion: runtimeCatalog.runtimeContentVersion,
+      activityPosition: 0,
+    },
+  });
   await expect.poll(async () => {
     const records = await readIndexedDbStore<
       OwnerScopedCacheRecord<{

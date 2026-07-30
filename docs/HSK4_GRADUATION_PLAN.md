@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **87%**.
+Status: **in progress** at project progress **88%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **87%**.
+Status: **in progress** at project progress **88%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **87%**.
+Status: **in progress** at project progress **88%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -141,13 +141,13 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 
 | Trụ cột | Điểm tối đa | Hiện tại | Cách ghi nhận |
 | --- | ---: | ---: | --- |
-| A. Nền ứng dụng và offline learning loop | 20 | 18 | lesson/reader/review, local persistence, offline, UX, build và compiler runtime HSK fail-closed |
+| A. Nền ứng dụng và offline learning loop | 20 | 19 | lesson/reader/review, local persistence, offline, UX, build, compiler runtime HSK và adapter lesson/activity có provenance fail-closed |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
 | E. Assessment và mock HSK0-4 | 10 | 8 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2, HSK3 và HSK4, objective/performance draft; reviewed audio/rubric và calibration còn thiếu |
 | F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **87** | **Tiến độ hiện tại: 87%** |
+| **Tổng** | **100** | **88** | **Tiến độ hiện tại: 88%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -751,6 +751,18 @@ lesson, HSK1 có 4 lesson đích cùng bridge HSK0, còn HSK2-4 vẫn fail-close
 target rỗng và không có completion claim. Client đã chuyển khỏi authoring graph
 sang projection này; source drift, artifact tampering, lesson không ở trạng
 thái beta/published hoặc mapping vượt prerequisite đều làm gate thất bại.
+
+Lát adapter lesson/activity local tăng trụ cột A thêm 1 điểm và đưa tiến độ lên
+**88%**. Mỗi phiên của đúng 8 lesson đủ điều kiện được materialize
+deterministic từ catalog đã kiểm, bind catalog/compiler/import key/integrity,
+content schema, item-catalog schema, lesson version, session, script và
+activity schema/version. Store tự đối chiếu activity payload rồi mới suy ra
+outcome và skill; UI không thể tự khai đáp án đúng. Retry cùng idempotency key
+và cùng payload là no-op, còn cùng key với answer/version/provenance khác bị
+chặn mà không đổi evidence hay mastery. Reload chỉ replay exact provenance;
+evidence của sáu lesson bị prerequisite chặn không thể hồi sinh. Backup import
+vẫn giữ lịch sử ở dạng inspectable/unverified nhưng không cấp completion,
+knowledge hay mastery. Draft HSK2-4 vẫn không đi vào runtime.
 
 ## 6. Quy tắc cập nhật phần trăm
 

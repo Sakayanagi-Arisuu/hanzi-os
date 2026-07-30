@@ -29,6 +29,7 @@ import {
   recordEvidenceInState,
   scoreLessonSession,
 } from "../lib/evidence";
+import { answersMatch } from "../lib/exerciseGeneration";
 import { commitDurableLearningState } from "../lib/durableLearningMutation";
 import { applyObservedDiagnosticCompletion } from "../lib/diagnosticCompletion";
 import {
@@ -41,6 +42,14 @@ import {
   selectStoredState,
   type StoredStateSource,
 } from "../lib/stateStorageRecovery";
+import {
+  localLessonEvidenceMetadata,
+  resolveExactLocalLessonActivityProvenance,
+  resolveExactLocalLessonSessionProvenance,
+  resolvePersistedLocalLessonActivityProvenance,
+  type LocalLessonActivityProvenanceV1,
+  type LocalLessonSessionProvenanceV1,
+} from "../learning/localLessonRuntime";
 import {
   isHanziOsStorageKey,
   LEARNING_CORRUPT_STORAGE_KEY,
@@ -209,10 +218,19 @@ const serializeCard = (card: Card): StoredFsrsCard => ({
 const emptyStoredCard = (now = new Date()) =>
   serializeCard(createEmptyCard(now));
 
+export type LocalLearningMutationDisposition =
+  | "inserted"
+  | "duplicate"
+  | "conflict"
+  | "rejected";
+
 type LearningActions = {
   finishOnboarding: (profile: Profile) => void;
   updateProfile: (patch: Partial<Profile>) => void;
-  recordAnswer: (evidence: AnswerEvidence) => void;
+  recordAnswer: (
+    evidence: AnswerEvidence,
+    provenance: LocalLessonActivityProvenanceV1,
+  ) => LocalLearningMutationDisposition;
   recordPracticeEvidence: (evidence: PracticeEvidenceInput) => void;
   resolveMistake: (mistakeId: string, isCorrect: boolean, selectedAnswer?: string, idempotencyKey?: string, usedHint?: boolean) => void;
   completeDiagnostic: (score: number) => void;
@@ -221,7 +239,8 @@ type LearningActions = {
     score: number,
     idempotencyKey: string,
     expectedEvidenceCount: number,
-  ) => void;
+    provenance: LocalLessonSessionProvenanceV1,
+  ) => LocalLearningMutationDisposition;
   toggleSavedWord: (wordId: string) => void;
   gradeReview: (wordId: string, rating: Grade, idempotencyKey?: string) => void;
   resetProgress: () => Promise<boolean>;
@@ -346,15 +365,18 @@ export function LearningProvider({ children }: { children: ReactNode }) {
   }, [applyDurableState]);
 
   const persist = useCallback((updater: (current: LearningState) => LearningState) => {
-    if (replacementInFlightRef.current) return;
+    if (replacementInFlightRef.current) return false;
     const current = stateRef.current;
+    const updated = updater(current);
+    if (updated === current) return true;
     const next = {
-      ...updater(current),
+      ...updated,
       schemaVersion: 2 as const,
       contentVersion: CONTENT_VERSION,
     };
-    if (next === current || !applyDurableState(next)) return;
+    if (!applyDurableState(next)) return false;
     coordinatorRef.current?.queueMutation(current, next);
+    return true;
   }, [applyDurableState]);
 
   const actions = useMemo<LearningActions>(() => ({
@@ -368,20 +390,61 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         ...current,
         profile: { ...current.profile, ...patch },
       })),
-    recordAnswer: (evidence) =>
-      persist((current) => {
+    recordAnswer: (submittedEvidence, provenance) => {
+      const resolved = resolveExactLocalLessonActivityProvenance(provenance);
+      if (!resolved) return "rejected";
+      const { activity, runtime } = resolved;
+      const exercise = activity.exercise;
+      const lesson = LESSON_BY_ID.get(runtime.lessonId);
+      if (
+        !lesson
+        || submittedEvidence.lessonId !== runtime.lessonId
+        || submittedEvidence.questionId !== exercise.id
+        || submittedEvidence.activityVersion !== activity.activityVersion
+        || submittedEvidence.idempotencyKey
+          !== `${runtime.sessionId}:answer:${exercise.id}`
+        || !submittedEvidence.selectedAnswer.trim()
+        || (
+          exercise.options.length > 0
+          && !exercise.options.includes(submittedEvidence.selectedAnswer)
+        )
+      ) return "rejected";
+
+      const evidence: AnswerEvidence = {
+        lessonId: lesson.id,
+        questionId: exercise.id,
+        wordId: exercise.wordId,
+        kind: exercise.kind,
+        skill: exercise.skill,
+        prompt: exercise.kind === "listening"
+          ? exercise.spokenText ?? exercise.prompt
+          : exercise.prompt,
+        selectedAnswer: submittedEvidence.selectedAnswer,
+        correctAnswer: exercise.correct,
+        explanation: exercise.explanation,
+        isCorrect: answersMatch(
+          submittedEvidence.selectedAnswer,
+          exercise.correct,
+        ),
+        idempotencyKey: `${runtime.sessionId}:answer:${exercise.id}`,
+        activityVersion: activity.activityVersion,
+        requiredForPass: exercise.requiredForPass,
+      };
+
+      let disposition: LocalLearningMutationDisposition = "rejected";
+      const durable = persist((current) => {
+        if (!isLessonUnlocked(lesson, current)) return current;
         const now = new Date().toISOString();
-        const activityId = `${evidence.lessonId}:${evidence.questionId}`;
-        const activityVersion = evidence.activityVersion
-          ?? `${CONTENT_VERSION}:${evidence.lessonId}:1`;
-        const idempotencyKey = evidence.idempotencyKey
-          ?? makeIdempotencyKey(`lesson:${activityId}`);
+        const activityId = activity.activityId;
+        const activityVersion = activity.activityVersion;
+        const idempotencyKey = evidence.idempotencyKey!;
         const priorExposure = current.evidence.some((item) =>
           item.activityId === activityId
           && item.activityVersion === activityVersion
         ) || current.mistakes.some((item) => item.id === activityId);
         const evidenceResult = recordEvidenceInState(current, {
           idempotencyKey,
+          contentVersion: runtime.contentVersion,
           activityVersion,
           source: "lesson",
           method: evidenceMethodForAnswer(evidence),
@@ -390,6 +453,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           outcome: evidence.isCorrect ? "correct" : "incorrect",
           score: evidence.isCorrect ? 100 : 0,
           metadata: {
+            ...localLessonEvidenceMetadata(provenance),
             questionId: evidence.questionId,
             wordId: evidence.wordId ?? null,
             selectedAnswer: evidence.selectedAnswer,
@@ -398,7 +462,13 @@ export function LearningProvider({ children }: { children: ReactNode }) {
             priorExposure,
           },
         }, now);
-        if (!evidenceResult.inserted) return current;
+        if (!evidenceResult.inserted) {
+          disposition = "conflict" in evidenceResult
+            ? "conflict"
+            : "duplicate";
+          return current;
+        }
+        disposition = "inserted";
         const currentWithEvidence = evidenceResult.state;
         const recordedEvidence = currentWithEvidence.evidence.find(
           (item) => item.idempotencyKey === idempotencyKey,
@@ -467,7 +537,9 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           },
           mistakes: mistakes.slice(0, 120),
         };
-      }),
+      });
+      return durable ? disposition : "rejected";
+    },
     recordPracticeEvidence: (evidence) =>
       persist((current) => recordEvidenceInState(current, evidence).state),
     resolveMistake: (mistakeId, isCorrect, selectedAnswer = "", idempotencyKey, usedHint = false) =>
@@ -523,26 +595,68 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       }),
     completeDiagnostic: (score) =>
       persist((current) => applyObservedDiagnosticCompletion(current, score)),
-    completeLesson: (lessonId, score, idempotencyKey, expectedEvidenceCount) => {
+    completeLesson: (
+      lessonId,
+      score,
+      idempotencyKey,
+      expectedEvidenceCount,
+      provenance,
+    ) => {
+      const resolved = resolveExactLocalLessonSessionProvenance(provenance);
       const lesson = LESSON_BY_ID.get(lessonId);
-      if (!lesson || expectedEvidenceCount <= 0 || !idempotencyKey.endsWith(":complete")) return;
-      persist((current) => {
+      if (
+        !resolved
+        || !lesson
+        || resolved.runtime.lessonId !== lessonId
+        || expectedEvidenceCount !== resolved.runtime.activities.length
+        || idempotencyKey !== `${resolved.runtime.sessionId}:complete`
+      ) return "rejected";
+      const { runtime } = resolved;
+      let disposition: LocalLearningMutationDisposition = "rejected";
+      const durable = persist((current) => {
         if (!isLessonUnlocked(lesson, current)) return current;
-        const sessionPrefix = idempotencyKey.slice(0, -"complete".length);
         const sessionAnswers = current.evidence.filter((item) =>
           item.source === "lesson"
           && item.contentVersion === lesson.contentVersion
           && item.activityId.startsWith(`${lessonId}:`)
-          && item.idempotencyKey.startsWith(`${sessionPrefix}answer:`)
+          && item.idempotencyKey.startsWith(`${runtime.sessionId}:answer:`)
         );
+        const answerById = new Map(
+          sessionAnswers.map((item) => [item.idempotencyKey, item]),
+        );
+        const completeExactForm = answerById.size === runtime.activities.length
+          && runtime.activities.every((activity) => {
+            const answer = answerById.get(
+              `${runtime.sessionId}:answer:${activity.exercise.id}`,
+            );
+            const persisted = answer
+              ? resolvePersistedLocalLessonActivityProvenance(answer)
+              : null;
+            return Boolean(
+              answer
+              && persisted?.kind === "exact"
+              && answer.activityId === activity.activityId
+              && answer.activityVersion === activity.activityVersion
+              && persisted.resolved.runtime.sessionId === runtime.sessionId
+              && persisted.resolved.runtime.lessonId === runtime.lessonId
+              && persisted.resolved.runtime.script === runtime.script
+              && persisted.resolved.activity.position === activity.position
+              && persisted.resolved.activity.activityId
+                === activity.activityId
+            );
+          });
+        if (!completeExactForm) return current;
         const sessionScore = scoreLessonSession(
           sessionAnswers,
           expectedEvidenceCount,
         );
         if (!sessionScore) return current;
+        const clientScore = clamp(Math.round(score));
+        if (clientScore !== sessionScore.rawScore) return current;
         const normalizedScore = sessionScore.gateScore;
         const evidenceResult = recordEvidenceInState(current, {
-          idempotencyKey: idempotencyKey ?? makeIdempotencyKey(`lesson-complete:${lessonId}`),
+          idempotencyKey,
+          contentVersion: runtime.contentVersion,
           activityVersion: `${lesson.contentVersion}:${lesson.id}:1`,
           source: "lesson",
           method: "lesson-completion",
@@ -551,15 +665,22 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           outcome: "completed",
           score: normalizedScore,
           metadata: {
+            ...localLessonEvidenceMetadata(provenance),
             passed: normalizedScore >= 70,
-            clientScore: clamp(Math.round(score)),
+            clientScore,
             rawScore: sessionScore.rawScore,
             evidenceCount: sessionAnswers.length,
             requiredEvidenceCount: sessionScore.requiredEvidenceCount,
             requiredCorrect: sessionScore.requiredCorrect,
           },
         });
-        if (!evidenceResult.inserted) return current;
+        if (!evidenceResult.inserted) {
+          disposition = "conflict" in evidenceResult
+            ? "conflict"
+            : "duplicate";
+          return current;
+        }
+        disposition = "inserted";
         const currentWithEvidence = evidenceResult.state;
         const day = applyStudyDay(currentWithEvidence);
         const previous = currentWithEvidence.completedLessons[lessonId];
@@ -597,6 +718,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           }),
         };
       });
+      return durable ? disposition : "rejected";
     },
     toggleSavedWord: (wordId) => {
       if (!RELEASED_WORD_BY_ID.has(wordId)) return;

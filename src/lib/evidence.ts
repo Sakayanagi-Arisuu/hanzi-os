@@ -4,6 +4,7 @@ import type {
   LearningState,
   PracticeEvidenceInput,
 } from "../types";
+import { canonicalStringify } from "../sync/canonicalHash";
 import {
   downgradeReaderEvidenceTrust,
   isLocallyVerifiedEvidence,
@@ -44,13 +45,41 @@ export const materializeEvidence = (
   });
 };
 
+const canonicalIdempotencyPayload = (evidence: LearningEvidence) => {
+  const {
+    occurredAt: _occurredAt,
+    verified: _verified,
+    masteryEligible: _masteryEligible,
+    metadata,
+    ...immutable
+  } = evidence;
+  const {
+    // First exposure is derived from state immediately before insertion. A
+    // retry necessarily observes the already-inserted row, so this one flag
+    // cannot participate in command identity.
+    priorExposure: _priorExposure,
+    ...immutableMetadata
+  } = metadata ?? {};
+  return canonicalStringify({
+    ...immutable,
+    ...(metadata === undefined ? {} : { metadata: immutableMetadata }),
+  });
+};
+
 export const recordEvidenceInState = (
   state: LearningState,
   input: PracticeEvidenceInput,
   occurredAt = new Date().toISOString(),
 ) => {
-  if (state.evidence.some((item) => item.idempotencyKey === input.idempotencyKey)) {
-    return { state, inserted: false };
+  const existing = state.evidence.find(
+    (item) => item.idempotencyKey === input.idempotencyKey,
+  );
+  if (existing) {
+    const replay = materializeEvidence(input, existing.occurredAt);
+    return canonicalIdempotencyPayload(existing)
+        === canonicalIdempotencyPayload(replay)
+      ? { state, inserted: false }
+      : { state, inserted: false, conflict: true as const };
   }
 
   const evidence = materializeEvidence(input, occurredAt);

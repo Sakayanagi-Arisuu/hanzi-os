@@ -24,13 +24,17 @@ import { Link, useParams } from "react-router";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
 import {
-  buildLessonResumeExercises,
   parseLessonResume,
   summarizeLessonResumeAnswers,
   type LessonResumeAnswer,
   type LessonResumePhase,
   type LessonResumeV5,
 } from "../learning/resumeProtocol";
+import {
+  localLessonActivityProvenance,
+  localLessonSessionProvenance,
+  materializeLocalLessonRuntime,
+} from "../learning/localLessonRuntime";
 import {
   isLessonIdAvailableForStartingLevel,
   isLessonReleased,
@@ -116,6 +120,15 @@ function LocalLessonPage() {
     () => lesson?.wordIds.map((id) => WORD_BY_ID.get(id)).filter((word): word is VocabularyItem => Boolean(word)) ?? [],
     [lesson],
   );
+  const localRuntime = useMemo(() => {
+    if (!lesson) return null;
+    const result = materializeLocalLessonRuntime(
+      lesson,
+      state.profile.script,
+      sessionId,
+    );
+    return result.ok ? result.runtime : null;
+  }, [lesson, sessionId, state.profile.script]);
   const { correctCount, requiredCorrectCount } = useMemo(
     () => summarizeLessonResumeAnswers(exercises, answers),
     [answers, exercises],
@@ -143,16 +156,22 @@ function LocalLessonPage() {
     const applySession = (restored: LessonResumeV5 | null) => {
       const nextSessionId = restored?.sessionId
         ?? makeIdempotencyKey(`lesson-session:${lesson.id}`);
+      const runtimeResult = materializeLocalLessonRuntime(
+        lesson,
+        state.profile.script,
+        nextSessionId,
+      );
       setSessionId(
         nextSessionId,
       );
       setPhase(restored?.phase ?? "briefing");
       setExercises(
-        restored?.exercises ?? buildLessonResumeExercises(
-          lesson,
-          state.profile.script,
-          nextSessionId,
-        ),
+        restored?.exercises
+          ?? (runtimeResult.ok
+            ? runtimeResult.runtime.activities.map(
+                (activity) => activity.exercise,
+              )
+            : []),
       );
       setIndex(restored?.index ?? 0);
       setSelected(restored?.selected ?? null);
@@ -262,13 +281,16 @@ function LocalLessonPage() {
 
   const restart = () => {
     const nextSessionId = makeIdempotencyKey(`lesson-session:${lesson.id}`);
-    setSessionId(nextSessionId);
-    setPhase("briefing");
-    setExercises(buildLessonResumeExercises(
+    const runtimeResult = materializeLocalLessonRuntime(
       lesson,
       state.profile.script,
       nextSessionId,
-    ));
+    );
+    setSessionId(nextSessionId);
+    setPhase("briefing");
+    setExercises(runtimeResult.ok
+      ? runtimeResult.runtime.activities.map((activity) => activity.exercise)
+      : []);
     setIndex(0);
     setSelected(null);
     setChecked(false);
@@ -376,12 +398,11 @@ function LocalLessonPage() {
 
   const checkAnswer = () => {
     if (!selected?.trim() || checked) return;
-    setChecked(true);
-    setAnswers((currentAnswers) => [...currentAnswers, {
-      exerciseId: current.id,
-      selectedAnswer: selected,
-    }]);
-    actions.recordAnswer({
+    const provenance = localRuntime
+      ? localLessonActivityProvenance(localRuntime, index)
+      : null;
+    if (!provenance) return;
+    const disposition = actions.recordAnswer({
       lessonId: lesson.id,
       questionId: current.id,
       wordId: current.wordId,
@@ -395,7 +416,13 @@ function LocalLessonPage() {
       idempotencyKey: `${sessionId}:answer:${current.id}`,
       activityVersion: current.activityVersion,
       requiredForPass: current.requiredForPass,
-    });
+    }, provenance);
+    if (disposition === "rejected" || disposition === "conflict") return;
+    setChecked(true);
+    setAnswers((currentAnswers) => [...currentAnswers, {
+      exerciseId: current.id,
+      selectedAnswer: selected,
+    }]);
   };
 
   const next = () => {
@@ -412,13 +439,16 @@ function LocalLessonPage() {
       : previous
         ? Math.round(lesson.xp * 0.2)
         : Math.round(lesson.xp * 0.25);
-    setEarnedXp(reward);
-    actions.completeLesson(
+    if (!localRuntime) return;
+    const disposition = actions.completeLesson(
       lesson.id,
       score,
       `${sessionId}:complete`,
       exercises.length,
+      localLessonSessionProvenance(localRuntime),
     );
+    if (disposition === "rejected" || disposition === "conflict") return;
+    setEarnedXp(disposition === "inserted" ? reward : 0);
     setFinished(true);
   };
 

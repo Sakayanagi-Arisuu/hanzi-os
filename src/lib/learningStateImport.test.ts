@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { INITIAL_LEARNING_STATE } from "../store/LearningStore";
 import type { LearningState } from "../types";
 import { parseLearningStateImport } from "./learningStateImport";
+import { parsePersistedLearningState } from "./learningStatePersistence";
 
 const fixture = (): LearningState => {
   const state = structuredClone(INITIAL_LEARNING_STATE);
@@ -87,11 +88,44 @@ describe("learning-state backup restore", () => {
         expect.objectContaining({ verified: false, masteryEligible: false }),
       ]),
     );
-    expect(result.state.evidence[0]?.metadata).toEqual({
+    expect(result.state.evidence[0]?.metadata).toMatchObject({
       selectedAnswer: "báº¡n",
     });
     expect(result.state.skillMastery.vocabulary).toBe(0);
     expect(result.state.skillMastery.speaking).toBe(0);
+    expect(result.state.evidence[0]?.metadata).toMatchObject({
+      measurementEligible: false,
+      restoredFromBackup: true,
+    });
+  });
+
+  it("remains reloadable while restored evidence stays inspectable only", () => {
+    const imported = parseLearningStateImport(
+      fixture(),
+      INITIAL_LEARNING_STATE,
+    );
+    expect(imported.ok).toBe(true);
+    if (!imported.ok) return;
+
+    const reloaded = parsePersistedLearningState(
+      JSON.parse(JSON.stringify(imported.state)) as unknown,
+      INITIAL_LEARNING_STATE,
+    );
+
+    expect(reloaded.ok).toBe(true);
+    if (!reloaded.ok) return;
+    expect(reloaded.state.evidence.map((item) => item.idempotencyKey))
+      .toEqual(["answer", "completion", "speech"]);
+    expect(reloaded.state.evidence.every((item) =>
+      item.verified === false
+      && item.masteryEligible === false
+      && item.metadata?.measurementEligible === false
+      && item.metadata?.restoredFromBackup === true
+    )).toBe(true);
+    expect(reloaded.state.completedLessons).toEqual({});
+    expect(reloaded.state.knowledge).toEqual({});
+    expect(reloaded.state.skillMastery)
+      .toEqual(INITIAL_LEARNING_STATE.skillMastery);
   });
 
   it("accepts the server account-export envelope", () => {

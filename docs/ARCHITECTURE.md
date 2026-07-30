@@ -132,6 +132,26 @@ Self-declaration chỉ chọn target view; diagnostic foundation chưa hiệu ch
 không cấp mastery hay prerequisite waiver. D1 profile constraint đã mở tương
 thích tới HSK4 qua migration bảo toàn row cũ.
 
+Anonymous lesson runtime không còn đi thẳng từ `Lesson` sang exercise/evidence.
+`localLessonRuntime` chỉ materialize một form khi lesson có exact mapping trong
+projection HSK đã kiểm và payload hiện hành khớp content version/release state.
+Mỗi form mang catalog/compiler/import key/integrity, content + item-catalog
+schema, lesson version, session, script và activity schema/version; cùng
+session luôn tái tạo cùng payload. Store resolve lại provenance và tự suy ra
+outcome/method/skill từ activity, nên caller không thể tự khai correct answer
+hay skill. Evidence mới giữ provenance dạng scalar trong metadata để bảo toàn
+LearningState v2/Evidence v1 và đồng bộ cũ. Cùng idempotency key/cùng command là
+no-op; cùng key/payload khác là conflict không mutation.
+
+Khi reload, provenance mới phải exact-match form hiện tại; có một phần marker
+mà thiếu hoặc bị sửa thì không được fallback sang validator legacy. Evidence
+legacy chỉ được replay cho tám lesson có trong projection; sáu lesson
+daily/character bị prerequisite chặn bị loại khỏi completion, knowledge và
+mistake. Backup do người dùng nhập giữ lịch sử inspectable với
+`measurementEligible: false` và `restoredFromBackup: true`, nhưng không phục
+hồi completion/mastery. Đây là trust boundary local cho đồ án, không phải
+server authority hay chứng nhận HSK.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text
@@ -370,11 +390,11 @@ production chỉ được cân nhắc sau khi có:
   `attestable: false`; production
   evidence chỉ hợp lệ từ clean exact HEAD và khi mọi gate đã được phê duyệt cùng
   bind source revision, content manifest và build digest.
-- Snapshot kỹ thuật local ngày 27/07/2026 qua 134 file/1.077 Vitest và 18/18 E2E.
-  Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 403.5 KiB; đây
+- Snapshot kỹ thuật local ngày 30/07/2026 qua 215 file/1.549 Vitest và 20/20 E2E.
+  Trần bảo thủ cộng toàn bộ asset client với hero lớn nhất là 396.7 KiB; đây
   không phải đo lường initial transfer thực tế. Ba Lighthouse cold-profile đạt
-  Performance 97/95/97, median P97/A100/BP100/SEO100, LCP 1,894 ms, CLS 0 và
-  TBT 169 ms.
+  Performance 98/96/86, median P96/A100/BP100/SEO100, LCP 1.911 ms, CLS 0 và
+  TBT 208 ms.
   `npm audit --omit=dev` báo 0; các số này không thay thế qualification hosted.
 - Feature flags, experiment assignment ổn định, content-quality dashboard,
   central monitoring sink, accessibility/visual regression toàn diện và load

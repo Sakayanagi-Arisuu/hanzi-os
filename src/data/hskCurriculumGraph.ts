@@ -44,10 +44,21 @@ type HskLessonMappingRecord = {
 type HskRuntimeCatalogArtifact = {
   schemaVersion: 1;
   catalogId: string;
+  compilerVersion: string;
   runtimeContentVersion: string;
+  importIdempotencyKey: string;
   sourceBindings: {
     curriculumGraph: {
       graphId: string;
+    };
+    contentPackage: {
+      packageId: string;
+      contentVersion: string;
+      contentSchemaVersion: number;
+      itemCatalogSchemaVersion: number;
+      manifestSha256: string;
+      itemCatalogSha256: string;
+      runtimeCatalogSha256: string;
     };
   };
   policy: {
@@ -60,12 +71,28 @@ type HskRuntimeCatalogArtifact = {
   paths: HskCurriculumPathRecord[];
   units: HskCurriculumUnitRecord[];
   lessonMappings: HskLessonMappingRecord[];
+  integritySha256: string;
 };
 
 const GRAPH =
   runtimeCatalogJson as unknown as HskRuntimeCatalogArtifact;
 if (
-  GRAPH.runtimeContentVersion !== CONTENT_VERSION
+  GRAPH.schemaVersion !== 1
+  || !GRAPH.catalogId
+  || !GRAPH.compilerVersion
+  || GRAPH.runtimeContentVersion !== CONTENT_VERSION
+  || !/^sha256:[a-f0-9]{64}$/u.test(GRAPH.importIdempotencyKey)
+  || !/^sha256:[a-f0-9]{64}$/u.test(GRAPH.integritySha256)
+  || GRAPH.sourceBindings.contentPackage.packageId !== CONTENT_VERSION
+  || GRAPH.sourceBindings.contentPackage.contentVersion !== CONTENT_VERSION
+  || !Number.isSafeInteger(
+    GRAPH.sourceBindings.contentPackage.contentSchemaVersion,
+  )
+  || GRAPH.sourceBindings.contentPackage.contentSchemaVersion < 1
+  || !Number.isSafeInteger(
+    GRAPH.sourceBindings.contentPackage.itemCatalogSchemaVersion,
+  )
+  || GRAPH.sourceBindings.contentPackage.itemCatalogSchemaVersion < 1
   || GRAPH.policy.sanitizedRuntimeCatalogOnly !== true
   || GRAPH.policy.requiresCompleteUnitPrerequisiteClosure !== true
   || GRAPH.policy.draftArtifactImportsAllowed !== false
@@ -78,11 +105,58 @@ if (
 const PATH_BY_ID = new Map(GRAPH.paths.map((path) => [path.pathId, path]));
 const UNIT_BY_ID = new Map(GRAPH.units.map((unit) => [unit.unitId, unit]));
 const LESSON_MAPPINGS_BY_UNIT = new Map<string, HskLessonMappingRecord[]>();
+const LESSON_MAPPING_BY_ID = new Map<string, HskLessonMappingRecord>();
 for (const mapping of GRAPH.lessonMappings) {
+  if (LESSON_MAPPING_BY_ID.has(mapping.lessonId)) {
+    throw new Error("HSK runtime curriculum catalog has duplicate lessons.");
+  }
   const mappings = LESSON_MAPPINGS_BY_UNIT.get(mapping.unitId) ?? [];
   mappings.push(mapping);
   LESSON_MAPPINGS_BY_UNIT.set(mapping.unitId, mappings);
+  LESSON_MAPPING_BY_ID.set(mapping.lessonId, mapping);
 }
+
+export type HskRuntimeCatalogIdentity = {
+  schemaVersion: 1;
+  catalogId: string;
+  compilerVersion: string;
+  runtimeContentVersion: string;
+  importIdempotencyKey: string;
+  integritySha256: string;
+  graphId: string;
+  packageId: string;
+  contentSchemaVersion: number;
+  itemCatalogSchemaVersion: number;
+  manifestSha256: string;
+  itemCatalogSha256: string;
+  runtimeCatalogSha256: string;
+};
+
+export const HSK_RUNTIME_CATALOG_IDENTITY: HskRuntimeCatalogIdentity =
+  Object.freeze({
+    schemaVersion: GRAPH.schemaVersion,
+    catalogId: GRAPH.catalogId,
+    compilerVersion: GRAPH.compilerVersion,
+    runtimeContentVersion: GRAPH.runtimeContentVersion,
+    importIdempotencyKey: GRAPH.importIdempotencyKey,
+    integritySha256: GRAPH.integritySha256,
+    graphId: GRAPH.sourceBindings.curriculumGraph.graphId,
+    packageId: GRAPH.sourceBindings.contentPackage.packageId,
+    contentSchemaVersion:
+      GRAPH.sourceBindings.contentPackage.contentSchemaVersion,
+    itemCatalogSchemaVersion:
+      GRAPH.sourceBindings.contentPackage.itemCatalogSchemaVersion,
+    manifestSha256: GRAPH.sourceBindings.contentPackage.manifestSha256,
+    itemCatalogSha256:
+      GRAPH.sourceBindings.contentPackage.itemCatalogSha256,
+    runtimeCatalogSha256:
+      GRAPH.sourceBindings.contentPackage.runtimeCatalogSha256,
+  });
+
+export const getHskLessonRuntimeBinding = (
+  lessonId: string,
+): Readonly<HskLessonMappingRecord> | null =>
+  LESSON_MAPPING_BY_ID.get(lessonId) ?? null;
 
 const canonicalPathId = (
   startingLevel: StartingLevel,

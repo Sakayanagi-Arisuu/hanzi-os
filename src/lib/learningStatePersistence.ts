@@ -4,6 +4,11 @@ import {
   RELEASED_STORIES,
   RELEASED_WORD_BY_ID,
 } from "../data/curriculum";
+import { getHskLessonRuntimeBinding } from "../data/hskCurriculumGraph";
+import {
+  resolvePersistedLocalLessonActivityProvenance,
+  resolvePersistedLocalLessonSessionProvenance,
+} from "../learning/localLessonRuntime";
 import { isStartingLevel } from "../learning/startingLevels";
 import { buildLessonResumeExercises } from "../learning/resumeProtocol";
 import type {
@@ -85,9 +90,14 @@ const activityTypes = new Set([
   "diagnostic",
   "practice",
 ]);
-const releasedLessonIds = new Set(RELEASED_LESSONS.map((lesson) => lesson.id));
+const localRuntimeLessons = RELEASED_LESSONS.filter((lesson) =>
+  getHskLessonRuntimeBinding(lesson.id) !== null
+);
+const releasedLessonIds = new Set(
+  localRuntimeLessons.map((lesson) => lesson.id),
+);
 const releasedLessonById = new Map(
-  RELEASED_LESSONS.map((lesson) => [lesson.id, lesson]),
+  localRuntimeLessons.map((lesson) => [lesson.id, lesson]),
 );
 const releasedLessonTitles = new Set(
   LESSONS
@@ -152,7 +162,7 @@ const activityBelongsTo = (activityId: string, contentId: string) =>
   activityId === contentId || activityId.startsWith(`${contentId}:`);
 
 const referencesReleasedLesson = (activityId: string) =>
-  RELEASED_LESSONS.some((lesson) =>
+  localRuntimeLessons.some((lesson) =>
     activityBelongsTo(activityId, lesson.id)
   );
 
@@ -325,6 +335,20 @@ const validEvidence = (value: unknown): value is LearningEvidence => {
   );
 };
 
+const isInspectableRestoredEvidence = (
+  evidence: LearningEvidence,
+) => evidence.metadata?.restoredFromBackup === true
+  && evidence.metadata.measurementEligible === false
+  && evidence.outcome === "unverified"
+  && evidence.verified === false
+  && evidence.masteryEligible === false
+  && (
+    evidence.method === "speech-transcript"
+      ? evidence.score === null
+        || finiteInRange(evidence.score, 0, 100)
+      : evidence.score === null
+  );
+
 const validDiagnostic = (value: unknown) => isRecord(value)
   && typeof value.completed === "boolean"
   && finiteInRange(value.score, 0, 100)
@@ -427,6 +451,22 @@ const validateLessonAnswer = (
   if (separatorIndex <= 0) return null;
   const lessonId = evidence.activityId.slice(0, separatorIndex);
   if (!releasedLessonById.has(lessonId)) return null;
+
+  const provenance = resolvePersistedLocalLessonActivityProvenance(evidence);
+  if (provenance.kind === "invalid") return null;
+  if (provenance.kind === "exact") {
+    const { activity, runtime } = provenance.resolved;
+    return runtime.lessonId === lessonId
+        && runtime.sessionId === sessionId
+        && answerMatchesExercise(
+          evidence,
+          lessonId,
+          sessionId,
+          activity.exercise,
+        )
+      ? { lessonId, sessionId }
+      : null;
+  }
 
   for (const script of ["simplified", "traditional"] as const) {
     const exercise = getExerciseForm(lessonId, sessionId, script, cache)
@@ -533,6 +573,43 @@ const validateLessonCompletion = (
       Date.parse(answer.occurredAt) > Date.parse(completion.occurredAt)
     )
   ) return false;
+
+  const provenance = resolvePersistedLocalLessonSessionProvenance(completion);
+  if (provenance.kind === "invalid") return false;
+  if (provenance.kind === "exact") {
+    const { runtime } = provenance.resolved;
+    if (
+      runtime.lessonId !== lesson.id
+      || runtime.sessionId !== sessionId
+      || runtime.activities.length !== answers.length
+    ) return false;
+    const answerById = new Map(
+      answers.map((answer) => [answer.idempotencyKey, answer]),
+    );
+    if (
+      answerById.size !== runtime.activities.length
+      || !runtime.activities.every((activity) => {
+        const answer = answerById.get(
+          `${sessionId}:answer:${activity.exercise.id}`,
+        );
+        if (!answer) return false;
+        const answerProvenance =
+          resolvePersistedLocalLessonActivityProvenance(answer);
+        return answerProvenance.kind === "exact"
+          && answerProvenance.resolved.runtime.sessionId === runtime.sessionId
+          && answerProvenance.resolved.runtime.lessonId === runtime.lessonId
+          && answerProvenance.resolved.runtime.script === runtime.script
+          && answerProvenance.resolved.activity.position === activity.position
+          && answerMatchesExercise(
+            answer,
+            lesson.id,
+            sessionId,
+            activity.exercise,
+          );
+      })
+    ) return false;
+    return validCompletionMetadata(completion, answers);
+  }
 
   for (const script of ["simplified", "traditional"] as const) {
     const form = getExerciseForm(lesson.id, sessionId, script, cache);
@@ -757,6 +834,7 @@ export function parsePersistedLearningState(
   }
 
   const evidence = releasedEvidence.filter((item) => {
+    if (isInspectableRestoredEvidence(item)) return true;
     if (item.source === "lesson") {
       return item.method === "lesson-completion"
         ? validatedLessonCompletionIds.has(item.id)

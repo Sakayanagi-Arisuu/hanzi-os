@@ -136,6 +136,26 @@ tái tạo exact projection và fail nếu source drift, artifact bị sửa, ru
 lesson ngoài trạng thái beta/published hoặc một mapping cố vượt prerequisite
 unit.
 
+`src/learning/localLessonRuntime.ts` là adapter learner-side kế tiếp của
+projection này. Nó chỉ nhận lesson thuộc đúng tám mapping đủ điều kiện rồi tạo
+form activity deterministic theo session/script. Runtime identity bind
+catalog/compiler/import key/integrity, content schema, item-catalog schema,
+lesson version và activity schema/version. Answer evidence lưu các binding này
+dạng metadata scalar, vẫn giữ LearningState schema 2 và Evidence schema 1 để
+snapshot/sync cũ còn đọc được. Persistence dùng marker provenance làm
+discriminator: không marker thì đi đường legacy cho lesson đủ điều kiện; có
+bất kỳ marker nào thì bắt buộc cả bộ phải exact, không được fallback khi thiếu
+hoặc bị sửa. Idempotency retry cùng payload là no-op, còn cùng key với payload
+khác bị chặn.
+
+Backup import không biến lịch sử bên ngoài thành authority. Nó loại answer key,
+đặt `measurementEligible: false`, `restoredFromBackup: true`, `verified: false`
+và `masteryEligible: false`; reload giữ các row này để người học xem lại và để
+đánh dấu prior exposure, nhưng không replay completion, knowledge hay mastery.
+Evidence của sáu lesson daily/character bị prerequisite chặn cũng không được
+replay dù raw package vẫn ghi chúng là beta/published. Adapter không nhập bất kỳ
+draft HSK2-4, review manifest hay official inventory payload nào.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT

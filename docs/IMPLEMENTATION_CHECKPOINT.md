@@ -11,11 +11,11 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **87%**.
+Active progress: **88%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
-| Application/offline learning foundation | 18 / 20 | Local lesson, Reader, Review, FSRS, persistence, recovery and responsive shell exist; the HSK path now consumes a deterministic, version-bound, fail-closed runtime projection rather than the authoring graph. |
+| Application/offline learning foundation | 19 / 20 | Local lesson, Reader, Review, FSRS, persistence and recovery now consume a deterministic HSK lesson/activity adapter with exact catalog/session/schema provenance and fail-closed idempotency. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
 | HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension, 24/24 summary-argument and 18/18 integration lessons. Human review and runtime publication stay open and no HSK4 completion claim exists. |
@@ -61,7 +61,7 @@ Every commit must update this percentage here and in the active roadmap.
 
 ### Active G2 slice in progress
 
-- Added an inventory-bound curriculum graph with exactly five paths and 15
+- Added an inventory-bound curriculum graph with exactly five paths and 18
   cycle-safe units. Path and unit prerequisites are explicit and HSK1-4 use
   the exact incremental inventory counts from the pinned syllabus.
 - Mapped all 14 released runtime lessons to HSK0/1 units and to the exact 23
@@ -85,6 +85,22 @@ Every commit must update this percentage here and in the active roadmap.
   metadata for all 14 ineligible authoring units, official inventory
   identifiers and every draft/review payload are excluded. HSK2-4 remain empty
   and fail-closed; no completion, mastery or prerequisite-waiver claim exists.
+- Added a deterministic local lesson/activity adapter over those eight
+  mappings. Each session binds the checked catalog/compiler/import key and
+  integrity digest, content and item-catalog schema versions, lesson version,
+  script, session identity, activity schema/version and exact payload.
+- Local answer handling resolves the authoritative adapter activity and derives
+  outcome, method and skill instead of trusting caller claims. Exact retries
+  are no-ops; reuse of an idempotency key with a different answer, activity,
+  version or provenance fails closed without changing evidence or mastery.
+- Reload revalidates every provenance-bearing answer and completion against the
+  exact deterministic form. Legacy evidence for eligible lessons remains
+  readable, while the six catalog-blocked lessons cannot be replayed into
+  completion, knowledge, mistakes or mastery.
+- Fixed backup-import recovery so inspectable history survives a real reload
+  with explicit `measurementEligible: false` / `restoredFromBackup: true`
+  markers. Imported history remains unverified and cannot restore aggregate
+  completion, knowledge or mastery.
 - Expanded the D1 `profiles.starting_level` constraint with a data-preserving
   migration. Restore rehearsal proves an existing HSK2 row survives, HSK4 is
   accepted and HSK5 is rejected; authenticated sync now covers HSK4.
@@ -792,7 +808,7 @@ edit to code, configuration or content makes this snapshot stale and requires
 the applicable gates to run again before the next checkpoint commit.
 
 - `npm run check`: all constituent gates pass; the single wrapper reached the
-  240-second terminal limit after restore and at Vitest startup, so the full
+  420-second terminal limit after restore and at Vitest startup, so the full
   Vitest suite and production build were completed separately
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
@@ -1042,16 +1058,19 @@ the applicable gates to run again before the next checkpoint commit.
     prerequisite-complete units, 8 eligible lesson mappings, 6 released
     lessons blocked behind 2 prerequisite-gap units, 14 authoring-unit metadata
     records excluded, 0 draft imports and 0 completion claims
-  - Vitest: 214 files, 1,505 tests passed
+  - versioned local runtime: exact adapter coverage for 8 eligible lessons,
+    deterministic activity payloads, fail-closed catalog/session/schema
+    provenance, idempotency conflict detection and safe legacy/backup reload
+  - Vitest: 215 files, 1,549 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 394.5 KiB
+    ceiling: 396.7 KiB
 - `npm run test:e2e`: 20 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 93 / 96 / 97, median 96
+  - Performance: 98 / 96 / 86, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,881 ms; CLS: 0; TBT: 191 ms
+  - Median LCP: 1,911 ms; CLS: 0; TBT: 208 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1076,13 +1095,16 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Extend the versioned local runtime adapter from the checked HSK path catalog
-   to lesson/activity payloads and attempt provenance. Keep all draft content
-   excluded and preserve content/activity/schema versions plus idempotency.
-2. Build a thin local demo seed and skill-separated evidence walkthrough on
-   the currently released HSK0/1 slice. HSK2-4 must remain unavailable until
-   reviewed content is promoted through the same compiler boundary.
-3. Leave operator auth, commerce, hosted pilot and Sites frozen until the
+1. Build a thin, no-progress local demo manifest bound to the checked catalog;
+   it may configure the HSK0 scenario but must not inject completion, evidence
+   or mastery.
+2. Execute and document a skill-separated HSK0-to-HSK1 walkthrough through the
+   real UI: resume, exact attempt provenance, one mistake/remediation path,
+   completion gates and the first HSK1 unlock. HSK2-4 and blocked HSK1 lessons
+   must remain unavailable.
+3. Package the verified walkthrough, limits and architecture evidence toward a
+   local release candidate. Leave operator auth, commerce, hosted pilot and
+   Sites frozen until the
    active HSK0-4 graduation roadmap is complete or the user explicitly resumes
    production work.
 
