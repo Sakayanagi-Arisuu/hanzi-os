@@ -680,6 +680,16 @@ quan điểm về đổi mới kinh tế; thay đổi trước/sau, trung bình 
 không được tự nâng thành nhân quả hay thành công toàn diện. Còn 2 domain/12
 lesson và toàn bộ human/audio review nên chưa tăng điểm D.
 
+Miền văn nghệ/thể thao/giao lưu tiếp tục giữ **84%** và nâng cumulative
+long-form lên 30/36 lesson, 5/6 domain. Sáu lesson mới thêm 12 nguồn/36 đoạn,
+60 target lexeme, 180 item từ vựng, 60 câu hỏi bind bằng chứng, 12 bounded
+inference, 12 note map và 6 cross-source synthesis; lũy kế năm miền đạt 60
+nguồn/180 đoạn và 1.290 practice item. Nội dung buộc tách phân loại khỏi giá
+trị, quá trình sáng tạo khỏi công thức cố định, hỗ trợ thể thao khỏi claim
+nhân quả, chỉ số thi đấu khỏi hiệu quả toàn diện và câu chuyện danh nhân khỏi
+thống kê chính xác. Còn 1 domain/6 lesson và toàn bộ human/audio review nên
+chưa tăng điểm D.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

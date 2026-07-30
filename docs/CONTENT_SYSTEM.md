@@ -548,6 +548,16 @@ inference, 12 note map và 6 synthesis. Validator buộc câu hỏi liên đoạ
 chỉ số trong kết luận; mọi review, audio, measurement, mastery và release vẫn
 fail-closed.
 
+`content/drafts/hsk4-arts-sports-exchange-long-form-2026.07.json` nối miền
+xã hội/kinh tế và đưa cumulative HSK4 lên 30/36 long-form lesson. Sáu lesson
+mới phân tích loại hình/vai trò nghệ thuật, tiến trình sáng tác–lưu diễn,
+điều kiện của kết quả thể thao, so sánh mô hình thi đấu/học, claim về nhân vật
+thể thao và tổng hợp quan điểm giao lưu. Lát này giữ hợp đồng 12 nguồn/36
+đoạn, 60 target lexeme, 180 vocabulary item, 60 evidence question, 12 bounded
+inference, 12 note map và 6 synthesis. Story, win rate, attendance và
+self-report không được tự biến thành bằng chứng nhân quả hoặc hiệu quả toàn
+diện; mọi review, audio, measurement, mastery và release vẫn fail-closed.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

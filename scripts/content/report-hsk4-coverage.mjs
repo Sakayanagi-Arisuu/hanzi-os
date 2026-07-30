@@ -38,8 +38,11 @@ import {
 } from "../../src/content/hsk4NatureTechnologyLongFormPack.mjs";
 import {
   assertValidHsk4SocietyEconomyLongFormPackBundle,
-  loadHsk4SocietyEconomyLongFormPackBundle,
 } from "../../src/content/hsk4SocietyEconomyLongFormPack.mjs";
+import {
+  assertValidHsk4ArtsSportsExchangeLongFormPackBundle,
+  loadHsk4ArtsSportsExchangeLongFormPackBundle,
+} from "../../src/content/hsk4ArtsSportsExchangeLongFormPack.mjs";
 import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
@@ -187,8 +190,14 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
   const hsk2ScopeResult = assertValidHsk2CurriculumScopeBundle(hsk2Scope);
   const hsk4Scope = loadHsk4CurriculumScopeBundle(root);
   const hsk4ScopeResult = assertValidHsk4CurriculumScopeBundle(hsk4Scope);
+  const hsk4ArtsSportsExchange =
+    loadHsk4ArtsSportsExchangeLongFormPackBundle(root);
+  const hsk4ArtsSportsExchangeResult =
+    assertValidHsk4ArtsSportsExchangeLongFormPackBundle(
+      hsk4ArtsSportsExchange,
+    );
   const hsk4SocietyEconomy =
-    loadHsk4SocietyEconomyLongFormPackBundle(root);
+    hsk4ArtsSportsExchange.prerequisiteBundles[0];
   const hsk4SocietyEconomyResult =
     assertValidHsk4SocietyEconomyLongFormPackBundle(hsk4SocietyEconomy);
   const hsk4NatureTechnology =
@@ -205,7 +214,7 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk4PersonalCommunityLongFormPackBundle(
       hsk4PersonalCommunity,
     );
-  const hsk4LessonBlueprints = hsk4SocietyEconomy.blueprintBundle;
+  const hsk4LessonBlueprints = hsk4ArtsSportsExchange.blueprintBundle;
   const hsk4LessonBlueprintsResult =
     assertValidHsk4LessonBlueprintsBundle(hsk4LessonBlueprints);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
@@ -824,6 +833,45 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4SocietyEconomyResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4SocietyEconomyResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4ArtsSportsExchangeLongFormDraft: {
+          lessons: hsk4ArtsSportsExchangeResult.summary.lessons,
+          completedLongFormDomains:
+            hsk4ArtsSportsExchangeResult.summary.completedLongFormDomains,
+          completedLongFormLessons:
+            hsk4ArtsSportsExchangeResult.summary.completedLongFormLessons,
+          mappedTopics: hsk4ArtsSportsExchangeResult.summary.mappedTopics,
+          targetLexemeContexts:
+            hsk4ArtsSportsExchangeResult.summary.targetLexemeContexts,
+          authoredTexts:
+            hsk4ArtsSportsExchangeResult.summary.authoredTexts,
+          authoredParagraphs:
+            hsk4ArtsSportsExchangeResult.summary.authoredParagraphs,
+          vocabularyPracticeItems:
+            hsk4ArtsSportsExchangeResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk4ArtsSportsExchangeResult.summary.comprehensionItems,
+          evidenceBoundComprehensionItems:
+            hsk4ArtsSportsExchangeResult.summary
+              .evidenceBoundComprehensionItems,
+          inferenceItems:
+            hsk4ArtsSportsExchangeResult.summary.inferenceItems,
+          noteMapItems:
+            hsk4ArtsSportsExchangeResult.summary.noteMapItems,
+          noteMapNodes:
+            hsk4ArtsSportsExchangeResult.summary.noteMapNodes,
+          synthesisPrompts:
+            hsk4ArtsSportsExchangeResult.summary.synthesisPrompts,
+          authoredPracticeItems:
+            hsk4ArtsSportsExchangeResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4ArtsSportsExchangeResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk4ArtsSportsExchangeResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk4ArtsSportsExchangeResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },
