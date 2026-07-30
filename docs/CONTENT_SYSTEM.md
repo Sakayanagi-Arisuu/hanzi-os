@@ -190,6 +190,13 @@ ID, JSON pointer và canonical hash thay vì lặp payload nháp: 1 blueprint,
 version và receipt contract nhưng không tạo runtime package, import receipt,
 approval, visibility, completion hay mastery.
 
+Checked dry-run của handoff còn phát hiện atomic-unit boundary: thêm mapping
+cho riêng lesson đầu sẽ làm compiler coi `hsk1-time-place-events` là available,
+từ đó ngoài ý muốn mở `hsk1-daily-life` và `daily-1..4`. Vì vậy promotion phải
+đủ 6/6 lesson của unit và projection không được có downstream activation nằm
+ngoài request. Fixture hash-bound có thể chứng minh contract evidence nhưng
+luôn `importAuthorized: false`; current graph/runtime bytes không bị sửa.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT

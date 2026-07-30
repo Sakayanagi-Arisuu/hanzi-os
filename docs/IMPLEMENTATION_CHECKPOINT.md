@@ -124,6 +124,15 @@ Every commit must update this percentage here and in the active roadmap.
   slots remain empty, all learning/release claims remain false, and the
   versioned import contract mutates nothing. Review packaging alone does not
   add learner coverage, so active progress remains **90%**.
+- Added a fail-closed first-lesson promotion dry-run. The real repository input
+  remains blocked with 0/6 review receipts, 0/16 reviewed audio assets and no
+  package/receipt. More importantly, the prerequisite simulation proves that
+  adding only this mapping would make `hsk1-daily-life` plus `daily-1..4`
+  eligible while five target-unit lessons are absent. Promotion now requires
+  an atomic 6/6 lesson unit and zero unintended downstream activation. Complete
+  hash-bound test fixtures satisfy the evidence contract but never authorize
+  import; graph/runtime bytes remain unchanged. This safety work adds no
+  learner coverage, so active progress stays **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1125,6 +1134,11 @@ deliverable.
     batches, 6 missing attributable role receipts and 16 missing reviewed audio
     assets; target version/receipt contract defined with 0 runtime mutation,
     learner visibility, completion or mastery claim
+  - first-lesson promotion dry-run: real evidence contract false, prerequisite
+    safety false and import authorization false; 5/6 target-unit lessons are
+    missing, while one partial mapping would unintentionally activate
+    `hsk1-daily-life` plus 4 existing lessons; complete test fixtures remain
+    non-authoritative and no graph/runtime bytes are written
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1133,7 +1147,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 219 files, 1,570 tests passed
+  - Vitest: 220 files, 1,576 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.7 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1167,18 +1181,16 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Implement a fail-closed dry-run over the checked first-lesson handoff. Its
-   real input must remain blocked while any of the 6 attributable review
-   receipts, 16 reviewed audio assets/rights records or runtime-package binding
-   is absent.
-2. Prove the complete path with test-only signed/hash-bound fixtures and verify
-   prerequisite closure plus deterministic receipt/idempotency behavior. Do not
-   write the registry/runtime catalog and do not mistake fixtures for human
-   evidence.
-3. Only after real approvals/audio exist, create the first versioned package;
-   then repeat through the six-lesson unit before `hsk1-daily-life`, HSK2,
-   HSK3 or HSK4. Keep the G5 candidate stale and operator auth, commerce,
-   hosted pilot and Sites frozen.
+1. Expand the exact-hash handoff atomically across the remaining five
+   `hsk1-time-place-events` lessons. Preserve per-lesson review/audio slots and
+   bind all 6 lessons to one unit release digest without fabricating evidence.
+2. Extend the dry-run so a complete test-only six-lesson unit has zero
+   unintended downstream activation: `hsk1-daily-life` must remain withheld
+   until an explicit later promotion request, not open merely because its
+   prerequisite unit has a mapping.
+3. Only after the full-unit contract is safe and real approvals/audio exist,
+   create a versioned package. Keep the G5 candidate stale and operator auth,
+   commerce, hosted pilot and Sites frozen.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

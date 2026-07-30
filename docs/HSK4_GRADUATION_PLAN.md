@@ -821,6 +821,14 @@ receipt vẫn thiếu; artifact learner-hidden không sao chép draft payload v�
 learning/release claim đều false. Đây là review packaging cần thiết, chưa phải
 review, publication hay learner coverage nên chưa cộng điểm.
 
+Dry-run fail-closed cho handoff này cũng **giữ tiến độ ở 90%**. Nó chứng minh
+input repo thật thiếu toàn bộ evidence và phát hiện nếu thêm lesson 1 đơn lẻ thì
+compiler sẽ mở ngoài ý muốn unit `hsk1-daily-life` cùng `daily-1..4`, trong khi
+5 lesson time/place/event còn thiếu. Guard mới yêu cầu promotion nguyên tử
+6/6 lesson và cấm downstream activation ngoài request. Test fixture đủ 6 review
+receipt, 16 audio, package và receipt chỉ chứng minh hash contract; fixture
+không bao giờ authorize import và dry-run không sửa graph/runtime.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
