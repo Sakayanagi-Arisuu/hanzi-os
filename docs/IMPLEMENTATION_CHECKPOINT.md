@@ -216,6 +216,16 @@ Every commit must update this percentage here and in the active roadmap.
   closed; idempotent reruns are allowed. The roster and templates grant no
   approval, audio authority, import authority, measurement or mastery, so
   active progress remains **90%** until real review/audio evidence exists.
+- Added a two-step real-audio evidence workflow for all 90 packet targets.
+  Export inspects and binds the exact canonical WAV, transcript/script, speaker
+  provenance, consent bytes, rights bytes, current packet hash and two distinct
+  assigned reviewers while leaving both review checklists empty. Import accepts
+  only complete attributable Mandarin and audio-rights approvals, re-hashes all
+  current files and runs the existing unit evidence evaluator before writing an
+  ignored local record. Unsafe paths/symlinks, byte drift, stale targets,
+  identity reuse, incomplete decisions and conflicting records fail closed.
+  The workflow mutates no package/runtime/visibility/mastery state, so active
+  progress remains **90%** pending the actual 90 recordings and reviews.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1251,7 +1261,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 228 files, 1,622 tests passed
+  - Vitest: 229 files, 1,625 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.9 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1289,7 +1299,9 @@ human, pilot, hosted or ownership gates.
    Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
    any of the 81 exact-hash role slots or 90 audio targets is
    incomplete. Use the packet-bound bulk roster exporter to create the 81
-   content-review templates without manual per-slot setup.
+   content-review templates without manual per-slot setup, and the audio
+   export/import workflow to create each of the 90 exact evidence records
+   without hand-authoring digests.
 2. Only after real evidence exists, create and validate the immutable `.07.7`
    package, explicit unit authorization and idempotent promotion receipt. Keep
    the G5 candidate stale and operator auth, commerce, hosted pilot and Sites

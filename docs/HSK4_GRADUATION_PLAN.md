@@ -915,6 +915,14 @@ dùng lại giữa vai trò hoặc file trùng ID nhưng khác byte đều fail 
 và biểu mẫu không phải approval, audio authority, import authority hay mastery,
 nên chỉ giảm thao tác vận hành review thật chứ chưa cộng learner coverage.
 
+Audio-evidence workflow slice tiếp tục **giữ tiến độ ở 90%**. Workflow hai bước
+export/import nay bind từng target trong 90 audio với WAV canonical, script/hash
+hiện tại, speaker provenance, consent, rights và hai reviewer độc lập. Export
+để toàn bộ checklist rỗng; import chỉ tạo record cục bộ sau khi Mandarin review
+và audio-rights review đều hoàn tất, file hiện tại được re-hash và evidence
+evaluator hiện hữu chấp nhận. Đây là đường tiếp nhận evidence thật, không tạo
+audio/approval giả, không publish package/runtime và chưa cộng learner coverage.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và

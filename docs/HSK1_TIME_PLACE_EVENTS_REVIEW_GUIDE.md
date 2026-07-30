@@ -91,11 +91,18 @@ Each audio entry provides an exact transcript/script hash and a Windows-safe
 16, 24, 44.1 or 48 kHz. Dialogue targets retain speaker labels; vocabulary
 targets include tone-marked pinyin for pronunciation guidance.
 
+List the 90 exact target IDs and expected file names with:
+
+```powershell
+npm run content:hsk1:unit-audio:list
+```
+
 Place ignored local audio evidence under this shape:
 
 ```text
 content/review/local/hsk1-time-place-events/
   records/<safe-record-id>.json
+  audio/assignments/<safe-record-id>.json
   audio/assets/<packet-expected-filename>.wav
   audio/evidence/<speaker-consent-file>
   audio/evidence/<rights-grant-file>
@@ -109,8 +116,34 @@ rights reviewer and speaker must be distinct. Both receipts and the enclosing
 record carry canonical SHA-256 digests; the evaluator recomputes them from the
 actual local bytes.
 
-For every asset, retain all of the following outside the checked packet until
-the import contract is implemented:
+Do not author those receipt or record digests manually. Once the WAV, consent
+and rights files are present, export one byte-bound audio review assignment:
+
+```powershell
+npm run content:hsk1:unit-audio:export -- --record-id <safe-record-id> --audio-target-id <exact-packet-target-id> --speaker-id <real-speaker-id> --language-tag cmn-Hans --recorded-at <ISO-UTC> --speaker-consent audio/evidence/<consent-file> --rights-evidence audio/evidence/<rights-file> --assigned-by <coordinator-id> --native-reviewer <mandarin-reviewer-id> --rights-reviewer <rights-reviewer-id> --assigned-at <ISO-UTC>
+```
+
+The command inspects the expected WAV bytes, hashes both evidence files, binds
+the current packet/script and creates an ignored assignment under
+`audio/assignments/`. It rejects non-canonical WAV, unsafe/symlinked/oversized
+files, stale targets, non-canonical timestamps and any reuse between speaker,
+Mandarin reviewer and rights reviewer. Export remains idempotent only when the
+existing assignment bytes are identical.
+
+The Mandarin reviewer and rights reviewer must independently complete their
+own `response` checklist and set an attributable canonical `reviewedAt` plus
+`outcome: "approved"`. Import the completed assignment with:
+
+```powershell
+npm run content:hsk1:unit-audio:import -- --record-id <safe-record-id>
+```
+
+Import re-hashes the current local files, rebinds the current packet, verifies
+all checklist decisions and independent identities, then runs the existing unit
+evidence evaluator before writing `records/<safe-record-id>.json`. It remains a
+local evidence record only and cannot authorize package/runtime publication.
+
+For every asset, retain all of the following outside the checked packet:
 
 - immutable asset SHA-256 and inspected WAV metadata;
 - speaker identity/provenance;
