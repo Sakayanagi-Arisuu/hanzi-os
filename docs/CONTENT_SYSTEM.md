@@ -156,6 +156,16 @@ Evidence của sáu lesson daily/character bị prerequisite chặn cũng không
 replay dù raw package vẫn ghi chúng là beta/published. Adapter không nhập bất kỳ
 draft HSK2-4, review manifest hay official inventory payload nào.
 
+`demo:hsk01:manifest` project một checked test contract từ chính HSK runtime
+catalog đã validate. Contract bind exact source hashes/versions và khóa bridge
+`boot-1..4`, boundary `survival-1`, ba target lesson còn khóa, sáu lesson bị
+prerequisite chặn cùng ba path HSK2-4 unavailable. Validator cấm mọi progress
+seed như answer/evidence/completion/mistake/knowledge/mastery/XP/streak và
+`content:graduation:check` chạy cả deterministic check lẫn validation. Artifact
+này là cấu hình QA learner-hidden, không phải content package, runtime import,
+review approval hay coverage claim. Walkthrough tương ứng được ghi tại
+`docs/HSK01_LOCAL_DEMO.md`.
+
 ## Backlog từ vựng HSK1
 
 `content/sources/cc-cedict-2026-07-28/source.json` ghim snapshot CC-CEDICT

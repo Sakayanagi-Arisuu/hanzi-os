@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "demoId": "hsk0-hsk1-local-ui-demo-2026.07.1",
+  "kind": "no-progress-ui-walkthrough",
+  "runtimeCatalogBinding": {
+    "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
+    "schemaVersion": 1,
+    "catalogId": "hsk0-4-local-runtime-2026.07.1",
+    "compilerVersion": "hsk-runtime-curriculum-compiler-v1",
+    "runtimeContentVersion": "foundation-2026.07.6",
+    "importIdempotencyKey": "sha256:a7252e9d9228101588f832e183b7b9f8124763828f1b958184608dbb8d7cc72d",
+    "integritySha256": "sha256:53b5f48b301a5093d924914f6e0f719d18a01c12ea7508ba14748b93d6949607",
+    "sourceBindings": {
+      "curriculumGraph": {
+        "graphId": "hsk0-4-graduation-2026.07.2",
+        "relativePath": "content/curriculum/hsk0-4-graph.json",
+        "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
+      },
+      "contentRegistry": {
+        "relativePath": "content/registry.json",
+        "sha256": "sha256:1d5251f890722da231285af358977ba3f7979b443f13432e306957692a2a64f4"
+      },
+      "contentPackage": {
+        "packageId": "foundation-2026.07.6",
+        "contentVersion": "foundation-2026.07.6",
+        "contentSchemaVersion": 6,
+        "itemCatalogSchemaVersion": 4,
+        "manifestRelativePath": "content/packages/foundation-2026.07.6/manifest.json",
+        "manifestSha256": "sha256:c0dc75baaab4ae675986089616ccdd3b252c8f6e8cad425d894d253f4cdca46e",
+        "itemCatalogRelativePath": "content/packages/foundation-2026.07.6/item-catalog.json",
+        "itemCatalogSha256": "sha256:132f5156df04a98cc63564e3cd2a26aa62ac68010c5517d0f8da9562a5b80ea7",
+        "runtimeCatalogRelativePath": "content/packages/foundation-2026.07.6/runtime-catalog.json",
+        "runtimeCatalogSha256": "sha256:20ec5d180fb0d53ce7cdc8d5d6202425291d803c2f1ad2fd1633ef2561768c85"
+      }
+    }
+  },
+  "scenario": {
+    "profileSelection": {
+      "startingLevel": "hsk1",
+      "goal": "hsk",
+      "script": "simplified"
+    },
+    "targetPathId": "hsk1",
+    "bridgePathId": "hsk0",
+    "entryLessonId": "boot-1",
+    "bridgeLessonIds": [
+      "boot-1",
+      "boot-2",
+      "boot-3",
+      "boot-4"
+    ],
+    "boundaryUnlockLessonId": "survival-1",
+    "stillLockedLessonIds": [
+      "survival-2",
+      "survival-3",
+      "survival-4"
+    ],
+    "blockedLessonIds": [
+      "daily-1",
+      "daily-2",
+      "daily-3",
+      "daily-4",
+      "characters-1",
+      "characters-2"
+    ],
+    "unavailablePathIds": [
+      "hsk2",
+      "hsk3",
+      "hsk4"
+    ]
+  },
+  "walkthrough": {
+    "intentionalErrorLessonId": "boot-1",
+    "intentionalErrorSelection": "first-non-required-after-resume",
+    "reloadAfterCheckedActivityPosition": 0,
+    "minimumPassingScore": 70
+  },
+  "expectations": {
+    "lessonActivityCount": 10,
+    "intentionalIncorrectCount": 1,
+    "passingScore": 90,
+    "remediationAttempts": 2,
+    "totalLessonEvidence": 44,
+    "totalRemediationEvidence": 2
+  },
+  "policy": {
+    "learnerVisible": false,
+    "testContractOnly": true,
+    "storageMutationMode": "real-ui-only",
+    "exactRuntimeProvenanceRequired": true,
+    "skillSeparatedEvidenceRequired": true,
+    "remediationGrantsMastery": false,
+    "prerequisiteWaiverAllowed": false,
+    "completionClaim": false
+  }
+}

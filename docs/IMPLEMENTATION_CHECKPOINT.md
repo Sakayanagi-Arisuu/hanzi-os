@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **88%**.
+Active progress: **89%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
@@ -20,7 +20,7 @@ Active progress: **88%**.
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
 | HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension, 24/24 summary-argument and 18/18 integration lessons. Human review and runtime publication stay open and no HSK4 completion claim exists. |
 | HSK0-4 assessment/mock | 8 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; HSK4 adds two 96-item pools and a 54-item timed mock blueprint per form. Reviewed audio/rubrics and calibrated scored exams do not exist. |
-| Graduation QA/local release | 5 / 10 | Strong automated baseline and architecture docs exist; demo pack and local release candidate do not. |
+| Graduation QA/local release | 6 / 10 | Checked no-progress demo manifest and a real-UI HSK0→HSK1 evidence walkthrough now exist; the complete local release candidate still does not. |
 
 The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
 scope. It is lower because “deep HSK4 content” now has an explicit 30-point
@@ -549,6 +549,27 @@ Every commit must update this percentage here and in the active roadmap.
   Guided-production authoring is complete, but assessment, human review,
   runtime publication and HSK4 content keep progress at **81%**.
 
+### Active G5 slice in progress
+
+- Added a deterministic, learner-hidden demo contract bound to the exact
+  checked HSK runtime catalog, import identity, integrity digest and source
+  hashes. It contains profile/boundary expectations only; strict validation
+  rejects any answer, evidence, completion, mistake, knowledge, mastery, XP,
+  streak or resume seed.
+- Added a real-UI Playwright walkthrough that onboards an anonymous HSK1
+  target without a prerequisite waiver, proves only `boot-1` starts open,
+  reloads the exact checked session, records 10 answer rows plus one completion
+  for a 90% first lesson, creates one real mistake and closes it with two
+  unassisted local remediation attempts.
+- The same walkthrough completes `boot-2..4` through browser controls and
+  proves `survival-1` opens while `survival-2..4`, all six blocked
+  daily/character lessons and HSK2-4 stay fail-closed. Final assertions cover
+  44 lesson evidence rows, 2 remediation rows, unique idempotency keys, exact
+  runtime provenance and no cross-skill mastery inference.
+- Added the defense runbook `docs/HSK01_LOCAL_DEMO.md` with reproduction steps,
+  expected ledger, architecture links and explicit limits. This earns one G5
+  QA point; it does not publish content or claim HSK/production readiness.
+
 ## Repository state
 
 - Branch: `codex/hsk4-graduation`
@@ -801,15 +822,13 @@ Progress accounting rules:
 
 ## Local verification
 
-### Current G3 content-authoring baseline
+### Current G3 content-authoring and G5 demo baseline
 
 The results below are bound to the exact G3 checkpoint worktree. Any later
 edit to code, configuration or content makes this snapshot stale and requires
 the applicable gates to run again before the next checkpoint commit.
 
-- `npm run check`: all constituent gates pass; the single wrapper reached the
-  420-second terminal limit after restore and at Vitest startup, so the full
-  Vitest suite and production build were completed separately
+- `npm run check`: all constituent gates pass
   - lockfile policy, typecheck, full lint, content validation and Drizzle check
   - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
     HSK4 profile persistence, 4 editorial events and 5 editorial triggers
@@ -1061,16 +1080,19 @@ the applicable gates to run again before the next checkpoint commit.
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
-  - Vitest: 215 files, 1,549 tests passed
+  - checked HSK0→HSK1 demo: 4 bridge lessons, 4 HSK1 target lessons, 6 blocked
+    lessons, 3 unavailable paths and 0 forbidden progress fields; focused
+    Playwright completes the exact real-UI walkthrough
+  - Vitest: 216 files, 1,553 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.7 KiB
-- `npm run test:e2e`: 20 tests passed
+- `npm run test:e2e`: 21 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 96 / 86, median 96
+  - Performance: 97 / 91 / 97, median 97
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,911 ms; CLS: 0; TBT: 208 ms
+  - Median LCP: 1,889 ms; CLS: 0; TBT: 137 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1095,18 +1117,19 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Build a thin, no-progress local demo manifest bound to the checked catalog;
-   it may configure the HSK0 scenario but must not inject completion, evidence
-   or mastery.
-2. Execute and document a skill-separated HSK0-to-HSK1 walkthrough through the
-   real UI: resume, exact attempt provenance, one mistake/remediation path,
-   completion gates and the first HSK1 unlock. HSK2-4 and blocked HSK1 lessons
-   must remain unavailable.
-3. Package the verified walkthrough, limits and architecture evidence toward a
-   local release candidate. Leave operator auth, commerce, hosted pilot and
-   Sites frozen until the
-   active HSK0-4 graduation roadmap is complete or the user explicitly resumes
-   production work.
+1. Package the checked demo, verified walkthrough, architecture/limit links and
+   machine-readable gate results into a deterministic local release-candidate
+   evidence index. It must detect stale source revision or missing artifacts
+   without pretending local/unattestable builds are production evidence.
+2. Exercise the remaining G5 local acceptance matrix against that candidate:
+   mobile, keyboard, reduced-motion, offline shell, owner-safe reset and
+   backup/import reload. Reuse existing real tests but bind their results to
+   the candidate rather than counting repeated runs as new progress.
+3. Audit the remaining G2/G3/G4 learner-runtime gap after the candidate is
+   reproducible, then promote only reviewed, prerequisite-complete content in
+   dependency order toward HSK2, HSK3 and HSK4. Leave operator auth, commerce,
+   hosted pilot and Sites frozen until the active HSK0-4 graduation roadmap is
+   complete or the user explicitly resumes production work.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

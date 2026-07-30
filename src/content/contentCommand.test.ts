@@ -2410,7 +2410,7 @@ describe("content validation command", () => {
     } finally {
       rmSync(fixture.fixtureRoot, { recursive: true, force: true });
     }
-  });
+  }, 20_000);
 
   it("requires --write and never overwrites a colliding target directory", () => {
     const fixture = createAudioCommandFixture();

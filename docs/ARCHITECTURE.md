@@ -152,6 +152,17 @@ mistake. Backup do người dùng nhập giữ lịch sử inspectable với
 hồi completion/mastery. Đây là trust boundary local cho đồ án, không phải
 server authority hay chứng nhận HSK.
 
+Demo HSK0→HSK1 dùng một contract riêng tại
+`content/demo/hsk0-1-local-demo.json`. Contract này được project
+deterministic từ checked runtime catalog và chỉ mô tả profile, boundary cùng
+kỳ vọng kiểm thử; nó không được import vào learner runtime và không chứa state
+để seed progress. Playwright onboarding target HSK1 rồi tạo toàn bộ answer,
+mistake, remediation và completion qua UI thật. Test chỉ đọc frozen resume
+form từ IndexedDB để điều khiển browser, sau đó đối chiếu exact provenance,
+idempotency, skill bucket và unlock boundary. Vì vậy demo có thể tái lập mà
+không biến fixture thành mastery hay prerequisite authority. Runbook và giới
+hạn nằm tại `docs/HSK01_LOCAL_DEMO.md`.
+
 ## 2. Kiến trúc production đề xuất
 
 ```text

@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **88%**.
+Status: **in progress** at project progress **89%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **88%**.
+Status: **in progress** at project progress **89%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **88%**.
+Status: **in progress** at project progress **89%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -128,6 +128,8 @@ Status: **in progress** at project progress **88%**.
 Exit: HSK3-4 dùng được end-to-end; HSK4 có timed practice và mock.
 
 ### G5 — Đồ án, QA và đóng gói local
+
+Status: **in progress** at project progress **89%**.
 
 - Chạy full checks, E2E, Lighthouse và audit.
 - Kiểm tra mobile, keyboard, reduced-motion, offline backup/restore.
@@ -146,8 +148,8 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
 | E. Assessment và mock HSK0-4 | 10 | 8 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2, HSK3 và HSK4, objective/performance draft; reviewed audio/rubric và calibration còn thiếu |
-| F. Đồ án, QA và local release | 10 | 5 | docs, demo, accessibility, performance và release package |
-| **Tổng** | **100** | **88** | **Tiến độ hiện tại: 88%** |
+| F. Đồ án, QA và local release | 10 | 6 | checked no-progress demo manifest, real-UI HSK0→HSK1 walkthrough, docs, accessibility/performance baseline; local release package còn mở |
+| **Tổng** | **100** | **89** | **Tiến độ hiện tại: 89%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -763,6 +765,17 @@ chặn mà không đổi evidence hay mastery. Reload chỉ replay exact provena
 evidence của sáu lesson bị prerequisite chặn không thể hồi sinh. Backup import
 vẫn giữ lịch sử ở dạng inspectable/unverified nhưng không cấp completion,
 knowledge hay mastery. Draft HSK2-4 vẫn không đi vào runtime.
+
+Lát demo HSK0→HSK1 tăng trụ cột F thêm 1 điểm và đưa tiến độ lên **89%**.
+Checked manifest bind exact runtime catalog/source identity nhưng cấm toàn bộ
+progress seed; onboarding target HSK1 vẫn bắt buộc bridge `boot-1..4`.
+Playwright thực hiện 40 answer qua UI thật, reload đúng session sau câu đầu,
+cố ý tạo một lỗi không bắt buộc, hoàn tất `boot-1` ở 90%, remediation hai lần
+không hint rồi hoàn tất ba bridge lesson còn lại. Kết quả có 44 lesson
+evidence + 2 remediation evidence với idempotency/provenance và skill bucket
+được đối chiếu; chỉ `survival-1` mở, ba target tiếp theo cùng sáu lesson
+daily/character vẫn khóa và HSK2-4 vẫn unavailable. Runbook ghi rõ đây là local
+prototype, không phải mastery server, HSK completion hay production evidence.
 
 ## 6. Quy tắc cập nhật phần trăm
 

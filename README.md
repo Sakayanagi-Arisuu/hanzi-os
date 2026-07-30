@@ -44,6 +44,7 @@ npm run start
 - [Mô hình làm chủ và thích ứng](docs/MASTERY_SYSTEM.md)
 - [Roadmap thương mại hóa](docs/ROADMAP.md)
 - [Kế hoạch đồ án HSK0-4 đang hoạt động](docs/HSK4_GRADUATION_PLAN.md)
+- [Walkthrough demo local HSK0 → HSK1](docs/HSK01_LOCAL_DEMO.md)
 - [Kế hoạch nâng cấp production đang tạm hoãn](docs/PRODUCTION_UPGRADE_PLAN.md)
 
 ## Ranh giới của bản foundation
