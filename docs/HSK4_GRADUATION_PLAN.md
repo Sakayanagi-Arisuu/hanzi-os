@@ -96,7 +96,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **89%**.
+Status: **in progress** at project progress **90%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +107,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **89%**.
+Status: **in progress** at project progress **90%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +118,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **89%**.
+Status: **in progress** at project progress **90%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -129,7 +129,7 @@ Exit: HSK3-4 dùng được end-to-end; HSK4 có timed practice và mock.
 
 ### G5 — Đồ án, QA và đóng gói local
 
-Status: **in progress** at project progress **89%**.
+Status: **in progress** at project progress **90%**.
 
 - Chạy full checks, E2E, Lighthouse và audit.
 - Kiểm tra mobile, keyboard, reduced-motion, offline backup/restore.
@@ -148,8 +148,8 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
 | D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
 | E. Assessment và mock HSK0-4 | 10 | 8 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2, HSK3 và HSK4, objective/performance draft; reviewed audio/rubric và calibration còn thiếu |
-| F. Đồ án, QA và local release | 10 | 6 | checked no-progress demo manifest, real-UI HSK0→HSK1 walkthrough, docs, accessibility/performance baseline; local release package còn mở |
-| **Tổng** | **100** | **89** | **Tiến độ hiện tại: 89%** |
+| F. Đồ án, QA và local release | 10 | 7 | checked demo, local candidate receipt bind clean source, 4/4 gate và 8/8 acceptance capability; final presentation package còn mở |
+| **Tổng** | **100** | **90** | **Tiến độ hiện tại: 90%** |
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
@@ -785,6 +785,16 @@ Validator cấm claim production/hosted/review/calibration/Sites, xác nhận re
 vẫn có 9 gate pending/23 blocker và phát hiện test title hoặc artifact bị thiếu.
 Test backup cũng đã chuyển sang tải file thật qua UI, import và reload; phần hạ
 tầng này chưa tự kiếm điểm F nếu chưa có machine-readable receipt.
+
+Lát local candidate hoàn chỉnh tăng trụ cột F thêm 1 điểm và đưa tiến độ lên
+**90%**. Receipt deterministic bind clean source commit `c03fd45`, 10 artifact
+và build 220 file/7.001.874 byte; cả 4 gate local cùng 8/8 acceptance capability
+đều `passed`. Baseline có 217 file/1.559 Vitest, 21/21 Playwright, Lighthouse
+mobile median P98/A100/BP100/SEO100 và dependency audit 0 vulnerability.
+Verifier cho phép sau gate chỉ receipt cùng hai file tiến độ thay đổi; code,
+config, content, test binding, artifact hoặc build lệch đều làm candidate stale.
+Receipt đồng thời giữ production blocked với 9 gate/23 blocker và mọi claim
+production/hosted/review/calibration/Sites bằng `false`.
 
 ## 6. Quy tắc cập nhật phần trăm
 

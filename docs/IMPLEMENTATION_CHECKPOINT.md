@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **89%**.
+Active progress: **90%**.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
@@ -20,7 +20,7 @@ Active progress: **89%**.
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
 | HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension, 24/24 summary-argument and 18/18 integration lessons. Human review and runtime publication stay open and no HSK4 completion claim exists. |
 | HSK0-4 assessment/mock | 8 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; HSK4 adds two 96-item pools and a 54-item timed mock blueprint per form. Reviewed audio/rubrics and calibrated scored exams do not exist. |
-| Graduation QA/local release | 6 / 10 | Checked no-progress demo manifest and a real-UI HSK0→HSK1 evidence walkthrough now exist; the complete local release candidate still does not. |
+| Graduation QA/local release | 7 / 10 | Checked demo plus a deterministic clean-source local candidate receipt now bind 4/4 gates and 8/8 G5 acceptance capabilities; final presentation packaging remains. |
 
 The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
 scope. It is lower because “deep HSK4 content” now has an explicit 30-point
@@ -578,6 +578,14 @@ Every commit must update this percentage here and in the active roadmap.
   human-review, calibration or Sites claims. A code/content/config edit after
   the tested revision makes the candidate stale; runner infrastructure alone
   does not earn another G5 point.
+- Generated and checked the first deterministic local candidate receipt from
+  clean source `c03fd45`. It binds 10 artifacts, a 220-file/7,001,874-byte
+  build, all four local gates and all eight exact acceptance capabilities.
+  The run passed 217 Vitest files/1,559 tests, 21/21 Playwright tests,
+  Lighthouse median P98/A100/BP100/SEO100 and dependency audit with zero
+  vulnerability. The receipt keeps 9 production gates/23 blockers open and
+  every production/hosted/review/calibration/Sites claim false. This earns one
+  G5 point and raises active progress to **90%**.
 
 ## Repository state
 
@@ -1092,16 +1100,18 @@ the applicable gates to run again before the next checkpoint commit.
   - checked HSK0→HSK1 demo: 4 bridge lessons, 4 HSK1 target lessons, 6 blocked
     lessons, 3 unavailable paths and 0 forbidden progress fields; focused
     Playwright completes the exact real-UI walkthrough
-  - Vitest: 216 files, 1,553 tests passed
+  - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
+    8 exact G5 acceptance bindings; receipt source `c03fd45`
+  - Vitest: 217 files, 1,559 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.7 KiB
 - `npm run test:e2e`: 21 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 97 / 91 / 97, median 97
+  - Performance: 98 / 98 / 99, median 98
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,889 ms; CLS: 0; TBT: 137 ms
+  - Median LCP: 1,871 ms; CLS: 0; TBT: 108 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
@@ -1126,19 +1136,17 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Package the checked demo, verified walkthrough, architecture/limit links and
-   machine-readable gate results into a deterministic local release-candidate
-   evidence index. It must detect stale source revision or missing artifacts
-   without pretending local/unattestable builds are production evidence.
-2. Exercise the remaining G5 local acceptance matrix against that candidate:
-   mobile, keyboard, reduced-motion, offline shell, owner-safe reset and
-   backup/import reload. Reuse existing real tests but bind their results to
-   the candidate rather than counting repeated runs as new progress.
-3. Audit the remaining G2/G3/G4 learner-runtime gap after the candidate is
-   reproducible, then promote only reviewed, prerequisite-complete content in
-   dependency order toward HSK2, HSK3 and HSK4. Leave operator auth, commerce,
-   hosted pilot and Sites frozen until the active HSK0-4 graduation roadmap is
-   complete or the user explicitly resumes production work.
+1. Audit the remaining G2/G3/G4 learner-runtime gap now that the local
+   candidate and complete G5 acceptance matrix are reproducible. Produce a
+   machine-readable promotion queue that distinguishes authored, reviewed,
+   prerequisite-complete and learner-visible coverage per level.
+2. Promote only review-complete, prerequisite-complete content in dependency
+   order, starting at the earliest HSK1 gap before HSK2, HSK3 and HSK4. Do not
+   use draft volume, synthetic audio or self-checks as release evidence.
+3. Keep the candidate stale after any code/config/content change until the
+   next clean checkpoint run. Leave operator auth, commerce, hosted pilot and
+   Sites frozen until the active HSK0-4 graduation roadmap is complete or the
+   user explicitly resumes production work.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

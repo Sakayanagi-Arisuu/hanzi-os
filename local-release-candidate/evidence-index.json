@@ -1,0 +1,188 @@
+{
+  "acceptanceMatrix": [
+    {
+      "capability": "checked HSK0 to HSK1 walkthrough",
+      "id": "hsk0-hsk1-real-ui-demo",
+      "status": "passed",
+      "testFile": "e2e/hsk01-local-demo.spec.ts",
+      "testTitle": "walks the real local UI from the HSK0 bridge to the first HSK1 unlock"
+    },
+    {
+      "capability": "mobile routing, focus and horizontal overflow",
+      "id": "mobile-layout-and-command-sheet",
+      "status": "passed",
+      "testFile": "e2e/mobile-accessibility.spec.ts",
+      "testTitle": "keeps the mobile command sheet keyboard-safe and routes without overflow"
+    },
+    {
+      "capability": "keyboard focus trap, escape and trigger restore",
+      "id": "keyboard-destructive-dialog",
+      "status": "passed",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "traps keyboard focus in destructive dialogs and restores the trigger"
+    },
+    {
+      "capability": "keyboard radiogroup selection across learner surfaces",
+      "id": "keyboard-single-select",
+      "status": "passed",
+      "testFile": "e2e/mobile-accessibility.spec.ts",
+      "testTitle": "exposes single-select state and supports arrow navigation"
+    },
+    {
+      "capability": "reduced decorative motion without blocked interaction",
+      "id": "reduced-motion",
+      "status": "passed",
+      "testFile": "e2e/mobile-accessibility.spec.ts",
+      "testTitle": "short-circuits decorative motion without blocking interaction"
+    },
+    {
+      "capability": "interactive local app recovery while offline",
+      "id": "offline-shell",
+      "status": "passed",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "recovers the interactive app offline after an online controlled load"
+    },
+    {
+      "capability": "learning reset without deleting durable sync identity",
+      "id": "owner-safe-reset",
+      "status": "passed",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "resets progress without deleting the durable sync identity"
+    },
+    {
+      "capability": "real UI backup export, import and durable reload",
+      "id": "backup-export-import-reload",
+      "status": "passed",
+      "testFile": "e2e/phase0-smoke.spec.ts",
+      "testTitle": "exports, restores and reloads a validated local JSON backup"
+    }
+  ],
+  "artifacts": [
+    {
+      "bytes": 8407,
+      "id": "runtime-catalog",
+      "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
+      "role": "checked learner-visible HSK runtime projection",
+      "sha256": "783c51900512751884d00b7c69759bf8b6bd4fc95d5d7492a7c8ac8e4ae78412"
+    },
+    {
+      "bytes": 3262,
+      "id": "demo-contract",
+      "relativePath": "content/demo/hsk0-1-local-demo.json",
+      "role": "no-progress HSK0 to HSK1 UI walkthrough contract",
+      "sha256": "2263fd7ad16153601dd6b5214056826c4c0108e2f698eac830bc7cec9ee237d1"
+    },
+    {
+      "bytes": 6017,
+      "id": "demo-runbook",
+      "relativePath": "docs/HSK01_LOCAL_DEMO.md",
+      "role": "repeatable defense walkthrough and limitations",
+      "sha256": "195cc5187b6dfd08e2e97debfe852315ca8d33fe1b8dca82030013b9ae97594a"
+    },
+    {
+      "bytes": 2465,
+      "id": "candidate-runbook",
+      "relativePath": "docs/LOCAL_RELEASE_CANDIDATE.md",
+      "role": "local candidate reproduction, verification and claim boundary",
+      "sha256": "dffb0f1def0676e58705f8b27bede1dd4d1f0de558625a68e6887831a05f0a62"
+    },
+    {
+      "bytes": 29146,
+      "id": "architecture",
+      "relativePath": "docs/ARCHITECTURE.md",
+      "role": "local-first architecture and authority boundaries",
+      "sha256": "0e7568c1bca103f3402ba070e7c26c7eab5e440d466cca2fafeba2442d3d770a"
+    },
+    {
+      "bytes": 11423,
+      "id": "mastery-policy",
+      "relativePath": "docs/MASTERY_SYSTEM.md",
+      "role": "skill-separated mastery and remediation rules",
+      "sha256": "815c07401a9d57e834cc8a096d12795fd1051ff113d73865276b52440a603d4c"
+    },
+    {
+      "bytes": 52906,
+      "id": "content-policy",
+      "relativePath": "docs/CONTENT_SYSTEM.md",
+      "role": "content visibility, review and release rules",
+      "sha256": "895769b585584a13c90f54b60037c0fccbe7177f76e5c6df19226fa6c38ca8c1"
+    },
+    {
+      "bytes": 6731,
+      "id": "production-readiness",
+      "relativePath": "config/production-readiness.json",
+      "role": "fail-closed production blockers",
+      "sha256": "f2b0a2da7d07a5f1ae0fe0ad81f9cffe70f09a4437f73fc0e71fc9d907c87fbc"
+    },
+    {
+      "bytes": 23129,
+      "id": "deferred-production-roadmap",
+      "relativePath": "docs/PRODUCTION_UPGRADE_PLAN.md",
+      "role": "explicitly deferred hosted production scope",
+      "sha256": "47a227b05bdaa02874cb80b0c4d4f4fc86b4c51ae62cee764d9be5365191d9a3"
+    },
+    {
+      "bytes": 91,
+      "id": "deferred-sites-binding",
+      "relativePath": ".openai/hosting.json",
+      "role": "preserved Sites binding; not deployment evidence",
+      "sha256": "8714d12c804412f5bedb126aa8edacf0bd3b5611194537b4e9ce9410d0b5e00a"
+    }
+  ],
+  "build": {
+    "artifactCount": 220,
+    "bytes": 7001874,
+    "root": "dist",
+    "sha256": "3d360e4ba890a8db3c1c2e338e9586929ac801f82f28a5d09a6ee75da0c18a08"
+  },
+  "candidateId": "hsk0-4-local-graduation-2026.07.1",
+  "claimBoundary": {
+    "assessmentCalibrationEvidence": false,
+    "environment": "local",
+    "hostedEvidence": false,
+    "humanReviewEvidence": false,
+    "productionReady": false,
+    "sitesVerified": false
+  },
+  "contract": {
+    "bytes": 4789,
+    "relativePath": "config/hsk0-4-local-candidate.json",
+    "sha256": "325d7ca90f6815215239588026607faabc6f1a009e55e1e765ef9e66cd411ea6"
+  },
+  "gates": [
+    {
+      "command": "npm run check",
+      "id": "technical-baseline",
+      "status": "passed"
+    },
+    {
+      "command": "npm run test:e2e -- --reporter=json",
+      "id": "browser-acceptance",
+      "status": "passed"
+    },
+    {
+      "command": "npm run test:lighthouse",
+      "id": "local-lighthouse",
+      "status": "passed"
+    },
+    {
+      "command": "npm audit --omit=dev",
+      "id": "production-dependency-audit",
+      "status": "passed"
+    }
+  ],
+  "kind": "local-graduation-release-candidate",
+  "productionReadiness": {
+    "blockerCount": 23,
+    "pendingGateCount": 9,
+    "productionEvidenceClaimed": false,
+    "status": "blocked"
+  },
+  "schemaVersion": 1,
+  "source": {
+    "cleanAtGateFinish": true,
+    "cleanAtGateStart": true,
+    "revision": "c03fd456534d715896e8e7af1e7990bd31f3d6eb",
+    "tree": "0937e94537114cf450041c62c06c118edb3e2ec1"
+  }
+}
