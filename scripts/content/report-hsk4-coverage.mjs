@@ -33,6 +33,10 @@ import {
   loadHsk4PersonalCommunityLongFormPackBundle,
 } from "../../src/content/hsk4PersonalCommunityLongFormPack.mjs";
 import {
+  assertValidHsk4EducationWorkLongFormPackBundle,
+  loadHsk4EducationWorkLongFormPackBundle,
+} from "../../src/content/hsk4EducationWorkLongFormPack.mjs";
+import {
   assertValidHsk3VocabularyDraftBundle,
 } from "../../src/content/hsk3VocabularyDraft.mjs";
 import {
@@ -188,6 +192,9 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
     assertValidHsk4PersonalCommunityLongFormPackBundle(
       hsk4PersonalCommunity,
     );
+  const hsk4EducationWork = loadHsk4EducationWorkLongFormPackBundle(root);
+  const hsk4EducationWorkResult =
+    assertValidHsk4EducationWorkLongFormPackBundle(hsk4EducationWork);
   const hsk4Vocabulary = hsk4LessonBlueprints.vocabularyBundle;
   const hsk4VocabularyResult = {
     counts: hsk4Vocabulary.draft.counts,
@@ -697,6 +704,41 @@ export const buildHsk4CoverageReport = (root = process.cwd()) => {
             hsk4PersonalCommunityResult.summary.reviewedAudioItems,
           measurementEligibleItems:
             hsk4PersonalCommunityResult.summary.measurementEligibleItems,
+          reviewed: false,
+          learnerVisible: false,
+        },
+        hsk4EducationWorkLongFormDraft: {
+          lessons: hsk4EducationWorkResult.summary.lessons,
+          completedLongFormDomains:
+            hsk4EducationWorkResult.summary.completedLongFormDomains,
+          completedLongFormLessons:
+            hsk4EducationWorkResult.summary.completedLongFormLessons,
+          mappedTopics: hsk4EducationWorkResult.summary.mappedTopics,
+          targetLexemeContexts:
+            hsk4EducationWorkResult.summary.targetLexemeContexts,
+          authoredTexts: hsk4EducationWorkResult.summary.authoredTexts,
+          authoredParagraphs:
+            hsk4EducationWorkResult.summary.authoredParagraphs,
+          vocabularyPracticeItems:
+            hsk4EducationWorkResult.summary.vocabularyPracticeItems,
+          comprehensionItems:
+            hsk4EducationWorkResult.summary.comprehensionItems,
+          evidenceBoundComprehensionItems:
+            hsk4EducationWorkResult.summary
+              .evidenceBoundComprehensionItems,
+          inferenceItems: hsk4EducationWorkResult.summary.inferenceItems,
+          noteMapItems: hsk4EducationWorkResult.summary.noteMapItems,
+          noteMapNodes: hsk4EducationWorkResult.summary.noteMapNodes,
+          synthesisPrompts:
+            hsk4EducationWorkResult.summary.synthesisPrompts,
+          authoredPracticeItems:
+            hsk4EducationWorkResult.summary.authoredPracticeItems,
+          audioDependentItems:
+            hsk4EducationWorkResult.summary.audioDependentItems,
+          reviewedAudioItems:
+            hsk4EducationWorkResult.summary.reviewedAudioItems,
+          measurementEligibleItems:
+            hsk4EducationWorkResult.summary.measurementEligibleItems,
           reviewed: false,
           learnerVisible: false,
         },

@@ -518,6 +518,16 @@ theo foundation fallback không bị chèn vào văn bản không liên quan. Đ
 draft learner-hidden: audio là `null`, TTS chỉ preview, review/rubric/
 measurement/mastery/release đều pending hoặc false.
 
+`content/drafts/hsk4-education-work-long-form-2026.07.json` nối exact hash
+pack cá nhân/cộng đồng và hoàn tất miền thứ hai, đưa cumulative long-form lên
+12/36 lesson. Sáu lesson mới dùng 12 nguồn/36 đoạn để phân tích vai trò trong
+chọn nghề và sản phẩm thực hành, tiến trình cải tiến học tập, điều kiện của
+can thiệp giáo dục, chỉ số đánh giá công việc, sức nặng của claim nghề nghiệp
+và quan điểm về quản lý/môi trường làm việc. Lát này cũng có 60 target lexeme,
+180 vocabulary item, 60 evidence-bound question, 12 bounded inference, 12
+note map và 6 cross-source synthesis. Chính sách ẩn/fail-closed giống miền
+trước; hash prerequisite làm thay đổi upstream không thể âm thầm bỏ qua.
+
 `content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json`
 là module narration/grammar thứ tư với ba lesson về so sánh hiện tượng tự
 nhiên, miêu tả thay đổi môi trường và đánh giá dịch vụ xã hội. Pack

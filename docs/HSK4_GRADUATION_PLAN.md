@@ -652,6 +652,15 @@ native/Vietnamese/assessment review, rubric, measurement, mastery, visibility
 và release vẫn bằng 0/pending. Còn 5/6 domain và 30/36 lesson long-form nên
 chưa cộng điểm trụ cột D.
 
+Miền giáo dục/nghề nghiệp tiếp tục giữ **84%** và nâng long-form HSK4 lên
+12/36 lesson, 2/6 domain. Lát mới thêm 12 nguồn/36 đoạn, 60 target lexeme,
+180 item từ vựng, 60 câu hỏi evidence-bound, 12 bounded inference, 12 note
+map/60 nút và 6 cross-source synthesis; lũy kế hai miền đạt 24 nguồn/72 đoạn
+và 516 practice item. Nội dung phân biệt vai trò, tiến trình, nguyên nhân,
+chỉ số so sánh, claim nghề nghiệp và quan điểm môi trường làm việc; mọi kết
+luận đều có phạm vi và bằng chứng đoạn. Review/audio/measurement/mastery/
+release vẫn bằng 0, còn 4 domain/24 lesson nên chưa tăng trụ cột D.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
