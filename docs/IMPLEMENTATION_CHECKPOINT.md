@@ -124,15 +124,14 @@ Every commit must update this percentage here and in the active roadmap.
   slots remain empty, all learning/release claims remain false, and the
   versioned import contract mutates nothing. Review packaging alone does not
   add learner coverage, so active progress remains **90%**.
-- Added a fail-closed first-lesson promotion dry-run. The real repository input
-  remains blocked with 0/6 review receipts, 0/16 reviewed audio assets and no
-  package/receipt. More importantly, the prerequisite simulation proves that
-  adding only this mapping would make `hsk1-daily-life` plus `daily-1..4`
-  eligible while five target-unit lessons are absent. Promotion now requires
-  an atomic 6/6 lesson unit and zero unintended downstream activation. Complete
-  hash-bound test fixtures satisfy the evidence contract but never authorize
-  import; graph/runtime bytes remain unchanged. This safety work adds no
-  learner coverage, so active progress stays **90%**.
+- Added a fail-closed first-lesson promotion dry-run. Its original simulation
+  exposed that mapping-based eligibility could open `hsk1-daily-life` plus
+  `daily-1..4` while five target-unit lessons were absent, establishing the
+  atomic 6/6 and zero-downstream-activation requirements. Complete hash-bound
+  test fixtures satisfy the evidence contract but never authorize import;
+  graph/runtime bytes remain unchanged. Compiler v2 later removed that
+  mapping-implies-release behavior and rebound this report, as recorded below.
+  This safety work adds no learner coverage, so progress stays **90%**.
 - Added an atomic handoff for all six `hsk1-time-place-events` lessons. Its
   unit-release digest binds 425 exact content targets: 6 blueprints, 81
   vocabulary drafts, 24 communicative turns, 243 vocabulary items, 25 grammar
@@ -158,6 +157,16 @@ Every commit must update this percentage here and in the active roadmap.
   fixtures never authorize import, all real review/audio/package/receipt slots
   stay false and graph/policy/runtime bytes are unchanged, so progress stays
   **90%**.
+- Added a deterministic reviewer packet for the atomic unit. It resolves all
+  425 handoff hashes into exact reviewer-readable draft payloads, indexes six
+  lessons, carries the 15 batch definitions and maps all 45 required role slots
+  to Mandarin, Vietnamese, assessment, grammar or task-pedagogy checklists. Its
+  90-entry audio manifest includes exact scripts, source hashes and safe WAV
+  names for 6 lesson dialogues, 81 vocabulary utterances and 3 task dialogues,
+  while enforcing the canonical PCM format plus speaker provenance, native
+  review and rights requirements. The accompanying guide uses the existing
+  assignment/receipt workflow. All slots/assets remain empty and the packet is
+  explicitly non-authoritative, so active progress remains **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -1173,6 +1182,9 @@ deliverable.
     exactly 1 explicitly authorized unit while `hsk1-daily-life` and its 4
     mapped lessons stay withheld; real review/audio/package/receipt evidence
     and import authorization remain false
+  - atomic unit reviewer packet: 425 exact content payloads, 6 indexed lessons,
+    15 review batches/45 role checklists and 90 source-hash-bound recording
+    scripts with 0 completed review slot, 0 reviewed audio and 0 release item
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1181,7 +1193,7 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 222 files, 1,591 tests passed
+  - Vitest: 223 files, 1,596 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.8 KiB
 - `npm run test:e2e`: 21 tests passed
@@ -1215,13 +1227,12 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Produce a reviewer-usable, learner-hidden packet for the atomic
-   `hsk1-time-place-events` unit: exact text/pinyin/Vietnamese targets, batch
-   checklists and the 90-item audio recording/rights manifest. Do not convert
-   the packet into approvals.
-2. Accept only attributable native-language, pedagogy and audio-rights
-   receipts that bind the exact handoff hashes; keep the unit blocked while any
-   of the 45 review slots or 90 audio targets is incomplete.
+1. Add a fail-closed unit evidence-intake/readiness evaluator for the 45 local
+   review receipts and 90 inspected WAV/rights records. Test fixtures may prove
+   the contract but must never authorize import.
+2. Run the checked reviewer workflow with real attributable Mandarin,
+   Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
+   any exact-hash slot or audio target is incomplete.
 3. Only after real evidence exists, create a versioned package, explicit unit
    authorization and idempotent promotion receipt. Keep the G5 candidate stale
    and operator auth, commerce, hosted pilot and Sites frozen.

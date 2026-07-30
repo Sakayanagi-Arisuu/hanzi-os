@@ -849,6 +849,16 @@ mở `hsk1-time-place-events`; `hsk1-daily-life` và `daily-1..4` vẫn bị gi�
 không có authorization riêng. Fixture không authorize import, không sửa graph,
 policy/runtime và không tạo learner coverage, nên chưa cộng điểm.
 
+Checked reviewer packet cho atomic unit cũng **giữ tiến độ ở 90%**. Packet
+learner-hidden giải tham chiếu đủ 425 exact-hash target thành payload mà reviewer
+có thể đọc, nhóm theo 6 lesson, giữ 15 batch/45 role slot cùng checklist riêng
+cho Mandarin, tiếng Việt, assessment, grammar và task pedagogy. Audio manifest
+đưa đủ script, tên WAV an toàn và source hash cho 90 target: 6 lesson dialogue,
+81 vocabulary listening và 3 task dialogue; format import, speaker provenance,
+native review và rights evidence đều bắt buộc. Guide mô tả workflow assignment,
+receipt và recording nhưng không tự điền review/audio, không publish hay cấp
+mastery, nên deliverable này chỉ gỡ nút thắt vận hành và chưa cộng điểm.
+
 ## 6. Quy tắc cập nhật phần trăm
 
 - Mỗi commit phải cập nhật bảng tiến độ trong file này và
