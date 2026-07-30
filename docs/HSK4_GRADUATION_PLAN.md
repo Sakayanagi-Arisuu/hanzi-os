@@ -787,10 +787,10 @@ Test backup cũng đã chuyển sang tải file thật qua UI, import và reload
 tầng này chưa tự kiếm điểm F nếu chưa có machine-readable receipt.
 
 Lát local candidate hoàn chỉnh tăng trụ cột F thêm 1 điểm và đưa tiến độ lên
-**90%**. Receipt deterministic bind clean source commit `c03fd45`, 10 artifact
+**90%**. Receipt deterministic bind clean source commit `83e967d`, 10 artifact
 và build 220 file/7.001.874 byte; cả 4 gate local cùng 8/8 acceptance capability
-đều `passed`. Baseline có 217 file/1.559 Vitest, 21/21 Playwright, Lighthouse
-mobile median P98/A100/BP100/SEO100 và dependency audit 0 vulnerability.
+đều `passed`. Baseline có 217 file/1.560 Vitest, 21/21 Playwright, Lighthouse
+mobile median P96/A100/BP100/SEO100 và dependency audit 0 vulnerability.
 Verifier cho phép sau gate chỉ receipt cùng hai file tiến độ thay đổi; code,
 config, content, test binding, artifact hoặc build lệch đều làm candidate stale.
 Receipt đồng thời giữ production blocked với 9 gate/23 blocker và mọi claim
@@ -801,6 +801,7 @@ dù receipt được canonicalize. Regression chuyển mọi contract/gate/accep
 build comparison sang canonical JSON, đồng thời kiểm exact command thay vì chỉ
 trạng thái `passed`. Sửa lỗi này giữ tiến độ ở **90%** và bắt buộc tái tạo
 candidate từ clean source; không nới stale-source policy.
+Receipt đã được tái tạo từ source sửa lỗi và sẵn sàng cho verify hậu commit.
 
 ## 6. Quy tắc cập nhật phần trăm
 

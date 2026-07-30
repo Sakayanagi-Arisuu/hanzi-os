@@ -578,11 +578,11 @@ Every commit must update this percentage here and in the active roadmap.
   human-review, calibration or Sites claims. A code/content/config edit after
   the tested revision makes the candidate stale; runner infrastructure alone
   does not earn another G5 point.
-- Generated and checked the first deterministic local candidate receipt from
-  clean source `c03fd45`. It binds 10 artifacts, a 220-file/7,001,874-byte
+- Generated and checked the deterministic local candidate receipt from clean
+  source `83e967d`. It binds 10 artifacts, a 220-file/7,001,874-byte
   build, all four local gates and all eight exact acceptance capabilities.
-  The run passed 217 Vitest files/1,559 tests, 21/21 Playwright tests,
-  Lighthouse median P98/A100/BP100/SEO100 and dependency audit with zero
+  The run passed 217 Vitest files/1,560 tests, 21/21 Playwright tests,
+  Lighthouse median P96/A100/BP100/SEO100 and dependency audit with zero
   vulnerability. The receipt keeps 9 production gates/23 blockers open and
   every production/hosted/review/calibration/Sites claim false. This earns one
   G5 point and raises active progress to **90%**.
@@ -591,7 +591,8 @@ Every commit must update this percentage here and in the active roadmap.
   compares canonical JSON for boundary, exact gate command, acceptance,
   production-blocker and build records. Regression coverage pins reordered
   objects and changed values. Progress stays **90%**, but the source change
-  intentionally makes the previous receipt stale until a clean regeneration.
+  intentionally made the previous receipt stale; a clean regeneration on
+  `83e967d` has now replaced it.
 
 ## Repository state
 
@@ -1107,17 +1108,17 @@ the applicable gates to run again before the next checkpoint commit.
     lessons, 3 unavailable paths and 0 forbidden progress fields; focused
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
-    8 exact G5 acceptance bindings; receipt source `c03fd45`
-  - Vitest: 217 files, 1,559 tests passed
+    8 exact G5 acceptance bindings; receipt source `83e967d`
+  - Vitest: 217 files, 1,560 tests passed
   - production build and bundle policy passed; conservative client asset
     ceiling: 396.7 KiB
 - `npm run test:e2e`: 21 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 98 / 99, median 98
+  - Performance: 98 / 96 / 96, median 96
   - Accessibility: 100
   - Best Practices: 100
   - SEO: 100
-  - Median LCP: 1,871 ms; CLS: 0; TBT: 108 ms
+  - Median LCP: 1,894 ms; CLS: 0; TBT: 180 ms
 - `npm audit --omit=dev`: 0 vulnerabilities
 - `git diff --check`: pass
 
