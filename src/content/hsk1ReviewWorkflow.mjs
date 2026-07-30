@@ -18,6 +18,7 @@ const TARGET_KEYS = [
   "taskIds",
   "topicIds",
   "assessmentItemIds",
+  "runtimePayloadDigests",
 ];
 const ASSIGNMENT_KEYS = [
   "schemaVersion",
@@ -169,6 +170,7 @@ const normalizedTargets = (artifact, batch) => {
     ),
     topicIds: uniqueSortedStrings(batch.topicIds),
     assessmentItemIds: uniqueSortedStrings(batch.itemIds),
+    runtimePayloadDigests: uniqueSortedStrings(batch.targetDigests),
   };
 };
 

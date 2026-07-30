@@ -35,12 +35,12 @@
     {
       "id": "reviewManifest",
       "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-      "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+      "sha256": "sha256:12e920aab0dc90e010037655ec5e0cbb73b92c3f71c0feadb1db4f449f6ce672"
     },
     {
       "id": "firstLessonHandoff",
       "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-      "sha256": "sha256:fb6cb0bcba5f8db4cb55e2af2b07dc691b0d1c9ca0482b3984f2c27a4a4a300c"
+      "sha256": "sha256:2aadf0800fa113e03345de970597181f3157cd263e324f99dae64c215f80b948"
     }
   ],
   "targetBundle": {
@@ -79,12 +79,12 @@
       {
         "id": "reviewManifest",
         "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-        "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+        "sha256": "sha256:12e920aab0dc90e010037655ec5e0cbb73b92c3f71c0feadb1db4f449f6ce672"
       },
       {
         "id": "firstLessonHandoff",
         "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-        "sha256": "sha256:fb6cb0bcba5f8db4cb55e2af2b07dc691b0d1c9ca0482b3984f2c27a4a4a300c"
+        "sha256": "sha256:2aadf0800fa113e03345de970597181f3157cd263e324f99dae64c215f80b948"
       }
     ],
     "perLesson": [
@@ -3545,7 +3545,7 @@
         "batchId": "hsk1-time-place-events:01-numbers:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+        "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:01-numbers:hsk-vocab-00002:listening",
@@ -3615,7 +3615,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3630,7 +3631,7 @@
         "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+        "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:01-numbers:hsk1-grammar-row-011:guided"
@@ -3642,7 +3643,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3657,7 +3659,7 @@
         "batchId": "hsk1-time-place-events:02-calendar:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:d51da1b4140c881ee2cae9d09cb46cf880edc8702ca1a1c2d0deb529e492ffc5",
+        "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:02-calendar:hsk-vocab-00093:listening",
@@ -3707,7 +3709,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3722,7 +3725,7 @@
         "batchId": "hsk1-time-place-events:02-calendar:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:ebeaa689345aaa57d7c56714a31bd15dde609af2b67e7ad7677e495dca12d619",
+        "targetDigest": "sha256:c5e27535496f40959cc0c276359ff14afc7c5c0a5492c473c193fca57c2132be",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:02-calendar:hsk1-grammar-row-001:guided",
@@ -3740,7 +3743,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3755,7 +3759,7 @@
         "batchId": "hsk1-task-02:scenario-review-v1",
         "sourceKind": "task-assessment",
         "sourceId": "hsk1-task-assessment-2026.07",
-        "targetDigest": "sha256:0b568d6b0b52fe84a19bc492432cae8b154dbeab409170fc13766fd616ff398e",
+        "targetDigest": "sha256:cd9f07aac23d1d4576b761984d4e846f93ae55f43c241bd7448e0250d0f760d1",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:02-calendar:hsk1-task-02:roleplay"
@@ -3769,7 +3773,8 @@
           "topicIds": [
             "hsk1-topic-003"
           ],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3784,7 +3789,7 @@
         "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:2fb26a1f616c4a469860545dd8e0f7bc8211e242e4fc3b4a30a76c6c17d7a4f1",
+        "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:listening",
@@ -3842,7 +3847,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3857,7 +3863,7 @@
         "batchId": "hsk1-time-place-events:03-week-and-day-parts:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:9850908186633992efdf46ac3abe84bef6afdeb40bb38efb3216c2951f73856b",
+        "targetDigest": "sha256:3f0f8d7e9210476ffef3157f4558a0d2f21fd39b2d820bf36c9e469970cb28a0",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:03-week-and-day-parts:hsk1-grammar-row-036:guided",
@@ -3873,7 +3879,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3888,7 +3895,7 @@
         "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:dd7e8259869da280e37b7d5b8c01dc5fb36bbaee5bad6f680927d0c8e25fb815",
+        "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:listening",
@@ -3934,7 +3941,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3949,7 +3957,7 @@
         "batchId": "hsk1-time-place-events:04-clock-and-duration:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:ae29da31a19dc02185940d437cd437cc62bf91ee79d6e2df8713643bf4f2e10d",
+        "targetDigest": "sha256:0ec790b90cd726b78b88337725db4a1f8faf88af3a03d955ff25742bfca3cc9b",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:04-clock-and-duration:hsk1-grammar-row-017:guided",
@@ -3973,7 +3981,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -3988,7 +3997,7 @@
         "batchId": "hsk1-time-place-events:05-location:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:8e81ccf97174583e90135f2aaf6e61ac622dc6c66f5b07e7dbdf21afb65b4416",
+        "targetDigest": "sha256:4c0e2acf5ee0d8b41def2b402d56e9fb00a01233ed832464a20450dbdfe58a72",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:05-location:hsk-vocab-00011:listening",
@@ -4094,7 +4103,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -4109,7 +4119,7 @@
         "batchId": "hsk1-time-place-events:05-location:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:32648c41076c66f97816d503b80f159778aae6adbff956450c87245e2ba443af",
+        "targetDigest": "sha256:92a217df5dca3e833e4403b9d981acc1d97dd264cddcaf17eb1ec1e401a4bcaa",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:05-location:hsk1-grammar-row-002:guided",
@@ -4137,7 +4147,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -4152,7 +4163,7 @@
         "batchId": "hsk1-task-05:scenario-review-v1",
         "sourceKind": "task-assessment",
         "sourceId": "hsk1-task-assessment-2026.07",
-        "targetDigest": "sha256:462509ac89c46db502884ea83a9b97165a2a5ce3f1adddd84acc233d5c8fd429",
+        "targetDigest": "sha256:3cf618d3ed7b25884ec75519be7228301b5ec88cbea36713f438fe4d4bad6a4a",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:05-location:hsk1-task-05:roleplay"
@@ -4166,7 +4177,8 @@
           "topicIds": [
             "hsk1-topic-007"
           ],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -4181,7 +4193,7 @@
         "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:a7b368b4e46e45139a9cf769c0588cddfcf980ad92a0738bf7d80fffc8d80ff3",
+        "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:listening",
@@ -4235,7 +4247,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -4250,7 +4263,7 @@
         "batchId": "hsk1-time-place-events:06-weather-and-residence:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:3841b4fab944e7d0abc8270b897f85d95afe653740afbb13d07c990910258b42",
+        "targetDigest": "sha256:e06d5458d66e0b840519bf93b89b70fb03a01012dc7169cb6b39d12383b399a1",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:06-weather-and-residence:hsk1-grammar-row-032:guided"
@@ -4262,7 +4275,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -4277,7 +4291,7 @@
         "batchId": "hsk1-task-04:scenario-review-v1",
         "sourceKind": "task-assessment",
         "sourceId": "hsk1-task-assessment-2026.07",
-        "targetDigest": "sha256:fc47bca314ba1c2bc494c8857a7214fa4d2636b4871cf6aea7f8135495bb1770",
+        "targetDigest": "sha256:ae0dedf16f7869066add4501ba4662816603a8066385097014d2b5ae4746866e",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:06-weather-and-residence:hsk1-task-04:roleplay"
@@ -4291,7 +4305,8 @@
           "topicIds": [
             "hsk1-topic-006"
           ],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -5295,13 +5310,13 @@
       }
     ]
   },
-  "unitReleaseDigest": "sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
+  "unitReleaseDigest": "sha256:0338411476d7c1c021fb196f975f4b355211f013e87eeb0cb99377a56eb13565",
   "requiredReviewReceipts": [
     {
       "lessonId": "hsk1-time-place-events:01-numbers",
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5309,7 +5324,7 @@
       "lessonId": "hsk1-time-place-events:01-numbers",
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5317,7 +5332,7 @@
       "lessonId": "hsk1-time-place-events:01-numbers",
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5325,7 +5340,7 @@
       "lessonId": "hsk1-time-place-events:01-numbers",
       "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5333,7 +5348,7 @@
       "lessonId": "hsk1-time-place-events:01-numbers",
       "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5341,7 +5356,7 @@
       "lessonId": "hsk1-time-place-events:01-numbers",
       "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5349,7 +5364,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:d51da1b4140c881ee2cae9d09cb46cf880edc8702ca1a1c2d0deb529e492ffc5",
+      "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5357,7 +5372,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:d51da1b4140c881ee2cae9d09cb46cf880edc8702ca1a1c2d0deb529e492ffc5",
+      "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5365,7 +5380,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:d51da1b4140c881ee2cae9d09cb46cf880edc8702ca1a1c2d0deb529e492ffc5",
+      "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5373,7 +5388,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:ebeaa689345aaa57d7c56714a31bd15dde609af2b67e7ad7677e495dca12d619",
+      "targetDigest": "sha256:c5e27535496f40959cc0c276359ff14afc7c5c0a5492c473c193fca57c2132be",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5381,7 +5396,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:ebeaa689345aaa57d7c56714a31bd15dde609af2b67e7ad7677e495dca12d619",
+      "targetDigest": "sha256:c5e27535496f40959cc0c276359ff14afc7c5c0a5492c473c193fca57c2132be",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5389,7 +5404,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:ebeaa689345aaa57d7c56714a31bd15dde609af2b67e7ad7677e495dca12d619",
+      "targetDigest": "sha256:c5e27535496f40959cc0c276359ff14afc7c5c0a5492c473c193fca57c2132be",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5397,7 +5412,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-task-02:scenario-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:0b568d6b0b52fe84a19bc492432cae8b154dbeab409170fc13766fd616ff398e",
+      "targetDigest": "sha256:cd9f07aac23d1d4576b761984d4e846f93ae55f43c241bd7448e0250d0f760d1",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5405,7 +5420,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-task-02:scenario-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:0b568d6b0b52fe84a19bc492432cae8b154dbeab409170fc13766fd616ff398e",
+      "targetDigest": "sha256:cd9f07aac23d1d4576b761984d4e846f93ae55f43c241bd7448e0250d0f760d1",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5413,7 +5428,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-task-02:scenario-review-v1",
       "role": "task-pedagogy-reviewer",
-      "targetDigest": "sha256:0b568d6b0b52fe84a19bc492432cae8b154dbeab409170fc13766fd616ff398e",
+      "targetDigest": "sha256:cd9f07aac23d1d4576b761984d4e846f93ae55f43c241bd7448e0250d0f760d1",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5421,7 +5436,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:2fb26a1f616c4a469860545dd8e0f7bc8211e242e4fc3b4a30a76c6c17d7a4f1",
+      "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5429,7 +5444,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:2fb26a1f616c4a469860545dd8e0f7bc8211e242e4fc3b4a30a76c6c17d7a4f1",
+      "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5437,7 +5452,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:2fb26a1f616c4a469860545dd8e0f7bc8211e242e4fc3b4a30a76c6c17d7a4f1",
+      "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5445,7 +5460,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:9850908186633992efdf46ac3abe84bef6afdeb40bb38efb3216c2951f73856b",
+      "targetDigest": "sha256:3f0f8d7e9210476ffef3157f4558a0d2f21fd39b2d820bf36c9e469970cb28a0",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5453,7 +5468,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:9850908186633992efdf46ac3abe84bef6afdeb40bb38efb3216c2951f73856b",
+      "targetDigest": "sha256:3f0f8d7e9210476ffef3157f4558a0d2f21fd39b2d820bf36c9e469970cb28a0",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5461,7 +5476,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:9850908186633992efdf46ac3abe84bef6afdeb40bb38efb3216c2951f73856b",
+      "targetDigest": "sha256:3f0f8d7e9210476ffef3157f4558a0d2f21fd39b2d820bf36c9e469970cb28a0",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5469,7 +5484,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:dd7e8259869da280e37b7d5b8c01dc5fb36bbaee5bad6f680927d0c8e25fb815",
+      "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5477,7 +5492,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:dd7e8259869da280e37b7d5b8c01dc5fb36bbaee5bad6f680927d0c8e25fb815",
+      "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5485,7 +5500,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:dd7e8259869da280e37b7d5b8c01dc5fb36bbaee5bad6f680927d0c8e25fb815",
+      "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5493,7 +5508,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:ae29da31a19dc02185940d437cd437cc62bf91ee79d6e2df8713643bf4f2e10d",
+      "targetDigest": "sha256:0ec790b90cd726b78b88337725db4a1f8faf88af3a03d955ff25742bfca3cc9b",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5501,7 +5516,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:ae29da31a19dc02185940d437cd437cc62bf91ee79d6e2df8713643bf4f2e10d",
+      "targetDigest": "sha256:0ec790b90cd726b78b88337725db4a1f8faf88af3a03d955ff25742bfca3cc9b",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5509,7 +5524,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:ae29da31a19dc02185940d437cd437cc62bf91ee79d6e2df8713643bf4f2e10d",
+      "targetDigest": "sha256:0ec790b90cd726b78b88337725db4a1f8faf88af3a03d955ff25742bfca3cc9b",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5517,7 +5532,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-time-place-events:05-location:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:8e81ccf97174583e90135f2aaf6e61ac622dc6c66f5b07e7dbdf21afb65b4416",
+      "targetDigest": "sha256:4c0e2acf5ee0d8b41def2b402d56e9fb00a01233ed832464a20450dbdfe58a72",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5525,7 +5540,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-time-place-events:05-location:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:8e81ccf97174583e90135f2aaf6e61ac622dc6c66f5b07e7dbdf21afb65b4416",
+      "targetDigest": "sha256:4c0e2acf5ee0d8b41def2b402d56e9fb00a01233ed832464a20450dbdfe58a72",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5533,7 +5548,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-time-place-events:05-location:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:8e81ccf97174583e90135f2aaf6e61ac622dc6c66f5b07e7dbdf21afb65b4416",
+      "targetDigest": "sha256:4c0e2acf5ee0d8b41def2b402d56e9fb00a01233ed832464a20450dbdfe58a72",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5541,7 +5556,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-time-place-events:05-location:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:32648c41076c66f97816d503b80f159778aae6adbff956450c87245e2ba443af",
+      "targetDigest": "sha256:92a217df5dca3e833e4403b9d981acc1d97dd264cddcaf17eb1ec1e401a4bcaa",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5549,7 +5564,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-time-place-events:05-location:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:32648c41076c66f97816d503b80f159778aae6adbff956450c87245e2ba443af",
+      "targetDigest": "sha256:92a217df5dca3e833e4403b9d981acc1d97dd264cddcaf17eb1ec1e401a4bcaa",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5557,7 +5572,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-time-place-events:05-location:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:32648c41076c66f97816d503b80f159778aae6adbff956450c87245e2ba443af",
+      "targetDigest": "sha256:92a217df5dca3e833e4403b9d981acc1d97dd264cddcaf17eb1ec1e401a4bcaa",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5565,7 +5580,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-task-05:scenario-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:462509ac89c46db502884ea83a9b97165a2a5ce3f1adddd84acc233d5c8fd429",
+      "targetDigest": "sha256:3cf618d3ed7b25884ec75519be7228301b5ec88cbea36713f438fe4d4bad6a4a",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5573,7 +5588,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-task-05:scenario-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:462509ac89c46db502884ea83a9b97165a2a5ce3f1adddd84acc233d5c8fd429",
+      "targetDigest": "sha256:3cf618d3ed7b25884ec75519be7228301b5ec88cbea36713f438fe4d4bad6a4a",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5581,7 +5596,7 @@
       "lessonId": "hsk1-time-place-events:05-location",
       "batchId": "hsk1-task-05:scenario-review-v1",
       "role": "task-pedagogy-reviewer",
-      "targetDigest": "sha256:462509ac89c46db502884ea83a9b97165a2a5ce3f1adddd84acc233d5c8fd429",
+      "targetDigest": "sha256:3cf618d3ed7b25884ec75519be7228301b5ec88cbea36713f438fe4d4bad6a4a",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5589,7 +5604,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:a7b368b4e46e45139a9cf769c0588cddfcf980ad92a0738bf7d80fffc8d80ff3",
+      "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5597,7 +5612,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:a7b368b4e46e45139a9cf769c0588cddfcf980ad92a0738bf7d80fffc8d80ff3",
+      "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5605,7 +5620,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:a7b368b4e46e45139a9cf769c0588cddfcf980ad92a0738bf7d80fffc8d80ff3",
+      "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5613,7 +5628,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:3841b4fab944e7d0abc8270b897f85d95afe653740afbb13d07c990910258b42",
+      "targetDigest": "sha256:e06d5458d66e0b840519bf93b89b70fb03a01012dc7169cb6b39d12383b399a1",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5621,7 +5636,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:3841b4fab944e7d0abc8270b897f85d95afe653740afbb13d07c990910258b42",
+      "targetDigest": "sha256:e06d5458d66e0b840519bf93b89b70fb03a01012dc7169cb6b39d12383b399a1",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5629,7 +5644,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:3841b4fab944e7d0abc8270b897f85d95afe653740afbb13d07c990910258b42",
+      "targetDigest": "sha256:e06d5458d66e0b840519bf93b89b70fb03a01012dc7169cb6b39d12383b399a1",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5637,7 +5652,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-task-04:scenario-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:fc47bca314ba1c2bc494c8857a7214fa4d2636b4871cf6aea7f8135495bb1770",
+      "targetDigest": "sha256:ae0dedf16f7869066add4501ba4662816603a8066385097014d2b5ae4746866e",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5645,7 +5660,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-task-04:scenario-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:fc47bca314ba1c2bc494c8857a7214fa4d2636b4871cf6aea7f8135495bb1770",
+      "targetDigest": "sha256:ae0dedf16f7869066add4501ba4662816603a8066385097014d2b5ae4746866e",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5653,7 +5668,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-task-04:scenario-review-v1",
       "role": "task-pedagogy-reviewer",
-      "targetDigest": "sha256:fc47bca314ba1c2bc494c8857a7214fa4d2636b4871cf6aea7f8135495bb1770",
+      "targetDigest": "sha256:ae0dedf16f7869066add4501ba4662816603a8066385097014d2b5ae4746866e",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     }
@@ -5662,8 +5677,8 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-atomic-unit-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
-    "unitReleaseDigest": "sha256:0ebada9ee009b8c0ea83df17a536aa41d9c3c8076582a3412d4e42e616588628",
+    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:0338411476d7c1c021fb196f975f4b355211f013e87eeb0cb99377a56eb13565",
+    "unitReleaseDigest": "sha256:0338411476d7c1c021fb196f975f4b355211f013e87eeb0cb99377a56eb13565",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },

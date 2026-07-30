@@ -7,6 +7,12 @@ import {
   HSK1_UNIT_PROMOTION_HANDOFF_RELATIVE_PATH,
   loadHsk1UnitPromotionHandoffBundle,
 } from "./hsk1UnitPromotionHandoff.mjs";
+import { resolveHsk1ReviewBatch } from "./hsk1ReviewWorkflow.mjs";
+import {
+  assertValidHsk1UnitRuntimeProjectionBundle,
+  HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeProjectionBundle,
+} from "./hsk1UnitRuntimeProjection.mjs";
 import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK1_UNIT_REVIEWER_PACKET_RELATIVE_PATH =
@@ -163,11 +169,16 @@ export const loadHsk1UnitReviewerPacketSources = (
 ) => ({
   root,
   handoffBundle: loadHsk1UnitPromotionHandoffBundle(root),
+  runtimeProjectionBundle: loadHsk1UnitRuntimeProjectionBundle(root),
 });
 
 export const projectHsk1UnitReviewerPacket = async (source) => {
   await assertValidHsk1UnitPromotionHandoffBundle(source.handoffBundle);
+  await assertValidHsk1UnitRuntimeProjectionBundle(
+    source.runtimeProjectionBundle,
+  );
   const handoff = source.handoffBundle.handoff;
+  const runtimeProjection = source.runtimeProjectionBundle.projection;
   const handoffSource = source.handoffBundle.source;
   const communicativeCollection =
     handoffSource.firstHandoffBundle.source.communicativeBundle.collection;
@@ -205,7 +216,40 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
       taskPack,
     }));
   }
-  const reviewSlots = handoff.requiredReviewReceipts.map((slot) => {
+  const projectionReviewContexts = await Promise.all(
+    runtimeProjection.reviewBatches.map((batch) =>
+      resolveHsk1ReviewBatch(source.root, batch.batchId)
+    ),
+  );
+  const projectionReviewBatches = projectionReviewContexts.map((context) => ({
+    lessonId: context.batch.authoringLessonId,
+    batchId: context.batch.batchId,
+    sourceKind: context.manifestBatch.sourceKind,
+    sourceId: context.manifestBatch.sourceId,
+    targetDigest: context.targetDigest,
+    targets: context.targets,
+    requiredRoles: context.manifestBatch.requiredRoles,
+    state: context.manifestBatch.state,
+    approvalCount: context.manifestBatch.approvalCount,
+  }));
+  const reviewBatches = [
+    ...handoff.targetBundle.reviewBatches,
+    ...projectionReviewBatches,
+  ];
+  const projectionReviewRequirements = projectionReviewBatches.flatMap(
+    (batch) => batch.requiredRoles.map((role) => ({
+      lessonId: batch.lessonId,
+      batchId: batch.batchId,
+      role,
+      targetDigest: batch.targetDigest,
+      assignmentDocumentRequired: true,
+      completedReviewReceiptId: null,
+    })),
+  );
+  const reviewSlots = [
+    ...handoff.requiredReviewReceipts,
+    ...projectionReviewRequirements,
+  ].map((slot) => {
     const requiredChecklistIds = ROLE_CHECKLISTS[slot.role];
     if (!requiredChecklistIds) {
       throw new Error(`${slot.role} reviewer checklist is missing`);
@@ -240,7 +284,7 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
               .map((target) => target.targetId),
           ]),
       ),
-      reviewBatchIds: handoff.targetBundle.reviewBatches
+      reviewBatchIds: reviewBatches
         .filter((batch) => batch.lessonId === lessonId)
         .map((batch) => batch.batchId),
       audioTargetIds: audioRecordingManifest
@@ -261,6 +305,11 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
         HSK1_UNIT_PROMOTION_HANDOFF_RELATIVE_PATH,
       ),
       ...handoff.sourceBindings,
+      sourceBinding(
+        source.root,
+        "runtimeProjectionDraft",
+        HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+      ),
     ],
     reviewerChecklists: ROLE_CHECKLISTS,
     audioRecordingPolicy: {
@@ -274,13 +323,24 @@ export const projectHsk1UnitReviewerPacket = async (source) => {
     },
     lessonIndex,
     contentTargets,
-    reviewBatches: handoff.targetBundle.reviewBatches,
+    runtimeProjectionTargets: {
+      projectionId: runtimeProjection.projectionId,
+      projectionSha256: runtimeProjection.projectionSha256,
+      lexemes: runtimeProjection.lexemes,
+      lessons: runtimeProjection.lessons,
+      runtimeRepresentability: runtimeProjection.runtimeRepresentability,
+    },
+    reviewBatches,
     reviewSlots,
     audioRecordingManifest,
     counts: {
       lessons: lessonIndex.length,
       contentTargets: contentTargets.length,
-      reviewBatches: handoff.targetBundle.reviewBatches.length,
+      runtimeProjectionTargets:
+        runtimeProjection.lexemes.length + runtimeProjection.lessons.length,
+      unrepresentedNonCoreTargets:
+        runtimeProjection.runtimeRepresentability.unrepresentedNonCoreTargets,
+      reviewBatches: reviewBatches.length,
       reviewSlots: reviewSlots.length,
       audioTargets: audioRecordingManifest.length,
       dialogueAudioTargets: audioRecordingManifest.filter(
@@ -327,6 +387,7 @@ export const validateHsk1UnitReviewerPacketBundle = async ({
     || !Array.isArray(packet.sourceBindings)
     || !Array.isArray(packet.lessonIndex)
     || !Array.isArray(packet.contentTargets)
+    || !isRecord(packet.runtimeProjectionTargets)
     || !Array.isArray(packet.reviewBatches)
     || !Array.isArray(packet.reviewSlots)
     || !Array.isArray(packet.audioRecordingManifest)

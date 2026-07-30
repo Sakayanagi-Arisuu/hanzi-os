@@ -22,7 +22,7 @@ describe("HSK1-4 runtime promotion queue", () => {
       graphUnits: 15,
       authoredLessonBlueprints: 213,
       blueprintApprovedLessons: 0,
-      reviewBatches: 497,
+      reviewBatches: 503,
       approvalRecords: 0,
       learnerVisibleTargetLessons: 4,
       prerequisiteBlockedSourceLessons: 6,
@@ -41,7 +41,7 @@ describe("HSK1-4 runtime promotion queue", () => {
       visible: level.learnerVisibleTargetLessonCount,
       pendingReview: level.levelReview.pendingBatchCount,
     }))).toEqual([
-      { pathId: "hsk1", authored: 40, visible: 4, pendingReview: 85 },
+      { pathId: "hsk1", authored: 40, visible: 4, pendingReview: 91 },
       { pathId: "hsk2", authored: 40, visible: 0, pendingReview: 122 },
       { pathId: "hsk3", authored: 55, visible: 0, pendingReview: 122 },
       { pathId: "hsk4", authored: 78, visible: 0, pendingReview: 168 },

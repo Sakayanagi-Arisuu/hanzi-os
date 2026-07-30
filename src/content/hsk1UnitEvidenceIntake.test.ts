@@ -38,7 +38,7 @@ describe("HSK1 atomic unit evidence intake", () => {
     const result = await assertValidHsk1UnitEvidenceReadinessBundle(bundle);
 
     expect(result.summary).toEqual({
-      requiredReviewSlots: 45,
+      requiredReviewSlots: 63,
       approvedReviewSlots: 0,
       requiredAudioTargets: 90,
       reviewedAudioTargets: 0,
@@ -83,9 +83,9 @@ describe("HSK1 atomic unit evidence intake", () => {
       validationErrors: [],
       blockers: ["TEST_FIXTURE_NOT_AUTHORITY"],
       review: {
-        requiredSlots: 45,
-        suppliedSlots: 45,
-        approvedSlots: 45,
+        requiredSlots: 63,
+        suppliedSlots: 63,
+        approvedSlots: 63,
         missingSlotKeys: [],
       },
       audio: {
@@ -109,7 +109,7 @@ describe("HSK1 atomic unit evidence intake", () => {
     });
 
     expect(result.evidenceValid).toBe(false);
-    expect(result.review.approvedSlots).toBe(44);
+    expect(result.review.approvedSlots).toBe(62);
     expect(result.review.missingSlotKeys).toHaveLength(1);
     expect(result.readyForPackage).toBe(false);
     expect(result.importAuthorized).toBe(false);

@@ -6,6 +6,11 @@ import {
   HSK1_UNIT_EVIDENCE_READINESS_RELATIVE_PATH,
   loadHsk1UnitEvidenceReadinessBundle,
 } from "./hsk1UnitEvidenceIntake.mjs";
+import {
+  assertValidHsk1UnitRuntimeProjectionBundle,
+  HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeProjectionBundle,
+} from "./hsk1UnitRuntimeProjection.mjs";
 import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK1_UNIT_PACKAGE_PLAN_RELATIVE_PATH =
@@ -69,6 +74,7 @@ export const loadHsk1UnitPackagePlanSources = (
 ) => ({
   root,
   evidenceBundle: loadHsk1UnitEvidenceReadinessBundle(root),
+  runtimeProjectionBundle: loadHsk1UnitRuntimeProjectionBundle(root),
   registry: readJson(root, REGISTRY_RELATIVE_PATH),
   baseManifest: readJson(root, BASE_MANIFEST_RELATIVE_PATH),
   baseItemCatalog: readJson(root, BASE_ITEM_CATALOG_RELATIVE_PATH),
@@ -207,9 +213,14 @@ export const projectCheckedHsk1UnitPackagePlan = async (
 ) => {
   const evidenceValidation =
     await assertValidHsk1UnitEvidenceReadinessBundle(source.evidenceBundle);
+  const runtimeProjectionValidation =
+    await assertValidHsk1UnitRuntimeProjectionBundle(
+      source.runtimeProjectionBundle,
+    );
   const evidence = source.evidenceBundle.report;
   const packet = source.evidenceBundle.source.packetBundle.packet;
   const handoff = source.evidenceBundle.source.handoffBundle.handoff;
+  const runtimeProjectionDraft = source.runtimeProjectionBundle.projection;
   if (
     source.registry.currentContentVersion !== BASE_PACKAGE_VERSION
     || source.baseManifest.packageId !== BASE_PACKAGE_VERSION
@@ -233,6 +244,8 @@ export const projectCheckedHsk1UnitPackagePlan = async (
     || handoff.targetBundle.unitId !== UNIT_ID
     || handoff.counts.lessons !== 6
     || handoff.counts.vocabularyDrafts !== 81
+    || runtimeProjectionDraft.unitId !== UNIT_ID
+    || runtimeProjectionDraft.targetPackageVersion !== TARGET_PACKAGE_VERSION
   ) {
     throw new Error("HSK1 package plan atomic handoff has drifted");
   }
@@ -250,17 +263,24 @@ export const projectCheckedHsk1UnitPackagePlan = async (
     vocabularySource: source.vocabularySource,
   });
   const lessonProjection = buildLessonProjectionAudit(packet);
+  const draftedCatalogItems =
+    runtimeProjectionValidation.summary.runtimeCatalogItems;
+  const finalizedCatalogItems =
+    runtimeProjectionValidation.summary.finalizedPayloads;
   const projectionReady =
-    lexemeProjection.finalizedLexemePayloads
-      === lexemeProjection.requiredLexemePayloads
-    && lessonProjection.finalizedLessonPayloads
-      === lessonProjection.requiredLessonPayloads;
+    draftedCatalogItems === 87 && finalizedCatalogItems === 87;
   const blockers = [];
   if (!evidence.result.evidenceComplete) {
     blockers.push("REAL_REVIEW_AND_AUDIO_EVIDENCE_INCOMPLETE");
   }
   if (!projectionReady) {
     blockers.push("REVIEWED_RUNTIME_PROJECTION_MISSING");
+  }
+  if (
+    runtimeProjectionDraft.runtimeRepresentability
+      .unrepresentedNonCoreTargets > 0
+  ) {
+    blockers.push("RUNTIME_ACTIVITY_AND_KNOWLEDGE_PROJECTION_MISSING");
   }
   blockers.push("CONTENT_OWNER_METADATA_MISSING");
   blockers.push("SOURCE_LICENSE_METADATA_MISSING");
@@ -303,6 +323,11 @@ export const projectCheckedHsk1UnitPackagePlan = async (
         "vocabularySource",
         VOCABULARY_SOURCE_RELATIVE_PATH,
       ),
+      sourceBinding(
+        source.root,
+        "runtimeProjectionDraft",
+        HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+      ),
       sourceBinding(source.root, "runtimeTypes", RUNTIME_TYPES_RELATIVE_PATH),
       sourceBinding(
         source.root,
@@ -329,9 +354,35 @@ export const projectCheckedHsk1UnitPackagePlan = async (
     },
     runtimeProjection: {
       requiredCatalogItems: 87,
-      finalizedCatalogItems: 0,
-      lexemes: lexemeProjection,
-      lessons: lessonProjection,
+      draftedCatalogItems,
+      finalizedCatalogItems,
+      projectionId: runtimeProjectionDraft.projectionId,
+      projectionSha256: runtimeProjectionDraft.projectionSha256,
+      reviewBatches: runtimeProjectionValidation.summary.reviewBatches,
+      requiredReviewSlots:
+        runtimeProjectionValidation.summary.requiredReviewSlots,
+      approvals: runtimeProjectionValidation.summary.approvals,
+      sourceGapAudit: {
+        lexemes: lexemeProjection,
+        lessons: lessonProjection,
+      },
+      draftCoverage: {
+        lexemes: runtimeProjectionValidation.summary.lexemes,
+        lessons: runtimeProjectionValidation.summary.lessons,
+        safeRuntimeLexemeIds:
+          runtimeProjectionValidation.summary.safeRuntimeLexemeIds,
+        safeRuntimeLessonIds:
+          runtimeProjectionValidation.summary.safeRuntimeLessonIds,
+        traditionalDecisionsDrafted:
+          runtimeProjectionValidation.summary.traditionalEditorialDecisions,
+        numberedPinyinOverridesDrafted:
+          runtimeProjectionValidation.summary.numberedPinyinOverrides,
+        exampleTriplesDrafted:
+          runtimeProjectionValidation.summary.newExampleDrafts
+          + runtimeProjectionValidation.summary.dialogueExampleCandidates,
+        tagSetsDrafted: runtimeProjectionValidation.summary.lexemes,
+      },
+      representability: runtimeProjectionDraft.runtimeRepresentability,
     },
     governance: {
       requiredPackageReviewRoles: [
@@ -355,6 +406,7 @@ export const projectCheckedHsk1UnitPackagePlan = async (
     },
     actionsInDependencyOrder: [
       "AUTHOR_SAFE_RUNTIME_ID_AND_PAYLOAD_PROJECTION",
+      "AUTHOR_VERSIONED_RUNTIME_ACTIVITY_DIALOGUE_AND_KNOWLEDGE_PROJECTION",
       "REVIEW_EXACT_RUNTIME_PROJECTION_AND_RESOLVE_SOURCE_AMBIGUITIES",
       "COLLECT_REAL_45_ROLE_AND_90_AUDIO_EVIDENCE",
       "BIND_CONTENT_OWNER_SOURCE_LICENSE_AND_AUDIO_IMPORT_DESCRIPTOR",
@@ -420,18 +472,28 @@ export const validateHsk1UnitPackagePlanBundle = async ({ source, plan }) => {
     errors,
     summary: {
       requiredCatalogItems: expected.runtimeProjection.requiredCatalogItems,
+      draftedCatalogItems: expected.runtimeProjection.draftedCatalogItems,
       finalizedCatalogItems: expected.runtimeProjection.finalizedCatalogItems,
       unsafeAuthoringLessonIds:
-        expected.runtimeProjection.lessons.unsafeAuthoringLessonIds.length,
+        expected.runtimeProjection.sourceGapAudit.lessons
+          .unsafeAuthoringLessonIds.length,
+      safeRuntimeLessonIds:
+        expected.runtimeProjection.draftCoverage.safeRuntimeLessonIds,
       traditionalEditorialDecisions:
-        expected.runtimeProjection.lexemes.fieldReadiness
+        expected.runtimeProjection.sourceGapAudit.lexemes.fieldReadiness
           .traditionalEditorialDecisionIds.length,
       pronunciationReconciliations:
-        expected.runtimeProjection.lexemes.fieldReadiness
+        expected.runtimeProjection.sourceGapAudit.lexemes.fieldReadiness
           .sourcePronunciationReconciliationIds.length,
       missingExampleTriples:
-        expected.runtimeProjection.lexemes.fieldReadiness
-          .missingExampleTripleIds.length,
+        expected.runtimeProjection.requiredCatalogItems
+          - expected.runtimeProjection.draftCoverage.exampleTriplesDrafted
+          - expected.runtimeProjection.draftCoverage.lessons,
+      requiredProjectionReviewSlots:
+        expected.runtimeProjection.requiredReviewSlots,
+      unrepresentedNonCoreTargets:
+        expected.runtimeProjection.representability
+          .unrepresentedNonCoreTargets,
       blockers: expected.materialization.blockers,
     },
   };

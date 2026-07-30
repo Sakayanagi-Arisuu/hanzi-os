@@ -158,8 +158,9 @@ Every commit must update this percentage here and in the active roadmap.
   stay false and graph/policy/runtime bytes are unchanged, so progress stays
   **90%**.
 - Added a deterministic reviewer packet for the atomic unit. It resolves all
-  425 handoff hashes into exact reviewer-readable draft payloads, indexes six
-  lessons, carries the 15 batch definitions and maps all 45 required role slots
+  425 handoff hashes plus 87 runtime-core payloads into exact reviewer-readable
+  data, indexes six lessons, carries 21 batch definitions and maps all 63
+  required role slots
   to Mandarin, Vietnamese, assessment, grammar or task-pedagogy checklists. Its
   90-entry audio manifest includes exact scripts, source hashes and safe WAV
   names for 6 lesson dialogues, 81 vocabulary utterances and 3 task dialogues,
@@ -168,7 +169,7 @@ Every commit must update this percentage here and in the active roadmap.
   assignment/receipt workflow. All slots/assets remain empty and the packet is
   explicitly non-authoritative, so active progress remains **90%**.
 - Added a checked unit evidence-intake/readiness gate plus live local status
-  command. The checked repository baseline truthfully reports 0/45 approved
+  command. The checked repository baseline truthfully reports 0/63 approved
   review slots and 0/90 reviewed audio/rights records, with package readiness
   and import authorization false. Local assignment/receipt pairs are
   revalidated against the current manifest and handoff digest; audio records
@@ -176,21 +177,35 @@ Every commit must update this percentage here and in the active roadmap.
   evidence, independent native review and audio-rights review. Duplicate
   slots/targets, reviewer reuse across roles in one batch, reused audio bytes,
   unsafe paths/symlinks, hash drift and fixture relabeling fail closed. A
-  complete 45/45 + 90/90 test fixture proves the contract but remains
+  complete 63/63 + 90/90 test fixture proves the contract but remains
   non-authoritative, so active progress stays **90%**.
 - Added a checked, versioned package planner for the atomic unit. It binds the
   current `foundation-2026.07.6` package and planned `.07.7` successor, exact
   handoff/evidence hashes and the runtime schema without writing any package,
   registry, policy or runtime bytes. The plan finds 87 required catalog items
-  and 0 finalized payloads: all 6 authoring lesson IDs require an explicit safe
-  runtime-ID mapping; 81 lexemes include 7 unresolved traditional choices, 2
-  source-pronunciation reconciliations, 42 missing example triples and 81
-  missing tag sets. All six lessons still need Chinese titles, duration, XP
-  support values and skill vectors. It also keeps draft review separate from
+  and 87 drafted/0 reviewed payloads: all 6 authoring lesson IDs now have an
+  explicit safe runtime-ID mapping; 81 lexemes include draft decisions for 7
+  traditional choices, 2 source-pronunciation reconciliations, 81 example
+  triples and 81 tag sets. All six lessons now have Chinese titles, duration,
+  XP support values and skill vectors. The plan also proves 338/425 dialogue,
+  practice, grammar and task targets are still outside the current runtime
+  schema and blocks import until an activity/knowledge projection exists. It
+  keeps draft review separate from
   package content-owner/native/source-license/audio-rights governance and
   reports all real evidence, owner/license, audio descriptor, package,
   authorization and promotion-receipt blockers. No release or learning claim
   changed, so active progress remains **90%**.
+- Added the checked runtime-core projection behind that planner: 81 lexeme and
+  6 lesson payloads, six safe runtime lesson IDs, one cross-unit prerequisite,
+  42 new AI-assisted example drafts and 39 exact dialogue candidates. Seven
+  traditional selections, two syllabus/source pronunciation reconciliations
+  and three runtime-parser erhua normalizations retain decision provenance.
+  Numbered pinyin round-trips to the marked form, including new `nǎr`/`zhèr`
+  parser regressions. Six projection batches add 18 attributable slots to the
+  real workflow, taking HSK1 to 7 sources, 91 batches, 276 role assignments and
+  2,268 exact targets. All projection approvals/finalized/release counts stay
+  zero and the 338 non-core target gap remains explicit, so progress stays
+  **90%**.
 - Expanded HSK1 from three broad units to six ordered authoring units with
   distinct objectives and exit-evidence modes: personal exchange; time/place/
   events; daily needs; travel/leisure; study/work; and character integration.
@@ -286,11 +301,11 @@ Every commit must update this percentage here and in the active roadmap.
   10 vocabulary and 10 grammar items, each bound to an exact draft entity.
   Listening audio remains null and requires reviewed human/licensed recordings.
   Source-exposed drafts require independent alternate forms before calibration.
-- Expanded the exact-hash review manifest to six HSK1 draft artifacts and 85
+- Expanded the exact-hash review manifest to seven HSK1 draft artifacts and 91
   pending batches (25 vocabulary, 15 character, 20 grammar, 15 task and 10
   assessment). It contains zero approval and cannot publish content.
-- Added the local HSK1 review workflow over the exact manifest: 85 batches,
-  258 required role assignments and 2,181 normalized exact target references.
+- Added the local HSK1 review workflow over the exact manifest: 91 batches,
+  276 required role assignments and 2,268 normalized exact target references.
   Exported assignments bind manifest/source/target hashes and require one
   decision per target; imports create idempotent Git-ignored receipts only.
 - Reviewer/operator identities remain declared local metadata. The workflow
@@ -1145,10 +1160,10 @@ deliverable.
   - hidden HSK1 objective item bank: 15 listening, 15 reading, 10 vocabulary
     and 10 grammar items in 10 pending review batches; 0 reviewed audio,
     independent form, calibrated or measurement-eligible item
-  - exact-hash HSK1 review manifest: 6 source artifacts and 85 pending batches
+  - exact-hash HSK1 review manifest: 7 source artifacts and 91 pending batches
     with 0 approval; manifest assignment readiness does not publish content
-  - local HSK1 review workflow: 85 exact batches, 258 role assignments and
-    2,181 normalized target references; 0 manifest approval or runtime mutation
+  - local HSK1 review workflow: 91 exact batches, 276 role assignments and
+    2,268 normalized target references; 0 manifest approval or runtime mutation
   - pinned CC-CEDICT source identity and HSK1 draft/report validation:
     300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
   - pinned Debian CC-CEDICT source identity and HSK2 draft/report validation:
@@ -1206,16 +1221,17 @@ deliverable.
     exactly 1 explicitly authorized unit while `hsk1-daily-life` and its 4
     mapped lessons stay withheld; real review/audio/package/receipt evidence
     and import authorization remain false
-  - atomic unit reviewer packet: 425 exact content payloads, 6 indexed lessons,
-    15 review batches/45 role checklists and 90 source-hash-bound recording
+  - atomic unit reviewer packet: 425 source payloads plus 87 runtime-core
+    payloads, 6 indexed lessons, 21 review batches/63 role checklists and 90
+    source-hash-bound recording
     scripts with 0 completed review slot, 0 reviewed audio and 0 release item
-  - unit evidence readiness: checked real baseline 0/45 approved review slots
+  - unit evidence readiness: checked real baseline 0/63 approved review slots
     and 0/90 reviewed audio/rights records; a complete test-only fixture passes
     all hashes but remains package-ineligible and never authorizes import
-  - atomic unit package plan: 87 required runtime catalog items/0 finalized,
-    6 unsafe authoring lesson IDs, 7 traditional decisions, 2 pronunciation
-    reconciliations and 42 missing example triples; `.07.7`, governance,
-    authorization and receipt remain absent and no mutation is permitted
+  - atomic unit package plan: 87 required/runtime-core payloads drafted and 0
+    finalized, with 6 safe runtime lesson IDs, 7 traditional decisions and 2
+    source-pronunciation reconciliations; 338 non-core targets, `.07.7`,
+    governance, authorization and receipt remain absent, with no mutation
   - versioned local runtime: exact adapter coverage for 8 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
@@ -1224,9 +1240,9 @@ deliverable.
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
     8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 225 files, 1,606 tests passed
+  - Vitest: 226 files, 1,614 tests passed
   - production build and bundle policy passed; conservative client asset
-    ceiling: 396.8 KiB
+    ceiling: 396.9 KiB
 - `npm run test:e2e`: 21 tests passed
 - `npm run test:lighthouse`: three cold-profile runs
   - Performance: 98 / 96 / 96, median 96
@@ -1258,12 +1274,11 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Author the exact 87-item runtime projection draft, including safe lesson-ID
-   mappings and every missing runtime field, then extend the reviewer contract
-   so no unreviewed projection value can enter a package.
+1. Add a versioned runtime activity/dialogue/knowledge projection so the 338
+   non-core targets cannot be discarded or regenerated differently at import.
 2. Run the combined checked workflow with real attributable Mandarin,
    Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
-   any exact-hash projection slot, original 45 role slot or 90 audio target is
+   any of the 63 exact-hash role slots or 90 audio targets is
    incomplete.
 3. Only after real evidence exists, create and validate the immutable `.07.7`
    package, explicit unit authorization and idempotent promotion receipt. Keep

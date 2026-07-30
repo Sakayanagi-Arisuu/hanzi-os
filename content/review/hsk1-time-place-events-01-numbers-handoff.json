@@ -30,12 +30,12 @@
     {
       "id": "reviewManifest",
       "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-      "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+      "sha256": "sha256:12e920aab0dc90e010037655ec5e0cbb73b92c3f71c0feadb1db4f449f6ce672"
     },
     {
       "id": "promotionQueue",
       "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-      "sha256": "sha256:7a3dab27913b3ebc9aca2d49728f14ce61187c239df7ccdd76c8afd245996873"
+      "sha256": "sha256:33e0bd150a9cd63a93222c1bddd7fb664fa99094595867e173ad5fc1c9683493"
     }
   ],
   "targetBundle": {
@@ -59,12 +59,12 @@
       {
         "id": "reviewManifest",
         "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-        "sha256": "sha256:0546c5314ab26102b696582f3e363b7170a01ec5c9ab579cb4744949d03e117d"
+        "sha256": "sha256:12e920aab0dc90e010037655ec5e0cbb73b92c3f71c0feadb1db4f449f6ce672"
       },
       {
         "id": "promotionQueue",
         "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-        "sha256": "sha256:7a3dab27913b3ebc9aca2d49728f14ce61187c239df7ccdd76c8afd245996873"
+        "sha256": "sha256:33e0bd150a9cd63a93222c1bddd7fb664fa99094595867e173ad5fc1c9683493"
       }
     ],
     "contentTargets": [
@@ -543,7 +543,7 @@
         "batchId": "hsk1-time-place-events:01-numbers:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+        "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:01-numbers:hsk-vocab-00002:listening",
@@ -613,7 +613,8 @@
           "grammarRowIds": [],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -627,7 +628,7 @@
         "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
         "sourceKind": "grammar-context",
         "sourceId": "hsk1-grammar-context-2026.07",
-        "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+        "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:01-numbers:hsk1-grammar-row-011:guided"
@@ -639,7 +640,8 @@
           ],
           "taskIds": [],
           "topicIds": [],
-          "assessmentItemIds": []
+          "assessmentItemIds": [],
+          "runtimePayloadDigests": []
         },
         "requiredRoles": [
           "native-mandarin-reviewer",
@@ -813,47 +815,47 @@
       }
     ]
   },
-  "targetBundleSha256": "sha256:4d2d7f4c30d1fc875e0994b2d53bc75ba5a2234fbdf82dcf55de93dc97ad7cad",
+  "targetBundleSha256": "sha256:f4284a2b3d1eaf0f5a9abba8bc210b58462cc42f8d2fd7d9644aae59a96ba3b4",
   "requiredReviewReceipts": [
     {
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
     {
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
     {
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:a83294b5991a546b11e65f3543a1e6d84848fca8b18abee4c263dff77469fd44",
+      "targetDigest": "sha256:72e5d6271cee0b8121665a5b1f0d478f32c80c7799f0201e4f266a925720257d",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
     {
       "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
     {
       "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
     {
       "batchId": "hsk1-time-place-events:01-numbers:grammar-review-v1",
       "role": "grammar-pedagogy-reviewer",
-      "targetDigest": "sha256:74ec568d24bc9eb299dbc4f32153f1847b8fd06dfa9293afc286e8f2e07aae82",
+      "targetDigest": "sha256:62d4256ba652a877617d160c7a7d70f133b6f1ca611f0fa135191810d19b9236",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     }
@@ -862,7 +864,7 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-runtime-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:4d2d7f4c30d1fc875e0994b2d53bc75ba5a2234fbdf82dcf55de93dc97ad7cad",
+    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:f4284a2b3d1eaf0f5a9abba8bc210b58462cc42f8d2fd7d9644aae59a96ba3b4",
     "requiredBindings": [
       "handoffSha256",
       "targetBundleSha256",
@@ -872,7 +874,7 @@
       "reviewReceiptSha256s",
       "audioAssetSha256s"
     ],
-    "targetBundleSha256": "sha256:4d2d7f4c30d1fc875e0994b2d53bc75ba5a2234fbdf82dcf55de93dc97ad7cad",
+    "targetBundleSha256": "sha256:f4284a2b3d1eaf0f5a9abba8bc210b58462cc42f8d2fd7d9644aae59a96ba3b4",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },

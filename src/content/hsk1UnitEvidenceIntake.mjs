@@ -335,7 +335,7 @@ export const evaluateHsk1UnitEvidenceIntake = async ({
   const approvedReviewSlotKeys = new Set();
   const suppliedReviewSlotKeys = new Set();
   const approvedReviewersByBatch = new Map();
-  const expectedSlots = new Map(handoff.requiredReviewReceipts.map((slot) => [
+  const expectedSlots = new Map(packet.reviewSlots.map((slot) => [
     slotKey(slot.batchId, slot.role),
     slot,
   ]));
@@ -523,7 +523,7 @@ export const buildHsk1UnitEvidenceTestFixture = async (
     reviewDocuments: [],
     audioRecords: [],
   };
-  for (const [index, slot] of handoff.requiredReviewReceipts.entries()) {
+  for (const [index, slot] of packet.reviewSlots.entries()) {
     const assignmentId = `hsk1-unit-fixture-review-${index + 1}`;
     const document = await buildHsk1ReviewAssignmentDocument({
       root: source.root,
@@ -683,7 +683,7 @@ const resolveLocalEvidenceFile = (localRoot, relativePath) => {
 export const loadLocalHsk1UnitEvidence = (root = process.cwd()) => {
   const source = loadHsk1UnitEvidenceIntakeSources(root);
   const requiredSlotKeys = new Set(
-    source.handoffBundle.handoff.requiredReviewReceipts.map(
+    source.packetBundle.packet.reviewSlots.map(
       (slot) => slotKey(slot.batchId, slot.role),
     ),
   );

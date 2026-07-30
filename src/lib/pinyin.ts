@@ -36,7 +36,7 @@ const TONE_MARKS: Record<string, readonly string[]> = {
 };
 
 const PINYIN_FINALS = new Set([
-  "a", "o", "e", "ai", "ei", "ao", "ou", "an", "en", "ang", "eng", "ong", "er",
+  "a", "o", "e", "ai", "ei", "ao", "ou", "an", "en", "ang", "eng", "ong", "er", "ar",
   "i", "ia", "ie", "iao", "iu", "ian", "in", "iang", "ing", "iong",
   "u", "ua", "uo", "uai", "ui", "uan", "un", "uang", "ueng", "ue",
   "ü", "üe", "üan", "ün",

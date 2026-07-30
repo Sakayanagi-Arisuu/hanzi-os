@@ -40,8 +40,8 @@ describe("HSK1 local review assignment/import contract", () => {
     await expect(validateHsk1ReviewWorkflow()).resolves.toEqual({
       manifestId: "hsk1-review-manifest-2026.07",
       manifestSha256: expect.stringMatching(/^sha256:[a-f0-9]{64}$/u),
-      batches: 85,
-      roleAssignments: 258,
+      batches: 91,
+      roleAssignments: 276,
       exactTargets: expect.any(Number),
       approvalsImportedIntoManifest: 0,
       runtimeMutations: 0,
@@ -74,6 +74,24 @@ describe("HSK1 local review assignment/import contract", () => {
     expect(document.response.targetDecisions.every(
       (target) => target.decision === null,
     )).toBe(true);
+  });
+
+  it("exports exact runtime projection payload digests without authorizing import", async () => {
+    const document = await buildHsk1ReviewAssignmentDocument({
+      assignmentId: "runtime-projection-review-fixture",
+      batchId:
+        "hsk1-time-place-events-01-numbers-runtime-projection-review-v1",
+      role: "native-mandarin-reviewer",
+      assignedBy: "local-review-coordinator",
+      assignee: "reviewer-fixture",
+      assignedAt: ASSIGNED_AT,
+      nowEpochMs: NOW,
+    });
+
+    expect(document.assignment.sourceKind).toBe("runtime-core-projection");
+    expect(document.assignment.targets.runtimePayloadDigests).toHaveLength(16);
+    expect(document.response.targetDecisions).toHaveLength(16);
+    expect(document.assignment.policy.reviewDoesNotPublish).toBe(true);
   });
 
   it("accepts a complete exact response and returns a local-only receipt", async () => {

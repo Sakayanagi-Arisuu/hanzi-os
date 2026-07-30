@@ -6,9 +6,10 @@ local reviewer handoff, not an approval, content release or mastery claim.
 ## Checked review material
 
 `content/review/hsk1-time-place-events-reviewer-packet.json` contains all 425
-exact-hash draft payloads grouped by six lessons, the 15 batch definitions,
-45 required review slots and scripts for all 90 audio targets. The packet is
-learner-hidden and deterministic; edit the source draft, not the packet.
+exact-hash source draft payloads plus 87 runtime-core payload drafts, grouped
+by six lessons across 21 batch definitions and 63 required review slots. It
+also includes scripts for all 90 audio targets. The packet is learner-hidden
+and deterministic; edit the source draft or projection builder, not the packet.
 
 Validate it before assigning work:
 
@@ -99,8 +100,11 @@ authorize import.
 
 ## Completion boundary
 
-Promotion remains blocked until all 45 attributable content-review slots and
-all 90 reviewed/licensed audio targets bind the current unit-release digest.
-Only then may a new immutable runtime package, explicit unit authorization and
-idempotent promotion receipt be created. No downstream unit is authorized by
-this handoff.
+Promotion remains blocked until all 63 attributable content-review slots and
+all 90 reviewed/licensed audio targets bind the current source/projection
+hashes. The current runtime-core projection covers 87 items but deliberately
+reports 338 dialogue, practice, grammar and task targets that still require a
+versioned runtime activity/knowledge projection. Only after that schema gap and
+the real evidence are complete may a new immutable runtime package, explicit
+unit authorization and idempotent promotion receipt be created. No downstream
+unit is authorized by this handoff.

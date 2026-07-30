@@ -14,6 +14,8 @@ describe("numbered pinyin", () => {
     ["Zhong1guo2", "Zhōngguó"],
     ["xie4 xie5", "xièxie"],
     ["nu:3", "nǚ"],
+    ["nar3", "nǎr"],
+    ["zher4", "zhèr"],
   ])("round-trips %s to canonical marked pinyin", (numbered, marked) => {
     const syllables = parseNumberedPinyin(numbered);
     expect(formatMarkedPinyin(syllables)).toBe(marked);

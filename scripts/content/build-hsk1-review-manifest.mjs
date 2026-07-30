@@ -25,6 +25,10 @@ import {
   assertValidHsk1LevelCheckItemBankBundle,
   loadHsk1LevelCheckItemBankBundle,
 } from "../../src/content/hsk1LevelCheckItemBank.mjs";
+import {
+  HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeProjectionBundle,
+} from "../../src/content/hsk1UnitRuntimeProjection.mjs";
 import { fileSha256 } from "../../src/content/hskSyllabusInventory.mjs";
 
 export const HSK1_REVIEW_MANIFEST_RELATIVE_PATH =
@@ -43,6 +47,16 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
   assertValidHsk1TaskAssessmentPackBundle(task);
   const levelCheck = loadHsk1LevelCheckItemBankBundle(root);
   assertValidHsk1LevelCheckItemBankBundle(levelCheck);
+  const runtimeProjection = loadHsk1UnitRuntimeProjectionBundle(root);
+  if (
+    runtimeProjection.projection.state
+      !== "ai-assisted-runtime-projection-draft"
+    || runtimeProjection.projection.counts.runtimeCatalogItems !== 87
+    || runtimeProjection.projection.counts.approvals !== 0
+    || runtimeProjection.projection.releaseEligible !== false
+  ) {
+    throw new Error("HSK1 runtime projection is not review-manifest eligible");
+  }
 
   const sources = [
     {
@@ -121,6 +135,19 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
         grammarItems: levelCheck.bank.counts.grammarItems,
       },
     },
+    {
+      sourceKind: "runtime-core-projection",
+      sourceId: runtimeProjection.projection.projectionId,
+      relativePath: HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+      sha256: fileSha256(runtimeProjection.projectionPath),
+      batches: runtimeProjection.projection.reviewBatches,
+      targetCounts: {
+        runtimePayloads:
+          runtimeProjection.projection.counts.runtimeCatalogItems,
+        lexemes: runtimeProjection.projection.counts.lexemes,
+        lessons: runtimeProjection.projection.counts.lessons,
+      },
+    },
   ];
   const reviewBatches = sources.flatMap((source) =>
     source.batches.map((batch) => ({
@@ -141,6 +168,7 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
         grammarRows: batch.grammarRowIds?.length ?? 0,
         tasks: batch.officialTaskId ? 1 : 0,
         topics: batch.topicIds?.length ?? 0,
+        runtimePayloads: batch.targetDigests?.length ?? 0,
       },
     }))
   );
@@ -180,6 +208,9 @@ export const buildHsk1ReviewManifest = (root = process.cwd()) => {
       ).length,
       assessmentBatches: reviewBatches.filter(
         (batch) => batch.sourceKind === "level-check-objective-items",
+      ).length,
+      runtimeProjectionBatches: reviewBatches.filter(
+        (batch) => batch.sourceKind === "runtime-core-projection",
       ).length,
     },
     sources: sources.map(({ batches, ...source }) => ({

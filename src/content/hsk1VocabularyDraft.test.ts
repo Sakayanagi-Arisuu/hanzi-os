@@ -117,7 +117,7 @@ describe("HSK1 CC-CEDICT source-enrichment draft", () => {
       authoredTaskPracticeItems: 15,
       pendingTaskReviewBatches: 15,
       pendingAssessmentReviewBatches: 10,
-      boundedReviewManifestBatches: 85,
+      boundedReviewManifestBatches: 91,
       boundedReviewManifestApprovals: 0,
     });
     expect(report.editorialQueue.pronunciationReviewItems).toEqual([

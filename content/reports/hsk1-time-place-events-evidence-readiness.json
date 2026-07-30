@@ -20,12 +20,12 @@
     {
       "id": "atomicUnitHandoff",
       "relativePath": "content/review/hsk1-time-place-events-unit-handoff.json",
-      "sha256": "sha256:acb0fc4a15e8fb37384e93addaa23e3400232c6b526e13361c38078be4795e60"
+      "sha256": "sha256:ba01cb552f48ff4f687ad5f9bd5b3c7d515cc656cd726e61cde1d049b113860c"
     },
     {
       "id": "reviewerPacket",
       "relativePath": "content/review/hsk1-time-place-events-reviewer-packet.json",
-      "sha256": "sha256:95e366f67fc49bdec4733f74dd10805e7313e59e350aa39fe8a74507abe1df33"
+      "sha256": "sha256:3bde3d29fc28e56330d805bd3132c6f22dae1d908182b3829a69b6f24084426f"
     }
   ],
   "result": {
@@ -41,7 +41,7 @@
       "REVIEWED_AUDIO_OR_RIGHTS_EVIDENCE_MISSING"
     ],
     "review": {
-      "requiredSlots": 45,
+      "requiredSlots": 63,
       "suppliedSlots": 0,
       "approvedSlots": 0,
       "missingSlotKeys": [
@@ -89,7 +89,25 @@
         "hsk1-time-place-events:06-weather-and-residence:grammar-review-v1:grammar-pedagogy-reviewer",
         "hsk1-task-04:scenario-review-v1:native-mandarin-reviewer",
         "hsk1-task-04:scenario-review-v1:vietnamese-editor",
-        "hsk1-task-04:scenario-review-v1:task-pedagogy-reviewer"
+        "hsk1-task-04:scenario-review-v1:task-pedagogy-reviewer",
+        "hsk1-time-place-events-01-numbers-runtime-projection-review-v1:native-mandarin-reviewer",
+        "hsk1-time-place-events-01-numbers-runtime-projection-review-v1:vietnamese-editor",
+        "hsk1-time-place-events-01-numbers-runtime-projection-review-v1:assessment-editor",
+        "hsk1-time-place-events-02-calendar-runtime-projection-review-v1:native-mandarin-reviewer",
+        "hsk1-time-place-events-02-calendar-runtime-projection-review-v1:vietnamese-editor",
+        "hsk1-time-place-events-02-calendar-runtime-projection-review-v1:assessment-editor",
+        "hsk1-time-place-events-03-week-and-day-parts-runtime-projection-review-v1:native-mandarin-reviewer",
+        "hsk1-time-place-events-03-week-and-day-parts-runtime-projection-review-v1:vietnamese-editor",
+        "hsk1-time-place-events-03-week-and-day-parts-runtime-projection-review-v1:assessment-editor",
+        "hsk1-time-place-events-04-clock-and-duration-runtime-projection-review-v1:native-mandarin-reviewer",
+        "hsk1-time-place-events-04-clock-and-duration-runtime-projection-review-v1:vietnamese-editor",
+        "hsk1-time-place-events-04-clock-and-duration-runtime-projection-review-v1:assessment-editor",
+        "hsk1-time-place-events-05-location-runtime-projection-review-v1:native-mandarin-reviewer",
+        "hsk1-time-place-events-05-location-runtime-projection-review-v1:vietnamese-editor",
+        "hsk1-time-place-events-05-location-runtime-projection-review-v1:assessment-editor",
+        "hsk1-time-place-events-06-weather-and-residence-runtime-projection-review-v1:native-mandarin-reviewer",
+        "hsk1-time-place-events-06-weather-and-residence-runtime-projection-review-v1:vietnamese-editor",
+        "hsk1-time-place-events-06-weather-and-residence-runtime-projection-review-v1:assessment-editor"
       ]
     },
     "audio": {

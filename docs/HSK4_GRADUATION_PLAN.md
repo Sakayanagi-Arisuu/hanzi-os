@@ -267,11 +267,11 @@ Vì các câu hiện tái dùng nguồn draft đã có thể xuất hiện khi h
 buộc tạo alternate form độc lập, duyệt audio, review ngôn ngữ/assessment và
 hiệu chuẩn pilot trước khi đo lường. Cả 50 câu vẫn 0 measurement/mastery/
 release-eligible; không có cut score hay prerequisite waiver. Manifest mới
-ghim 6 artifact và 85 batch đang chờ, approval vẫn bằng 0.
+ghim 7 artifact và 91 batch đang chờ, approval vẫn bằng 0.
 
 Lát G3 thứ chín không tăng điểm, nên tiến độ vẫn là **71%**. Repo đã có workflow
-local để liệt kê, xuất assignment và nhập review receipt cho đúng 85 batch,
-258 assignment theo role và 2.181 target tham chiếu chính xác. Mọi assignment
+local để liệt kê, xuất assignment và nhập review receipt cho đúng 91 batch,
+276 assignment theo role và 2.268 target tham chiếu chính xác. Mọi assignment
 bind manifest/source/target hash và reviewer phải quyết định từng target; sửa
 scope hoặc source làm import fail. Receipt chỉ được lưu trong thư mục local
 Git-ignore, không sửa draft/manifest/runtime, không hiệu chuẩn hay cấp mastery.
@@ -850,8 +850,9 @@ không có authorization riêng. Fixture không authorize import, không sửa g
 policy/runtime và không tạo learner coverage, nên chưa cộng điểm.
 
 Checked reviewer packet cho atomic unit cũng **giữ tiến độ ở 90%**. Packet
-learner-hidden giải tham chiếu đủ 425 exact-hash target thành payload mà reviewer
-có thể đọc, nhóm theo 6 lesson, giữ 15 batch/45 role slot cùng checklist riêng
+learner-hidden giải tham chiếu đủ 425 exact-hash source target và 87 runtime-core
+payload thành dữ liệu reviewer có thể đọc, nhóm theo 6 lesson, giữ 21 batch/63
+role slot cùng checklist riêng
 cho Mandarin, tiếng Việt, assessment, grammar và task pedagogy. Audio manifest
 đưa đủ script, tên WAV an toàn và source hash cho 90 target: 6 lesson dialogue,
 81 vocabulary listening và 3 task dialogue; format import, speaker provenance,
@@ -860,28 +861,39 @@ receipt và recording nhưng không tự điền review/audio, không publish ha
 mastery, nên deliverable này chỉ gỡ nút thắt vận hành và chưa cộng điểm.
 
 Unit evidence-intake gate tiếp tục **giữ tiến độ ở 90%**. Checked readiness
-report bind handoff và reviewer packet, hiện trung thực 0/45 approved receipt,
+report bind handoff và reviewer packet, hiện trung thực 0/63 approved receipt,
 0/90 reviewed WAV/rights record, `readyForPackage=false` và
 `importAuthorized=false`. Dynamic local status đọc assignment/receipt đã có,
 kiểm lại exact manifest hash và target digest; audio record phải bind bytes WAV
 được inspect, speaker/consent/rights, native review và rights review độc lập.
 Gate cấm duplicate slot/target, một reviewer kiêm nhiều role trong cùng batch,
 tái dùng audio bytes, path escape/symlink và đổi nhãn fixture thành evidence
-thật. Fixture đủ 45/45 + 90/90 chỉ chứng minh contract, vẫn không có package
+thật. Fixture đủ 63/63 + 90/90 chỉ chứng minh contract, vẫn không có package
 authority, visibility, completion hay mastery nên chưa cộng điểm.
 
 Versioned package planner tiếp tục **giữ tiến độ ở 90%** vì đây là audit
 fail-closed, chưa phải learner coverage. Planner pin đúng nhánh package
 `foundation-2026.07.6` → `foundation-2026.07.7`, atomic digest và evidence
-baseline 0/45 + 0/90, rồi chứng minh 87 runtime catalog item vẫn có 0 payload
-cuối. Sáu lesson authoring ID chứa dấu `:` không hợp lệ với package schema và
-được đề xuất mapping sang sáu ID an toàn nhưng chưa authorize; 81 lexeme còn
-7 lựa chọn traditional cần biên tập, 2 lệch phát âm nguồn, 42 bộ example chưa
-có candidate theo surface match và 81 tag set chưa được author. Chinese title,
-minutes, XP hỗ trợ và skill vector của cả sáu lesson cũng chưa tồn tại. Planner
-đồng thời tách 45 draft-review receipt khỏi bốn package-governance approval,
+baseline 0/63 + 0/90. Runtime-core projection đã author đủ 87/87 payload nhưng
+0 payload được review/finalize: sáu authoring ID dấu `:` có mapping sang ID an
+toàn, 81 lexeme có traditional/numbered pinyin/example/tag và sáu lesson có đủ
+metadata runtime. Planner đồng thời phát hiện 338/425 target dialogue, practice,
+grammar và task chưa được runtime schema tiêu thụ, nên thêm blocker activity/
+knowledge projection thay vì cho package làm rơi phần nội dung chuyên sâu. Nó
+cũng tách 63 draft/projection receipt khỏi bốn package-governance approval,
 ghi rõ owner/license/audio descriptor/package/unit authorization/promotion
 receipt đều thiếu và không ghi registry, package, policy hay runtime.
+
+Runtime-core projection slice tiếp tục **giữ tiến độ ở 90%** vì toàn bộ dữ
+liệu vẫn learner-hidden và review-pending. Checked artifact tạo 81 lexeme + 6
+lesson payload đúng schema, 6 safe runtime lesson ID, một prerequisite nối với
+`survival-4`, 42 câu ví dụ AI-assisted mới và 39 candidate lấy exact-hash từ
+dialogue. Bảy lựa chọn traditional, hai hòa giải phát âm nguồn và ba chuẩn hóa
+erhua cho parser đều được ghi provenance; parser có regression cho `nǎr/zhèr`.
+Sáu batch/18 slot projection đã vào manifest/workflow, đưa tổng HSK1 lên 7
+artifact, 91 batch, 276 role assignment và 2.268 exact target. Artifact tự khai
+338 non-core target chưa biểu diễn, có 0 approval/release item và cấm import,
+nên chưa cộng điểm hay tạo completion/mastery claim.
 
 ## 6. Quy tắc cập nhật phần trăm
 
