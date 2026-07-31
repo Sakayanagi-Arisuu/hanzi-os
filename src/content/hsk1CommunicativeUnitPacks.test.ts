@@ -72,6 +72,7 @@ describe("HSK1 communicative AI-assisted content packs", () => {
         lessonId: string;
         taskIds: string[];
         topicIds: string[];
+        vocabularyIds: string[];
       }> }) => pack.lessons,
     );
     const lesson = (suffix: string) => lessons.find(
@@ -86,6 +87,16 @@ describe("HSK1 communicative AI-assisted content packs", () => {
       taskIds: ["hsk1-task-04"],
       topicIds: ["hsk1-topic-006"],
     });
+    expect(lesson("02-calendar")?.vocabularyIds).toEqual(expect.arrayContaining([
+      "hsk-vocab-00031",
+      "hsk-vocab-00076",
+    ]));
+    expect(lesson("04-clock-and-duration")?.vocabularyIds).toContain(
+      "hsk-vocab-00029",
+    );
+    expect(lesson("06-weather-and-residence")?.vocabularyIds).not.toEqual(
+      expect.arrayContaining(["hsk-vocab-00029", "hsk-vocab-00031"]),
+    );
     expect(lesson("02-food-and-drink")).toMatchObject({
       taskIds: ["hsk1-task-07", "hsk1-task-15"],
       topicIds: [

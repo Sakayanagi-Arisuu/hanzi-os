@@ -20,12 +20,12 @@
     {
       "id": "atomicUnitHandoff",
       "relativePath": "content/review/hsk1-time-place-events-unit-handoff.json",
-      "sha256": "sha256:f2408f2a028601bd709ff30f82aa61bfabb4250b6ad7023dca2b57abdbadbea5"
+      "sha256": "sha256:b6ae73ab47701aea3d7f20c0d4899154e8485cc07013e6baadad9e4df737cd77"
     },
     {
       "id": "reviewerPacket",
       "relativePath": "content/review/hsk1-time-place-events-reviewer-packet.json",
-      "sha256": "sha256:16e0e3dec406987b1b81eaf9b3f80547c8ac22b2365a6363022cc3df412c7630"
+      "sha256": "sha256:fb586d9faec7c4e857002ff8c83561923842a872548329695d6f30199064f744"
     }
   ],
   "result": {
@@ -151,6 +151,8 @@
         "hsk1-time-place-events:01-numbers:hsk-vocab-00254:listening:audio",
         "hsk1-task-02:scenario-audio",
         "hsk1-time-place-events:02-calendar:dialogue-audio",
+        "hsk1-time-place-events:02-calendar:hsk-vocab-00031:listening:audio",
+        "hsk1-time-place-events:02-calendar:hsk-vocab-00076:listening:audio",
         "hsk1-time-place-events:02-calendar:hsk-vocab-00093:listening:audio",
         "hsk1-time-place-events:02-calendar:hsk-vocab-00094:listening:audio",
         "hsk1-time-place-events:02-calendar:hsk-vocab-00128:listening:audio",
@@ -163,7 +165,6 @@
         "hsk1-time-place-events:02-calendar:hsk-vocab-00297:listening:audio",
         "hsk1-time-place-events:03-week-and-day-parts:dialogue-audio",
         "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:listening:audio",
-        "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:listening:audio",
         "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:listening:audio",
         "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00215:listening:audio",
         "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00217:listening:audio",
@@ -175,6 +176,7 @@
         "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00275:listening:audio",
         "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00291:listening:audio",
         "hsk1-time-place-events:04-clock-and-duration:dialogue-audio",
+        "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:listening:audio",
         "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:listening:audio",
         "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00055:listening:audio",
         "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00056:listening:audio",
@@ -212,8 +214,6 @@
         "hsk1-time-place-events:05-location:hsk-vocab-00284:listening:audio",
         "hsk1-task-04:scenario-audio",
         "hsk1-time-place-events:06-weather-and-residence:dialogue-audio",
-        "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:listening:audio",
-        "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:listening:audio",
         "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00109:listening:audio",
         "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00169:listening:audio",
         "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00208:listening:audio",

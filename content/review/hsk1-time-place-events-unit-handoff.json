@@ -20,27 +20,27 @@
     {
       "id": "communicativeCollection",
       "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
     },
     {
       "id": "grammarPack",
       "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-      "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
     },
     {
       "id": "taskPack",
       "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
-      "sha256": "sha256:770540d09ef7fb9c945bba0db010c04e4c8ad51d7da9c18addbe9bb9f743987b"
+      "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0"
     },
     {
       "id": "reviewManifest",
       "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-      "sha256": "sha256:1108715742c704a0401460ab7c651b6e14d77d0be542b84a4842c73dfb899153"
+      "sha256": "sha256:365c2870e008b7429a27bf1cc285d3a621cebb1bdf3987d304249736fde35055"
     },
     {
       "id": "firstLessonHandoff",
       "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-      "sha256": "sha256:4652fd8d760c3741886f2347f7b984f53230e2e7e2291fabad27810b823ca780"
+      "sha256": "sha256:f61321fb93391526cd482de19ee25d5e58c13fdc4ab8fed29b842064deae3f71"
     }
   ],
   "targetBundle": {
@@ -64,27 +64,27 @@
       {
         "id": "communicativeCollection",
         "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-        "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+        "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
       },
       {
         "id": "grammarPack",
         "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-        "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+        "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
       },
       {
         "id": "taskPack",
         "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
-        "sha256": "sha256:770540d09ef7fb9c945bba0db010c04e4c8ad51d7da9c18addbe9bb9f743987b"
+        "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0"
       },
       {
         "id": "reviewManifest",
         "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-        "sha256": "sha256:1108715742c704a0401460ab7c651b6e14d77d0be542b84a4842c73dfb899153"
+        "sha256": "sha256:365c2870e008b7429a27bf1cc285d3a621cebb1bdf3987d304249736fde35055"
       },
       {
         "id": "firstLessonHandoff",
         "relativePath": "content/review/hsk1-time-place-events-01-numbers-handoff.json",
-        "sha256": "sha256:4652fd8d760c3741886f2347f7b984f53230e2e7e2291fabad27810b823ca780"
+        "sha256": "sha256:f61321fb93391526cd482de19ee25d5e58c13fdc4ab8fed29b842064deae3f71"
       }
     ],
     "perLesson": [
@@ -93,48 +93,48 @@
         "sequence": 1,
         "contentTargetCount": 67,
         "audioTargetCount": 16,
-        "contentTargetSha256": "sha256:19ff0ffd2aa693ec5f9236453c10c5b59c461f94cd1083ce7c9f6a48552b998d",
+        "contentTargetSha256": "sha256:dfcc1e0963dd6d1682c764b62e0b0da16ad90e6925703af6b839ad81dc7dcd8d",
         "audioTargetSha256": "sha256:80507732418b7392bba79ee94da11c5209311a868de3af55d1675a1e57c7cb6d"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "sequence": 2,
-        "contentTargetCount": 60,
-        "audioTargetCount": 12,
-        "contentTargetSha256": "sha256:5dc7cf47a96ca68c70fde09a948bbd4f133a350888747fa46009c17e5db97054",
-        "audioTargetSha256": "sha256:8b03bf646033681ff2f3ecd5248cb1becd657fc37e95bec63312ebb5ded0f281"
+        "contentTargetCount": 68,
+        "audioTargetCount": 14,
+        "contentTargetSha256": "sha256:33bd2048bec79c05bddbcb35abec7be1de1c75bde6345239f78b97ee09e4b9a5",
+        "audioTargetSha256": "sha256:bf343ae002c7c5c03a7e41fff5e75272c7149c6b3251d4d28f17d775d2b9d6ee"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "sequence": 3,
-        "contentTargetCount": 59,
-        "audioTargetCount": 13,
-        "contentTargetSha256": "sha256:034d40931fa4302e5941a34ec3921547d299f08d5c2452c3abbeed7d037a788d",
-        "audioTargetSha256": "sha256:41fcd38498547a554355b6c7557b0035f149e6796508e9e3e99a7548390fe2b5"
+        "contentTargetCount": 55,
+        "audioTargetCount": 12,
+        "contentTargetSha256": "sha256:2e5548362e19b3badfff5b72adcf09a5b48cfd8819122efb69a570844755ba9f",
+        "audioTargetSha256": "sha256:0ff19a8f4964850ffa450921522be985caf8ba466d30c1484e175a7f152e9c98"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "sequence": 4,
-        "contentTargetCount": 55,
-        "audioTargetCount": 10,
-        "contentTargetSha256": "sha256:f1ee949e81e1ce7a6a6f58bf8aacd3f638c8b79563f9b5cc0eae7b492355ff1e",
-        "audioTargetSha256": "sha256:fb5207d6631c59ce8188e62ce73393a9c3d384dfa58aded62fc50b9b0ee7f3ab"
+        "contentTargetCount": 59,
+        "audioTargetCount": 11,
+        "contentTargetSha256": "sha256:15faab6b7daec742324d2bd8d75e067c90db5d47ae659cf677f4af21ebdb6eee",
+        "audioTargetSha256": "sha256:9242708406d092359c432639137a911f804b8388c9b0e1383638d51716437363"
       },
       {
         "lessonId": "hsk1-time-place-events:05-location",
         "sequence": 5,
         "contentTargetCount": 126,
         "audioTargetCount": 26,
-        "contentTargetSha256": "sha256:be6673a127da6471fe3f130217ba3377f06f6b997529231933c3f8c1202b31a5",
+        "contentTargetSha256": "sha256:fdf3438aa6809ff6fba45fb8eab6f8f23ed123dcbfbe079dab926218fe67a196",
         "audioTargetSha256": "sha256:32b3e4a98e4fff9cf171f2fc76832b964276280f2496cafa705e672125ac335b"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
         "sequence": 6,
-        "contentTargetCount": 58,
-        "audioTargetCount": 13,
-        "contentTargetSha256": "sha256:c838be8849944deefd0ffee036cccaef919154e2c0acfe5b3d20c53ed13a9bd3",
-        "audioTargetSha256": "sha256:a3f6b9e3f0cd09bf514c3d93d1d65a9de7ff36c009e254e445a30ae19b6c7bec"
+        "contentTargetCount": 50,
+        "audioTargetCount": 11,
+        "contentTargetSha256": "sha256:5aced0eabb5a9e0dd4865575e7f6bc0b31c8611daa50111fa04d1eab9fcf6870",
+        "audioTargetSha256": "sha256:c977ab4c87b738509f742634c2a37c727fa3bd496ac87be3fa18ca2d38feca28"
       }
     ],
     "contentTargets": [
@@ -144,7 +144,7 @@
         "targetId": "hsk1-time-place-events:01-numbers",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/0",
-        "sha256": "sha256:5dcd5bd42581b615ceaf233700fe545961be43be69c67b1177905c503a32c98b"
+        "sha256": "sha256:a3521d4fe80f9e8962df9b521a6fe6fe7f9180c66af59395d6878ac8cad04df9"
       },
       {
         "lessonId": "hsk1-time-place-events:01-numbers",
@@ -680,7 +680,23 @@
         "targetId": "hsk1-time-place-events:02-calendar",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/1",
-        "sha256": "sha256:15e9a703600119df13ee5804279cee96b9b81e5120d9b66a0eddec723e191965"
+        "sha256": "sha256:840be5a07dffe7511115420c8b08a62ff462c01854649c8c37edd65915138952"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00031",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/6",
+        "sha256": "sha256:4249439728b4b74b4861d1562f1ee994e97ce1f0fd1000f0a6845433e2f80d0a"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00076",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/11",
+        "sha256": "sha256:1e4f21a66ab12d0816a114ef81a00ee74bd1014c79fa98a28319418c5fe902cf"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
@@ -797,9 +813,57 @@
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00093:meaning",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00031:meaning",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/45",
+        "sha256": "sha256:fbd9114c5bf758732415d47845cfbc38d16fea86202219a087c92a08354a06aa"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00031:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/46",
+        "sha256": "sha256:6ab89b3a8694f0fe4ea18ac308857a17eb0126dad76c8705e01501db500e3e60"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00031:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/47",
+        "sha256": "sha256:a6935875faca24524f7cfd2a239900fb82622fbbccdf1f3e7e2810f3cfeecfb2"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00076:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/48",
+        "sha256": "sha256:6980e17fe1e5516a4edbbb69b54280197882ace468c6629e29063092f4980601"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00076:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/49",
+        "sha256": "sha256:216d55a875f7a332932334f59827c2a9c0530c65767f6fafbe66779d3425e74d"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00076:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/50",
+        "sha256": "sha256:2449b678ae0ceeb2bf45a094801b959b897a94ad517aa086e98c5465d3e9e2c6"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00093:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/51",
         "sha256": "sha256:5380d23996751fafaea520ee83bc0985309f9e34cf65326209f9666a5a99a4ea"
       },
       {
@@ -807,7 +871,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00093:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/46",
+        "sourcePointer": "/packs/0/practiceItems/52",
         "sha256": "sha256:d13184ed54c544ceb98e9718157cd677be4c5ad3ed28fe1604f93b3c6c8f0b4c"
       },
       {
@@ -815,7 +879,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00093:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/47",
+        "sourcePointer": "/packs/0/practiceItems/53",
         "sha256": "sha256:8f1f1cf509a2ab285aa97d0fc8f6a16d44caedd0a6b113a059f53ca0555f18bf"
       },
       {
@@ -823,7 +887,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00094:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/48",
+        "sourcePointer": "/packs/0/practiceItems/54",
         "sha256": "sha256:214313ed59b0fdd153200c8ab59a7b058db0b42fb8ffea0cd1d25de343c59279"
       },
       {
@@ -831,7 +895,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00094:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/49",
+        "sourcePointer": "/packs/0/practiceItems/55",
         "sha256": "sha256:b9e685634d2c0a79c2269c64f7689666fc3a800b00b12cabf49a76f5ecc1d0da"
       },
       {
@@ -839,7 +903,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00094:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/50",
+        "sourcePointer": "/packs/0/practiceItems/56",
         "sha256": "sha256:40ffebf5609055a8044947d6db59585f08e48e4116a70a119c493fd97ca5d1cb"
       },
       {
@@ -847,7 +911,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00128:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/51",
+        "sourcePointer": "/packs/0/practiceItems/57",
         "sha256": "sha256:1eadbaa44461482be6f370a517177a9a46d2b0ec79bf9c5fbd159f9af6bd063f"
       },
       {
@@ -855,7 +919,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00128:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/52",
+        "sourcePointer": "/packs/0/practiceItems/58",
         "sha256": "sha256:2ddc211c99883c0d4f42a0ddbd9f5bebadcc2526c522b8218daad41a60a5d618"
       },
       {
@@ -863,7 +927,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00128:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/53",
+        "sourcePointer": "/packs/0/practiceItems/59",
         "sha256": "sha256:3c6eb2e49791b0e60cb28ea82cf33ac000ea36194c458f4591700d8d8deaca81"
       },
       {
@@ -871,7 +935,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00129:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/54",
+        "sourcePointer": "/packs/0/practiceItems/60",
         "sha256": "sha256:a09215bdb0af7efdb44236bc4c2dd5bea13f4cc5383d6a08d5a7cd3842e78d77"
       },
       {
@@ -879,7 +943,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00129:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/55",
+        "sourcePointer": "/packs/0/practiceItems/61",
         "sha256": "sha256:33a3194c0533cd8960ac7ced51a04d550a3a38a6abe9045253c47bc0b4a6dac7"
       },
       {
@@ -887,7 +951,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00129:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/56",
+        "sourcePointer": "/packs/0/practiceItems/62",
         "sha256": "sha256:330d8d8f5a4ed86efa579953c378756d10256093b46bdde2bbe362043e0451f3"
       },
       {
@@ -895,7 +959,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00149:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/57",
+        "sourcePointer": "/packs/0/practiceItems/63",
         "sha256": "sha256:f435e075a2fe8b6f16a1af0eb6c3513e7a6e774ad793d0214bba55cade78bd34"
       },
       {
@@ -903,7 +967,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00149:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/58",
+        "sourcePointer": "/packs/0/practiceItems/64",
         "sha256": "sha256:dcb385190393827cc8b05dcfedde6ffa4ff6c13825e53f3e53807faf863c0678"
       },
       {
@@ -911,7 +975,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00149:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/59",
+        "sourcePointer": "/packs/0/practiceItems/65",
         "sha256": "sha256:16926c420a1646daa5da2106e42405a2c2b52ee5900c4acba0fda8869ae6b2a2"
       },
       {
@@ -919,7 +983,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00168:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/60",
+        "sourcePointer": "/packs/0/practiceItems/66",
         "sha256": "sha256:413154029afcbb325cb1d1334008b3188e5453d08363937275cb07b582328362"
       },
       {
@@ -927,7 +991,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00168:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/61",
+        "sourcePointer": "/packs/0/practiceItems/67",
         "sha256": "sha256:c55df085e57542b4218d1eae80a216e7b1fd96779aab98c3477d22b05f3a2d24"
       },
       {
@@ -935,7 +999,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00168:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/62",
+        "sourcePointer": "/packs/0/practiceItems/68",
         "sha256": "sha256:0b17ffe361a5ef1a056573cb6d28ca470930ed1bdb7f5e37abb5f7200b212eb3"
       },
       {
@@ -943,7 +1007,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00172:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/63",
+        "sourcePointer": "/packs/0/practiceItems/69",
         "sha256": "sha256:35fb4d8ea783b389b03f29e7c4317b30b68c33c72170a42ec9bd6e575e4624d8"
       },
       {
@@ -951,7 +1015,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00172:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/64",
+        "sourcePointer": "/packs/0/practiceItems/70",
         "sha256": "sha256:fba73680ef03aa35dd4768d1ab4ff50954458a518d9b06c9ce1a1db9d1dec146"
       },
       {
@@ -959,7 +1023,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00172:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/65",
+        "sourcePointer": "/packs/0/practiceItems/71",
         "sha256": "sha256:e14be8518aed0d0f058572010b5b72aa24819e611f9260f97a62dc6f6af1907a"
       },
       {
@@ -967,7 +1031,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00207:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/66",
+        "sourcePointer": "/packs/0/practiceItems/72",
         "sha256": "sha256:e30ee5e92ddfead78accb665b46a013c208ac0db063e5dfff0ca9cc69086b1ee"
       },
       {
@@ -975,23 +1039,23 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00207:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/67",
-        "sha256": "sha256:043f1f5dc007ef19978f4cf3938a35ee4f7ecd9030796333be5cfc452a24f883"
+        "sourcePointer": "/packs/0/practiceItems/73",
+        "sha256": "sha256:0f43fc455618bd344b9356f2133c3ba2fd88a1d624208f342f0bc413eca6f2a1"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00207:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/68",
-        "sha256": "sha256:696f5051003f2c7e2500635592e3d7b4212bb21a3a05214cedbc61e7f8654f43"
+        "sourcePointer": "/packs/0/practiceItems/74",
+        "sha256": "sha256:abae585cc3a1b85d70159f7097b46c1fadf45326d3a5a7b2f4ccfb7f668c089c"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00269:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/69",
+        "sourcePointer": "/packs/0/practiceItems/75",
         "sha256": "sha256:4b8cbc3d7d97630133d28ae45cd84741863ef35a58dfdc6dbb354c8ec1120112"
       },
       {
@@ -999,23 +1063,23 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00269:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/70",
-        "sha256": "sha256:8f47041e9125c1564ce4499fbcc635b1c18c24bb51bef3ef45e9c276710648e9"
+        "sourcePointer": "/packs/0/practiceItems/76",
+        "sha256": "sha256:989c64728498bff51d03d8797b624e5abd5579d25036a32165dbecdb3a8d190b"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00269:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/71",
-        "sha256": "sha256:09527cba9eaab3d5eccbc5d3c817ddc701ac9006d95fe9b017120d2baa16c366"
+        "sourcePointer": "/packs/0/practiceItems/77",
+        "sha256": "sha256:f0ef615cad004cdc83b197f2d3b1377aebe261680dc068af8c07c3f0162b8331"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00297:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/72",
+        "sourcePointer": "/packs/0/practiceItems/78",
         "sha256": "sha256:c535d801c20ed0f30ff789169ab8b12984a87e44fd9cc46bfa933bc8405e19dd"
       },
       {
@@ -1023,16 +1087,16 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00297:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/73",
-        "sha256": "sha256:54db625d1a41f8ab0f7ee363de4d8b2d2b9c3ece184be1b0864ea09f05f683db"
+        "sourcePointer": "/packs/0/practiceItems/79",
+        "sha256": "sha256:ffdbd5720a1722ee7d466a65d417d625467c790037b413f134f530e3bb2c7a5e"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00297:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/74",
-        "sha256": "sha256:0df21cdc4be39a424ede048b1e85e3df14f19620d85166533653908d2f3336de"
+        "sourcePointer": "/packs/0/practiceItems/80",
+        "sha256": "sha256:e2528f1d100f42ba2402e2d8ae80dd96b0d325ce419667c1fe28f26f6858a801"
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
@@ -1160,7 +1224,7 @@
         "targetId": "hsk1-time-place-events:03-week-and-day-parts",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/2",
-        "sha256": "sha256:d664bc1d93931490057ab7f577e4ced377a7b7c1ef7d4d7def4aa7e3d544c27e"
+        "sha256": "sha256:dac9bfffe82d5af4a2fbc5a3c2a96af1cc555c193e9914ec4874bd09669bd557"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
@@ -1169,14 +1233,6 @@
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lexemes/1",
         "sha256": "sha256:f2784d8460e3bab3a3442aaa4b35c05bde0b9663eba994e780d0da80cf275d10"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
-        "targetType": "vocabulary-draft",
-        "targetId": "hsk-vocab-00076",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/lexemes/11",
-        "sha256": "sha256:1e4f21a66ab12d0816a114ef81a00ee74bd1014c79fa98a28319418c5fe902cf"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
@@ -1295,7 +1351,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/75",
+        "sourcePointer": "/packs/0/practiceItems/81",
         "sha256": "sha256:153ddd10723742696fa6d00162e8bb54108ce8b3b92dab301c498b983ce03fc6"
       },
       {
@@ -1303,47 +1359,23 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/76",
-        "sha256": "sha256:618004085dd834d1895d03a2089e6973a6f77ce5bba1128426a9e99563aae922"
+        "sourcePointer": "/packs/0/practiceItems/82",
+        "sha256": "sha256:735303ad6eaa9b32f3da782bbae96a0f06cb5b9d262fe88ce40bb45705988dda"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/77",
-        "sha256": "sha256:e3db13991669c8e48265983f169f18eb0215e819ffb3291b74c2149a46fe7d6e"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:meaning",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/78",
-        "sha256": "sha256:5a8bceb555fa4e24fa47665859fe2fd6751f606ea0401dbbf6bd45c1bd32eef2"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:pinyin",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/79",
-        "sha256": "sha256:2203361c7702137db605afdc950d321c0737c9289d932601654094facb4b23cf"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:listening",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/80",
-        "sha256": "sha256:4f94954ec3b79f21a49d289a7a7e578b337bccce899af9e904c888b237af6fed"
+        "sourcePointer": "/packs/0/practiceItems/83",
+        "sha256": "sha256:da5a0c5ddddc71b764853f0d75734e898a81ae2f5d902782d8817d159cd80401"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/81",
+        "sourcePointer": "/packs/0/practiceItems/84",
         "sha256": "sha256:bf3d7a06b88fe9acba913e08515e37c418a3ef553d72ba2370c5ca899a910480"
       },
       {
@@ -1351,7 +1383,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/82",
+        "sourcePointer": "/packs/0/practiceItems/85",
         "sha256": "sha256:32380467e4b437fdd68eb1a1f57e5847b9ff0a21973ae9731236a06491bd49f1"
       },
       {
@@ -1359,7 +1391,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/83",
+        "sourcePointer": "/packs/0/practiceItems/86",
         "sha256": "sha256:cab280098581137930f36de0144c0aecd3a6f74afd70be3000dd538a71d83769"
       },
       {
@@ -1367,7 +1399,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00215:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/84",
+        "sourcePointer": "/packs/0/practiceItems/87",
         "sha256": "sha256:0a7d57ba3293ecdcae5cfaa90942c5b933fd7e7be7d3353a14fb4cc19a6385b7"
       },
       {
@@ -1375,7 +1407,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00215:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/85",
+        "sourcePointer": "/packs/0/practiceItems/88",
         "sha256": "sha256:0e473aaa888bb9de21daeccc001b32c8d6b150035b65d15c19bb27604f3426fe"
       },
       {
@@ -1383,7 +1415,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00215:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/86",
+        "sourcePointer": "/packs/0/practiceItems/89",
         "sha256": "sha256:9a04908a2eb95559666b6d6f2e3ec53b628ed6531ab8a51ed92acf2c86a1c01e"
       },
       {
@@ -1391,7 +1423,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00217:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/87",
+        "sourcePointer": "/packs/0/practiceItems/90",
         "sha256": "sha256:e1b67347caadc7f124b9538893ce2799c9d8fedd86b21e5a38147adc07b56211"
       },
       {
@@ -1399,7 +1431,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00217:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/88",
+        "sourcePointer": "/packs/0/practiceItems/91",
         "sha256": "sha256:1c61488f3ece906ed269728a8f82159c0ede2ae7b5187a15f9bef7e5fa4901ca"
       },
       {
@@ -1407,7 +1439,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00217:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/89",
+        "sourcePointer": "/packs/0/practiceItems/92",
         "sha256": "sha256:0840b839d4152b5f649a1cd7473d51870a37bca29e58204942c70cf60d465f87"
       },
       {
@@ -1415,7 +1447,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00230:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/90",
+        "sourcePointer": "/packs/0/practiceItems/93",
         "sha256": "sha256:feaa31cd23fd3b628e929575fb8d0ad05345d3823501ab4b7234c27dd632c81c"
       },
       {
@@ -1423,7 +1455,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00230:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/91",
+        "sourcePointer": "/packs/0/practiceItems/94",
         "sha256": "sha256:4a055d5cb73feaa73c2385da630cdd63a692322247f500e66e07e3f33e684a18"
       },
       {
@@ -1431,7 +1463,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00230:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/92",
+        "sourcePointer": "/packs/0/practiceItems/95",
         "sha256": "sha256:a1a9d9588ae873d9a654cef83f76858acc12711d53e5f25aaae348c070290bd5"
       },
       {
@@ -1439,7 +1471,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00243:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/93",
+        "sourcePointer": "/packs/0/practiceItems/96",
         "sha256": "sha256:b0bd03fe1b404a1cb964e8bd3151c747368b3a514acc6e615d8e6ae7c225fac8"
       },
       {
@@ -1447,7 +1479,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00243:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/94",
+        "sourcePointer": "/packs/0/practiceItems/97",
         "sha256": "sha256:4b0e4a1a07eb5aab9973040fa44b0cd95b223f4927410a24b1573124d13c4fc3"
       },
       {
@@ -1455,7 +1487,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00243:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/95",
+        "sourcePointer": "/packs/0/practiceItems/98",
         "sha256": "sha256:798ea2edc974ca2e66f8b08fadde8ab03fa839868639814f53c4c74ccabb8abd"
       },
       {
@@ -1463,7 +1495,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00244:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/96",
+        "sourcePointer": "/packs/0/practiceItems/99",
         "sha256": "sha256:ee72ed348881a5ea6ace6a9086238c542b83b01b655225e1d1f318d7933fcbf5"
       },
       {
@@ -1471,7 +1503,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00244:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/97",
+        "sourcePointer": "/packs/0/practiceItems/100",
         "sha256": "sha256:b4f7b0cc49c449ff3082b888443bebe023fb7488e903936687eec2591be2a9c9"
       },
       {
@@ -1479,7 +1511,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00244:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/98",
+        "sourcePointer": "/packs/0/practiceItems/101",
         "sha256": "sha256:968a1efc797441d443ed8e6fcd2634250e4e6ee883032dc6ef6b5db61a195a9f"
       },
       {
@@ -1487,7 +1519,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00245:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/99",
+        "sourcePointer": "/packs/0/practiceItems/102",
         "sha256": "sha256:d0a6bde6be5ad8d5ebf73959abcbf1027ac51d2c714429f673899264416e4a61"
       },
       {
@@ -1495,7 +1527,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00245:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/100",
+        "sourcePointer": "/packs/0/practiceItems/103",
         "sha256": "sha256:5b2dc910b05a09de17502e9a0e4afb4ea383f9b636ee6caf9fd3ba3122c88b1a"
       },
       {
@@ -1503,7 +1535,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00245:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/101",
+        "sourcePointer": "/packs/0/practiceItems/104",
         "sha256": "sha256:93f39378ba9e6f706b4e23bdda8f6e2961baf53f2e1a340db484aedbf9d1cb3c"
       },
       {
@@ -1511,7 +1543,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00273:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/102",
+        "sourcePointer": "/packs/0/practiceItems/105",
         "sha256": "sha256:43f5ae6bebd6b8d90f62fa73dade7441457f0cc5d99dbecbe37bd8a494430920"
       },
       {
@@ -1519,7 +1551,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00273:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/103",
+        "sourcePointer": "/packs/0/practiceItems/106",
         "sha256": "sha256:4693d5c13437a1ece0540d7bf09bc163aa775e2de5db4e170bb1f904ad2f2e37"
       },
       {
@@ -1527,7 +1559,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00273:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/104",
+        "sourcePointer": "/packs/0/practiceItems/107",
         "sha256": "sha256:ebc65e6abc3753877855a2d97173bbfa69c507c2c8f41cc3558ddc7e5b9b9000"
       },
       {
@@ -1535,7 +1567,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00275:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/105",
+        "sourcePointer": "/packs/0/practiceItems/108",
         "sha256": "sha256:850f0c81f76f57a492e236747b2bf5392540f1df188380c58773966945c8e3e5"
       },
       {
@@ -1543,23 +1575,23 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00275:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/106",
-        "sha256": "sha256:38b2dbf83197b40dc2efc7665ecbff4744c5d8ba0313dea19271bfb1e8bdc79a"
+        "sourcePointer": "/packs/0/practiceItems/109",
+        "sha256": "sha256:95ac2fce94b4cc57b072e324defd734ca1c7215d964044cc76afe081e3e53104"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00275:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/107",
-        "sha256": "sha256:af6abd49e9de26e8f7a7f538a0b84d550e8ffe68454a356747cb5848fd9acfab"
+        "sourcePointer": "/packs/0/practiceItems/110",
+        "sha256": "sha256:f6ebbe9a4b4b8b487bc8d14b39ac6def59995479a057909e109d923fa726e899"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00291:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/108",
+        "sourcePointer": "/packs/0/practiceItems/111",
         "sha256": "sha256:65f8525cb5d7f47142c947a37c1d4b7c463722670100f653e15973b87343c873"
       },
       {
@@ -1567,16 +1599,16 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00291:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/109",
-        "sha256": "sha256:6f1ab2f7b54de935149624f180f8de357629d62459f7d4f327b1ebcf7d696481"
+        "sourcePointer": "/packs/0/practiceItems/112",
+        "sha256": "sha256:0889465544e606d2d6a90fe0e0c651ad7cfda088818a8a7eaa95d64748553508"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00291:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/110",
-        "sha256": "sha256:e97982957eac3afbc869c1ab5c58da9e4878ae09e73097f79f47919ce57e2add"
+        "sourcePointer": "/packs/0/practiceItems/113",
+        "sha256": "sha256:01f46bf878932f37130e35de10f31e512d1f1f51dbb8463fa92b7cedb3ec9f80"
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
@@ -1632,7 +1664,15 @@
         "targetId": "hsk1-time-place-events:04-clock-and-duration",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/3",
-        "sha256": "sha256:29c649b00a33bf27359c2b3ccd0c5cc2f6d643b68e2b23a79cd903c299dfda10"
+        "sha256": "sha256:9838370f20e74bc4ea256101195b6a39fd8a3a3538d9762cb79b6b150961d334"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:04-clock-and-duration",
+        "targetType": "vocabulary-draft",
+        "targetId": "hsk-vocab-00029",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/lexemes/5",
+        "sha256": "sha256:f8152a83842b870f8d19a39664bb35ce759a14137912b7e931396ae3615bf15e"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
@@ -1741,9 +1781,33 @@
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:meaning",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/114",
+        "sha256": "sha256:c51cdd915a5f5091e1d3d72bff48c35e4d242e6eaaaa69bc803e765625ea2761"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:04-clock-and-duration",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:pinyin",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/115",
+        "sha256": "sha256:b63d600bb1324dd548a85370c16b9c9062cf75ebaaefe3560915a02651799ec5"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:04-clock-and-duration",
+        "targetType": "vocabulary-practice",
+        "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:listening",
+        "sourceId": "communicativeCollection",
+        "sourcePointer": "/packs/0/practiceItems/116",
+        "sha256": "sha256:924b7540a2f37a31f0ae5e70dd9f32c8f134bbc18335feaa6b5fb17e425ff49f"
+      },
+      {
+        "lessonId": "hsk1-time-place-events:04-clock-and-duration",
+        "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/111",
+        "sourcePointer": "/packs/0/practiceItems/117",
         "sha256": "sha256:6c9f370f452f7d9e877af73acd8514e16705e99d99aa174cd384a111a7ab2fb0"
       },
       {
@@ -1751,7 +1815,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/112",
+        "sourcePointer": "/packs/0/practiceItems/118",
         "sha256": "sha256:55005ec21703d0d01f7a8801193fe793c8e4edc157dc971c36ac4d65fe4d8e14"
       },
       {
@@ -1759,7 +1823,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/113",
+        "sourcePointer": "/packs/0/practiceItems/119",
         "sha256": "sha256:dea8df9f629d2013e2bc80b032d3a5a1e2afdfcbdf91fd62f588d5808db42536"
       },
       {
@@ -1767,7 +1831,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00055:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/114",
+        "sourcePointer": "/packs/0/practiceItems/120",
         "sha256": "sha256:f8a61762b7340042cb45d0a809789892863eda964a2724b1a523d1c09bdf09ff"
       },
       {
@@ -1775,7 +1839,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00055:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/115",
+        "sourcePointer": "/packs/0/practiceItems/121",
         "sha256": "sha256:2b1355afa2bdb906d8a157909cfbc5515ba30ddce3ab5eccf37700c9a0cff16a"
       },
       {
@@ -1783,7 +1847,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00055:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/116",
+        "sourcePointer": "/packs/0/practiceItems/122",
         "sha256": "sha256:2cf1032a4e56fa00aa452981ae7b80aecb39b0d6c027957711acf205d3ac9dbe"
       },
       {
@@ -1791,7 +1855,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00056:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/117",
+        "sourcePointer": "/packs/0/practiceItems/123",
         "sha256": "sha256:d63bca0cb4b6f731ea68be4ed360fbba5bd6a638a1b7d13e2785f3d5e60a63f8"
       },
       {
@@ -1799,7 +1863,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00056:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/118",
+        "sourcePointer": "/packs/0/practiceItems/124",
         "sha256": "sha256:fb9523e5b967446f9f979de8d93ac4da9544afe273de88eda795ed71c375e4fa"
       },
       {
@@ -1807,7 +1871,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00056:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/119",
+        "sourcePointer": "/packs/0/practiceItems/125",
         "sha256": "sha256:ad838fb238a8644fd540e1a8baa374ea497c193a9c3078d10e0e43cd52a5d3d1"
       },
       {
@@ -1815,7 +1879,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00080:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/120",
+        "sourcePointer": "/packs/0/practiceItems/126",
         "sha256": "sha256:516c7a6b668e5de1aa1ac90ea8d6f1707ff0baf50016e901f7a2be66cacdd0af"
       },
       {
@@ -1823,7 +1887,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00080:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/121",
+        "sourcePointer": "/packs/0/practiceItems/127",
         "sha256": "sha256:4f9fcf9c1f573f1d9afb1ee22cfd3e0b10b1bb6ceede57c655972980de50a438"
       },
       {
@@ -1831,7 +1895,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00080:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/122",
+        "sourcePointer": "/packs/0/practiceItems/128",
         "sha256": "sha256:7eaa3e8643c8f1c6b83c6b717cb589254da79bace8cf5ff0270b8307389bd521"
       },
       {
@@ -1839,7 +1903,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00163:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/123",
+        "sourcePointer": "/packs/0/practiceItems/129",
         "sha256": "sha256:92d02bf30e9689fd50633948df483f3ed82eeca33a32857a32b3586d68789f85"
       },
       {
@@ -1847,7 +1911,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00163:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/124",
+        "sourcePointer": "/packs/0/practiceItems/130",
         "sha256": "sha256:c20f01a9a894d17548420d31c2d02c11a65ddd8ea2d19441c6297d5c5eb5f3b8"
       },
       {
@@ -1855,7 +1919,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00163:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/125",
+        "sourcePointer": "/packs/0/practiceItems/131",
         "sha256": "sha256:00ed9915e866e04b7462badaf6fed04e6c0fae9f0005989222707c300eb76f8b"
       },
       {
@@ -1863,7 +1927,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00185:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/126",
+        "sourcePointer": "/packs/0/practiceItems/132",
         "sha256": "sha256:5ad8c9b6247b493ad6680d412256bc1a7fe07488056f6fd010cd1ff3bda069e6"
       },
       {
@@ -1871,7 +1935,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00185:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/127",
+        "sourcePointer": "/packs/0/practiceItems/133",
         "sha256": "sha256:8548cefde5c667547a0423e4cf76d6fef21f82c5dcf3f49ce94c7f45b69eba66"
       },
       {
@@ -1879,7 +1943,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00185:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/128",
+        "sourcePointer": "/packs/0/practiceItems/134",
         "sha256": "sha256:8c7a32e35f023d8957af8d38cead694c33d6032c833708ee715c92b35ff2f227"
       },
       {
@@ -1887,7 +1951,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00186:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/129",
+        "sourcePointer": "/packs/0/practiceItems/135",
         "sha256": "sha256:ca6ac7889558e6fbda64accf450fe214ce9153305d6f572d61431f21e1bba85a"
       },
       {
@@ -1895,23 +1959,23 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00186:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/130",
-        "sha256": "sha256:7dae755ad0d6efb10a0ee0cb0c4cffb3392251b66f3e6b1e84234dcabe9e62b5"
+        "sourcePointer": "/packs/0/practiceItems/136",
+        "sha256": "sha256:5af5eb5fe79b0f50804b5cf58bf67e206fb2cd355f14ae360e39d98d74370543"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00186:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/131",
-        "sha256": "sha256:c85d6a0aeb3e9edd55be75a930cad5e78257aa5b3601dcf0f62eabfdc2545fb8"
+        "sourcePointer": "/packs/0/practiceItems/137",
+        "sha256": "sha256:510e032e864ebf993814a037142315b5e6c6c0102a3bf9d2362a67a60b4f4b89"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00232:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/132",
+        "sourcePointer": "/packs/0/practiceItems/138",
         "sha256": "sha256:1089426c3866e47f58f24a71d84e442a2b136581e2e2fc41cf142b3d5f2036f4"
       },
       {
@@ -1919,23 +1983,23 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00232:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/133",
-        "sha256": "sha256:e52883109c65423acbcc51b8423882ba287c1f33b6906b714ff7146dfbe3db15"
+        "sourcePointer": "/packs/0/practiceItems/139",
+        "sha256": "sha256:8b23860595b8d699bdb1101d05e47efeb950289ea8b106ce9a644328193c0d41"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00232:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/134",
-        "sha256": "sha256:301a0378a3f0dab2534401a0e7028d08309483b34a8123fbc8a29c1182b57426"
+        "sourcePointer": "/packs/0/practiceItems/140",
+        "sha256": "sha256:53dc658d5eb261776447667dbd02991a713d3ae1a0e53f75bda5d109130c6812"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00236:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/135",
+        "sourcePointer": "/packs/0/practiceItems/141",
         "sha256": "sha256:9ebe9368a561b493f34653cf8fbf1af988eec4ebc64190c6cad1f1c15d80390c"
       },
       {
@@ -1943,16 +2007,16 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00236:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/136",
-        "sha256": "sha256:b089c2a54d5cfd47f1ffb88defe0af3f58f3118647eed0b658419ddf8247c195"
+        "sourcePointer": "/packs/0/practiceItems/142",
+        "sha256": "sha256:158d19a3c2b139f2cd34cc65ce20be05b11b354c68b9bd795e77e11529cfbf1c"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00236:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/137",
-        "sha256": "sha256:9ab3218dc4aae341c9920cb7e41731e8d054786c1cf1736c4b8c292729a05eef"
+        "sourcePointer": "/packs/0/practiceItems/143",
+        "sha256": "sha256:1e9774388c956fb5a2ea1b0c42406807eecff047a65b5be6d076c92409c1deb2"
       },
       {
         "lessonId": "hsk1-time-place-events:04-clock-and-duration",
@@ -2303,7 +2367,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00011:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/138",
+        "sourcePointer": "/packs/0/practiceItems/144",
         "sha256": "sha256:f127771dda269bb6769aa8b45cb3a1372f9e5d6e319ba0ca090f652220d0adb1"
       },
       {
@@ -2311,7 +2375,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00011:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/139",
+        "sourcePointer": "/packs/0/practiceItems/145",
         "sha256": "sha256:c8046035e108f3118772bdc7147cb4ea1c48a507b4018df152ce17a086a2e0da"
       },
       {
@@ -2319,7 +2383,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00011:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/140",
+        "sourcePointer": "/packs/0/practiceItems/146",
         "sha256": "sha256:ef21da563a8a04fed9b39bed055f9258d4b47ccfa7a03db9dc73989751550b0d"
       },
       {
@@ -2327,7 +2391,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00110:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/141",
+        "sourcePointer": "/packs/0/practiceItems/147",
         "sha256": "sha256:18349e918360fd6739d0d1ede7ddd401d43985227e3ad0c50cb3fe0c67e40881"
       },
       {
@@ -2335,7 +2399,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00110:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/142",
+        "sourcePointer": "/packs/0/practiceItems/148",
         "sha256": "sha256:2499022d826f7b18130bc178b82a3aaff03d22fabd1e55da19a1c265fdd40f90"
       },
       {
@@ -2343,7 +2407,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00110:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/143",
+        "sourcePointer": "/packs/0/practiceItems/149",
         "sha256": "sha256:a5d8783c1f256ef7c1a20047d0eafaf65c356ba31e8e666cf132dd18be05273f"
       },
       {
@@ -2351,7 +2415,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00131:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/144",
+        "sourcePointer": "/packs/0/practiceItems/150",
         "sha256": "sha256:970a460a2b6db4f068370cea7f076a2414e83cd4c481529c0e17461c354a95f2"
       },
       {
@@ -2359,7 +2423,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00131:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/145",
+        "sourcePointer": "/packs/0/practiceItems/151",
         "sha256": "sha256:a3b2a1734e5528e233ab117a69bf4373f893375e8ff08e138bc555cc039a3f19"
       },
       {
@@ -2367,7 +2431,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00131:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/146",
+        "sourcePointer": "/packs/0/practiceItems/152",
         "sha256": "sha256:7f66a16541d7c289b6f1478c8eedfaf82bfc6db313b72239b2c4dc440c61d32d"
       },
       {
@@ -2375,7 +2439,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00132:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/147",
+        "sourcePointer": "/packs/0/practiceItems/153",
         "sha256": "sha256:d928096e327c835142467b0063cac7324888d74061445221862210071d63eafb"
       },
       {
@@ -2383,7 +2447,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00132:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/148",
+        "sourcePointer": "/packs/0/practiceItems/154",
         "sha256": "sha256:418ef26a2de9cc042576d78a9ab11a777406b2c1165f855c84d3475b803efed1"
       },
       {
@@ -2391,7 +2455,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00132:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/149",
+        "sourcePointer": "/packs/0/practiceItems/155",
         "sha256": "sha256:e2c76731dc89c210c3c04061cafe4586a2741fdec410fee39653682cde8c5931"
       },
       {
@@ -2399,7 +2463,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00133:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/150",
+        "sourcePointer": "/packs/0/practiceItems/156",
         "sha256": "sha256:a172e3a74ffd1513415e3b9a7cd411a0c0bfae6b3d4290f4bfdd5b7bb872990b"
       },
       {
@@ -2407,7 +2471,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00133:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/151",
+        "sourcePointer": "/packs/0/practiceItems/157",
         "sha256": "sha256:11c39ca194295afe35f020dd55a4a45fbb157cbf2d3be6c2518aa0c4d6190b56"
       },
       {
@@ -2415,7 +2479,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00133:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/152",
+        "sourcePointer": "/packs/0/practiceItems/158",
         "sha256": "sha256:8c80994e4a79ca662517c8211f1335fa4f9bfd68ae8d5117654408d83c89a5bf"
       },
       {
@@ -2423,7 +2487,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00134:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/153",
+        "sourcePointer": "/packs/0/practiceItems/159",
         "sha256": "sha256:855c5004abdd193bcf6fcfe09f7d7a64d1265e5aa73c8b3387b58bd204c71a05"
       },
       {
@@ -2431,7 +2495,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00134:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/154",
+        "sourcePointer": "/packs/0/practiceItems/160",
         "sha256": "sha256:8beccb942bd66675875bc580805eec92f1eecc34781f9c9b687e5e0dda5fee3d"
       },
       {
@@ -2439,7 +2503,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00134:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/155",
+        "sourcePointer": "/packs/0/practiceItems/161",
         "sha256": "sha256:0ac1f13a26ae3db860351d388b3019c3621ed31853293e9721b0f84a2905f0ef"
       },
       {
@@ -2447,7 +2511,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00135:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/156",
+        "sourcePointer": "/packs/0/practiceItems/162",
         "sha256": "sha256:48ed11a25eb4e6bb256732edbb5f732020f76eed0a895cd78560b7b102da0ea7"
       },
       {
@@ -2455,7 +2519,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00135:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/157",
+        "sourcePointer": "/packs/0/practiceItems/163",
         "sha256": "sha256:7855b859a0874dc45a3f58bd50ab69b17387a3a4cf21a36607542c9c6fb0be52"
       },
       {
@@ -2463,7 +2527,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00135:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/158",
+        "sourcePointer": "/packs/0/practiceItems/164",
         "sha256": "sha256:5bd3892aa0fe7f02816d2184ef6d2ed9badbb69b5e06a52d3a56987d50fc825c"
       },
       {
@@ -2471,7 +2535,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00136:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/159",
+        "sourcePointer": "/packs/0/practiceItems/165",
         "sha256": "sha256:3432dfffd6a6d50ce06cfc59a75e11fcb0cdfbccfc84f3aee03149fb569e2adc"
       },
       {
@@ -2479,7 +2543,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00136:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/160",
+        "sourcePointer": "/packs/0/practiceItems/166",
         "sha256": "sha256:f1b9db4e769b9b677ae7faae6c76851dcdb9fb4c5b578697c796947084c15537"
       },
       {
@@ -2487,7 +2551,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00136:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/161",
+        "sourcePointer": "/packs/0/practiceItems/167",
         "sha256": "sha256:a276a83593e730c3d89554e8bedc10f5ee78bcc2a662b689b276a8cb789c5e1e"
       },
       {
@@ -2495,7 +2559,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00137:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/162",
+        "sourcePointer": "/packs/0/practiceItems/168",
         "sha256": "sha256:8b1e44ac37b5588aae75fcc9b6662ad603e3b68cefa8936b21d2c5de95af8782"
       },
       {
@@ -2503,7 +2567,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00137:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/163",
+        "sourcePointer": "/packs/0/practiceItems/169",
         "sha256": "sha256:219f32b0bde8a3bbeaf03678e031eeb19f372920dfe9635b02a23cb7d896cbf3"
       },
       {
@@ -2511,7 +2575,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00137:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/164",
+        "sourcePointer": "/packs/0/practiceItems/170",
         "sha256": "sha256:4b844888cedfbf6b3bf2c3f227790948127df1df1ef8f5d57898048d91d2953f"
       },
       {
@@ -2519,7 +2583,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00138:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/165",
+        "sourcePointer": "/packs/0/practiceItems/171",
         "sha256": "sha256:5bd69b4aeee80302853fa80d330b8cf27fe8d5822ed42a03434a5a566cf3c365"
       },
       {
@@ -2527,7 +2591,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00138:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/166",
+        "sourcePointer": "/packs/0/practiceItems/172",
         "sha256": "sha256:8210a8f6de7c75263695e656e96869a0a85c98fb61b1a5cdd29b48b5c652a1ee"
       },
       {
@@ -2535,7 +2599,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00138:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/167",
+        "sourcePointer": "/packs/0/practiceItems/173",
         "sha256": "sha256:94550a59c1ecc9fa04398763d79f91857eb76e5ccf77ffb61499e3a86ea8d7fc"
       },
       {
@@ -2543,7 +2607,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00139:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/168",
+        "sourcePointer": "/packs/0/practiceItems/174",
         "sha256": "sha256:df28b06b1f82e5fc4bafdecf5698b3f7e6ef4051ffa83517959e108ef6d164e5"
       },
       {
@@ -2551,7 +2615,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00139:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/169",
+        "sourcePointer": "/packs/0/practiceItems/175",
         "sha256": "sha256:ff3a662159312bae26341c36643f9734ef63efd953f008ad027176af378ec665"
       },
       {
@@ -2559,7 +2623,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00139:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/170",
+        "sourcePointer": "/packs/0/practiceItems/176",
         "sha256": "sha256:2f076472e5e9affefc977cc1fb15184c5eb8dfc77b58d00bb6085dab18e4492a"
       },
       {
@@ -2567,7 +2631,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00140:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/171",
+        "sourcePointer": "/packs/0/practiceItems/177",
         "sha256": "sha256:898c9c2d13d4273656e49474ec9c7476d38928e2f76324589ecf490cab924c7b"
       },
       {
@@ -2575,7 +2639,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00140:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/172",
+        "sourcePointer": "/packs/0/practiceItems/178",
         "sha256": "sha256:70e4a9c03d16a9b06b87436a003cb38fa3cfe614e92d9f4a8abae4f8f2cafc02"
       },
       {
@@ -2583,7 +2647,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00140:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/173",
+        "sourcePointer": "/packs/0/practiceItems/179",
         "sha256": "sha256:caed771f8b41e4a8b45f19eedd74d7b7385a1c70dc06c653fd64c14fb33e13f4"
       },
       {
@@ -2591,7 +2655,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00141:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/174",
+        "sourcePointer": "/packs/0/practiceItems/180",
         "sha256": "sha256:7ec7ea996fcb76a15908af1077e94d1b8ebe964653d6897865fdcfa663c8934f"
       },
       {
@@ -2599,7 +2663,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00141:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/175",
+        "sourcePointer": "/packs/0/practiceItems/181",
         "sha256": "sha256:17fa11c765a1fad5cda5e6b367ef11b8cd0e8a9adc9aee40e7d7b717401108e4"
       },
       {
@@ -2607,7 +2671,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00141:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/176",
+        "sourcePointer": "/packs/0/practiceItems/182",
         "sha256": "sha256:20b804b3dd43a5eb3307d942b491f407936b7d12b439e51c12e1ad5dc3d5ab94"
       },
       {
@@ -2615,7 +2679,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00175:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/177",
+        "sourcePointer": "/packs/0/practiceItems/183",
         "sha256": "sha256:6ffc28a663134b69e463313de73bb35631bde26e31fb326de6ad761a4ed50d84"
       },
       {
@@ -2623,7 +2687,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00175:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/178",
+        "sourcePointer": "/packs/0/practiceItems/184",
         "sha256": "sha256:3f6a2343808a80fe6a68a52cdf5a5792422fb79ae6637b8187885fb10206551f"
       },
       {
@@ -2631,7 +2695,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00175:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/179",
+        "sourcePointer": "/packs/0/practiceItems/185",
         "sha256": "sha256:92feea4bb884071c4352180047275da47f896fa8ef5aed95b723275b8fe3873e"
       },
       {
@@ -2639,7 +2703,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00212:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/180",
+        "sourcePointer": "/packs/0/practiceItems/186",
         "sha256": "sha256:8cb6a7bb5a4fb93e69ab9491f57e9a1cc000eb7229f138aabc32b168eaf2e36a"
       },
       {
@@ -2647,7 +2711,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00212:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/181",
+        "sourcePointer": "/packs/0/practiceItems/187",
         "sha256": "sha256:8585ea27ca64683e5cc5a0b6b29e9fd043802ef8f255aea21ce788fa1e54da2f"
       },
       {
@@ -2655,7 +2719,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00212:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/182",
+        "sourcePointer": "/packs/0/practiceItems/188",
         "sha256": "sha256:4b290154d98c0c128891f95aec9f4210e76990399367e0460560b396cce4e027"
       },
       {
@@ -2663,7 +2727,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00213:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/183",
+        "sourcePointer": "/packs/0/practiceItems/189",
         "sha256": "sha256:d98dc068ed9b2a1910ca924760eed43102d7d51f58088191a31450b9895c9bf7"
       },
       {
@@ -2671,7 +2735,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00213:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/184",
+        "sourcePointer": "/packs/0/practiceItems/190",
         "sha256": "sha256:c25344c6cbd56c138c6e2926d3bb82755f2d2f47bc392cc256363c242484bf36"
       },
       {
@@ -2679,7 +2743,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00213:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/185",
+        "sourcePointer": "/packs/0/practiceItems/191",
         "sha256": "sha256:9dc15aea5f1ccbef8f498431b696e0ed1b9616a829ad348e7eb013a87bd68287"
       },
       {
@@ -2687,7 +2751,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00226:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/186",
+        "sourcePointer": "/packs/0/practiceItems/192",
         "sha256": "sha256:f350dd236a19275ac4d30e4cad3fe45c7cc1f44c87514a1b9a04a8d3c18d0a77"
       },
       {
@@ -2695,7 +2759,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00226:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/187",
+        "sourcePointer": "/packs/0/practiceItems/193",
         "sha256": "sha256:81d1782308ada98470ac0a0062c3cd36b85bd446fffc5afec7c97ca52f00095e"
       },
       {
@@ -2703,7 +2767,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00226:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/188",
+        "sourcePointer": "/packs/0/practiceItems/194",
         "sha256": "sha256:7e6660a4c1e59fa52ecddd97764297d5a5384bd78fedc9d40ee423e915baeb25"
       },
       {
@@ -2711,7 +2775,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00239:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/189",
+        "sourcePointer": "/packs/0/practiceItems/195",
         "sha256": "sha256:edff25f6687fa967d6b1ded6e1d9725c83856bf05133cceb92f1c2d17ae1c442"
       },
       {
@@ -2719,7 +2783,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00239:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/190",
+        "sourcePointer": "/packs/0/practiceItems/196",
         "sha256": "sha256:f0b8254a6825a9be91f1eea45813ee058c93afa6056d992eae0f7c584852bd72"
       },
       {
@@ -2727,7 +2791,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00239:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/191",
+        "sourcePointer": "/packs/0/practiceItems/197",
         "sha256": "sha256:8c6f2b8aff46a8e82acc5c448766b0d1d31f9490cfebc75f75bf321b47399eb1"
       },
       {
@@ -2735,7 +2799,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00279:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/192",
+        "sourcePointer": "/packs/0/practiceItems/198",
         "sha256": "sha256:d21c6ee4403efa1916c487eef13b67d33362d4232fa8e9cc61d4b2fdc4ba7911"
       },
       {
@@ -2743,7 +2807,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00279:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/193",
+        "sourcePointer": "/packs/0/practiceItems/199",
         "sha256": "sha256:d264e917307c3dcb125a49f68f9568c6eac31cece7fbc4000e29485f3141f25a"
       },
       {
@@ -2751,7 +2815,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00279:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/194",
+        "sourcePointer": "/packs/0/practiceItems/200",
         "sha256": "sha256:99e7963a4d680d3ab7447022134b81e599fe8a7bbeb6030779cf5ec770c1253a"
       },
       {
@@ -2759,7 +2823,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00280:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/195",
+        "sourcePointer": "/packs/0/practiceItems/201",
         "sha256": "sha256:506fb86ff1046faf07e78461c4057b7b5d5bcf2956ca4373436a7076e7d7de93"
       },
       {
@@ -2767,7 +2831,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00280:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/196",
+        "sourcePointer": "/packs/0/practiceItems/202",
         "sha256": "sha256:3f39a64462b992af2583761a7915a1a86e6406c3ed24136699f7a77151b2fb21"
       },
       {
@@ -2775,7 +2839,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00280:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/197",
+        "sourcePointer": "/packs/0/practiceItems/203",
         "sha256": "sha256:16fb8e68a814d5d6015ab28a89bb2bd05a2ac93b8723421996b4f17382206438"
       },
       {
@@ -2783,7 +2847,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00281:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/198",
+        "sourcePointer": "/packs/0/practiceItems/204",
         "sha256": "sha256:3d9fb0a38ee3b5cc42730a3e009f728e1c4e660f4888840e3548990edadcda8e"
       },
       {
@@ -2791,7 +2855,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00281:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/199",
+        "sourcePointer": "/packs/0/practiceItems/205",
         "sha256": "sha256:1b4e92d56b31acd0b5d8afca79d12c2382de15ef86899d338334bff74e6f69ae"
       },
       {
@@ -2799,7 +2863,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00281:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/200",
+        "sourcePointer": "/packs/0/practiceItems/206",
         "sha256": "sha256:4df57847a73210079637e02e0c849ff47a70d88dd3b487fc29ba8840fe7da075"
       },
       {
@@ -2807,7 +2871,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00282:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/201",
+        "sourcePointer": "/packs/0/practiceItems/207",
         "sha256": "sha256:e3e43aca8f1094c33b70efdb0b2bd835675a0f94c510d808d5259f16d1f7ed46"
       },
       {
@@ -2815,7 +2879,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00282:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/202",
+        "sourcePointer": "/packs/0/practiceItems/208",
         "sha256": "sha256:448c5d46c8f2449b2c9d857604c90d646fbaccc22e6a472e31e3a568ef7aefa0"
       },
       {
@@ -2823,7 +2887,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00282:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/203",
+        "sourcePointer": "/packs/0/practiceItems/209",
         "sha256": "sha256:8e71b4c6f027ceba08f7aeb27402cb451072591eacfec102e49637c4142d1f13"
       },
       {
@@ -2831,7 +2895,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00283:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/204",
+        "sourcePointer": "/packs/0/practiceItems/210",
         "sha256": "sha256:3c326e5ddc1d75bbafa9476115d9e306d0a27b2ce0728ee39db74426c38621ad"
       },
       {
@@ -2839,7 +2903,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00283:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/205",
+        "sourcePointer": "/packs/0/practiceItems/211",
         "sha256": "sha256:458ff6fd13bc8e578aebc52a4ae0b364cfd3d85e9cab7b9c070618a54b239e0d"
       },
       {
@@ -2847,7 +2911,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00283:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/206",
+        "sourcePointer": "/packs/0/practiceItems/212",
         "sha256": "sha256:e1e5660c6271f4024923a0d600fc85ec691857837859629e451e0935325919f4"
       },
       {
@@ -2855,7 +2919,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00284:meaning",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/207",
+        "sourcePointer": "/packs/0/practiceItems/213",
         "sha256": "sha256:0054237708e27b3e4adc12406eed5f7fc2f6722a30e32930d52c8851fb492372"
       },
       {
@@ -2863,7 +2927,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00284:pinyin",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/208",
+        "sourcePointer": "/packs/0/practiceItems/214",
         "sha256": "sha256:1b2312f43523f935e4ac52dd406ae5ed15094e3b68a09f5e7aa8072158cac073"
       },
       {
@@ -2871,7 +2935,7 @@
         "targetType": "vocabulary-practice",
         "targetId": "hsk1-time-place-events:05-location:hsk-vocab-00284:listening",
         "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/209",
+        "sourcePointer": "/packs/0/practiceItems/215",
         "sha256": "sha256:79df390b96e9adef803f9242d1d37016a62a44de2f74cf329e28a5be7a7e8063"
       },
       {
@@ -2928,7 +2992,7 @@
         "targetId": "hsk1-grammar-row-040",
         "sourceId": "grammarPack",
         "sourcePointer": "/grammarDrafts/39",
-        "sha256": "sha256:a4a54629fe1eb20501aa541acfe489a43b23625235b185d2bca4c837ab13f1b4"
+        "sha256": "sha256:24b7ba3a091dd63fbf09a1efa6b5cd127a69c77c1d2742ed99ea68107d24a93d"
       },
       {
         "lessonId": "hsk1-time-place-events:05-location",
@@ -3032,7 +3096,7 @@
         "targetId": "hsk1-task-05",
         "sourceId": "taskPack",
         "sourcePointer": "/taskScenarios/4",
-        "sha256": "sha256:51149057ffa43f80cf761800901aec08c350b9f278331a2c0533be1b2d81a85d"
+        "sha256": "sha256:4cd804c4cfa2e0ed894f914e4e59e41586a62ecf9c5da29eeb7f75e6e4394b56"
       },
       {
         "lessonId": "hsk1-time-place-events:05-location",
@@ -3072,7 +3136,7 @@
         "targetId": "hsk1-time-place-events:05-location:hsk1-task-05:roleplay",
         "sourceId": "taskPack",
         "sourcePointer": "/practiceItems/4",
-        "sha256": "sha256:db58c570c53b56c68346d25504537ea3dc9aea6a7a08eea7a00b63bbff5efb5f"
+        "sha256": "sha256:0a3b27214be4c24c0d0946676d1aa3a9ee7e9704e7dd49d7443f70451e72c3ca"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3080,23 +3144,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/5",
-        "sha256": "sha256:78b6283ac276cb5c9e749b176cbb3631d151a041bfe2e2ce73bec264e3716815"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-draft",
-        "targetId": "hsk-vocab-00029",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/lexemes/5",
-        "sha256": "sha256:f8152a83842b870f8d19a39664bb35ce759a14137912b7e931396ae3615bf15e"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-draft",
-        "targetId": "hsk-vocab-00031",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/lexemes/6",
-        "sha256": "sha256:4249439728b4b74b4861d1562f1ee994e97ce1f0fd1000f0a6845433e2f80d0a"
+        "sha256": "sha256:6875b9de4c0f08e21201d9474212ce71ef62c0a9be345cc7401941b62d786e98"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3201,54 +3249,6 @@
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/5/modelDialogue/turns/3",
         "sha256": "sha256:25acea7d00ada696fcf3b0abfee5fcb1287a4fa4899ee03c2d2ff7549acce32a"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:meaning",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/210",
-        "sha256": "sha256:18ecf4d1bf7522dd0c960abb0f66430b5336b137591dfd37531e0e355a1427d2"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:pinyin",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/211",
-        "sha256": "sha256:094eb981431d9c0cad2fd01b76758ad14e106e8a140efaf8f34b89ed38fd6eba"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:listening",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/212",
-        "sha256": "sha256:98944758dbc6fd5ce376374639bceda83d21f842764cf768f6ed4defce9ceed7"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:meaning",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/213",
-        "sha256": "sha256:ce8628afc9af4c108ab64cdd2e4a2142e8cbb8c3c31fb32fb4e6bdc54aef334d"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:pinyin",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/214",
-        "sha256": "sha256:c12e6f240d83f24c8a1ba5be11200162789c8fb3613d31770ac677155465c7e3"
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "targetType": "vocabulary-practice",
-        "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:listening",
-        "sourceId": "communicativeCollection",
-        "sourcePointer": "/packs/0/practiceItems/215",
-        "sha256": "sha256:24bbe64188cbe199b0ed2f598509cfd023085467a8a9322279b29636cbb4a0fc"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3408,7 +3408,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00271:pinyin",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/235",
-        "sha256": "sha256:304262b7832190553d2bd6cc563b34d4eb5a84a506ae09e26ad4b5c6169e2127"
+        "sha256": "sha256:4e3b374b6418910e2029a5e31e76792a428248eaef03e0a3df0afbaaf2bc05e2"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3416,7 +3416,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00271:listening",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/236",
-        "sha256": "sha256:b04e0a4c017d6fb7dbaf8bd3d7ce95511dea298e7a7d210da9ee1dd9436a9f64"
+        "sha256": "sha256:c6529aff35e6dcb8ee1280013952fbc2ac018381995aa30460bf2b2b860e7aff"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3432,7 +3432,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00286:pinyin",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/238",
-        "sha256": "sha256:8c0c71f98c3f74589169a2679b597dbdb540471e7303f6bb97daef49e9a1fdc5"
+        "sha256": "sha256:b22244a068b2fa65fa6e116d8ab6634cc38b524c2706286910353c3b69f08168"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3440,7 +3440,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00286:listening",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/239",
-        "sha256": "sha256:73ecea2e73158bfcda2c8a1647bb6cd9d98c38243e813feb9a20de1f87a33a55"
+        "sha256": "sha256:b14ecf8b87b197aa73d747c32caf542590dfb072cab6b2a503c683126641204d"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3456,7 +3456,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00294:pinyin",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/241",
-        "sha256": "sha256:9cc37540579f98a1941e60766a0277deafe463e0d212e1339c48832476683750"
+        "sha256": "sha256:1c98b3028639c8b6a984ac69d37c6a226463a7de104e27c8c90d8980c50eda7e"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3464,7 +3464,7 @@
         "targetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00294:listening",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/practiceItems/242",
-        "sha256": "sha256:beb0803aa0942c940e04f8810deace3082262cd05ed333f8f997a20434dd30f6"
+        "sha256": "sha256:609b9021c27542d90f96392bbe7e3b0a82acb840a0f03c50c693b6120607d7e1"
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
@@ -3659,9 +3659,15 @@
         "batchId": "hsk1-time-place-events:02-calendar:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
+        "targetDigest": "sha256:f1bf16bebb16e4304e323e582931fef5a636bb287fcc7bbe4f15c9628e6e7540",
         "targets": {
           "practiceItemIds": [
+            "hsk1-time-place-events:02-calendar:hsk-vocab-00031:listening",
+            "hsk1-time-place-events:02-calendar:hsk-vocab-00031:meaning",
+            "hsk1-time-place-events:02-calendar:hsk-vocab-00031:pinyin",
+            "hsk1-time-place-events:02-calendar:hsk-vocab-00076:listening",
+            "hsk1-time-place-events:02-calendar:hsk-vocab-00076:meaning",
+            "hsk1-time-place-events:02-calendar:hsk-vocab-00076:pinyin",
             "hsk1-time-place-events:02-calendar:hsk-vocab-00093:listening",
             "hsk1-time-place-events:02-calendar:hsk-vocab-00093:meaning",
             "hsk1-time-place-events:02-calendar:hsk-vocab-00093:pinyin",
@@ -3694,6 +3700,8 @@
             "hsk1-time-place-events:02-calendar:hsk-vocab-00297:pinyin"
           ],
           "vocabularyIds": [
+            "hsk-vocab-00031",
+            "hsk-vocab-00076",
             "hsk-vocab-00093",
             "hsk-vocab-00094",
             "hsk-vocab-00128",
@@ -3789,15 +3797,12 @@
         "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
+        "targetDigest": "sha256:48ae06623356952e4e5b2a53b8700ffa35eea29dfa2bb9724265ab1212195786",
         "targets": {
           "practiceItemIds": [
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:listening",
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:meaning",
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00005:pinyin",
-            "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:listening",
-            "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:meaning",
-            "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:pinyin",
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:listening",
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:meaning",
             "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:pinyin",
@@ -3831,7 +3836,6 @@
           ],
           "vocabularyIds": [
             "hsk-vocab-00005",
-            "hsk-vocab-00076",
             "hsk-vocab-00178",
             "hsk-vocab-00215",
             "hsk-vocab-00217",
@@ -3895,9 +3899,12 @@
         "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
+        "targetDigest": "sha256:b0846fc1ae615422299b5aff5f55d874754516c564dc49ac609f31cd2d52ce80",
         "targets": {
           "practiceItemIds": [
+            "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:listening",
+            "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:meaning",
+            "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:pinyin",
             "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:listening",
             "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:meaning",
             "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00033:pinyin",
@@ -3927,6 +3934,7 @@
             "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00236:pinyin"
           ],
           "vocabularyIds": [
+            "hsk-vocab-00029",
             "hsk-vocab-00033",
             "hsk-vocab-00055",
             "hsk-vocab-00056",
@@ -4193,15 +4201,9 @@
         "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
         "sourceKind": "vocabulary-communicative-units",
         "sourceId": "hsk1-communicative-units-2026.07",
-        "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
+        "targetDigest": "sha256:04e00bfc2d63e40f4ad9ec7bed8b63114e89e605e185aa48aba925b0e0f5c1f0",
         "targets": {
           "practiceItemIds": [
-            "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:listening",
-            "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:meaning",
-            "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:pinyin",
-            "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:listening",
-            "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:meaning",
-            "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:pinyin",
             "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00109:listening",
             "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00109:meaning",
             "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00109:pinyin",
@@ -4231,8 +4233,6 @@
             "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00294:pinyin"
           ],
           "vocabularyIds": [
-            "hsk-vocab-00029",
-            "hsk-vocab-00031",
             "hsk-vocab-00109",
             "hsk-vocab-00169",
             "hsk-vocab-00208",
@@ -4518,6 +4518,28 @@
       },
       {
         "lessonId": "hsk1-time-place-events:02-calendar",
+        "audioTargetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00031:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:e25293c7ae4e2f518a25d30d69dae7b7529a78bdfcf9aad230cb113f13a4a30a",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
+        "audioTargetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00076:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:42cd1badf2c0cb222d425475fae9c8909aefa18b9f904b98cb14529e6321ffb2",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "lessonId": "hsk1-time-place-events:02-calendar",
         "audioTargetId": "hsk1-time-place-events:02-calendar:hsk-vocab-00093:listening:audio",
         "targetKind": "listening-selection",
         "sourceTargetSha256": "sha256:01f51e13a7ee941d0ac9a038b28c3d3768b68ead99343202050e82e2c71ed5cd",
@@ -4650,17 +4672,6 @@
       },
       {
         "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
-        "audioTargetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00076:listening:audio",
-        "targetKind": "listening-selection",
-        "sourceTargetSha256": "sha256:42cd1badf2c0cb222d425475fae9c8909aefa18b9f904b98cb14529e6321ffb2",
-        "reviewedAssetId": null,
-        "reviewedAssetSha256": null,
-        "rightsEvidenceRef": null,
-        "nativeReviewReceiptId": null,
-        "audioRightsReceiptId": null
-      },
-      {
-        "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
         "audioTargetId": "hsk1-time-place-events:03-week-and-day-parts:hsk-vocab-00178:listening:audio",
         "targetKind": "listening-selection",
         "sourceTargetSha256": "sha256:b690f880d802c08c3c964b929afade5bfc6cd3ea1f5e74cfb8d233dadb20ca02",
@@ -4774,6 +4785,17 @@
         "audioTargetId": "hsk1-time-place-events:04-clock-and-duration:dialogue-audio",
         "targetKind": "model-dialogue",
         "sourceTargetSha256": "sha256:bd9573a8a375c80683996cd3ba33f44cc55cd18e0078f11ca5090ccd42d28efb",
+        "reviewedAssetId": null,
+        "reviewedAssetSha256": null,
+        "rightsEvidenceRef": null,
+        "nativeReviewReceiptId": null,
+        "audioRightsReceiptId": null
+      },
+      {
+        "lessonId": "hsk1-time-place-events:04-clock-and-duration",
+        "audioTargetId": "hsk1-time-place-events:04-clock-and-duration:hsk-vocab-00029:listening:audio",
+        "targetKind": "listening-selection",
+        "sourceTargetSha256": "sha256:24b994668536e92973439e7462d15774c0bfd9281312fce1c114545c69d109cb",
         "reviewedAssetId": null,
         "reviewedAssetSha256": null,
         "rightsEvidenceRef": null,
@@ -5189,28 +5211,6 @@
       },
       {
         "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "audioTargetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00029:listening:audio",
-        "targetKind": "listening-selection",
-        "sourceTargetSha256": "sha256:24b994668536e92973439e7462d15774c0bfd9281312fce1c114545c69d109cb",
-        "reviewedAssetId": null,
-        "reviewedAssetSha256": null,
-        "rightsEvidenceRef": null,
-        "nativeReviewReceiptId": null,
-        "audioRightsReceiptId": null
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
-        "audioTargetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00031:listening:audio",
-        "targetKind": "listening-selection",
-        "sourceTargetSha256": "sha256:e25293c7ae4e2f518a25d30d69dae7b7529a78bdfcf9aad230cb113f13a4a30a",
-        "reviewedAssetId": null,
-        "reviewedAssetSha256": null,
-        "rightsEvidenceRef": null,
-        "nativeReviewReceiptId": null,
-        "audioRightsReceiptId": null
-      },
-      {
-        "lessonId": "hsk1-time-place-events:06-weather-and-residence",
         "audioTargetId": "hsk1-time-place-events:06-weather-and-residence:hsk-vocab-00109:listening:audio",
         "targetKind": "listening-selection",
         "sourceTargetSha256": "sha256:f8b28a7b6baa18a0560eed74a37755e9fbf13ee28d50e461e0a558770d3bf266",
@@ -5310,7 +5310,7 @@
       }
     ]
   },
-  "unitReleaseDigest": "sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2",
+  "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
   "requiredReviewReceipts": [
     {
       "lessonId": "hsk1-time-place-events:01-numbers",
@@ -5364,7 +5364,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
+      "targetDigest": "sha256:f1bf16bebb16e4304e323e582931fef5a636bb287fcc7bbe4f15c9628e6e7540",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5372,7 +5372,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
+      "targetDigest": "sha256:f1bf16bebb16e4304e323e582931fef5a636bb287fcc7bbe4f15c9628e6e7540",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5380,7 +5380,7 @@
       "lessonId": "hsk1-time-place-events:02-calendar",
       "batchId": "hsk1-time-place-events:02-calendar:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:d62aafdfc936d978e97e752d711fc36b71c6ba93e823892be1456c0840d293b9",
+      "targetDigest": "sha256:f1bf16bebb16e4304e323e582931fef5a636bb287fcc7bbe4f15c9628e6e7540",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5436,7 +5436,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
+      "targetDigest": "sha256:48ae06623356952e4e5b2a53b8700ffa35eea29dfa2bb9724265ab1212195786",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5444,7 +5444,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
+      "targetDigest": "sha256:48ae06623356952e4e5b2a53b8700ffa35eea29dfa2bb9724265ab1212195786",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5452,7 +5452,7 @@
       "lessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "batchId": "hsk1-time-place-events:03-week-and-day-parts:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:456512fc851ec5360924a4a6eb9a0eb9ea2cc8484894b820287bd60d76d41e3d",
+      "targetDigest": "sha256:48ae06623356952e4e5b2a53b8700ffa35eea29dfa2bb9724265ab1212195786",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5484,7 +5484,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
+      "targetDigest": "sha256:b0846fc1ae615422299b5aff5f55d874754516c564dc49ac609f31cd2d52ce80",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5492,7 +5492,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
+      "targetDigest": "sha256:b0846fc1ae615422299b5aff5f55d874754516c564dc49ac609f31cd2d52ce80",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5500,7 +5500,7 @@
       "lessonId": "hsk1-time-place-events:04-clock-and-duration",
       "batchId": "hsk1-time-place-events:04-clock-and-duration:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:548f4bc0a22a0b72e11be57446fa696cdd8effd0f0d7d4e345c1c674640aa2f3",
+      "targetDigest": "sha256:b0846fc1ae615422299b5aff5f55d874754516c564dc49ac609f31cd2d52ce80",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5604,7 +5604,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
       "role": "native-mandarin-reviewer",
-      "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
+      "targetDigest": "sha256:04e00bfc2d63e40f4ad9ec7bed8b63114e89e605e185aa48aba925b0e0f5c1f0",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5612,7 +5612,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
       "role": "vietnamese-editor",
-      "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
+      "targetDigest": "sha256:04e00bfc2d63e40f4ad9ec7bed8b63114e89e605e185aa48aba925b0e0f5c1f0",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5620,7 +5620,7 @@
       "lessonId": "hsk1-time-place-events:06-weather-and-residence",
       "batchId": "hsk1-time-place-events:06-weather-and-residence:review-v1",
       "role": "assessment-editor",
-      "targetDigest": "sha256:ffec93aad602ffb61a166d4722363ff93ce588b9443125087768b82e78c50289",
+      "targetDigest": "sha256:04e00bfc2d63e40f4ad9ec7bed8b63114e89e605e185aa48aba925b0e0f5c1f0",
       "assignmentDocumentRequired": true,
       "completedReviewReceiptId": null
     },
@@ -5677,8 +5677,8 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-atomic-unit-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2",
-    "unitReleaseDigest": "sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2",
+    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
+    "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },

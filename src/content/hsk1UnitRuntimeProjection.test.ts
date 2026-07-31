@@ -26,8 +26,8 @@ describe("HSK1 atomic unit runtime projection", () => {
       safeRuntimeLessonIds: 6,
       traditionalEditorialDecisions: 7,
       numberedPinyinOverrides: 5,
-      newExampleDrafts: 42,
-      dialogueExampleCandidates: 39,
+      newExampleDrafts: 53,
+      dialogueExampleCandidates: 28,
       crossUnitPrerequisites: 1,
       reviewBatches: 6,
       requiredReviewSlots: 18,
@@ -77,6 +77,19 @@ describe("HSK1 atomic unit runtime projection", () => {
       );
       expect(lexeme.payload.example).toContain(lexeme.payload.simplified);
     }
+  });
+
+  it("uses sense-specific examples instead of accidental substring matches", () => {
+    const { projection } = loadHsk1UnitRuntimeProjectionBundle();
+    const example = (id: string) => projection.lexemes.find(
+      (lexeme: { authoringItemId: string }) => lexeme.authoringItemId === id,
+    )?.payload.example;
+
+    expect(example("hsk-vocab-00175")).toBe("书在桌子上。");
+    expect(example("hsk-vocab-00226")).toBe("猫在椅子下。");
+    expect(example("hsk-vocab-00271")).toBe("我在学校学习。");
+    expect(example("hsk-vocab-00273")).toBe("我今天很早到学校。");
+    expect(example("hsk-vocab-00279")).toBe("这是我的书。");
   });
 
   it("adds a safe sequential lesson graph after the released HSK1 bridge", () => {

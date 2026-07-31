@@ -25,17 +25,17 @@
     {
       "id": "communicativeCollection",
       "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
     },
     {
       "id": "grammarPack",
       "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-      "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
     },
     {
       "id": "taskPack",
       "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
-      "sha256": "sha256:770540d09ef7fb9c945bba0db010c04e4c8ad51d7da9c18addbe9bb9f743987b"
+      "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0"
     },
     {
       "id": "vocabularySource",
@@ -236,9 +236,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "名、后缀",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:05-location:dialogue-turn-3",
-          "sourceTargetSha256": "sha256:61673d1e3162ca64d6160058f37252a52de1eae13822c4ddc0b357ed6299f274"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -249,9 +249,9 @@
         "pinyinNumbered": "bian1",
         "meaning": "bên; phía",
         "partOfSpeech": "danh từ; hậu tố",
-        "example": "他在哪边？",
-        "examplePinyin": "Tā zài nǎ biān?",
-        "exampleMeaning": "Anh ấy ở phía nào?",
+        "example": "我坐在桌子边。",
+        "examplePinyin": "Wǒ zuò zài zhuōzi biān.",
+        "exampleMeaning": "Tôi ngồi cạnh bàn.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -259,7 +259,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:1c85b57b588ae096f072507f2fa2d7fbac9c7807057ba9d1c17366c1e7c983c4",
+      "payloadSha256": "sha256:6e154510feaba6f79cf2329196fedf942c73273baf9671b519cee3f667f0bd21",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -272,8 +272,8 @@
     {
       "authoringItemId": "hsk-vocab-00029",
       "runtimeItemId": "hsk-vocab-00029",
-      "authoringLessonId": "hsk1-time-place-events:06-weather-and-residence",
-      "runtimeLessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "authoringLessonId": "hsk1-time-place-events:04-clock-and-duration",
+      "runtimeLessonId": "hsk1-time-place-events-04-clock-and-duration",
       "sourceTargetSha256": "sha256:f8152a83842b870f8d19a39664bb35ce759a14137912b7e931396ae3615bf15e",
       "sourceDecision": {
         "selectedCedictLineSha256": "sha256:338a010382e9fb7f2167d554d4c019382ef6f69943ee90a33981778e1f4801ae",
@@ -301,10 +301,10 @@
         "tags": [
           "hsk1",
           "thời gian, địa điểm và sự kiện",
-          "thời tiết và nơi ở"
+          "giờ và thời lượng"
         ]
       },
-      "payloadSha256": "sha256:3a1a62cc35a9cfcf4dbfd61a6ae76f3c1ac24a4bc1d4e312b075cf95e33bb2f5",
+      "payloadSha256": "sha256:9c4aa0c4430b37cc542dc10196933f5840af22a44166c2b1c2b52be9bc20b6bd",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -317,8 +317,8 @@
     {
       "authoringItemId": "hsk-vocab-00031",
       "runtimeItemId": "hsk-vocab-00031",
-      "authoringLessonId": "hsk1-time-place-events:06-weather-and-residence",
-      "runtimeLessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "authoringLessonId": "hsk1-time-place-events:02-calendar",
+      "runtimeLessonId": "hsk1-time-place-events-02-calendar",
       "sourceTargetSha256": "sha256:4249439728b4b74b4861d1562f1ee994e97ce1f0fd1000f0a6845433e2f80d0a",
       "sourceDecision": {
         "selectedCedictLineSha256": "sha256:8b41c3b2a1ce4209f2ef5ad55addc5e3a896367b5c9b6d30bc9791e8a386f51b",
@@ -346,10 +346,10 @@
         "tags": [
           "hsk1",
           "thời gian, địa điểm và sự kiện",
-          "thời tiết và nơi ở"
+          "lịch và năm"
         ]
       },
-      "payloadSha256": "sha256:866c1d0a4a116d0d1d5eb30de867200c4e8777b4de6f14da9fe3a67abf95c1da",
+      "payloadSha256": "sha256:ba30768d8636c286ac2c3b85d5e17446f1ec42b973d4f3328ecfc879ca2ec46c",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -542,8 +542,8 @@
     {
       "authoringItemId": "hsk-vocab-00076",
       "runtimeItemId": "hsk-vocab-00076",
-      "authoringLessonId": "hsk1-time-place-events:03-week-and-day-parts",
-      "runtimeLessonId": "hsk1-time-place-events-03-week-and-day-parts",
+      "authoringLessonId": "hsk1-time-place-events:02-calendar",
+      "runtimeLessonId": "hsk1-time-place-events-02-calendar",
       "sourceTargetSha256": "sha256:1e4f21a66ab12d0816a114ef81a00ee74bd1014c79fa98a28319418c5fe902cf",
       "sourceDecision": {
         "selectedCedictLineSha256": "sha256:ba1ff5bd6f6eca7b8780b818367e642d3c61c2783218d62de6d14f6362d5cbba",
@@ -571,10 +571,10 @@
         "tags": [
           "hsk1",
           "thời gian, địa điểm và sự kiện",
-          "tuần và buổi trong ngày"
+          "lịch và năm"
         ]
       },
-      "payloadSha256": "sha256:753f7d8be19a8db05c0098b6ad31328aeadc78f21fee0eaffaa20d65223589e3",
+      "payloadSha256": "sha256:53d9485610a58694100d169b259293ac2fecf88627e5c4ce27cbdf8137b5908f",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -821,9 +821,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "名",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:05-location:dialogue-turn-1",
-          "sourceTargetSha256": "sha256:2ed7725a3d911df3c23f1f3610b5f1d0341e00b4df12e1e148db183638fc561f"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -834,9 +834,9 @@
         "pinyinNumbered": "li3",
         "meaning": "trong; bên trong",
         "partOfSpeech": "danh từ",
-        "example": "你在哪里？",
-        "examplePinyin": "Nǐ zài nǎlǐ?",
-        "exampleMeaning": "Bạn đang ở đâu?",
+        "example": "人在房间里。",
+        "examplePinyin": "Rén zài fángjiān lǐ.",
+        "exampleMeaning": "Người ở trong phòng.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -844,7 +844,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:eb9749b55702a44297dcb397c2de6dbe28d14956ddc4e4328f439d920452b487",
+      "payloadSha256": "sha256:2a492d6113033079afca35f01bbddf880ee4d623a96c3d8c35bc08778bc497c3",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -1091,9 +1091,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "代",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:05-location:dialogue-turn-1",
-          "sourceTargetSha256": "sha256:2ed7725a3d911df3c23f1f3610b5f1d0341e00b4df12e1e148db183638fc561f"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -1104,9 +1104,9 @@
         "pinyinNumbered": "na3",
         "meaning": "nào",
         "partOfSpeech": "đại từ",
-        "example": "你在哪里？",
-        "examplePinyin": "Nǐ zài nǎlǐ?",
-        "exampleMeaning": "Bạn đang ở đâu?",
+        "example": "你要哪本书？",
+        "examplePinyin": "Nǐ yào nǎ běn shū?",
+        "exampleMeaning": "Bạn muốn quyển sách nào?",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -1114,7 +1114,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:6fbb33728340b8bfb903e339d9b30e68518dc1b755c2acc959f8ef9fa60f92b4",
+      "payloadSha256": "sha256:81026681e099c1b2af4a429782c5cb909ff1d942e84afa595f4821ecf498ccf7",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -1316,9 +1316,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "代、（连）",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:05-location:dialogue-turn-4",
-          "sourceTargetSha256": "sha256:0dd9201ecebd3621ef6be635ef242a05af809fdeebbff12921d659b72d8b62b3"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -1329,9 +1329,9 @@
         "pinyinNumbered": "na4",
         "meaning": "kia; đó",
         "partOfSpeech": "đại từ; liên từ",
-        "example": "他在那边。",
-        "examplePinyin": "Tā zài nàbiān.",
-        "exampleMeaning": "Anh ấy ở bên kia.",
+        "example": "那是我的书。",
+        "examplePinyin": "Nà shì wǒ de shū.",
+        "exampleMeaning": "Kia là sách của tôi.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -1339,7 +1339,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:0356ce9fada92a7b923f0007ce241f4366ecf90c72c5f1c450815cf8f7ec0aed",
+      "payloadSha256": "sha256:be4923c5378e4f8b6f6a07d27687cc651bba54d405001ee8efa542e69d002176",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -1781,7 +1781,7 @@
         "partOfSpeech": "lượng từ; danh từ",
         "example": "今天是十月一日。",
         "examplePinyin": "Jīntiān shì shí yuè yī rì.",
-        "exampleMeaning": "Hôm nay là ngày một tháng mười.",
+        "exampleMeaning": "Hôm nay là ngày 1 tháng 10.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -1789,7 +1789,7 @@
           "lịch và năm"
         ]
       },
-      "payloadSha256": "sha256:858456c0cc9fc9d26353f9a4d247b7b6985f8731ea56235678ce74811197b846",
+      "payloadSha256": "sha256:a9d4ddab0437f69dde14d58a913fda66669ead239a27c597340548a285f60732",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -1811,9 +1811,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "名、动",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:03-week-and-day-parts:dialogue-turn-3",
-          "sourceTargetSha256": "sha256:726b7cc31bc6ea5862fa85d57c6b6275b8c988249a3d1ca83090516979f2f4d0"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -1824,9 +1824,9 @@
         "pinyinNumbered": "shang4",
         "meaning": "trên; lên",
         "partOfSpeech": "danh từ; động từ",
-        "example": "你早上忙吗？",
-        "examplePinyin": "Nǐ zǎoshang máng ma?",
-        "exampleMeaning": "Buổi sáng bạn có bận không?",
+        "example": "书在桌子上。",
+        "examplePinyin": "Shū zài zhuōzi shàng.",
+        "exampleMeaning": "Sách ở trên bàn.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -1834,7 +1834,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:f4937662ba72dbc97433a5fe296fa8893ff8801362db8bc2fe2d81aab4ff2195",
+      "payloadSha256": "sha256:06a9ed549ed543ad58ea6bcb0dd753d7c1de8cf96a2626f91259fac53e418391",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -1991,9 +1991,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "名、量",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:02-calendar:dialogue-turn-1",
-          "sourceTargetSha256": "sha256:e06bb15e02a9e750efbfaaf95d3bfb9a7f7030ce9371a06d045a8cdbf2637a84"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -2004,9 +2004,9 @@
         "pinyinNumbered": "tian1",
         "meaning": "ngày; trời",
         "partOfSpeech": "danh từ; lượng từ",
-        "example": "今天几月几号？",
-        "examplePinyin": "Jīntiān jǐ yuè jǐ hào?",
-        "exampleMeaning": "Hôm nay là ngày mấy tháng mấy?",
+        "example": "三天以后我回家。",
+        "examplePinyin": "Sān tiān yǐhòu wǒ huí jiā.",
+        "exampleMeaning": "Ba ngày sau tôi về nhà.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -2014,7 +2014,7 @@
           "lịch và năm"
         ]
       },
-      "payloadSha256": "sha256:6001f64cff11b7f76762dacada49da491f5aa53346ff7888b1abd1fe38a6d0d2",
+      "payloadSha256": "sha256:91b5167b1bff72dc313c910bb8743e1172c5ce87e0cf0138fcc8fb4f0f577f5e",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -2261,9 +2261,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "名、动、量",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:03-week-and-day-parts:dialogue-turn-4",
-          "sourceTargetSha256": "sha256:de1f543c7c825da2951f67b5548e6db18cd95e4f008eb238128e93b1f0d06616"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -2274,9 +2274,9 @@
         "pinyinNumbered": "xia4",
         "meaning": "dưới; xuống",
         "partOfSpeech": "danh từ; động từ; lượng từ",
-        "example": "不忙，我下午忙。",
-        "examplePinyin": "Bù máng, wǒ xiàwǔ máng.",
-        "exampleMeaning": "Không, buổi chiều tôi bận.",
+        "example": "猫在椅子下。",
+        "examplePinyin": "Māo zài yǐzi xià.",
+        "exampleMeaning": "Mèo ở dưới ghế.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -2284,7 +2284,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:95e95415a15a1a0d7afe1bf680d3e7c4ee961037e0af14a22359a4a7d811ac24",
+      "payloadSha256": "sha256:eb4e7fd0383b9e201c672786780d50fe9a2629a48ff44e02a268b0815c67292e",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3026,9 +3026,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "名",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:06-weather-and-residence:dialogue-turn-2",
-          "sourceTargetSha256": "sha256:4494079870ac0add4975e93605a5f6c2ea8185072d235f797d35ed08fad3e7f9"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -3039,9 +3039,9 @@
         "pinyinNumbered": "yu3",
         "meaning": "mưa",
         "partOfSpeech": "danh từ",
-        "example": "今天很热，不下雨。",
-        "examplePinyin": "Jīntiān hěn rè, bù xiàyǔ.",
-        "exampleMeaning": "Hôm nay rất nóng, không mưa.",
+        "example": "今天的雨很大。",
+        "examplePinyin": "Jīntiān de yǔ hěn dà.",
+        "exampleMeaning": "Mưa hôm nay rất lớn.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -3049,7 +3049,7 @@
           "thời tiết và nơi ở"
         ]
       },
-      "payloadSha256": "sha256:0d5c2ccbd451fc025a2f59339ee316d95dd11c9091a9607167f20755f6fce326",
+      "payloadSha256": "sha256:694eda72a662e40ea7cadfe74a8b432ae65053e4001b70bb3de1d221063252df",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3116,9 +3116,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "动、介、副",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:04-clock-and-duration:dialogue-turn-1",
-          "sourceTargetSha256": "sha256:03afce86c21e18e404cfaf4f54fcfb05406b0421e6c326792d752ff57afe2553"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -3129,9 +3129,9 @@
         "pinyinNumbered": "zai4",
         "meaning": "ở; đang",
         "partOfSpeech": "động từ; giới từ; phó từ",
-        "example": "现在几点？",
-        "examplePinyin": "Xiànzài jǐ diǎn?",
-        "exampleMeaning": "Bây giờ là mấy giờ?",
+        "example": "我在学校学习。",
+        "examplePinyin": "Wǒ zài xuéxiào xuéxí.",
+        "exampleMeaning": "Tôi học ở trường.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -3139,7 +3139,7 @@
           "thời tiết và nơi ở"
         ]
       },
-      "payloadSha256": "sha256:ee350450a5377e83f67d9e16cd86329dd505e9579fc659d28ce757790b014bd3",
+      "payloadSha256": "sha256:52a0be1fc2ee24210841efa4c45e682fafb3ab47a4a6a54702abbb149eb6659b",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3161,9 +3161,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "形",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:03-week-and-day-parts:dialogue-turn-3",
-          "sourceTargetSha256": "sha256:726b7cc31bc6ea5862fa85d57c6b6275b8c988249a3d1ca83090516979f2f4d0"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -3174,9 +3174,9 @@
         "pinyinNumbered": "zao3",
         "meaning": "sớm",
         "partOfSpeech": "tính từ",
-        "example": "你早上忙吗？",
-        "examplePinyin": "Nǐ zǎoshang máng ma?",
-        "exampleMeaning": "Buổi sáng bạn có bận không?",
+        "example": "我今天很早到学校。",
+        "examplePinyin": "Wǒ jīntiān hěn zǎo dào xuéxiào.",
+        "exampleMeaning": "Hôm nay tôi đến trường rất sớm.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -3184,7 +3184,7 @@
           "tuần và buổi trong ngày"
         ]
       },
-      "payloadSha256": "sha256:0f03027dcd8c3ba7e5a3e791340a6e2f43386649037ba287f46311a2ac4cf4a6",
+      "payloadSha256": "sha256:af6d4f27c9e82bbda3fce24726cf673f809faca8496daa4fb2dfa2e8db85c17c",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3251,9 +3251,9 @@
         "numberedPinyinOverrideReason": null,
         "originalPartOfSpeech": "代",
         "example": {
-          "kind": "reviewer-packet-dialogue-surface-match-draft",
-          "sourceTargetId": "hsk1-time-place-events:05-location:dialogue-turn-2",
-          "sourceTargetSha256": "sha256:56bc3e7b5eaca0aadb9e875507e00ab65943f65d79ad47449910c69730ad46ef"
+          "kind": "ai-assisted-new-example-draft",
+          "sourceTargetId": null,
+          "sourceTargetSha256": null
         }
       },
       "plannedReleaseState": "review",
@@ -3264,9 +3264,9 @@
         "pinyinNumbered": "zhe4",
         "meaning": "đây; này",
         "partOfSpeech": "đại từ",
-        "example": "我在这里。",
-        "examplePinyin": "Wǒ zài zhèlǐ.",
-        "exampleMeaning": "Tôi đang ở đây.",
+        "example": "这是我的书。",
+        "examplePinyin": "Zhè shì wǒ de shū.",
+        "exampleMeaning": "Đây là sách của tôi.",
         "hsk": 1,
         "tags": [
           "hsk1",
@@ -3274,7 +3274,7 @@
           "vị trí"
         ]
       },
-      "payloadSha256": "sha256:95f4bcf4587f45d37ed76721777fd94cad576639e0829d94d6cdcc9dd02de311",
+      "payloadSha256": "sha256:9399c2460d3547cebf430896fba0ba53bd62a094186db862cd0c72903d59ad8c",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3694,7 +3694,7 @@
     {
       "authoringLessonId": "hsk1-time-place-events:01-numbers",
       "runtimeLessonId": "hsk1-time-place-events-01-numbers",
-      "sourceTargetSha256": "sha256:5dcd5bd42581b615ceaf233700fe545961be43be69c67b1177905c503a32c98b",
+      "sourceTargetSha256": "sha256:a3521d4fe80f9e8962df9b521a6fe6fe7f9180c66af59395d6878ac8cad04df9",
       "plannedReleaseState": "review",
       "prerequisites": [
         {
@@ -3768,7 +3768,7 @@
         "unitId": "hsk1-time-place-events",
         "title": "Số đếm nền tảng",
         "chineseTitle": "数字基础",
-        "objective": "Đọc và dùng số từ không đến một nghìn trong câu hỏi đáp ngắn.",
+        "objective": "Đọc và dùng số từ từ không đến hàng nghìn trong câu hỏi đáp ngắn.",
         "minutes": 24,
         "xp": 120,
         "skills": [
@@ -3794,7 +3794,7 @@
           "hsk-vocab-00254"
         ]
       },
-      "payloadSha256": "sha256:a837d24c29725c9bee27511f978f70c8480ee338103f00b0e59d571c7a9e122c",
+      "payloadSha256": "sha256:f25624f6abe3b3751378232363b534dc319514fd7cdc8715b9bb494cf474d0a5",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3808,7 +3808,7 @@
     {
       "authoringLessonId": "hsk1-time-place-events:02-calendar",
       "runtimeLessonId": "hsk1-time-place-events-02-calendar",
-      "sourceTargetSha256": "sha256:15e9a703600119df13ee5804279cee96b9b81e5120d9b66a0eddec723e191965",
+      "sourceTargetSha256": "sha256:840be5a07dffe7511115420c8b08a62ff462c01854649c8c37edd65915138952",
       "plannedReleaseState": "review",
       "prerequisites": [
         {
@@ -3817,6 +3817,14 @@
         }
       ],
       "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00031"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00076"
+        },
         {
           "itemType": "lexeme",
           "itemId": "hsk-vocab-00093"
@@ -3871,6 +3879,8 @@
           "reading"
         ],
         "wordIds": [
+          "hsk-vocab-00031",
+          "hsk-vocab-00076",
           "hsk-vocab-00093",
           "hsk-vocab-00094",
           "hsk-vocab-00128",
@@ -3883,7 +3893,7 @@
           "hsk-vocab-00297"
         ]
       },
-      "payloadSha256": "sha256:f4aff68216f9a01de5cb113f2fd3b99bc02ff6e6bfc914398cc5772c56bc5b1d",
+      "payloadSha256": "sha256:186239730624ace04a7266e8bae0931dabed7627eae0c33e28868bb90cd3dc88",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3897,7 +3907,7 @@
     {
       "authoringLessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "runtimeLessonId": "hsk1-time-place-events-03-week-and-day-parts",
-      "sourceTargetSha256": "sha256:d664bc1d93931490057ab7f577e4ced377a7b7c1ef7d4d7def4aa7e3d544c27e",
+      "sourceTargetSha256": "sha256:dac9bfffe82d5af4a2fbc5a3c2a96af1cc555c193e9914ec4874bd09669bd557",
       "plannedReleaseState": "review",
       "prerequisites": [
         {
@@ -3909,10 +3919,6 @@
         {
           "itemType": "lexeme",
           "itemId": "hsk-vocab-00005"
-        },
-        {
-          "itemType": "lexeme",
-          "itemId": "hsk-vocab-00076"
         },
         {
           "itemType": "lexeme",
@@ -3969,7 +3975,6 @@
         ],
         "wordIds": [
           "hsk-vocab-00005",
-          "hsk-vocab-00076",
           "hsk-vocab-00178",
           "hsk-vocab-00215",
           "hsk-vocab-00217",
@@ -3982,7 +3987,7 @@
           "hsk-vocab-00291"
         ]
       },
-      "payloadSha256": "sha256:ebb1578eec3da5cad859c705168018f91b22c195a5bdab9b3773dc94e6f2ac4f",
+      "payloadSha256": "sha256:bf796a47e407d6a95df85a02692d237f8dc338a1e382f862217d7c82c32c1db2",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -3996,7 +4001,7 @@
     {
       "authoringLessonId": "hsk1-time-place-events:04-clock-and-duration",
       "runtimeLessonId": "hsk1-time-place-events-04-clock-and-duration",
-      "sourceTargetSha256": "sha256:29c649b00a33bf27359c2b3ccd0c5cc2f6d643b68e2b23a79cd903c299dfda10",
+      "sourceTargetSha256": "sha256:9838370f20e74bc4ea256101195b6a39fd8a3a3538d9762cb79b6b150961d334",
       "plannedReleaseState": "review",
       "prerequisites": [
         {
@@ -4005,6 +4010,10 @@
         }
       ],
       "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00029"
+        },
         {
           "itemType": "lexeme",
           "itemId": "hsk-vocab-00033"
@@ -4055,6 +4064,7 @@
           "grammar"
         ],
         "wordIds": [
+          "hsk-vocab-00029",
           "hsk-vocab-00033",
           "hsk-vocab-00055",
           "hsk-vocab-00056",
@@ -4066,7 +4076,7 @@
           "hsk-vocab-00236"
         ]
       },
-      "payloadSha256": "sha256:8c88c5090e653a6066b7506c5a16b46637f3fca4e48d3cc34612babf4aae778c",
+      "payloadSha256": "sha256:873b0a3801f144fd9e8b77fa326921bb74c0819c70be8acbf2a79c5d32b0bb4e",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -4239,7 +4249,7 @@
     {
       "authoringLessonId": "hsk1-time-place-events:06-weather-and-residence",
       "runtimeLessonId": "hsk1-time-place-events-06-weather-and-residence",
-      "sourceTargetSha256": "sha256:78b6283ac276cb5c9e749b176cbb3631d151a041bfe2e2ce73bec264e3716815",
+      "sourceTargetSha256": "sha256:6875b9de4c0f08e21201d9474212ce71ef62c0a9be345cc7401941b62d786e98",
       "plannedReleaseState": "review",
       "prerequisites": [
         {
@@ -4248,14 +4258,6 @@
         }
       ],
       "knowledgeItems": [
-        {
-          "itemType": "lexeme",
-          "itemId": "hsk-vocab-00029"
-        },
-        {
-          "itemType": "lexeme",
-          "itemId": "hsk-vocab-00031"
-        },
         {
           "itemType": "lexeme",
           "itemId": "hsk-vocab-00109"
@@ -4306,8 +4308,6 @@
           "reading"
         ],
         "wordIds": [
-          "hsk-vocab-00029",
-          "hsk-vocab-00031",
           "hsk-vocab-00109",
           "hsk-vocab-00169",
           "hsk-vocab-00208",
@@ -4319,7 +4319,7 @@
           "hsk-vocab-00294"
         ]
       },
-      "payloadSha256": "sha256:16d01630eddf0edf1dd5f96e1787384db1fee5860f7b1942860bc84eb83ba433",
+      "payloadSha256": "sha256:8fb899b250df435192b542903fd71c8382aea73d82edd18bc2adb552dd1a6928",
       "review": {
         "status": "pending",
         "requiredRoles": [
@@ -4337,7 +4337,7 @@
       "authoringLessonId": "hsk1-time-place-events:01-numbers",
       "runtimeLessonId": "hsk1-time-place-events-01-numbers",
       "targetDigests": [
-        "sha256:a837d24c29725c9bee27511f978f70c8480ee338103f00b0e59d571c7a9e122c",
+        "sha256:f25624f6abe3b3751378232363b534dc319514fd7cdc8715b9bb494cf474d0a5",
         "sha256:cc3dc922ed45c1d794d84aecbba884199f4b45ee52e5dba6bb609a26cedff7c3",
         "sha256:1d6e6f8d63602c043148f240f9b9cd703ab37512e4272bbb4fa15590da7d91d4",
         "sha256:45a6c1297f679930e8c0ed2e1aa460fd220edc4b8b6d3b9961ea313ba4be1372",
@@ -4354,7 +4354,7 @@
         "sha256:04fbfed84bb7f83bf60ef9dabff0f65808bdce7dadf83d91904e28444724cc4c",
         "sha256:d3fa94ad0b65d51b927a05942024209143e22f6ea0cc3e52de7a8d497593d526"
       ],
-      "targetDigest": "sha256:ba34626ae00d65d40a454059caac16c10969cb2c7fb9991d4b408d2e7488e199",
+      "targetDigest": "sha256:a8eb4e263043154b182dfc67c901b425fc3fa1b86a040fc99783d7235a2b9d35",
       "requiredRoles": [
         "native-mandarin-reviewer",
         "vietnamese-editor",
@@ -4368,19 +4368,21 @@
       "authoringLessonId": "hsk1-time-place-events:02-calendar",
       "runtimeLessonId": "hsk1-time-place-events-02-calendar",
       "targetDigests": [
-        "sha256:f4aff68216f9a01de5cb113f2fd3b99bc02ff6e6bfc914398cc5772c56bc5b1d",
+        "sha256:186239730624ace04a7266e8bae0931dabed7627eae0c33e28868bb90cd3dc88",
+        "sha256:ba30768d8636c286ac2c3b85d5e17446f1ec42b973d4f3328ecfc879ca2ec46c",
+        "sha256:53d9485610a58694100d169b259293ac2fecf88627e5c4ce27cbdf8137b5908f",
         "sha256:9d463ae746eb64de47276afebd7e6ac395cba4e8802df91f46da84556d6c9e37",
         "sha256:538cb8ffe81320747a50841ce3cf7a902708558959c46cdaf082ae8a417b1e64",
         "sha256:5a2ac6a8d767e4feaba741963a603e268b4abe0fd4e28c4d7fc1d21f47cd582e",
         "sha256:22c3e578d6183e2604b4d12bf119a9e86de950ffceeef414208fd24db85411e0",
         "sha256:c80a3738888f482b715535314e072df995afe94c42722cc25f74ac5056c28884",
         "sha256:36a667f9e459637313d0d26a8e081d2175bbca422f25763639a5a9dfe365f9a2",
-        "sha256:858456c0cc9fc9d26353f9a4d247b7b6985f8731ea56235678ce74811197b846",
-        "sha256:6001f64cff11b7f76762dacada49da491f5aa53346ff7888b1abd1fe38a6d0d2",
+        "sha256:a9d4ddab0437f69dde14d58a913fda66669ead239a27c597340548a285f60732",
+        "sha256:91b5167b1bff72dc313c910bb8743e1172c5ce87e0cf0138fcc8fb4f0f577f5e",
         "sha256:56c6f1b110fe23f4385bb423a4b5416ec57fb9adb33f6d9a3da718abfb2f96ba",
         "sha256:dbe7f10ae5067181f4dce0c4cf7bc7961deba53367d27649a14dd947adf06144"
       ],
-      "targetDigest": "sha256:c834aea40b3ee4ac62c66fb76d62cf05c2f13908a32b0e1f7507bcf431a2d454",
+      "targetDigest": "sha256:dc03d096cea3cd399cd5bd9c7e531bfe8f8630af1e72dd14f75d97c11d7dd47c",
       "requiredRoles": [
         "native-mandarin-reviewer",
         "vietnamese-editor",
@@ -4394,9 +4396,8 @@
       "authoringLessonId": "hsk1-time-place-events:03-week-and-day-parts",
       "runtimeLessonId": "hsk1-time-place-events-03-week-and-day-parts",
       "targetDigests": [
-        "sha256:ebb1578eec3da5cad859c705168018f91b22c195a5bdab9b3773dc94e6f2ac4f",
+        "sha256:bf796a47e407d6a95df85a02692d237f8dc338a1e382f862217d7c82c32c1db2",
         "sha256:8ae83450ef0159a5308d52ddb228d8fecc42b9873074d395ad5cb165511ce28e",
-        "sha256:753f7d8be19a8db05c0098b6ad31328aeadc78f21fee0eaffaa20d65223589e3",
         "sha256:009d6072376053a589593eea8ed517f73eab784e9de02041ee36fe2471f0ab6d",
         "sha256:985c989d530c3ce187d8e907b5bbab05705815dcd2e809d6ceaadbbd8cb1ca8f",
         "sha256:cea3af8f98bbb4dbe5716dcb397423cc173712809ee14321f754a0e625c1f6e8",
@@ -4404,11 +4405,11 @@
         "sha256:fe306c6eb5b7807f26b525c75208b67480e5965bc71d92a33379c138fc338874",
         "sha256:a2753621c36899afd2c33d97990ee3e0585ac2f4b4b3febe99019c42ac8c8272",
         "sha256:011ea4729a688a70d80e4f4d0ebe6e0f265d8408790f71b7397453ed961411d2",
-        "sha256:0f03027dcd8c3ba7e5a3e791340a6e2f43386649037ba287f46311a2ac4cf4a6",
+        "sha256:af6d4f27c9e82bbda3fce24726cf673f809faca8496daa4fb2dfa2e8db85c17c",
         "sha256:84d580188de50b5ce5c4ce81e63c4862a471dcee370147e5a3790473389bef25",
         "sha256:f0ef2bacc4d7056da2995edd2d0226495c597f8b868b235075ba2fe702d36c14"
       ],
-      "targetDigest": "sha256:32dc13205bb225c5675e7a8f87ba055959d6d6f1c21acee5162659a8fd3cf904",
+      "targetDigest": "sha256:1c3385d0601b7603cc4f1b90f894e1731d8bfd97fb84ac07faac6a5dcf25cf78",
       "requiredRoles": [
         "native-mandarin-reviewer",
         "vietnamese-editor",
@@ -4422,7 +4423,8 @@
       "authoringLessonId": "hsk1-time-place-events:04-clock-and-duration",
       "runtimeLessonId": "hsk1-time-place-events-04-clock-and-duration",
       "targetDigests": [
-        "sha256:8c88c5090e653a6066b7506c5a16b46637f3fca4e48d3cc34612babf4aae778c",
+        "sha256:873b0a3801f144fd9e8b77fa326921bb74c0819c70be8acbf2a79c5d32b0bb4e",
+        "sha256:9c4aa0c4430b37cc542dc10196933f5840af22a44166c2b1c2b52be9bc20b6bd",
         "sha256:310113dc029c585b7010979bd873a03181ce6af2b3e6696be2e738ceb075a0f7",
         "sha256:4769580f18754dace50af2631d80149f10a589f17cad3fd70bb1910cd0870bc6",
         "sha256:e3b580ea9316321c788a827b743703b91e32c4049e3026cdf976d66bb1c1ebb1",
@@ -4433,7 +4435,7 @@
         "sha256:14d41087465b5c4065b5dc4835368f3402ddd78906e4c480cf63fdd460eae359",
         "sha256:84af8dc443210918189b56d3fa77f5e9d2c2cce50c0a7793d5ca06deaa53c433"
       ],
-      "targetDigest": "sha256:64775152dd4d871572d783d7ef62a4674482ae41319e27573286fc3f2f21dcf7",
+      "targetDigest": "sha256:436641d57c3c66b3198fe9df083210101b6edc84abdfe49d0f5342c9c1c3b1b3",
       "requiredRoles": [
         "native-mandarin-reviewer",
         "vietnamese-editor",
@@ -4448,32 +4450,32 @@
       "runtimeLessonId": "hsk1-time-place-events-05-location",
       "targetDigests": [
         "sha256:af171a67e21641de54eeacdd502bf9780a68b77846862e10e1f3bfc89dc06589",
-        "sha256:1c85b57b588ae096f072507f2fa2d7fbac9c7807057ba9d1c17366c1e7c983c4",
-        "sha256:eb9749b55702a44297dcb397c2de6dbe28d14956ddc4e4328f439d920452b487",
-        "sha256:6fbb33728340b8bfb903e339d9b30e68518dc1b755c2acc959f8ef9fa60f92b4",
+        "sha256:6e154510feaba6f79cf2329196fedf942c73273baf9671b519cee3f667f0bd21",
+        "sha256:2a492d6113033079afca35f01bbddf880ee4d623a96c3d8c35bc08778bc497c3",
+        "sha256:81026681e099c1b2af4a429782c5cb909ff1d942e84afa595f4821ecf498ccf7",
         "sha256:eab4a336bb1208dc57e7adff6688ca5470e9616f7bce0d693c0e93926d1aee7c",
         "sha256:22d5f116de24aab02ee7924025db754e53ad03b863d0444ed14571c83b389432",
         "sha256:da9f13be775a2cb43ba71b64cadbdc4f81b2efaf5c3c6cd4280de0533c03ffd2",
         "sha256:f2b8fcb4588a63c89dc72e30cb3a377b721cbb745845252de72c97254eb0f6ce",
-        "sha256:0356ce9fada92a7b923f0007ce241f4366ecf90c72c5f1c450815cf8f7ec0aed",
+        "sha256:be4923c5378e4f8b6f6a07d27687cc651bba54d405001ee8efa542e69d002176",
         "sha256:56f36679869261ae70d2d09c7479f28b4024fe72beac1e4405f03863ace56149",
         "sha256:f406e4fb93a763c9ef53e35bc04922763cf1c6bec45fd2eb79878d2a36a05200",
         "sha256:65e6da4c242a02be656a69797ea726769b5939ff0e8c9d7d6d7caf3854e72bde",
         "sha256:6538cd8eafe90d417ead7a7c122ef20312da937e4db9480a085dd4d3cf28f381",
         "sha256:2b88dfdb8539a033a35245f0c90fcb8ed4308e3f675c8758f50b38b133f4e149",
-        "sha256:f4937662ba72dbc97433a5fe296fa8893ff8801362db8bc2fe2d81aab4ff2195",
+        "sha256:06a9ed549ed543ad58ea6bcb0dd753d7c1de8cf96a2626f91259fac53e418391",
         "sha256:b35475d133763dc1c458b560f2468b1a5652ffa56faf3fcb6342a52b142ee630",
         "sha256:77f704abe0e0c60ccf173368074322e4e420aa0e0a75568ef8afda2fc5ba964e",
-        "sha256:95e95415a15a1a0d7afe1bf680d3e7c4ee961037e0af14a22359a4a7d811ac24",
+        "sha256:eb4e7fd0383b9e201c672786780d50fe9a2629a48ff44e02a268b0815c67292e",
         "sha256:a30c9d56fedfe35fd3cac0e0047010c8e0a76264a73955ec7b3324fc411d621a",
-        "sha256:95f4bcf4587f45d37ed76721777fd94cad576639e0829d94d6cdcc9dd02de311",
+        "sha256:9399c2460d3547cebf430896fba0ba53bd62a094186db862cd0c72903d59ad8c",
         "sha256:0fa0ff90ca443b8150b2126f7a79155b9d280b0c0524752c3de477900b519149",
         "sha256:2faabb9fd9f2b9de5358759f9153b2f9df35ac02258224e438715dd43e2296fe",
         "sha256:93f9a5d8f8b16235839a4c4ccdf612c53a13231b37986cbcff680aea5633d2ea",
         "sha256:947ab55714544237ab24b8b1b675b84ee355d99b01297caee8ed9d79c82e95ea",
         "sha256:a884dc2cb75446bb5ac9ab22b41d107f721dd36f30812e3a716ebd1d452c0bb5"
       ],
-      "targetDigest": "sha256:2fcbbfda4f2c3cd9eeae5a48c0a1be17f8e0d193f97eb9fa56fa38f97b8b1e55",
+      "targetDigest": "sha256:14756200ceca4fa6491d1342d5f7de335bb895e1658915520fa47a6a61ac1a31",
       "requiredRoles": [
         "native-mandarin-reviewer",
         "vietnamese-editor",
@@ -4487,20 +4489,18 @@
       "authoringLessonId": "hsk1-time-place-events:06-weather-and-residence",
       "runtimeLessonId": "hsk1-time-place-events-06-weather-and-residence",
       "targetDigests": [
-        "sha256:16d01630eddf0edf1dd5f96e1787384db1fee5860f7b1942860bc84eb83ba433",
-        "sha256:3a1a62cc35a9cfcf4dbfd61a6ae76f3c1ac24a4bc1d4e312b075cf95e33bb2f5",
-        "sha256:866c1d0a4a116d0d1d5eb30de867200c4e8777b4de6f14da9fe3a67abf95c1da",
+        "sha256:8fb899b250df435192b542903fd71c8382aea73d82edd18bc2adb552dd1a6928",
         "sha256:777bd8b5ae621cdd4ab7040733f6f0d425745921509d949ca28438ec2e8b59f7",
         "sha256:33193925b603b6d86c4198f124677b065cd4c3a19b5225ce93a8ab0db2870deb",
         "sha256:cdf0d2f0d52737cd87bf0cadc6e3c7fa6962074c2901a087c078c777462283f4",
         "sha256:b999459be85b8285f02ef859515215045c540db279417aad2c08444471b92cfc",
         "sha256:07676c881bfce7feeeb410a171b237265234c44b1d95636d4c73f7c8e96562ed",
-        "sha256:0d5c2ccbd451fc025a2f59339ee316d95dd11c9091a9607167f20755f6fce326",
-        "sha256:ee350450a5377e83f67d9e16cd86329dd505e9579fc659d28ce757790b014bd3",
+        "sha256:694eda72a662e40ea7cadfe74a8b432ae65053e4001b70bb3de1d221063252df",
+        "sha256:52a0be1fc2ee24210841efa4c45e682fafb3ab47a4a6a54702abbb149eb6659b",
         "sha256:fe8e6f5f02558eaa6f0c19b4ab44cbaa1a66d922b9852e8336a882a25cde6a6b",
         "sha256:6eddfb8fa8dd133951469a0afcf9f27120466f44dc249343b6d1ac3465db5353"
       ],
-      "targetDigest": "sha256:384e550be399d5715040325e30d2f777b2843d2e9fd04e38a677ba47f90a243e",
+      "targetDigest": "sha256:91cd52d9ca74dd1d5911fb34300ec7302600bc11623506ab39c9d975f6fdde06",
       "requiredRoles": [
         "native-mandarin-reviewer",
         "vietnamese-editor",
@@ -4536,8 +4536,8 @@
     "safeRuntimeLessonIds": 6,
     "traditionalEditorialDecisions": 7,
     "numberedPinyinOverrides": 5,
-    "newExampleDrafts": 42,
-    "dialogueExampleCandidates": 39,
+    "newExampleDrafts": 53,
+    "dialogueExampleCandidates": 28,
     "crossUnitPrerequisites": 1,
     "reviewBatches": 6,
     "requiredReviewSlots": 18,
@@ -4557,5 +4557,5 @@
     "completionGranted": false,
     "masteryGranted": false
   },
-  "projectionSha256": "sha256:769bd186e9b97b8747bca691e6955711a4080f45a880ecff824f55c45d6ed948"
+  "projectionSha256": "sha256:c156bd6cd95f6af38c9711c3c7d03ef5c7b98f5b1f3a7ed5debb8d81ec79e903"
 }

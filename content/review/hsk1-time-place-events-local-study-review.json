@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "hsk1-time-place-events-local-study-review-2026.07.1",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "unitId": "hsk1-time-place-events",
+  "reviewedAt": "2026-07-31T04:30:00.000Z",
+  "reviewer": {
+    "reviewerId": "openai-codex-ai-assisted-review",
+    "reviewerKind": "ai-coding-agent",
+    "humanReviewed": false,
+    "disclosureVi": "Nội dung được Codex kiểm duyệt bằng AI cho mục đích tự học; chưa được người bản ngữ kiểm duyệt."
+  },
+  "sourceBindings": [
+    {
+      "id": "localStudyProfile",
+      "relativePath": "config/hsk0-4-local-study-profile.json",
+      "sha256": "sha256:d720eb9fc08b8424f73c81dbdba7d2159e9ca7ab46bc27f968145ebf39f8b76d"
+    },
+    {
+      "id": "unitReviewerPacket",
+      "relativePath": "content/review/hsk1-time-place-events-reviewer-packet.json",
+      "sha256": "sha256:fb586d9faec7c4e857002ff8c83561923842a872548329695d6f30199064f744"
+    }
+  ],
+  "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
+  "reviewerPacketSha256": "sha256:92f3ce8cfb01db6b638eff766e814ead336a1ba1b86f5ba2df73d9f702a5387a",
+  "coverage": {
+    "lessonIds": [
+      "hsk1-time-place-events:01-numbers",
+      "hsk1-time-place-events:02-calendar",
+      "hsk1-time-place-events:03-week-and-day-parts",
+      "hsk1-time-place-events:04-clock-and-duration",
+      "hsk1-time-place-events:05-location",
+      "hsk1-time-place-events:06-weather-and-residence"
+    ],
+    "contentTargetCount": 425,
+    "contentTargetTypeCounts": {
+      "dialogue-turn": 24,
+      "grammar-draft": 25,
+      "grammar-practice": 25,
+      "lesson-blueprint": 6,
+      "task-dialogue-turn": 12,
+      "task-practice": 3,
+      "task-scenario": 3,
+      "topic-draft": 3,
+      "vocabulary-draft": 81,
+      "vocabulary-practice": 243
+    },
+    "contentTargetDigest": "sha256:6661a3f6a4cf09f5f71d5f9c750a5069abf135479a8101c64c4b14fcc2fe0988",
+    "authoredSemanticTargetsReviewed": 182,
+    "generatedVocabularyPracticeItemsInvariantChecked": 243,
+    "runtimeProjectionTargetCount": 425,
+    "runtimeProjectionDigest": "sha256:046d4cf271d5620158e420c9ee33304096ff821765e46e2c01fffbe70ace6f9b",
+    "unrepresentedRuntimeTargets": 0,
+    "reviewBatchCount": 27,
+    "reviewBatchDigest": "sha256:4b18d43f76895a4284cc731202544c928d61ca2f5c6797443984d7d1f4b4c243"
+  },
+  "method": {
+    "semanticReview": "AI đọc và đối chiếu từng payload tác giả soạn với mục tiêu bài, nguồn HSK, nghĩa tiếng Việt và ngữ cảnh sử dụng.",
+    "generatedItemReview": "AI kiểm tra quy tắc sinh, đáp án duy nhất, distractor, ánh xạ kỹ năng và mẫu đại diện của 243 bài luyện từ vựng.",
+    "runtimeParityReview": "Đối chiếu đủ 425/425 target từ nguồn sang core và activity projection; không có target bị mất.",
+    "audioBoundary": "TTS trình duyệt có Hanzi/Pinyin dự phòng, chỉ dùng luyện tập và không tính mastery nghe/phát âm."
+  },
+  "reviewResult": {
+    "mode": "ai-assisted-self-review",
+    "schemaValid": true,
+    "sourceBound": true,
+    "aiAssistedDisclosed": true,
+    "humanReviewed": false,
+    "unresolvedIssueCount": 0,
+    "passResults": {
+      "mandarin-accuracy-and-naturalness": "passed",
+      "pinyin-and-tone-consistency": "passed",
+      "vietnamese-meaning-and-usage": "passed",
+      "pedagogy-rubric-and-distractors": "passed",
+      "source-and-level-mapping": "passed"
+    }
+  },
+  "findings": {
+    "resolved": [
+      {
+        "findingId": "objective-thousand-range",
+        "pass": "vietnamese-meaning-and-usage",
+        "status": "resolved",
+        "summary": "Mục tiêu bài số đếm mâu thuẫn với từ 千.",
+        "resolution": "Đổi phạm vi thành từ số không đến hàng nghìn."
+      },
+      {
+        "findingId": "semantic-vocabulary-partition",
+        "pass": "source-and-level-mapping",
+        "status": "resolved",
+        "summary": "第, 号 và 到 nằm ở bài không phù hợp nghĩa sử dụng.",
+        "resolution": "Chuyển 第/号 sang lịch-ngày và 到 sang giờ-khoảng thời gian."
+      },
+      {
+        "findingId": "single-character-example-collisions",
+        "pass": "mandarin-accuracy-and-naturalness",
+        "status": "resolved",
+        "summary": "Khớp chuỗi con tạo ví dụ sai nghĩa cho các từ một chữ.",
+        "resolution": "Dùng ví dụ tường minh theo nghĩa cho 边, 里, 哪, 那, 上, 天, 下, 雨, 在, 早 và 这."
+      },
+      {
+        "findingId": "date-translation-word-order",
+        "pass": "vietnamese-meaning-and-usage",
+        "status": "resolved",
+        "summary": "Bản dịch ví dụ 日 dùng trật tự ngày tháng không tự nhiên.",
+        "resolution": "Chuẩn hóa thành ngày 1 tháng 10."
+      },
+      {
+        "findingId": "adjective-adverbial-overgeneralization",
+        "pass": "pedagogy-rubric-and-distractors",
+        "status": "resolved",
+        "summary": "Giải thích phó từ tính từ rộng hơn phạm vi mẫu HSK1.",
+        "resolution": "Giới hạn giải thích vào mẫu và ngữ cảnh thật sự được dạy."
+      },
+      {
+        "findingId": "task-05-response-shape",
+        "pass": "pedagogy-rubric-and-distractors",
+        "status": "resolved",
+        "summary": "Yêu cầu trả lời một từ nhưng đáp án mẫu là câu ngắn.",
+        "resolution": "Yêu cầu câu ngắn chứa từ chỉ vị trí."
+      }
+    ],
+    "acceptedConventions": [
+      {
+        "conventionId": "compact-lexeme-pinyin",
+        "decision": "accepted",
+        "note": "Pinyin mục từ được compact nhất quán trong runtime; câu ví dụ vẫn giữ ranh giới từ."
+      },
+      {
+        "conventionId": "official-grammar-row-051-source-quirk",
+        "decision": "accepted-source-preserved",
+        "note": "Giữ nguyên văn bản nguồn chính thức có 所处 trong inventory; phần dạy dùng cấu trúc địa điểm + 是 + danh từ đúng nghĩa."
+      },
+      {
+        "conventionId": "browser-speech-synthesis-practice-only",
+        "decision": "accepted-local-study-only",
+        "note": "TTS trình duyệt chỉ hỗ trợ luyện tập, không tạo bằng chứng nghe hoặc phát âm."
+      }
+    ],
+    "unresolved": []
+  },
+  "acceptance": {
+    "profileId": "hsk0-4-personal-study-2026.07.1",
+    "audience": "personal-local-study",
+    "readyForLocalStudyVisibility": true,
+    "blockers": [],
+    "claims": {
+      "aiAssistedReview": true,
+      "humanReview": false,
+      "nativeAudio": false,
+      "calibratedAssessment": false,
+      "listeningMastery": false,
+      "pronunciationMastery": false,
+      "officialHskCertification": false,
+      "productionEligible": false
+    }
+  },
+  "reviewSha256": "sha256:ab09c9b628e6374c0918919668925a71a03c79caad900cca8ad2b575011d4ea2"
+}

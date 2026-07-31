@@ -98,7 +98,7 @@ const TASK_SCENARIOS = {
   },
   5: {
     titleVi: "Hỏi và mô tả môi trường",
-    instructionVi: "Hỏi vị trí và trả lời bằng một từ chỉ nơi chốn hoặc phương hướng.",
+    instructionVi: "Hỏi vị trí và trả lời bằng câu ngắn có từ chỉ nơi chốn hoặc phương hướng.",
     turns: [
       ["A", "你住在哪里？", "Nǐ zhù zài nǎlǐ?", "Bạn sống ở đâu?"],
       ["B", "我住在这里。", "Wǒ zhù zài zhèlǐ.", "Tôi sống ở đây."],

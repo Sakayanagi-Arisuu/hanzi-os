@@ -39,7 +39,7 @@
       "sourceKind": "vocabulary-communicative-units",
       "sourceId": "hsk1-communicative-units-2026.07",
       "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244",
+      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5",
       "targetCounts": {
         "lessons": 16,
         "vocabulary": 193,
@@ -51,7 +51,7 @@
       "sourceKind": "character-foundation",
       "sourceId": "hsk1-character-foundation-2026.07",
       "relativePath": "content/drafts/hsk1-character-foundation-2026.07.json",
-      "sha256": "sha256:c0c9bbdad6800ca7dc7a313f901ffabce846325ab854896df1d8b57bfc14fe99",
+      "sha256": "sha256:3cfe19b462befc276fcfdd3ed1ca822d2530b5f51a68e0198971fd5f51fc8d04",
       "targetCounts": {
         "lessons": 15,
         "characters": 246,
@@ -63,7 +63,7 @@
       "sourceKind": "grammar-context",
       "sourceId": "hsk1-grammar-context-2026.07",
       "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-      "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718",
+      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503",
       "targetCounts": {
         "lessons": 20,
         "grammarRows": 66,
@@ -75,7 +75,7 @@
       "sourceKind": "task-assessment",
       "sourceId": "hsk1-task-assessment-2026.07",
       "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
-      "sha256": "sha256:770540d09ef7fb9c945bba0db010c04e4c8ad51d7da9c18addbe9bb9f743987b",
+      "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0",
       "targetCounts": {
         "tasks": 15,
         "topics": 30,
@@ -87,7 +87,7 @@
       "sourceKind": "level-check-objective-items",
       "sourceId": "hsk1-level-check-items-2026.07",
       "relativePath": "content/drafts/hsk1-level-check-items-2026.07.json",
-      "sha256": "sha256:aabc9fd7a4406301a299daeb68970ab7d2c179664e4e3e6c9fbbfe910b7fb83a",
+      "sha256": "sha256:f3b5dcde59ced278e92f75f6482dfa933d4e7cd2c3b2077b33585b99f773ad97",
       "targetCounts": {
         "objectiveItems": 50,
         "listeningItems": 15,
@@ -101,7 +101,7 @@
       "sourceKind": "runtime-core-projection",
       "sourceId": "hsk1-time-place-events-runtime-projection-2026.07.1",
       "relativePath": "content/drafts/hsk1-time-place-events-runtime-projection-2026.07.json",
-      "sha256": "sha256:73a5c009a68d401cfed2e573043f0e0b9e26901811da6163b0f24cbbfd64aa7d",
+      "sha256": "sha256:69dd683b110ed4b21c8173bfd7e005a5462c0342e52446bdc5ca7769c6de04fd",
       "targetCounts": {
         "runtimePayloads": 87,
         "lexemes": 81,
@@ -113,7 +113,7 @@
       "sourceKind": "runtime-activity-projection",
       "sourceId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
       "relativePath": "content/drafts/hsk1-time-place-events-runtime-activity-projection-2026.07.json",
-      "sha256": "sha256:9d0f32f17932f77d36dd48238bae2dbbae1aa772812114dfa18d1e7a2beb7109",
+      "sha256": "sha256:0a18d5da9885b4bdb2dc55ee39a2c7768a09b7c6b8ecc63a781c753083891c63",
       "targetCounts": {
         "runtimePayloads": 338,
         "dialoguePayloads": 36,
@@ -356,9 +356,9 @@
       "state": "pending",
       "approvalCount": 0,
       "targetCounts": {
-        "practiceItems": 30,
+        "practiceItems": 36,
         "assessmentItems": 0,
-        "vocabulary": 10,
+        "vocabulary": 12,
         "characters": 0,
         "grammarRows": 0,
         "tasks": 0,
@@ -378,9 +378,9 @@
       "state": "pending",
       "approvalCount": 0,
       "targetCounts": {
-        "practiceItems": 36,
+        "practiceItems": 33,
         "assessmentItems": 0,
-        "vocabulary": 12,
+        "vocabulary": 11,
         "characters": 0,
         "grammarRows": 0,
         "tasks": 0,
@@ -400,9 +400,9 @@
       "state": "pending",
       "approvalCount": 0,
       "targetCounts": {
-        "practiceItems": 27,
+        "practiceItems": 30,
         "assessmentItems": 0,
-        "vocabulary": 9,
+        "vocabulary": 10,
         "characters": 0,
         "grammarRows": 0,
         "tasks": 0,
@@ -444,9 +444,9 @@
       "state": "pending",
       "approvalCount": 0,
       "targetCounts": {
-        "practiceItems": 33,
+        "practiceItems": 27,
         "assessmentItems": 0,
-        "vocabulary": 11,
+        "vocabulary": 9,
         "characters": 0,
         "grammarRows": 0,
         "tasks": 0,
@@ -2038,7 +2038,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 11
+        "runtimePayloads": 13
       }
     },
     {
@@ -2060,7 +2060,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 13
+        "runtimePayloads": 12
       }
     },
     {
@@ -2082,7 +2082,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 10
+        "runtimePayloads": 11
       }
     },
     {
@@ -2126,7 +2126,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 12
+        "runtimePayloads": 10
       }
     },
     {
@@ -2170,7 +2170,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 49
+        "runtimePayloads": 55
       }
     },
     {
@@ -2192,7 +2192,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 46
+        "runtimePayloads": 43
       }
     },
     {
@@ -2214,7 +2214,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 45
+        "runtimePayloads": 48
       }
     },
     {
@@ -2258,7 +2258,7 @@
         "grammarRows": 0,
         "tasks": 0,
         "topics": 0,
-        "runtimePayloads": 46
+        "runtimePayloads": 40
       }
     }
   ]

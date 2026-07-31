@@ -20,22 +20,22 @@
     {
       "id": "communicativeCollection",
       "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-      "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
     },
     {
       "id": "grammarPack",
       "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-      "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
     },
     {
       "id": "reviewManifest",
       "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-      "sha256": "sha256:1108715742c704a0401460ab7c651b6e14d77d0be542b84a4842c73dfb899153"
+      "sha256": "sha256:365c2870e008b7429a27bf1cc285d3a621cebb1bdf3987d304249736fde35055"
     },
     {
       "id": "promotionQueue",
       "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-      "sha256": "sha256:810c02409a32c0b60787ca9ab2d47c5f62da4621c591a76f14de39b8c0dab3f3"
+      "sha256": "sha256:9093d5c44efd9d513b6ab69b6eea306d3524fa8d6f970cbd41b51e2316896369"
     }
   ],
   "targetBundle": {
@@ -49,22 +49,22 @@
       {
         "id": "communicativeCollection",
         "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-        "sha256": "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244"
+        "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
       },
       {
         "id": "grammarPack",
         "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-        "sha256": "sha256:de865d405e0141744ee5fb586f6935a283665e9a43580af77dc888970e81d718"
+        "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
       },
       {
         "id": "reviewManifest",
         "relativePath": "content/review/hsk1-review-manifest-2026.07.json",
-        "sha256": "sha256:1108715742c704a0401460ab7c651b6e14d77d0be542b84a4842c73dfb899153"
+        "sha256": "sha256:365c2870e008b7429a27bf1cc285d3a621cebb1bdf3987d304249736fde35055"
       },
       {
         "id": "promotionQueue",
         "relativePath": "content/reports/hsk0-4-runtime-promotion-queue.json",
-        "sha256": "sha256:810c02409a32c0b60787ca9ab2d47c5f62da4621c591a76f14de39b8c0dab3f3"
+        "sha256": "sha256:9093d5c44efd9d513b6ab69b6eea306d3524fa8d6f970cbd41b51e2316896369"
       }
     ],
     "contentTargets": [
@@ -73,7 +73,7 @@
         "targetId": "hsk1-time-place-events:01-numbers",
         "sourceId": "communicativeCollection",
         "sourcePointer": "/packs/0/lessons/0",
-        "sha256": "sha256:5dcd5bd42581b615ceaf233700fe545961be43be69c67b1177905c503a32c98b"
+        "sha256": "sha256:a3521d4fe80f9e8962df9b521a6fe6fe7f9180c66af59395d6878ac8cad04df9"
       },
       {
         "targetType": "vocabulary-draft",
@@ -815,7 +815,7 @@
       }
     ]
   },
-  "targetBundleSha256": "sha256:4a9046468f71f96159047f865f5c47678fb0a2206a43c1acb61463c9f37615df",
+  "targetBundleSha256": "sha256:ec1b10ecdafa8b13f87f55fec533cca420d5be46a96ff20922c37375f4e11c8d",
   "requiredReviewReceipts": [
     {
       "batchId": "hsk1-time-place-events:01-numbers:review-v1",
@@ -864,7 +864,7 @@
     "receiptSchemaVersion": 1,
     "receiptKind": "hsk-local-runtime-promotion",
     "targetContentVersion": "hsk1-time-place-events-2026.07.1",
-    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:4a9046468f71f96159047f865f5c47678fb0a2206a43c1acb61463c9f37615df",
+    "importIdempotencyKey": "hsk-runtime-import:hsk1-time-place-events-2026.07.1:sha256:ec1b10ecdafa8b13f87f55fec533cca420d5be46a96ff20922c37375f4e11c8d",
     "requiredBindings": [
       "handoffSha256",
       "targetBundleSha256",
@@ -874,7 +874,7 @@
       "reviewReceiptSha256s",
       "audioAssetSha256s"
     ],
-    "targetBundleSha256": "sha256:4a9046468f71f96159047f865f5c47678fb0a2206a43c1acb61463c9f37615df",
+    "targetBundleSha256": "sha256:ec1b10ecdafa8b13f87f55fec533cca420d5be46a96ff20922c37375f4e11c8d",
     "runtimePackageSha256": null,
     "receiptSha256": null
   },

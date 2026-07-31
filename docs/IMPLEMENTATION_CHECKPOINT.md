@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **72%** under the usable-product-weighted rubric adopted for
+Active progress: **73%** under the usable-product-weighted rubric adopted for
 the graduation/personal-study scope on 31 July 2026.
 
 | Pillar | Earned / max | Current evidence |
@@ -21,7 +21,7 @@ the graduation/personal-study scope on 31 July 2026.
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
 | HSK0-4 learner-usable runtime content | 12 / 30 | Authoring coverage is deep through HSK4, but the runtime currently exposes only HSK0 and the first HSK1 slice. Draft volume no longer counts as learner-usable coverage. |
 | HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; the forms do not yet run end-to-end or carry calibration evidence. |
-| Graduation QA/local release | 8 / 10 | Checked demo and clean-source local candidate bind 4/4 gates and 8/8 G5 capabilities; a checked local-study profile now permits disclosed AI review and synthetic practice audio without weakening production gates. |
+| Graduation QA/local release | 9 / 10 | Checked demo and clean-source local candidate bind 4/4 gates and 8/8 G5 capabilities; the local-study profile plus a source-bound HSK1 AI review are machine-checked without weakening production gates. |
 
 The previous 90% figure was authoring/evidence-weighted. The user clarified that
 the active outcome is a web they can actually study with, so the 31 July baseline
@@ -44,6 +44,13 @@ Every commit must update this percentage here and in the active roadmap.
 - Production eligibility, native-audio, calibrated-assessment and official HSK
   certification claims remain false. `verify:production` and Sites stay
   unchanged and deferred.
+- Completed the five-pass AI-assisted review for all 6 lessons and 425/425
+  source/runtime targets in `hsk1-time-place-events`. Six issues were fixed:
+  one objective mismatch, three misplaced vocabulary concepts, substring-based
+  single-character examples, Vietnamese date order, an over-broad grammar note
+  and a task instruction/answer mismatch. The checked artifact binds 27 review
+  batches, reports zero unresolved issues and explicitly records
+  `humanReviewed: false` / `productionEligible: false`.
 
 ### Active G0 slice completed
 
@@ -1313,19 +1320,16 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Run the combined checked workflow with real attributable Mandarin,
-   Vietnamese, pedagogy and audio-rights reviewers; keep the unit blocked while
-   any of the 81 exact-hash role slots or 90 audio targets is
-   incomplete. Use the packet-bound bulk roster exporter to create the 81
-   content-review templates without manual per-slot setup, and the audio
-   export/import workflow to create each of the 90 exact evidence records
-   without hand-authoring digests.
-2. Only after real evidence exists, create and validate the immutable `.07.7`
-   package, explicit unit authorization and idempotent promotion receipt. Keep
-   the G5 candidate stale and operator auth, commerce, hosted pilot and Sites
-   frozen.
-3. Re-run the local HSK0→HSK1 graduation walkthrough against the promoted
-   package before considering any deferred production or Sites work.
+1. Build a separate local-study package and authorization for the reviewed
+   `hsk1-time-place-events` unit. It may consume the checked AI review and use
+   browser TTS as disclosed practice-only audio; it must not alter or satisfy
+   the stricter production review/audio gates.
+2. Import all six lessons and 425 runtime payloads atomically, then verify that
+   only this unit becomes visible and `hsk1-daily-life` remains blocked by its
+   own unpublished dependency.
+3. Run the real Path → lesson → practice → review flow, including reload,
+   keyboard/mobile and TTS fallbacks. Update the local demo/candidate evidence;
+   keep operator auth, commerce, hosted pilot and Sites frozen.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

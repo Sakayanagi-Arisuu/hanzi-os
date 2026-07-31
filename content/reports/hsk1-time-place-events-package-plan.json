@@ -19,7 +19,7 @@
     {
       "id": "evidenceReadiness",
       "relativePath": "content/reports/hsk1-time-place-events-evidence-readiness.json",
-      "sha256": "sha256:1c292bff66551ad8675e22a31596c5d13ccb6d44214368622094d7572c35e5be"
+      "sha256": "sha256:0e33fb0c85b78fa93c48f268f64ba2e692c4eac9894783469c96b3618e715deb"
     },
     {
       "id": "registry",
@@ -54,12 +54,12 @@
     {
       "id": "runtimeProjectionDraft",
       "relativePath": "content/drafts/hsk1-time-place-events-runtime-projection-2026.07.json",
-      "sha256": "sha256:73a5c009a68d401cfed2e573043f0e0b9e26901811da6163b0f24cbbfd64aa7d"
+      "sha256": "sha256:69dd683b110ed4b21c8173bfd7e005a5462c0342e52446bdc5ca7769c6de04fd"
     },
     {
       "id": "runtimeActivityProjectionDraft",
       "relativePath": "content/drafts/hsk1-time-place-events-runtime-activity-projection-2026.07.json",
-      "sha256": "sha256:9d0f32f17932f77d36dd48238bae2dbbae1aa772812114dfa18d1e7a2beb7109"
+      "sha256": "sha256:0a18d5da9885b4bdb2dc55ee39a2c7768a09b7c6b8ecc63a781c753083891c63"
     },
     {
       "id": "runtimeTypes",
@@ -77,8 +77,8 @@
     "targetPackageVersion": "foundation-2026.07.7",
     "targetPackageRelativePath": "content/packages/foundation-2026.07.7",
     "authoringReleaseVersion": "hsk1-time-place-events-2026.07.1",
-    "unitReleaseDigest": "sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2",
-    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:a81c562250348e1dac4bf474bdc40da303f0e6084eed342d1fa7ec62618de5a2"
+    "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
+    "importIdempotencyKey": "hsk-runtime-unit-import:hsk1-time-place-events-2026.07.1:sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287"
   },
   "evidence": {
     "mode": "repository-real",
@@ -98,14 +98,14 @@
       "draftedCatalogItems": 87,
       "finalizedCatalogItems": 0,
       "projectionId": "hsk1-time-place-events-runtime-projection-2026.07.1",
-      "projectionSha256": "sha256:769bd186e9b97b8747bca691e6955711a4080f45a880ecff824f55c45d6ed948"
+      "projectionSha256": "sha256:c156bd6cd95f6af38c9711c3c7d03ef5c7b98f5b1f3a7ed5debb8d81ec79e903"
     },
     "nonCore": {
       "requiredPayloads": 338,
       "draftedPayloads": 338,
       "finalizedPayloads": 0,
       "projectionId": "hsk1-time-place-events-runtime-activity-projection-2026.07.1",
-      "projectionSha256": "sha256:9f0bce13cb8666546c127bbb32da448a81359886fe0935642d816beb511ffabc",
+      "projectionSha256": "sha256:7ce1d78f33afe08256e0399a6db6e94619de421385aaeefc1ba7dbc8b55590ff",
       "dialoguePayloads": 36,
       "activityPayloads": 271,
       "knowledgePayloads": 31
@@ -147,11 +147,11 @@
             "hsk-vocab-00160",
             "hsk-vocab-00184",
             "hsk-vocab-00198",
+            "hsk-vocab-00076",
             "hsk-vocab-00094",
             "hsk-vocab-00129",
             "hsk-vocab-00207",
             "hsk-vocab-00269",
-            "hsk-vocab-00076",
             "hsk-vocab-00230",
             "hsk-vocab-00243",
             "hsk-vocab-00273",
@@ -187,6 +187,7 @@
             "hsk-vocab-00173",
             "hsk-vocab-00223",
             "hsk-vocab-00254",
+            "hsk-vocab-00031",
             "hsk-vocab-00093",
             "hsk-vocab-00128",
             "hsk-vocab-00149",
@@ -200,6 +201,7 @@
             "hsk-vocab-00244",
             "hsk-vocab-00245",
             "hsk-vocab-00291",
+            "hsk-vocab-00029",
             "hsk-vocab-00080",
             "hsk-vocab-00163",
             "hsk-vocab-00185",
@@ -217,8 +219,6 @@
             "hsk-vocab-00281",
             "hsk-vocab-00283",
             "hsk-vocab-00284",
-            "hsk-vocab-00029",
-            "hsk-vocab-00031",
             "hsk-vocab-00109",
             "hsk-vocab-00251",
             "hsk-vocab-00286"
@@ -240,6 +240,8 @@
             "hsk-vocab-00198",
             "hsk-vocab-00223",
             "hsk-vocab-00254",
+            "hsk-vocab-00031",
+            "hsk-vocab-00076",
             "hsk-vocab-00093",
             "hsk-vocab-00094",
             "hsk-vocab-00128",
@@ -251,7 +253,6 @@
             "hsk-vocab-00269",
             "hsk-vocab-00297",
             "hsk-vocab-00005",
-            "hsk-vocab-00076",
             "hsk-vocab-00178",
             "hsk-vocab-00215",
             "hsk-vocab-00217",
@@ -262,6 +263,7 @@
             "hsk-vocab-00273",
             "hsk-vocab-00275",
             "hsk-vocab-00291",
+            "hsk-vocab-00029",
             "hsk-vocab-00033",
             "hsk-vocab-00055",
             "hsk-vocab-00056",
@@ -295,8 +297,6 @@
             "hsk-vocab-00282",
             "hsk-vocab-00283",
             "hsk-vocab-00284",
-            "hsk-vocab-00029",
-            "hsk-vocab-00031",
             "hsk-vocab-00109",
             "hsk-vocab-00169",
             "hsk-vocab-00208",

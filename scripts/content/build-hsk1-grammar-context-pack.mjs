@@ -215,7 +215,7 @@ const GRAMMAR_DRAFTS_BY_ORDINAL = {
     guided: ["Nói: Tôi mua một bộ quần áo đẹp.", "我买了一件漂亮的衣服。", "Wǒ mǎi le yí jiàn piàoliang de yīfu.", "Tôi đã mua một bộ quần áo đẹp."],
   },
   40: {
-    explanationVi: "Phó từ, tính từ, thời gian hoặc nơi chốn có thể làm trạng ngữ và đứng trước động từ/vị ngữ.",
+    explanationVi: "Phó từ và cụm chỉ thời gian hoặc nơi chốn thường đứng trước động từ để làm trạng ngữ; tính từ chỉ dùng theo kết cấu phù hợp, không áp dụng máy móc.",
     example: ["我今天在家学习。", "Wǒ jīntiān zài jiā xuéxí.", "Hôm nay tôi học ở nhà."],
     guided: ["Nói: Ngày mai anh ấy đi học.", "他明天去上学。", "Tā míngtiān qù shàngxué.", "Ngày mai anh ấy đi học."],
   },
