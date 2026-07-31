@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "audience": "personal-local-study",
+  "goal": "graduation-project-and-personal-hsk0-4-study",
+  "contentAcceptance": {
+    "schemaValidationRequired": true,
+    "sourceBindingRequired": true,
+    "acceptedLinguisticReviewMode": "ai-assisted-self-review",
+    "humanReviewRequired": false,
+    "reviewerIndependenceRequired": false,
+    "reviewPasses": [
+      "mandarin-accuracy-and-naturalness",
+      "pinyin-and-tone-consistency",
+      "vietnamese-meaning-and-usage",
+      "pedagogy-rubric-and-distractors",
+      "source-and-level-mapping"
+    ],
+    "aiDisclosureRequired": true,
+    "unresolvedIssuesBlockVisibility": true
+  },
+  "audio": {
+    "mode": "browser-speech-synthesis",
+    "practiceOnly": true,
+    "syntheticDisclosureRequired": true,
+    "packagedAudioRequired": false,
+    "nativeSpeakerReviewRequired": false,
+    "rightsEvidenceRequired": false,
+    "fallbacks": [
+      "hanzi",
+      "pinyin"
+    ],
+    "listeningMasteryEligible": false,
+    "pronunciationMasteryEligible": false
+  },
+  "assessment": {
+    "objectivePracticeMayBeScored": true,
+    "uncalibratedLabelRequired": true,
+    "productivePracticeIsSelfAssessed": true,
+    "skillTransferInferenceAllowed": false,
+    "officialCertificationClaimAllowed": false
+  },
+  "productionBoundary": {
+    "productionEligible": false,
+    "humanReviewClaimAllowed": false,
+    "nativeAudioClaimAllowed": false,
+    "calibrationClaimAllowed": false,
+    "productionReadinessGatesUnchanged": true,
+    "sitesDeferred": true
+  }
+}

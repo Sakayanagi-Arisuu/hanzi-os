@@ -11,21 +11,39 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **90%**.
+Active progress: **72%** under the usable-product-weighted rubric adopted for
+the graduation/personal-study scope on 31 July 2026.
 
 | Pillar | Earned / max | Current evidence |
 | --- | ---: | --- |
 | Application/offline learning foundation | 19 / 20 | Local lesson, Reader, Review, FSRS, persistence and recovery now consume a deterministic HSK lesson/activity adapter with exact catalog/session/schema provenance and fail-closed idempotency. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 content coverage | 30 / 30 | HSK0-2 authoring is source-bound; HSK3 paragraph, narration and all 5 guided-production stages are drafted; HSK4 has all 36/36 deep-comprehension, 24/24 summary-argument and 18/18 integration lessons. Human review and runtime publication stay open and no HSK4 completion claim exists. |
-| HSK0-4 assessment/mock | 8 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; HSK4 adds two 96-item pools and a 54-item timed mock blueprint per form. Reviewed audio/rubrics and calibrated scored exams do not exist. |
-| Graduation QA/local release | 7 / 10 | Checked demo plus a deterministic clean-source local candidate receipt now bind 4/4 gates and 8/8 G5 acceptance capabilities; final presentation packaging remains. |
+| HSK0-4 learner-usable runtime content | 12 / 30 | Authoring coverage is deep through HSK4, but the runtime currently exposes only HSK0 and the first HSK1 slice. Draft volume no longer counts as learner-usable coverage. |
+| HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; the forms do not yet run end-to-end or carry calibration evidence. |
+| Graduation QA/local release | 8 / 10 | Checked demo and clean-source local candidate bind 4/4 gates and 8/8 G5 capabilities; a checked local-study profile now permits disclosed AI review and synthetic practice audio without weakening production gates. |
 
-The initial 42% detailed baseline replaced the earlier rough 55-60% estimate for the new
-scope. It is lower because “deep HSK4 content” now has an explicit 30-point
-denominator while the current runtime content remains a small foundation.
+The previous 90% figure was authoring/evidence-weighted. The user clarified that
+the active outcome is a web they can actually study with, so the 31 July baseline
+was deliberately recalculated to 72%: learner-hidden drafts no longer earn the
+same points as reviewed runtime content. No completed code or authored content
+was removed. Historical 90% entries below retain their old-rubric meaning.
 Every commit must update this percentage here and in the active roadmap.
+
+### Local-study acceptance pivot in progress
+
+- Added a checked `personal-local-study` profile accepting a transparently
+  labelled AI-assisted linguistic review after five exact passes: Mandarin
+  accuracy/naturalness, Pinyin/tone consistency, Vietnamese meaning/usage,
+  pedagogy/rubric/distractors and source/level mapping.
+- A local-study review must be schema-valid, source-bound and issue-free. It
+  must explicitly say `humanReviewed: false`; claiming human review fails the
+  gate.
+- Browser speech synthesis is allowed as synthetic practice with Hanzi and
+  Pinyin fallbacks. It cannot create listening or pronunciation mastery.
+- Production eligibility, native-audio, calibrated-assessment and official HSK
+  certification claims remain false. `verify:production` and Sites stay
+  unchanged and deferred.
 
 ### Active G0 slice completed
 

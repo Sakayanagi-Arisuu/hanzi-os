@@ -2,6 +2,8 @@
 
 Ngày chốt phạm vi: 28 July 2026
 
+Chuẩn đồ án tự học được chốt lại: 31 July 2026
+
 ## 1. Mục tiêu đang hoạt động
 
 Xây một sản phẩm local-first đủ tốt để:
@@ -50,10 +52,21 @@ Một bản HSK0-4 hoàn thành phải có:
     vẫn hoạt động.
 11. Có kịch bản demo, dữ liệu mẫu, báo cáo kiến trúc, giới hạn và bằng chứng
     kiểm thử để bảo vệ đồ án.
+12. Nội dung chỉ được tính hoàn thành khi đã đi qua schema/source validation,
+    kiểm duyệt ngôn ngữ AI có công bố rõ và được đưa vào luồng học thật; số lượng
+    draft hoặc test không tự tạo tiến độ sử dụng.
 
 Audio browser TTS được phép dùng cho practice và phải được ghi rõ là synthetic;
 nó không phải bằng chứng phát âm hay audio bản ngữ. Nội dung do máy hỗ trợ soạn
 không được mô tả là đã qua native review.
+
+Với phạm vi đồ án/tự học, một vòng `ai-assisted-self-review` được phép thay cho
+quy trình nhiều reviewer nếu và chỉ nếu năm pass về tiếng Trung, Pinyin, nghĩa
+Việt, sư phạm/đáp án nhiễu và source/level mapping đều đạt, không còn issue mở,
+và giao diện công bố đây là nội dung AI-assisted. Chuẩn này cho phép mở beta
+cục bộ nhưng không tạo human/native review, assessment calibration, chứng nhận
+HSK chính thức hay production eligibility. Profile máy kiểm được nằm tại
+`config/hsk0-4-local-study-profile.json`; cổng production cũ không bị nới lỏng.
 
 ## 3. Lộ trình khác nhau theo cấp
 
@@ -96,7 +109,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **90%**.
+Status: **in progress** at project progress **72%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -107,7 +120,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **90%**.
+Status: **in progress** at project progress **72%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -118,7 +131,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **90%**.
+Status: **in progress** at project progress **72%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -129,7 +142,7 @@ Exit: HSK3-4 dùng được end-to-end; HSK4 có timed practice và mock.
 
 ### G5 — Đồ án, QA và đóng gói local
 
-Status: **in progress** at project progress **90%**.
+Status: **in progress** at project progress **72%**.
 
 - Chạy full checks, E2E, Lighthouse và audit.
 - Kiểm tra mobile, keyboard, reduced-motion, offline backup/restore.
@@ -146,10 +159,17 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 19 | lesson/reader/review, local persistence, offline, UX, build, compiler runtime HSK và adapter lesson/activity có provenance fail-closed |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
-| D. Nội dung có coverage HSK0-4 | 30 | 30 | inventory; HSK0 pronunciation; HSK1-2 authoring; HSK3 paragraph/narration/production; HSK4 36/36 deep-comprehension lesson |
-| E. Assessment và mock HSK0-4 | 10 | 8 | diagnostic, level-check blueprint, hai form nguồn độc lập cho HSK2, HSK3 và HSK4, objective/performance draft; reviewed audio/rubric và calibration còn thiếu |
-| F. Đồ án, QA và local release | 10 | 7 | checked demo, local candidate receipt bind clean source, 4/4 gate và 8/8 acceptance capability; final presentation package còn mở |
-| **Tổng** | **100** | **90** | **Tiến độ hiện tại: 90%** |
+| D. Nội dung HSK0-4 học được trong runtime | 30 | 12 | inventory và authoring coverage đã sâu, nhưng runtime hiện mới mở HSK0 cùng lát HSK1 đầu; draft không còn được tính như nội dung đã học được |
+| E. Assessment và mock HSK0-4 | 10 | 7 | diagnostic, level-check blueprint và hai form nguồn độc lập cho HSK2-4 đã có; các form chưa chạy end-to-end và chưa hiệu chuẩn |
+| F. Đồ án, QA và local release | 10 | 8 | checked demo, local candidate receipt, 4/4 gate, 8/8 acceptance capability và local-study acceptance profile máy kiểm được; final presentation package còn mở |
+| **Tổng** | **100** | **72** | **Tiến độ hiện tại: 72% theo mức sẵn sàng sử dụng** |
+
+Mốc 90% trước ngày 31/07/2026 dùng thước đo thiên về inventory, authoring và
+technical evidence. Sau khi mục tiêu được chốt là một web thực sự dùng để tự
+học, trụ cột D chỉ ghi điểm cho nội dung đã qua local-study review và chạy trong
+runtime. Vì vậy baseline chủ động được hiệu chỉnh từ 90% xuống 72%; đây không
+phải code bị mất hay dự án đi lùi. Các mốc 90% trong nhật ký phía dưới là số
+lịch sử theo rubric cũ và không phải tiến độ hiện tại.
 
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
 trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
