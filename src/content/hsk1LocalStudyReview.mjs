@@ -9,10 +9,18 @@ import {
   loadHskLocalStudyProfile,
 } from "./hskLocalStudyProfile.mjs";
 import {
-  assertValidHsk1UnitReviewerPacketBundle,
   HSK1_UNIT_REVIEWER_PACKET_RELATIVE_PATH,
-  loadHsk1UnitReviewerPacketBundle,
 } from "./hsk1UnitReviewerPacket.mjs";
+import {
+  assertValidHsk1UnitRuntimeProjectionBundle,
+  HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeProjectionBundle,
+} from "./hsk1UnitRuntimeProjection.mjs";
+import {
+  assertValidHsk1UnitRuntimeActivityProjectionBundle,
+  HSK1_UNIT_RUNTIME_ACTIVITY_PROJECTION_RELATIVE_PATH,
+  loadHsk1UnitRuntimeActivityProjectionBundle,
+} from "./hsk1UnitRuntimeActivityProjection.mjs";
 import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK1_LOCAL_STUDY_REVIEW_RELATIVE_PATH =
@@ -104,18 +112,71 @@ const sourceBinding = (root, id, relativePath) => ({
   relativePath,
   sha256: fileSha256(resolve(root, relativePath)),
 });
+const readJson = (root, relativePath) => JSON.parse(readFileSync(
+  resolve(root, relativePath),
+  "utf8",
+));
 
 export const loadHsk1LocalStudyReviewSources = (
   root = process.cwd(),
 ) => ({
   root,
   profile: loadHskLocalStudyProfile(root),
-  reviewerPacketBundle: loadHsk1UnitReviewerPacketBundle(root),
+  reviewerPacket: readJson(root, HSK1_UNIT_REVIEWER_PACKET_RELATIVE_PATH),
+  runtimeProjectionBundle: loadHsk1UnitRuntimeProjectionBundle(root),
+  runtimeActivityProjectionBundle:
+    loadHsk1UnitRuntimeActivityProjectionBundle(root),
 });
 
 export const projectHsk1LocalStudyReview = async (source) => {
-  await assertValidHsk1UnitReviewerPacketBundle(source.reviewerPacketBundle);
-  const packet = source.reviewerPacketBundle.packet;
+  await assertValidHsk1UnitRuntimeProjectionBundle(
+    source.runtimeProjectionBundle,
+  );
+  await assertValidHsk1UnitRuntimeActivityProjectionBundle(
+    source.runtimeActivityProjectionBundle,
+  );
+  const packet = source.reviewerPacket;
+  const {
+    packetSha256: _packetSha256,
+    ...packetPayload
+  } = packet;
+  if (packet.packetSha256 !== await sha256Json(packetPayload)) {
+    throw new Error("Frozen HSK1 reviewer packet integrity is invalid");
+  }
+  const runtimeProjection = source.runtimeProjectionBundle.projection;
+  const runtimeActivityProjection =
+    source.runtimeActivityProjectionBundle.projection;
+  const reviewedTargets = packet.contentTargets.map(
+    ({ targetId, targetType, sha256 }) => ({ targetId, targetType, sha256 }),
+  ).sort((left, right) =>
+    `${left.targetType}:${left.targetId}`.localeCompare(
+      `${right.targetType}:${right.targetId}`,
+    )
+  );
+  const currentTargets = [
+    ...runtimeProjection.lexemes.map((lexeme) => ({
+      targetId: lexeme.authoringItemId,
+      targetType: "vocabulary-draft",
+      sha256: lexeme.sourceTargetSha256,
+    })),
+    ...runtimeProjection.lessons.map((lesson) => ({
+      targetId: lesson.authoringLessonId,
+      targetType: "lesson-blueprint",
+      sha256: lesson.sourceTargetSha256,
+    })),
+    ...runtimeActivityProjection.payloads.map((payload) => ({
+      targetId: payload.sourceTargetId,
+      targetType: payload.sourceTargetType,
+      sha256: payload.sourceTargetSha256,
+    })),
+  ].sort((left, right) =>
+    `${left.targetType}:${left.targetId}`.localeCompare(
+      `${right.targetType}:${right.targetId}`,
+    )
+  );
+  if (!exact(reviewedTargets, currentTargets)) {
+    throw new Error("Reviewed HSK1 targets have drifted from runtime projections");
+  }
   const targetTypeCounts = Object.fromEntries(
     [...new Set(packet.contentTargets.map((target) => target.targetType))]
       .sort()
@@ -184,6 +245,16 @@ export const projectHsk1LocalStudyReview = async (source) => {
         "unitReviewerPacket",
         HSK1_UNIT_REVIEWER_PACKET_RELATIVE_PATH,
       ),
+      sourceBinding(
+        source.root,
+        "runtimeProjection",
+        HSK1_UNIT_RUNTIME_PROJECTION_RELATIVE_PATH,
+      ),
+      sourceBinding(
+        source.root,
+        "runtimeActivityProjection",
+        HSK1_UNIT_RUNTIME_ACTIVITY_PROJECTION_RELATIVE_PATH,
+      ),
     ],
     unitReleaseDigest: packet.unitReleaseDigest,
     reviewerPacketSha256: packet.packetSha256,
@@ -200,14 +271,13 @@ export const projectHsk1LocalStudyReview = async (source) => {
       )),
       authoredSemanticTargetsReviewed: 182,
       generatedVocabularyPracticeItemsInvariantChecked: 243,
-      runtimeProjectionTargetCount: packet.counts.runtimeProjectionTargets,
+      runtimeProjectionTargetCount: currentTargets.length,
       runtimeProjectionDigest: await sha256Json({
-        projectionId: packet.runtimeProjectionTargets.projectionId,
-        projectionSha256: packet.runtimeProjectionTargets.projectionSha256,
-        activityProjectionId:
-          packet.runtimeProjectionTargets.activityProjectionId,
+        projectionId: runtimeProjection.projectionId,
+        projectionSha256: runtimeProjection.projectionSha256,
+        activityProjectionId: runtimeActivityProjection.projectionId,
         activityProjectionSha256:
-          packet.runtimeProjectionTargets.activityProjectionSha256,
+          runtimeActivityProjection.projectionSha256,
       }),
       unrepresentedRuntimeTargets: packet.counts.unrepresentedNonCoreTargets,
       reviewBatchCount: packet.reviewBatches.length,

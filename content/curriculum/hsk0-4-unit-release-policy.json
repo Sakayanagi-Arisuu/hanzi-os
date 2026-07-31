@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "policyId": "hsk0-4-unit-release-policy-2026.07.1",
   "curriculumGraphId": "hsk0-4-graduation-2026.07.2",
-  "runtimeContentVersion": "foundation-2026.07.6",
+  "runtimeContentVersion": "foundation-2026.07.7",
   "authorizationScope": "runtime-unit-activation-only",
   "grantsContentReviewApproval": false,
   "grantsMastery": false,
@@ -33,6 +33,17 @@
         "survival-2",
         "survival-3",
         "survival-4"
+      ]
+    },
+    {
+      "unitId": "hsk1-time-place-events",
+      "lessonIds": [
+        "hsk1-time-place-events-01-numbers",
+        "hsk1-time-place-events-02-calendar",
+        "hsk1-time-place-events-03-week-and-day-parts",
+        "hsk1-time-place-events-04-clock-and-duration",
+        "hsk1-time-place-events-05-location",
+        "hsk1-time-place-events-06-weather-and-residence"
       ]
     }
   ]

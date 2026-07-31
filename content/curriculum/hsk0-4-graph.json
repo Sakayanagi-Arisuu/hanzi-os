@@ -6,7 +6,7 @@
     "sourcePdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
     "inventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
   },
-  "runtimeContentVersion": "foundation-2026.07.6",
+  "runtimeContentVersion": "foundation-2026.07.7",
   "coverageClaims": {
     "hsk1": false,
     "hsk2": false,
@@ -148,7 +148,7 @@
       "unitId": "hsk1-time-place-events",
       "pathId": "hsk1",
       "sequence": 2,
-      "status": "planned",
+      "status": "foundation",
       "title": "Thời gian, địa điểm và sự kiện",
       "objective": "Hỏi đáp thời gian, vị trí, thời tiết và thông tin sự kiện bằng câu ngắn.",
       "prerequisiteUnitIds": ["hsk1-personal-exchange"]
@@ -327,6 +327,48 @@
       "mappingState": "partial",
       "officialVocabularyIds": ["hsk-vocab-00170", "hsk-vocab-00289", "hsk-vocab-00188"],
       "unmappedRuntimeWordIds": ["yuenan"]
+    },
+    {
+      "lessonId": "hsk1-time-place-events-01-numbers",
+      "unitId": "hsk1-time-place-events",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00002", "hsk-vocab-00006", "hsk-vocab-00007", "hsk-vocab-00049", "hsk-vocab-00095", "hsk-vocab-00111", "hsk-vocab-00112", "hsk-vocab-00113", "hsk-vocab-00160", "hsk-vocab-00162", "hsk-vocab-00173", "hsk-vocab-00184", "hsk-vocab-00198", "hsk-vocab-00223", "hsk-vocab-00254"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-02-calendar",
+      "unitId": "hsk1-time-place-events",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00031", "hsk-vocab-00076", "hsk-vocab-00093", "hsk-vocab-00094", "hsk-vocab-00128", "hsk-vocab-00129", "hsk-vocab-00149", "hsk-vocab-00168", "hsk-vocab-00172", "hsk-vocab-00207", "hsk-vocab-00269", "hsk-vocab-00297"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
+      "unitId": "hsk1-time-place-events",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00005", "hsk-vocab-00178", "hsk-vocab-00215", "hsk-vocab-00217", "hsk-vocab-00230", "hsk-vocab-00243", "hsk-vocab-00244", "hsk-vocab-00245", "hsk-vocab-00273", "hsk-vocab-00275", "hsk-vocab-00291"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-04-clock-and-duration",
+      "unitId": "hsk1-time-place-events",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00029", "hsk-vocab-00033", "hsk-vocab-00055", "hsk-vocab-00056", "hsk-vocab-00080", "hsk-vocab-00163", "hsk-vocab-00185", "hsk-vocab-00186", "hsk-vocab-00232", "hsk-vocab-00236"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-05-location",
+      "unitId": "hsk1-time-place-events",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00011", "hsk-vocab-00110", "hsk-vocab-00131", "hsk-vocab-00132", "hsk-vocab-00133", "hsk-vocab-00134", "hsk-vocab-00135", "hsk-vocab-00136", "hsk-vocab-00137", "hsk-vocab-00138", "hsk-vocab-00139", "hsk-vocab-00140", "hsk-vocab-00141", "hsk-vocab-00175", "hsk-vocab-00212", "hsk-vocab-00213", "hsk-vocab-00226", "hsk-vocab-00239", "hsk-vocab-00279", "hsk-vocab-00280", "hsk-vocab-00281", "hsk-vocab-00282", "hsk-vocab-00283", "hsk-vocab-00284"],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "unitId": "hsk1-time-place-events",
+      "mappingState": "partial",
+      "officialVocabularyIds": ["hsk-vocab-00109", "hsk-vocab-00169", "hsk-vocab-00208", "hsk-vocab-00227", "hsk-vocab-00251", "hsk-vocab-00267", "hsk-vocab-00271", "hsk-vocab-00286", "hsk-vocab-00294"],
+      "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-1",

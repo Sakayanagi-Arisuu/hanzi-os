@@ -103,8 +103,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
 
     expect(report.currentCoverage.vocabulary).toMatchObject({
       officialTotal: 2000,
-      runtimeTotal: 24,
-      runtimeMapped: 23,
+      runtimeTotal: 105,
+      runtimeMapped: 104,
       unmatchedRuntime: [{
         runtimeId: "yuenan",
         simplified: "越南",
@@ -116,7 +116,7 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
         runtimePinyin: "xuésheng",
         officialPinyin: "xuéshēng",
       }],
-      coveragePercent: 1.15,
+      coveragePercent: 5.2,
     });
     expect(report.currentCoverage.recognitionCharacters).toMatchObject({
       officialTotal: 1096,
@@ -129,8 +129,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       tasks: 0,
       topics: 0,
       grammarRows: 0,
-      officialVocabularyWithLessonMapping: 23,
-      runtimeLessonsMapped: 14,
+      officialVocabularyWithLessonMapping: 100,
+      runtimeLessonsMapped: 20,
     });
     expect(report.currentCoverage.authoringScope.hsk2).toEqual({
       units: 3,

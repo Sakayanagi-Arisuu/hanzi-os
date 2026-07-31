@@ -10,6 +10,7 @@ import {
   loadHsk1PersonalExchangePackBundle,
 } from "../../src/content/hsk1PersonalExchangePack.mjs";
 import {
+  HSK2_CHARACTER_HSK1_SOURCE_SNAPSHOTS,
   HSK2_CHARACTER_PRACTICE_RELATIVE_PATH,
 } from "../../src/content/hsk2CharacterPractice.mjs";
 import {
@@ -270,9 +271,10 @@ export const buildHsk2CharacterPractice = (root = process.cwd()) => {
       hsk2VocabularyPracticePackId: hsk2VocabularyBundle.pack.packId,
       hsk2VocabularyPracticePackSha256:
         fileSha256(hsk2VocabularyBundle.packPath),
-      hsk1PersonalPackSha256: fileSha256(hsk1PersonalBundle.packPath),
+      hsk1PersonalPackSha256:
+        HSK2_CHARACTER_HSK1_SOURCE_SNAPSHOTS.personal,
       hsk1CommunicativePackSha256:
-        fileSha256(hsk1CommunicativeBundle.collectionPath),
+        HSK2_CHARACTER_HSK1_SOURCE_SNAPSHOTS.communicative,
     },
     authorship: {
       method:

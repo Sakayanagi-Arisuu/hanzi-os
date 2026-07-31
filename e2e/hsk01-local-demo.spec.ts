@@ -203,6 +203,9 @@ const expectLessonNodeState = async (
 
 const startLesson = async (page: Page, lessonId: string) => {
   await page.goto(`/lesson/${lessonId}`);
+  await expect(page.getByText(
+    /Âm thanh trong bài là TTS tổng hợp của trình duyệt/i,
+  )).toBeVisible();
   await page.getByRole("button", {
     name: /Bước vào Thử Luyện/i,
   }).click();

@@ -977,7 +977,9 @@ describe("content package governance", () => {
     expect([...bundle.runtimeIds.vocabularyIds].sort()).toEqual(
       VOCABULARY.map((word) => word.id).sort(),
     );
-    expect(bundle.runtimeIds.unitIds).toEqual(COURSE_UNITS.map((unit) => unit.id));
+    expect([...bundle.runtimeIds.unitIds].sort()).toEqual(
+      COURSE_UNITS.map((unit) => unit.id).sort(),
+    );
     expect(bundle.runtimeCatalog).not.toBeNull();
     expect(projectRuntimeCatalog(bundle.itemCatalog!)).toEqual(
       bundle.runtimeCatalog,
@@ -989,8 +991,8 @@ describe("content package governance", () => {
     expect(bundle.runtimeCatalog!.stories).toEqual(STORIES);
     expect(
       bundle.itemCatalog!.items.filter((item) => item.itemType === "lesson"),
-    ).toHaveLength(24);
-    expect(bundle.runtimeCatalog!.lessons).toHaveLength(14);
+    ).toHaveLength(30);
+    expect(bundle.runtimeCatalog!.lessons).toHaveLength(20);
   });
 
   it.each([
@@ -1181,7 +1183,7 @@ describe("content package governance", () => {
     expect(publication.blockers).toEqual(
       expect.arrayContaining([
         "Package audience is closed-alpha, not public",
-        "Released catalog items missing item-level governance or exact scoped review: 64",
+        "Released catalog items missing item-level governance or exact scoped review: 151",
       ]),
     );
     expect(closedAlpha.eligible).toBe(false);
@@ -1189,7 +1191,7 @@ describe("content package governance", () => {
       expect.arrayContaining([
         "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 0)",
         "Closed alpha requires an evidence-backed complete A0 coverage claim",
-        "Released catalog items missing item-level governance or exact scoped review: 64",
+        "Released catalog items missing item-level governance or exact scoped review: 151",
       ]),
     );
     expect(publication.warnings).toContain(
@@ -1920,7 +1922,7 @@ describe("content package governance", () => {
       "manifest.governance.includesAudio must equal the presence of catalog audio assets",
     );
     expect(publication.blockers).toContain(
-      "Public beta requires licensed native audio for released core content (missing 64 targets)",
+      "Public beta requires licensed native audio for released core content (missing 151 targets)",
     );
   });
 

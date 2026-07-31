@@ -1796,6 +1796,21 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
   font-size: 13px;
 }
 
+.synthetic-audio-note {
+  margin: 12px 0 0;
+  color: #8aa69e;
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.synthetic-audio-note.compact {
+  margin-top: 10px;
+  font: 600 8px var(--mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .listen-inline {
   min-height: 38px;
   margin-top: 18px;
@@ -4024,6 +4039,7 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
 .briefing-lexicon button span { color: #d7e6e2; font-size: 10px; font-weight: 700; }
 .briefing-lexicon button small { color: var(--dim); font-size: 8px; }
 .briefing-lexicon button svg { grid-column: 2; grid-row: 1 / 4; align-self: center; }
+.briefing-lexicon + .synthetic-audio-note { margin: 10px 0 -4px; }
 .briefing-actions { min-height: 83px; margin-top: 15px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #07110f; border: 1px solid #224139; }
 .briefing-actions p { margin: 0; display: flex; align-items: center; gap: 8px; color: var(--dim); font-size: 10px; }
 .briefing-actions p svg { flex: 0 0 auto; color: var(--gold); }

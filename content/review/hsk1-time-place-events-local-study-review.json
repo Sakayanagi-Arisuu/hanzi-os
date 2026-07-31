@@ -20,6 +20,16 @@
       "id": "unitReviewerPacket",
       "relativePath": "content/review/hsk1-time-place-events-reviewer-packet.json",
       "sha256": "sha256:fb586d9faec7c4e857002ff8c83561923842a872548329695d6f30199064f744"
+    },
+    {
+      "id": "runtimeProjection",
+      "relativePath": "content/drafts/hsk1-time-place-events-runtime-projection-2026.07.json",
+      "sha256": "sha256:69dd683b110ed4b21c8173bfd7e005a5462c0342e52446bdc5ca7769c6de04fd"
+    },
+    {
+      "id": "runtimeActivityProjection",
+      "relativePath": "content/drafts/hsk1-time-place-events-runtime-activity-projection-2026.07.json",
+      "sha256": "sha256:0a18d5da9885b4bdb2dc55ee39a2c7768a09b7c6b8ecc63a781c753083891c63"
     }
   ],
   "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
@@ -156,5 +166,5 @@
       "productionEligible": false
     }
   },
-  "reviewSha256": "sha256:ab09c9b628e6374c0918919668925a71a03c79caad900cca8ad2b575011d4ea2"
+  "reviewSha256": "sha256:6fbcdeb04deb5dd90e389f8dddda0622aee638082096768c4ca6a92272035bcf"
 }

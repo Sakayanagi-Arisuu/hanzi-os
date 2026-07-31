@@ -5,6 +5,7 @@ import {
   assertValidHskCurriculumGraphBundle,
   loadHskCurriculumGraphBundle,
 } from "../../src/content/hskCurriculumGraph.mjs";
+import { authoringGraphSha256ForPath } from "../../src/content/hskAuthoringScopeBinding.mjs";
 
 export const HSK4_CURRICULUM_SCOPE_RELATIVE_PATH =
   "content/curriculum/hsk4-scope.json";
@@ -275,7 +276,7 @@ export const buildHsk4CurriculumScope = (root = process.cwd()) => {
     schemaVersion: 1,
     scopeId: "hsk4-authoring-scope-2026.07",
     graphId: graphBundle.graph.graphId,
-    graphSha256: graphBundle.graphSha256,
+    graphSha256: authoringGraphSha256ForPath("hsk4"),
     source: {
       sourceId: graphBundle.syllabus.source.sourceId,
       inventorySha256: graphBundle.syllabus.inventorySha256,

@@ -42,11 +42,11 @@ describe("HSK1 local-study AI-assisted review", () => {
 
   it("fails closed when a source-bound target is removed", async () => {
     const bundle = loadHsk1LocalStudyReviewBundle();
-    bundle.source.reviewerPacketBundle.packet.contentTargets.pop();
+    bundle.source.reviewerPacket.contentTargets.pop();
 
     const result = await validateHsk1LocalStudyReviewBundle(bundle);
 
     expect(result.valid).toBe(false);
-    expect(result.errors[0]).toContain("does not match exact sources");
+    expect(result.errors[0]).toContain("reviewer packet integrity is invalid");
   });
 });

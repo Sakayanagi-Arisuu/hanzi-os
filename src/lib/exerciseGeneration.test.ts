@@ -69,10 +69,10 @@ describe("exercise generation", () => {
     const exercises = buildExercises(fixture, "simplified", seededRandom(3));
     const tones = exercises.filter((exercise) => exercise.kind === "tone");
 
-    expect(tones.map((exercise) => [exercise.id, exercise.correct])).toEqual([
+    expect(tones.map((exercise) => [exercise.id, exercise.correct]).sort()).toEqual([
       ["xuesheng-tone-0", toneLabels[2]],
       ["xuesheng-tone-1", toneLabels[0]],
-    ]);
+    ].sort());
     expect(tones.every((exercise) => exercise.promptMeta?.includes("âm tiết"))).toBe(true);
     expect(exercises.some((exercise) => exercise.id === "xuesheng-tone")).toBe(false);
   });

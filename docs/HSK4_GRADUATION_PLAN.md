@@ -109,7 +109,7 @@ Exit: inventory HSK1-4 tái tạo được từ source pin; coverage hiện tạ
 
 ### G2 — Curriculum graph và placement
 
-Status: **in progress** at project progress **73%**.
+Status: **in progress** at project progress **76%**.
 
 - Ánh xạ inventory vào blueprint HSK0-4.
 - Tạo unit/lesson prerequisite riêng cho từng level.
@@ -120,7 +120,7 @@ Exit: năm lộ trình khác nhau chạy được với dữ liệu mỏng nhưn
 
 ### G3 — Content factory HSK0-2
 
-Status: **in progress** at project progress **73%**.
+Status: **in progress** at project progress **76%**.
 
 - Hoàn thiện bootcamp âm thanh.
 - Tạo lesson, example, dialogue, graded text và exercise từ schema.
@@ -131,7 +131,7 @@ Exit: HSK0-2 dùng được end-to-end và coverage report không còn khoảng 
 
 ### G4 — Content factory HSK3-4
 
-Status: **in progress** at project progress **73%**.
+Status: **in progress** at project progress **76%**.
 
 - Mở rộng paragraph/long-form reading và listening.
 - Thêm dictation, paraphrase, summary, structured writing/speaking rubric.
@@ -142,7 +142,7 @@ Exit: HSK3-4 dùng được end-to-end; HSK4 có timed practice và mock.
 
 ### G5 — Đồ án, QA và đóng gói local
 
-Status: **in progress** at project progress **73%**.
+Status: **in progress** at project progress **76%**.
 
 - Chạy full checks, E2E, Lighthouse và audit.
 - Kiểm tra mobile, keyboard, reduced-motion, offline backup/restore.
@@ -159,10 +159,10 @@ Exit: có bản chạy ổn định và bộ tài liệu bảo vệ đồ án. S
 | A. Nền ứng dụng và offline learning loop | 20 | 19 | lesson/reader/review, local persistence, offline, UX, build, compiler runtime HSK và adapter lesson/activity có provenance fail-closed |
 | B. Mastery, evidence và remediation | 15 | 12 | FSRS, evidence theo skill, assessment authority và sửa lỗi |
 | C. Lộ trình HSK0-4 khác biệt | 15 | 14 | năm blueprint; scope HSK1-4 theo cấp; HSK4 có 78 lesson blueprint source-bound cho long-form, lập luận và tích hợp có thời gian; prerequisite, placement và level progress |
-| D. Nội dung HSK0-4 học được trong runtime | 30 | 12 | inventory và authoring coverage đã sâu, nhưng runtime hiện mới mở HSK0 cùng lát HSK1 đầu; draft không còn được tính như nội dung đã học được |
+| D. Nội dung HSK0-4 học được trong runtime | 30 | 15 | runtime mở HSK0 cùng 10 bài HSK1; unit thời gian/nơi chốn/sự kiện đã qua AI self-review, package và authorization local, còn projection hội thoại/ngữ pháp/task chưa được trình bày đầy đủ trong UI |
 | E. Assessment và mock HSK0-4 | 10 | 7 | diagnostic, level-check blueprint và hai form nguồn độc lập cho HSK2-4 đã có; các form chưa chạy end-to-end và chưa hiệu chuẩn |
 | F. Đồ án, QA và local release | 10 | 9 | checked demo, local candidate receipt, 4/4 gate, 8/8 acceptance capability, local-study acceptance profile và AI review exact-source máy kiểm được; final presentation package còn mở |
-| **Tổng** | **100** | **73** | **Tiến độ hiện tại: 73% theo mức sẵn sàng sử dụng** |
+| **Tổng** | **100** | **76** | **Tiến độ hiện tại: 76% theo mức sẵn sàng sử dụng** |
 
 Mốc 90% trước ngày 31/07/2026 dùng thước đo thiên về inventory, authoring và
 technical evidence. Sau khi mục tiêu được chốt là một web thực sự dùng để tự
@@ -179,10 +179,24 @@ Codex đã chạy đủ năm pass được chấp nhận cho atomic unit
 assessment calibration, HSK certification hay production eligibility. Trụ cột
 D chưa tăng vì sáu bài vẫn chưa được package/authorize để người học sử dụng.
 
+Lát package/runtime local tăng trụ cột D thêm 3 điểm, đưa tiến độ lên **76%**.
+Package immutable `foundation-2026.07.7` bổ sung 81 lexeme và 6 lesson của
+`hsk1-time-place-events`; authorization local bind đúng profile, AI review,
+graph, policy, manifest và catalog nhưng giữ `humanReviewed`,
+`productionEligible` và `sitesAuthorized` bằng `false`. Runtime hiện có 14
+lesson eligible, trong đó HSK1 có 10 bài target learner-visible; unit
+`hsk1-daily-life` vẫn bị chặn riêng. UI công bố TTS trình duyệt là âm thanh
+tổng hợp chỉ để luyện tập. Ba trăm ba mươi tám projection hội thoại, activity,
+grammar và task đã được review/hash-bind nhưng chưa được trình bày đầy đủ trong
+Lesson UI, nên không tính thêm điểm cho chúng. Authoring scope cũng đã tách khỏi
+checksum runtime toàn graph: mở một unit HSK1 không còn buộc tái sinh hàng
+nghìn dòng draft HSK2-4 không đổi.
+
 42% là baseline lúc pivot cho **mục tiêu HSK0-4 chuyên sâu**, không phải phép đổi
-trực tiếp từ 55,1% của roadmap production cũ. Nền kỹ thuật đã mạnh, nhưng 24
-lexeme, 14 lesson và 1 graded text hiện tại chỉ là lát foundation rất nhỏ so với
-khối nội dung mới nên trụ cột D chưa được tính cao.
+trực tiếp từ 55,1% của roadmap production cũ. Tại baseline đó, nền kỹ thuật đã
+mạnh nhưng 24 lexeme, 14 lesson và 1 graded text chỉ là lát foundation rất nhỏ
+so với khối nội dung mới nên trụ cột D chưa được tính cao. Runtime hiện tại đã
+tăng lên 105 lexeme và 20 lesson nguồn, trong đó 14 lesson đủ điều kiện hiển thị.
 
 G0 tăng trụ cột C thêm 2 điểm: code hiện có năm level profile HSK0-4 khác nhau
 về skill weight, activity, exit evidence và assessment mode; onboarding/profile

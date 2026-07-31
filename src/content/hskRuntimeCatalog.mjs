@@ -686,13 +686,13 @@ export const validateHskRuntimeCatalogBundle = ({
       PATH_IDS,
     )
     || expected.counts.paths !== 5
-    || expected.counts.units !== 4
-    || expected.counts.mappedSourceUnits !== 6
-    || expected.counts.releaseAuthorizedUnits !== 4
-    || expected.counts.eligibleUnits !== 4
-    || expected.counts.sourceReleasedLessons !== 14
-    || expected.counts.eligibleLessons !== 8
-    || expected.counts.mappedLessons !== 8
+    || expected.counts.units !== 5
+    || expected.counts.mappedSourceUnits !== 7
+    || expected.counts.releaseAuthorizedUnits !== 5
+    || expected.counts.eligibleUnits !== 5
+    || expected.counts.sourceReleasedLessons !== 20
+    || expected.counts.eligibleLessons !== 14
+    || expected.counts.mappedLessons !== 14
     || expected.counts.releaseAuthorizationBlockedLessons !== 6
     || expected.counts.releaseAuthorizationBlockedUnits !== 2
     || expected.counts.prerequisiteBlockedAuthorizedLessons !== 0
@@ -700,7 +700,7 @@ export const validateHskRuntimeCatalogBundle = ({
     || expected.counts.pathsWithTargetContent !== 2
     || expected.counts.pathsWithoutTargetContent !== 3
     || expected.counts.completionClaims !== 0
-    || expected.counts.authoringUnitMetadataExcluded !== 14
+    || expected.counts.authoringUnitMetadataExcluded !== 13
     || expected.counts.draftArtifactsImported !== 0
   ) {
     errors.push("HSK runtime catalog release counts are invalid");

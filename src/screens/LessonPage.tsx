@@ -368,6 +368,10 @@ function LocalLessonPage() {
           </div>
         </section>
 
+        <p className="synthetic-audio-note">
+          Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
+        </p>
+
         <footer className="briefing-actions">
           <p><Lightbulb size={17} /> Phiên làm bài sẽ tự lưu sau mỗi lựa chọn và tiếp tục đúng vị trí khi tải lại trang.</p>
           <button className="primary-button" type="button" onClick={() => setPhase("exercise")}>
@@ -518,6 +522,11 @@ function LocalLessonPage() {
             </>
           )}
           {current.kind === "listening" && <p>{current.promptMeta}</p>}
+          {current.spokenText && (
+            <small className="synthetic-audio-note compact">
+              TTS tổng hợp · chỉ dùng luyện tập
+            </small>
+          )}
         </div>
 
         {current.kind === "recall" ? (

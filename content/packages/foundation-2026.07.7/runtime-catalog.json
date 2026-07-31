@@ -1,0 +1,2487 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "foundation-2026.07.7",
+  "vocabulary": [
+    {
+      "id": "bu",
+      "simplified": "不",
+      "traditional": "不",
+      "pinyin": "bù",
+      "pinyinNumbered": "bu4",
+      "meaning": "không",
+      "partOfSpeech": "phó từ",
+      "example": "我不是老师。",
+      "examplePinyin": "Wǒ bú shì lǎoshī.",
+      "exampleMeaning": "Tôi không phải giáo viên.",
+      "hsk": 1,
+      "tags": [
+        "phủ định",
+        "ngữ pháp"
+      ]
+    },
+    {
+      "id": "cha",
+      "simplified": "茶",
+      "traditional": "茶",
+      "pinyin": "chá",
+      "pinyinNumbered": "cha2",
+      "meaning": "trà",
+      "partOfSpeech": "danh từ",
+      "example": "我喜欢喝茶。",
+      "examplePinyin": "Wǒ xǐhuan hē chá.",
+      "exampleMeaning": "Tôi thích uống trà.",
+      "hsk": 1,
+      "tags": [
+        "ăn uống",
+        "văn hóa"
+      ]
+    },
+    {
+      "id": "chi",
+      "simplified": "吃",
+      "traditional": "吃",
+      "pinyin": "chī",
+      "pinyinNumbered": "chi1",
+      "meaning": "ăn",
+      "partOfSpeech": "động từ",
+      "example": "我吃米饭。",
+      "examplePinyin": "Wǒ chī mǐfàn.",
+      "exampleMeaning": "Tôi ăn cơm.",
+      "hsk": 1,
+      "tags": [
+        "ăn uống",
+        "động từ"
+      ]
+    },
+    {
+      "id": "er",
+      "simplified": "二",
+      "traditional": "二",
+      "pinyin": "èr",
+      "pinyinNumbered": "er4",
+      "meaning": "hai",
+      "partOfSpeech": "số từ",
+      "example": "二月",
+      "examplePinyin": "èryuè",
+      "exampleMeaning": "tháng hai",
+      "hsk": 1,
+      "tags": [
+        "số đếm",
+        "thời gian"
+      ]
+    },
+    {
+      "id": "hao",
+      "simplified": "好",
+      "traditional": "好",
+      "pinyin": "hǎo",
+      "pinyinNumbered": "hao3",
+      "meaning": "tốt, khỏe",
+      "partOfSpeech": "tính từ",
+      "example": "我很好。",
+      "examplePinyin": "Wǒ hěn hǎo.",
+      "exampleMeaning": "Tôi rất khỏe.",
+      "hsk": 1,
+      "tags": [
+        "chào hỏi",
+        "trạng thái"
+      ]
+    },
+    {
+      "id": "he",
+      "simplified": "喝",
+      "traditional": "喝",
+      "pinyin": "hē",
+      "pinyinNumbered": "he1",
+      "meaning": "uống",
+      "partOfSpeech": "động từ",
+      "example": "你喝茶吗？",
+      "examplePinyin": "Nǐ hē chá ma?",
+      "exampleMeaning": "Bạn uống trà không?",
+      "hsk": 1,
+      "tags": [
+        "ăn uống",
+        "động từ"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00002",
+      "simplified": "八",
+      "traditional": "八",
+      "pinyin": "bā",
+      "pinyinNumbered": "ba1",
+      "meaning": "tám",
+      "partOfSpeech": "số từ",
+      "example": "今天七月二十八号。",
+      "examplePinyin": "Jīntiān qī yuè èrshíbā hào.",
+      "exampleMeaning": "Hôm nay là ngày 28 tháng 7.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00005",
+      "simplified": "白天",
+      "traditional": "白天",
+      "pinyin": "báitiān",
+      "pinyinNumbered": "bai2tian1",
+      "meaning": "ban ngày",
+      "partOfSpeech": "danh từ",
+      "example": "我白天上班。",
+      "examplePinyin": "Wǒ báitiān shàngbān.",
+      "exampleMeaning": "Ban ngày tôi đi làm.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00006",
+      "simplified": "百",
+      "traditional": "百",
+      "pinyin": "bǎi",
+      "pinyinNumbered": "bai3",
+      "meaning": "một trăm; trăm",
+      "partOfSpeech": "số từ",
+      "example": "这本书一百块。",
+      "examplePinyin": "Zhè běn shū yì bǎi kuài.",
+      "exampleMeaning": "Cuốn sách này giá một trăm tệ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00007",
+      "simplified": "半",
+      "traditional": "半",
+      "pinyin": "bàn",
+      "pinyinNumbered": "ban4",
+      "meaning": "một nửa; nửa",
+      "partOfSpeech": "số từ; phó từ",
+      "example": "现在八点半。",
+      "examplePinyin": "Xiànzài bā diǎn bàn.",
+      "exampleMeaning": "Bây giờ là tám giờ rưỡi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00011",
+      "simplified": "边",
+      "traditional": "邊",
+      "pinyin": "biān",
+      "pinyinNumbered": "bian1",
+      "meaning": "bên; phía",
+      "partOfSpeech": "danh từ; hậu tố",
+      "example": "我坐在桌子边。",
+      "examplePinyin": "Wǒ zuò zài zhuōzi biān.",
+      "exampleMeaning": "Tôi ngồi cạnh bàn.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00029",
+      "simplified": "到",
+      "traditional": "到",
+      "pinyin": "dào",
+      "pinyinNumbered": "dao4",
+      "meaning": "đến; tới",
+      "partOfSpeech": "động từ",
+      "example": "我八点到学校。",
+      "examplePinyin": "Wǒ bā diǎn dào xuéxiào.",
+      "exampleMeaning": "Tôi đến trường lúc tám giờ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00031",
+      "simplified": "第",
+      "traditional": "第",
+      "pinyin": "dì",
+      "pinyinNumbered": "di4",
+      "meaning": "thứ (số thứ tự)",
+      "partOfSpeech": "tiền tố",
+      "example": "今天是第一天。",
+      "examplePinyin": "Jīntiān shì dì yī tiān.",
+      "exampleMeaning": "Hôm nay là ngày đầu tiên.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00033",
+      "simplified": "点",
+      "traditional": "點",
+      "pinyin": "diǎn",
+      "pinyinNumbered": "dian3",
+      "meaning": "giờ; điểm",
+      "partOfSpeech": "lượng từ; danh từ",
+      "example": "现在几点？",
+      "examplePinyin": "Xiànzài jǐ diǎn?",
+      "exampleMeaning": "Bây giờ là mấy giờ?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00049",
+      "simplified": "二",
+      "traditional": "二",
+      "pinyin": "èr",
+      "pinyinNumbered": "er4",
+      "meaning": "hai",
+      "partOfSpeech": "số từ",
+      "example": "今天七月二十八号。",
+      "examplePinyin": "Jīntiān qī yuè èrshíbā hào.",
+      "exampleMeaning": "Hôm nay là ngày 28 tháng 7.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00055",
+      "simplified": "分",
+      "traditional": "分",
+      "pinyin": "fēn",
+      "pinyinNumbered": "fen1",
+      "meaning": "phút; chia",
+      "partOfSpeech": "lượng từ; động từ; danh từ",
+      "example": "我有十分钟。",
+      "examplePinyin": "Wǒ yǒu shí fēnzhōng.",
+      "exampleMeaning": "Tôi có mười phút.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00056",
+      "simplified": "分钟",
+      "traditional": "分鐘",
+      "pinyin": "fēnzhōng",
+      "pinyinNumbered": "fen1zhong1",
+      "meaning": "phút (khoảng thời gian)",
+      "partOfSpeech": "lượng từ",
+      "example": "我有十分钟。",
+      "examplePinyin": "Wǒ yǒu shí fēnzhōng.",
+      "exampleMeaning": "Tôi có mười phút.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00076",
+      "simplified": "号",
+      "traditional": "號",
+      "pinyin": "hào",
+      "pinyinNumbered": "hao4",
+      "meaning": "ngày; số",
+      "partOfSpeech": "danh từ; lượng từ",
+      "example": "今天几月几号？",
+      "examplePinyin": "Jīntiān jǐ yuè jǐ hào?",
+      "exampleMeaning": "Hôm nay là ngày mấy tháng mấy?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00080",
+      "simplified": "后",
+      "traditional": "後",
+      "pinyin": "hòu",
+      "pinyinNumbered": "hou4",
+      "meaning": "sau; phía sau",
+      "partOfSpeech": "danh từ",
+      "example": "下课后我回家。",
+      "examplePinyin": "Xiàkè hòu wǒ huí jiā.",
+      "exampleMeaning": "Sau giờ học tôi về nhà.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00093",
+      "simplified": "今年",
+      "traditional": "今年",
+      "pinyin": "jīnnián",
+      "pinyinNumbered": "jin1nian2",
+      "meaning": "năm nay",
+      "partOfSpeech": "danh từ",
+      "example": "我今年二十岁。",
+      "examplePinyin": "Wǒ jīnnián èrshí suì.",
+      "exampleMeaning": "Năm nay tôi hai mươi tuổi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00094",
+      "simplified": "今天",
+      "traditional": "今天",
+      "pinyin": "jīntiān",
+      "pinyinNumbered": "jin1tian1",
+      "meaning": "hôm nay",
+      "partOfSpeech": "danh từ",
+      "example": "今天几月几号？",
+      "examplePinyin": "Jīntiān jǐ yuè jǐ hào?",
+      "exampleMeaning": "Hôm nay là ngày mấy tháng mấy?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00095",
+      "simplified": "九",
+      "traditional": "九",
+      "pinyin": "jiǔ",
+      "pinyinNumbered": "jiu3",
+      "meaning": "chín",
+      "partOfSpeech": "số từ",
+      "example": "明天是二十九号。",
+      "examplePinyin": "Míngtiān shì èrshíjiǔ hào.",
+      "exampleMeaning": "Ngày mai là ngày 29.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00109",
+      "simplified": "冷",
+      "traditional": "冷",
+      "pinyin": "lěng",
+      "pinyinNumbered": "leng3",
+      "meaning": "lạnh",
+      "partOfSpeech": "tính từ",
+      "example": "今天很冷。",
+      "examplePinyin": "Jīntiān hěn lěng.",
+      "exampleMeaning": "Hôm nay rất lạnh.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00110",
+      "simplified": "里",
+      "traditional": "裡",
+      "pinyin": "lǐ",
+      "pinyinNumbered": "li3",
+      "meaning": "trong; bên trong",
+      "partOfSpeech": "danh từ",
+      "example": "人在房间里。",
+      "examplePinyin": "Rén zài fángjiān lǐ.",
+      "exampleMeaning": "Người ở trong phòng.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00111",
+      "simplified": "两",
+      "traditional": "兩",
+      "pinyin": "liǎng",
+      "pinyinNumbered": "liang3",
+      "meaning": "hai (dùng trước lượng từ)",
+      "partOfSpeech": "số từ",
+      "example": "我要两个。",
+      "examplePinyin": "Wǒ yào liǎng ge.",
+      "exampleMeaning": "Tôi muốn hai cái.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00112",
+      "simplified": "零",
+      "traditional": "零",
+      "pinyin": "líng",
+      "pinyinNumbered": "ling2",
+      "meaning": "số không",
+      "partOfSpeech": "số từ",
+      "example": "现在是八点零五分。",
+      "examplePinyin": "Xiànzài shì bā diǎn líng wǔ fēn.",
+      "exampleMeaning": "Bây giờ là tám giờ lẻ năm phút.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00113",
+      "simplified": "六",
+      "traditional": "六",
+      "pinyin": "liù",
+      "pinyinNumbered": "liu4",
+      "meaning": "sáu",
+      "partOfSpeech": "số từ",
+      "example": "我六点起床。",
+      "examplePinyin": "Wǒ liù diǎn qǐchuáng.",
+      "exampleMeaning": "Tôi thức dậy lúc sáu giờ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00128",
+      "simplified": "明年",
+      "traditional": "明年",
+      "pinyin": "míngnián",
+      "pinyinNumbered": "ming2nian2",
+      "meaning": "năm sau",
+      "partOfSpeech": "danh từ",
+      "example": "我明年去中国。",
+      "examplePinyin": "Wǒ míngnián qù Zhōngguó.",
+      "exampleMeaning": "Năm sau tôi đi Trung Quốc.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00129",
+      "simplified": "明天",
+      "traditional": "明天",
+      "pinyin": "míngtiān",
+      "pinyinNumbered": "ming2tian1",
+      "meaning": "ngày mai",
+      "partOfSpeech": "danh từ",
+      "example": "明天是几号？",
+      "examplePinyin": "Míngtiān shì jǐ hào?",
+      "exampleMeaning": "Ngày mai là ngày mấy?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00131",
+      "simplified": "哪",
+      "traditional": "哪",
+      "pinyin": "nǎ",
+      "pinyinNumbered": "na3",
+      "meaning": "nào",
+      "partOfSpeech": "đại từ",
+      "example": "你要哪本书？",
+      "examplePinyin": "Nǐ yào nǎ běn shū?",
+      "exampleMeaning": "Bạn muốn quyển sách nào?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00132",
+      "simplified": "哪个",
+      "traditional": "哪個",
+      "pinyin": "nǎge",
+      "pinyinNumbered": "na3ge5",
+      "meaning": "cái nào",
+      "partOfSpeech": "đại từ",
+      "example": "你要哪个杯子？",
+      "examplePinyin": "Nǐ yào nǎge bēizi?",
+      "exampleMeaning": "Bạn muốn cái cốc nào?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00133",
+      "simplified": "哪里",
+      "traditional": "哪裡",
+      "pinyin": "nǎlǐ",
+      "pinyinNumbered": "na3li3",
+      "meaning": "ở đâu; nơi nào",
+      "partOfSpeech": "đại từ",
+      "example": "你在哪里？",
+      "examplePinyin": "Nǐ zài nǎlǐ?",
+      "exampleMeaning": "Bạn đang ở đâu?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00134",
+      "simplified": "哪儿",
+      "traditional": "哪兒",
+      "pinyin": "nǎr",
+      "pinyinNumbered": "nar3",
+      "meaning": "đâu",
+      "partOfSpeech": "đại từ",
+      "example": "你住在哪儿？",
+      "examplePinyin": "Nǐ zhù zài nǎr?",
+      "exampleMeaning": "Bạn sống ở đâu?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00135",
+      "simplified": "哪些",
+      "traditional": "哪些",
+      "pinyin": "nǎxiē",
+      "pinyinNumbered": "na3xie1",
+      "meaning": "những cái nào",
+      "partOfSpeech": "đại từ",
+      "example": "哪些书是你的？",
+      "examplePinyin": "Nǎxiē shū shì nǐ de?",
+      "exampleMeaning": "Những quyển sách nào là của bạn?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00136",
+      "simplified": "那",
+      "traditional": "那",
+      "pinyin": "nà",
+      "pinyinNumbered": "na4",
+      "meaning": "kia; đó",
+      "partOfSpeech": "đại từ; liên từ",
+      "example": "那是我的书。",
+      "examplePinyin": "Nà shì wǒ de shū.",
+      "exampleMeaning": "Kia là sách của tôi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00137",
+      "simplified": "那边",
+      "traditional": "那邊",
+      "pinyin": "nàbiān",
+      "pinyinNumbered": "na4bian1",
+      "meaning": "bên kia",
+      "partOfSpeech": "đại từ",
+      "example": "他在那边。",
+      "examplePinyin": "Tā zài nàbiān.",
+      "exampleMeaning": "Anh ấy ở bên kia.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00138",
+      "simplified": "那个",
+      "traditional": "那個",
+      "pinyin": "nàge",
+      "pinyinNumbered": "na4ge5",
+      "meaning": "cái kia",
+      "partOfSpeech": "đại từ",
+      "example": "那个人是我老师。",
+      "examplePinyin": "Nàge rén shì wǒ lǎoshī.",
+      "exampleMeaning": "Người kia là giáo viên của tôi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00139",
+      "simplified": "那里",
+      "traditional": "那裡",
+      "pinyin": "nàlǐ",
+      "pinyinNumbered": "na4li3",
+      "meaning": "ở đó",
+      "partOfSpeech": "đại từ",
+      "example": "我的书在那里。",
+      "examplePinyin": "Wǒ de shū zài nàlǐ.",
+      "exampleMeaning": "Sách của tôi ở đó.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00140",
+      "simplified": "那儿",
+      "traditional": "那兒",
+      "pinyin": "nàr",
+      "pinyinNumbered": "nar4",
+      "meaning": "chỗ kia",
+      "partOfSpeech": "đại từ",
+      "example": "他住在那儿。",
+      "examplePinyin": "Tā zhù zài nàr.",
+      "exampleMeaning": "Anh ấy sống ở chỗ kia.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00141",
+      "simplified": "那些",
+      "traditional": "那些",
+      "pinyin": "nàxiē",
+      "pinyinNumbered": "na4xie1",
+      "meaning": "những cái kia",
+      "partOfSpeech": "đại từ",
+      "example": "那些学生在教室里。",
+      "examplePinyin": "Nàxiē xuésheng zài jiàoshì lǐ.",
+      "exampleMeaning": "Những học sinh kia ở trong lớp học.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00149",
+      "simplified": "年",
+      "traditional": "年",
+      "pinyin": "nián",
+      "pinyinNumbered": "nian2",
+      "meaning": "năm",
+      "partOfSpeech": "danh từ; lượng từ",
+      "example": "我学了一年汉语。",
+      "examplePinyin": "Wǒ xué le yì nián Hànyǔ.",
+      "exampleMeaning": "Tôi đã học tiếng Trung một năm.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00160",
+      "simplified": "七",
+      "traditional": "七",
+      "pinyin": "qī",
+      "pinyinNumbered": "qi1",
+      "meaning": "bảy",
+      "partOfSpeech": "số từ",
+      "example": "今天七月二十八号。",
+      "examplePinyin": "Jīntiān qī yuè èrshíbā hào.",
+      "exampleMeaning": "Hôm nay là ngày 28 tháng 7.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00162",
+      "simplified": "千",
+      "traditional": "千",
+      "pinyin": "qiān",
+      "pinyinNumbered": "qian1",
+      "meaning": "một nghìn; nghìn",
+      "partOfSpeech": "số từ",
+      "example": "这台电脑三千块。",
+      "examplePinyin": "Zhè tái diànnǎo sān qiān kuài.",
+      "exampleMeaning": "Máy tính này giá ba nghìn tệ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00163",
+      "simplified": "前",
+      "traditional": "前",
+      "pinyin": "qián",
+      "pinyinNumbered": "qian2",
+      "meaning": "trước; phía trước",
+      "partOfSpeech": "danh từ",
+      "example": "学校前边有一家商店。",
+      "examplePinyin": "Xuéxiào qiánbian yǒu yì jiā shāngdiàn.",
+      "exampleMeaning": "Phía trước trường có một cửa hàng.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00168",
+      "simplified": "去年",
+      "traditional": "去年",
+      "pinyin": "qùnián",
+      "pinyinNumbered": "qu4nian2",
+      "meaning": "năm ngoái",
+      "partOfSpeech": "danh từ",
+      "example": "我去年开始学汉语。",
+      "examplePinyin": "Wǒ qùnián kāishǐ xué Hànyǔ.",
+      "exampleMeaning": "Năm ngoái tôi bắt đầu học tiếng Trung.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00169",
+      "simplified": "热",
+      "traditional": "熱",
+      "pinyin": "rè",
+      "pinyinNumbered": "re4",
+      "meaning": "nóng",
+      "partOfSpeech": "tính từ",
+      "example": "今天很热，不下雨。",
+      "examplePinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+      "exampleMeaning": "Hôm nay rất nóng, không mưa.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00172",
+      "simplified": "日",
+      "traditional": "日",
+      "pinyin": "rì",
+      "pinyinNumbered": "ri4",
+      "meaning": "ngày",
+      "partOfSpeech": "lượng từ; danh từ",
+      "example": "今天是十月一日。",
+      "examplePinyin": "Jīntiān shì shí yuè yī rì.",
+      "exampleMeaning": "Hôm nay là ngày 1 tháng 10.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00173",
+      "simplified": "三",
+      "traditional": "三",
+      "pinyin": "sān",
+      "pinyinNumbered": "san1",
+      "meaning": "ba",
+      "partOfSpeech": "số từ",
+      "example": "我有三本书。",
+      "examplePinyin": "Wǒ yǒu sān běn shū.",
+      "exampleMeaning": "Tôi có ba quyển sách.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00175",
+      "simplified": "上",
+      "traditional": "上",
+      "pinyin": "shàng",
+      "pinyinNumbered": "shang4",
+      "meaning": "trên; lên",
+      "partOfSpeech": "danh từ; động từ",
+      "example": "书在桌子上。",
+      "examplePinyin": "Shū zài zhuōzi shàng.",
+      "exampleMeaning": "Sách ở trên bàn.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00178",
+      "simplified": "上午",
+      "traditional": "上午",
+      "pinyin": "shàngwǔ",
+      "pinyinNumbered": "shang4wu3",
+      "meaning": "buổi sáng",
+      "partOfSpeech": "danh từ",
+      "example": "我上午有课。",
+      "examplePinyin": "Wǒ shàngwǔ yǒu kè.",
+      "exampleMeaning": "Buổi sáng tôi có giờ học.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00184",
+      "simplified": "十",
+      "traditional": "十",
+      "pinyin": "shí",
+      "pinyinNumbered": "shi2",
+      "meaning": "mười",
+      "partOfSpeech": "số từ",
+      "example": "今天七月二十八号。",
+      "examplePinyin": "Jīntiān qī yuè èrshíbā hào.",
+      "exampleMeaning": "Hôm nay là ngày 28 tháng 7.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00185",
+      "simplified": "时候",
+      "traditional": "時候",
+      "pinyin": "shíhou",
+      "pinyinNumbered": "shi2hou5",
+      "meaning": "lúc; khi",
+      "partOfSpeech": "danh từ",
+      "example": "你什么时候回家？",
+      "examplePinyin": "Nǐ shénme shíhou huí jiā?",
+      "exampleMeaning": "Khi nào bạn về nhà?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00186",
+      "simplified": "时间",
+      "traditional": "時間",
+      "pinyin": "shíjiān",
+      "pinyinNumbered": "shi2jian1",
+      "meaning": "thời gian",
+      "partOfSpeech": "danh từ",
+      "example": "你有时间吗？",
+      "examplePinyin": "Nǐ yǒu shíjiān ma?",
+      "exampleMeaning": "Bạn có thời gian không?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00198",
+      "simplified": "四",
+      "traditional": "四",
+      "pinyin": "sì",
+      "pinyinNumbered": "si4",
+      "meaning": "bốn",
+      "partOfSpeech": "số từ",
+      "example": "我家有四个人。",
+      "examplePinyin": "Wǒ jiā yǒu sì ge rén.",
+      "exampleMeaning": "Nhà tôi có bốn người.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00207",
+      "simplified": "天",
+      "traditional": "天",
+      "pinyin": "tiān",
+      "pinyinNumbered": "tian1",
+      "meaning": "ngày; trời",
+      "partOfSpeech": "danh từ; lượng từ",
+      "example": "三天以后我回家。",
+      "examplePinyin": "Sān tiān yǐhòu wǒ huí jiā.",
+      "exampleMeaning": "Ba ngày sau tôi về nhà.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00208",
+      "simplified": "天气",
+      "traditional": "天氣",
+      "pinyin": "tiānqì",
+      "pinyinNumbered": "tian1qi4",
+      "meaning": "thời tiết",
+      "partOfSpeech": "danh từ",
+      "example": "今天天气怎么样？",
+      "examplePinyin": "Jīntiān tiānqì zěnmeyàng?",
+      "exampleMeaning": "Hôm nay thời tiết thế nào?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00212",
+      "simplified": "外",
+      "traditional": "外",
+      "pinyin": "wài",
+      "pinyinNumbered": "wai4",
+      "meaning": "ngoài",
+      "partOfSpeech": "danh từ",
+      "example": "门外有人。",
+      "examplePinyin": "Mén wài yǒu rén.",
+      "exampleMeaning": "Ngoài cửa có người.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00213",
+      "simplified": "外边",
+      "traditional": "外邊",
+      "pinyin": "wàibian",
+      "pinyinNumbered": "wai4bian5",
+      "meaning": "bên ngoài",
+      "partOfSpeech": "danh từ",
+      "example": "外边正在下雨。",
+      "examplePinyin": "Wàibian zhèngzài xià yǔ.",
+      "exampleMeaning": "Bên ngoài đang mưa.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00215",
+      "simplified": "晚",
+      "traditional": "晚",
+      "pinyin": "wǎn",
+      "pinyinNumbered": "wan3",
+      "meaning": "muộn; tối",
+      "partOfSpeech": "tính từ",
+      "example": "今天我回家很晚。",
+      "examplePinyin": "Jīntiān wǒ huí jiā hěn wǎn.",
+      "exampleMeaning": "Hôm nay tôi về nhà rất muộn.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00217",
+      "simplified": "晚上",
+      "traditional": "晚上",
+      "pinyin": "wǎnshang",
+      "pinyinNumbered": "wan3shang5",
+      "meaning": "buổi tối",
+      "partOfSpeech": "danh từ",
+      "example": "我晚上八点学习。",
+      "examplePinyin": "Wǒ wǎnshang bā diǎn xuéxí.",
+      "exampleMeaning": "Tôi học lúc tám giờ tối.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00223",
+      "simplified": "五",
+      "traditional": "五",
+      "pinyin": "wǔ",
+      "pinyinNumbered": "wu3",
+      "meaning": "năm",
+      "partOfSpeech": "số từ",
+      "example": "我们五点见。",
+      "examplePinyin": "Wǒmen wǔ diǎn jiàn.",
+      "exampleMeaning": "Chúng ta gặp nhau lúc năm giờ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00226",
+      "simplified": "下",
+      "traditional": "下",
+      "pinyin": "xià",
+      "pinyinNumbered": "xia4",
+      "meaning": "dưới; xuống",
+      "partOfSpeech": "danh từ; động từ; lượng từ",
+      "example": "猫在椅子下。",
+      "examplePinyin": "Māo zài yǐzi xià.",
+      "exampleMeaning": "Mèo ở dưới ghế.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00227",
+      "simplified": "下雨",
+      "traditional": "下雨",
+      "pinyin": "xiàyǔ",
+      "pinyinNumbered": "xia4yu3",
+      "meaning": "mưa",
+      "partOfSpeech": "cụm động từ",
+      "example": "今天很热，不下雨。",
+      "examplePinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+      "exampleMeaning": "Hôm nay rất nóng, không mưa.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00230",
+      "simplified": "下午",
+      "traditional": "下午",
+      "pinyin": "xiàwǔ",
+      "pinyinNumbered": "xia4wu3",
+      "meaning": "buổi chiều",
+      "partOfSpeech": "danh từ",
+      "example": "不忙，我下午忙。",
+      "examplePinyin": "Bù máng, wǒ xiàwǔ máng.",
+      "exampleMeaning": "Không, buổi chiều tôi bận.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00232",
+      "simplified": "现在",
+      "traditional": "現在",
+      "pinyin": "xiànzài",
+      "pinyinNumbered": "xian4zai4",
+      "meaning": "bây giờ",
+      "partOfSpeech": "danh từ",
+      "example": "现在几点？",
+      "examplePinyin": "Xiànzài jǐ diǎn?",
+      "exampleMeaning": "Bây giờ là mấy giờ?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00236",
+      "simplified": "小时",
+      "traditional": "小時",
+      "pinyin": "xiǎoshí",
+      "pinyinNumbered": "xiao3shi2",
+      "meaning": "giờ (khoảng thời gian)",
+      "partOfSpeech": "danh từ",
+      "example": "我每天学习两个小时。",
+      "examplePinyin": "Wǒ měitiān xuéxí liǎng ge xiǎoshí.",
+      "exampleMeaning": "Mỗi ngày tôi học hai giờ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "giờ và thời lượng"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00239",
+      "simplified": "些",
+      "traditional": "些",
+      "pinyin": "xiē",
+      "pinyinNumbered": "xie1",
+      "meaning": "một vài",
+      "partOfSpeech": "lượng từ",
+      "example": "我买了一些水果。",
+      "examplePinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+      "exampleMeaning": "Tôi đã mua một ít trái cây.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00243",
+      "simplified": "星期",
+      "traditional": "星期",
+      "pinyin": "xīngqī",
+      "pinyinNumbered": "xing1qi1",
+      "meaning": "tuần; thứ",
+      "partOfSpeech": "danh từ",
+      "example": "今天星期几？",
+      "examplePinyin": "Jīntiān xīngqī jǐ?",
+      "exampleMeaning": "Hôm nay là thứ mấy?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00244",
+      "simplified": "星期日",
+      "traditional": "星期日",
+      "pinyin": "xīngqīrì",
+      "pinyinNumbered": "xing1qi1ri4",
+      "meaning": "Chủ nhật",
+      "partOfSpeech": "danh từ",
+      "example": "星期日我不上班。",
+      "examplePinyin": "Xīngqīrì wǒ bù shàngbān.",
+      "exampleMeaning": "Chủ nhật tôi không đi làm.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00245",
+      "simplified": "星期天",
+      "traditional": "星期天",
+      "pinyin": "xīngqītiān",
+      "pinyinNumbered": "xing1qi1tian1",
+      "meaning": "Chủ nhật",
+      "partOfSpeech": "danh từ",
+      "example": "我们星期天去公园。",
+      "examplePinyin": "Wǒmen xīngqītiān qù gōngyuán.",
+      "exampleMeaning": "Chủ nhật chúng tôi đi công viên.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00251",
+      "simplified": "雪",
+      "traditional": "雪",
+      "pinyin": "xuě",
+      "pinyinNumbered": "xue3",
+      "meaning": "tuyết",
+      "partOfSpeech": "danh từ",
+      "example": "外边有雪。",
+      "examplePinyin": "Wàibian yǒu xuě.",
+      "exampleMeaning": "Bên ngoài có tuyết.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00254",
+      "simplified": "一",
+      "traditional": "一",
+      "pinyin": "yī",
+      "pinyinNumbered": "yi1",
+      "meaning": "một",
+      "partOfSpeech": "số từ",
+      "example": "我有一个妹妹。",
+      "examplePinyin": "Wǒ yǒu yí ge mèimei.",
+      "exampleMeaning": "Tôi có một em gái.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "số đếm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00267",
+      "simplified": "雨",
+      "traditional": "雨",
+      "pinyin": "yǔ",
+      "pinyinNumbered": "yu3",
+      "meaning": "mưa",
+      "partOfSpeech": "danh từ",
+      "example": "今天的雨很大。",
+      "examplePinyin": "Jīntiān de yǔ hěn dà.",
+      "exampleMeaning": "Mưa hôm nay rất lớn.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00269",
+      "simplified": "月",
+      "traditional": "月",
+      "pinyin": "yuè",
+      "pinyinNumbered": "yue4",
+      "meaning": "tháng",
+      "partOfSpeech": "danh từ",
+      "example": "今天几月几号？",
+      "examplePinyin": "Jīntiān jǐ yuè jǐ hào?",
+      "exampleMeaning": "Hôm nay là ngày mấy tháng mấy?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00271",
+      "simplified": "在",
+      "traditional": "在",
+      "pinyin": "zài",
+      "pinyinNumbered": "zai4",
+      "meaning": "ở; đang",
+      "partOfSpeech": "động từ; giới từ; phó từ",
+      "example": "我在学校学习。",
+      "examplePinyin": "Wǒ zài xuéxiào xuéxí.",
+      "exampleMeaning": "Tôi học ở trường.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00273",
+      "simplified": "早",
+      "traditional": "早",
+      "pinyin": "zǎo",
+      "pinyinNumbered": "zao3",
+      "meaning": "sớm",
+      "partOfSpeech": "tính từ",
+      "example": "我今天很早到学校。",
+      "examplePinyin": "Wǒ jīntiān hěn zǎo dào xuéxiào.",
+      "exampleMeaning": "Hôm nay tôi đến trường rất sớm.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00275",
+      "simplified": "早上",
+      "traditional": "早上",
+      "pinyin": "zǎoshang",
+      "pinyinNumbered": "zao3shang5",
+      "meaning": "buổi sáng",
+      "partOfSpeech": "danh từ",
+      "example": "你早上忙吗？",
+      "examplePinyin": "Nǐ zǎoshang máng ma?",
+      "exampleMeaning": "Buổi sáng bạn có bận không?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00279",
+      "simplified": "这",
+      "traditional": "這",
+      "pinyin": "zhè",
+      "pinyinNumbered": "zhe4",
+      "meaning": "đây; này",
+      "partOfSpeech": "đại từ",
+      "example": "这是我的书。",
+      "examplePinyin": "Zhè shì wǒ de shū.",
+      "exampleMeaning": "Đây là sách của tôi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00280",
+      "simplified": "这边",
+      "traditional": "這邊",
+      "pinyin": "zhèbiān",
+      "pinyinNumbered": "zhe4bian1",
+      "meaning": "bên này",
+      "partOfSpeech": "đại từ",
+      "example": "请来这边。",
+      "examplePinyin": "Qǐng lái zhèbiān.",
+      "exampleMeaning": "Mời đến bên này.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00281",
+      "simplified": "这个",
+      "traditional": "這個",
+      "pinyin": "zhège",
+      "pinyinNumbered": "zhe4ge5",
+      "meaning": "cái này",
+      "partOfSpeech": "đại từ",
+      "example": "这个人是我朋友。",
+      "examplePinyin": "Zhège rén shì wǒ péngyou.",
+      "exampleMeaning": "Người này là bạn của tôi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00282",
+      "simplified": "这里",
+      "traditional": "這裡",
+      "pinyin": "zhèlǐ",
+      "pinyinNumbered": "zhe4li3",
+      "meaning": "ở đây",
+      "partOfSpeech": "đại từ",
+      "example": "我在这里。",
+      "examplePinyin": "Wǒ zài zhèlǐ.",
+      "exampleMeaning": "Tôi đang ở đây.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00283",
+      "simplified": "这儿",
+      "traditional": "這兒",
+      "pinyin": "zhèr",
+      "pinyinNumbered": "zher4",
+      "meaning": "chỗ này",
+      "partOfSpeech": "đại từ",
+      "example": "请坐这儿。",
+      "examplePinyin": "Qǐng zuò zhèr.",
+      "exampleMeaning": "Mời ngồi chỗ này.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00284",
+      "simplified": "这些",
+      "traditional": "這些",
+      "pinyin": "zhèxiē",
+      "pinyinNumbered": "zhe4xie1",
+      "meaning": "những cái này",
+      "partOfSpeech": "đại từ",
+      "example": "这些都是我的书。",
+      "examplePinyin": "Zhèxiē dōu shì wǒ de shū.",
+      "exampleMeaning": "Những quyển này đều là sách của tôi.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "vị trí"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00286",
+      "simplified": "正在",
+      "traditional": "正在",
+      "pinyin": "zhèngzài",
+      "pinyinNumbered": "zheng4zai4",
+      "meaning": "đang",
+      "partOfSpeech": "phó từ",
+      "example": "他正在吃饭。",
+      "examplePinyin": "Tā zhèngzài chīfàn.",
+      "exampleMeaning": "Anh ấy đang ăn cơm.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00291",
+      "simplified": "中午",
+      "traditional": "中午",
+      "pinyin": "zhōngwǔ",
+      "pinyinNumbered": "zhong1wu3",
+      "meaning": "buổi trưa",
+      "partOfSpeech": "danh từ",
+      "example": "我们中午十二点吃饭。",
+      "examplePinyin": "Wǒmen zhōngwǔ shí'èr diǎn chīfàn.",
+      "exampleMeaning": "Chúng tôi ăn trưa lúc mười hai giờ.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "tuần và buổi trong ngày"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00294",
+      "simplified": "住",
+      "traditional": "住",
+      "pinyin": "zhù",
+      "pinyinNumbered": "zhu4",
+      "meaning": "ở; sống",
+      "partOfSpeech": "động từ",
+      "example": "你住在哪儿？",
+      "examplePinyin": "Nǐ zhù zài nǎr?",
+      "exampleMeaning": "Bạn sống ở đâu?",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "thời tiết và nơi ở"
+      ]
+    },
+    {
+      "id": "hsk-vocab-00297",
+      "simplified": "昨天",
+      "traditional": "昨天",
+      "pinyin": "zuótiān",
+      "pinyinNumbered": "zuo2tian1",
+      "meaning": "hôm qua",
+      "partOfSpeech": "danh từ",
+      "example": "我昨天在学校。",
+      "examplePinyin": "Wǒ zuótiān zài xuéxiào.",
+      "exampleMeaning": "Hôm qua tôi ở trường.",
+      "hsk": 1,
+      "tags": [
+        "hsk1",
+        "thời gian, địa điểm và sự kiện",
+        "lịch và năm"
+      ]
+    },
+    {
+      "id": "jia",
+      "simplified": "家",
+      "traditional": "家",
+      "pinyin": "jiā",
+      "pinyinNumbered": "jia1",
+      "meaning": "nhà, gia đình",
+      "partOfSpeech": "danh từ",
+      "example": "我家有四个人。",
+      "examplePinyin": "Wǒ jiā yǒu sì ge rén.",
+      "exampleMeaning": "Nhà tôi có bốn người.",
+      "hsk": 1,
+      "tags": [
+        "gia đình",
+        "địa điểm"
+      ]
+    },
+    {
+      "id": "jinri",
+      "simplified": "今天",
+      "traditional": "今天",
+      "pinyin": "jīntiān",
+      "pinyinNumbered": "jin1tian1",
+      "meaning": "hôm nay",
+      "partOfSpeech": "danh từ thời gian",
+      "example": "今天天气很好。",
+      "examplePinyin": "Jīntiān tiānqì hěn hǎo.",
+      "exampleMeaning": "Hôm nay thời tiết rất đẹp.",
+      "hsk": 1,
+      "tags": [
+        "thời gian",
+        "hằng ngày"
+      ]
+    },
+    {
+      "id": "kan",
+      "simplified": "看",
+      "traditional": "看",
+      "pinyin": "kàn",
+      "pinyinNumbered": "kan4",
+      "meaning": "nhìn, xem, đọc",
+      "partOfSpeech": "động từ",
+      "example": "我看中文书。",
+      "examplePinyin": "Wǒ kàn Zhōngwén shū.",
+      "exampleMeaning": "Tôi đọc sách tiếng Trung.",
+      "hsk": 1,
+      "tags": [
+        "hoạt động",
+        "học tập"
+      ]
+    },
+    {
+      "id": "laoshi",
+      "simplified": "老师",
+      "traditional": "老師",
+      "pinyin": "lǎoshī",
+      "pinyinNumbered": "lao3shi1",
+      "meaning": "giáo viên",
+      "partOfSpeech": "danh từ",
+      "example": "王老师，你好。",
+      "examplePinyin": "Wáng lǎoshī, nǐ hǎo.",
+      "exampleMeaning": "Thầy Vương, xin chào.",
+      "hsk": 1,
+      "tags": [
+        "trường học",
+        "xưng hô"
+      ]
+    },
+    {
+      "id": "ma",
+      "simplified": "吗",
+      "traditional": "嗎",
+      "pinyin": "ma",
+      "pinyinNumbered": "ma5",
+      "meaning": "trợ từ nghi vấn",
+      "partOfSpeech": "trợ từ",
+      "example": "你好吗？",
+      "examplePinyin": "Nǐ hǎo ma?",
+      "exampleMeaning": "Bạn khỏe không?",
+      "hsk": 1,
+      "tags": [
+        "ngữ pháp",
+        "câu hỏi"
+      ]
+    },
+    {
+      "id": "ni",
+      "simplified": "你",
+      "traditional": "你",
+      "pinyin": "nǐ",
+      "pinyinNumbered": "ni3",
+      "meaning": "bạn",
+      "partOfSpeech": "đại từ",
+      "example": "你好！",
+      "examplePinyin": "Nǐ hǎo!",
+      "exampleMeaning": "Xin chào!",
+      "hsk": 1,
+      "tags": [
+        "chào hỏi",
+        "đại từ"
+      ]
+    },
+    {
+      "id": "ren",
+      "simplified": "人",
+      "traditional": "人",
+      "pinyin": "rén",
+      "pinyinNumbered": "ren2",
+      "meaning": "người",
+      "partOfSpeech": "danh từ",
+      "example": "中国人",
+      "examplePinyin": "Zhōngguó rén",
+      "exampleMeaning": "người Trung Quốc",
+      "hsk": 1,
+      "tags": [
+        "con người",
+        "quốc gia"
+      ]
+    },
+    {
+      "id": "san",
+      "simplified": "三",
+      "traditional": "三",
+      "pinyin": "sān",
+      "pinyinNumbered": "san1",
+      "meaning": "ba",
+      "partOfSpeech": "số từ",
+      "example": "三个人",
+      "examplePinyin": "sān ge rén",
+      "exampleMeaning": "ba người",
+      "hsk": 1,
+      "tags": [
+        "số đếm"
+      ]
+    },
+    {
+      "id": "shi",
+      "simplified": "是",
+      "traditional": "是",
+      "pinyin": "shì",
+      "pinyinNumbered": "shi4",
+      "meaning": "là",
+      "partOfSpeech": "động từ",
+      "example": "她是老师。",
+      "examplePinyin": "Tā shì lǎoshī.",
+      "exampleMeaning": "Cô ấy là giáo viên.",
+      "hsk": 1,
+      "tags": [
+        "câu cơ bản",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "shu",
+      "simplified": "书",
+      "traditional": "書",
+      "pinyin": "shū",
+      "pinyinNumbered": "shu1",
+      "meaning": "sách",
+      "partOfSpeech": "danh từ",
+      "example": "这是我的书。",
+      "examplePinyin": "Zhè shì wǒ de shū.",
+      "exampleMeaning": "Đây là sách của tôi.",
+      "hsk": 1,
+      "tags": [
+        "đồ vật",
+        "học tập"
+      ]
+    },
+    {
+      "id": "wo",
+      "simplified": "我",
+      "traditional": "我",
+      "pinyin": "wǒ",
+      "pinyinNumbered": "wo3",
+      "meaning": "tôi",
+      "partOfSpeech": "đại từ",
+      "example": "我是学生。",
+      "examplePinyin": "Wǒ shì xuésheng.",
+      "exampleMeaning": "Tôi là học sinh.",
+      "hsk": 1,
+      "tags": [
+        "đại từ",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "xiexie",
+      "simplified": "谢谢",
+      "traditional": "謝謝",
+      "pinyin": "xièxie",
+      "pinyinNumbered": "xie4xie5",
+      "meaning": "cảm ơn",
+      "partOfSpeech": "động từ",
+      "example": "谢谢你。",
+      "examplePinyin": "Xièxie nǐ.",
+      "exampleMeaning": "Cảm ơn bạn.",
+      "hsk": 1,
+      "tags": [
+        "lịch sự",
+        "giao tiếp"
+      ]
+    },
+    {
+      "id": "xuesheng",
+      "simplified": "学生",
+      "traditional": "學生",
+      "pinyin": "xuésheng",
+      "pinyinNumbered": "xue2sheng5",
+      "meaning": "học sinh, sinh viên",
+      "partOfSpeech": "danh từ",
+      "example": "你是学生吗？",
+      "examplePinyin": "Nǐ shì xuésheng ma?",
+      "exampleMeaning": "Bạn là sinh viên phải không?",
+      "hsk": 1,
+      "tags": [
+        "trường học",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "yi",
+      "simplified": "一",
+      "traditional": "一",
+      "pinyin": "yī",
+      "pinyinNumbered": "yi1",
+      "meaning": "một",
+      "partOfSpeech": "số từ",
+      "example": "一个人",
+      "examplePinyin": "yí ge rén",
+      "exampleMeaning": "một người",
+      "hsk": 1,
+      "tags": [
+        "số đếm"
+      ]
+    },
+    {
+      "id": "you",
+      "simplified": "有",
+      "traditional": "有",
+      "pinyin": "yǒu",
+      "pinyinNumbered": "you3",
+      "meaning": "có",
+      "partOfSpeech": "động từ",
+      "example": "你有时间吗？",
+      "examplePinyin": "Nǐ yǒu shíjiān ma?",
+      "exampleMeaning": "Bạn có thời gian không?",
+      "hsk": 1,
+      "tags": [
+        "tồn tại",
+        "ngữ pháp"
+      ]
+    },
+    {
+      "id": "yuenan",
+      "simplified": "越南",
+      "traditional": "越南",
+      "pinyin": "Yuènán",
+      "pinyinNumbered": "Yue4nan2",
+      "meaning": "Việt Nam",
+      "partOfSpeech": "danh từ riêng",
+      "example": "我是越南人。",
+      "examplePinyin": "Wǒ shì Yuènán rén.",
+      "exampleMeaning": "Tôi là người Việt Nam.",
+      "hsk": 1,
+      "tags": [
+        "quốc gia",
+        "giới thiệu"
+      ]
+    },
+    {
+      "id": "zaijian",
+      "simplified": "再见",
+      "traditional": "再見",
+      "pinyin": "zàijiàn",
+      "pinyinNumbered": "zai4jian4",
+      "meaning": "tạm biệt",
+      "partOfSpeech": "cụm từ",
+      "example": "老师，再见！",
+      "examplePinyin": "Lǎoshī, zàijiàn!",
+      "exampleMeaning": "Tạm biệt thầy/cô!",
+      "hsk": 1,
+      "tags": [
+        "chào hỏi",
+        "giao tiếp"
+      ]
+    },
+    {
+      "id": "zhongguo",
+      "simplified": "中国",
+      "traditional": "中國",
+      "pinyin": "Zhōngguó",
+      "pinyinNumbered": "Zhong1guo2",
+      "meaning": "Trung Quốc",
+      "partOfSpeech": "danh từ riêng",
+      "example": "我来自中国。",
+      "examplePinyin": "Wǒ láizì Zhōngguó.",
+      "exampleMeaning": "Tôi đến từ Trung Quốc.",
+      "hsk": 1,
+      "tags": [
+        "quốc gia",
+        "giới thiệu"
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "boot-1",
+      "unitId": "boot",
+      "title": "Bốn thanh điệu",
+      "chineseTitle": "四声",
+      "objective": "Nghe và nhận diện đường cao độ của bốn thanh.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "pronunciation",
+        "listening"
+      ],
+      "wordIds": [
+        "yi",
+        "ren",
+        "ni",
+        "er"
+      ],
+      "prerequisiteIds": [],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "boot-2",
+      "unitId": "boot",
+      "title": "Xin chào đầu tiên",
+      "chineseTitle": "你好",
+      "objective": "Nhận diện lời chào và đại từ ngôi một, ngôi hai.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "wo"
+      ],
+      "prerequisiteIds": [
+        "boot-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "boot-3",
+      "unitId": "boot",
+      "title": "Âm đầu khó",
+      "chineseTitle": "声母",
+      "objective": "Phân biệt j/q/x, zh/ch/sh và z/c/s.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "pronunciation",
+        "listening"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zhongguo",
+        "chi"
+      ],
+      "prerequisiteIds": [
+        "boot-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "boot-4",
+      "unitId": "boot",
+      "title": "Tone pairs",
+      "chineseTitle": "声调组合",
+      "objective": "Phân biệt thanh từ điển và thanh bề mặt trong cụm hai âm tiết.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "pronunciation",
+        "listening"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "xuesheng",
+        "laoshi"
+      ],
+      "prerequisiteIds": [
+        "boot-3"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "characters-1",
+      "unitId": "characters",
+      "title": "Nét cơ bản",
+      "chineseTitle": "基本笔画",
+      "objective": "Viết ngang, sổ, phẩy, mác đúng hướng.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "writing",
+        "reading"
+      ],
+      "wordIds": [
+        "yi",
+        "ren",
+        "san"
+      ],
+      "prerequisiteIds": [
+        "daily-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "characters-2",
+      "unitId": "characters",
+      "title": "Người và nhà",
+      "chineseTitle": "人和家",
+      "objective": "Nhìn cấu kiện và nhớ ý nghĩa bằng cấu trúc.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "writing",
+        "vocabulary"
+      ],
+      "wordIds": [
+        "ren",
+        "jia",
+        "hao"
+      ],
+      "prerequisiteIds": [
+        "characters-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "daily-1",
+      "unitId": "daily",
+      "title": "Nhà tôi",
+      "chineseTitle": "我的家",
+      "objective": "Nhận diện mẫu 有 để nói số người trong gia đình.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "vocabulary",
+        "grammar",
+        "reading"
+      ],
+      "wordIds": [
+        "jia",
+        "you",
+        "ren",
+        "san"
+      ],
+      "prerequisiteIds": [
+        "survival-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "daily-2",
+      "unitId": "daily",
+      "title": "Ăn và uống",
+      "chineseTitle": "吃饭喝茶",
+      "objective": "Nghe và nhận diện nhu cầu ăn uống cơ bản.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "chi",
+        "he",
+        "cha",
+        "wo"
+      ],
+      "prerequisiteIds": [
+        "daily-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "daily-3",
+      "unitId": "daily",
+      "title": "Hôm nay",
+      "chineseTitle": "今天",
+      "objective": "Đặt thời gian ở đầu câu.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "reading"
+      ],
+      "wordIds": [
+        "jinri",
+        "hao",
+        "kan"
+      ],
+      "prerequisiteIds": [
+        "daily-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "daily-4",
+      "unitId": "daily",
+      "title": "Sách của tôi",
+      "chineseTitle": "我的书",
+      "objective": "Dùng 的 để thể hiện sở hữu.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "writing",
+        "reading"
+      ],
+      "wordIds": [
+        "shu",
+        "kan",
+        "wo"
+      ],
+      "prerequisiteIds": [
+        "daily-3"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "hsk1-time-place-events-01-numbers",
+      "unitId": "hsk1-time-place-events",
+      "title": "Số đếm nền tảng",
+      "chineseTitle": "数字基础",
+      "objective": "Đọc và dùng số từ từ không đến hàng nghìn trong câu hỏi đáp ngắn.",
+      "minutes": 24,
+      "xp": 120,
+      "skills": [
+        "vocabulary",
+        "listening",
+        "reading"
+      ],
+      "wordIds": [
+        "hsk-vocab-00002",
+        "hsk-vocab-00006",
+        "hsk-vocab-00007",
+        "hsk-vocab-00049",
+        "hsk-vocab-00095",
+        "hsk-vocab-00111",
+        "hsk-vocab-00112",
+        "hsk-vocab-00113",
+        "hsk-vocab-00160",
+        "hsk-vocab-00162",
+        "hsk-vocab-00173",
+        "hsk-vocab-00184",
+        "hsk-vocab-00198",
+        "hsk-vocab-00223",
+        "hsk-vocab-00254"
+      ],
+      "prerequisiteIds": [
+        "survival-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "hsk1-time-place-events-02-calendar",
+      "unitId": "hsk1-time-place-events",
+      "title": "Ngày tháng và năm",
+      "chineseTitle": "日期和年份",
+      "objective": "Hỏi, trả lời ngày tháng và xác định năm trước, năm nay, năm sau.",
+      "minutes": 20,
+      "xp": 100,
+      "skills": [
+        "vocabulary",
+        "grammar",
+        "reading"
+      ],
+      "wordIds": [
+        "hsk-vocab-00031",
+        "hsk-vocab-00076",
+        "hsk-vocab-00093",
+        "hsk-vocab-00094",
+        "hsk-vocab-00128",
+        "hsk-vocab-00129",
+        "hsk-vocab-00149",
+        "hsk-vocab-00168",
+        "hsk-vocab-00172",
+        "hsk-vocab-00207",
+        "hsk-vocab-00269",
+        "hsk-vocab-00297"
+      ],
+      "prerequisiteIds": [
+        "hsk1-time-place-events-01-numbers"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "hsk1-time-place-events-03-week-and-day-parts",
+      "unitId": "hsk1-time-place-events",
+      "title": "Tuần và các buổi trong ngày",
+      "chineseTitle": "星期和一天的时段",
+      "objective": "Xác định thứ trong tuần và các khoảng sáng, trưa, chiều, tối.",
+      "minutes": 22,
+      "xp": 110,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "hsk-vocab-00005",
+        "hsk-vocab-00178",
+        "hsk-vocab-00215",
+        "hsk-vocab-00217",
+        "hsk-vocab-00230",
+        "hsk-vocab-00243",
+        "hsk-vocab-00244",
+        "hsk-vocab-00245",
+        "hsk-vocab-00273",
+        "hsk-vocab-00275",
+        "hsk-vocab-00291"
+      ],
+      "prerequisiteIds": [
+        "hsk1-time-place-events-02-calendar"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "hsk1-time-place-events-04-clock-and-duration",
+      "unitId": "hsk1-time-place-events",
+      "title": "Giờ và khoảng thời gian",
+      "chineseTitle": "钟点和时长",
+      "objective": "Hỏi giờ, nói thời điểm và mô tả khoảng thời gian ngắn.",
+      "minutes": 22,
+      "xp": 110,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "grammar"
+      ],
+      "wordIds": [
+        "hsk-vocab-00029",
+        "hsk-vocab-00033",
+        "hsk-vocab-00055",
+        "hsk-vocab-00056",
+        "hsk-vocab-00080",
+        "hsk-vocab-00163",
+        "hsk-vocab-00185",
+        "hsk-vocab-00186",
+        "hsk-vocab-00232",
+        "hsk-vocab-00236"
+      ],
+      "prerequisiteIds": [
+        "hsk1-time-place-events-03-week-and-day-parts"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "hsk1-time-place-events-05-location",
+      "unitId": "hsk1-time-place-events",
+      "title": "Vị trí và từ chỉ định",
+      "chineseTitle": "位置和指示词",
+      "objective": "Hỏi và chỉ vị trí bằng từ để hỏi, từ chỉ định và phương vị.",
+      "minutes": 28,
+      "xp": 140,
+      "skills": [
+        "grammar",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "hsk-vocab-00011",
+        "hsk-vocab-00110",
+        "hsk-vocab-00131",
+        "hsk-vocab-00132",
+        "hsk-vocab-00133",
+        "hsk-vocab-00134",
+        "hsk-vocab-00135",
+        "hsk-vocab-00136",
+        "hsk-vocab-00137",
+        "hsk-vocab-00138",
+        "hsk-vocab-00139",
+        "hsk-vocab-00140",
+        "hsk-vocab-00141",
+        "hsk-vocab-00175",
+        "hsk-vocab-00212",
+        "hsk-vocab-00213",
+        "hsk-vocab-00226",
+        "hsk-vocab-00239",
+        "hsk-vocab-00279",
+        "hsk-vocab-00280",
+        "hsk-vocab-00281",
+        "hsk-vocab-00282",
+        "hsk-vocab-00283",
+        "hsk-vocab-00284"
+      ],
+      "prerequisiteIds": [
+        "hsk1-time-place-events-04-clock-and-duration"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "hsk1-time-place-events-06-weather-and-residence",
+      "unitId": "hsk1-time-place-events",
+      "title": "Thời tiết và nơi ở",
+      "chineseTitle": "天气和住处",
+      "objective": "Mô tả thời tiết hiện tại và nói nơi mình đang sống.",
+      "minutes": 22,
+      "xp": 110,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "hsk-vocab-00109",
+        "hsk-vocab-00169",
+        "hsk-vocab-00208",
+        "hsk-vocab-00227",
+        "hsk-vocab-00251",
+        "hsk-vocab-00267",
+        "hsk-vocab-00271",
+        "hsk-vocab-00286",
+        "hsk-vocab-00294"
+      ],
+      "prerequisiteIds": [
+        "hsk1-time-place-events-05-location"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "survival-1",
+      "unitId": "survival",
+      "title": "Tôi là sinh viên",
+      "chineseTitle": "我是学生",
+      "objective": "Nhận diện cấu trúc A là B trong lời giới thiệu vai trò.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "reading",
+        "vocabulary"
+      ],
+      "wordIds": [
+        "wo",
+        "shi",
+        "xuesheng",
+        "laoshi"
+      ],
+      "prerequisiteIds": [
+        "boot-4"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "survival-2",
+      "unitId": "survival",
+      "title": "Bạn khỏe không?",
+      "chineseTitle": "你好吗",
+      "objective": "Nhận diện 吗 trong câu hỏi có/không.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "grammar",
+        "listening",
+        "reading"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "ma",
+        "bu"
+      ],
+      "prerequisiteIds": [
+        "survival-1"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "survival-3",
+      "unitId": "survival",
+      "title": "Cảm ơn và tạm biệt",
+      "chineseTitle": "谢谢，再见",
+      "objective": "Chọn lời cảm ơn và kết thúc lượt thoại phù hợp.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "listening",
+        "vocabulary",
+        "reading"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zaijian",
+        "ni"
+      ],
+      "prerequisiteIds": [
+        "survival-2"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    },
+    {
+      "id": "survival-4",
+      "unitId": "survival",
+      "title": "Tôi là người Việt Nam",
+      "chineseTitle": "我是越南人",
+      "objective": "Đọc và nhận diện mẫu giới thiệu quốc tịch.",
+      "minutes": 8,
+      "xp": 40,
+      "skills": [
+        "vocabulary",
+        "listening",
+        "reading"
+      ],
+      "wordIds": [
+        "ren",
+        "zhongguo",
+        "yuenan",
+        "shi"
+      ],
+      "prerequisiteIds": [
+        "survival-3"
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    }
+  ],
+  "stories": [
+    {
+      "id": "first-day",
+      "level": "Closed alpha · foundation slice",
+      "title": "Ngày đầu ở lớp tiếng Trung",
+      "chineseTitle": "中文课的第一天",
+      "summary": "Một cuộc gặp ngắn giữa Minh và giáo viên Vương.",
+      "estimatedMinutes": 4,
+      "sentences": [
+        {
+          "chinese": "今天是中文课的第一天。",
+          "pinyin": "Jīntiān shì Zhōngwén kè de dì-yī tiān.",
+          "translation": "Hôm nay là ngày đầu tiên của lớp tiếng Trung.",
+          "wordIds": [
+            "jinri",
+            "shi",
+            "yi"
+          ]
+        },
+        {
+          "chinese": "王老师说：“你好！你是学生吗？”",
+          "pinyin": "Wáng lǎoshī shuō: “Nǐ hǎo! Nǐ shì xuésheng ma?”",
+          "translation": "Giáo viên Vương nói: “Xin chào! Bạn là sinh viên phải không?”",
+          "wordIds": [
+            "laoshi",
+            "ni",
+            "hao",
+            "shi",
+            "xuesheng",
+            "ma"
+          ]
+        },
+        {
+          "chinese": "我说：“是，我是越南人。”",
+          "pinyin": "Wǒ shuō: “Shì, wǒ shì Yuènán rén.”",
+          "translation": "Tôi nói: “Vâng, tôi là người Việt Nam.”",
+          "wordIds": [
+            "wo",
+            "shi",
+            "yuenan",
+            "ren"
+          ]
+        },
+        {
+          "chinese": "老师给我一本书，我说：“谢谢老师！”",
+          "pinyin": "Lǎoshī gěi wǒ yì běn shū, wǒ shuō: “Xièxie lǎoshī!”",
+          "translation": "Giáo viên đưa tôi một quyển sách, tôi nói: “Cảm ơn thầy/cô!”",
+          "wordIds": [
+            "laoshi",
+            "wo",
+            "yi",
+            "shu",
+            "xiexie"
+          ]
+        }
+      ],
+      "comprehension": [
+        {
+          "id": "first-day-main-idea",
+          "prompt": "Trong ngày đầu đến lớp, người kể đã làm gì?",
+          "options": [
+            "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+            "Hỏi đường đến trường rồi mua một quyển sách.",
+            "Giới thiệu mình là giáo viên tiếng Trung."
+          ],
+          "correctAnswer": "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.",
+          "explanation": "Người kể trả lời mình là người Việt Nam, nhận sách rồi nói 谢谢老师."
+        }
+      ],
+      "releaseState": "beta",
+      "contentVersion": "foundation-2026.07.7"
+    }
+  ]
+}

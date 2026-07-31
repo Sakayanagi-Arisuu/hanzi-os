@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **73%** under the usable-product-weighted rubric adopted for
+Active progress: **76%** under the usable-product-weighted rubric adopted for
 the graduation/personal-study scope on 31 July 2026.
 
 | Pillar | Earned / max | Current evidence |
@@ -19,7 +19,7 @@ the graduation/personal-study scope on 31 July 2026.
 | Application/offline learning foundation | 19 / 20 | Local lesson, Reader, Review, FSRS, persistence and recovery now consume a deterministic HSK lesson/activity adapter with exact catalog/session/schema provenance and fail-closed idempotency. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 learner-usable runtime content | 12 / 30 | Authoring coverage is deep through HSK4, but the runtime currently exposes only HSK0 and the first HSK1 slice. Draft volume no longer counts as learner-usable coverage. |
+| HSK0-4 learner-usable runtime content | 15 / 30 | Runtime exposes HSK0 and 10 HSK1 target lessons. The six-lesson time/place/events unit is AI-self-reviewed, packaged and authorized for local study; its richer dialogue/grammar/task projections still need UI integration. |
 | HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; the forms do not yet run end-to-end or carry calibration evidence. |
 | Graduation QA/local release | 9 / 10 | Checked demo and clean-source local candidate bind 4/4 gates and 8/8 G5 capabilities; the local-study profile plus a source-bound HSK1 AI review are machine-checked without weakening production gates. |
 
@@ -42,8 +42,10 @@ Every commit must update this percentage here and in the active roadmap.
 - Browser speech synthesis is allowed as synthetic practice with Hanzi and
   Pinyin fallbacks. It cannot create listening or pronunciation mastery.
 - Production eligibility, native-audio, calibrated-assessment and official HSK
-  certification claims remain false. `verify:production` and Sites stay
-  unchanged and deferred.
+  certification claims remain false. Sites stays deferred. The obsolete HSK1
+  human-review/audio handoff tests now live in a named deferred-production
+  suite that remains required by fail-closed `verify:production`, while the
+  active local-study suite measures the declared graduation scope.
 - Completed the five-pass AI-assisted review for all 6 lessons and 425/425
   source/runtime targets in `hsk1-time-place-events`. Six issues were fixed:
   one objective mismatch, three misplaced vocabulary concepts, substring-based
@@ -51,6 +53,19 @@ Every commit must update this percentage here and in the active roadmap.
   and a task instruction/answer mismatch. The checked artifact binds 27 review
   batches, reports zero unresolved issues and explicitly records
   `humanReviewed: false` / `productionEligible: false`.
+- Created immutable package `foundation-2026.07.7` with 81 new HSK1 lexemes
+  and all 6 safe-ID lessons, then added exact local-study authorization bound
+  to the acceptance profile, review, graph, release policy, package manifest
+  and runtime catalog. It explicitly grants no production or Sites authority.
+- The learner runtime now exposes 14 eligible lessons total and 10 HSK1 target
+  lessons; `hsk1-daily-life` remains blocked by its own authorization. Lesson
+  screens disclose browser TTS as synthetic practice-only audio.
+- Authoring scopes now retain immutable planning-snapshot hashes and validate
+  current graph compatibility structurally. A runtime-only HSK1 release no
+  longer cascades into meaningless regeneration of unchanged HSK2-4 drafts.
+- The 338 non-core reviewed projections remain outside the current Lesson UI;
+  integrating dialogue, grammar and task payloads is the next learner-value
+  slice. Active progress is therefore **76%**, not a claim that HSK1 is complete.
 
 ### Active G0 slice completed
 
@@ -1244,10 +1259,10 @@ deliverable.
   - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
     batches; local workflow resolves 405 role assignments and 1,732 exact
     targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - checked HSK runtime curriculum projection: 5 path shells, 6 mapped source
-    units, an explicit allow-list of 4 units, 4 prerequisite-complete eligible
-    units and 8 eligible lesson mappings; 6 released source lessons across 2
-    units remain authorization-blocked, 14 authoring-unit metadata records are
+  - checked HSK runtime curriculum projection: 5 path shells, 7 mapped source
+    units, an explicit allow-list of 5 units, 5 prerequisite-complete eligible
+    units and 14 eligible lesson mappings; 6 released source lessons across 2
+    units remain authorization-blocked, 13 authoring-unit metadata records are
     excluded and draft imports/completion claims remain 0
   - first HSK1 lesson promotion handoff: 67 exact content targets, 2 pending
     batches, 6 missing attributable role receipts and 16 missing reviewed audio
@@ -1278,10 +1293,10 @@ deliverable.
     source-pronunciation reconciliations; all 338 non-core targets have a
     source-preserving projection, while `.07.7`, governance, authorization and
     receipt remain absent, with no mutation
-  - versioned local runtime: exact adapter coverage for 8 eligible lessons,
+  - versioned local runtime: exact adapter coverage for 14 eligible lessons,
     deterministic activity payloads, fail-closed catalog/session/schema
     provenance, idempotency conflict detection and safe legacy/backup reload
-  - checked HSK0→HSK1 demo: 4 bridge lessons, 4 HSK1 target lessons, 6 blocked
+  - checked HSK0→HSK1 demo: 4 bridge lessons, 10 HSK1 target lessons, 6 blocked
     lessons, 3 unavailable paths and 0 forbidden progress fields; focused
     Playwright completes the exact real-UI walkthrough
   - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
@@ -1320,16 +1335,14 @@ human, pilot, hosted or ownership gates.
 
 ## Next dependency-ordered milestone
 
-1. Build a separate local-study package and authorization for the reviewed
-   `hsk1-time-place-events` unit. It may consume the checked AI review and use
-   browser TTS as disclosed practice-only audio; it must not alter or satisfy
-   the stricter production review/audio gates.
-2. Import all six lessons and 425 runtime payloads atomically, then verify that
-   only this unit becomes visible and `hsk1-daily-life` remains blocked by its
-   own unpublished dependency.
-3. Run the real Path → lesson → practice → review flow, including reload,
-   keyboard/mobile and TTS fallbacks. Update the local demo/candidate evidence;
-   keep operator auth, commerce, hosted pilot and Sites frozen.
+1. Feed the reviewed dialogue, grammar and task projections for
+   `hsk1-time-place-events` into a versioned Lesson UI adapter; do not flatten
+   them into generic vocabulary questions or claim mastery from TTS.
+2. Run the real Path → all-six-lessons → practice → review flow, including
+   reload, keyboard/mobile and the disclosed TTS fallback. Refresh local demo
+   evidence without touching Sites.
+3. Apply the same five-pass AI review, local package and exact authorization
+   workflow to `hsk1-daily-life`, the next dependency-valid unit.
 
 Use one bounded G0-G5 slice at a time and end each commit with updated active
 progress in both roadmap and checkpoint.

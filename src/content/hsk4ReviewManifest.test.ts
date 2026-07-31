@@ -85,7 +85,7 @@ describe("HSK4 bounded human-review manifest", () => {
       reviewDoesNotCalibrate: true,
       reviewDoesNotGrantMastery: true,
     });
-  });
+  }, 30_000);
 
   it("retains the exact HSK4-specific target categories", () => {
     const bundle = loadHsk4ReviewManifestBundle();

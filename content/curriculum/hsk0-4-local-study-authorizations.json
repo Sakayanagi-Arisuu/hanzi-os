@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "authorizationId": "hsk0-4-local-study-authorizations-2026.07.1",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "runtimeContentVersion": "foundation-2026.07.7",
+  "scope": "personal-local-study-runtime-only",
+  "sourceBindings": [
+    {
+      "id": "localStudyProfile",
+      "relativePath": "config/hsk0-4-local-study-profile.json",
+      "sha256": "sha256:d720eb9fc08b8424f73c81dbdba7d2159e9ca7ab46bc27f968145ebf39f8b76d"
+    },
+    {
+      "id": "localStudyReview",
+      "relativePath": "content/review/hsk1-time-place-events-local-study-review.json",
+      "sha256": "sha256:dc319b4f973b54a6f6e9964424112e47817df9d54cd2101534439b96e8857540"
+    },
+    {
+      "id": "curriculumGraph",
+      "relativePath": "content/curriculum/hsk0-4-graph.json",
+      "sha256": "sha256:57e654e9e4ce5dfbd7bc64ef9157d2344a49c8af24a52508a1a20e406555b495"
+    },
+    {
+      "id": "unitReleasePolicy",
+      "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
+      "sha256": "sha256:6a20f6dae8d06c60136bf9e0483e6040cad918c6261ca3ba736f3e84c6fc828e"
+    },
+    {
+      "id": "packageManifest",
+      "relativePath": "content/packages/foundation-2026.07.7/manifest.json",
+      "sha256": "sha256:ad01e53ad9eaab26a692c6f3af9624ce846a884194bfc34e18b5a56c63c3eef5"
+    },
+    {
+      "id": "packageItemCatalog",
+      "relativePath": "content/packages/foundation-2026.07.7/item-catalog.json",
+      "sha256": "sha256:c6d4e44403a525a3dfbbf75cdd256c6a4663e7d9a27f6ad2bfe7df79690f08ad"
+    }
+  ],
+  "authorizations": [
+    {
+      "unitId": "hsk1-time-place-events",
+      "lessonIds": [
+        "hsk1-time-place-events-01-numbers",
+        "hsk1-time-place-events-02-calendar",
+        "hsk1-time-place-events-03-week-and-day-parts",
+        "hsk1-time-place-events-04-clock-and-duration",
+        "hsk1-time-place-events-05-location",
+        "hsk1-time-place-events-06-weather-and-residence"
+      ],
+      "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
+      "localStudyReviewId": "hsk1-time-place-events-local-study-review-2026.07.1",
+      "localStudyReviewSha256": "sha256:6fbcdeb04deb5dd90e389f8dddda0622aee638082096768c4ca6a92272035bcf",
+      "packageId": "foundation-2026.07.7",
+      "itemCatalogSha256": "sha256:ec9826e68b5f9991e7359eeafc6ca4b29843147f1b886576d36ef9fa5c686e0e",
+      "authorizationState": "authorized-for-personal-local-study"
+    }
+  ],
+  "policy": {
+    "aiAssistedReviewDisclosed": true,
+    "humanReviewed": false,
+    "browserSpeechSynthesisPracticeOnly": true,
+    "grantsListeningMastery": false,
+    "grantsPronunciationMastery": false,
+    "grantsOfficialHskCertification": false,
+    "grantsProductionEligibility": false,
+    "sitesDeploymentAuthorized": false
+  },
+  "authorizationSha256": "sha256:13bdf0c23023d253dc09f2a7806996098d1bac14b9b0f0586dfda45199973a8c"
+}

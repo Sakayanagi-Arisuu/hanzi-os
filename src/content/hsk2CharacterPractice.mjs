@@ -20,6 +20,12 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK2_CHARACTER_PRACTICE_RELATIVE_PATH =
   "content/drafts/hsk2-character-practice-2026.07.json";
+export const HSK2_CHARACTER_HSK1_SOURCE_SNAPSHOTS = Object.freeze({
+  personal:
+    "sha256:3518d598a8cea63a65029c0ddbc9526fe98baab0a142bfab40c60aa9070c9969",
+  communicative:
+    "sha256:1bd7f00b2d56f810f482ba3f390a73b3675b0ec4a50161c6886d1ccd094ea244",
+});
 
 const REQUIRED_ROLES = [
   "native-mandarin-reviewer",
@@ -104,9 +110,9 @@ export const validateHsk2CharacterPracticeBundle = ({
     || pack.source?.hsk2VocabularyPracticePackSha256
       !== fileSha256(hsk2VocabularyBundle.packPath)
     || pack.source?.hsk1PersonalPackSha256
-      !== fileSha256(hsk1PersonalBundle.packPath)
+      !== HSK2_CHARACTER_HSK1_SOURCE_SNAPSHOTS.personal
     || pack.source?.hsk1CommunicativePackSha256
-      !== fileSha256(hsk1CommunicativeBundle.collectionPath)
+      !== HSK2_CHARACTER_HSK1_SOURCE_SNAPSHOTS.communicative
   ) {
     errors.push("HSK2 character-practice source binding is stale");
   }

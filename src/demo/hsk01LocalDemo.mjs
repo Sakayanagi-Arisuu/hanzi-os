@@ -22,6 +22,12 @@ const HSK1_TARGET_LESSON_IDS = [
   "survival-2",
   "survival-3",
   "survival-4",
+  "hsk1-time-place-events-01-numbers",
+  "hsk1-time-place-events-02-calendar",
+  "hsk1-time-place-events-03-week-and-day-parts",
+  "hsk1-time-place-events-04-clock-and-duration",
+  "hsk1-time-place-events-05-location",
+  "hsk1-time-place-events-06-weather-and-residence",
 ];
 const BLOCKED_LESSON_IDS = [
   "daily-1",

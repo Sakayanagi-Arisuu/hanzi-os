@@ -8,7 +8,7 @@
     "effective": "2026-07",
     "rightsDecision": "pending"
   },
-  "contentVersion": "foundation-2026.07.6",
+  "contentVersion": "foundation-2026.07.7",
   "officialInventory": {
     "tasks": {
       "1": 15,
@@ -44,8 +44,8 @@
   "currentCoverage": {
     "vocabulary": {
       "officialTotal": 2000,
-      "runtimeTotal": 24,
-      "runtimeMapped": 23,
+      "runtimeTotal": 105,
+      "runtimeMapped": 104,
       "unmatchedRuntime": [
         {
           "runtimeId": "yuenan",
@@ -61,13 +61,13 @@
           "officialPinyin": "xuéshēng"
         }
       ],
-      "coveragePercent": 1.15,
+      "coveragePercent": 5.2,
       "byLevel": [
         {
           "level": 1,
           "officialIncremental": 300,
-          "runtimeMapped": 23,
-          "coveragePercent": 7.67
+          "runtimeMapped": 104,
+          "coveragePercent": 34.67
         },
         {
           "level": 2,
@@ -130,8 +130,8 @@
       "tasks": 0,
       "topics": 0,
       "grammarRows": 0,
-      "officialVocabularyWithLessonMapping": 23,
-      "runtimeLessonsMapped": 14
+      "officialVocabularyWithLessonMapping": 100,
+      "runtimeLessonsMapped": 20
     },
     "authoringScope": {
       "hsk1": {
@@ -839,7 +839,7 @@
       }
     },
     "learningMaterials": {
-      "runtimeLessons": 14,
+      "runtimeLessons": 20,
       "runtimeGradedTexts": 1,
       "curriculumPaths": 5,
       "curriculumUnits": 18

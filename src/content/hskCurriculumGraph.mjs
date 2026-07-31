@@ -93,7 +93,7 @@ export const validateHskCurriculumGraphBundle = ({
   }
   if (
     graph.runtimeContentVersion !== runtime.contentVersion
-    || runtime.contentVersion !== "foundation-2026.07.6"
+    || runtime.contentVersion !== "foundation-2026.07.7"
   ) {
     errors.push("curriculum graph runtime content version is stale");
   }

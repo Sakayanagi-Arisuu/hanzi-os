@@ -1090,6 +1090,9 @@ function AuthenticatedLessonPageScope() {
             })}
           </div>
         </section>
+        <p className="synthetic-audio-note">
+          Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
+        </p>
         <footer className="briefing-actions">
           <p><Lightbulb size={17} /> Form chỉ xuất hiện sau khi server xác nhận enrollment và prerequisite.</p>
           <button className="primary-button" disabled={busy} type="button" onClick={() => void startSession()}>
@@ -1165,6 +1168,11 @@ function AuthenticatedLessonPageScope() {
             </>
           )}
           {current.kind === "listening" && <p>{current.promptMeta}</p>}
+          {current.spokenText && (
+            <small className="synthetic-audio-note compact">
+              TTS tổng hợp · chỉ dùng luyện tập
+            </small>
+          )}
         </div>
         {current.kind === "recall" ? (
           <div className={`recall-answer ${checked ? (isCorrect ? "correct" : "wrong") : ""}`}>

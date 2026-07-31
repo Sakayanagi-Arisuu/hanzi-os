@@ -103,7 +103,10 @@ const createAudioCommandFixture = () => {
   };
   registry.currentContentVersion = "foundation-2026.07.5";
   registry.packages = registry.packages.filter(
-    ({ contentVersion }) => contentVersion !== "foundation-2026.07.6",
+    ({ contentVersion }) => ![
+      "foundation-2026.07.6",
+      "foundation-2026.07.7",
+    ].includes(contentVersion),
   );
   writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
   const readinessPath = join(fixtureRoot, "config/production-readiness.json");
@@ -116,7 +119,7 @@ const createAudioCommandFixture = () => {
   writeFileSync(
     curriculumPath,
     readFileSync(curriculumPath, "utf8").replaceAll(
-      "foundation-2026.07.6",
+      "foundation-2026.07.7",
       targetVersion,
     ),
   );
@@ -232,7 +235,10 @@ const createCharacterCommandFixture = () => {
   };
   registry.currentContentVersion = "foundation-2026.07.5";
   registry.packages = registry.packages.filter(
-    ({ contentVersion }) => contentVersion !== "foundation-2026.07.6",
+    ({ contentVersion }) => ![
+      "foundation-2026.07.6",
+      "foundation-2026.07.7",
+    ].includes(contentVersion),
   );
   writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
   const readinessPath = join(fixtureRoot, "config/production-readiness.json");
@@ -245,7 +251,7 @@ const createCharacterCommandFixture = () => {
   writeFileSync(
     curriculumPath,
     readFileSync(curriculumPath, "utf8").replaceAll(
-      "foundation-2026.07.6",
+      "foundation-2026.07.7",
       targetVersion,
     ),
   );
@@ -399,6 +405,7 @@ describe("content validation command", () => {
       { contentVersion: "foundation-2026.07.4", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.07.5", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.07.6", valid: true, errors: [], warnings: [] },
+      { contentVersion: "foundation-2026.07.7", valid: true, errors: [], warnings: [] },
     ]);
   });
 
@@ -893,7 +900,10 @@ describe("content validation command", () => {
       };
       fixtureRegistry.currentContentVersion = "foundation-2026.07.5";
       fixtureRegistry.packages = fixtureRegistry.packages.filter(
-        ({ contentVersion }) => contentVersion !== "foundation-2026.07.6",
+        ({ contentVersion }) => ![
+          "foundation-2026.07.6",
+          "foundation-2026.07.7",
+        ].includes(contentVersion),
       );
       writeFileSync(
         registryPath,

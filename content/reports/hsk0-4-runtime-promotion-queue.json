@@ -5,12 +5,12 @@
     {
       "id": "graph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:d9f059e375ed30b512365974b7c52b218bd2ccd991fc26942d2f38c59e48e474"
+      "sha256": "sha256:57e654e9e4ce5dfbd7bc64ef9157d2344a49c8af24a52508a1a20e406555b495"
     },
     {
       "id": "runtime",
       "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
-      "sha256": "sha256:16dc1008232c037dd545fb1058efeb202e5844206cd40660cd8b7b6a14f8890e"
+      "sha256": "sha256:2176b13b9caaf4724ce75e24bc63812b3d3bb4e0d3c5e6a6c09689104d7c5f6e"
     },
     {
       "id": "hsk1Scope",
@@ -101,7 +101,7 @@
     "blueprintApprovedLessons": 0,
     "reviewBatches": 509,
     "approvalRecords": 0,
-    "learnerVisibleTargetLessons": 4,
+    "learnerVisibleTargetLessons": 10,
     "prerequisiteBlockedSourceLessons": 6,
     "unavailablePaths": 3,
     "completionClaims": 0,
@@ -123,8 +123,8 @@
         "approvalRecordCount": 0,
         "releaseEligible": false
       },
-      "learnerVisibleTargetLessonCount": 4,
-      "sourceReleasedLessonCount": 10,
+      "learnerVisibleTargetLessonCount": 10,
+      "sourceReleasedLessonCount": 16,
       "prerequisiteBlockedSourceLessonCount": 6,
       "units": [
         {
@@ -163,7 +163,7 @@
         {
           "unitId": "hsk1-time-place-events",
           "sequence": 2,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk1-personal-exchange"
           ],
@@ -172,15 +172,28 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 243,
           "audioDependentItemCount": 81,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
+          "sourceReleasedLessonIds": [
+            "hsk1-time-place-events-01-numbers",
+            "hsk1-time-place-events-02-calendar",
+            "hsk1-time-place-events-03-week-and-day-parts",
+            "hsk1-time-place-events-04-clock-and-duration",
+            "hsk1-time-place-events-05-location",
+            "hsk1-time-place-events-06-weather-and-residence"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk1-time-place-events-01-numbers",
+            "hsk1-time-place-events-02-calendar",
+            "hsk1-time-place-events-03-week-and-day-parts",
+            "hsk1-time-place-events-04-clock-and-duration",
+            "hsk1-time-place-events-05-location",
+            "hsk1-time-place-events-06-weather-and-residence"
+          ],
           "prerequisiteRuntimeClosurePresent": true,
-          "promotionState": "blocked",
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "REVIEWED_AUDIO_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "REVIEWED_AUDIO_MISSING"
           ]
         },
         {
@@ -202,13 +215,12 @@
             "daily-4"
           ],
           "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
+          "prerequisiteRuntimeClosurePresent": true,
           "promotionState": "blocked",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "REVIEWED_AUDIO_MISSING",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING"
+            "REVIEWED_AUDIO_MISSING"
           ]
         },
         {
@@ -560,17 +572,16 @@
   ],
   "nextPromotionCandidate": {
     "pathId": "hsk1",
-    "unitId": "hsk1-time-place-events",
-    "authoredLessonBlueprintCount": 6,
-    "authoredPracticeItemCount": 243,
-    "audioDependentItemCount": 81,
-    "sourceReleasedLessonCount": 0,
+    "unitId": "hsk1-daily-life",
+    "authoredLessonBlueprintCount": 4,
+    "authoredPracticeItemCount": 162,
+    "audioDependentItemCount": 54,
+    "sourceReleasedLessonCount": 4,
     "blueprintApprovedLessonCount": 0,
     "blockers": [
       "LEVEL_HUMAN_REVIEW_INCOMPLETE",
       "LESSON_REVIEW_INCOMPLETE",
-      "REVIEWED_AUDIO_MISSING",
-      "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+      "REVIEWED_AUDIO_MISSING"
     ],
     "requiredAction": "complete attributable review and reviewed audio, then import into a versioned runtime package and recompile prerequisite closure"
   }

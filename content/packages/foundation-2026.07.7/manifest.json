@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packageId": "foundation-2026.07.7",
+  "contentVersion": "foundation-2026.07.7",
+  "contentSchemaVersion": 6,
+  "audience": "closed-alpha",
+  "lifecycle": "candidate",
+  "createdAt": "2026-07-31T05:00:00.000Z",
+  "createdFromManifestSha256": "sha256:c0dc75baaab4ae675986089616ccdd3b252c8f6e8cad425d894d253f4cdca46e",
+  "artifacts": {
+    "coverage-claims.json": "sha256:4668d34ebb7e33e6547325c96ff7c863da537f2a31d76fce780a27534d01f2bb",
+    "runtime-ids.json": "sha256:5714b6f488996aa038be61dd89995775b4979763c0ef37c685155553118a0f3c",
+    "item-catalog.json": "sha256:ec9826e68b5f9991e7359eeafc6ca4b29843147f1b886576d36ef9fa5c686e0e",
+    "runtime-catalog.json": "sha256:6f15dcf6bf8da81033dd3d3b1d21fed100b1189b94f3385959f82c013c5ca432",
+    "src/data/assessment.ts": "sha256:8e492c3c817fb712bf9d74f7a9ea52f10668a32d59f2f7aa312d6d24f1c83da5",
+    "src/data/curriculum.ts": "sha256:ca4aeb7830074e76a5bc06aa81618e80d6914e98087f70854d0be57062610305",
+    "src/lib/exerciseGeneration.ts": "sha256:6f8862193f9c0e69c09e7201047b6cadb3bb262036c784e57e07df5ef5b89400",
+    "src/server/attemptScoring.ts": "sha256:7ca3f609fb723c7bde98a30de37c0ea66ca691329444fa08b227cd63c76931f9",
+    "src/server/authoritativeItemBank.ts": "sha256:33b0b77a82697dd13617aff5000e257a276070cf566798d1ada5b06217b0655d",
+    "src/server/lessonCompletionPolicy.ts": "sha256:16c0222ac4bc12d00459c5d33aaa769181d476c9c49d4b3015393a402a75d0d3",
+    "src/server/authoritativeAssessmentItemBank.ts": "sha256:cd0f3b5b11d3c0dfe666d3c31a554f9c594d02b2b1d44e90c5ebd90bb0131591",
+    "src/server/assessmentScoring.ts": "sha256:54cf7131480105d6a3d6f05b88dad7222106c8dbfd909d84135bc902cdc94adf",
+    "src/data/knowledgeItemBlueprints.ts": "sha256:9d7f5a9efa9ac1a142df45aa8e88ef1d8b6cd4347739657963d978523cf8f849",
+    "src/data/lessonGuides.ts": "sha256:f569b82f764e22c55a84b0bb57803105b2ff468bd472772fb0ad9810dd5e1b77"
+  },
+  "governance": {
+    "contentOwner": null,
+    "sourceLicense": null,
+    "nativeLinguisticReviewRequired": true,
+    "includesAudio": false,
+    "audioRights": null
+  }
+}

@@ -24,7 +24,7 @@ describe("HSK1-4 runtime promotion queue", () => {
       blueprintApprovedLessons: 0,
       reviewBatches: 509,
       approvalRecords: 0,
-      learnerVisibleTargetLessons: 4,
+      learnerVisibleTargetLessons: 10,
       prerequisiteBlockedSourceLessons: 6,
       unavailablePaths: 3,
       completionClaims: 0,
@@ -41,7 +41,7 @@ describe("HSK1-4 runtime promotion queue", () => {
       visible: level.learnerVisibleTargetLessonCount,
       pendingReview: level.levelReview.pendingBatchCount,
     }))).toEqual([
-      { pathId: "hsk1", authored: 40, visible: 4, pendingReview: 97 },
+      { pathId: "hsk1", authored: 40, visible: 10, pendingReview: 97 },
       { pathId: "hsk2", authored: 40, visible: 0, pendingReview: 122 },
       { pathId: "hsk3", authored: 55, visible: 0, pendingReview: 122 },
       { pathId: "hsk4", authored: 78, visible: 0, pendingReview: 168 },
@@ -53,17 +53,16 @@ describe("HSK1-4 runtime promotion queue", () => {
 
     expect(report.nextPromotionCandidate).toEqual({
       pathId: "hsk1",
-      unitId: "hsk1-time-place-events",
-      authoredLessonBlueprintCount: 6,
-      authoredPracticeItemCount: 243,
-      audioDependentItemCount: 81,
-      sourceReleasedLessonCount: 0,
+      unitId: "hsk1-daily-life",
+      authoredLessonBlueprintCount: 4,
+      authoredPracticeItemCount: 162,
+      audioDependentItemCount: 54,
+      sourceReleasedLessonCount: 4,
       blueprintApprovedLessonCount: 0,
       blockers: [
         "LEVEL_HUMAN_REVIEW_INCOMPLETE",
         "LESSON_REVIEW_INCOMPLETE",
         "REVIEWED_AUDIO_MISSING",
-        "RUNTIME_PACKAGE_MAPPING_INCOMPLETE",
       ],
       requiredAction:
         "complete attributable review and reviewed audio, then import into a versioned runtime package and recompile prerequisite closure",
