@@ -79,6 +79,14 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
   const packageLessonIds = source.packageItemCatalog.items
     .filter((item) => item.itemType === "lesson" && lessonIds.includes(item.itemId))
     .map((item) => item.itemId);
+  const presentationTargetTypeCounts = Object.fromEntries(
+    Object.entries(review.coverage.contentTargetTypeCounts).filter(
+      ([targetType]) => !["lesson-blueprint", "vocabulary-draft"].includes(targetType),
+    ),
+  );
+  const presentationTargetCount = Object.values(
+    presentationTargetTypeCounts,
+  ).reduce((sum, count) => sum + count, 0);
   if (
     source.graph.runtimeContentVersion !== HSK1_LOCAL_STUDY_PACKAGE_VERSION
     || source.releasePolicy.runtimeContentVersion
@@ -131,6 +139,15 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
         itemCatalogSha256:
           source.packageManifest.artifacts["item-catalog.json"],
         authorizationState: "authorized-for-personal-local-study",
+        presentation: {
+          authorizationState: "authorized-for-personal-local-study",
+          sourceTargetCount: presentationTargetCount,
+          sourceTargetTypeCounts: presentationTargetTypeCounts,
+          aiAssistedReviewDisclosed: true,
+          humanReviewed: false,
+          measurementEligible: false,
+          masteryEligible: false,
+        },
       },
     ],
     policy: {
@@ -176,6 +193,10 @@ export const validateHsk1LocalStudyAuthorizationBundle = async ({
     || !Array.isArray(authorization.authorizations)
     || authorization.authorizations.length !== 1
     || authorization.authorizations[0]?.lessonIds?.length !== 6
+    || authorization.authorizations[0]?.presentation?.sourceTargetCount !== 338
+    || authorization.authorizations[0]?.presentation?.humanReviewed !== false
+    || authorization.authorizations[0]?.presentation?.measurementEligible !== false
+    || authorization.authorizations[0]?.presentation?.masteryEligible !== false
     || authorization.policy?.humanReviewed !== false
     || authorization.policy?.grantsProductionEligibility !== false
     || authorization.policy?.sitesDeploymentAuthorized !== false

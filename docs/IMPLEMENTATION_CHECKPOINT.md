@@ -11,7 +11,7 @@ a local-first graduation and personal-study product with distinct HSK0, HSK1,
 HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
 pilot, operational qualification and Sites are deferred.
 
-Active progress: **76%** under the usable-product-weighted rubric adopted for
+Active progress: **78%** under the usable-product-weighted rubric adopted for
 the graduation/personal-study scope on 31 July 2026.
 
 | Pillar | Earned / max | Current evidence |
@@ -19,7 +19,7 @@ the graduation/personal-study scope on 31 July 2026.
 | Application/offline learning foundation | 19 / 20 | Local lesson, Reader, Review, FSRS, persistence and recovery now consume a deterministic HSK lesson/activity adapter with exact catalog/session/schema provenance and fail-closed idempotency. |
 | Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
 | Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 learner-usable runtime content | 15 / 30 | Runtime exposes HSK0 and 10 HSK1 target lessons. The six-lesson time/place/events unit is AI-self-reviewed, packaged and authorized for local study; its richer dialogue/grammar/task projections still need UI integration. |
+| HSK0-4 learner-usable runtime content | 17 / 30 | Runtime exposes HSK0 and 10 HSK1 target lessons. The six-lesson time/place/events unit now surfaces source-bound dialogue, grammar, guided self-checks and communicative tasks in both lesson screens. |
 | HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; the forms do not yet run end-to-end or carry calibration evidence. |
 | Graduation QA/local release | 9 / 10 | Checked demo and clean-source local candidate bind 4/4 gates and 8/8 G5 capabilities; the local-study profile plus a source-bound HSK1 AI review are machine-checked without weakening production gates. |
 
@@ -63,9 +63,16 @@ Every commit must update this percentage here and in the active roadmap.
 - Authoring scopes now retain immutable planning-snapshot hashes and validate
   current graph compatibility structurally. A runtime-only HSK1 release no
   longer cascades into meaningless regeneration of unchanged HSK2-4 drafts.
-- The 338 non-core reviewed projections remain outside the current Lesson UI;
-  integrating dialogue, grammar and task payloads is the next learner-value
-  slice. Active progress is therefore **76%**, not a claim that HSK1 is complete.
+- Added a fail-closed learner presentation bound to the exact local-study
+  authorization and reviewed sources: 6 lessons, 24 model-dialogue turns, 25
+  grammar points, 25 guided self-checks, 3 topics and 3 communicative tasks
+  with 12 task-dialogue turns. Both local and authenticated lesson screens
+  expose the same Hanzi/Pinyin/Vietnamese payload and per-utterance browser
+  TTS while disclosing AI review and synthetic-audio limits.
+- Unit projection validators, adapter regression tests and the real-UI demo
+  exercise the rich content. Desktop and 390 x 844 mobile inspection showed
+  the one-column responsive layout without horizontal overflow. Active
+  progress is therefore **78%**, not a claim that HSK1 is complete.
 
 ### Active G0 slice completed
 

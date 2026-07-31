@@ -4039,7 +4039,70 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
 .briefing-lexicon button span { color: #d7e6e2; font-size: 10px; font-weight: 700; }
 .briefing-lexicon button small { color: var(--dim); font-size: 8px; }
 .briefing-lexicon button svg { grid-column: 2; grid-row: 1 / 4; align-self: center; }
-.briefing-lexicon + .synthetic-audio-note { margin: 10px 0 -4px; }
+.lesson-depth-panel {
+  min-width: 0;
+  margin-top: 15px;
+  padding: 24px;
+  background: linear-gradient(145deg, #071311, #0b1714);
+  border: 1px solid #2b5046;
+}
+.lesson-depth-panel > header { min-height: 30px; display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--jade); font: 600 9px var(--mono); }
+.lesson-depth-panel > header small { color: var(--dim); font-size: 8px; }
+.rich-review-disclosure { margin: 12px 0 0; padding: 10px 12px; display: flex; align-items: flex-start; gap: 8px; color: #9bb3ad; background: #0a1916; border-left: 2px solid var(--gold); font-size: 9px; line-height: 1.6; }
+.rich-review-disclosure svg { flex: 0 0 auto; color: var(--gold); }
+.lesson-depth-grid { margin-top: 15px; display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr); gap: 15px; align-items: start; }
+.rich-dialogue-panel,
+.rich-grammar-panel,
+.rich-task-panel { min-width: 0; padding: 18px; background: #081410; border: 1px solid #203f37; }
+.rich-dialogue-panel h2,
+.rich-grammar-panel h2,
+.rich-task-panel h2 { margin: 0; display: flex; align-items: center; gap: 8px; color: #edf7f4; font-size: 15px; }
+.rich-dialogue-panel h2 svg,
+.rich-grammar-panel h2 svg,
+.rich-task-panel h2 svg { color: var(--jade); }
+.rich-dialogue-panel > p,
+.rich-grammar-panel > p { margin: 8px 0 0; color: var(--dim); font-size: 9px; line-height: 1.6; }
+.rich-dialogue { margin-top: 13px; display: grid; gap: 7px; }
+.rich-dialogue > button { min-height: 70px; padding: 10px; display: grid; grid-template-columns: 28px minmax(0, 1fr) 20px; align-items: center; gap: 9px; color: var(--cyan); text-align: left; background: #07100e; border: 1px solid #1f3b34; }
+.rich-dialogue > button:hover { border-color: var(--cyan); }
+.rich-dialogue > button > span:nth-child(2),
+.grammar-model-example > span,
+.guided-practice-card button > span { min-width: 0; display: flex; flex-direction: column; }
+.dialogue-speaker { width: 27px; height: 27px; display: grid; place-items: center; color: #07110f; background: var(--jade); border-radius: 50%; font: 700 10px var(--mono); }
+.rich-dialogue strong,
+.grammar-model-example strong,
+.guided-practice-card button strong { color: #edf7f4; font: 600 15px "Noto Sans SC", sans-serif; }
+.rich-dialogue small,
+.grammar-model-example small,
+.guided-practice-card button small { margin-top: 2px; color: var(--gold); font-size: 9px; }
+.rich-dialogue em,
+.grammar-model-example em,
+.guided-practice-card button em { margin-top: 3px; color: var(--muted); font-size: 9px; font-style: normal; line-height: 1.45; }
+.rich-grammar-list { margin-top: 13px; display: grid; gap: 7px; }
+.rich-grammar-list > details { background: #07100e; border: 1px solid #213d36; }
+.rich-grammar-list > details[open] { border-color: #3a655a; }
+.rich-grammar-list > details > summary { min-height: 55px; padding: 10px 13px; display: grid; grid-template-columns: minmax(70px, 0.25fr) minmax(0, 1fr); align-items: center; gap: 10px; cursor: pointer; }
+.rich-grammar-list > details > summary span { color: var(--jade); font: 600 8px var(--mono); text-transform: uppercase; }
+.rich-grammar-list > details > summary strong { color: #dfece8; font: 600 12px "Noto Sans SC", sans-serif; line-height: 1.5; }
+.rich-grammar-body { padding: 0 13px 13px; }
+.rich-grammar-body > p { margin: 0; padding: 10px 0; color: var(--muted); border-top: 1px solid #18332c; font-size: 10px; line-height: 1.7; }
+.grammar-model-example { width: 100%; min-height: 64px; padding: 10px; display: grid; grid-template-columns: 20px minmax(0, 1fr); align-items: center; gap: 9px; color: var(--cyan); text-align: left; background: #0a1714; border: 1px solid #294940; }
+.guided-practice-card { margin-top: 9px; padding: 12px; background: #11150f; border: 1px solid #4d492b; }
+.guided-practice-card > span { color: var(--gold); font: 600 8px var(--mono); }
+.guided-practice-card > p { margin: 7px 0 0; color: #dbe6e3; font-size: 10px; line-height: 1.6; }
+.guided-practice-card > details { margin-top: 9px; }
+.guided-practice-card > details > summary { color: var(--jade); cursor: pointer; font: 600 9px var(--mono); }
+.guided-practice-card button { width: 100%; margin-top: 8px; padding: 9px; display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; color: var(--cyan); text-align: left; background: #091310; border: 1px solid #294940; }
+.rich-task-panel { margin-top: 15px; }
+.rich-topic { margin-top: 13px; padding: 12px; display: grid; grid-template-columns: minmax(90px, 0.25fr) minmax(0, 1fr); gap: 5px 12px; background: #0a1714; border: 1px solid #294940; }
+.rich-topic span { color: var(--jade); font: 600 8px var(--mono); }
+.rich-topic strong { color: #edf7f4; font: 600 13px "Noto Sans SC", sans-serif; }
+.rich-topic p { grid-column: 1 / -1; margin: 4px 0 0; color: var(--muted); font-size: 10px; }
+.rich-task-panel > details { margin-top: 10px; padding: 12px; background: #07100e; border: 1px solid #243f38; }
+.rich-task-panel > details > summary { color: var(--gold); cursor: pointer; font-size: 12px; font-weight: 700; }
+.rich-task-panel > details > p { margin: 9px 0 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.rich-task-panel .rich-dialogue { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.lesson-depth-panel + .synthetic-audio-note { margin: 10px 0 -4px; }
 .briefing-actions { min-height: 83px; margin-top: 15px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; background: #07110f; border: 1px solid #224139; }
 .briefing-actions p { margin: 0; display: flex; align-items: center; gap: 8px; color: var(--dim); font-size: 10px; }
 .briefing-actions p svg { flex: 0 0 auto; color: var(--gold); }
@@ -4229,6 +4292,7 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
   .destiny-actions { grid-column: 1 / -1; padding-top: 15px; padding-left: 0; grid-template-columns: 1fr auto; align-items: center; border-top: 1px solid #393824; border-left: 0; }
   .briefing-grid { grid-template-columns: 1fr; }
   .briefing-intel { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .lesson-depth-grid { grid-template-columns: 1fr; }
   .mistake-layout { grid-template-columns: 1fr; }
   .mistake-list { max-height: 260px; grid-template-columns: 1fr 1fr; }
 }
@@ -4271,6 +4335,9 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
   .guide-examples button em { grid-column: 2; }
   .briefing-lexicon { padding: 18px; }
   .briefing-lexicon > div { grid-template-columns: 1fr 1fr; }
+  .lesson-depth-panel { padding: 18px; }
+  .lesson-depth-panel > header { align-items: flex-start; flex-direction: column; }
+  .rich-task-panel .rich-dialogue { grid-template-columns: 1fr; }
   .briefing-actions { align-items: stretch; flex-direction: column; }
   .briefing-actions .primary-button { width: 100%; }
   .recall-answer > input { height: 62px; }
@@ -4323,6 +4390,7 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
   .mobile-system-menu > nav { grid-template-columns: 1fr; }
   .starting-level-grid { grid-template-columns: 1fr; }
   .briefing-lexicon > div { grid-template-columns: 1fr; }
+  .rich-grammar-list > details > summary { grid-template-columns: 1fr; }
   .destiny-directive { grid-template-columns: 1fr; }
   .destiny-readiness { grid-row: 1; justify-self: end; position: absolute; top: 18px; right: 15px; }
   .destiny-copy { padding-right: 82px; }

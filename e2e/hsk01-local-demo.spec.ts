@@ -359,10 +359,10 @@ const continueToPath = async (page: Page) => {
   await expect(page).toHaveURL(/\/path$/u);
 };
 
-test("walks the real local UI from the HSK0 bridge to the first HSK1 unlock", async ({
+test("walks the real local UI from the HSK0 bridge into rich HSK1 study", async ({
   page,
 }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(180_000);
   expect(demo.scenario.profileSelection.startingLevel).toBe("hsk1");
   expect(demo.policy).toMatchObject({
     learnerVisible: false,
@@ -754,4 +754,38 @@ test("walks the real local UI from the HSK0 bridge to the first HSK1 unlock", as
   );
   expect(stateAfterDeniedRoutes.completedLessons)
     .toEqual(state.completedLessons);
+
+  const richLessonId = demo.scenario.stillLockedLessonIds.find((lessonId) =>
+    lessonId.startsWith("hsk1-time-place-events-")
+  );
+  expect(richLessonId).toBeTruthy();
+  const richLessonPrerequisites = [
+    demo.scenario.boundaryUnlockLessonId,
+    ...demo.scenario.stillLockedLessonIds.filter((lessonId) =>
+      lessonId.startsWith("survival-")
+    ),
+  ];
+  for (const lessonId of richLessonPrerequisites) {
+    await startLesson(page, lessonId);
+    await finishLiveLesson(page, lessonId);
+    await continueToPath(page);
+  }
+
+  await page.goto(`/lesson/${richLessonId}`);
+  await expect(page.getByText(
+    "03 · ỨNG DỤNG CHUYÊN SÂU",
+    { exact: true },
+  )).toBeVisible();
+  await expect(page.getByRole("heading", {
+    name: "Hội thoại mẫu",
+  })).toBeVisible();
+  await expect(page.getByRole("button", {
+    name: "Nghe câu 你家有几个人？",
+  })).toBeVisible();
+  await expect(page.getByRole("heading", {
+    name: "Ngữ pháp trong ngữ cảnh",
+  })).toBeVisible();
+  await expect(page.getByText(
+    /Codex rà soát bằng AI cho mục đích tự học/i,
+  )).toBeVisible();
 });

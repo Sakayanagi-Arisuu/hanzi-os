@@ -1,0 +1,847 @@
+{
+  "schemaVersion": 1,
+  "presentationId": "hsk1-time-place-events-rich-lessons-2026.07.1",
+  "contentVersion": "foundation-2026.07.7",
+  "unitId": "hsk1-time-place-events",
+  "state": "authorized-for-personal-local-study",
+  "disclosure": {
+    "reviewVi": "Nội dung được Codex rà soát bằng AI cho mục đích tự học; chưa phải kiểm duyệt người bản ngữ.",
+    "audioVi": "Nút nghe dùng giọng TTS tổng hợp của trình duyệt và không tạo bằng chứng nghe hoặc phát âm."
+  },
+  "policy": {
+    "learnerVisibleForPersonalLocalStudy": true,
+    "humanReviewed": false,
+    "browserTtsPracticeOnly": true,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "sourceBindings": [
+    {
+      "id": "communicative",
+      "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
+    },
+    {
+      "id": "grammar",
+      "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
+      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
+    },
+    {
+      "id": "task",
+      "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
+      "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0"
+    },
+    {
+      "id": "runtimeCore",
+      "relativePath": "content/drafts/hsk1-time-place-events-runtime-projection-2026.07.json",
+      "sha256": "sha256:69dd683b110ed4b21c8173bfd7e005a5462c0342e52446bdc5ca7769c6de04fd"
+    },
+    {
+      "id": "localReview",
+      "relativePath": "content/review/hsk1-time-place-events-local-study-review.json",
+      "sha256": "sha256:dc319b4f973b54a6f6e9964424112e47817df9d54cd2101534439b96e8857540"
+    },
+    {
+      "id": "localAuthorization",
+      "relativePath": "content/curriculum/hsk0-4-local-study-authorizations.json",
+      "sha256": "sha256:6f2d455e9fb845ef0bfa3a1c39cb107c296f95b77b36b55b426f71ab5410721c"
+    }
+  ],
+  "counts": {
+    "lessons": 6,
+    "dialogueTurns": 24,
+    "grammarPoints": 25,
+    "guidedGrammarPrompts": 25,
+    "topics": 3,
+    "tasks": 3,
+    "taskDialogueTurns": 12
+  },
+  "lessons": [
+    {
+      "lessonId": "hsk1-time-place-events-01-numbers",
+      "authoringLessonId": "hsk1-time-place-events:01-numbers",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你家有几个人？",
+          "pinyin": "Nǐ jiā yǒu jǐ ge rén?",
+          "meaningVi": "Nhà bạn có mấy người?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我家有四个人。",
+          "pinyin": "Wǒ jiā yǒu sì ge rén.",
+          "meaningVi": "Nhà tôi có bốn người."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你要几个？",
+          "pinyin": "Nǐ yào jǐ ge?",
+          "meaningVi": "Bạn muốn mấy cái?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我要两个。",
+          "pinyin": "Wǒ yào liǎng ge.",
+          "meaningVi": "Tôi muốn hai cái."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-011",
+          "category": "数词",
+          "label": "一、二/两、三、四、五、六、七、八、九、 / 零、十、百、半、千",
+          "officialContent": "一、二/两、三、四、五、六、七、八、九、 / 零、十、百、半、千",
+          "explanationVi": "Số từ HSK1 đứng trước lượng từ; 二 dùng khi đếm thuần, 两 thường dùng trước lượng từ.",
+          "modelExample": {
+            "hanzi": "我有两本书。",
+            "pinyin": "Wǒ yǒu liǎng běn shū.",
+            "meaningVi": "Tôi có hai quyển sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Nhà anh ấy có ba người.",
+            "modelAnswerHanzi": "他家有三口人。",
+            "modelAnswerPinyin": "Tā jiā yǒu sān kǒu rén.",
+            "modelAnswerMeaningVi": "Nhà anh ấy có ba người."
+          }
+        }
+      ],
+      "topics": [],
+      "tasks": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-02-calendar",
+      "authoringLessonId": "hsk1-time-place-events:02-calendar",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "今天几月几号？",
+          "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+          "meaningVi": "Hôm nay là ngày mấy tháng mấy?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "今天七月二十八号。",
+          "pinyin": "Jīntiān qī yuè èrshíbā hào.",
+          "meaningVi": "Hôm nay là ngày 28 tháng 7."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "明天是几号？",
+          "pinyin": "Míngtiān shì jǐ hào?",
+          "meaningVi": "Ngày mai là ngày mấy?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "明天是二十九号。",
+          "pinyin": "Míngtiān shì èrshíjiǔ hào.",
+          "meaningVi": "Ngày mai là ngày 29."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-001",
+          "category": "前缀",
+          "label": "小—、第—",
+          "officialContent": "小—、第—",
+          "explanationVi": "小 đứng trước họ/tên để gọi thân mật; 第 đứng trước số để tạo số thứ tự.",
+          "modelExample": {
+            "hanzi": "小王是我的同学。",
+            "pinyin": "Xiǎo Wáng shì wǒ de tóngxué.",
+            "meaningVi": "Tiểu Vương là bạn học của tôi."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Người thứ hai là giáo viên.",
+            "modelAnswerHanzi": "第二个人是老师。",
+            "modelAnswerPinyin": "Dì èr ge rén shì lǎoshī.",
+            "modelAnswerMeaningVi": "Người thứ hai là giáo viên."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-014",
+          "category": "量词",
+          "label": "时量词",
+          "officialContent": "日、号、岁、点、分、年、天",
+          "explanationVi": "Lượng từ thời gian 日、号、岁、点、分、年、天 đi sau số để tạo ngày, tuổi, giờ và khoảng thời gian.",
+          "modelExample": {
+            "hanzi": "今天是七月二十八号。",
+            "pinyin": "Jīntiān shì qī yuè èrshíbā hào.",
+            "meaningVi": "Hôm nay là ngày 28 tháng 7."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Tôi hai mươi tuổi.",
+            "modelAnswerHanzi": "我二十岁。",
+            "modelAnswerPinyin": "Wǒ èrshí suì.",
+            "modelAnswerMeaningVi": "Tôi hai mươi tuổi."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-064",
+          "category": "数的表达法",
+          "label": "序数表达法1：第+数词",
+          "officialContent": "序数表达法1：第+数词",
+          "explanationVi": "Số thứ tự cơ bản dùng 第 + số từ; lượng từ/danh từ đi sau nếu cần.",
+          "modelExample": {
+            "hanzi": "他是第二个学生。",
+            "pinyin": "Tā shì dì èr ge xuéshēng.",
+            "meaningVi": "Anh ấy là học sinh thứ hai."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Đây là quyển sách thứ ba.",
+            "modelAnswerHanzi": "这是第三本书。",
+            "modelAnswerPinyin": "Zhè shì dì sān běn shū.",
+            "modelAnswerMeaningVi": "Đây là quyển sách thứ ba."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-065",
+          "category": "时间表示法",
+          "label": "（1）年、月、日、星期表示法",
+          "officialContent": "（1）年、月、日、星期表示法",
+          "explanationVi": "Ngày tháng đi theo thứ tự năm + tháng + ngày; thứ trong tuần dùng 星期 + số.",
+          "modelExample": {
+            "hanzi": "今天是二〇二六年七月二十八日，星期二。",
+            "pinyin": "Jīntiān shì èr líng èr liù nián qī yuè èrshíbā rì, xīngqī èr.",
+            "meaningVi": "Hôm nay là thứ Ba, ngày 28 tháng 7 năm 2026."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Ngày mai là ngày 29 tháng 7.",
+            "modelAnswerHanzi": "明天是七月二十九日。",
+            "modelAnswerPinyin": "Míngtiān shì qī yuè èrshíjiǔ rì.",
+            "modelAnswerMeaningVi": "Ngày mai là ngày 29 tháng 7."
+          }
+        }
+      ],
+      "topics": [
+        {
+          "id": "hsk1-topic-003",
+          "group": "事件信息",
+          "officialTopic": "日期、时间、地点、方位、参加者、号码等",
+          "promptVi": "Hỏi và trả lời ngày, giờ, địa điểm, phương hướng hoặc người tham gia."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-02",
+          "titleVi": "Xác nhận thông tin sự kiện",
+          "instructionVi": "Hỏi và trả lời ngày, giờ hoặc địa điểm của một cuộc hẹn đơn giản.",
+          "targetFunctions": [
+            "ask-event-information",
+            "confirm-time-information"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "今天几月几号？",
+              "pinyin": "Jīntiān jǐ yuè jǐ hào?",
+              "meaningVi": "Hôm nay là ngày mấy tháng mấy?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "今天七月二十八号。",
+              "pinyin": "Jīntiān qī yuè èrshíbā hào.",
+              "meaningVi": "Hôm nay là ngày 28 tháng 7."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "现在几点？",
+              "pinyin": "Xiànzài jǐ diǎn?",
+              "meaningVi": "Bây giờ là mấy giờ?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "现在八点半。",
+              "pinyin": "Xiànzài bā diǎn bàn.",
+              "meaningVi": "Bây giờ là tám giờ rưỡi."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
+      "authoringLessonId": "hsk1-time-place-events:03-week-and-day-parts",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "今天星期几？",
+          "pinyin": "Jīntiān xīngqī jǐ?",
+          "meaningVi": "Hôm nay là thứ mấy?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "今天星期二。",
+          "pinyin": "Jīntiān xīngqī'èr.",
+          "meaningVi": "Hôm nay là thứ Ba."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你早上忙吗？",
+          "pinyin": "Nǐ zǎoshang máng ma?",
+          "meaningVi": "Buổi sáng bạn có bận không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不忙，我下午忙。",
+          "pinyin": "Bù máng, wǒ xiàwǔ máng.",
+          "meaningVi": "Không, buổi chiều tôi bận."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-036",
+          "category": "谓语",
+          "label": "名词、代词、数词或数量短语作谓语",
+          "officialContent": "名词、代词、数词或数量短语作谓语",
+          "explanationVi": "Ở HSK1, danh từ, đại từ, số từ hoặc cụm số-lượng có thể trực tiếp làm vị ngữ trong một số mẫu.",
+          "modelExample": {
+            "hanzi": "今天星期二。",
+            "pinyin": "Jīntiān xīngqī èr.",
+            "meaningVi": "Hôm nay là thứ Ba."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Tôi hai mươi tuổi.",
+            "modelAnswerHanzi": "我二十岁。",
+            "modelAnswerPinyin": "Wǒ èrshí suì.",
+            "modelAnswerMeaningVi": "Tôi hai mươi tuổi."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-044",
+          "category": "句型",
+          "label": "单句",
+          "officialContent": "主谓句3：名词谓语句",
+          "explanationVi": "Câu vị ngữ danh từ dùng danh từ/cụm danh từ để nói ngày, tuổi, giá hoặc thông tin phân loại quen thuộc.",
+          "modelExample": {
+            "hanzi": "今天星期一。",
+            "pinyin": "Jīntiān xīngqī yī.",
+            "meaningVi": "Hôm nay là thứ Hai."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Năm nay tôi hai mươi tuổi.",
+            "modelAnswerHanzi": "我今年二十岁。",
+            "modelAnswerPinyin": "Wǒ jīnnián èrshí suì.",
+            "modelAnswerMeaningVi": "Năm nay tôi hai mươi tuổi."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-066",
+          "category": "时间表示法",
+          "label": "（2）钟点表示法",
+          "officialContent": "（2）钟点表示法",
+          "explanationVi": "Giờ đi theo số + 点; phút đi sau 点, 半 là rưỡi và buổi có thể đứng trước giờ.",
+          "modelExample": {
+            "hanzi": "现在八点半。",
+            "pinyin": "Xiànzài bā diǎn bàn.",
+            "meaningVi": "Bây giờ là tám giờ rưỡi."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Tôi vào học lúc ba giờ chiều.",
+            "modelAnswerHanzi": "我下午三点上课。",
+            "modelAnswerPinyin": "Wǒ xiàwǔ sān diǎn shàngkè.",
+            "modelAnswerMeaningVi": "Tôi vào học lúc ba giờ chiều."
+          }
+        }
+      ],
+      "topics": [],
+      "tasks": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-04-clock-and-duration",
+      "authoringLessonId": "hsk1-time-place-events:04-clock-and-duration",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "现在几点？",
+          "pinyin": "Xiànzài jǐ diǎn?",
+          "meaningVi": "Bây giờ là mấy giờ?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "现在八点半。",
+          "pinyin": "Xiànzài bā diǎn bàn.",
+          "meaningVi": "Bây giờ là tám giờ rưỡi."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你有时间吗？",
+          "pinyin": "Nǐ yǒu shíjiān ma?",
+          "meaningVi": "Bạn có thời gian không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我有十分钟。",
+          "pinyin": "Wǒ yǒu shí fēnzhōng.",
+          "meaningVi": "Tôi có mười phút."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-017",
+          "category": "副词",
+          "label": "时间副词",
+          "officialContent": "在、正在",
+          "explanationVi": "在/正在 đứng trước động từ để đánh dấu hành động đang diễn ra.",
+          "modelExample": {
+            "hanzi": "我正在看书。",
+            "pinyin": "Wǒ zhèngzài kàn shū.",
+            "meaningVi": "Tôi đang đọc sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy đang ăn cơm.",
+            "modelAnswerHanzi": "他在吃饭。",
+            "modelAnswerPinyin": "Tā zài chīfàn.",
+            "modelAnswerMeaningVi": "Anh ấy đang ăn cơm."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-018",
+          "category": "副词",
+          "label": "频率副词",
+          "officialContent": "再1",
+          "explanationVi": "再 đặt trước động từ để nói một hành động sẽ lặp lại trong tương lai.",
+          "modelExample": {
+            "hanzi": "明天再来。",
+            "pinyin": "Míngtiān zài lái.",
+            "meaningVi": "Ngày mai lại đến nhé."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Ngày mai xem tiếp.",
+            "modelAnswerHanzi": "明天再看。",
+            "modelAnswerPinyin": "Míngtiān zài kàn.",
+            "modelAnswerMeaningVi": "Ngày mai xem tiếp."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-058",
+          "category": "动作的态",
+          "label": "完成态",
+          "officialContent": "用动态助词“了1”表示",
+          "explanationVi": "Trợ từ động thái 了 đặt sau động từ để biểu thị hành động đã hoàn thành.",
+          "modelExample": {
+            "hanzi": "我吃了早饭。",
+            "pinyin": "Wǒ chī le zǎofàn.",
+            "meaningVi": "Tôi đã ăn sáng."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy đã xem phim.",
+            "modelAnswerHanzi": "他看了电影。",
+            "modelAnswerPinyin": "Tā kàn le diànyǐng.",
+            "modelAnswerMeaningVi": "Anh ấy đã xem phim."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-059",
+          "category": "动作的态",
+          "label": "变化态",
+          "officialContent": "用动态助词“了2”表示",
+          "explanationVi": "了 ở cuối câu biểu thị tình huống hoặc trạng thái mới đã thay đổi.",
+          "modelExample": {
+            "hanzi": "天气冷了。",
+            "pinyin": "Tiānqì lěng le.",
+            "meaningVi": "Thời tiết trở lạnh rồi."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy hai mươi tuổi rồi.",
+            "modelAnswerHanzi": "他二十岁了。",
+            "modelAnswerPinyin": "Tā èrshí suì le.",
+            "modelAnswerMeaningVi": "Anh ấy hai mươi tuổi rồi."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-060",
+          "category": "动作的态",
+          "label": "进行态",
+          "officialContent": "（1）……在/正在+动词",
+          "explanationVi": "Mẫu “在/正在 + động từ” đánh dấu hành động đang diễn ra.",
+          "modelExample": {
+            "hanzi": "我正在看书。",
+            "pinyin": "Wǒ zhèngzài kàn shū.",
+            "meaningVi": "Tôi đang đọc sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy đang ăn cơm.",
+            "modelAnswerHanzi": "他在吃饭。",
+            "modelAnswerPinyin": "Tā zài chīfàn.",
+            "modelAnswerMeaningVi": "Anh ấy đang ăn cơm."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-061",
+          "category": "动作的态",
+          "label": "进行态",
+          "officialContent": "（2）……在/正在+动词……+呢",
+          "explanationVi": "Mẫu “在/正在 + động từ + 呢” nhấn mạnh hành động đang tiếp diễn ở thời điểm nói.",
+          "modelExample": {
+            "hanzi": "我正在看书呢。",
+            "pinyin": "Wǒ zhèngzài kàn shū ne.",
+            "meaningVi": "Tôi đang đọc sách đây."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Mẹ đang nấu cơm.",
+            "modelAnswerHanzi": "妈妈在做饭呢。",
+            "modelAnswerPinyin": "Māma zài zuòfàn ne.",
+            "modelAnswerMeaningVi": "Mẹ đang nấu cơm."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-062",
+          "category": "动作的态",
+          "label": "进行态",
+          "officialContent": "（3）……呢",
+          "explanationVi": "Chỉ cần đặt 呢 cuối câu khi ngữ cảnh đã rõ để biểu thị hành động đang diễn ra.",
+          "modelExample": {
+            "hanzi": "他看书呢。",
+            "pinyin": "Tā kàn shū ne.",
+            "meaningVi": "Anh ấy đang đọc sách đấy."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Mẹ đang nấu cơm đấy.",
+            "modelAnswerHanzi": "妈妈做饭呢。",
+            "modelAnswerPinyin": "Māma zuòfàn ne.",
+            "modelAnswerMeaningVi": "Mẹ đang nấu cơm đấy."
+          }
+        }
+      ],
+      "topics": [],
+      "tasks": []
+    },
+    {
+      "lessonId": "hsk1-time-place-events-05-location",
+      "authoringLessonId": "hsk1-time-place-events:05-location",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你在哪里？",
+          "pinyin": "Nǐ zài nǎlǐ?",
+          "meaningVi": "Bạn đang ở đâu?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我在这里。",
+          "pinyin": "Wǒ zài zhèlǐ.",
+          "meaningVi": "Tôi đang ở đây."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "他在哪边？",
+          "pinyin": "Tā zài nǎ biān?",
+          "meaningVi": "Anh ấy ở phía nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "他在那边。",
+          "pinyin": "Tā zài nàbiān.",
+          "meaningVi": "Anh ấy ở bên kia."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-002",
+          "category": "后缀",
+          "label": "—们、—边",
+          "officialContent": "—们、—边",
+          "explanationVi": "们 đánh dấu số nhiều cho đại từ/người; 边 kết hợp với từ chỉ phương hướng để tạo từ vị trí.",
+          "modelExample": {
+            "hanzi": "我们在这边。",
+            "pinyin": "Wǒmen zài zhèbiān.",
+            "meaningVi": "Chúng tôi ở phía này."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Họ ở phía bên kia.",
+            "modelAnswerHanzi": "他们在那边。",
+            "modelAnswerPinyin": "Tāmen zài nàbiān.",
+            "modelAnswerMeaningVi": "Họ ở phía bên kia."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-003",
+          "category": "名词",
+          "label": "方位名词",
+          "officialContent": "上、下、里、外、前、后",
+          "explanationVi": "Danh từ phương vị 上、下、里、外、前、后 đứng sau danh từ hoặc dùng làm vị trí.",
+          "modelExample": {
+            "hanzi": "书在桌子上。",
+            "pinyin": "Shū zài zhuōzi shàng.",
+            "meaningVi": "Sách ở trên bàn."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Mèo ở dưới ghế.",
+            "modelAnswerHanzi": "猫在椅子下。",
+            "modelAnswerPinyin": "Māo zài yǐzi xià.",
+            "modelAnswerMeaningVi": "Mèo ở dưới ghế."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-010",
+          "category": "代词",
+          "label": "指示代词",
+          "officialContent": "这、那、这儿、那儿、这里、那里、这些、那 / 些、有的、这个、那个、有些",
+          "explanationVi": "这/那 chỉ gần/xa; các dạng 这里、那里、这些、那些 chỉ nơi hoặc số nhiều.",
+          "modelExample": {
+            "hanzi": "这些书在这里。",
+            "pinyin": "Zhèxiē shū zài zhèlǐ.",
+            "meaningVi": "Những quyển sách này ở đây."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Người kia ở bên kia.",
+            "modelAnswerHanzi": "那个人在那边。",
+            "modelAnswerPinyin": "Nà ge rén zài nàbiān.",
+            "modelAnswerMeaningVi": "Người kia ở bên kia."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-021",
+          "category": "介词",
+          "label": "引出时间、处所",
+          "officialContent": "在",
+          "explanationVi": "Giới từ 在 đưa thời gian hoặc nơi chốn lên trước động từ chính.",
+          "modelExample": {
+            "hanzi": "我在学校学习。",
+            "pinyin": "Wǒ zài xuéxiào xuéxí.",
+            "meaningVi": "Tôi học ở trường."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy ăn cơm ở nhà.",
+            "modelAnswerHanzi": "他在家吃饭。",
+            "modelAnswerPinyin": "Tā zài jiā chīfàn.",
+            "modelAnswerMeaningVi": "Anh ấy ăn cơm ở nhà."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-033",
+          "category": "结构类型",
+          "label": "其他结构类型",
+          "officialContent": "（2）介宾短语",
+          "explanationVi": "Cụm giới-tân gồm giới từ và đối tượng đi sau, như 在学校、对学生.",
+          "modelExample": {
+            "hanzi": "我在学校学习。",
+            "pinyin": "Wǒ zài xuéxiào xuéxí.",
+            "meaningVi": "Tôi học ở trường."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy ngủ ở nhà.",
+            "modelAnswerHanzi": "他在家睡觉。",
+            "modelAnswerPinyin": "Tā zài jiā shuìjiào.",
+            "modelAnswerMeaningVi": "Anh ấy ngủ ở nhà."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-034",
+          "category": "结构类型",
+          "label": "其他结构类型",
+          "officialContent": "（3）方位短语",
+          "explanationVi": "Cụm phương vị gồm danh từ/đại từ cộng từ chỉ phương hướng, như 桌子上、房间里.",
+          "modelExample": {
+            "hanzi": "书在桌子上。",
+            "pinyin": "Shū zài zhuōzi shàng.",
+            "meaningVi": "Sách ở trên bàn."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Mèo ở dưới ghế.",
+            "modelAnswerHanzi": "猫在椅子下。",
+            "modelAnswerPinyin": "Māo zài yǐzi xià.",
+            "modelAnswerMeaningVi": "Mèo ở dưới ghế."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-040",
+          "category": "状语",
+          "label": "副词、形容词作状语 / 表示时间、处所的词语作状语",
+          "officialContent": "副词、形容词作状语 / 表示时间、处所的词语作状语",
+          "explanationVi": "Phó từ và cụm chỉ thời gian hoặc nơi chốn thường đứng trước động từ để làm trạng ngữ; tính từ chỉ dùng theo kết cấu phù hợp, không áp dụng máy móc.",
+          "modelExample": {
+            "hanzi": "我今天在家学习。",
+            "pinyin": "Wǒ jīntiān zài jiā xuéxí.",
+            "meaningVi": "Hôm nay tôi học ở nhà."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Ngày mai anh ấy đi học.",
+            "modelAnswerHanzi": "他明天去上学。",
+            "modelAnswerPinyin": "Tā míngtiān qù shàngxué.",
+            "modelAnswerMeaningVi": "Ngày mai anh ấy đi học."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-051",
+          "category": "特殊句型",
+          "label": "存现句1",
+          "officialContent": "（1）所处+是+名词",
+          "explanationVi": "Mẫu tồn hiện “nơi chốn + 是 + danh từ” xác định người/vật ở một vị trí.",
+          "modelExample": {
+            "hanzi": "桌子上是一本书。",
+            "pinyin": "Zhuōzi shàng shì yì běn shū.",
+            "meaningVi": "Trên bàn là một quyển sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Phía trước là trường học.",
+            "modelAnswerHanzi": "前边是学校。",
+            "modelAnswerPinyin": "Qiánbiān shì xuéxiào.",
+            "modelAnswerMeaningVi": "Phía trước là trường học."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-052",
+          "category": "特殊句型",
+          "label": "存现句1",
+          "officialContent": "（2）处所+有+数量短语+名词",
+          "explanationVi": "Mẫu tồn hiện “nơi chốn + 有 + cụm số-lượng + danh từ” giới thiệu thứ đang tồn tại ở đó.",
+          "modelExample": {
+            "hanzi": "桌子上有一本书。",
+            "pinyin": "Zhuōzi shàng yǒu yì běn shū.",
+            "meaningVi": "Trên bàn có một quyển sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Trong phòng có hai cái ghế.",
+            "modelAnswerHanzi": "房间里有两把椅子。",
+            "modelAnswerPinyin": "Fángjiān lǐ yǒu liǎng bǎ yǐzi.",
+            "modelAnswerMeaningVi": "Trong phòng có hai cái ghế."
+          }
+        }
+      ],
+      "topics": [
+        {
+          "id": "hsk1-topic-007",
+          "group": "环境信息",
+          "officialTopic": "环境特点",
+          "promptVi": "Miêu tả ngắn một nơi hoặc môi trường xung quanh."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-05",
+          "titleVi": "Hỏi và mô tả môi trường",
+          "instructionVi": "Hỏi vị trí và trả lời bằng câu ngắn có từ chỉ nơi chốn hoặc phương hướng.",
+          "targetFunctions": [
+            "ask-location",
+            "describe-location"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "你住在哪里？",
+              "pinyin": "Nǐ zhù zài nǎlǐ?",
+              "meaningVi": "Bạn sống ở đâu?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "我住在这里。",
+              "pinyin": "Wǒ zhù zài zhèlǐ.",
+              "meaningVi": "Tôi sống ở đây."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "学校在哪边？",
+              "pinyin": "Xuéxiào zài nǎ biān?",
+              "meaningVi": "Trường học ở phía nào?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "学校在那边。",
+              "pinyin": "Xuéxiào zài nàbiān.",
+              "meaningVi": "Trường học ở phía kia."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "hsk1-time-place-events-06-weather-and-residence",
+      "authoringLessonId": "hsk1-time-place-events:06-weather-and-residence",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "今天天气怎么样？",
+          "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+          "meaningVi": "Hôm nay thời tiết thế nào?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "今天很热，不下雨。",
+          "pinyin": "Jīntiān hěn rè, bù xiàyǔ.",
+          "meaningVi": "Hôm nay rất nóng, không mưa."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你住在哪儿？",
+          "pinyin": "Nǐ zhù zài nǎr?",
+          "meaningVi": "Bạn sống ở đâu?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我住在这里。",
+          "pinyin": "Wǒ zhù zài zhèlǐ.",
+          "meaningVi": "Tôi sống ở đây."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-032",
+          "category": "结构类型",
+          "label": "其他结构类型",
+          "officialContent": "（1）数量短语",
+          "explanationVi": "Cụm số-lượng gồm số từ cộng lượng từ và thường đứng trước danh từ.",
+          "modelExample": {
+            "hanzi": "这里有三本书。",
+            "pinyin": "Zhèlǐ yǒu sān běn shū.",
+            "meaningVi": "Ở đây có ba quyển sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Hai cốc trà.",
+            "modelAnswerHanzi": "两杯茶。",
+            "modelAnswerPinyin": "Liǎng bēi chá.",
+            "modelAnswerMeaningVi": "Hai cốc trà."
+          }
+        }
+      ],
+      "topics": [
+        {
+          "id": "hsk1-topic-006",
+          "group": "环境信息",
+          "officialTopic": "天气",
+          "promptVi": "Hỏi và trả lời về thời tiết hiện tại."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-04",
+          "titleVi": "Trao đổi về thời tiết",
+          "instructionVi": "Hỏi thời tiết và trả lời bằng ít nhất một đặc điểm hoặc hiện tượng.",
+          "targetFunctions": [
+            "ask-weather",
+            "describe-weather"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "今天天气怎么样？",
+              "pinyin": "Jīntiān tiānqì zěnmeyàng?",
+              "meaningVi": "Hôm nay thời tiết thế nào?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "今天很热。",
+              "pinyin": "Jīntiān hěn rè.",
+              "meaningVi": "Hôm nay rất nóng."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "下雨吗？",
+              "pinyin": "Xiàyǔ ma?",
+              "meaningVi": "Có mưa không?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "不下雨。",
+              "pinyin": "Bù xiàyǔ.",
+              "meaningVi": "Không mưa."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "integritySha256": "sha256:5739a12dc6a4562ec954f364701242a0fd83b8ee5340e4ae668d6b55606a4621"
+}

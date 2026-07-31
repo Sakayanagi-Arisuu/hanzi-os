@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router";
+import { LessonDepthPanel } from "../components/LessonDepthPanel";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
 import {
@@ -367,6 +368,8 @@ function LocalLessonPage() {
             })}
           </div>
         </section>
+
+        <LessonDepthPanel lessonId={lesson.id} />
 
         <p className="synthetic-audio-note">
           Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.

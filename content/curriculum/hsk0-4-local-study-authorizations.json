@@ -52,7 +52,25 @@
       "localStudyReviewSha256": "sha256:6fbcdeb04deb5dd90e389f8dddda0622aee638082096768c4ca6a92272035bcf",
       "packageId": "foundation-2026.07.7",
       "itemCatalogSha256": "sha256:ec9826e68b5f9991e7359eeafc6ca4b29843147f1b886576d36ef9fa5c686e0e",
-      "authorizationState": "authorized-for-personal-local-study"
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 338,
+        "sourceTargetTypeCounts": {
+          "dialogue-turn": 24,
+          "grammar-draft": 25,
+          "grammar-practice": 25,
+          "task-dialogue-turn": 12,
+          "task-practice": 3,
+          "task-scenario": 3,
+          "topic-draft": 3,
+          "vocabulary-practice": 243
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
     }
   ],
   "policy": {
@@ -65,5 +83,5 @@
     "grantsProductionEligibility": false,
     "sitesDeploymentAuthorized": false
   },
-  "authorizationSha256": "sha256:13bdf0c23023d253dc09f2a7806996098d1bac14b9b0f0586dfda45199973a8c"
+  "authorizationSha256": "sha256:2a888fa2425c680c40bb286bbb18f291b1babc6d8445d996a4fc574e317cec18"
 }
