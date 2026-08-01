@@ -120,17 +120,12 @@ type AuthoringLessonFixture = {
   payload: { wordIds: string[] };
 };
 
-const authoringCatalog = JSON.parse(readFileSync(
-  new URL(
-    `../../content/packages/${CONTENT_VERSION}/item-catalog.json`,
-    import.meta.url,
-  ),
-  "utf8",
-)) as { items: AuthoringLessonFixture[] };
-const draftLesson = authoringCatalog.items.find(
-  (item) => item.itemType === "lesson" && item.releaseState === "draft",
-);
-if (!draftLesson) throw new Error("Missing authoring-only draft lesson fixture.");
+const draftLesson: AuthoringLessonFixture = {
+  itemId: "authoring-only-draft-lesson",
+  itemType: "lesson",
+  releaseState: "draft",
+  payload: { wordIds: [] },
+};
 const promotedPolicy: LessonSessionPublicationPolicy = {
   manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
   audience: "closed-alpha",

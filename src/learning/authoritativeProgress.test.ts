@@ -202,7 +202,7 @@ describe("authoritative released-lesson progress", () => {
 
   it("never counts or exposes a submitted historical draft lesson", () => {
     const historicalDraft = {
-      id: "characters-3",
+      id: "historical-authoring-draft",
       contentVersion: CONTENT_VERSION,
     };
     const input = projection();

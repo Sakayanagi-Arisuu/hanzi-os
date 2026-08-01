@@ -65,8 +65,8 @@ bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần c
 production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
 đường D1.
 
-Package local hiện tại là `foundation-2026.07.8`. Sanitized runtime có 18 lesson
-eligible tổng cộng, gồm 4 bài cầu nối HSK0 và 14 bài HSK1; 10 bài HSK1 đã có
-hội thoại, ngữ pháp, guided self-check và nhiệm vụ riêng trên Lesson UI. Đây là
+Package local hiện tại là `foundation-2026.08.1`. Sanitized runtime có 44 lesson
+eligible tổng cộng, gồm 4 bài cầu nối HSK0 và đủ 40/40 bài HSK1; cả 40 bài HSK1
+có hội thoại/ngữ pháp/guided self-check hoặc nhiệm vụ riêng trên Lesson UI. Đây là
 nội dung AI-assisted cho tự học local, không phải release production, human/native
 review hay chứng nhận độ phủ HSK hoàn chỉnh.

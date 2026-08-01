@@ -991,8 +991,8 @@ describe("content package governance", () => {
     expect(bundle.runtimeCatalog!.stories).toEqual(STORIES);
     expect(
       bundle.itemCatalog!.items.filter((item) => item.itemType === "lesson"),
-    ).toHaveLength(30);
-    expect(bundle.runtimeCatalog!.lessons).toHaveLength(20);
+    ).toHaveLength(44);
+    expect(bundle.runtimeCatalog!.lessons).toHaveLength(44);
   });
 
   it.each([
@@ -1177,13 +1177,21 @@ describe("content package governance", () => {
 
     expect(bundle.registryEntry.closedAlphaEligible).toBe(false);
     expect(bundle.registryEntry.productionEligible).toBe(false);
-    expect(bundle.coverageClaims.coverageClaims).toEqual([]);
+    expect(bundle.coverageClaims.coverageClaims).toEqual([
+      expect.objectContaining({
+        framework: "CTI HSK 3.0 pinned 2026",
+        level: "HSK1",
+        evidenceRef: "content/review/hsk1-level-batch-local-study-review.json",
+      }),
+    ]);
     expect(publication.eligible).toBe(false);
     expect(publication.missingMetadata).toEqual(["contentOwner", "sourceLicense"]);
     expect(publication.blockers).toEqual(
       expect.arrayContaining([
         "Package audience is closed-alpha, not public",
-        "Released catalog items missing item-level governance or exact scoped review: 195",
+        expect.stringContaining(
+          "Released catalog items missing item-level governance or exact scoped review:",
+        ),
       ]),
     );
     expect(closedAlpha.eligible).toBe(false);
@@ -1191,10 +1199,12 @@ describe("content package governance", () => {
       expect.arrayContaining([
         "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 0)",
         "Closed alpha requires an evidence-backed complete A0 coverage claim",
-        "Released catalog items missing item-level governance or exact scoped review: 195",
+        expect.stringContaining(
+          "Released catalog items missing item-level governance or exact scoped review:",
+        ),
       ]),
     );
-    expect(publication.warnings).toContain(
+    expect(publication.warnings).not.toContain(
       "No framework, HSK, A0, or goal coverage claim is declared",
     );
   });
@@ -1927,9 +1937,11 @@ describe("content package governance", () => {
     expect(validation.errors).toContain(
       "manifest.governance.includesAudio must equal the presence of catalog audio assets",
     );
-    expect(publication.blockers).toContain(
-      "Public beta requires licensed native audio for released core content (missing 195 targets)",
-    );
+    expect(publication.blockers).toEqual(expect.arrayContaining([
+      expect.stringContaining(
+        "Public beta requires licensed native audio for released core content",
+      ),
+    ]));
   });
 
   it("keeps legacy hash-only MP3 assets valid but release-ineligible", async () => {

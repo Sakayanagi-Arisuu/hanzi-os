@@ -103,20 +103,52 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
 
     expect(report.currentCoverage.vocabulary).toMatchObject({
       officialTotal: 2000,
-      runtimeTotal: 155,
-      runtimeMapped: 154,
+      runtimeTotal: 316,
+      runtimeMapped: 315,
       unmatchedRuntime: [{
         runtimeId: "yuenan",
         simplified: "越南",
         pinyin: "Yuènán",
       }],
-      pinyinDrift: [{
-        runtimeId: "xuesheng",
-        simplified: "学生",
-        runtimePinyin: "xuésheng",
-        officialPinyin: "xuéshēng",
-      }],
-      coveragePercent: 7.7,
+      pinyinDrift: [
+        {
+          runtimeId: "hsk-vocab-00014",
+          simplified: "不客气",
+          runtimePinyin: "bùkèqi",
+          officialPinyin: "bú kèqi",
+        },
+        {
+          runtimeId: "hsk-vocab-00015",
+          simplified: "不要",
+          runtimePinyin: "bùyào",
+          officialPinyin: "búyào",
+        },
+        {
+          runtimeId: "hsk-vocab-00181",
+          simplified: "谁",
+          runtimePinyin: "shéi",
+          officialPinyin: "shéi/shuí",
+        },
+        {
+          runtimeId: "hsk-vocab-00248",
+          simplified: "学生",
+          runtimePinyin: "xuésheng",
+          officialPinyin: "xuéshēng",
+        },
+        {
+          runtimeId: "hsk-vocab-00259",
+          simplified: "一下",
+          runtimePinyin: "yīxià",
+          officialPinyin: "yíxià",
+        },
+        {
+          runtimeId: "xuesheng",
+          simplified: "学生",
+          runtimePinyin: "xuésheng",
+          officialPinyin: "xuéshēng",
+        },
+      ],
+      coveragePercent: 15.75,
     });
     expect(report.currentCoverage.recognitionCharacters).toMatchObject({
       officialTotal: 1096,
@@ -129,8 +161,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       tasks: 0,
       topics: 0,
       grammarRows: 0,
-      officialVocabularyWithLessonMapping: 148,
-      runtimeLessonsMapped: 20,
+      officialVocabularyWithLessonMapping: 300,
+      runtimeLessonsMapped: 44,
     });
     expect(report.currentCoverage.authoringScope.hsk2).toEqual({
       units: 3,

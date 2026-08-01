@@ -350,8 +350,9 @@ describe("trusted persisted learning state", () => {
     expect(result.state.completedLessons).toEqual({});
   });
 
-  it("does not replay a released lesson blocked by the checked HSK path", () => {
+  it("replays newly released HSK1 evidence without losing local progress", () => {
     const state = structuredClone(INITIAL_LEARNING_STATE);
+    state.profile.startingLevel = "hsk1";
     const blocked = lessonSessionEvidence("characters-1");
     state.evidence = [...blocked.answers, blocked.completion];
     state.completedLessons["characters-1"] = {
@@ -383,9 +384,18 @@ describe("trusted persisted learning state", () => {
 
     expect(result.ok).toBe(true);
     if (!result.ok) return;
-    expect(result.state.evidence).toEqual([]);
-    expect(result.state.completedLessons).toEqual({});
-    expect(result.state.mistakes).toEqual([]);
+    expect(result.state.evidence.map((item) => item.idempotencyKey)).toEqual(
+      [...blocked.answers, blocked.completion].map((item) => item.idempotencyKey),
+    );
+    expect(result.state.completedLessons["characters-1"]).toEqual({
+      score: blocked.score.gateScore,
+      bestScore: blocked.score.gateScore,
+      attempts: 1,
+      completedAt: COMPLETION_TIME,
+    });
+    expect(result.state.mistakes.map((item) => item.id)).toEqual([
+      "characters-1:blocked",
+    ]);
   });
 
   it("preserves valid local progress, profile, aggregates, mistakes, and evidence on reload", () => {
@@ -608,10 +618,12 @@ describe("trusted persisted learning state", () => {
 
   it("does not revive historical draft or unknown content from a valid local snapshot", () => {
     const state = persistedFixture();
+    const historicalDraftId = "historical-authoring-draft";
+    const historicalQuestionId = `${historicalDraftId}:q1`;
     const releasedEvidenceKeys = state.evidence.map((item) =>
       item.idempotencyKey
     );
-    state.completedLessons["characters-3"] = {
+    state.completedLessons[historicalDraftId] = {
       score: 100,
       bestScore: 100,
       attempts: 1,
@@ -629,7 +641,7 @@ describe("trusted persisted learning state", () => {
       lapses: 0,
       state: 0,
     };
-    state.knowledge["characters-3:q1"] = {
+    state.knowledge[historicalQuestionId] = {
       attempts: 1,
       correct: 1,
       currentStreak: 1,
@@ -638,12 +650,12 @@ describe("trusted persisted learning state", () => {
     };
     state.mistakes.push({
       ...state.mistakes[0],
-      id: "characters-3:q1",
-      lessonId: "characters-3",
+      id: historicalQuestionId,
+      lessonId: historicalDraftId,
       wordId: undefined,
     });
     state.evidence.push(
-      evidence("draft-answer", "characters-3:q1"),
+      evidence("draft-answer", historicalQuestionId),
       {
         ...evidence("draft-reader", "unknown-story:q1"),
         source: "reader",
@@ -660,7 +672,7 @@ describe("trusted persisted learning state", () => {
       },
     );
     state.activityLog.push({
-      id: "activity:characters-3",
+      id: `activity:${historicalDraftId}`,
       type: "lesson",
       label: "Historical draft: character recognition III",
       xp: 40,
@@ -669,7 +681,7 @@ describe("trusted persisted learning state", () => {
     state.diagnostic = {
       completed: true,
       score: 90,
-      recommendedLessonId: "characters-3",
+      recommendedLessonId: historicalDraftId,
       completedAt: TIME,
     };
 
@@ -683,7 +695,7 @@ describe("trusted persisted learning state", () => {
     expect(Object.keys(result.state.completedLessons)).toEqual(["boot-1"]);
     expect(result.state.savedWords).toEqual(["ni"]);
     expect(result.state.fsrsCards["unknown-word"]).toBeUndefined();
-    expect(result.state.knowledge["characters-3:q1"]).toBeUndefined();
+    expect(result.state.knowledge[historicalQuestionId]).toBeUndefined();
     expect(result.state.mistakes.map((item) => item.id))
       .toEqual(["boot-1:q1"]);
     expect(result.state.evidence.map((item) => item.idempotencyKey))

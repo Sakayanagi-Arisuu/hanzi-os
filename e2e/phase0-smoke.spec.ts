@@ -79,7 +79,7 @@ test("does not bypass a released HSK1 lesson prerequisite", async ({ page }) => 
 
 test("does not expose a historical draft lesson opened by direct URL", async ({ page }) => {
   await finishOnboarding(page);
-  await page.goto("/lesson/characters-3");
+  await page.goto("/lesson/historical-authoring-draft");
   await expect(page.getByRole("heading", { name: "Không tìm thấy thử luyện" })).toBeVisible();
   await expect(page.getByText("ACCESS DENIED", { exact: false })).toHaveCount(0);
 });

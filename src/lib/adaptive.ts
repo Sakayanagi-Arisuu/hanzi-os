@@ -128,7 +128,8 @@ export const getGoalReadiness = (state: LearningState) => {
 export const isLessonUnlocked = (lesson: Lesson, state: LearningState) => {
   const releasedLesson = RELEASED_LESSON_BY_ID.get(lesson.id);
   if (
-    !releasedLesson
+    !isLessonReleased(lesson)
+    || !releasedLesson
     || !isLessonReleased(releasedLesson)
     || !isLessonIdAvailableForStartingLevel(
       releasedLesson.id,

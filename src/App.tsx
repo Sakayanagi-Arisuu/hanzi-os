@@ -4,6 +4,7 @@ import { AppShell } from "./components/AppShell";
 
 const AnalyticsPage = lazy(async () => ({ default: (await import("./screens/AnalyticsPage")).AnalyticsPage }));
 const AssessmentPage = lazy(async () => ({ default: (await import("./screens/AssessmentPage")).AssessmentPage }));
+const Hsk1LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk1LevelCheckPage")).Hsk1LevelCheckPage }));
 const CharactersPage = lazy(async () => ({ default: (await import("./screens/CharactersPage")).CharactersPage }));
 const DashboardPage = lazy(async () => ({ default: (await import("./screens/DashboardPage")).DashboardPage }));
 const DictionaryPage = lazy(async () => ({ default: (await import("./screens/DictionaryPage")).DictionaryPage }));
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/review" element={<ReviewPage />} />
           <Route path="/mistakes" element={<MistakesPage />} />
           <Route path="/assessment" element={<AssessmentPage />} />
+          <Route path="/assessment/hsk1" element={<Hsk1LevelCheckPage />} />
           <Route path="/pronunciation" element={<PronunciationPage />} />
           <Route path="/characters" element={<CharactersPage />} />
           <Route path="/reader" element={<ReaderPage />} />

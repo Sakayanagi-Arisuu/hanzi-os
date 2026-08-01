@@ -22,6 +22,11 @@ const HSK1_TARGET_LESSON_IDS = [
   "survival-2",
   "survival-3",
   "survival-4",
+  "survival-5",
+  "survival-6",
+  "survival-7",
+  "survival-8",
+  "survival-9",
   "hsk1-time-place-events-01-numbers",
   "hsk1-time-place-events-02-calendar",
   "hsk1-time-place-events-03-week-and-day-parts",
@@ -32,11 +37,29 @@ const HSK1_TARGET_LESSON_IDS = [
   "daily-2",
   "daily-3",
   "daily-4",
-];
-const BLOCKED_LESSON_IDS = [
+  "journey-1",
+  "journey-2",
+  "professional-1",
+  "professional-2",
+  "professional-3",
+  "professional-4",
   "characters-1",
   "characters-2",
+  "characters-3",
+  "characters-4",
+  "characters-5",
+  "characters-6",
+  "characters-7",
+  "characters-8",
+  "characters-9",
+  "characters-10",
+  "characters-11",
+  "characters-12",
+  "characters-13",
+  "characters-14",
+  "characters-15",
 ];
+const BLOCKED_LESSON_IDS = [];
 const UNAVAILABLE_PATH_IDS = ["hsk2", "hsk3", "hsk4"];
 const EXPECTATIONS = Object.freeze({
   lessonActivityCount: 10,

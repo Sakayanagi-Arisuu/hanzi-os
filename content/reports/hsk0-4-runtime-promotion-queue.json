@@ -5,12 +5,12 @@
     {
       "id": "graph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:77dff3080780927732394f0f9d3a65a79c95c68fc73d9d6a8fc6750e937297bb"
+      "sha256": "sha256:c3b1bcc0c9e27006b91cf955eaa51cba62f98cd77094a391d88ee66d3319989c"
     },
     {
       "id": "runtime",
       "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
-      "sha256": "sha256:0ada8ca939fb5ca5810940884ab56f3f929e7a8c45a7561776f09e956bc84f85"
+      "sha256": "sha256:4b316f3c5f1c05436b8e7d57593ffd74f292b5087b59e623a7eb607ef43da3ec"
     },
     {
       "id": "hsk1Scope",
@@ -101,8 +101,8 @@
     "blueprintApprovedLessons": 0,
     "reviewBatches": 509,
     "approvalRecords": 0,
-    "learnerVisibleTargetLessons": 14,
-    "prerequisiteBlockedSourceLessons": 2,
+    "learnerVisibleTargetLessons": 40,
+    "prerequisiteBlockedSourceLessons": 0,
     "unavailablePaths": 3,
     "completionClaims": 0,
     "promotionReadyUnits": 0
@@ -123,9 +123,9 @@
         "approvalRecordCount": 0,
         "releaseEligible": false
       },
-      "learnerVisibleTargetLessonCount": 14,
-      "sourceReleasedLessonCount": 16,
-      "prerequisiteBlockedSourceLessonCount": 2,
+      "learnerVisibleTargetLessonCount": 40,
+      "sourceReleasedLessonCount": 40,
+      "prerequisiteBlockedSourceLessonCount": 0,
       "units": [
         {
           "unitId": "hsk1-personal-exchange",
@@ -143,21 +143,30 @@
             "survival-1",
             "survival-2",
             "survival-3",
-            "survival-4"
+            "survival-4",
+            "survival-5",
+            "survival-6",
+            "survival-7",
+            "survival-8",
+            "survival-9"
           ],
           "learnerVisibleLessonIds": [
             "survival-1",
             "survival-2",
             "survival-3",
-            "survival-4"
+            "survival-4",
+            "survival-5",
+            "survival-6",
+            "survival-7",
+            "survival-8",
+            "survival-9"
           ],
           "prerequisiteRuntimeClosurePresent": true,
           "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "REVIEWED_AUDIO_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "REVIEWED_AUDIO_MISSING"
           ]
         },
         {
@@ -231,7 +240,7 @@
         {
           "unitId": "hsk1-travel-leisure",
           "sequence": 4,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk1-daily-life"
           ],
@@ -240,21 +249,26 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 69,
           "audioDependentItemCount": 23,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
+          "sourceReleasedLessonIds": [
+            "journey-1",
+            "journey-2"
+          ],
+          "learnerVisibleLessonIds": [
+            "journey-1",
+            "journey-2"
+          ],
           "prerequisiteRuntimeClosurePresent": true,
-          "promotionState": "blocked",
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "REVIEWED_AUDIO_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "REVIEWED_AUDIO_MISSING"
           ]
         },
         {
           "unitId": "hsk1-study-work",
           "sequence": 5,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk1-travel-leisure"
           ],
@@ -263,16 +277,24 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 105,
           "audioDependentItemCount": 35,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
-          "promotionState": "blocked",
+          "sourceReleasedLessonIds": [
+            "professional-1",
+            "professional-2",
+            "professional-3",
+            "professional-4"
+          ],
+          "learnerVisibleLessonIds": [
+            "professional-1",
+            "professional-2",
+            "professional-3",
+            "professional-4"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "REVIEWED_AUDIO_MISSING",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "REVIEWED_AUDIO_MISSING"
           ]
         },
         {
@@ -289,16 +311,43 @@
           "audioDependentItemCount": 0,
           "sourceReleasedLessonIds": [
             "characters-1",
-            "characters-2"
+            "characters-2",
+            "characters-3",
+            "characters-4",
+            "characters-5",
+            "characters-6",
+            "characters-7",
+            "characters-8",
+            "characters-9",
+            "characters-10",
+            "characters-11",
+            "characters-12",
+            "characters-13",
+            "characters-14",
+            "characters-15"
           ],
-          "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
-          "promotionState": "blocked",
+          "learnerVisibleLessonIds": [
+            "characters-1",
+            "characters-2",
+            "characters-3",
+            "characters-4",
+            "characters-5",
+            "characters-6",
+            "characters-7",
+            "characters-8",
+            "characters-9",
+            "characters-10",
+            "characters-11",
+            "characters-12",
+            "characters-13",
+            "characters-14",
+            "characters-15"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         }
       ]
@@ -336,12 +385,11 @@
           "audioDependentItemCount": 0,
           "sourceReleasedLessonIds": [],
           "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
+          "prerequisiteRuntimeClosurePresent": true,
           "promotionState": "blocked",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
             "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
           ]
         },
@@ -575,17 +623,16 @@
     }
   ],
   "nextPromotionCandidate": {
-    "pathId": "hsk1",
-    "unitId": "hsk1-travel-leisure",
-    "authoredLessonBlueprintCount": 2,
-    "authoredPracticeItemCount": 69,
-    "audioDependentItemCount": 23,
+    "pathId": "hsk2",
+    "unitId": "hsk2-situational-dialogue",
+    "authoredLessonBlueprintCount": 20,
+    "authoredPracticeItemCount": 0,
+    "audioDependentItemCount": 0,
     "sourceReleasedLessonCount": 0,
     "blueprintApprovedLessonCount": 0,
     "blockers": [
       "LEVEL_HUMAN_REVIEW_INCOMPLETE",
       "LESSON_REVIEW_INCOMPLETE",
-      "REVIEWED_AUDIO_MISSING",
       "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
     ],
     "requiredAction": "complete attributable review and reviewed audio, then import into a versioned runtime package and recompile prerequisite closure"

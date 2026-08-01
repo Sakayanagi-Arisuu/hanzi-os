@@ -781,7 +781,7 @@ test("walks the real local UI from the HSK0 bridge into rich HSK1 study", async 
   })).toBeVisible();
   await expect(page.getByRole("button", {
     name: "Nghe câu 你家有几个人？",
-  })).toBeVisible();
+  }).first()).toBeVisible();
   await expect(page.getByRole("heading", {
     name: "Ngữ pháp trong ngữ cảnh",
   })).toBeVisible();
@@ -808,7 +808,7 @@ test("walks the real local UI from the HSK0 bridge into rich HSK1 study", async 
     name: "Nghe câu 这个多少钱？",
   })).toBeVisible();
   await expect(page.getByRole("button", {
-    name: "Nghe câu 我要三个。",
+    name: "Nghe câu 我要一件。",
   })).toBeVisible();
   await expect(page.getByRole("heading", {
     name: "Nhiệm vụ giao tiếp",

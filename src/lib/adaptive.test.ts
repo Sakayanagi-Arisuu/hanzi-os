@@ -102,7 +102,7 @@ describe("lesson release and prerequisite policy", () => {
     expect(isLessonUnlocked(boot2, makeState({ "boot-1": completion(70) }))).toBe(true);
   });
 
-  it("keeps a released lesson locked when its curriculum unit prerequisite is unavailable", () => {
+  it("keeps a lesson locked without its prerequisite while retaining visible-path mistakes", () => {
     const characters1 = lesson("characters-1");
     const state = makeState({
       "survival-1": completion(100),
@@ -115,7 +115,7 @@ describe("lesson release and prerequisite policy", () => {
     expect(isMistakeFromActivePathContent({
       lessonId: "characters-1",
       wordId: "hsk-vocab-00254",
-    }, "hsk1")).toBe(false);
+    }, "hsk1")).toBe(true);
   });
 
   it("counts only released lessons in progress", () => {
@@ -126,16 +126,16 @@ describe("lesson release and prerequisite policy", () => {
     });
 
     expect(getReleasedLessonProgress(state)).toEqual({
-      completedCount: 1,
-      totalCount: 18,
-      remainingCount: 17,
-      progress: 6,
+      completedCount: 2,
+      totalCount: 44,
+      remainingCount: 42,
+      progress: 5,
     });
   });
 
   it("uses distinct active slices and never backfills an unpublished target", () => {
     expect(getReleasedLessonProgress(makeState({}, "zero")).totalCount).toBe(4);
-    expect(getReleasedLessonProgress(makeState({}, "hsk1")).totalCount).toBe(18);
+    expect(getReleasedLessonProgress(makeState({}, "hsk1")).totalCount).toBe(44);
     expect(getReleasedLessonProgress(makeState({}, "hsk4"))).toEqual({
       completedCount: 0,
       totalCount: 0,

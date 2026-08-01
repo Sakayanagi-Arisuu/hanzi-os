@@ -8,7 +8,7 @@
     "effective": "2026-07",
     "rightsDecision": "pending"
   },
-  "contentVersion": "foundation-2026.07.8",
+  "contentVersion": "foundation-2026.08.1",
   "officialInventory": {
     "tasks": {
       "1": 15,
@@ -44,8 +44,8 @@
   "currentCoverage": {
     "vocabulary": {
       "officialTotal": 2000,
-      "runtimeTotal": 155,
-      "runtimeMapped": 154,
+      "runtimeTotal": 316,
+      "runtimeMapped": 315,
       "unmatchedRuntime": [
         {
           "runtimeId": "yuenan",
@@ -55,19 +55,49 @@
       ],
       "pinyinDrift": [
         {
+          "runtimeId": "hsk-vocab-00014",
+          "simplified": "不客气",
+          "runtimePinyin": "bùkèqi",
+          "officialPinyin": "bú kèqi"
+        },
+        {
+          "runtimeId": "hsk-vocab-00015",
+          "simplified": "不要",
+          "runtimePinyin": "bùyào",
+          "officialPinyin": "búyào"
+        },
+        {
+          "runtimeId": "hsk-vocab-00181",
+          "simplified": "谁",
+          "runtimePinyin": "shéi",
+          "officialPinyin": "shéi/shuí"
+        },
+        {
+          "runtimeId": "hsk-vocab-00248",
+          "simplified": "学生",
+          "runtimePinyin": "xuésheng",
+          "officialPinyin": "xuéshēng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00259",
+          "simplified": "一下",
+          "runtimePinyin": "yīxià",
+          "officialPinyin": "yíxià"
+        },
+        {
           "runtimeId": "xuesheng",
           "simplified": "学生",
           "runtimePinyin": "xuésheng",
           "officialPinyin": "xuéshēng"
         }
       ],
-      "coveragePercent": 7.7,
+      "coveragePercent": 15.75,
       "byLevel": [
         {
           "level": 1,
           "officialIncremental": 300,
-          "runtimeMapped": 154,
-          "coveragePercent": 51.33
+          "runtimeMapped": 315,
+          "coveragePercent": 105
         },
         {
           "level": 2,
@@ -130,8 +160,8 @@
       "tasks": 0,
       "topics": 0,
       "grammarRows": 0,
-      "officialVocabularyWithLessonMapping": 148,
-      "runtimeLessonsMapped": 20
+      "officialVocabularyWithLessonMapping": 300,
+      "runtimeLessonsMapped": 44
     },
     "authoringScope": {
       "hsk1": {
@@ -839,7 +869,7 @@
       }
     },
     "learningMaterials": {
-      "runtimeLessons": 20,
+      "runtimeLessons": 44,
       "runtimeGradedTexts": 1,
       "curriculumPaths": 5,
       "curriculumUnits": 18

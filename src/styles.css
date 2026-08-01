@@ -1673,6 +1673,29 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
 .path-footer-note p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .path-footer-note strong { color: #cce0da; }
 
+.hsk-level-check-card {
+  margin-top: 24px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  background: linear-gradient(135deg, #0b1b18, #0b171d);
+  border: 1px solid #356259;
+}
+.hsk-level-check-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  background: #102923;
+  border: 1px solid #417267;
+}
+.hsk-level-check-card h2 { margin: 6px 0; font-size: 19px; }
+.hsk-level-check-card p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.hsk-level-check-card .primary-button { white-space: nowrap; }
+
 @keyframes railScan {
   0%, 100% { top: 0; opacity: 0.25; }
   50% { top: 78%; opacity: 1; }
@@ -4054,6 +4077,15 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
 .rich-dialogue-panel,
 .rich-grammar-panel,
 .rich-task-panel { min-width: 0; padding: 18px; background: #081410; border: 1px solid #203f37; }
+.rich-character-panel { min-width: 0; padding: 18px; background: #081410; border: 1px solid #203f37; }
+.rich-character-panel > h2 { margin: 0; display: flex; align-items: center; gap: 8px; color: var(--gold); font-size: 16px; }
+.rich-character-panel > p { color: var(--muted); font-size: 10px; line-height: 1.7; }
+.rich-character-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 7px; }
+.rich-character-grid > button { min-height: 116px; padding: 11px; display: grid; grid-template-columns: 1fr 18px; grid-template-rows: auto auto auto auto; gap: 2px 8px; color: var(--cyan); text-align: left; background: #07110f; border: 1px solid #294940; }
+.rich-character-grid > button > strong { grid-row: 1 / 4; align-self: center; font: 600 36px "Noto Sans SC", sans-serif; }
+.rich-character-grid > button > span { color: var(--gold); font-size: 11px; }
+.rich-character-grid > button > small { color: var(--muted); font-size: 9px; }
+.rich-character-grid > button > em { color: var(--dim); font-size: 9px; font-style: normal; }
 .rich-dialogue-panel h2,
 .rich-grammar-panel h2,
 .rich-task-panel h2 { margin: 0; display: flex; align-items: center; gap: 8px; color: #edf7f4; font-size: 15px; }
@@ -4354,6 +4386,8 @@ a.lesson-node:hover { color: var(--jade); border-color: #3b675b; transform: tran
   .assessment-actions { align-items: stretch; flex-direction: column; width: 100%; }
   .assessment-observation-list > div { grid-template-columns: 1fr; gap: 5px; }
   .assessment-observation-list strong { text-align: left; }
+  .hsk-level-check-card { grid-template-columns: 1fr; }
+  .hsk-level-check-card .primary-button { width: 100%; }
   .assessment-live { min-height: calc(100vh - 124px); padding: 12px; }
   .assessment-question { padding-top: 28px; }
   .assessment-question h1 { min-height: 120px; font-size: 37px; }

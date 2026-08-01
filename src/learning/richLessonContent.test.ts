@@ -24,8 +24,16 @@ describe("learner-facing rich lesson adapter", () => {
     expect(RICH_LESSON_DISCLOSURE.reviewVi).toContain("AI");
   });
 
-  it("does not invent rich content for another released lesson", () => {
-    expect(getRichLessonContent("survival-1")).toBeNull();
+  it("exposes rich dialogue, grammar and tasks for personal exchange", () => {
+    expect(getRichLessonContent("survival-1")).toMatchObject({
+      dialogue: expect.arrayContaining([
+        expect.objectContaining({ hanzi: "你好！" }),
+      ]),
+      grammar: expect.arrayContaining([
+        expect.objectContaining({ id: "hsk1-grammar-row-026" }),
+      ]),
+      tasks: [expect.objectContaining({ id: "hsk1-task-06" })],
+    });
   });
 
   it("exposes the corrected daily-life lesson presentation", () => {
@@ -33,7 +41,7 @@ describe("learner-facing rich lesson adapter", () => {
 
     expect(lesson).toMatchObject({
       dialogue: expect.arrayContaining([
-        expect.objectContaining({ hanzi: "我要三个。" }),
+        expect.objectContaining({ hanzi: "我要一点儿。" }),
       ]),
       grammar: expect.arrayContaining([
         expect.objectContaining({ id: "hsk1-grammar-row-012" }),
@@ -41,7 +49,7 @@ describe("learner-facing rich lesson adapter", () => {
       topics: [expect.objectContaining({ id: "hsk1-topic-017" })],
       tasks: [expect.objectContaining({ id: "hsk1-task-09" })],
     });
-    expect(getRichLessonContent("daily-4")?.grammar).toEqual(
+    expect(getRichLessonContent("daily-2")?.grammar).toEqual(
       expect.arrayContaining([
         expect.objectContaining({ id: "hsk1-grammar-row-007" }),
       ]),

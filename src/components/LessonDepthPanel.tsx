@@ -3,6 +3,7 @@ import {
   Languages,
   MessageCircleMore,
   MessagesSquare,
+  ScanText,
   Volume2,
 } from "lucide-react";
 import {
@@ -108,6 +109,29 @@ export function LessonDepthPanel({ lessonId }: { lessonId: string }) {
           </div>
         </section>
       </div>
+
+      {content.characters.length > 0 && (
+        <section className="rich-character-panel">
+          <h2><ScanText size={19} /> Chữ Hán trong từ đã học</h2>
+          <p>Đọc cả từ ngữ cảnh, nhận ra chữ mục tiêu rồi tự chép và đối chiếu hình dạng.</p>
+          <div className="rich-character-grid">
+            {content.characters.map((character) => (
+              <button
+                key={character.id}
+                type="button"
+                onClick={() => speakMandarin(character.contextWord)}
+                aria-label={`Nghe từ ${character.contextWord}`}
+              >
+                <strong>{character.hanzi}</strong>
+                <span>{character.pinyin}</span>
+                <small>{character.contextWord} · {character.contextPinyin}</small>
+                <em>{character.contextMeaningVi}</em>
+                <Volume2 size={15} />
+              </button>
+            ))}
+          </div>
+        </section>
+      )}
 
       {(content.topics.length > 0 || content.tasks.length > 0) && (
         <section className="rich-task-panel">

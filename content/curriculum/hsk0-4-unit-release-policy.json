@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "policyId": "hsk0-4-unit-release-policy-2026.07.1",
   "curriculumGraphId": "hsk0-4-graduation-2026.07.2",
-  "runtimeContentVersion": "foundation-2026.07.8",
+  "runtimeContentVersion": "foundation-2026.08.1",
   "authorizationScope": "runtime-unit-activation-only",
   "grantsContentReviewApproval": false,
   "grantsMastery": false,
@@ -32,7 +32,12 @@
         "survival-1",
         "survival-2",
         "survival-3",
-        "survival-4"
+        "survival-4",
+        "survival-5",
+        "survival-6",
+        "survival-7",
+        "survival-8",
+        "survival-9"
       ]
     },
     {
@@ -53,6 +58,42 @@
         "daily-2",
         "daily-3",
         "daily-4"
+      ]
+    },
+    {
+      "unitId": "hsk1-travel-leisure",
+      "lessonIds": [
+        "journey-1",
+        "journey-2"
+      ]
+    },
+    {
+      "unitId": "hsk1-study-work",
+      "lessonIds": [
+        "professional-1",
+        "professional-2",
+        "professional-3",
+        "professional-4"
+      ]
+    },
+    {
+      "unitId": "hsk1-character-foundation",
+      "lessonIds": [
+        "characters-1",
+        "characters-2",
+        "characters-3",
+        "characters-4",
+        "characters-5",
+        "characters-6",
+        "characters-7",
+        "characters-8",
+        "characters-9",
+        "characters-10",
+        "characters-11",
+        "characters-12",
+        "characters-13",
+        "characters-14",
+        "characters-15"
       ]
     }
   ]

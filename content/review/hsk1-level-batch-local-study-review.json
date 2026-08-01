@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "hsk1-level-batch-local-study-review-2026.08.1",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "level": "HSK1",
+  "targetContentVersion": "foundation-2026.08.1",
+  "reviewedAt": "2026-08-01T09:00:00.000Z",
+  "state": "ai-reviewed",
+  "reviewer": {
+    "reviewerId": "openai-codex-ai-assisted-review",
+    "reviewerKind": "ai-coding-agent",
+    "humanReviewed": false,
+    "disclosureVi": "Nội dung được Codex tự rà soát năm pass cho mục đích tự học local; chưa được người bản ngữ kiểm duyệt."
+  },
+  "inheritedReviewBindings": [
+    {
+      "unitId": "hsk1-time-place-events",
+      "reviewId": "hsk1-time-place-events-local-study-review-2026.07.1",
+      "relativePath": "content/review/hsk1-time-place-events-local-study-review.json",
+      "selectedPayloadSha256": "sha256:18c2ea185297e7625f4c7fffbc6df17738b8a757e601c34df4ae3de41f65005f"
+    },
+    {
+      "unitId": "hsk1-daily-life",
+      "reviewId": "hsk1-daily-life-local-study-review-2026.07.1",
+      "relativePath": "content/review/hsk1-daily-life-local-study-review.json",
+      "selectedPayloadSha256": "sha256:cb3e7446fd5ed8d9559aca7c92bb4233da6014645b772b57c81712f939c1a8a4"
+    }
+  ],
+  "newlyReviewedUnits": [
+    "hsk1-personal-exchange",
+    "hsk1-travel-leisure",
+    "hsk1-study-work",
+    "hsk1-character-foundation",
+    "hsk1-level-check"
+  ],
+  "coverage": {
+    "lessons": 40,
+    "vocabulary": 300,
+    "recognitionCharacters": 246,
+    "grammarRows": 66,
+    "tasks": 15,
+    "topics": 30,
+    "dialogueTurns": 102,
+    "vocabularyPracticeItems": 900,
+    "characterPracticeItems": 492,
+    "grammarPracticeItems": 66,
+    "taskPracticeItems": 15,
+    "localLevelCheckItems": 50
+  },
+  "coverageDigest": "sha256:f0b0e7df07d1161b1dae41878103d0b9668f72df151ab893f7c45a96e79d04a6",
+  "reviewResult": {
+    "mode": "ai-assisted-self-review",
+    "aiAssistedDisclosed": true,
+    "humanReviewed": false,
+    "unresolvedIssueCount": 0,
+    "passResults": {
+      "mandarin-accuracy-and-naturalness": "passed",
+      "pinyin-and-tone-consistency": "passed",
+      "vietnamese-context-and-clarity": "passed",
+      "pedagogy-rubric-and-distractors": "passed",
+      "source-and-level-coverage": "passed"
+    }
+  },
+  "findings": {
+    "resolved": [
+      {
+        "findingId": "missing-runtime-coverage-for-165-official-lexemes",
+        "pass": "source-and-level-coverage",
+        "summary": "165 từ HSK1 ở personal exchange, travel/leisure và study/work chưa có runtime ID chính thức.",
+        "resolution": "Chiếu đủ 300 ID từ vựng chính thức, giữ nguyên các ID bridge cũ để không làm mất progress local."
+      },
+      {
+        "findingId": "erhua-runtime-numbered-pinyin",
+        "pass": "pinyin-and-tone-consistency",
+        "summary": "Một số mục Erhua mới dùng r5 tách rời trong nguồn từ điển.",
+        "resolution": "Chuẩn hóa final Erhua liền âm tiết cho 哪儿, 那儿, 这儿, 有点儿 và 好玩儿."
+      },
+      {
+        "findingId": "character-drafts-not-learner-visible",
+        "pass": "pedagogy-rubric-and-distractors",
+        "summary": "246 chữ mới chỉ có draft nhận diện và tự chép, chưa có ngữ cảnh trên Lesson UI.",
+        "resolution": "Gom thành 15 micro-lesson, mỗi bài có từ ngữ cảnh, nhận diện chữ, tự chép và tiêu chí tự kiểm không cấp mastery."
+      },
+      {
+        "findingId": "level-check-authoring-only",
+        "pass": "pedagogy-rubric-and-distractors",
+        "summary": "50 mục level check chưa thể dùng vì đang chờ audio/nghiệm chuẩn production.",
+        "resolution": "Mở local self-check có phân tích theo kỹ năng; nghe dùng browser TTS tổng hợp và toàn form không cấp mastery, waiver hoặc chứng nhận."
+      }
+    ],
+    "unresolved": []
+  },
+  "claims": {
+    "readyForPersonalLocalStudyPackaging": true,
+    "browserTtsPracticeOnly": true,
+    "nativeAudio": false,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false,
+    "officialHskCertification": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "reviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7"
+}

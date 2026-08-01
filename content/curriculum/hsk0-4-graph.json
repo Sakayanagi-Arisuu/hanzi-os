@@ -6,7 +6,7 @@
     "sourcePdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
     "inventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
   },
-  "runtimeContentVersion": "foundation-2026.07.8",
+  "runtimeContentVersion": "foundation-2026.08.1",
   "coverageClaims": {
     "hsk1": false,
     "hsk2": false,
@@ -31,7 +31,9 @@
       "pathId": "hsk1",
       "stageIndex": 1,
       "officialExamLevel": 1,
-      "prerequisitePathIds": ["hsk0"],
+      "prerequisitePathIds": [
+        "hsk0"
+      ],
       "unitIds": [
         "hsk1-personal-exchange",
         "hsk1-time-place-events",
@@ -53,7 +55,9 @@
       "pathId": "hsk2",
       "stageIndex": 2,
       "officialExamLevel": 2,
-      "prerequisitePathIds": ["hsk1"],
+      "prerequisitePathIds": [
+        "hsk1"
+      ],
       "unitIds": [
         "hsk2-situational-dialogue",
         "hsk2-sentence-chains",
@@ -72,7 +76,9 @@
       "pathId": "hsk3",
       "stageIndex": 3,
       "officialExamLevel": 3,
-      "prerequisitePathIds": ["hsk2"],
+      "prerequisitePathIds": [
+        "hsk2"
+      ],
       "unitIds": [
         "hsk3-paragraph-input",
         "hsk3-narration",
@@ -91,7 +97,9 @@
       "pathId": "hsk4",
       "stageIndex": 4,
       "officialExamLevel": 4,
-      "prerequisitePathIds": ["hsk3"],
+      "prerequisitePathIds": [
+        "hsk3"
+      ],
       "unitIds": [
         "hsk4-deep-comprehension",
         "hsk4-summary-argument",
@@ -124,7 +132,9 @@
       "status": "foundation",
       "title": "Lượt thoại đầu tiên",
       "objective": "Nghe và phản hồi những lượt chào hỏi tối thiểu.",
-      "prerequisiteUnitIds": ["hsk0-tone-basics"]
+      "prerequisiteUnitIds": [
+        "hsk0-tone-basics"
+      ]
     },
     {
       "unitId": "hsk0-pronunciation-control",
@@ -133,7 +143,9 @@
       "status": "foundation",
       "title": "Âm đầu khó và tone pair",
       "objective": "Phân biệt âm đầu khó và kiểm soát chuỗi hai thanh.",
-      "prerequisiteUnitIds": ["hsk0-first-interaction"]
+      "prerequisiteUnitIds": [
+        "hsk0-first-interaction"
+      ]
     },
     {
       "unitId": "hsk1-personal-exchange",
@@ -142,7 +154,9 @@
       "status": "foundation",
       "title": "Thông tin cá nhân và giao tiếp",
       "objective": "Hiểu và tạo câu ngắn trong hỏi đáp cá nhân.",
-      "prerequisiteUnitIds": ["hsk0-pronunciation-control"]
+      "prerequisiteUnitIds": [
+        "hsk0-pronunciation-control"
+      ]
     },
     {
       "unitId": "hsk1-time-place-events",
@@ -151,7 +165,9 @@
       "status": "foundation",
       "title": "Thời gian, địa điểm và sự kiện",
       "objective": "Hỏi đáp thời gian, vị trí, thời tiết và thông tin sự kiện bằng câu ngắn.",
-      "prerequisiteUnitIds": ["hsk1-personal-exchange"]
+      "prerequisiteUnitIds": [
+        "hsk1-personal-exchange"
+      ]
     },
     {
       "unitId": "hsk1-daily-life",
@@ -160,25 +176,31 @@
       "status": "foundation",
       "title": "Ăn uống, mua sắm và sức khỏe",
       "objective": "Hoàn thành lượt thoại ngắn về nhu cầu hằng ngày, giá cả và sức khỏe.",
-      "prerequisiteUnitIds": ["hsk1-time-place-events"]
+      "prerequisiteUnitIds": [
+        "hsk1-time-place-events"
+      ]
     },
     {
       "unitId": "hsk1-travel-leisure",
       "pathId": "hsk1",
       "sequence": 4,
-      "status": "planned",
+      "status": "foundation",
       "title": "Đi lại và giải trí",
       "objective": "Hỏi đường, sắp xếp di chuyển và trao đổi hoạt động giải trí cơ bản.",
-      "prerequisiteUnitIds": ["hsk1-daily-life"]
+      "prerequisiteUnitIds": [
+        "hsk1-daily-life"
+      ]
     },
     {
       "unitId": "hsk1-study-work",
       "pathId": "hsk1",
       "sequence": 5,
-      "status": "planned",
+      "status": "foundation",
       "title": "Học tập và công việc",
       "objective": "Giới thiệu khóa học, trường lớp, nghề nghiệp và lịch làm việc cơ bản.",
-      "prerequisiteUnitIds": ["hsk1-travel-leisure"]
+      "prerequisiteUnitIds": [
+        "hsk1-travel-leisure"
+      ]
     },
     {
       "unitId": "hsk1-character-foundation",
@@ -187,7 +209,9 @@
       "status": "foundation",
       "title": "Đọc viết chữ nền",
       "objective": "Nhận diện 246 chữ HSK1 và viết có kiểm soát các chữ đã học trong ngữ cảnh.",
-      "prerequisiteUnitIds": ["hsk1-study-work"]
+      "prerequisiteUnitIds": [
+        "hsk1-study-work"
+      ]
     },
     {
       "unitId": "hsk2-situational-dialogue",
@@ -196,7 +220,9 @@
       "status": "planned",
       "title": "Hội thoại theo tình huống",
       "objective": "Duy trì chuỗi hỏi đáp đời sống thay vì câu đơn rời rạc.",
-      "prerequisiteUnitIds": ["hsk1-character-foundation"]
+      "prerequisiteUnitIds": [
+        "hsk1-character-foundation"
+      ]
     },
     {
       "unitId": "hsk2-sentence-chains",
@@ -205,7 +231,9 @@
       "status": "planned",
       "title": "Chuỗi câu và quan hệ ngữ pháp",
       "objective": "Ghép câu có aspect, bổ ngữ và quan hệ thời gian nền.",
-      "prerequisiteUnitIds": ["hsk2-situational-dialogue"]
+      "prerequisiteUnitIds": [
+        "hsk2-situational-dialogue"
+      ]
     },
     {
       "unitId": "hsk2-short-text-production",
@@ -214,7 +242,9 @@
       "status": "planned",
       "title": "Dictation và văn bản ngắn",
       "objective": "Nghe, dựng câu và viết văn bản ngắn có kiểm soát.",
-      "prerequisiteUnitIds": ["hsk2-sentence-chains"]
+      "prerequisiteUnitIds": [
+        "hsk2-sentence-chains"
+      ]
     },
     {
       "unitId": "hsk3-paragraph-input",
@@ -223,7 +253,9 @@
       "status": "planned",
       "title": "Nghe đọc cấp đoạn",
       "objective": "Theo dõi ý chính và chi tiết trong đoạn liên kết.",
-      "prerequisiteUnitIds": ["hsk2-short-text-production"]
+      "prerequisiteUnitIds": [
+        "hsk2-short-text-production"
+      ]
     },
     {
       "unitId": "hsk3-narration",
@@ -232,7 +264,9 @@
       "status": "planned",
       "title": "Tường thuật và liên kết diễn ngôn",
       "objective": "Kể lại sự kiện với trình tự và liên kết rõ ràng.",
-      "prerequisiteUnitIds": ["hsk3-paragraph-input"]
+      "prerequisiteUnitIds": [
+        "hsk3-paragraph-input"
+      ]
     },
     {
       "unitId": "hsk3-guided-production",
@@ -241,7 +275,9 @@
       "status": "planned",
       "title": "Sản sinh có hướng dẫn",
       "objective": "Dictation, viết đoạn và nói theo rubric đã review.",
-      "prerequisiteUnitIds": ["hsk3-narration"]
+      "prerequisiteUnitIds": [
+        "hsk3-narration"
+      ]
     },
     {
       "unitId": "hsk4-deep-comprehension",
@@ -250,7 +286,9 @@
       "status": "planned",
       "title": "Đọc nghe chuyên sâu",
       "objective": "Khai thác ý chính, lập luận và thông tin ngầm trong văn bản dài hơn.",
-      "prerequisiteUnitIds": ["hsk3-guided-production"]
+      "prerequisiteUnitIds": [
+        "hsk3-guided-production"
+      ]
     },
     {
       "unitId": "hsk4-summary-argument",
@@ -259,7 +297,9 @@
       "status": "planned",
       "title": "Tóm tắt và lập luận",
       "objective": "Paraphrase, tóm tắt và trình bày quan điểm có cấu trúc.",
-      "prerequisiteUnitIds": ["hsk4-deep-comprehension"]
+      "prerequisiteUnitIds": [
+        "hsk4-deep-comprehension"
+      ]
     },
     {
       "unitId": "hsk4-timed-integration",
@@ -268,7 +308,9 @@
       "status": "planned",
       "title": "Tích hợp có giới hạn thời gian",
       "objective": "Phối hợp kỹ năng trong bài luyện và mock có giới hạn thời gian.",
-      "prerequisiteUnitIds": ["hsk4-summary-argument"]
+      "prerequisiteUnitIds": [
+        "hsk4-summary-argument"
+      ]
     }
   ],
   "lessonMappings": [
@@ -276,140 +318,1098 @@
       "lessonId": "boot-1",
       "unitId": "hsk0-tone-basics",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00254", "hsk-vocab-00170", "hsk-vocab-00146", "hsk-vocab-00049"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00254",
+        "hsk-vocab-00170",
+        "hsk-vocab-00146",
+        "hsk-vocab-00049"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "boot-2",
       "unitId": "hsk0-first-interaction",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00146", "hsk-vocab-00071", "hsk-vocab-00221"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00146",
+        "hsk-vocab-00071",
+        "hsk-vocab-00221"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "boot-3",
       "unitId": "hsk0-pronunciation-control",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00241", "hsk-vocab-00289", "hsk-vocab-00021"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00241",
+        "hsk-vocab-00289",
+        "hsk-vocab-00021"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "boot-4",
       "unitId": "hsk0-pronunciation-control",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00146", "hsk-vocab-00071", "hsk-vocab-00248", "hsk-vocab-00107"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00146",
+        "hsk-vocab-00071",
+        "hsk-vocab-00248",
+        "hsk-vocab-00107"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "survival-1",
       "unitId": "hsk1-personal-exchange",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00221", "hsk-vocab-00188", "hsk-vocab-00248", "hsk-vocab-00107"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00014",
+        "hsk-vocab-00045",
+        "hsk-vocab-00088",
+        "hsk-vocab-00120",
+        "hsk-vocab-00121",
+        "hsk-vocab-00147",
+        "hsk-vocab-00165",
+        "hsk-vocab-00166",
+        "hsk-vocab-00218",
+        "hsk-vocab-00241",
+        "hsk-vocab-00272"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "survival-2",
       "unitId": "hsk1-personal-exchange",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00146", "hsk-vocab-00071", "hsk-vocab-00115", "hsk-vocab-00013"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00026",
+        "hsk-vocab-00115",
+        "hsk-vocab-00124",
+        "hsk-vocab-00146",
+        "hsk-vocab-00148",
+        "hsk-vocab-00150",
+        "hsk-vocab-00170",
+        "hsk-vocab-00188",
+        "hsk-vocab-00200",
+        "hsk-vocab-00201",
+        "hsk-vocab-00202",
+        "hsk-vocab-00203",
+        "hsk-vocab-00204",
+        "hsk-vocab-00205",
+        "hsk-vocab-00221",
+        "hsk-vocab-00222"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "survival-3",
       "unitId": "hsk1-personal-exchange",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00241", "hsk-vocab-00272", "hsk-vocab-00146"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00066",
+        "hsk-vocab-00091",
+        "hsk-vocab-00130",
+        "hsk-vocab-00142",
+        "hsk-vocab-00152",
+        "hsk-vocab-00155",
+        "hsk-vocab-00181",
+        "hsk-vocab-00182",
+        "hsk-vocab-00199",
+        "hsk-vocab-00231",
+        "hsk-vocab-00276",
+        "hsk-vocab-00277"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "survival-4",
       "unitId": "hsk1-personal-exchange",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00170", "hsk-vocab-00289", "hsk-vocab-00188"],
-      "unmappedRuntimeWordIds": ["yuenan"]
+      "officialVocabularyIds": [
+        "hsk-vocab-00003",
+        "hsk-vocab-00030",
+        "hsk-vocab-00032",
+        "hsk-vocab-00048",
+        "hsk-vocab-00059",
+        "hsk-vocab-00068",
+        "hsk-vocab-00086",
+        "hsk-vocab-00087",
+        "hsk-vocab-00092",
+        "hsk-vocab-00114",
+        "hsk-vocab-00123",
+        "hsk-vocab-00153",
+        "hsk-vocab-00263"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-5",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00001",
+        "hsk-vocab-00061",
+        "hsk-vocab-00064",
+        "hsk-vocab-00078",
+        "hsk-vocab-00119",
+        "hsk-vocab-00143",
+        "hsk-vocab-00154",
+        "hsk-vocab-00156",
+        "hsk-vocab-00171",
+        "hsk-vocab-00225",
+        "hsk-vocab-00235",
+        "hsk-vocab-00287"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-6",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00025",
+        "hsk-vocab-00053",
+        "hsk-vocab-00057",
+        "hsk-vocab-00071",
+        "hsk-vocab-00073",
+        "hsk-vocab-00074",
+        "hsk-vocab-00079",
+        "hsk-vocab-00096",
+        "hsk-vocab-00158",
+        "hsk-vocab-00206",
+        "hsk-vocab-00234",
+        "hsk-vocab-00242",
+        "hsk-vocab-00265",
+        "hsk-vocab-00285"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-7",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00013",
+        "hsk-vocab-00015",
+        "hsk-vocab-00041",
+        "hsk-vocab-00044",
+        "hsk-vocab-00067",
+        "hsk-vocab-00082",
+        "hsk-vocab-00102",
+        "hsk-vocab-00122",
+        "hsk-vocab-00145",
+        "hsk-vocab-00196",
+        "hsk-vocab-00197",
+        "hsk-vocab-00233",
+        "hsk-vocab-00252",
+        "hsk-vocab-00253",
+        "hsk-vocab-00264",
+        "hsk-vocab-00266",
+        "hsk-vocab-00270"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-8",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00004",
+        "hsk-vocab-00024",
+        "hsk-vocab-00035",
+        "hsk-vocab-00144",
+        "hsk-vocab-00187",
+        "hsk-vocab-00189",
+        "hsk-vocab-00219",
+        "hsk-vocab-00259"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "survival-9",
+      "unitId": "hsk1-personal-exchange",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00108",
+        "hsk-vocab-00161",
+        "hsk-vocab-00194",
+        "hsk-vocab-00195"
+      ],
+      "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "hsk1-time-place-events-01-numbers",
       "unitId": "hsk1-time-place-events",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00002", "hsk-vocab-00006", "hsk-vocab-00007", "hsk-vocab-00049", "hsk-vocab-00095", "hsk-vocab-00111", "hsk-vocab-00112", "hsk-vocab-00113", "hsk-vocab-00160", "hsk-vocab-00162", "hsk-vocab-00173", "hsk-vocab-00184", "hsk-vocab-00198", "hsk-vocab-00223", "hsk-vocab-00254"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00002",
+        "hsk-vocab-00006",
+        "hsk-vocab-00007",
+        "hsk-vocab-00049",
+        "hsk-vocab-00095",
+        "hsk-vocab-00111",
+        "hsk-vocab-00112",
+        "hsk-vocab-00113",
+        "hsk-vocab-00160",
+        "hsk-vocab-00162",
+        "hsk-vocab-00173",
+        "hsk-vocab-00184",
+        "hsk-vocab-00198",
+        "hsk-vocab-00223",
+        "hsk-vocab-00254"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "hsk1-time-place-events-02-calendar",
       "unitId": "hsk1-time-place-events",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00031", "hsk-vocab-00076", "hsk-vocab-00093", "hsk-vocab-00094", "hsk-vocab-00128", "hsk-vocab-00129", "hsk-vocab-00149", "hsk-vocab-00168", "hsk-vocab-00172", "hsk-vocab-00207", "hsk-vocab-00269", "hsk-vocab-00297"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00031",
+        "hsk-vocab-00076",
+        "hsk-vocab-00093",
+        "hsk-vocab-00094",
+        "hsk-vocab-00128",
+        "hsk-vocab-00129",
+        "hsk-vocab-00149",
+        "hsk-vocab-00168",
+        "hsk-vocab-00172",
+        "hsk-vocab-00207",
+        "hsk-vocab-00269",
+        "hsk-vocab-00297"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
       "unitId": "hsk1-time-place-events",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00005", "hsk-vocab-00178", "hsk-vocab-00215", "hsk-vocab-00217", "hsk-vocab-00230", "hsk-vocab-00243", "hsk-vocab-00244", "hsk-vocab-00245", "hsk-vocab-00273", "hsk-vocab-00275", "hsk-vocab-00291"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00005",
+        "hsk-vocab-00178",
+        "hsk-vocab-00215",
+        "hsk-vocab-00217",
+        "hsk-vocab-00230",
+        "hsk-vocab-00243",
+        "hsk-vocab-00244",
+        "hsk-vocab-00245",
+        "hsk-vocab-00273",
+        "hsk-vocab-00275",
+        "hsk-vocab-00291"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "hsk1-time-place-events-04-clock-and-duration",
       "unitId": "hsk1-time-place-events",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00029", "hsk-vocab-00033", "hsk-vocab-00055", "hsk-vocab-00056", "hsk-vocab-00080", "hsk-vocab-00163", "hsk-vocab-00185", "hsk-vocab-00186", "hsk-vocab-00232", "hsk-vocab-00236"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00029",
+        "hsk-vocab-00033",
+        "hsk-vocab-00055",
+        "hsk-vocab-00056",
+        "hsk-vocab-00080",
+        "hsk-vocab-00163",
+        "hsk-vocab-00185",
+        "hsk-vocab-00186",
+        "hsk-vocab-00232",
+        "hsk-vocab-00236"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "hsk1-time-place-events-05-location",
       "unitId": "hsk1-time-place-events",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00011", "hsk-vocab-00110", "hsk-vocab-00131", "hsk-vocab-00132", "hsk-vocab-00133", "hsk-vocab-00134", "hsk-vocab-00135", "hsk-vocab-00136", "hsk-vocab-00137", "hsk-vocab-00138", "hsk-vocab-00139", "hsk-vocab-00140", "hsk-vocab-00141", "hsk-vocab-00175", "hsk-vocab-00212", "hsk-vocab-00213", "hsk-vocab-00226", "hsk-vocab-00239", "hsk-vocab-00279", "hsk-vocab-00280", "hsk-vocab-00281", "hsk-vocab-00282", "hsk-vocab-00283", "hsk-vocab-00284"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00011",
+        "hsk-vocab-00110",
+        "hsk-vocab-00131",
+        "hsk-vocab-00132",
+        "hsk-vocab-00133",
+        "hsk-vocab-00134",
+        "hsk-vocab-00135",
+        "hsk-vocab-00136",
+        "hsk-vocab-00137",
+        "hsk-vocab-00138",
+        "hsk-vocab-00139",
+        "hsk-vocab-00140",
+        "hsk-vocab-00141",
+        "hsk-vocab-00175",
+        "hsk-vocab-00212",
+        "hsk-vocab-00213",
+        "hsk-vocab-00226",
+        "hsk-vocab-00239",
+        "hsk-vocab-00279",
+        "hsk-vocab-00280",
+        "hsk-vocab-00281",
+        "hsk-vocab-00282",
+        "hsk-vocab-00283",
+        "hsk-vocab-00284"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "hsk1-time-place-events-06-weather-and-residence",
       "unitId": "hsk1-time-place-events",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00109", "hsk-vocab-00169", "hsk-vocab-00208", "hsk-vocab-00227", "hsk-vocab-00251", "hsk-vocab-00267", "hsk-vocab-00271", "hsk-vocab-00286", "hsk-vocab-00294"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00109",
+        "hsk-vocab-00169",
+        "hsk-vocab-00208",
+        "hsk-vocab-00227",
+        "hsk-vocab-00251",
+        "hsk-vocab-00267",
+        "hsk-vocab-00271",
+        "hsk-vocab-00286",
+        "hsk-vocab-00294"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-1",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00046", "hsk-vocab-00047", "hsk-vocab-00060", "hsk-vocab-00085", "hsk-vocab-00104", "hsk-vocab-00105", "hsk-vocab-00164", "hsk-vocab-00180", "hsk-vocab-00258", "hsk-vocab-00261", "hsk-vocab-00262", "hsk-vocab-00268"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00046",
+        "hsk-vocab-00047",
+        "hsk-vocab-00060",
+        "hsk-vocab-00085",
+        "hsk-vocab-00104",
+        "hsk-vocab-00105",
+        "hsk-vocab-00164",
+        "hsk-vocab-00180",
+        "hsk-vocab-00258",
+        "hsk-vocab-00261",
+        "hsk-vocab-00262",
+        "hsk-vocab-00268"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-2",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00008", "hsk-vocab-00009", "hsk-vocab-00016", "hsk-vocab-00017", "hsk-vocab-00021", "hsk-vocab-00050", "hsk-vocab-00051", "hsk-vocab-00072", "hsk-vocab-00077", "hsk-vocab-00084", "hsk-vocab-00090", "hsk-vocab-00125", "hsk-vocab-00126", "hsk-vocab-00127", "hsk-vocab-00151", "hsk-vocab-00159", "hsk-vocab-00192", "hsk-vocab-00193", "hsk-vocab-00216", "hsk-vocab-00224", "hsk-vocab-00274", "hsk-vocab-00300"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00008",
+        "hsk-vocab-00009",
+        "hsk-vocab-00016",
+        "hsk-vocab-00017",
+        "hsk-vocab-00021",
+        "hsk-vocab-00050",
+        "hsk-vocab-00051",
+        "hsk-vocab-00072",
+        "hsk-vocab-00077",
+        "hsk-vocab-00084",
+        "hsk-vocab-00090",
+        "hsk-vocab-00125",
+        "hsk-vocab-00126",
+        "hsk-vocab-00127",
+        "hsk-vocab-00151",
+        "hsk-vocab-00159",
+        "hsk-vocab-00192",
+        "hsk-vocab-00193",
+        "hsk-vocab-00216",
+        "hsk-vocab-00224",
+        "hsk-vocab-00274",
+        "hsk-vocab-00300"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-3",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00019", "hsk-vocab-00023", "hsk-vocab-00034", "hsk-vocab-00040", "hsk-vocab-00065", "hsk-vocab-00089", "hsk-vocab-00116", "hsk-vocab-00117", "hsk-vocab-00157", "hsk-vocab-00174", "hsk-vocab-00255", "hsk-vocab-00278"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00019",
+        "hsk-vocab-00023",
+        "hsk-vocab-00034",
+        "hsk-vocab-00040",
+        "hsk-vocab-00065",
+        "hsk-vocab-00089",
+        "hsk-vocab-00116",
+        "hsk-vocab-00117",
+        "hsk-vocab-00157",
+        "hsk-vocab-00174",
+        "hsk-vocab-00255",
+        "hsk-vocab-00278"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-4",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00012", "hsk-vocab-00052", "hsk-vocab-00100", "hsk-vocab-00183", "hsk-vocab-00256", "hsk-vocab-00257", "hsk-vocab-00260", "hsk-vocab-00295"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00012",
+        "hsk-vocab-00052",
+        "hsk-vocab-00100",
+        "hsk-vocab-00183",
+        "hsk-vocab-00256",
+        "hsk-vocab-00257",
+        "hsk-vocab-00260",
+        "hsk-vocab-00295"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "journey-1",
+      "unitId": "hsk1-travel-leisure",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00020",
+        "hsk-vocab-00022",
+        "hsk-vocab-00054",
+        "hsk-vocab-00081",
+        "hsk-vocab-00083",
+        "hsk-vocab-00097",
+        "hsk-vocab-00098",
+        "hsk-vocab-00106",
+        "hsk-vocab-00167",
+        "hsk-vocab-00298"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "journey-2",
+      "unitId": "hsk1-travel-leisure",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00018",
+        "hsk-vocab-00037",
+        "hsk-vocab-00038",
+        "hsk-vocab-00039",
+        "hsk-vocab-00058",
+        "hsk-vocab-00075",
+        "hsk-vocab-00099",
+        "hsk-vocab-00101",
+        "hsk-vocab-00209",
+        "hsk-vocab-00210",
+        "hsk-vocab-00214",
+        "hsk-vocab-00246",
+        "hsk-vocab-00299"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "professional-1",
+      "unitId": "hsk1-study-work",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00027",
+        "hsk-vocab-00028",
+        "hsk-vocab-00179",
+        "hsk-vocab-00237",
+        "hsk-vocab-00238",
+        "hsk-vocab-00248",
+        "hsk-vocab-00250",
+        "hsk-vocab-00292",
+        "hsk-vocab-00293"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "professional-2",
+      "unitId": "hsk1-study-work",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00069",
+        "hsk-vocab-00070",
+        "hsk-vocab-00107",
+        "hsk-vocab-00211",
+        "hsk-vocab-00289",
+        "hsk-vocab-00290",
+        "hsk-vocab-00296"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "professional-3",
+      "unitId": "hsk1-study-work",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00010",
+        "hsk-vocab-00036",
+        "hsk-vocab-00042",
+        "hsk-vocab-00043",
+        "hsk-vocab-00103",
+        "hsk-vocab-00190",
+        "hsk-vocab-00191",
+        "hsk-vocab-00220",
+        "hsk-vocab-00240",
+        "hsk-vocab-00247",
+        "hsk-vocab-00249",
+        "hsk-vocab-00288"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "professional-4",
+      "unitId": "hsk1-study-work",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00062",
+        "hsk-vocab-00063",
+        "hsk-vocab-00118",
+        "hsk-vocab-00176",
+        "hsk-vocab-00177",
+        "hsk-vocab-00228",
+        "hsk-vocab-00229"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "characters-1",
       "unitId": "hsk1-character-foundation",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00254", "hsk-vocab-00170", "hsk-vocab-00173"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00001",
+        "hsk-vocab-00003",
+        "hsk-vocab-00004",
+        "hsk-vocab-00013",
+        "hsk-vocab-00014",
+        "hsk-vocab-00015",
+        "hsk-vocab-00045",
+        "hsk-vocab-00053",
+        "hsk-vocab-00161",
+        "hsk-vocab-00024",
+        "hsk-vocab-00025",
+        "hsk-vocab-00026",
+        "hsk-vocab-00027",
+        "hsk-vocab-00028",
+        "hsk-vocab-00096",
+        "hsk-vocab-00030",
+        "hsk-vocab-00264",
+        "hsk-vocab-00032",
+        "hsk-vocab-00035",
+        "hsk-vocab-00036",
+        "hsk-vocab-00037",
+        "hsk-vocab-00038",
+        "hsk-vocab-00039",
+        "hsk-vocab-00041",
+        "hsk-vocab-00044",
+        "hsk-vocab-00048",
+        "hsk-vocab-00075",
+        "hsk-vocab-00127",
+        "hsk-vocab-00134",
+        "hsk-vocab-00140",
+        "hsk-vocab-00153",
+        "hsk-vocab-00261",
+        "hsk-vocab-00265",
+        "hsk-vocab-00283",
+        "hsk-vocab-00057"
+      ],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "characters-2",
       "unitId": "hsk1-character-foundation",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00170", "hsk-vocab-00086", "hsk-vocab-00071"],
+      "officialVocabularyIds": [
+        "hsk-vocab-00059",
+        "hsk-vocab-00061",
+        "hsk-vocab-00064",
+        "hsk-vocab-00120",
+        "hsk-vocab-00066",
+        "hsk-vocab-00289",
+        "hsk-vocab-00067",
+        "hsk-vocab-00068",
+        "hsk-vocab-00071",
+        "hsk-vocab-00072",
+        "hsk-vocab-00073",
+        "hsk-vocab-00074",
+        "hsk-vocab-00075",
+        "hsk-vocab-00147",
+        "hsk-vocab-00078",
+        "hsk-vocab-00079",
+        "hsk-vocab-00024",
+        "hsk-vocab-00035",
+        "hsk-vocab-00197",
+        "hsk-vocab-00225",
+        "hsk-vocab-00082",
+        "hsk-vocab-00026",
+        "hsk-vocab-00086",
+        "hsk-vocab-00087",
+        "hsk-vocab-00088",
+        "hsk-vocab-00101",
+        "hsk-vocab-00210",
+        "hsk-vocab-00272",
+        "hsk-vocab-00091"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-3",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00092",
+        "hsk-vocab-00096",
+        "hsk-vocab-00195",
+        "hsk-vocab-00073",
+        "hsk-vocab-00099",
+        "hsk-vocab-00100",
+        "hsk-vocab-00101",
+        "hsk-vocab-00102",
+        "hsk-vocab-00014",
+        "hsk-vocab-00108",
+        "hsk-vocab-00158",
+        "hsk-vocab-00114",
+        "hsk-vocab-00115",
+        "hsk-vocab-00119",
+        "hsk-vocab-00182",
+        "hsk-vocab-00276",
+        "hsk-vocab-00277",
+        "hsk-vocab-00120",
+        "hsk-vocab-00121",
+        "hsk-vocab-00122",
+        "hsk-vocab-00123",
+        "hsk-vocab-00124",
+        "hsk-vocab-00148",
+        "hsk-vocab-00203",
+        "hsk-vocab-00204",
+        "hsk-vocab-00205",
+        "hsk-vocab-00222",
+        "hsk-vocab-00130",
+        "hsk-vocab-00142",
+        "hsk-vocab-00143"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-4",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00144",
+        "hsk-vocab-00145",
+        "hsk-vocab-00146",
+        "hsk-vocab-00147",
+        "hsk-vocab-00148",
+        "hsk-vocab-00150",
+        "hsk-vocab-00152",
+        "hsk-vocab-00153",
+        "hsk-vocab-00154",
+        "hsk-vocab-00155",
+        "hsk-vocab-00143",
+        "hsk-vocab-00156",
+        "hsk-vocab-00235",
+        "hsk-vocab-00158",
+        "hsk-vocab-00045",
+        "hsk-vocab-00161",
+        "hsk-vocab-00014",
+        "hsk-vocab-00208",
+        "hsk-vocab-00165",
+        "hsk-vocab-00166",
+        "hsk-vocab-00087",
+        "hsk-vocab-00170",
+        "hsk-vocab-00171",
+        "hsk-vocab-00181",
+        "hsk-vocab-00182"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-5",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00121",
+        "hsk-vocab-00187",
+        "hsk-vocab-00188",
+        "hsk-vocab-00189",
+        "hsk-vocab-00194",
+        "hsk-vocab-00195",
+        "hsk-vocab-00196",
+        "hsk-vocab-00197",
+        "hsk-vocab-00199",
+        "hsk-vocab-00200",
+        "hsk-vocab-00203",
+        "hsk-vocab-00201",
+        "hsk-vocab-00204",
+        "hsk-vocab-00202",
+        "hsk-vocab-00205",
+        "hsk-vocab-00206",
+        "hsk-vocab-00074",
+        "hsk-vocab-00209",
+        "hsk-vocab-00210",
+        "hsk-vocab-00218",
+        "hsk-vocab-00166",
+        "hsk-vocab-00219",
+        "hsk-vocab-00220",
+        "hsk-vocab-00221",
+        "hsk-vocab-00222",
+        "hsk-vocab-00225",
+        "hsk-vocab-00120"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-6",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00231",
+        "hsk-vocab-00233",
+        "hsk-vocab-00234",
+        "hsk-vocab-00235",
+        "hsk-vocab-00236",
+        "hsk-vocab-00237",
+        "hsk-vocab-00238",
+        "hsk-vocab-00241",
+        "hsk-vocab-00242",
+        "hsk-vocab-00057",
+        "hsk-vocab-00277",
+        "hsk-vocab-00015",
+        "hsk-vocab-00252",
+        "hsk-vocab-00253",
+        "hsk-vocab-00102",
+        "hsk-vocab-00143",
+        "hsk-vocab-00154",
+        "hsk-vocab-00156",
+        "hsk-vocab-00122",
+        "hsk-vocab-00263",
+        "hsk-vocab-00264",
+        "hsk-vocab-00265",
+        "hsk-vocab-00266",
+        "hsk-vocab-00270",
+        "hsk-vocab-00272",
+        "hsk-vocab-00276",
+        "hsk-vocab-00285",
+        "hsk-vocab-00287"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-7",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00002",
+        "hsk-vocab-00005",
+        "hsk-vocab-00006",
+        "hsk-vocab-00007",
+        "hsk-vocab-00258",
+        "hsk-vocab-00011",
+        "hsk-vocab-00137",
+        "hsk-vocab-00213",
+        "hsk-vocab-00280",
+        "hsk-vocab-00029",
+        "hsk-vocab-00031",
+        "hsk-vocab-00033",
+        "hsk-vocab-00261",
+        "hsk-vocab-00265",
+        "hsk-vocab-00049",
+        "hsk-vocab-00055",
+        "hsk-vocab-00056",
+        "hsk-vocab-00076",
+        "hsk-vocab-00080",
+        "hsk-vocab-00185",
+        "hsk-vocab-00093",
+        "hsk-vocab-00094",
+        "hsk-vocab-00095",
+        "hsk-vocab-00109",
+        "hsk-vocab-00110",
+        "hsk-vocab-00133",
+        "hsk-vocab-00139",
+        "hsk-vocab-00282",
+        "hsk-vocab-00111",
+        "hsk-vocab-00112"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-8",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00113",
+        "hsk-vocab-00128",
+        "hsk-vocab-00129",
+        "hsk-vocab-00131",
+        "hsk-vocab-00132",
+        "hsk-vocab-00133",
+        "hsk-vocab-00134",
+        "hsk-vocab-00135",
+        "hsk-vocab-00136",
+        "hsk-vocab-00137",
+        "hsk-vocab-00138",
+        "hsk-vocab-00139",
+        "hsk-vocab-00140",
+        "hsk-vocab-00141",
+        "hsk-vocab-00093",
+        "hsk-vocab-00149",
+        "hsk-vocab-00168",
+        "hsk-vocab-00160",
+        "hsk-vocab-00243",
+        "hsk-vocab-00244",
+        "hsk-vocab-00245",
+        "hsk-vocab-00162",
+        "hsk-vocab-00163",
+        "hsk-vocab-00169",
+        "hsk-vocab-00172",
+        "hsk-vocab-00173",
+        "hsk-vocab-00175",
+        "hsk-vocab-00176",
+        "hsk-vocab-00177",
+        "hsk-vocab-00178",
+        "hsk-vocab-00179",
+        "hsk-vocab-00217",
+        "hsk-vocab-00275",
+        "hsk-vocab-00184",
+        "hsk-vocab-00185",
+        "hsk-vocab-00186",
+        "hsk-vocab-00236",
+        "hsk-vocab-00198",
+        "hsk-vocab-00005",
+        "hsk-vocab-00094",
+        "hsk-vocab-00207",
+        "hsk-vocab-00208",
+        "hsk-vocab-00297",
+        "hsk-vocab-00212",
+        "hsk-vocab-00213"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-9",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00215",
+        "hsk-vocab-00216",
+        "hsk-vocab-00217",
+        "hsk-vocab-00223",
+        "hsk-vocab-00178",
+        "hsk-vocab-00224",
+        "hsk-vocab-00230",
+        "hsk-vocab-00291",
+        "hsk-vocab-00226",
+        "hsk-vocab-00227",
+        "hsk-vocab-00228",
+        "hsk-vocab-00229",
+        "hsk-vocab-00259",
+        "hsk-vocab-00232",
+        "hsk-vocab-00135",
+        "hsk-vocab-00141",
+        "hsk-vocab-00239",
+        "hsk-vocab-00262",
+        "hsk-vocab-00266",
+        "hsk-vocab-00284",
+        "hsk-vocab-00243",
+        "hsk-vocab-00244",
+        "hsk-vocab-00245",
+        "hsk-vocab-00251",
+        "hsk-vocab-00254",
+        "hsk-vocab-00258",
+        "hsk-vocab-00261",
+        "hsk-vocab-00267",
+        "hsk-vocab-00269",
+        "hsk-vocab-00271",
+        "hsk-vocab-00286",
+        "hsk-vocab-00273",
+        "hsk-vocab-00274",
+        "hsk-vocab-00275",
+        "hsk-vocab-00279",
+        "hsk-vocab-00280",
+        "hsk-vocab-00281",
+        "hsk-vocab-00282",
+        "hsk-vocab-00283",
+        "hsk-vocab-00056",
+        "hsk-vocab-00294",
+        "hsk-vocab-00297"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-10",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00008",
+        "hsk-vocab-00126",
+        "hsk-vocab-00009",
+        "hsk-vocab-00157",
+        "hsk-vocab-00012",
+        "hsk-vocab-00100",
+        "hsk-vocab-00183",
+        "hsk-vocab-00016",
+        "hsk-vocab-00017",
+        "hsk-vocab-00019",
+        "hsk-vocab-00021",
+        "hsk-vocab-00072",
+        "hsk-vocab-00023",
+        "hsk-vocab-00084",
+        "hsk-vocab-00040",
+        "hsk-vocab-00046",
+        "hsk-vocab-00047",
+        "hsk-vocab-00050",
+        "hsk-vocab-00051",
+        "hsk-vocab-00125",
+        "hsk-vocab-00216",
+        "hsk-vocab-00224",
+        "hsk-vocab-00274",
+        "hsk-vocab-00300",
+        "hsk-vocab-00052",
+        "hsk-vocab-00255",
+        "hsk-vocab-00060",
+        "hsk-vocab-00132",
+        "hsk-vocab-00138",
+        "hsk-vocab-00281"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-11",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00065",
+        "hsk-vocab-00159",
+        "hsk-vocab-00193",
+        "hsk-vocab-00077",
+        "hsk-vocab-00084",
+        "hsk-vocab-00085",
+        "hsk-vocab-00052",
+        "hsk-vocab-00186",
+        "hsk-vocab-00089",
+        "hsk-vocab-00104",
+        "hsk-vocab-00105",
+        "hsk-vocab-00116",
+        "hsk-vocab-00117",
+        "hsk-vocab-00125",
+        "hsk-vocab-00126",
+        "hsk-vocab-00127",
+        "hsk-vocab-00151"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-12",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00164",
+        "hsk-vocab-00174",
+        "hsk-vocab-00047",
+        "hsk-vocab-00180",
+        "hsk-vocab-00019",
+        "hsk-vocab-00192",
+        "hsk-vocab-00193",
+        "hsk-vocab-00127",
+        "hsk-vocab-00040",
+        "hsk-vocab-00255",
+        "hsk-vocab-00256",
+        "hsk-vocab-00257",
+        "hsk-vocab-00157",
+        "hsk-vocab-00260",
+        "hsk-vocab-00268",
+        "hsk-vocab-00278",
+        "hsk-vocab-00295",
+        "hsk-vocab-00008",
+        "hsk-vocab-00009",
+        "hsk-vocab-00048",
+        "hsk-vocab-00068",
+        "hsk-vocab-00090"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-13",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00018",
+        "hsk-vocab-00020",
+        "hsk-vocab-00022",
+        "hsk-vocab-00083",
+        "hsk-vocab-00098",
+        "hsk-vocab-00054",
+        "hsk-vocab-00058",
+        "hsk-vocab-00081",
+        "hsk-vocab-00189",
+        "hsk-vocab-00097",
+        "hsk-vocab-00106",
+        "hsk-vocab-00167",
+        "hsk-vocab-00168",
+        "hsk-vocab-00037",
+        "hsk-vocab-00075",
+        "hsk-vocab-00214",
+        "hsk-vocab-00246",
+        "hsk-vocab-00038",
+        "hsk-vocab-00039",
+        "hsk-vocab-00257",
+        "hsk-vocab-00298",
+        "hsk-vocab-00299",
+        "hsk-vocab-00300"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-14",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00176",
+        "hsk-vocab-00228",
+        "hsk-vocab-00010",
+        "hsk-vocab-00288",
+        "hsk-vocab-00042",
+        "hsk-vocab-00043",
+        "hsk-vocab-00063",
+        "hsk-vocab-00062",
+        "hsk-vocab-00069",
+        "hsk-vocab-00070",
+        "hsk-vocab-00103",
+        "hsk-vocab-00177",
+        "hsk-vocab-00229",
+        "hsk-vocab-00107",
+        "hsk-vocab-00118",
+        "hsk-vocab-00036",
+        "hsk-vocab-00028",
+        "hsk-vocab-00183",
+        "hsk-vocab-00231",
+        "hsk-vocab-00238",
+        "hsk-vocab-00248",
+        "hsk-vocab-00256",
+        "hsk-vocab-00293",
+        "hsk-vocab-00190",
+        "hsk-vocab-00191"
+      ],
+      "unmappedRuntimeWordIds": []
+    },
+    {
+      "lessonId": "characters-15",
+      "unitId": "hsk1-character-foundation",
+      "mappingState": "partial",
+      "officialVocabularyIds": [
+        "hsk-vocab-00062",
+        "hsk-vocab-00220",
+        "hsk-vocab-00211",
+        "hsk-vocab-00290",
+        "hsk-vocab-00249",
+        "hsk-vocab-00250",
+        "hsk-vocab-00240",
+        "hsk-vocab-00027",
+        "hsk-vocab-00028",
+        "hsk-vocab-00179",
+        "hsk-vocab-00237",
+        "hsk-vocab-00238",
+        "hsk-vocab-00247",
+        "hsk-vocab-00248",
+        "hsk-vocab-00292",
+        "hsk-vocab-00293",
+        "hsk-vocab-00069",
+        "hsk-vocab-00288",
+        "hsk-vocab-00289",
+        "hsk-vocab-00291",
+        "hsk-vocab-00070",
+        "hsk-vocab-00130",
+        "hsk-vocab-00296",
+        "hsk-vocab-00063"
+      ],
       "unmappedRuntimeWordIds": []
     }
   ]

@@ -53,11 +53,19 @@ describe("release policy", () => {
     );
     expect(RELEASED_LESSONS.every(isLessonReleased)).toBe(true);
     expect(RELEASED_LESSONS.some((lesson) => lesson.releaseState === "draft")).toBe(false);
-    expect(
-      RELEASED_LESSONS
-        .filter((lesson) => lesson.skills.includes("speaking"))
-        .map((lesson) => lesson.id),
-    ).toEqual(["daily-1", "daily-2", "daily-3", "daily-4"]);
+    const speakingLessonIds = RELEASED_LESSONS
+      .filter((lesson) => lesson.skills.includes("speaking"))
+      .map((lesson) => lesson.id);
+    expect(speakingLessonIds).toHaveLength(25);
+    expect(speakingLessonIds).toEqual(expect.arrayContaining([
+      "survival-1",
+      "daily-1",
+      "journey-1",
+      "professional-1",
+    ]));
+    expect(speakingLessonIds.some((lessonId) =>
+      lessonId.startsWith("characters-")
+    )).toBe(false);
   });
 
   it("scopes stories and vocabulary to released content references", () => {

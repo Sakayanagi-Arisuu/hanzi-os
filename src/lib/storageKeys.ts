@@ -9,6 +9,8 @@ export const SYNC_DEVICE_STORAGE_KEY = "hanzi-os-sync-device-v1";
 export const LESSON_SESSION_STORAGE_PREFIX = "hanzi-os-lesson-session-v4:";
 const LESSON_SESSION_STORAGE_FAMILY_PREFIX = "hanzi-os-lesson-session-v";
 export const ASSESSMENT_SESSION_STORAGE_KEY = "hanzi-os-assessment-session-v1";
+export const HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY =
+  "hanzi-os-hsk1-level-check-session-v1";
 
 export const isLegacyLearningResumeStorageKey = (key: string) =>
   key === ASSESSMENT_SESSION_STORAGE_KEY
@@ -20,6 +22,7 @@ export const isLearningProgressStorageKey = (key: string) =>
   || key === LEARNING_CORRUPT_STORAGE_KEY
   || key === LEARNING_OWNERSHIP_QUARANTINE_STORAGE_KEY
   || key === LEARNING_OWNER_STORAGE_KEY
+  || key === HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY
   || isLegacyLearningResumeStorageKey(key);
 
 export const isHanziOsStorageKey = (key: string) => key.startsWith("hanzi-os-");

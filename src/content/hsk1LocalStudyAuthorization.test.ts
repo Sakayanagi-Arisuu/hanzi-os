@@ -14,9 +14,9 @@ describe("HSK1 local-study authorization", () => {
       valid: true,
       errors: [],
       summary: {
-        units: 2,
-        lessons: 10,
-        runtimeContentVersion: "foundation-2026.07.8",
+        units: 6,
+        lessons: 40,
+        runtimeContentVersion: "foundation-2026.08.1",
         humanReviewed: false,
         productionEligible: false,
         sitesAuthorized: false,

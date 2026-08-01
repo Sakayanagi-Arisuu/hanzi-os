@@ -3,6 +3,7 @@ import {
   ChevronRight,
   CircleDot,
   Clock3,
+  Crosshair,
   LockKeyhole,
   Map,
   Orbit,
@@ -167,6 +168,23 @@ export function PathPage() {
           );
         })}
       </div>
+
+      {selectedPath.id === "hsk1" && (
+        <section className="hsk-level-check-card" data-testid="hsk1-level-check-card">
+          <div className="hsk-level-check-icon"><Crosshair size={28} /></div>
+          <div>
+            <span className="system-kicker">LEVEL CHECK · LOCAL SELF-STUDY</span>
+            <h2>Kiểm tra cuối chặng HSK1</h2>
+            <p>
+              50 câu phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ gợi ý vùng
+              ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
+            </p>
+          </div>
+          <Link className="primary-button" to="/assessment/hsk1">
+            Mở level check <ChevronRight size={17} />
+          </Link>
+        </section>
+      )}
 
       <footer className="path-footer-note">
         <Orbit size={18} />

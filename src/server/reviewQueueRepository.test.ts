@@ -120,14 +120,6 @@ type AuthoringLessonFixture = {
   payload: { wordIds: string[] };
 };
 
-const authoringCatalog = JSON.parse(readFileSync(
-  new URL(
-    `../../content/packages/${CONTENT_VERSION}/item-catalog.json`,
-    import.meta.url,
-  ),
-  "utf8",
-)) as { items: AuthoringLessonFixture[] };
-
 const promotedPolicy: ContentReleasePolicy = {
   manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
   audience: "closed-alpha",
@@ -494,14 +486,14 @@ describe("review queue repository", () => {
   });
 
   it("excludes draft activation and legacy cards with no activation session", async () => {
-    const draftLesson = authoringCatalog.items.find((item) =>
-      item.itemType === "lesson"
-      && item.releaseState === "draft"
-      && item.payload.wordIds.some((wordId) => RELEASED_WORD_BY_ID.has(wordId))
-    );
-    if (!draftLesson) {
-      throw new Error("Missing authoring-only draft activation fixture.");
-    }
+    const firstReleasedWordId = RELEASED_WORD_BY_ID.keys().next().value;
+    if (!firstReleasedWordId) throw new Error("Missing released word fixture.");
+    const draftLesson: AuthoringLessonFixture = {
+      itemId: "authoring-only-draft-lesson",
+      itemType: "lesson",
+      releaseState: "draft",
+      payload: { wordIds: [firstReleasedWordId] },
+    };
     expect(RELEASED_LESSONS.some((lesson) => lesson.id === draftLesson.itemId))
       .toBe(false);
     const draftWordId = draftLesson.payload.wordIds.find((wordId) =>

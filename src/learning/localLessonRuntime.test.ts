@@ -36,32 +36,16 @@ const runtimeFixture = () => {
 };
 
 describe("checked local lesson runtime", () => {
-  it.each([
-    "boot-1",
-    "boot-2",
-    "boot-3",
-    "boot-4",
-    "survival-1",
-    "survival-2",
-    "survival-3",
-    "survival-4",
-    "hsk1-time-place-events-01-numbers",
-    "hsk1-time-place-events-02-calendar",
-    "hsk1-time-place-events-03-week-and-day-parts",
-    "hsk1-time-place-events-04-clock-and-duration",
-    "hsk1-time-place-events-05-location",
-    "hsk1-time-place-events-06-weather-and-residence",
-    "daily-1",
-    "daily-2",
-    "daily-3",
-    "daily-4",
-  ])("materializes checked eligible lesson %s", (lessonId) => {
+  it.each([...LESSON_BY_ID.keys()])(
+    "materializes checked eligible lesson %s",
+    (lessonId) => {
     expect(materializeLocalLessonRuntime(
       lessonFixture(lessonId),
       "simplified",
       `lesson-session:${lessonId}:eligible`,
     ).ok).toBe(true);
-  });
+    },
+  );
 
   it("binds a deterministic lesson/activity form to the checked HSK catalog", () => {
     const first = runtimeFixture();
@@ -95,22 +79,6 @@ describe("checked local lesson runtime", () => {
         === `${first.lessonId}:${activity.exercise.id}`
       && activity.activityVersion === activity.exercise.activityVersion
     )).toBe(true);
-  });
-
-  it.each([
-    "characters-1",
-    "characters-2",
-  ])("keeps prerequisite-blocked runtime lesson %s unavailable", (lessonId) => {
-    const result = materializeLocalLessonRuntime(
-      lessonFixture(lessonId),
-      "simplified",
-      `lesson-session:${lessonId}:blocked`,
-    );
-
-    expect(result).toMatchObject({
-      ok: false,
-      code: "lesson-unavailable",
-    });
   });
 
   it("rejects a stale or altered lesson payload", () => {
@@ -164,7 +132,7 @@ describe("checked local lesson runtime", () => {
       { ...activity, sessionId: "other-session" },
       { ...activity, activityVersion: "stale-activity" },
       { ...activity, activityPosition: 1 },
-      { ...activity, script: "traditional" as const },
+      { ...activity, script: "unsupported" as never },
     ]) {
       expect(resolveExactLocalLessonActivityProvenance(tampered)).toBeNull();
     }

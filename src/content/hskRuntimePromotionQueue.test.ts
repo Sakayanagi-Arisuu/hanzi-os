@@ -24,8 +24,8 @@ describe("HSK1-4 runtime promotion queue", () => {
       blueprintApprovedLessons: 0,
       reviewBatches: 509,
       approvalRecords: 0,
-      learnerVisibleTargetLessons: 14,
-      prerequisiteBlockedSourceLessons: 2,
+      learnerVisibleTargetLessons: 40,
+      prerequisiteBlockedSourceLessons: 0,
       unavailablePaths: 3,
       completionClaims: 0,
       promotionReadyUnits: 0,
@@ -41,28 +41,27 @@ describe("HSK1-4 runtime promotion queue", () => {
       visible: level.learnerVisibleTargetLessonCount,
       pendingReview: level.levelReview.pendingBatchCount,
     }))).toEqual([
-      { pathId: "hsk1", authored: 40, visible: 14, pendingReview: 97 },
+      { pathId: "hsk1", authored: 40, visible: 40, pendingReview: 97 },
       { pathId: "hsk2", authored: 40, visible: 0, pendingReview: 122 },
       { pathId: "hsk3", authored: 55, visible: 0, pendingReview: 122 },
       { pathId: "hsk4", authored: 78, visible: 0, pendingReview: 168 },
     ]);
   });
 
-  it("selects the earliest prerequisite-present HSK1 gap without promoting it", () => {
+  it("selects the earliest prerequisite-present HSK2 gap without promoting it", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
 
     expect(report.nextPromotionCandidate).toEqual({
-      pathId: "hsk1",
-      unitId: "hsk1-travel-leisure",
-      authoredLessonBlueprintCount: 2,
-      authoredPracticeItemCount: 69,
-      audioDependentItemCount: 23,
+      pathId: "hsk2",
+      unitId: "hsk2-situational-dialogue",
+      authoredLessonBlueprintCount: 20,
+      authoredPracticeItemCount: 0,
+      audioDependentItemCount: 0,
       sourceReleasedLessonCount: 0,
       blueprintApprovedLessonCount: 0,
       blockers: [
         "LEVEL_HUMAN_REVIEW_INCOMPLETE",
         "LESSON_REVIEW_INCOMPLETE",
-        "REVIEWED_AUDIO_MISSING",
         "RUNTIME_PACKAGE_MAPPING_INCOMPLETE",
       ],
       requiredAction:
@@ -78,7 +77,7 @@ describe("HSK1-4 runtime promotion queue", () => {
     });
   });
 
-  it("keeps all HSK2-4 units blocked behind both review and prerequisite closure", () => {
+  it("opens only the first HSK2 prerequisite closure while keeping upper content hidden", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
     const upperUnits = report.levels
       .filter((level: { pathId: string }) => level.pathId !== "hsk1")
@@ -89,12 +88,20 @@ describe("HSK1-4 runtime promotion queue", () => {
       }> }) => level.units);
 
     expect(upperUnits).toHaveLength(9);
-    for (const unit of upperUnits) {
-      expect(unit.prerequisiteRuntimeClosurePresent).toBe(false);
+    expect(upperUnits[0].prerequisiteRuntimeClosurePresent).toBe(true);
+    expect(upperUnits[0].blockers).not.toContain(
+      "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+    );
+    for (const [index, unit] of upperUnits.entries()) {
+      if (index > 0) {
+        expect(unit.prerequisiteRuntimeClosurePresent).toBe(false);
+        expect(unit.blockers).toContain(
+          "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
+        );
+      }
       expect(unit.learnerVisibleLessonIds).toEqual([]);
       expect(unit.blockers).toEqual(expect.arrayContaining([
         "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-        "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
         "RUNTIME_PACKAGE_MAPPING_INCOMPLETE",
       ]));
     }

@@ -1,5 +1,5 @@
-import dailyLifeRichLessonContentJson from "../../content/runtime/hsk1-daily-life-rich-lessons.json";
-import timePlaceRichLessonContentJson from "../../content/runtime/hsk1-time-place-events-rich-lessons.json";
+import hsk1LevelRichLessonContentJson from "../../content/runtime/hsk1-level-rich-lessons.json";
+import { CONTENT_VERSION } from "../data/curriculum";
 
 export type RichDialogueTurn = {
   speaker: string;
@@ -31,6 +31,16 @@ export type RichLessonTask = {
   modelDialogue: RichDialogueTurn[];
 };
 
+export type RichLessonCharacter = {
+  id: string;
+  hanzi: string;
+  pinyin: string;
+  meaningVi: string;
+  contextWord: string;
+  contextPinyin: string;
+  contextMeaningVi: string;
+};
+
 export type RichLessonContent = {
   lessonId: string;
   authoringLessonId: string;
@@ -43,20 +53,18 @@ export type RichLessonContent = {
     promptVi: string;
   }>;
   tasks: RichLessonTask[];
+  characters: RichLessonCharacter[];
 };
 
-type RichLessonArtifact = typeof timePlaceRichLessonContentJson & {
+type RichLessonArtifact = typeof hsk1LevelRichLessonContentJson & {
   lessons: RichLessonContent[];
 };
 
-const artifacts = [
-  timePlaceRichLessonContentJson,
-  dailyLifeRichLessonContentJson,
-] as unknown as RichLessonArtifact[];
+const artifact = hsk1LevelRichLessonContentJson as unknown as RichLessonArtifact;
 
 const isLocallyAuthorized = (artifact: RichLessonArtifact) =>
   artifact.schemaVersion === 1
-  && artifact.contentVersion === "foundation-2026.07.8"
+  && artifact.contentVersion === CONTENT_VERSION
   && artifact.state === "authorized-for-personal-local-study"
   && artifact.policy.learnerVisibleForPersonalLocalStudy === true
   && artifact.policy.humanReviewed === false
@@ -66,12 +74,12 @@ const isLocallyAuthorized = (artifact: RichLessonArtifact) =>
   && artifact.policy.sitesAuthorized === false;
 
 const lessonById = new Map(
-  artifacts.flatMap((artifact) => isLocallyAuthorized(artifact)
+  isLocallyAuthorized(artifact)
     ? artifact.lessons.map((lesson) => [lesson.lessonId, lesson] as const)
-    : []),
+    : [],
 );
 
-export const RICH_LESSON_DISCLOSURE = timePlaceRichLessonContentJson.disclosure;
+export const RICH_LESSON_DISCLOSURE = hsk1LevelRichLessonContentJson.disclosure;
 
 export const getRichLessonContent = (
   lessonId: string,

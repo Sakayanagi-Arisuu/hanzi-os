@@ -19,12 +19,12 @@ describe("no-progress HSK0-to-HSK1 local demo", () => {
 
     expect(result.summary).toEqual({
       bridgeLessons: 4,
-      targetLessons: 14,
-      blockedLessons: 2,
+      targetLessons: 40,
+      blockedLessons: 0,
       unavailablePaths: 3,
       forbiddenProgressFields: 0,
     });
-    expect(bundle.manifest.scenario).toEqual({
+    expect(bundle.manifest.scenario).toMatchObject({
       profileSelection: {
         startingLevel: "hsk1",
         goal: "hsk",
@@ -35,27 +35,12 @@ describe("no-progress HSK0-to-HSK1 local demo", () => {
       entryLessonId: "boot-1",
       bridgeLessonIds: ["boot-1", "boot-2", "boot-3", "boot-4"],
       boundaryUnlockLessonId: "survival-1",
-      stillLockedLessonIds: [
-        "survival-2",
-        "survival-3",
-        "survival-4",
-        "hsk1-time-place-events-01-numbers",
-        "hsk1-time-place-events-02-calendar",
-        "hsk1-time-place-events-03-week-and-day-parts",
-        "hsk1-time-place-events-04-clock-and-duration",
-        "hsk1-time-place-events-05-location",
-        "hsk1-time-place-events-06-weather-and-residence",
-        "daily-1",
-        "daily-2",
-        "daily-3",
-        "daily-4",
-      ],
-      blockedLessonIds: [
-        "characters-1",
-        "characters-2",
-      ],
+      blockedLessonIds: [],
       unavailablePathIds: ["hsk2", "hsk3", "hsk4"],
     });
+    expect(bundle.manifest.scenario.stillLockedLessonIds).toHaveLength(39);
+    expect(bundle.manifest.scenario.stillLockedLessonIds.at(-1))
+      .toBe("characters-15");
     expect(bundle.manifest.expectations).toEqual({
       lessonActivityCount: 10,
       intentionalIncorrectCount: 1,

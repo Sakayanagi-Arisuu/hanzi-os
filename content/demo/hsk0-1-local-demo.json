@@ -7,35 +7,35 @@
     "schemaVersion": 1,
     "catalogId": "hsk0-4-local-runtime-2026.07.1",
     "compilerVersion": "hsk-runtime-curriculum-compiler-v2",
-    "runtimeContentVersion": "foundation-2026.07.8",
-    "importIdempotencyKey": "sha256:5bf8a2077281e02e6b9713361c6095f8bb40125bf16d006221152fc612bd81b1",
-    "integritySha256": "sha256:4208c1486d118a147f7e8c1febecb3c35066e4c2fdf93029b91d92b799ae7d49",
+    "runtimeContentVersion": "foundation-2026.08.1",
+    "importIdempotencyKey": "sha256:0ca359b2afcc9c588398977b2075437e0c2f5ce5c175db513742aab5ed69bb71",
+    "integritySha256": "sha256:36a2e9ff2b977c6f67e88001dd73b598dd8cb45006b9778e572de148a130b240",
     "sourceBindings": {
       "curriculumGraph": {
         "graphId": "hsk0-4-graduation-2026.07.2",
         "relativePath": "content/curriculum/hsk0-4-graph.json",
-        "sha256": "sha256:77dff3080780927732394f0f9d3a65a79c95c68fc73d9d6a8fc6750e937297bb"
+        "sha256": "sha256:c3b1bcc0c9e27006b91cf955eaa51cba62f98cd77094a391d88ee66d3319989c"
       },
       "unitReleasePolicy": {
         "policyId": "hsk0-4-unit-release-policy-2026.07.1",
         "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-        "sha256": "sha256:2bb00ede5222da185b15d33dea7f3b8e4afa238e9aa9226a87232cd0e607bbfb"
+        "sha256": "sha256:219dbd4df9519bc7d735abfb62fb48080f91120567783ea3fb81262892672cee"
       },
       "contentRegistry": {
         "relativePath": "content/registry.json",
-        "sha256": "sha256:328c38ed071dabea9704c227dcc63c876f663c05b10db427cdb988246bfff0ee"
+        "sha256": "sha256:c4ef43aa9fc3548fdc65c5dfdfbf38c60d68ebd2edbe58f0816da8f6245bdd03"
       },
       "contentPackage": {
-        "packageId": "foundation-2026.07.8",
-        "contentVersion": "foundation-2026.07.8",
+        "packageId": "foundation-2026.08.1",
+        "contentVersion": "foundation-2026.08.1",
         "contentSchemaVersion": 6,
         "itemCatalogSchemaVersion": 4,
-        "manifestRelativePath": "content/packages/foundation-2026.07.8/manifest.json",
-        "manifestSha256": "sha256:958e47aa3a91895ff0da8235a71fad678680fc7c0204fe65bd3c95d09c72a648",
-        "itemCatalogRelativePath": "content/packages/foundation-2026.07.8/item-catalog.json",
-        "itemCatalogSha256": "sha256:049ace864778206ee6f80929f89730823bf9b3bfc47aec89bfab32aad2fc0911",
-        "runtimeCatalogRelativePath": "content/packages/foundation-2026.07.8/runtime-catalog.json",
-        "runtimeCatalogSha256": "sha256:fb2c906ba2c85ee35650a598755923b67a2defe94ebb9af2bae75c158c326ffb"
+        "manifestRelativePath": "content/packages/foundation-2026.08.1/manifest.json",
+        "manifestSha256": "sha256:8eba35806eef428b26f8731fa197879a5427458e1b8a5f0719ccd3ce6e74fb45",
+        "itemCatalogRelativePath": "content/packages/foundation-2026.08.1/item-catalog.json",
+        "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+        "runtimeCatalogRelativePath": "content/packages/foundation-2026.08.1/runtime-catalog.json",
+        "runtimeCatalogSha256": "sha256:46858060a5776ab0a17d4ff572f7b65cacb4fef336a17bc040fe6e1b5d0d7285"
       }
     }
   },
@@ -59,6 +59,11 @@
       "survival-2",
       "survival-3",
       "survival-4",
+      "survival-5",
+      "survival-6",
+      "survival-7",
+      "survival-8",
+      "survival-9",
       "hsk1-time-place-events-01-numbers",
       "hsk1-time-place-events-02-calendar",
       "hsk1-time-place-events-03-week-and-day-parts",
@@ -68,12 +73,30 @@
       "daily-1",
       "daily-2",
       "daily-3",
-      "daily-4"
-    ],
-    "blockedLessonIds": [
+      "daily-4",
+      "journey-1",
+      "journey-2",
+      "professional-1",
+      "professional-2",
+      "professional-3",
+      "professional-4",
       "characters-1",
-      "characters-2"
+      "characters-2",
+      "characters-3",
+      "characters-4",
+      "characters-5",
+      "characters-6",
+      "characters-7",
+      "characters-8",
+      "characters-9",
+      "characters-10",
+      "characters-11",
+      "characters-12",
+      "characters-13",
+      "characters-14",
+      "characters-15"
     ],
+    "blockedLessonIds": [],
     "unavailablePathIds": [
       "hsk2",
       "hsk3",

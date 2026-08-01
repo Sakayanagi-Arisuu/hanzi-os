@@ -90,7 +90,7 @@ export const HSK_LEARNING_PATHS = [
       "Từ và câu tần suất cao, hỏi đáp cá nhân, thời gian, số lượng và đọc câu.",
     availability: "foundation",
     availabilityNote:
-      "24 lexeme foundation không phải tuyên bố coverage HSK1 hoàn chỉnh.",
+      "40 bài local đã phủ inventory HSK1; level check vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
     skillWeights: {
       pronunciation: 0.14,
       listening: 0.2,
