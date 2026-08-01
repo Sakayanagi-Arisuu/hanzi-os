@@ -108,6 +108,14 @@ const hasExactKeys = (
 const boundedString = (value: unknown, maximum: number): value is string =>
   typeof value === "string" && value.length > 0 && value.length <= maximum;
 
+const validLessonSessionId = (
+  lessonId: string,
+  sessionId: unknown,
+): sessionId is string =>
+  boundedString(sessionId, 240)
+  && sessionId.startsWith(`lesson-session:${lessonId}:`)
+  && sessionId.length > `lesson-session:${lessonId}:`.length;
+
 const cloneExercise = (exercise: Exercise): Exercise => ({
   ...exercise,
   options: [...exercise.options],
@@ -181,7 +189,7 @@ export const materializeLocalLessonRuntime = (
   script: "simplified" | "traditional",
   sessionId: string,
 ): MaterializeLocalLessonRuntimeResult => {
-  if (!boundedString(sessionId, 240)) {
+  if (!validLessonSessionId(lesson.id, sessionId)) {
     return {
       ok: false,
       code: "session-invalid",
@@ -290,7 +298,7 @@ const resolveExactSessionProvenance = (
     !isRecord(value)
     || !hasExactKeys(value, SESSION_PROVENANCE_KEYS)
     || !boundedString(value.lessonId, 160)
-    || !boundedString(value.sessionId, 240)
+    || !validLessonSessionId(value.lessonId, value.sessionId)
     || (value.script !== "simplified" && value.script !== "traditional")
   ) return null;
 

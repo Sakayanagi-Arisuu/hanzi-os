@@ -68,9 +68,9 @@ export function LocalReviewPage() {
   const card = currentId ? state.fsrsCards[currentId] : undefined;
   const complete = index >= queue.length;
 
-  const grade = (rating: Grade) => {
+  const grade = async (rating: Grade) => {
     if (!word) return;
-    actions.gradeReview(word.id, rating, reviewKey);
+    await actions.gradeReview(word.id, rating, reviewKey);
     setRatings((current) => ({
       ...current,
       [rating]: (current[rating] ?? 0) + 1,

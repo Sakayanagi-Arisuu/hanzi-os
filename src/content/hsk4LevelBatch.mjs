@@ -5,6 +5,7 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK4_LEVEL_BASE_VERSION = "foundation-2026.08.3";
 export const HSK4_LEVEL_TARGET_VERSION = "foundation-2026.08.4";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
 export const HSK4_LEVEL_REVIEW_RELATIVE_PATH =
   "content/review/hsk4-level-batch-local-study-review.json";
 export const HSK4_LEVEL_CORE_RELATIVE_PATH =
@@ -689,7 +690,7 @@ export const projectHsk4LevelRichLessons = async (
     (item) => item.unitId.startsWith("hsk4-"),
   ) ?? [];
   if (
-    authorization.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
+    authorization.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
     || authorizations.length !== 3
     || authorizations.reduce((sum, item) => sum + item.lessonIds.length, 0) !== 78
     || authorization.policy?.humanReviewed !== false
@@ -868,7 +869,7 @@ export const projectHsk4LevelRichLessons = async (
   const payload = {
     schemaVersion: 1,
     presentationId: "hsk4-level-rich-lessons-2026.08.4",
-    contentVersion: HSK4_LEVEL_TARGET_VERSION,
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
     level: "HSK4",
     state: "authorized-for-personal-local-study",
     disclosure: {
@@ -995,7 +996,7 @@ export const projectHsk4LocalLevelCheck = async (
     schemaVersion: 1,
     bankId: source.assessment.bankId,
     formId: "hsk4-level-form-a",
-    contentVersion: HSK4_LEVEL_TARGET_VERSION,
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
     state: "ai-reviewed-for-personal-local-self-check",
     disclosure: {
       humanReviewed: false,

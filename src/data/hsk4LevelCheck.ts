@@ -1,5 +1,5 @@
 import localBankJson from "../../content/runtime/hsk4-level-check-local.json";
-import { CONTENT_VERSION } from "./curriculum";
+import { CONTENT_VERSION } from "./contentIdentity";
 
 export type Hsk4LevelCheckSkill =
   | "listening"

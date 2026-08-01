@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
-const CONTENT_VERSION = "foundation-2026.08.4";
+const CONTENT_VERSION = "foundation-2026.08.5";
 const bridgeEvidence = JSON.parse(readFileSync(
   new URL("./fixtures/hsk3-bridge-evidence.json", import.meta.url),
   "utf8",
@@ -159,8 +159,8 @@ test("opens, resumes and completes the 54-item HSK3 local level check without ma
       evidenceCount: evidence.length,
       allContentVersioned: evidence.every(
         (item: { contentVersion?: string; activityVersion?: string }) =>
-          item.contentVersion === "foundation-2026.08.4"
-          && item.activityVersion?.startsWith("foundation-2026.08.4:"),
+          item.contentVersion === "foundation-2026.08.5"
+          && item.activityVersion?.startsWith("foundation-2026.08.5:"),
       ),
       allDescriptive: evidence.every(
         (item: {

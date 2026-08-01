@@ -25,7 +25,6 @@ import {
 import {
   HSK4_LEVEL_CORE_RELATIVE_PATH,
   HSK4_LEVEL_REVIEW_RELATIVE_PATH,
-  HSK4_LEVEL_TARGET_VERSION,
   loadHsk4LevelBatchBundle,
   validateHsk4LevelBatchBundle,
   validateMaterializedHsk4LevelPackage,
@@ -39,15 +38,17 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 export const HSK1_LOCAL_STUDY_AUTHORIZATION_RELATIVE_PATH =
   "content/curriculum/hsk0-4-local-study-authorizations.json";
 export const HSK1_LOCAL_STUDY_AUTHORIZATION_ID =
-  "hsk0-4-local-study-authorizations-2026.08.4";
+  "hsk0-4-local-study-authorizations-2026.08.5";
+
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
 
 const GRAPH_RELATIVE_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_POLICY_RELATIVE_PATH =
   "content/curriculum/hsk0-4-unit-release-policy.json";
 const PACKAGE_MANIFEST_RELATIVE_PATH =
-  `content/packages/${HSK4_LEVEL_TARGET_VERSION}/manifest.json`;
+  `content/packages/${CURRENT_LOCAL_STUDY_VERSION}/manifest.json`;
 const PACKAGE_ITEM_CATALOG_RELATIVE_PATH =
-  `content/packages/${HSK4_LEVEL_TARGET_VERSION}/item-catalog.json`;
+  `content/packages/${CURRENT_LOCAL_STUDY_VERSION}/item-catalog.json`;
 
 const readJson = (root, relativePath) => JSON.parse(readFileSync(
   resolve(root, relativePath),
@@ -222,10 +223,10 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
     throw new Error("HSK1/2/3/4 review or package lineage is invalid");
   }
   if (
-    source.graph.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
-    || source.releasePolicy.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
-    || source.packageManifest.packageId !== HSK4_LEVEL_TARGET_VERSION
-    || source.packageManifest.contentVersion !== HSK4_LEVEL_TARGET_VERSION
+    source.graph.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
+    || source.releasePolicy.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
+    || source.packageManifest.packageId !== CURRENT_LOCAL_STUDY_VERSION
+    || source.packageManifest.contentVersion !== CURRENT_LOCAL_STUDY_VERSION
   ) {
     throw new Error("HSK1/2/3/4 local authorization source identity is inconsistent");
   }
@@ -297,7 +298,7 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
     schemaVersion: 1,
     authorizationId: HSK1_LOCAL_STUDY_AUTHORIZATION_ID,
     profileId: HSK_LOCAL_STUDY_PROFILE_ID,
-    runtimeContentVersion: HSK4_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     scope: "personal-local-study-runtime-only",
     sourceBindings: [
       sourceBinding(source.root, "localStudyProfile", HSK_LOCAL_STUDY_PROFILE_RELATIVE_PATH),
@@ -358,7 +359,7 @@ export const validateHsk1LocalStudyAuthorizationBundle = async ({
   ) ?? [];
   if (
     authorization?.authorizationId !== HSK1_LOCAL_STUDY_AUTHORIZATION_ID
-    || authorization?.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
+    || authorization?.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
     || authorization?.authorizations?.length !== 15
     || hsk1.length !== 6
     || hsk1.reduce((sum, item) => sum + item.lessonIds.length, 0) !== 40

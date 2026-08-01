@@ -4,13 +4,13 @@ Cập nhật: 01/08/2026
 
 ## 1. Tình trạng một câu
 
-B4 đã hoàn tất toàn bộ HSK4 cho bản tự học local: 78/78 bài mở trên Path và
-shared rich Lesson UI, phủ đủ inventory HSK4 và level check 72 câu chạy
-end-to-end. Toàn bộ 213 blueprint HSK1-4 hiện đã học được trên UI.
+B5 đã đóng gói xong phạm vi đồ án/tự học local trên package `.08.5`: toàn bộ
+213 blueprint HSK1-4 học được trên rich UI, bốn level check chạy end-to-end và
+bootstrap/performance/audit đã qua cổng local. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
-- **Sẵn sàng toàn dự án:** 95/100 (95%).
+- **Sẵn sàng toàn dự án:** 96/100 (96%).
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK2 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -18,9 +18,9 @@ end-to-end. Toàn bộ 213 blueprint HSK1-4 hiện đã học được trên UI.
 - **HSK4 learner-visible:** 78/78; rich Lesson UI 78/78.
 - **Toàn HSK1-4 learner-visible:** 213/213 blueprint (100%).
 
-95% đo cả nền ứng dụng, learning loop, QA, assessment, nội dung và đóng gói local.
-Kho HSK1-4 trên UI đã đạt 213/213; 5 điểm còn lại thuộc batch đóng gói đồ án local,
-không phải bài học còn thiếu.
+96% đo cả nền ứng dụng, learning loop, QA, assessment, nội dung và đóng gói local.
+Roadmap local và kho HSK1-4 đã hoàn tất; bốn điểm không tuyên bố thuộc bằng chứng
+mastery/production bị hoãn, không phải bài học hay lỗi tích hợp còn thiếu.
 
 ## 3. Nội dung người học nhìn thấy
 
@@ -36,11 +36,11 @@ không phải bài học còn thiếu.
 | HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
 | HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B4 đã thêm cho người học
+## 4. B4-B5 đã giao cho người học
 
 - Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
-- Package hiện hành `foundation-2026.08.4` giao 217 lesson runtime: 4 HSK0,
+- Package hiện hành `foundation-2026.08.5` giao 217 lesson runtime: 4 HSK0,
   40 HSK1, 40 HSK2, 55 HSK3 và 78 HSK4. Package B0
   `foundation-2026.07.8` giữ nguyên.
 - Phủ đủ **1.000 vocabulary, 441 character, 95 grammar, 30 task và 77 topic**
@@ -70,7 +70,8 @@ mục bridge/legacy còn consumer hợp lệ.
    auth, sync, FSRS, Reader, Review, CMS hay content pipeline.
 2. `content/review/hsk4-level-batch-local-study-review.json` ghi AI self-review
    năm pass cho phạm vi local, unresolved bằng 0.
-3. `content/packages/foundation-2026.08.4/` là package immutable hiện hành.
+3. `content/packages/foundation-2026.08.4/` giữ immutable cho B4;
+   `content/packages/foundation-2026.08.5/` là package handoff hiện hành.
 4. Graph, release policy và local authorization mở 15 unit/213 bài HSK1-4;
    runtime catalog giao thêm 4 bài bridge HSK0.
 5. Shared rich adapter giao đủ 40 HSK1, 40 HSK2, 55 HSK3 và 78 HSK4.
@@ -82,7 +83,7 @@ Human/production review manifest vẫn pending và production gate tiếp tục
 fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 được mở trong batch này.
 
-## 6. Trạng thái kiểm tra B4
+## 6. Trạng thái kiểm tra B4-B5
 
 - Validator trực tiếp xanh cho 78 bài, 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm
   vụ, 77 chủ đề, rich UI 78/78 và level check 72 câu.
@@ -100,20 +101,29 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 - Targeted rerun sau sửa xác nhận bốn luồng lỗi xanh 4/4. Trong lượt full, level
   check HSK1 50 câu, HSK2 60 câu, HSK3 54 câu và HSK4 72 câu đều hoàn tất
   end-to-end; offline, mobile, keyboard và reduced motion xanh.
-- Bundle ceiling 797,8 KiB, dưới budget bảo thủ 800 KiB.
-- Không chạy Lighthouse/audit vì batch không đổi dependency hoặc shared
-  visual UI; giữ các gate này cho B5 local release candidate.
+- B5 tách curriculum nặng khỏi bootstrap người mới, compact hóa level check
+  HSK2 nhưng giữ đủ 60 câu; bundle ceiling giảm còn 787,6 KiB.
+- Lighthouse trên package `.08.5` chạy ba cold-profile: median performance 97,
+  accessibility 100, best-practices 100, SEO 100; LCP 1.968 ms, CLS 0 và TBT
+  140 ms. Dependency audit báo 0 lỗ hổng.
+- Content graduation chain, package governance, typecheck, lint, build và các
+  targeted test cho bootstrap/persistence/runtime/level-check đều xanh.
+- Targeted E2E xác nhận HSK0→rich HSK1, level check HSK2 60 câu, privacy
+  quarantine và owner binding sau khi sửa race bootstrap. Full check/E2E không
+  chạy lại; evidence ranh giới B4 tiếp tục là full-suite evidence hiện hành.
+- Candidate contract `.08.5` bind đủ 10 artifact và 8 acceptance capability;
+  production vẫn fail-closed với 9 nhóm gate pending, không claim Sites.
 
-Không còn lỗi nội dung hoặc tích hợp thật đã biết trong B4.
+Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
 ## 7. Ranh giới và batch tiếp theo
 
 - Workspace: `D:\Projects\hanzi-os`; branch: `codex/hsk4-graduation`.
-- B1 commit `5ad93ae`; B3 commit `c295191`; B4 package
-  `foundation-2026.08.4`.
+- B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
+  hiện hành `foundation-2026.08.5`.
 - Không commit staging, build output hoặc report thử.
 - Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
 
-**Batch duy nhất tiếp theo: B5 — đóng gói đồ án local.** Không còn bài HSK1-4
-phải materialize. B5 chỉ xác nhận local release candidate, Lighthouse/audit và
-handoff; Sites/deployment vẫn để người dùng thực hiện cuối cùng.
+**Không còn batch local nào mở.** HSK1-4, level check và handoff đồ án đã hoàn
+tất. Sites/deployment vẫn để người dùng thực hiện cuối cùng; production,
+commerce, CMS và human-review workflow chỉ mở bằng yêu cầu riêng.

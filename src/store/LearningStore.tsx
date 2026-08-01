@@ -17,19 +17,12 @@ import {
   type Card,
   type Grade,
 } from "ts-fsrs";
-import {
-  CONTENT_VERSION,
-  LESSON_BY_ID,
-  RELEASED_WORD_BY_ID,
-  WORD_BY_ID,
-} from "../data/curriculum";
-import { isLessonUnlocked } from "../lib/adaptive";
+import { CONTENT_VERSION } from "../data/contentIdentity";
 import {
   makeIdempotencyKey,
   recordEvidenceInState,
   scoreLessonSession,
 } from "../lib/evidence";
-import { answersMatch } from "../lib/exerciseGeneration";
 import { commitDurableLearningState } from "../lib/durableLearningMutation";
 import { applyObservedDiagnosticCompletion } from "../lib/diagnosticCompletion";
 import {
@@ -37,20 +30,16 @@ import {
   canRecordLocalRemediationAttempt,
   evaluateRemediationAttempt,
 } from "../lib/remediation";
-import { parsePersistedLearningState } from "../lib/learningStatePersistence";
 import {
   selectStoredState,
   type StoredStateSource,
 } from "../lib/stateStorageRecovery";
-import {
-  localLessonEvidenceMetadata,
-  resolveExactLocalLessonActivityProvenance,
-  resolveExactLocalLessonSessionProvenance,
-  resolvePersistedLocalLessonActivityProvenance,
-  type LocalLessonActivityProvenanceV1,
-  type LocalLessonSessionProvenanceV1,
+import type {
+  LocalLessonActivityProvenanceV1,
+  LocalLessonSessionProvenanceV1,
 } from "../learning/localLessonRuntime";
 import {
+  getOrCreateLocalIdentifier,
   isHanziOsStorageKey,
   LEARNING_CORRUPT_STORAGE_KEY,
   LEARNING_OWNER_STORAGE_KEY,
@@ -137,7 +126,15 @@ const yesterdayKey = () => {
   return localDateKey(date);
 };
 
-const deserializeState = (raw: string): LearningState => {
+type PersistedStateParser = (
+  value: unknown,
+  defaults: LearningState,
+) => { ok: true; state: LearningState } | { ok: false; error: string };
+
+const deserializeState = (
+  raw: string,
+  parsePersistedLearningState: PersistedStateParser,
+): LearningState => {
   const decoded = JSON.parse(raw) as unknown;
   if (
     typeof decoded !== "object"
@@ -192,15 +189,22 @@ const deserializeState = (raw: string): LearningState => {
   return validated.state;
 };
 
-const loadState = () => selectStoredState({
-  primaryRaw: readLocalStorage(LEARNING_STORAGE_KEY),
-  readRecoveryRaw: () => readLocalStorage(LEARNING_RECOVERY_STORAGE_KEY),
-  deserialize: deserializeState,
-  fallback: INITIAL_LEARNING_STATE,
-  onPrimaryCorrupt: (raw) => {
-    writeLocalStorage(LEARNING_CORRUPT_STORAGE_KEY, raw);
-  },
-});
+type InitialLearningLoad = {
+  state: LearningState;
+  source: StoredStateSource;
+  primaryRaw: string | null;
+  requiresValidation: boolean;
+};
+
+const detectInitialLearningLoad = (): InitialLearningLoad => {
+  const primaryRaw = readLocalStorage(LEARNING_STORAGE_KEY);
+  return {
+    state: INITIAL_LEARNING_STATE,
+    source: "default",
+    primaryRaw,
+    requiresValidation: Boolean(primaryRaw),
+  };
+};
 
 const serializeCard = (card: Card): StoredFsrsCard => ({
   due: card.due.toISOString(),
@@ -230,7 +234,7 @@ type LearningActions = {
   recordAnswer: (
     evidence: AnswerEvidence,
     provenance: LocalLessonActivityProvenanceV1,
-  ) => LocalLearningMutationDisposition;
+  ) => Promise<LocalLearningMutationDisposition>;
   recordPracticeEvidence: (evidence: PracticeEvidenceInput) => void;
   resolveMistake: (mistakeId: string, isCorrect: boolean, selectedAnswer?: string, idempotencyKey?: string, usedHint?: boolean) => void;
   completeDiagnostic: (score: number) => void;
@@ -240,9 +244,9 @@ type LearningActions = {
     idempotencyKey: string,
     expectedEvidenceCount: number,
     provenance: LocalLessonSessionProvenanceV1,
-  ) => LocalLearningMutationDisposition;
-  toggleSavedWord: (wordId: string) => void;
-  gradeReview: (wordId: string, rating: Grade, idempotencyKey?: string) => void;
+  ) => Promise<LocalLearningMutationDisposition>;
+  toggleSavedWord: (wordId: string) => Promise<void>;
+  gradeReview: (wordId: string, rating: Grade, idempotencyKey?: string) => Promise<void>;
   resetProgress: () => Promise<boolean>;
   syncNow: () => Promise<void>;
   prepareSignOut: () => Promise<void>;
@@ -295,9 +299,22 @@ const applyStudyDay = (current: LearningState) => {
   };
 };
 
+const loadLocalLessonMutationModules = () => Promise.all([
+  import("../data/curriculum"),
+  import("../lib/adaptive"),
+  import("../lib/exerciseGeneration"),
+  import("../learning/localLessonRuntime"),
+]);
+
 export function LearningProvider({ children }: { children: ReactNode }) {
-  const [initialLoad] = useState(loadState);
+  const [initialLoad] = useState(detectInitialLearningLoad);
   const [state, setState] = useState<LearningState>(initialLoad.state);
+  const [stateLoadSource, setStateLoadSource] = useState<StoredStateSource>(
+    initialLoad.source,
+  );
+  const [bootstrapReady, setBootstrapReady] = useState(
+    !initialLoad.requiresValidation,
+  );
   const stateRef = useRef(state);
   const coordinatorRef = useRef<LearningSyncCoordinator | null>(null);
   const replacementInFlightRef = useRef(false);
@@ -311,6 +328,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
     lastSyncedAt: null,
     error: null,
   });
+  const coordinatorEnabled = initialLoad.requiresValidation
+    || state.profile.onboarded;
 
   const applyDurableState = useCallback((next: LearningState) => {
     if (!writeLocalStorage(LEARNING_STORAGE_KEY, JSON.stringify(next))) return false;
@@ -333,8 +352,63 @@ export function LearningProvider({ children }: { children: ReactNode }) {
   );
 
   useEffect(() => {
+    if (!initialLoad.requiresValidation) return;
+    let disposed = false;
+    void import("../lib/learningStatePersistence").then((module) => {
+      if (disposed) return;
+      const loaded = selectStoredState({
+        primaryRaw: initialLoad.primaryRaw,
+        readRecoveryRaw: () => readLocalStorage(LEARNING_RECOVERY_STORAGE_KEY),
+        deserialize: (raw) => deserializeState(
+          raw,
+          module.parsePersistedLearningState,
+        ),
+        fallback: INITIAL_LEARNING_STATE,
+        onPrimaryCorrupt: (raw) => {
+          writeLocalStorage(LEARNING_CORRUPT_STORAGE_KEY, raw);
+        },
+      });
+      stateRef.current = loaded.state;
+      setState(loaded.state);
+      setStateLoadSource(loaded.source);
+      setBootstrapReady(true);
+    }).catch((cause: unknown) => {
+      if (disposed) return;
+      setBootstrapReady(true);
+      setSync((current) => ({
+        ...current,
+        phase: "error",
+        error: cause instanceof Error
+          ? cause.message
+          : "KhÃ´ng thá»ƒ xÃ¡c minh dá»¯ liá»‡u há»c Ä‘Ã£ lÆ°u.",
+      }));
+    });
+    return () => {
+      disposed = true;
+    };
+  }, [initialLoad]);
+
+  useEffect(() => {
+    if (!bootstrapReady) return;
+    if (!coordinatorEnabled) {
+      const installationId = getOrCreateLocalIdentifier(
+        SYNC_INSTALLATION_STORAGE_KEY,
+        "installation",
+      );
+      const ownerKey = `anonymous:${installationId}`;
+      writeLocalStorage(LEARNING_OWNER_STORAGE_KEY, ownerKey);
+      setSync((current) => ({
+        ...current,
+        phase: "local-only",
+        session: null,
+        ownerKey,
+        error: null,
+      }));
+      return;
+    }
     let disposed = false;
     let coordinator: LearningSyncCoordinator | null = null;
+    setSync((current) => ({ ...current, phase: "checking", error: null }));
     void import("../sync/coordinator").then(({ LearningSyncCoordinator }) => {
       if (disposed) return;
       coordinator = new LearningSyncCoordinator({
@@ -362,7 +436,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       }
       coordinator?.dispose();
     };
-  }, [applyDurableState]);
+  }, [applyDurableState, bootstrapReady, coordinatorEnabled]);
 
   const persist = useCallback((updater: (current: LearningState) => LearningState) => {
     if (replacementInFlightRef.current) return false;
@@ -390,7 +464,16 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         ...current,
         profile: { ...current.profile, ...patch },
       })),
-    recordAnswer: (submittedEvidence, provenance) => {
+    recordAnswer: async (submittedEvidence, provenance) => {
+      const [
+        { LESSON_BY_ID },
+        { isLessonUnlocked },
+        { answersMatch },
+        {
+          localLessonEvidenceMetadata,
+          resolveExactLocalLessonActivityProvenance,
+        },
+      ] = await loadLocalLessonMutationModules();
       const resolved = resolveExactLocalLessonActivityProvenance(provenance);
       if (!resolved) return "rejected";
       const { activity, runtime } = resolved;
@@ -595,13 +678,23 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       }),
     completeDiagnostic: (score) =>
       persist((current) => applyObservedDiagnosticCompletion(current, score)),
-    completeLesson: (
+    completeLesson: async (
       lessonId,
       score,
       idempotencyKey,
       expectedEvidenceCount,
       provenance,
     ) => {
+      const [
+        { LESSON_BY_ID },
+        { isLessonUnlocked },
+        ,
+        {
+          localLessonEvidenceMetadata,
+          resolveExactLocalLessonSessionProvenance,
+          resolvePersistedLocalLessonActivityProvenance,
+        },
+      ] = await loadLocalLessonMutationModules();
       const resolved = resolveExactLocalLessonSessionProvenance(provenance);
       const lesson = LESSON_BY_ID.get(lessonId);
       if (
@@ -720,7 +813,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       });
       return durable ? disposition : "rejected";
     },
-    toggleSavedWord: (wordId) => {
+    toggleSavedWord: async (wordId) => {
+      const { RELEASED_WORD_BY_ID } = await import("../data/curriculum");
       if (!RELEASED_WORD_BY_ID.has(wordId)) return;
       persist((current) => ({
         ...current,
@@ -732,7 +826,10 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           : { ...current.fsrsCards, [wordId]: emptyStoredCard() },
       }));
     },
-    gradeReview: (wordId, rating, idempotencyKey) => {
+    gradeReview: async (wordId, rating, idempotencyKey) => {
+      const { RELEASED_WORD_BY_ID, WORD_BY_ID } = await import(
+        "../data/curriculum"
+      );
       if (!RELEASED_WORD_BY_ID.has(wordId)) return;
       persist((current) => {
         const now = new Date();
@@ -884,8 +981,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
     const now = Date.now();
     const activated = Object.keys(state.fsrsCards);
     return activated.filter((wordId) =>
-      RELEASED_WORD_BY_ID.has(wordId)
-      && new Date(state.fsrsCards[wordId].due).getTime() <= now,
+      new Date(state.fsrsCards[wordId].due).getTime() <= now,
     ).slice(0, 12);
   }, [state.fsrsCards]);
 
@@ -896,9 +992,9 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       dueWordIds,
       level: Math.floor(state.xp / 500) + 1,
       sync,
-      stateLoadSource: initialLoad.source,
+      stateLoadSource,
     }),
-    [state, dueWordIds, actions, sync, initialLoad.source],
+    [state, dueWordIds, actions, sync, stateLoadSource],
   );
 
   return <LearningContext.Provider value={value}>{children}</LearningContext.Provider>;

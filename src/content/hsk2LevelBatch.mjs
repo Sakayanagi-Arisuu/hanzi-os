@@ -5,13 +5,15 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK2_LEVEL_BASE_VERSION = "foundation-2026.08.1";
 export const HSK2_LEVEL_TARGET_VERSION = "foundation-2026.08.2";
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.4";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
 export const HSK2_LEVEL_REVIEW_RELATIVE_PATH =
   "content/review/hsk2-level-batch-local-study-review.json";
 export const HSK2_LEVEL_CORE_RELATIVE_PATH =
   "content/runtime/hsk2-level-core-projection.json";
 export const HSK2_LEVEL_RICH_RELATIVE_PATH =
   "content/runtime/hsk2-level-rich-lessons.json";
+export const HSK2_LEVEL_CHECK_RELATIVE_PATH =
+  "content/runtime/hsk2-level-check-local.json";
 export const HSK2_LEVEL_PACKAGE_INPUT_DIRECTORY =
   "content/runtime/hsk2-level-package-input";
 
@@ -983,6 +985,96 @@ export const validateHsk2LevelRichLessons = async (
     || actual?.counts?.richLessons !== 40
   ) {
     errors.push("HSK2 rich lesson presentation policy is invalid");
+  }
+  return { valid: errors.length === 0, errors, summary: expected.counts };
+};
+
+export const projectHsk2LocalLevelCheck = async (
+  source = loadHsk2LevelBatchSources(),
+) => {
+  const objectiveIds = new Set(source.assessment.forms.find(
+    (form) => form.formId === "hsk2-level-form-a",
+  ).sections.filter((section) => section.sectionId.endsWith("-objective"))
+    .flatMap((section) => section.itemIds));
+  const unitByLessonId = new Map(source.blueprints.lessons.map((lesson) => [
+    lesson.lessonId,
+    lesson.unitId,
+  ]));
+  const items = source.assessment.items.filter((item) =>
+    objectiveIds.has(item.itemId)
+  ).map((item) => {
+    const stimulusText = item.stimulus.transcriptHanzi
+      ?? item.stimulus.text
+      ?? "";
+    const pinyinReference = item.stimulus.transcriptPinyin
+      ?? item.stimulus.pinyinAuthoringReference
+      ?? null;
+    const sourceUnitId = unitByLessonId.get(item.source.lessonId);
+    const correct = item.options?.find((option) =>
+      option.optionId === item.correctOptionId
+    );
+    if (!stimulusText || !sourceUnitId || !correct || item.options?.length !== 4) {
+      throw new Error(`${item.itemId} has incomplete HSK2 level-check context`);
+    }
+    return {
+      id: item.itemId,
+      sourceItemVersion: item.itemVersion,
+      skill: item.skill,
+      construct: item.construct,
+      promptVi: item.promptVi,
+      stimulusText,
+      pinyinReference,
+      syntheticTtsText: item.skill === "listening" ? stimulusText : null,
+      options: item.options.map((option) => ({ ...option })),
+      correctOptionId: item.correctOptionId,
+      explanationVi: `“${stimulusText}”${pinyinReference ? ` (${pinyinReference})` : ""}: ${correct.text}`,
+      sourceLessonId: item.source.lessonId,
+      sourceUnitId,
+      measurementEligible: false,
+      masteryEligible: false,
+      prerequisiteWaiverEligible: false,
+    };
+  });
+  const skillCounts = Object.fromEntries([
+    "listening", "reading", "vocabulary", "grammar",
+  ].map((skill) => [skill, items.filter((item) => item.skill === skill).length]));
+  if (items.length !== 60 || !exact(skillCounts, {
+    listening: 15,
+    reading: 15,
+    vocabulary: 15,
+    grammar: 15,
+  })) throw new Error("HSK2 local level-check objective coverage is incomplete");
+  const review = readJson(source.root, HSK2_LEVEL_REVIEW_RELATIVE_PATH);
+  if (
+    review.reviewer?.humanReviewed !== false
+    || review.reviewResult?.unresolvedIssueCount !== 0
+  ) throw new Error("HSK2 local level-check review binding is invalid");
+  const payload = {
+    schemaVersion: 1,
+    bankId: source.assessment.bankId,
+    formId: "hsk2-level-form-a",
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
+    state: "ai-reviewed-for-personal-local-self-check",
+    disclosure: {
+      humanReviewed: false,
+      browserTtsPracticeOnly: true,
+      measurementEligible: false,
+      masteryEligible: false,
+      prerequisiteWaiverEligible: false,
+    },
+    counts: { items: items.length, ...skillCounts },
+    items,
+  };
+  return { ...payload, integritySha256: await sha256Json(payload) };
+};
+
+export const validateHsk2LocalLevelCheck = async (root = process.cwd()) => {
+  const expected = await projectHsk2LocalLevelCheck(loadHsk2LevelBatchSources(root));
+  const actual = readJson(root, HSK2_LEVEL_CHECK_RELATIVE_PATH);
+  const errors = [];
+  if (!exact(actual, expected)) errors.push("HSK2 local level-check artifact has drifted");
+  if (actual.disclosure?.humanReviewed !== false || actual.counts?.items !== 60) {
+    errors.push("HSK2 local level-check disclosure is invalid");
   }
   return { valid: errors.length === 0, errors, summary: expected.counts };
 };

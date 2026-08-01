@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
 
-const CONTENT_VERSION = "foundation-2026.08.4";
+const CONTENT_VERSION = "foundation-2026.08.5";
 const bridgeEvidence = JSON.parse(readFileSync(
   new URL("./fixtures/hsk4-bridge-evidence.json", import.meta.url),
   "utf8",

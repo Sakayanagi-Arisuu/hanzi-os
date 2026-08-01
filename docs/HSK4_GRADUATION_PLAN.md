@@ -7,10 +7,11 @@ dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1-B4 đã đưa toàn bộ HSK1-4 lên Path và shared rich
-Lesson UI; bốn level check chạy end-to-end mà không giả làm chứng nhận.
+Nền local-first ổn định. B1-B5 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
+HSK1-4 có trên Path và shared rich Lesson UI, bốn level check chạy end-to-end,
+package handoff `.08.5` đã qua performance/audit mà không giả làm chứng nhận.
 
-- **Sẵn sàng toàn dự án: 95/100 (95%)**.
+- **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
 - **HSK2:** 40/40 learner-visible, rich 40/40.
@@ -18,8 +19,9 @@ Lesson UI; bốn level check chạy end-to-end mà không giả làm chứng nh�
 - **HSK4:** 78/78 learner-visible, rich 78/78.
 - **Toàn HSK1-4 learner-visible:** 213/213 (100%).
 
-95% là readiness toàn dự án; riêng kho bài HSK1-4 đã đạt 100% learner-visible.
-5 điểm còn lại thuộc đóng gói đồ án local, không phải nội dung còn thiếu.
+96% là readiness toàn dự án; riêng roadmap local và kho bài HSK1-4 đã hoàn tất
+100%. Bốn điểm không tuyên bố thuộc các bằng chứng mastery/production bị hoãn,
+không phải nội dung hoặc lỗi tích hợp còn thiếu.
 
 ## 2. Phạm vi inventory
 
@@ -46,7 +48,7 @@ mới được tính learner-visible.
 
 HSK4 local phủ đủ 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm vụ và 77 chủ đề.
 78 bài rich gồm 36 deep comprehension, 24 summary/argument và 18 timed
-integration; package hiện hành là `foundation-2026.08.4`. Browser TTS chỉ là
+integration; package hiện hành là `foundation-2026.08.5`. Browser TTS chỉ là
 synthetic practice và toàn bộ HSK1-4 giữ `humanReviewed: false`.
 
 “Hoàn thành HSK1/2/3/4” ở đây chỉ có nghĩa hoàn thành level tự học local theo
@@ -108,10 +110,14 @@ progress và persistence giữ đúng.
 
 ### B5 — đóng gói đồ án local
 
-**Batch duy nhất tiếp theo.** Đóng local release candidate từ package `.08.4`,
-xác nhận Lighthouse/audit và handoff đồ án. Full check, E2E, mobile, keyboard,
-reduced-motion và restore đã có evidence B4; Sites/deployment chỉ chạy sau lệnh
-riêng của người dùng.
+**Hoàn thành tại readiness 96%.** Package `.08.5` giữ nguyên 217 bài nhưng tách
+curriculum nặng khỏi bootstrap người mới và dùng level-check projection HSK2
+compact. Bundle ceiling đạt 787,6 KiB; Lighthouse cold-profile median đạt
+performance 97, accessibility 100, best-practices 100 và SEO 100; dependency
+audit có 0 lỗ hổng. Contract handoff local hợp lệ, production tiếp tục
+fail-closed. Full check/E2E/mobile/keyboard/reduced-motion/restore dùng evidence
+ranh giới B4 và chỉ các luồng B5 bị tác động được targeted smoke lại. Không còn
+batch local nào mở; Sites/deployment vẫn do người dùng thực hiện cuối cùng.
 
 ## 6. Thước đo sẵn sàng toàn dự án
 
@@ -122,8 +128,8 @@ riêng của người dùng.
 | C. Lộ trình HSK0-4 khác biệt | 15 | 15 | 5 path, 18 unit, blueprint/prerequisite |
 | D. Nội dung học được trong runtime | 30 | 30 | HSK0 bridge + toàn bộ HSK1-4 rich |
 | E. Assessment/mock | 10 | 10 | HSK1-4 level check E2E |
-| F. Đồ án/QA/local release | 10 | 9 | demo/gates mạnh; final package còn mở |
-| **Tổng** | **100** | **95** | **Sẵn sàng toàn dự án: 95%** |
+| F. Đồ án/QA/local release | 10 | 10 | package `.08.5`, handoff, Lighthouse/audit xanh |
+| **Tổng** | **100** | **96** | **Sẵn sàng toàn dự án: 96%** |
 
 Trụ cột D chỉ tăng khi bài mới lên UI. Generated content, test count và số dòng
 không tạo điểm.

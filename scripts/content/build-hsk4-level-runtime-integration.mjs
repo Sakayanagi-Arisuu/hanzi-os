@@ -2,12 +2,12 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import {
   HSK4_LEVEL_CORE_RELATIVE_PATH,
-  HSK4_LEVEL_TARGET_VERSION,
 } from "../../src/content/hsk4LevelBatch.mjs";
 import { loadHskSyllabusBundle } from "../../src/content/hskSyllabusInventory.mjs";
 
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
 const readJson = (root, relativePath) => JSON.parse(readFileSync(
   resolve(root, relativePath),
   "utf8",
@@ -23,7 +23,7 @@ const project = (root) => {
   const release = readJson(root, RELEASE_PATH);
   const runtime = readJson(
     root,
-    `content/packages/${HSK4_LEVEL_TARGET_VERSION}/runtime-catalog.json`,
+    `content/packages/${CURRENT_LOCAL_STUDY_VERSION}/runtime-catalog.json`,
   );
   const syllabus = loadHskSyllabusBundle(root);
   const vocabularyById = new Map(runtime.vocabulary.map((item) => [item.id, item]));
@@ -53,7 +53,7 @@ const project = (root) => {
   }
   const projectedGraph = {
     ...graph,
-    runtimeContentVersion: HSK4_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     units: graph.units.map((unit) => unit.pathId === "hsk4"
       ? { ...unit, status: "foundation" }
       : unit),
@@ -70,7 +70,7 @@ const project = (root) => {
   };
   const projectedRelease = {
     ...release,
-    runtimeContentVersion: HSK4_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     units: [
       ...release.units.filter((unit) => !unit.unitId.startsWith("hsk4-")),
       ...projectedGraph.units.filter((unit) => unit.pathId === "hsk4").map((unit) => ({

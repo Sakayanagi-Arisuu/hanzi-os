@@ -1,5 +1,5 @@
 import sourceBankJson from "../../content/drafts/hsk1-level-check-items-2026.07.json";
-import { CONTENT_VERSION } from "./curriculum";
+import { CONTENT_VERSION } from "./contentIdentity";
 
 export type Hsk1LevelCheckSkill =
   | "listening"

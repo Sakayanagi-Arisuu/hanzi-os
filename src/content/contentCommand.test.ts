@@ -111,6 +111,7 @@ const createAudioCommandFixture = () => {
       "foundation-2026.08.2",
       "foundation-2026.08.3",
       "foundation-2026.08.4",
+      "foundation-2026.08.5",
     ].includes(contentVersion),
   );
   writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
@@ -124,7 +125,7 @@ const createAudioCommandFixture = () => {
   writeFileSync(
     curriculumPath,
     readFileSync(curriculumPath, "utf8").replaceAll(
-      "foundation-2026.08.4",
+      "foundation-2026.08.5",
       targetVersion,
     ),
   );
@@ -248,6 +249,7 @@ const createCharacterCommandFixture = () => {
       "foundation-2026.08.2",
       "foundation-2026.08.3",
       "foundation-2026.08.4",
+      "foundation-2026.08.5",
     ].includes(contentVersion),
   );
   writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
@@ -261,7 +263,7 @@ const createCharacterCommandFixture = () => {
   writeFileSync(
     curriculumPath,
     readFileSync(curriculumPath, "utf8").replaceAll(
-      "foundation-2026.08.4",
+      "foundation-2026.08.5",
       targetVersion,
     ),
   );
@@ -421,6 +423,7 @@ describe("content validation command", () => {
       { contentVersion: "foundation-2026.08.2", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.08.3", valid: true, errors: [], warnings: [] },
       { contentVersion: "foundation-2026.08.4", valid: true, errors: [], warnings: [] },
+      { contentVersion: "foundation-2026.08.5", valid: true, errors: [], warnings: [] },
     ]);
   });
 
@@ -923,6 +926,7 @@ describe("content validation command", () => {
           "foundation-2026.08.2",
           "foundation-2026.08.3",
           "foundation-2026.08.4",
+          "foundation-2026.08.5",
         ].includes(contentVersion),
       );
       writeFileSync(

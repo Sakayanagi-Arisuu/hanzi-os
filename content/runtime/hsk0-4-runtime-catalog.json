@@ -2,34 +2,34 @@
   "schemaVersion": 1,
   "catalogId": "hsk0-4-local-runtime-2026.07.1",
   "compilerVersion": "hsk-runtime-curriculum-compiler-v2",
-  "runtimeContentVersion": "foundation-2026.08.4",
-  "importIdempotencyKey": "sha256:0ab97e8a94eae76d810da20817f67facbd13dbdeb51d6413604f6633416b2cd9",
+  "runtimeContentVersion": "foundation-2026.08.5",
+  "importIdempotencyKey": "sha256:cbc8a5a2523ef56899b4e6b0d4c54e6e90ff276b136984c7a5f8a5eeb695c5b4",
   "sourceBindings": {
     "curriculumGraph": {
       "graphId": "hsk0-4-graduation-2026.07.2",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:34382c9b08efc312da5edf8d9444cea6fd03bb17a3f5f39cd7bfd1840df7ed4a"
+      "sha256": "sha256:34f8ae8c017bf04b132679fe8d627d51527eca9ee0e20b7566236197b5b0c0c2"
     },
     "unitReleasePolicy": {
       "policyId": "hsk0-4-unit-release-policy-2026.07.1",
       "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-      "sha256": "sha256:3d527c931c7d2e741192da27778ae1c25cad015ca098372cf72adb2a3f8ceb40"
+      "sha256": "sha256:c7954983e8c6f0c2231ea8ae0f906a281776b17e8bc241e16cff61dbf558d3cc"
     },
     "contentRegistry": {
       "relativePath": "content/registry.json",
-      "sha256": "sha256:55fbf61ac8df54455513301870fb635fe0ff639b95957e2dcc423b6df5e63a54"
+      "sha256": "sha256:1557c9b26224dd2bbc03dffdfd94d6ab2efffaf08aa3cc839d9aed59500bc4f9"
     },
     "contentPackage": {
-      "packageId": "foundation-2026.08.4",
-      "contentVersion": "foundation-2026.08.4",
+      "packageId": "foundation-2026.08.5",
+      "contentVersion": "foundation-2026.08.5",
       "contentSchemaVersion": 6,
       "itemCatalogSchemaVersion": 4,
-      "manifestRelativePath": "content/packages/foundation-2026.08.4/manifest.json",
-      "manifestSha256": "sha256:2ee90f2d087dfe03f8264d4c5279269456ea1532cfc6bd2767651a6b9f08100f",
-      "itemCatalogRelativePath": "content/packages/foundation-2026.08.4/item-catalog.json",
-      "itemCatalogSha256": "sha256:0cc5ede014e550a29608ad8572615b7da6fb99ab6f3e6fbef4625b3b5662eaf1",
-      "runtimeCatalogRelativePath": "content/packages/foundation-2026.08.4/runtime-catalog.json",
-      "runtimeCatalogSha256": "sha256:233aec0b835f430b8bc181c6ba0cfa130158a0c70cf33806bb9b37b88051908d"
+      "manifestRelativePath": "content/packages/foundation-2026.08.5/manifest.json",
+      "manifestSha256": "sha256:7bde60677deabbef7de60247b600ab2bb5fe84952e618a8492061def695054f5",
+      "itemCatalogRelativePath": "content/packages/foundation-2026.08.5/item-catalog.json",
+      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "runtimeCatalogRelativePath": "content/packages/foundation-2026.08.5/runtime-catalog.json",
+      "runtimeCatalogSha256": "sha256:747379251d6dfdf19327220e741fe7ffdc46e85a5c67adad0e3023d73f494cc0"
     }
   },
   "policy": {
@@ -857,1519 +857,1519 @@
   "lessonMappings": [
     {
       "lessonId": "boot-1",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk0-tone-basics",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "boot-2",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk0-first-interaction",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "boot-3",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk0-pronunciation-control",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "boot-4",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk0-pronunciation-control",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "survival-1",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 11
     },
     {
       "lessonId": "survival-2",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 16
     },
     {
       "lessonId": "survival-3",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "survival-4",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 13
     },
     {
       "lessonId": "survival-5",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "survival-6",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 14
     },
     {
       "lessonId": "survival-7",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 17
     },
     {
       "lessonId": "survival-8",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 8
     },
     {
       "lessonId": "survival-9",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "hsk1-time-place-events-01-numbers",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 15
     },
     {
       "lessonId": "hsk1-time-place-events-02-calendar",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 11
     },
     {
       "lessonId": "hsk1-time-place-events-04-clock-and-duration",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk1-time-place-events-05-location",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 24
     },
     {
       "lessonId": "hsk1-time-place-events-06-weather-and-residence",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 9
     },
     {
       "lessonId": "daily-1",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-daily-life",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "daily-2",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-daily-life",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 22
     },
     {
       "lessonId": "daily-3",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-daily-life",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "daily-4",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-daily-life",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 8
     },
     {
       "lessonId": "journey-1",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-travel-leisure",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "journey-2",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-travel-leisure",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 13
     },
     {
       "lessonId": "professional-1",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-study-work",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 9
     },
     {
       "lessonId": "professional-2",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-study-work",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 7
     },
     {
       "lessonId": "professional-3",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-study-work",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "professional-4",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-study-work",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 7
     },
     {
       "lessonId": "characters-1",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 35
     },
     {
       "lessonId": "characters-2",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 29
     },
     {
       "lessonId": "characters-3",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 30
     },
     {
       "lessonId": "characters-4",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 25
     },
     {
       "lessonId": "characters-5",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "characters-6",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "characters-7",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 30
     },
     {
       "lessonId": "characters-8",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 45
     },
     {
       "lessonId": "characters-9",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 42
     },
     {
       "lessonId": "characters-10",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 30
     },
     {
       "lessonId": "characters-11",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 17
     },
     {
       "lessonId": "characters-12",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 22
     },
     {
       "lessonId": "characters-13",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 23
     },
     {
       "lessonId": "characters-14",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 25
     },
     {
       "lessonId": "characters-15",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk1-character-foundation",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 24
     },
     {
       "lessonId": "hsk2-person-events-environment-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 9
     },
     {
       "lessonId": "hsk2-person-events-environment-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 16
     },
     {
       "lessonId": "hsk2-person-events-environment-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 8
     },
     {
       "lessonId": "hsk2-person-events-environment-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 2
     },
     {
       "lessonId": "hsk2-person-events-environment-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "hsk2-daily-needs-family-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 14
     },
     {
       "lessonId": "hsk2-daily-needs-family-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk2-daily-needs-family-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 9
     },
     {
       "lessonId": "hsk2-daily-needs-family-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-daily-needs-family-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 7
     },
     {
       "lessonId": "hsk2-travel-leisure-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 21
     },
     {
       "lessonId": "hsk2-travel-leisure-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 15
     },
     {
       "lessonId": "hsk2-travel-leisure-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 18
     },
     {
       "lessonId": "hsk2-travel-leisure-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 16
     },
     {
       "lessonId": "hsk2-travel-leisure-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "hsk2-study-work-culture-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 17
     },
     {
       "lessonId": "hsk2-study-work-culture-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 6
     },
     {
       "lessonId": "hsk2-study-work-culture-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "hsk2-study-work-culture-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "hsk2-study-work-culture-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-situational-dialogue",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 5
     },
     {
       "lessonId": "hsk2-reference-description-comparison-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk2-reference-description-comparison-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 23
     },
     {
       "lessonId": "hsk2-reference-description-comparison-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 11
     },
     {
       "lessonId": "hsk2-reference-description-comparison-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 15
     },
     {
       "lessonId": "hsk2-aspect-time-experience-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk2-aspect-time-experience-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 23
     },
     {
       "lessonId": "hsk2-complements-and-motion-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk2-complements-and-motion-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-clause-linking-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 15
     },
     {
       "lessonId": "hsk2-clause-linking-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-sentence-chains",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-dictation-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 13
     },
     {
       "lessonId": "hsk2-dictation-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 13
     },
     {
       "lessonId": "hsk2-dictation-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 13
     },
     {
       "lessonId": "hsk2-sentence-reconstruction-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-sentence-reconstruction-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 13
     },
     {
       "lessonId": "hsk2-sentence-reconstruction-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-guided-message-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-guided-message-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 11
     },
     {
       "lessonId": "hsk2-picture-description-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk2-picture-description-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk2-short-text-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk3-personal-life-narratives-identity-transactions",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 72
     },
     {
       "lessonId": "hsk3-personal-life-narratives-food-shopping",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 68
     },
     {
       "lessonId": "hsk3-personal-life-narratives-travel-transport",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 45
     },
     {
       "lessonId": "hsk3-personal-life-narratives-health-care",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 54
     },
     {
       "lessonId": "hsk3-personal-life-narratives-home-family-leisure",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 61
     },
     {
       "lessonId": "hsk3-study-work-accounts-courses-learning",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 71
     },
     {
       "lessonId": "hsk3-study-work-accounts-campus-education",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 64
     },
     {
       "lessonId": "hsk3-study-work-accounts-office-tasks",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 59
     },
     {
       "lessonId": "hsk3-study-work-accounts-colleague-workplace",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 60
     },
     {
       "lessonId": "hsk3-study-work-accounts-career-experience",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 66
     },
     {
       "lessonId": "hsk3-nature-environment-explanations-climate-seasons",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 83
     },
     {
       "lessonId": "hsk3-nature-environment-explanations-plants-animals",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 67
     },
     {
       "lessonId": "hsk3-nature-environment-explanations-landscape-place",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 71
     },
     {
       "lessonId": "hsk3-nature-environment-explanations-environment-state",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 72
     },
     {
       "lessonId": "hsk3-nature-environment-explanations-environment-protection",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 79
     },
     {
       "lessonId": "hsk3-society-arts-sports-reports-modern-life",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 56
     },
     {
       "lessonId": "hsk3-society-arts-sports-reports-city-development",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 64
     },
     {
       "lessonId": "hsk3-society-arts-sports-reports-arts-activities",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 58
     },
     {
       "lessonId": "hsk3-society-arts-sports-reports-sports-introduction",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 67
     },
     {
       "lessonId": "hsk3-society-arts-sports-reports-competition-report",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 62
     },
     {
       "lessonId": "hsk3-culture-tradition-descriptions-regional-cuisine",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 62
     },
     {
       "lessonId": "hsk3-culture-tradition-descriptions-tableware-etiquette",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 66
     },
     {
       "lessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 58
     },
     {
       "lessonId": "hsk3-culture-tradition-descriptions-regional-differences",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 65
     },
     {
       "lessonId": "hsk3-culture-tradition-descriptions-customs-comparison",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-paragraph-input",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 68
     },
     {
       "lessonId": "hsk3-reference-quantity-phrase-building-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 38
     },
     {
       "lessonId": "hsk3-reference-quantity-phrase-building-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 48
     },
     {
       "lessonId": "hsk3-reference-quantity-phrase-building-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 42
     },
     {
       "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 54
     },
     {
       "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 38
     },
     {
       "lessonId": "hsk3-modality-time-viewpoint-framing-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 39
     },
     {
       "lessonId": "hsk3-event-complements-voice-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 34
     },
     {
       "lessonId": "hsk3-event-complements-voice-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 38
     },
     {
       "lessonId": "hsk3-event-complements-voice-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 25
     },
     {
       "lessonId": "hsk3-comparison-description-evaluation-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 25
     },
     {
       "lessonId": "hsk3-comparison-description-evaluation-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 30
     },
     {
       "lessonId": "hsk3-comparison-description-evaluation-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 22
     },
     {
       "lessonId": "hsk3-discourse-linking-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 31
     },
     {
       "lessonId": "hsk3-discourse-linking-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 25
     },
     {
       "lessonId": "hsk3-discourse-linking-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-narration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk3-main-idea-detail-notes-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 189
     },
     {
       "lessonId": "hsk3-main-idea-detail-notes-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 175
     },
     {
       "lessonId": "hsk3-main-idea-detail-notes-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 179
     },
     {
       "lessonId": "hsk3-cohesion-reconstruction-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 215
     },
     {
       "lessonId": "hsk3-cohesion-reconstruction-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 203
     },
     {
       "lessonId": "hsk3-cohesion-reconstruction-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 174
     },
     {
       "lessonId": "hsk3-event-retelling-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 194
     },
     {
       "lessonId": "hsk3-event-retelling-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 209
     },
     {
       "lessonId": "hsk3-event-retelling-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 195
     },
     {
       "lessonId": "hsk3-guided-paragraph-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 182
     },
     {
       "lessonId": "hsk3-guided-paragraph-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 248
     },
     {
       "lessonId": "hsk3-guided-paragraph-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 184
     },
     {
       "lessonId": "hsk3-structured-explanation-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 232
     },
     {
       "lessonId": "hsk3-structured-explanation-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 233
     },
     {
       "lessonId": "hsk3-structured-explanation-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk3-guided-production",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 225
     },
     {
       "lessonId": "hsk4-personal-community-analysis-concept-actor-map",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-personal-community-analysis-process-timeline",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-personal-community-analysis-cause-condition-result",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-personal-community-analysis-comparison-variation",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-personal-community-analysis-claim-evidence-inference",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-personal-community-analysis-viewpoint-synthesis",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-education-work-evaluation-concept-actor-map",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 29
     },
     {
       "lessonId": "hsk4-education-work-evaluation-process-timeline",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-education-work-evaluation-cause-condition-result",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-education-work-evaluation-comparison-variation",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-education-work-evaluation-claim-evidence-inference",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-education-work-evaluation-viewpoint-synthesis",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-nature-technology-explanation-concept-actor-map",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-nature-technology-explanation-process-timeline",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-nature-technology-explanation-cause-condition-result",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-nature-technology-explanation-comparison-variation",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-nature-technology-explanation-claim-evidence-inference",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-nature-technology-explanation-viewpoint-synthesis",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-society-economy-argument-concept-actor-map",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-society-economy-argument-process-timeline",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-society-economy-argument-cause-condition-result",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-society-economy-argument-comparison-variation",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-society-economy-argument-claim-evidence-inference",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-society-economy-argument-viewpoint-synthesis",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 27
     },
     {
       "lessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 29
     },
     {
       "lessonId": "hsk4-arts-sports-exchange-critique-process-timeline",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-arts-sports-exchange-critique-cause-condition-result",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-arts-sports-exchange-critique-comparison-variation",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-arts-sports-exchange-critique-claim-evidence-inference",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-arts-sports-exchange-critique-viewpoint-synthesis",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-culture-history-interpretation-concept-actor-map",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-culture-history-interpretation-process-timeline",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-culture-history-interpretation-cause-condition-result",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-culture-history-interpretation-comparison-variation",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-culture-history-interpretation-claim-evidence-inference",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-culture-history-interpretation-viewpoint-synthesis",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-deep-comprehension",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 28
     },
     {
       "lessonId": "hsk4-precision-reference-quantity-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-precision-reference-quantity-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-precision-reference-quantity-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-precision-reference-quantity-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-precision-reference-quantity-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-precision-reference-quantity-lesson-06",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-stance-comparison-rhetoric-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-stance-comparison-rhetoric-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-stance-comparison-rhetoric-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-stance-comparison-rhetoric-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-stance-comparison-rhetoric-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-event-agency-voice-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-event-agency-voice-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-event-agency-voice-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-event-agency-voice-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-information-order-cohesion-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-information-order-cohesion-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-information-order-cohesion-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-information-order-cohesion-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-information-order-cohesion-lesson-05",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-argument-logic-concession-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-argument-logic-concession-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-argument-logic-concession-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-argument-logic-concession-lesson-04",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-summary-argument",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-long-input-structure-map-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-long-input-structure-map-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-long-input-structure-map-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-inference-evidence-check-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-inference-evidence-check-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-inference-evidence-check-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-cross-text-synthesis-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-cross-text-synthesis-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-cross-text-synthesis-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-structured-written-argument-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-structured-written-argument-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-structured-written-argument-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-structured-spoken-defense-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-structured-spoken-defense-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-structured-spoken-defense-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk4-timed-sectional-rehearsal-lesson-01",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-timed-sectional-rehearsal-lesson-02",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
     },
     {
       "lessonId": "hsk4-timed-sectional-rehearsal-lesson-03",
-      "lessonVersion": "foundation-2026.08.4",
+      "lessonVersion": "foundation-2026.08.5",
       "unitId": "hsk4-timed-integration",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 20
@@ -2394,5 +2394,5 @@
     "authoringUnitMetadataExcluded": 0,
     "draftArtifactsImported": 0
   },
-  "integritySha256": "sha256:c8231576c839ed195075510a1941faf4c6d147e4a3795a06e6e958ec2ba12318"
+  "integritySha256": "sha256:848be29f1f8db74bac8c521d54c632c808520f5f6c020d1ee44197327f60b7ba"
 }

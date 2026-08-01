@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "presentationId": "hsk1-time-place-events-rich-lessons-2026.07.1",
-  "contentVersion": "foundation-2026.08.4",
+  "contentVersion": "foundation-2026.08.5",
   "unitId": "hsk1-time-place-events",
   "state": "authorized-for-personal-local-study",
   "disclosure": {
@@ -46,7 +46,7 @@
     {
       "id": "localAuthorization",
       "relativePath": "content/curriculum/hsk0-4-local-study-authorizations.json",
-      "sha256": "sha256:0a8febba9edd6fd10bc7f000e6b095880bdf11b2cdc8826309e6a011945bb703"
+      "sha256": "sha256:e5164b1cf8ec6463cee6fbe91b06a29ec7715ecc65f5a0dad0a1836687e12ec5"
     }
   ],
   "counts": {
@@ -843,5 +843,5 @@
       ]
     }
   ],
-  "integritySha256": "sha256:afa29343ba79759ecc0c0ddeeefe9647dc2beac6fe5525f6da292d5594740f2d"
+  "integritySha256": "sha256:f9a254150644890faa5294495cfc40545d6e24d85449fcdeff5c99f9915bd555"
 }

@@ -1,0 +1,2124 @@
+{
+  "schemaVersion": 1,
+  "bankId": "hsk2-level-assessment-2026.07",
+  "formId": "hsk2-level-form-a",
+  "contentVersion": "foundation-2026.08.5",
+  "state": "ai-reviewed-for-personal-local-self-check",
+  "disclosure": {
+    "humanReviewed": false,
+    "browserTtsPracticeOnly": true,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false
+  },
+  "counts": {
+    "items": 60,
+    "listening": 15,
+    "reading": 15,
+    "vocabulary": 15,
+    "grammar": 15
+  },
+  "items": [
+    {
+      "id": "hsk2-level-check:form-a:listening:01",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:01:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你个子很高，你小时候也这么高吗？ B：没有，我小时候个子不高。",
+      "pinyinReference": "A: Nǐ gèzi hěn gāo, nǐ xiǎoshíhou yě zhème gāo ma? B: Méiyǒu, wǒ xiǎoshíhou gèzi bù gāo.",
+      "syntheticTtsText": "A：你个子很高，你小时候也这么高吗？ B：没有，我小时候个子不高。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn cao thật, hồi nhỏ bạn cũng cao thế này à? Không, hồi nhỏ tôi không cao."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn thường đá cùng ai? Tôi thường đá cùng bạn học."
+        },
+        {
+          "optionId": "C",
+          "text": "Bạn đã đợi bao lâu? Tôi đã đợi nửa tiếng."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn muốn mua bộ quần áo nào? Tôi muốn xem bộ màu đỏ."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：你个子很高，你小时候也这么高吗？ B：没有，我小时候个子不高。” (A: Nǐ gèzi hěn gāo, nǐ xiǎoshíhou yě zhème gāo ma? B: Méiyǒu, wǒ xiǎoshíhou gèzi bù gāo.): Bạn cao thật, hồi nhỏ bạn cũng cao thế này à? Không, hồi nhỏ tôi không cao.",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:02",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:02:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你等了多长时间？ B：我等了半个小时。",
+      "pinyinReference": "A: Nǐ děng le duō cháng shíjiān? B: Wǒ děng le bàn ge xiǎoshí.",
+      "syntheticTtsText": "A：你等了多长时间？ B：我等了半个小时。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn muốn màu sắc như thế nào? Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế."
+        },
+        {
+          "optionId": "B",
+          "text": "Ngày mai có mưa không? Không, ngày mai trời nắng."
+        },
+        {
+          "optionId": "C",
+          "text": "Bạn đã đợi bao lâu? Tôi đã đợi nửa tiếng."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn muốn mua bộ quần áo nào? Tôi muốn xem bộ màu đỏ."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：你等了多长时间？ B：我等了半个小时。” (A: Nǐ děng le duō cháng shíjiān? B: Wǒ děng le bàn ge xiǎoshí.): Bạn đã đợi bao lâu? Tôi đã đợi nửa tiếng.",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-02",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:03",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:03:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你要什么样的颜色？ B：就要红色的，不要那么长的。",
+      "pinyinReference": "A: Nǐ yào shénme yàng de yánsè? B: Jiù yào hóngsè de, bú yào nàme cháng de.",
+      "syntheticTtsText": "A：你要什么样的颜色？ B：就要红色的，不要那么长的。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn muốn màu sắc như thế nào? Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế."
+        },
+        {
+          "optionId": "B",
+          "text": "Ngày mai có mưa không? Không, ngày mai trời nắng."
+        },
+        {
+          "optionId": "C",
+          "text": "Nơi bạn sống thế nào? Tôi sống trong một căn phòng đối diện trường."
+        },
+        {
+          "optionId": "D",
+          "text": "Bên ngoài có cửa hàng không? Có, cửa hàng ở ngay đối diện căn phòng."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：你要什么样的颜色？ B：就要红色的，不要那么长的。” (A: Nǐ yào shénme yàng de yánsè? B: Jiù yào hóngsè de, bú yào nàme cháng de.): Bạn muốn màu sắc như thế nào? Tôi lấy bộ màu đỏ, không lấy bộ dài đến thế.",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-03",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:04",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:04:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你住的地方怎么样？ B：我住在学校对面的一间房里。",
+      "pinyinReference": "A: Nǐ zhù de dìfang zěnmeyàng? B: Wǒ zhù zài xuéxiào duìmiàn de yì jiān fáng lǐ.",
+      "syntheticTtsText": "A：你住的地方怎么样？ B：我住在学校对面的一间房里。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Xin hãy giúp tôi mở cửa. Được. Tại sao bạn không tự mở?"
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn có thường ăn ở nhà hàng không? Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối."
+        },
+        {
+          "optionId": "C",
+          "text": "Nơi bạn sống thế nào? Tôi sống trong một căn phòng đối diện trường."
+        },
+        {
+          "optionId": "D",
+          "text": "Bên ngoài có cửa hàng không? Có, cửa hàng ở ngay đối diện căn phòng."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：你住的地方怎么样？ B：我住在学校对面的一间房里。” (A: Nǐ zhù de dìfang zěnmeyàng? B: Wǒ zhù zài xuéxiào duìmiàn de yì jiān fáng lǐ.): Nơi bạn sống thế nào? Tôi sống trong một căn phòng đối diện trường.",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-05",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:05",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:05:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：请帮我打开门。 B：好。你为什么自己不打开？",
+      "pinyinReference": "A: Qǐng bāng wǒ dǎkāi mén. B: Hǎo. Nǐ wèishénme zìjǐ bù dǎkāi?",
+      "syntheticTtsText": "A：请帮我打开门。 B：好。你为什么自己不打开？",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Xin hãy giúp tôi mở cửa. Được. Tại sao bạn không tự mở?"
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn có thường ăn ở nhà hàng không? Không, tôi thường ăn ở nhà, hôm nay chưa chuẩn bị bữa tối."
+        },
+        {
+          "optionId": "C",
+          "text": "Uống trà đen hay trà xanh? Trà xanh, cảm ơn."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn lấy chiếc này không? Xem giá trước đã. Chiếc này tốn bao nhiêu tiền?"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：请帮我打开门。 B：好。你为什么自己不打开？” (A: Qǐng bāng wǒ dǎkāi mén. B: Hǎo. Nǐ wèishénme zìjǐ bù dǎkāi?): Xin hãy giúp tôi mở cửa. Được. Tại sao bạn không tự mở?",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:06",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:06:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：喝红茶还是绿茶？ B：绿茶，谢谢。",
+      "pinyinReference": "A: Hē hóngchá háishi lǜchá? B: Lǜchá, xièxie.",
+      "syntheticTtsText": "A：喝红茶还是绿茶？ B：绿茶，谢谢。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn bị làm sao? Tôi đau đầu, mắt cũng khó chịu."
+        },
+        {
+          "optionId": "B",
+          "text": "Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn. Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ."
+        },
+        {
+          "optionId": "C",
+          "text": "Uống trà đen hay trà xanh? Trà xanh, cảm ơn."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn lấy chiếc này không? Xem giá trước đã. Chiếc này tốn bao nhiêu tiền?"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：喝红茶还是绿茶？ B：绿茶，谢谢。” (A: Hē hóngchá háishi lǜchá? B: Lǜchá, xièxie.): Uống trà đen hay trà xanh? Trà xanh, cảm ơn.",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-02",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:07",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:07:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你怎么了？ B：我头疼，眼睛也不舒服。",
+      "pinyinReference": "A: Nǐ zěnme le? B: Wǒ tóuténg, yǎnjing yě bù shūfu.",
+      "syntheticTtsText": "A：你怎么了？ B：我头疼，眼睛也不舒服。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn bị làm sao? Tôi đau đầu, mắt cũng khó chịu."
+        },
+        {
+          "optionId": "B",
+          "text": "Phía trước có một hiệu thuốc, tôi đi mua thuốc cùng bạn. Cảm ơn, mua thuốc xong tôi sẽ về nhà nghỉ."
+        },
+        {
+          "optionId": "C",
+          "text": "Bà bạn nấu cơm hằng ngày à? Có khi bà nấu, có khi tôi tự nấu."
+        },
+        {
+          "optionId": "D",
+          "text": "Xin hỏi, đi đến hiệu thuốc thế nào? Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：你怎么了？ B：我头疼，眼睛也不舒服。” (A: Nǐ zěnme le? B: Wǒ tóuténg, yǎnjing yě bù shūfu.): Bạn bị làm sao? Tôi đau đầu, mắt cũng khó chịu.",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-04",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:08",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:08:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你奶奶每天做饭吗？ B：有时她做，有时我自己做。",
+      "pinyinReference": "A: Nǐ nǎinai měitiān zuòfàn ma? B: Yǒushí tā zuò, yǒushí wǒ zìjǐ zuò.",
+      "syntheticTtsText": "A：你奶奶每天做饭吗？ B：有时她做，有时我自己做。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Có xa đây không? Không xa, đi bộ mười phút là tới."
+        },
+        {
+          "optionId": "B",
+          "text": "Sau khi đến phía trước thì sao? Đi lên bằng cầu thang bên phải."
+        },
+        {
+          "optionId": "C",
+          "text": "Bà bạn nấu cơm hằng ngày à? Có khi bà nấu, có khi tôi tự nấu."
+        },
+        {
+          "optionId": "D",
+          "text": "Xin hỏi, đi đến hiệu thuốc thế nào? Từ đây đi thẳng, đến ngã rẽ thứ hai thì đi sang phải."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：你奶奶每天做饭吗？ B：有时她做，有时我自己做。” (A: Nǐ nǎinai měitiān zuòfàn ma? B: Yǒushí tā zuò, yǒushí wǒ zìjǐ zuò.): Bà bạn nấu cơm hằng ngày à? Có khi bà nấu, có khi tôi tự nấu.",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-05",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:09",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:09:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：离这里远吗？ B：不远，走路十分钟就到。",
+      "pinyinReference": "A: Lí zhèlǐ yuǎn ma? B: Bù yuǎn, zǒulù shí fēnzhōng jiù dào.",
+      "syntheticTtsText": "A：离这里远吗？ B：不远，走路十分钟就到。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Có xa đây không? Không xa, đi bộ mười phút là tới."
+        },
+        {
+          "optionId": "B",
+          "text": "Sau khi đến phía trước thì sao? Đi lên bằng cầu thang bên phải."
+        },
+        {
+          "optionId": "C",
+          "text": "Bạn định khi nào đi du lịch? Tuần sau, tôi đã mua vé máy bay rồi."
+        },
+        {
+          "optionId": "D",
+          "text": "Khách sạn có xa nhà ga không? Không xa, đi từ nhà ga mười phút."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：离这里远吗？ B：不远，走路十分钟就到。” (A: Lí zhèlǐ yuǎn ma? B: Bù yuǎn, zǒulù shí fēnzhōng jiù dào.): Có xa đây không? Không xa, đi bộ mười phút là tới.",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:10",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:10:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你准备什么时候去旅游？ B：下周，我已经买好机票了。",
+      "pinyinReference": "A: Nǐ zhǔnbèi shénme shíhou qù lǚyóu? B: Xià zhōu, wǒ yǐjīng mǎihǎo jīpiào le.",
+      "syntheticTtsText": "A：你准备什么时候去旅游？ B：下周，我已经买好机票了。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn biết đá bóng không? Có, bóng đá thú vị hơn bóng rổ."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn thức dậy lúc mấy giờ? Bảy giờ. Ăn sáng xong tôi có thời gian."
+        },
+        {
+          "optionId": "C",
+          "text": "Bạn định khi nào đi du lịch? Tuần sau, tôi đã mua vé máy bay rồi."
+        },
+        {
+          "optionId": "D",
+          "text": "Khách sạn có xa nhà ga không? Không xa, đi từ nhà ga mười phút."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：你准备什么时候去旅游？ B：下周，我已经买好机票了。” (A: Nǐ zhǔnbèi shénme shíhou qù lǚyóu? B: Xià zhōu, wǒ yǐjīng mǎihǎo jīpiào le.): Bạn định khi nào đi du lịch? Tuần sau, tôi đã mua vé máy bay rồi.",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-03",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:11",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:11:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：你会踢足球吗？ B：会，足球比篮球有意思。",
+      "pinyinReference": "A: Nǐ huì tī zúqiú ma? B: Huì, zúqiú bǐ lánqiú yǒuyìsi.",
+      "syntheticTtsText": "A：你会踢足球吗？ B：会，足球比篮球有意思。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn biết đá bóng không? Có, bóng đá thú vị hơn bóng rổ."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn thức dậy lúc mấy giờ? Bảy giờ. Ăn sáng xong tôi có thời gian."
+        },
+        {
+          "optionId": "C",
+          "text": "Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn. Được, lát nữa gặp."
+        },
+        {
+          "optionId": "D",
+          "text": "Mỗi tuần bạn học mấy buổi? Mỗi tuần ba buổi, giáo viên dạy rất tốt."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：你会踢足球吗？ B：会，足球比篮球有意思。” (A: Nǐ huì tī zúqiú ma? B: Huì, zúqiú bǐ lánqiú yǒuyìsi.): Bạn biết đá bóng không? Có, bóng đá thú vị hơn bóng rổ.",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-04",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:12",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:12:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：九点在车站见，我站在门口等你。 B：好，一会儿见。",
+      "pinyinReference": "A: Jiǔ diǎn zài chēzhàn jiàn, wǒ zhàn zài ménkǒu děng nǐ. B: Hǎo, yíhuìr jiàn.",
+      "syntheticTtsText": "A：九点在车站见，我站在门口等你。 B：好，一会儿见。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Hãy giới thiệu một chút về trường của bạn. Trường không lớn nhưng lớp học rất mới."
+        },
+        {
+          "optionId": "B",
+          "text": "Sau giờ học bạn làm gì? Tôi lấy vở từ cặp ra để vẽ."
+        },
+        {
+          "optionId": "C",
+          "text": "Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn. Được, lát nữa gặp."
+        },
+        {
+          "optionId": "D",
+          "text": "Mỗi tuần bạn học mấy buổi? Mỗi tuần ba buổi, giáo viên dạy rất tốt."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：九点在车站见，我站在门口等你。 B：好，一会儿见。” (A: Jiǔ diǎn zài chēzhàn jiàn, wǒ zhàn zài ménkǒu děng nǐ. B: Hǎo, yíhuìr jiàn.): Chín giờ gặp ở nhà ga, tôi đứng ở cửa đợi bạn. Được, lát nữa gặp.",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-05",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:13",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:13:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：请介绍一下你的学校吧。 B：学校不大，但是教室很新。",
+      "pinyinReference": "A: Qǐng jièshào yíxià nǐ de xuéxiào ba. B: Xuéxiào bú dà, dànshì jiàoshì hěn xīn.",
+      "syntheticTtsText": "A：请介绍一下你的学校吧。 B：学校不大，但是教室很新。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Hãy giới thiệu một chút về trường của bạn. Trường không lớn nhưng lớp học rất mới."
+        },
+        {
+          "optionId": "B",
+          "text": "Sau giờ học bạn làm gì? Tôi lấy vở từ cặp ra để vẽ."
+        },
+        {
+          "optionId": "C",
+          "text": "Trường có bao nhiêu giáo viên? Có hơn một trăm giáo viên."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn đã từng đón năm mới ở Trung Quốc chưa? Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：请介绍一下你的学校吧。 B：学校不大，但是教室很新。” (A: Qǐng jièshào yíxià nǐ de xuéxiào ba. B: Xuéxiào bú dà, dànshì jiàoshì hěn xīn.): Hãy giới thiệu một chút về trường của bạn. Trường không lớn nhưng lớp học rất mới.",
+      "sourceLessonId": "hsk2-study-work-culture-lesson-02",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:14",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:14:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：学校有多少名老师？ B：有一百多名老师。",
+      "pinyinReference": "A: Xuéxiào yǒu duōshao míng lǎoshī? B: Yǒu yì bǎi duō míng lǎoshī.",
+      "syntheticTtsText": "A：学校有多少名老师？ B：有一百多名老师。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đón năm mới có giống tổ chức sinh nhật không? Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi có thể gọi ông/bà là thầy/cô Vương không? Được, tiếng Trung thường gọi giáo viên như vậy."
+        },
+        {
+          "optionId": "C",
+          "text": "Trường có bao nhiêu giáo viên? Có hơn một trăm giáo viên."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn đã từng đón năm mới ở Trung Quốc chưa? Rồi. Lần đầu đón năm mới, tôi vẫn là du học sinh."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“A：学校有多少名老师？ B：有一百多名老师。” (A: Xuéxiào yǒu duōshao míng lǎoshī? B: Yǒu yì bǎi duō míng lǎoshī.): Trường có bao nhiêu giáo viên? Có hơn một trăm giáo viên.",
+      "sourceLessonId": "hsk2-study-work-culture-lesson-03",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:listening:15",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:listening:15:1",
+      "skill": "listening",
+      "construct": "two-turn-meaning-recognition",
+      "promptVi": "Nghe đoạn hội thoại hai lượt và chọn nghĩa phù hợp nhất.",
+      "stimulusText": "A：过年跟过生日一样吗？ B：不一样，过年是大家的节日，生日是一个人的。",
+      "pinyinReference": "A: Guònián gēn guò shēngrì yíyàng ma? B: Bù yíyàng, guònián shì dàjiā de jiérì, shēngrì shì yí ge rén de.",
+      "syntheticTtsText": "A：过年跟过生日一样吗？ B：不一样，过年是大家的节日，生日是一个人的。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đón năm mới có giống tổ chức sinh nhật không? Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi có thể gọi ông/bà là thầy/cô Vương không? Được, tiếng Trung thường gọi giáo viên như vậy."
+        },
+        {
+          "optionId": "C",
+          "text": "Bạn cao thật, hồi nhỏ bạn cũng cao thế này à? Không, hồi nhỏ tôi không cao."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn thường đá cùng ai? Tôi thường đá cùng bạn học."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“A：过年跟过生日一样吗？ B：不一样，过年是大家的节日，生日是一个人的。” (A: Guònián gēn guò shēngrì yíyàng ma? B: Bù yíyàng, guònián shì dàjiā de jiérì, shēngrì shì yí ge rén de.): Đón năm mới có giống tổ chức sinh nhật không? Không giống; năm mới là ngày lễ của mọi người, sinh nhật là của một người.",
+      "sourceLessonId": "hsk2-study-work-culture-lesson-04",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:01",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:01:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "我想送小王一本汉语书。请你告诉他。我明天把书带来。",
+      "pinyinReference": "Wǒ xiǎng sòng Xiǎo Wáng yì běn Hànyǔ shū. Qǐng nǐ gàosu tā. Wǒ míngtiān bǎ shū dài lái.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi muốn tặng Tiểu Vương một quyển sách tiếng Trung. Bạn hãy báo cho cậu ấy. Ngày mai tôi sẽ mang sách tới."
+        },
+        {
+          "optionId": "B",
+          "text": "Tuy hôm nay mưa nhưng tôi vẫn phải đi học. Vì vậy tôi không thể đi cửa hàng cùng bạn. Ngày mai chúng ta gặp lại nhé."
+        },
+        {
+          "optionId": "C",
+          "text": "Hôm nay tôi đau đầu. Sức khỏe của tôi cũng không được tốt. Tôi muốn nghỉ ở nhà một ngày."
+        },
+        {
+          "optionId": "D",
+          "text": "Cuối tuần chúng ta có thể đá bóng hoặc nhảy. Tôi muốn đá bóng hơn. Bạn muốn làm gì?"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“我想送小王一本汉语书。请你告诉他。我明天把书带来。” (Wǒ xiǎng sòng Xiǎo Wáng yì běn Hànyǔ shū. Qǐng nǐ gàosu tā. Wǒ míngtiān bǎ shū dài lái.): Tôi muốn tặng Tiểu Vương một quyển sách tiếng Trung. Bạn hãy báo cho cậu ấy. Ngày mai tôi sẽ mang sách tới.",
+      "sourceLessonId": "hsk2-guided-message-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:02",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:02:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "我今天头疼。我的身体也不太舒服。我想在家休息一天。",
+      "pinyinReference": "Wǒ jīntiān tóuténg. Wǒ de shēntǐ yě bú tài shūfu. Wǒ xiǎng zài jiā xiūxi yì tiān.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn có thể đi tàu điện ngầm tới. Hãy xuống ở ga gần trường. Chúng ta gặp ở cửa lúc chín giờ."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi đau đầu từ sáng. Gần đây có hiệu thuốc không? Hãy chỉ tôi đường đi, cảm ơn."
+        },
+        {
+          "optionId": "C",
+          "text": "Hôm nay tôi đau đầu. Sức khỏe của tôi cũng không được tốt. Tôi muốn nghỉ ở nhà một ngày."
+        },
+        {
+          "optionId": "D",
+          "text": "Cuối tuần chúng ta có thể đá bóng hoặc nhảy. Tôi muốn đá bóng hơn. Bạn muốn làm gì?"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“我今天头疼。我的身体也不太舒服。我想在家休息一天。” (Wǒ jīntiān tóuténg. Wǒ de shēntǐ yě bú tài shūfu. Wǒ xiǎng zài jiā xiūxi yì tiān.): Hôm nay tôi đau đầu. Sức khỏe của tôi cũng không được tốt. Tôi muốn nghỉ ở nhà một ngày.",
+      "sourceLessonId": "hsk2-guided-message-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:03",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:03:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "你可以坐地铁来。请在学校附近的车站下车。我们九点在门口见。",
+      "pinyinReference": "Nǐ kěyǐ zuò dìtiě lái. Qǐng zài xuéxiào fùjìn de chēzhàn xiàchē. Wǒmen jiǔ diǎn zài ménkǒu jiàn.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn có thể đi tàu điện ngầm tới. Hãy xuống ở ga gần trường. Chúng ta gặp ở cửa lúc chín giờ."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi đau đầu từ sáng. Gần đây có hiệu thuốc không? Hãy chỉ tôi đường đi, cảm ơn."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đã làm xong bài tập. Bây giờ tôi có thời gian. Chúng ta cùng đi vận động nhé."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi thấy một chiếc máy tính trên mạng. Trên đó ghi mười nghìn tệ. Giá này đúng không?"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“你可以坐地铁来。请在学校附近的车站下车。我们九点在门口见。” (Nǐ kěyǐ zuò dìtiě lái. Qǐng zài xuéxiào fùjìn de chēzhàn xiàchē. Wǒmen jiǔ diǎn zài ménkǒu jiàn.): Bạn có thể đi tàu điện ngầm tới. Hãy xuống ở ga gần trường. Chúng ta gặp ở cửa lúc chín giờ.",
+      "sourceLessonId": "hsk2-guided-message-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:04",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:04:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "我已经做完作业了。现在我有时间。我们一起去运动吧。",
+      "pinyinReference": "Wǒ yǐjīng zuòwán zuòyè le. Xiànzài wǒ yǒu shíjiān. Wǒmen yìqǐ qù yùndòng ba.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi thấy một hiệu sách mới trên mạng. Từ ga tàu điện ngầm đi về phía nào? Hãy cho tôi biết địa chỉ."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi quên mang sách tiếng Trung. Sách vẫn ở trên bàn của tôi. Hy vọng bạn có thể mang giúp tôi."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đã làm xong bài tập. Bây giờ tôi có thời gian. Chúng ta cùng đi vận động nhé."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi thấy một chiếc máy tính trên mạng. Trên đó ghi mười nghìn tệ. Giá này đúng không?"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“我已经做完作业了。现在我有时间。我们一起去运动吧。” (Wǒ yǐjīng zuòwán zuòyè le. Xiànzài wǒ yǒu shíjiān. Wǒmen yìqǐ qù yùndòng ba.): Tôi đã làm xong bài tập. Bây giờ tôi có thời gian. Chúng ta cùng đi vận động nhé.",
+      "sourceLessonId": "hsk2-guided-message-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:05",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:05:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "我在网上看见一家新书店。从地铁站往哪边走？请把地址告诉我。",
+      "pinyinReference": "Wǒ zài wǎngshàng kànjiàn yì jiā xīn shūdiàn. Cóng dìtiě zhàn wǎng nǎ biān zǒu? Qǐng bǎ dìzhǐ gàosu wǒ.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi thấy một hiệu sách mới trên mạng. Từ ga tàu điện ngầm đi về phía nào? Hãy cho tôi biết địa chỉ."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi quên mang sách tiếng Trung. Sách vẫn ở trên bàn của tôi. Hy vọng bạn có thể mang giúp tôi."
+        },
+        {
+          "optionId": "C",
+          "text": "Vị giáo viên này họ Vương. Vì xe buýt đến muộn nên thầy vẫn ở trạm. Có thể thầy sẽ đến trường lúc chín giờ."
+        },
+        {
+          "optionId": "D",
+          "text": "Thứ Bảy chúng ta cùng đi nhảy nhé. Lớp bắt đầu lúc hai giờ chiều. Hy vọng bạn có thời gian tham gia."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“我在网上看见一家新书店。从地铁站往哪边走？请把地址告诉我。” (Wǒ zài wǎngshàng kànjiàn yì jiā xīn shūdiàn. Cóng dìtiě zhàn wǎng nǎ biān zǒu? Qǐng bǎ dìzhǐ gàosu wǒ.): Tôi thấy một hiệu sách mới trên mạng. Từ ga tàu điện ngầm đi về phía nào? Hãy cho tôi biết địa chỉ.",
+      "sourceLessonId": "hsk2-guided-message-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:06",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:06:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "这位老师姓王。因为公交车来晚了，他还在车站。他可能九点到学校。",
+      "pinyinReference": "Zhè wèi lǎoshī xìng Wáng. Yīnwèi gōngjiāochē lái wǎn le, tā hái zài chēzhàn. Tā kěnéng jiǔ diǎn dào xuéxiào.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Hãy giúp tôi giặt bộ quần áo này. Vì tay tôi hơi đau. Cảm ơn bạn đã giúp."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi cần dùng một bức ảnh để giới thiệu bạn mình. Trong ảnh này cô ấy cười rất vui. Vì vậy tôi chọn bức này."
+        },
+        {
+          "optionId": "C",
+          "text": "Vị giáo viên này họ Vương. Vì xe buýt đến muộn nên thầy vẫn ở trạm. Có thể thầy sẽ đến trường lúc chín giờ."
+        },
+        {
+          "optionId": "D",
+          "text": "Thứ Bảy chúng ta cùng đi nhảy nhé. Lớp bắt đầu lúc hai giờ chiều. Hy vọng bạn có thời gian tham gia."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“这位老师姓王。因为公交车来晚了，他还在车站。他可能九点到学校。” (Zhè wèi lǎoshī xìng Wáng. Yīnwèi gōngjiāochē lái wǎn le, tā hái zài chēzhàn. Tā kěnéng jiǔ diǎn dào xuéxiào.): Vị giáo viên này họ Vương. Vì xe buýt đến muộn nên thầy vẫn ở trạm. Có thể thầy sẽ đến trường lúc chín giờ.",
+      "sourceLessonId": "hsk2-guided-message-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:07",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:07:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "请帮我洗一下这件衣服。因为我的手有点儿疼。谢谢你帮忙。",
+      "pinyinReference": "Qǐng bāng wǒ xǐ yíxià zhè jiàn yīfu. Yīnwèi wǒ de shǒu yǒudiǎnr téng. Xièxie nǐ bāngmáng.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Hãy giúp tôi giặt bộ quần áo này. Vì tay tôi hơi đau. Cảm ơn bạn đã giúp."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi cần dùng một bức ảnh để giới thiệu bạn mình. Trong ảnh này cô ấy cười rất vui. Vì vậy tôi chọn bức này."
+        },
+        {
+          "optionId": "C",
+          "text": "Thưa thầy/cô, xin chào, xin hỏi thầy/cô họ gì? Em có thể gọi thầy/cô là thầy/cô Lý không? Rất vui được làm quen với thầy/cô."
+        },
+        {
+          "optionId": "D",
+          "text": "Một người đàn ông ngồi cạnh bàn. Mắt anh ấy không được dễ chịu. Trên bàn có thuốc và một cốc nước."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“请帮我洗一下这件衣服。因为我的手有点儿疼。谢谢你帮忙。” (Qǐng bāng wǒ xǐ yíxià zhè jiàn yīfu. Yīnwèi wǒ de shǒu yǒudiǎnr téng. Xièxie nǐ bāngmáng.): Hãy giúp tôi giặt bộ quần áo này. Vì tay tôi hơi đau. Cảm ơn bạn đã giúp.",
+      "sourceLessonId": "hsk2-guided-message-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:08",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:08:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "老师，您好，请问您姓什么？我可以叫您李老师吗？很高兴认识您。",
+      "pinyinReference": "Lǎoshī, nín hǎo, qǐngwèn nín xìng shénme? Wǒ kěyǐ jiào nín Lǐ lǎoshī ma? Hěn gāoxìng rènshi nín.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Ông đang đợi đứa trẻ ở cửa công viên. Đứa trẻ đã chạy tới bên ông. Họ chuẩn bị cùng về nhà."
+        },
+        {
+          "optionId": "B",
+          "text": "Hai người gặp nhau ở trạm xe. Người đến muộn nói “xin lỗi”. Vì xe buýt không đến nên anh ấy đến muộn."
+        },
+        {
+          "optionId": "C",
+          "text": "Thưa thầy/cô, xin chào, xin hỏi thầy/cô họ gì? Em có thể gọi thầy/cô là thầy/cô Lý không? Rất vui được làm quen với thầy/cô."
+        },
+        {
+          "optionId": "D",
+          "text": "Một người đàn ông ngồi cạnh bàn. Mắt anh ấy không được dễ chịu. Trên bàn có thuốc và một cốc nước."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“老师，您好，请问您姓什么？我可以叫您李老师吗？很高兴认识您。” (Lǎoshī, nín hǎo, qǐngwèn nín xìng shénme? Wǒ kěyǐ jiào nín Lǐ lǎoshī ma? Hěn gāoxìng rènshi nín.): Thưa thầy/cô, xin chào, xin hỏi thầy/cô họ gì? Em có thể gọi thầy/cô là thầy/cô Lý không? Rất vui được làm quen với thầy/cô.",
+      "sourceLessonId": "hsk2-guided-message-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:09",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:09:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "爷爷在公园门口等孩子。孩子已经跑到爷爷旁边了。他们准备一起回家。",
+      "pinyinReference": "Yéye zài gōngyuán ménkǒu děng háizi. Háizi yǐjīng pǎo dào yéye pángbiān le. Tāmen zhǔnbèi yìqǐ huí jiā.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Ông đang đợi đứa trẻ ở cửa công viên. Đứa trẻ đã chạy tới bên ông. Họ chuẩn bị cùng về nhà."
+        },
+        {
+          "optionId": "B",
+          "text": "Hai người gặp nhau ở trạm xe. Người đến muộn nói “xin lỗi”. Vì xe buýt không đến nên anh ấy đến muộn."
+        },
+        {
+          "optionId": "C",
+          "text": "Hôm nay trời âm u. Vẫn có một người đang bơi. Nhưng thời tiết hơi lạnh."
+        },
+        {
+          "optionId": "D",
+          "text": "Một gia đình đang ở cửa sân bay. Họ mang theo ba chiếc túi. Họ chuẩn bị đi du lịch Trung Quốc."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“爷爷在公园门口等孩子。孩子已经跑到爷爷旁边了。他们准备一起回家。” (Yéye zài gōngyuán ménkǒu děng háizi. Háizi yǐjīng pǎo dào yéye pángbiān le. Tāmen zhǔnbèi yìqǐ huí jiā.): Ông đang đợi đứa trẻ ở cửa công viên. Đứa trẻ đã chạy tới bên ông. Họ chuẩn bị cùng về nhà.",
+      "sourceLessonId": "hsk2-picture-description-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:10",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:10:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "今天是阴天。还有一个人在游泳。但是天气有点儿冷。",
+      "pinyinReference": "Jīntiān shì yīntiān. Hái yǒu yí ge rén zài yóuyǒng. Dànshì tiānqì yǒudiǎnr lěng.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trên con đường này có một nhà hàng. Hiệu thuốc ở bên phải nhà hàng. Cửa hiệu thuốc có chữ màu xanh."
+        },
+        {
+          "optionId": "B",
+          "text": "Hai người đang ăn ở nhà hàng. Trên bàn có cá và cũng có thịt. Họ thấy cá ngon hơn thịt."
+        },
+        {
+          "optionId": "C",
+          "text": "Hôm nay trời âm u. Vẫn có một người đang bơi. Nhưng thời tiết hơi lạnh."
+        },
+        {
+          "optionId": "D",
+          "text": "Một gia đình đang ở cửa sân bay. Họ mang theo ba chiếc túi. Họ chuẩn bị đi du lịch Trung Quốc."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“今天是阴天。还有一个人在游泳。但是天气有点儿冷。” (Jīntiān shì yīntiān. Hái yǒu yí ge rén zài yóuyǒng. Dànshì tiānqì yǒudiǎnr lěng.): Hôm nay trời âm u. Vẫn có một người đang bơi. Nhưng thời tiết hơi lạnh.",
+      "sourceLessonId": "hsk2-picture-description-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:11",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:11:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "这条路上有一家饭馆。药店在饭馆右边。药店门口有绿色的字。",
+      "pinyinReference": "Zhè tiáo lù shàng yǒu yì jiā fànguǎn. Yàodiàn zài fànguǎn yòubian. Yàodiàn ménkǒu yǒu lǜsè de zì.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trên con đường này có một nhà hàng. Hiệu thuốc ở bên phải nhà hàng. Cửa hiệu thuốc có chữ màu xanh."
+        },
+        {
+          "optionId": "B",
+          "text": "Hai người đang ăn ở nhà hàng. Trên bàn có cá và cũng có thịt. Họ thấy cá ngon hơn thịt."
+        },
+        {
+          "optionId": "C",
+          "text": "Một người đang xem đồng hồ ở ngã rẽ. Nhà ga rất xa đây. Vì vậy anh ấy định đi taxi."
+        },
+        {
+          "optionId": "D",
+          "text": "Một người đi ra từ nhà ga. Anh ấy chạy tới sân vận động bên cạnh. Anh ấy sẽ vận động cùng bạn."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“这条路上有一家饭馆。药店在饭馆右边。药店门口有绿色的字。” (Zhè tiáo lù shàng yǒu yì jiā fànguǎn. Yàodiàn zài fànguǎn yòubian. Yàodiàn ménkǒu yǒu lǜsè de zì.): Trên con đường này có một nhà hàng. Hiệu thuốc ở bên phải nhà hàng. Cửa hiệu thuốc có chữ màu xanh.",
+      "sourceLessonId": "hsk2-picture-description-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:12",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:12:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "一个人在路口看手表。车站离这里很远。所以他准备打车去。",
+      "pinyinReference": "Yí ge rén zài lùkǒu kàn shǒubiǎo. Chēzhàn lí zhèlǐ hěn yuǎn. Suǒyǐ tā zhǔnbèi dǎchē qù.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Người bên cạnh cô gái là chồng cô ấy. Chồng cô ấy mặc một chiếc quần rất dài. Anh ấy cao hơn vợ một chút."
+        },
+        {
+          "optionId": "B",
+          "text": "Hôm nay là cuối tuần. Một đứa trẻ cầm bóng đứng ở cửa. Em ấy chuẩn bị đi chơi với bạn học."
+        },
+        {
+          "optionId": "C",
+          "text": "Một người đang xem đồng hồ ở ngã rẽ. Nhà ga rất xa đây. Vì vậy anh ấy định đi taxi."
+        },
+        {
+          "optionId": "D",
+          "text": "Một người đi ra từ nhà ga. Anh ấy chạy tới sân vận động bên cạnh. Anh ấy sẽ vận động cùng bạn."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“一个人在路口看手表。车站离这里很远。所以他准备打车去。” (Yí ge rén zài lùkǒu kàn shǒubiǎo. Chēzhàn lí zhèlǐ hěn yuǎn. Suǒyǐ tā zhǔnbèi dǎchē qù.): Một người đang xem đồng hồ ở ngã rẽ. Nhà ga rất xa đây. Vì vậy anh ấy định đi taxi.",
+      "sourceLessonId": "hsk2-picture-description-lesson-01",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:13",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:13:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "女人旁边的人是她的丈夫。她丈夫穿着一条很长的裤子。他比妻子高一点儿。",
+      "pinyinReference": "Nǚrén pángbiān de rén shì tā de zhàngfu. Tā zhàngfu chuānzhe yì tiáo hěn cháng de kùzi. Tā bǐ qīzi gāo yìdiǎnr.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Người bên cạnh cô gái là chồng cô ấy. Chồng cô ấy mặc một chiếc quần rất dài. Anh ấy cao hơn vợ một chút."
+        },
+        {
+          "optionId": "B",
+          "text": "Hôm nay là cuối tuần. Một đứa trẻ cầm bóng đứng ở cửa. Em ấy chuẩn bị đi chơi với bạn học."
+        },
+        {
+          "optionId": "C",
+          "text": "Trong phòng có một cô gái. Cô ấy đang tự chuẩn bị hành lý. Ngày mai cô ấy sẽ đi du lịch."
+        },
+        {
+          "optionId": "D",
+          "text": "Một học sinh đang đi trên đường. Cậu ấy đi thẳng trước rồi rẽ trái. Phía trước chính là trường học."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“女人旁边的人是她的丈夫。她丈夫穿着一条很长的裤子。他比妻子高一点儿。” (Nǚrén pángbiān de rén shì tā de zhàngfu. Tā zhàngfu chuānzhe yì tiáo hěn cháng de kùzi. Tā bǐ qīzi gāo yìdiǎnr.): Người bên cạnh cô gái là chồng cô ấy. Chồng cô ấy mặc một chiếc quần rất dài. Anh ấy cao hơn vợ một chút.",
+      "sourceLessonId": "hsk2-picture-description-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:14",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:14:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "房间里有一个女孩。她正在自己准备行李。她明天要去旅游。",
+      "pinyinReference": "Fángjiān lǐ yǒu yí ge nǚhái. Tā zhèngzài zìjǐ zhǔnbèi xíngli. Tā míngtiān yào qù lǚyóu.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trên sân có hai đội học sinh. Họ đang đá bóng. Bên cạnh còn có giáo viên đang xem."
+        },
+        {
+          "optionId": "B",
+          "text": "Trên bàn có ba chiếc đồng hồ. Chiếc màu đen rẻ hơn chiếc màu đỏ. Anh ấy muốn mua chiếc rẻ nhất."
+        },
+        {
+          "optionId": "C",
+          "text": "Trong phòng có một cô gái. Cô ấy đang tự chuẩn bị hành lý. Ngày mai cô ấy sẽ đi du lịch."
+        },
+        {
+          "optionId": "D",
+          "text": "Một học sinh đang đi trên đường. Cậu ấy đi thẳng trước rồi rẽ trái. Phía trước chính là trường học."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“房间里有一个女孩。她正在自己准备行李。她明天要去旅游。” (Fángjiān lǐ yǒu yí ge nǚhái. Tā zhèngzài zìjǐ zhǔnbèi xíngli. Tā míngtiān yào qù lǚyóu.): Trong phòng có một cô gái. Cô ấy đang tự chuẩn bị hành lý. Ngày mai cô ấy sẽ đi du lịch.",
+      "sourceLessonId": "hsk2-picture-description-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:reading:15",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:reading:15:1",
+      "skill": "reading",
+      "construct": "three-sentence-text-meaning-recognition",
+      "promptVi": "Đọc đoạn ba câu và chọn phần tóm nghĩa phù hợp nhất.",
+      "stimulusText": "运动场上有两队学生。他们正在踢足球。旁边还有老师在看。",
+      "pinyinReference": "Yùndòngchǎng shàng yǒu liǎng duì xuésheng. Tāmen zhèngzài tī zúqiú. Pángbiān hái yǒu lǎoshī zài kàn.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trên sân có hai đội học sinh. Họ đang đá bóng. Bên cạnh còn có giáo viên đang xem."
+        },
+        {
+          "optionId": "B",
+          "text": "Trên bàn có ba chiếc đồng hồ. Chiếc màu đen rẻ hơn chiếc màu đỏ. Anh ấy muốn mua chiếc rẻ nhất."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi muốn tặng Tiểu Vương một quyển sách tiếng Trung. Bạn hãy báo cho cậu ấy. Ngày mai tôi sẽ mang sách tới."
+        },
+        {
+          "optionId": "D",
+          "text": "Tuy hôm nay mưa nhưng tôi vẫn phải đi học. Vì vậy tôi không thể đi cửa hàng cùng bạn. Ngày mai chúng ta gặp lại nhé."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“运动场上有两队学生。他们正在踢足球。旁边还有老师在看。” (Yùndòngchǎng shàng yǒu liǎng duì xuésheng. Tāmen zhèngzài tī zúqiú. Pángbiān hái yǒu lǎoshī zài kàn.): Trên sân có hai đội học sinh. Họ đang đá bóng. Bên cạnh còn có giáo viên đang xem.",
+      "sourceLessonId": "hsk2-picture-description-lesson-02",
+      "sourceUnitId": "hsk2-short-text-production",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:01",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:01:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "啊",
+      "pinyinReference": "a",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trợ từ cuối câu biểu thị xác nhận hoặc cảm thán"
+        },
+        {
+          "optionId": "B",
+          "text": "gói; bọc; bao hoặc túi"
+        },
+        {
+          "optionId": "C",
+          "text": "dài"
+        },
+        {
+          "optionId": "D",
+          "text": "giường"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“啊” (a): trợ từ cuối câu biểu thị xác nhận hoặc cảm thán",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:02",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:02:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "长",
+      "pinyinReference": "cháng",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "đánh; thực hiện một hành động"
+        },
+        {
+          "optionId": "B",
+          "text": "đợi; vân vân"
+        },
+        {
+          "optionId": "C",
+          "text": "dài"
+        },
+        {
+          "optionId": "D",
+          "text": "giường"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“长” (cháng): dài",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:03",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:03:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "打",
+      "pinyinReference": "dǎ",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "đánh; thực hiện một hành động"
+        },
+        {
+          "optionId": "B",
+          "text": "đợi; vân vân"
+        },
+        {
+          "optionId": "C",
+          "text": "cao"
+        },
+        {
+          "optionId": "D",
+          "text": "qua; vượt qua"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“打” (dǎ): đánh; thực hiện một hành động",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:04",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:04:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "高",
+      "pinyinReference": "gāo",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trà đen"
+        },
+        {
+          "optionId": "B",
+          "text": "quay lại đây; trở về"
+        },
+        {
+          "optionId": "C",
+          "text": "cao"
+        },
+        {
+          "optionId": "D",
+          "text": "qua; vượt qua"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“高” (gāo): cao",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:05",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:05:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "红茶",
+      "pinyinReference": "hóngchá",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trà đen"
+        },
+        {
+          "optionId": "B",
+          "text": "quay lại đây; trở về"
+        },
+        {
+          "optionId": "C",
+          "text": "dạy"
+        },
+        {
+          "optionId": "D",
+          "text": "thường xuyên"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“红茶” (hóngchá): trà đen",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-02",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:06",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:06:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "教",
+      "pinyinReference": "jiāo",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "thi; kỳ thi"
+        },
+        {
+          "optionId": "B",
+          "text": "bóng rổ"
+        },
+        {
+          "optionId": "C",
+          "text": "dạy"
+        },
+        {
+          "optionId": "D",
+          "text": "thường xuyên"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“教” (jiāo): dạy",
+      "sourceLessonId": "hsk2-study-work-culture-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:07",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:07:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "考试",
+      "pinyinReference": "kǎoshì",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "thi; kỳ thi"
+        },
+        {
+          "optionId": "B",
+          "text": "bóng rổ"
+        },
+        {
+          "optionId": "C",
+          "text": "du lịch"
+        },
+        {
+          "optionId": "D",
+          "text": "cửa ra vào"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“考试” (kǎoshì): thi; kỳ thi",
+      "sourceLessonId": "hsk2-study-work-culture-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:08",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:08:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "旅游",
+      "pinyinReference": "lǚyóu",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "kiểu đó; như thế"
+        },
+        {
+          "optionId": "B",
+          "text": "chạy"
+        },
+        {
+          "optionId": "C",
+          "text": "du lịch"
+        },
+        {
+          "optionId": "D",
+          "text": "cửa ra vào"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“旅游” (lǚyóu): du lịch",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-03",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:09",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:09:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "那样",
+      "pinyinReference": "nàyàng",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "kiểu đó; như thế"
+        },
+        {
+          "optionId": "B",
+          "text": "chạy"
+        },
+        {
+          "optionId": "C",
+          "text": "quả bóng"
+        },
+        {
+          "optionId": "D",
+          "text": "đi lên"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“那样” (nàyàng): kiểu đó; như thế",
+      "sourceLessonId": "hsk2-person-events-environment-lesson-03",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:10",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:10:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "球",
+      "pinyinReference": "qiú",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "đồng hồ đeo tay"
+        },
+        {
+          "optionId": "B",
+          "text": "đá bằng chân"
+        },
+        {
+          "optionId": "C",
+          "text": "quả bóng"
+        },
+        {
+          "optionId": "D",
+          "text": "đi lên"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“球” (qiú): quả bóng",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-04",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:11",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:11:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "手表",
+      "pinyinReference": "shǒubiǎo",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "đồng hồ đeo tay"
+        },
+        {
+          "optionId": "B",
+          "text": "đá bằng chân"
+        },
+        {
+          "optionId": "C",
+          "text": "bên ngoài"
+        },
+        {
+          "optionId": "D",
+          "text": "tại sao"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“手表” (shǒubiǎo): đồng hồ đeo tay",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-03",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:12",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:12:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "外面",
+      "pinyinReference": "wàimiàn",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trẻ con"
+        },
+        {
+          "optionId": "B",
+          "text": "mắt"
+        },
+        {
+          "optionId": "C",
+          "text": "bên ngoài"
+        },
+        {
+          "optionId": "D",
+          "text": "tại sao"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“外面” (wàimiàn): bên ngoài",
+      "sourceLessonId": "hsk2-travel-leisure-lesson-01",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:13",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:13:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "小孩儿",
+      "pinyinReference": "xiǎoháir",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trẻ con"
+        },
+        {
+          "optionId": "B",
+          "text": "mắt"
+        },
+        {
+          "optionId": "C",
+          "text": "ý; ý nghĩa"
+        },
+        {
+          "optionId": "D",
+          "text": "phải; phía bên phải"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“小孩儿” (xiǎoháir): trẻ con",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-05",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:14",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:14:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "意思",
+      "pinyinReference": "yìsi",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "chồng"
+        },
+        {
+          "optionId": "B",
+          "text": "bản thân; tự mình"
+        },
+        {
+          "optionId": "C",
+          "text": "ý; ý nghĩa"
+        },
+        {
+          "optionId": "D",
+          "text": "phải; phía bên phải"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“意思” (yìsi): ý; ý nghĩa",
+      "sourceLessonId": "hsk2-study-work-culture-lesson-05",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:vocabulary:15",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:vocabulary:15:1",
+      "skill": "vocabulary",
+      "construct": "word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ.",
+      "stimulusText": "丈夫",
+      "pinyinReference": "zhàngfu",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "chồng"
+        },
+        {
+          "optionId": "B",
+          "text": "bản thân; tự mình"
+        },
+        {
+          "optionId": "C",
+          "text": "trợ từ cuối câu biểu thị xác nhận hoặc cảm thán"
+        },
+        {
+          "optionId": "D",
+          "text": "gói; bọc; bao hoặc túi"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“丈夫” (zhàngfu): chồng",
+      "sourceLessonId": "hsk2-daily-needs-family-lesson-05",
+      "sourceUnitId": "hsk2-situational-dialogue",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:01",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:01:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "学校对面有一家书店。",
+      "pinyinReference": "Xuéxiào duìmiàn yǒu yì jiā shūdiàn.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đối diện trường học có một hiệu sách."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn hãy xem thử quyển sách này trước."
+        },
+        {
+          "optionId": "C",
+          "text": "Tại sao bạn học tiếng Trung?"
+        },
+        {
+          "optionId": "D",
+          "text": "Mỗi người đều có tên riêng."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“学校对面有一家书店。” (Xuéxiào duìmiàn yǒu yì jiā shūdiàn.): Đối diện trường học có một hiệu sách.",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-01",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:02",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:02:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "你为什么学汉语？",
+      "pinyinReference": "Nǐ wèishénme xué Hànyǔ?",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trong lớp học có ba giáo viên."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi đã từng đến Bắc Kinh hai lần."
+        },
+        {
+          "optionId": "C",
+          "text": "Tại sao bạn học tiếng Trung?"
+        },
+        {
+          "optionId": "D",
+          "text": "Mỗi người đều có tên riêng."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“你为什么学汉语？” (Nǐ wèishénme xué Hànyǔ?): Tại sao bạn học tiếng Trung?",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-01",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:03",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:03:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "教室里有三位老师。",
+      "pinyinReference": "Jiàoshì lǐ yǒu sān wèi lǎoshī.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trong lớp học có ba giáo viên."
+        },
+        {
+          "optionId": "B",
+          "text": "Tôi đã từng đến Bắc Kinh hai lần."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đang ăn cơm đây."
+        },
+        {
+          "optionId": "D",
+          "text": "Đừng đỗ xe ở đây."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“教室里有三位老师。” (Jiàoshì lǐ yǒu sān wèi lǎoshī.): Trong lớp học có ba giáo viên.",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-01",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:04",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:04:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "我正吃饭呢。",
+      "pinyinReference": "Wǒ zhèng chīfàn ne.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi làm việc từ tám giờ đến năm giờ."
+        },
+        {
+          "optionId": "B",
+          "text": "Anh ấy đã đi vào từ cửa."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đang ăn cơm đây."
+        },
+        {
+          "optionId": "D",
+          "text": "Đừng đỗ xe ở đây."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“我正吃饭呢。” (Wǒ zhèng chīfàn ne.): Tôi đang ăn cơm đây.",
+      "sourceLessonId": "hsk2-aspect-time-experience-lesson-01",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:05",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:05:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "我从八点工作到五点。",
+      "pinyinReference": "Wǒ cóng bā diǎn gōngzuò dào wǔ diǎn.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi làm việc từ tám giờ đến năm giờ."
+        },
+        {
+          "optionId": "B",
+          "text": "Anh ấy đã đi vào từ cửa."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đã nói việc này với giáo viên."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi đã mua táo và các loại trái cây khác."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“我从八点工作到五点。” (Wǒ cóng bā diǎn gōngzuò dào wǔ diǎn.): Tôi làm việc từ tám giờ đến năm giờ.",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:06",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:06:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "我跟老师说了这件事。",
+      "pinyinReference": "Wǒ gēn lǎoshī shuō le zhè jiàn shì.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi đã từng đến Thượng Hải."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn đang tìm gì vậy?"
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đã nói việc này với giáo viên."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi đã mua táo và các loại trái cây khác."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“我跟老师说了这件事。” (Wǒ gēn lǎoshī shuō le zhè jiàn shì.): Tôi đã nói việc này với giáo viên.",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:07",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:07:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "我去过上海。",
+      "pinyinReference": "Wǒ qùguo Shànghǎi.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tôi đã từng đến Thượng Hải."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn đang tìm gì vậy?"
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đến cửa hàng mua đồ."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi thích trà đen, cà phê và những thứ tương tự."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“我去过上海。” (Wǒ qùguo Shànghǎi.): Tôi đã từng đến Thượng Hải.",
+      "sourceLessonId": "hsk2-aspect-time-experience-lesson-01",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:08",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:08:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "我去商店买东西。",
+      "pinyinReference": "Wǒ qù shāngdiàn mǎi dōngxi.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?"
+        },
+        {
+          "optionId": "B",
+          "text": "Hôm nay là thứ Hai."
+        },
+        {
+          "optionId": "C",
+          "text": "Tôi đến cửa hàng mua đồ."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi thích trà đen, cà phê và những thứ tương tự."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“我去商店买东西。” (Wǒ qù shāngdiàn mǎi dōngxi.): Tôi đến cửa hàng mua đồ.",
+      "sourceLessonId": "hsk2-complements-and-motion-lesson-01",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:09",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:09:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "都十点了，你怎么还不睡？",
+      "pinyinReference": "Dōu shí diǎn le, nǐ zěnme hái bù shuì?",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đã mười giờ rồi, sao bạn vẫn chưa ngủ?"
+        },
+        {
+          "optionId": "B",
+          "text": "Hôm nay là thứ Hai."
+        },
+        {
+          "optionId": "C",
+          "text": "Giáo viên đi về phía này."
+        },
+        {
+          "optionId": "D",
+          "text": "Đứa trẻ đã chạy từ trong phòng ra đây."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“都十点了，你怎么还不睡？” (Dōu shí diǎn le, nǐ zěnme hái bù shuì?): Đã mười giờ rồi, sao bạn vẫn chưa ngủ?",
+      "sourceLessonId": "hsk2-aspect-time-experience-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:10",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:10:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "老师走来了。",
+      "pinyinReference": "Lǎoshī zǒulái le.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chiếc quần này dài hơn một chút."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn uống trà hay uống cà phê?"
+        },
+        {
+          "optionId": "C",
+          "text": "Giáo viên đi về phía này."
+        },
+        {
+          "optionId": "D",
+          "text": "Đứa trẻ đã chạy từ trong phòng ra đây."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“老师走来了。” (Lǎoshī zǒulái le.): Giáo viên đi về phía này.",
+      "sourceLessonId": "hsk2-complements-and-motion-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:11",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:11:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "这条裤子长一点儿。",
+      "pinyinReference": "Zhè tiáo kùzi cháng yìdiǎnr.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chiếc quần này dài hơn một chút."
+        },
+        {
+          "optionId": "B",
+          "text": "Bạn uống trà hay uống cà phê?"
+        },
+        {
+          "optionId": "C",
+          "text": "Cậu bé này cao một mét rưỡi."
+        },
+        {
+          "optionId": "D",
+          "text": "Hôm nay nóng hơn hôm qua."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“这条裤子长一点儿。” (Zhè tiáo kùzi cháng yìdiǎnr.): Chiếc quần này dài hơn một chút.",
+      "sourceLessonId": "hsk2-aspect-time-experience-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:12",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:12:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "这个男孩儿有一米五高。",
+      "pinyinReference": "Zhège nánháir yǒu yì mǐ wǔ gāo.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Anh ấy chạy nhanh hơn tôi."
+        },
+        {
+          "optionId": "B",
+          "text": "Giáo viên bảo chúng tôi viết chữ Hán."
+        },
+        {
+          "optionId": "C",
+          "text": "Cậu bé này cao một mét rưỡi."
+        },
+        {
+          "optionId": "D",
+          "text": "Hôm nay nóng hơn hôm qua."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“这个男孩儿有一米五高。” (Zhège nánháir yǒu yì mǐ wǔ gāo.): Cậu bé này cao một mét rưỡi.",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-04",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:13",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:13:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "他跑得比我快。",
+      "pinyinReference": "Tā pǎo de bǐ wǒ kuài.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Anh ấy chạy nhanh hơn tôi."
+        },
+        {
+          "optionId": "B",
+          "text": "Giáo viên bảo chúng tôi viết chữ Hán."
+        },
+        {
+          "optionId": "C",
+          "text": "Mặc dù trời mưa nhưng chúng tôi vẫn đi."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi vừa tan học là về nhà ngay."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“他跑得比我快。” (Tā pǎo de bǐ wǒ kuài.): Anh ấy chạy nhanh hơn tôi.",
+      "sourceLessonId": "hsk2-reference-description-comparison-lesson-04",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:14",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:14:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "虽然下雨，但是我们还是去了。",
+      "pinyinReference": "Suīrán xiàyǔ, dànshì wǒmen háishi qù le.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn đã từng ăn sủi cảo Trung Quốc chưa?"
+        },
+        {
+          "optionId": "B",
+          "text": "Trong lớp có hơn mười học sinh."
+        },
+        {
+          "optionId": "C",
+          "text": "Mặc dù trời mưa nhưng chúng tôi vẫn đi."
+        },
+        {
+          "optionId": "D",
+          "text": "Tôi vừa tan học là về nhà ngay."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“虽然下雨，但是我们还是去了。” (Suīrán xiàyǔ, dànshì wǒmen háishi qù le.): Mặc dù trời mưa nhưng chúng tôi vẫn đi.",
+      "sourceLessonId": "hsk2-clause-linking-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk2-level-check:form-a:grammar:15",
+      "sourceItemVersion": "hsk2-level-assessment-2026.07:hsk2-level-check:form-a:grammar:15:1",
+      "skill": "grammar",
+      "construct": "grammar-in-context-meaning-recognition",
+      "promptVi": "Đọc câu và chọn nghĩa thể hiện đúng cấu trúc.",
+      "stimulusText": "你吃过中国饺子吗？",
+      "pinyinReference": "Nǐ chīguo Zhōngguó jiǎozi ma?",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Bạn đã từng ăn sủi cảo Trung Quốc chưa?"
+        },
+        {
+          "optionId": "B",
+          "text": "Trong lớp có hơn mười học sinh."
+        },
+        {
+          "optionId": "C",
+          "text": "Đối diện trường học có một hiệu sách."
+        },
+        {
+          "optionId": "D",
+          "text": "Bạn hãy xem thử quyển sách này trước."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“你吃过中国饺子吗？” (Nǐ chīguo Zhōngguó jiǎozi ma?): Bạn đã từng ăn sủi cảo Trung Quốc chưa?",
+      "sourceLessonId": "hsk2-aspect-time-experience-lesson-02",
+      "sourceUnitId": "hsk2-sentence-chains",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    }
+  ],
+  "integritySha256": "sha256:761eb460924f82bbf08ef82afd965038e409268172f19f3ba67e1e2b7c337a59"
+}

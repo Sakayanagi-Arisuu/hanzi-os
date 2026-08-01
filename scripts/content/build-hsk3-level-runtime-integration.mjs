@@ -8,7 +8,7 @@ import { loadHskSyllabusBundle } from "../../src/content/hskSyllabusInventory.mj
 
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.4";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
 const serialized = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const readJson = (root, relativePath) => JSON.parse(readFileSync(
   resolve(root, relativePath),

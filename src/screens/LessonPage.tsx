@@ -403,13 +403,13 @@ function LocalLessonPage() {
   const gateScore = requiredPassed ? score : Math.min(score, 69);
   const isCorrect = answersMatch(selected, current.correct);
 
-  const checkAnswer = () => {
+  const checkAnswer = async () => {
     if (!selected?.trim() || checked) return;
     const provenance = localRuntime
       ? localLessonActivityProvenance(localRuntime, index)
       : null;
     if (!provenance) return;
-    const disposition = actions.recordAnswer({
+    const disposition = await actions.recordAnswer({
       lessonId: lesson.id,
       questionId: current.id,
       wordId: current.wordId,
@@ -432,7 +432,7 @@ function LocalLessonPage() {
     }]);
   };
 
-  const next = () => {
+  const next = async () => {
     if (index < exercises.length - 1) {
       setIndex((currentIndex) => currentIndex + 1);
       setSelected(null);
@@ -447,7 +447,7 @@ function LocalLessonPage() {
         ? Math.round(lesson.xp * 0.2)
         : Math.round(lesson.xp * 0.25);
     if (!localRuntime) return;
-    const disposition = actions.completeLesson(
+    const disposition = await actions.completeLesson(
       lesson.id,
       score,
       `${sessionId}:complete`,
