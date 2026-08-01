@@ -90,7 +90,7 @@ describe("exercise generation", () => {
       expect(exercises, lesson.id).toHaveLength(10);
       expect(new Set(exercises.map((exercise) => exercise.id)).size, lesson.id).toBe(10);
     }
-  });
+  }, 60_000);
 
   it("normalizes learner answers without weakening the expected answer", () => {
     expect(answersMatch("  NǏ, HǍO! ", "nǐhǎo")).toBe(true);

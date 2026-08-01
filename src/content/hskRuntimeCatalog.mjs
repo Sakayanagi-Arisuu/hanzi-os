@@ -686,21 +686,21 @@ export const validateHskRuntimeCatalogBundle = ({
       PATH_IDS,
     )
     || expected.counts.paths !== 5
-    || expected.counts.units !== 12
-    || expected.counts.mappedSourceUnits !== 12
-    || expected.counts.releaseAuthorizedUnits !== 12
-    || expected.counts.eligibleUnits !== 12
-    || expected.counts.sourceReleasedLessons !== 84
-    || expected.counts.eligibleLessons !== 84
-    || expected.counts.mappedLessons !== 84
+    || expected.counts.units !== 15
+    || expected.counts.mappedSourceUnits !== 15
+    || expected.counts.releaseAuthorizedUnits !== 15
+    || expected.counts.eligibleUnits !== 15
+    || expected.counts.sourceReleasedLessons !== 139
+    || expected.counts.eligibleLessons !== 139
+    || expected.counts.mappedLessons !== 139
     || expected.counts.releaseAuthorizationBlockedLessons !== 0
     || expected.counts.releaseAuthorizationBlockedUnits !== 0
     || expected.counts.prerequisiteBlockedAuthorizedLessons !== 0
     || expected.counts.prerequisiteBlockedAuthorizedUnits !== 0
-    || expected.counts.pathsWithTargetContent !== 3
-    || expected.counts.pathsWithoutTargetContent !== 2
+    || expected.counts.pathsWithTargetContent !== 4
+    || expected.counts.pathsWithoutTargetContent !== 1
     || expected.counts.completionClaims !== 0
-    || expected.counts.authoringUnitMetadataExcluded !== 6
+    || expected.counts.authoringUnitMetadataExcluded !== 3
     || expected.counts.draftArtifactsImported !== 0
   ) {
     errors.push("HSK runtime catalog release counts are invalid");

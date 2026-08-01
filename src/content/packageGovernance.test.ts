@@ -991,8 +991,8 @@ describe("content package governance", () => {
     expect(bundle.runtimeCatalog!.stories).toEqual(STORIES);
     expect(
       bundle.itemCatalog!.items.filter((item) => item.itemType === "lesson"),
-    ).toHaveLength(84);
-    expect(bundle.runtimeCatalog!.lessons).toHaveLength(84);
+    ).toHaveLength(139);
+    expect(bundle.runtimeCatalog!.lessons).toHaveLength(139);
   });
 
   it.each([
@@ -1187,6 +1187,11 @@ describe("content package governance", () => {
         framework: "CTI HSK 3.0 pinned 2026",
         level: "HSK2",
         evidenceRef: "content/review/hsk2-level-batch-local-study-review.json",
+      }),
+      expect.objectContaining({
+        framework: "CTI HSK 3.0 pinned 2026",
+        level: "HSK3",
+        evidenceRef: "content/review/hsk3-level-batch-local-study-review.json",
       }),
     ]);
     expect(publication.eligible).toBe(false);

@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "hsk3-level-batch-local-study-review-2026.08.3",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "level": "HSK3",
+  "targetContentVersion": "foundation-2026.08.3",
+  "reviewedAt": "2026-08-01T15:00:00.000Z",
+  "state": "ai-reviewed-for-personal-local-study",
+  "reviewer": {
+    "reviewerId": "openai-codex-ai-assisted-review",
+    "reviewerKind": "ai-coding-agent",
+    "humanReviewed": false,
+    "disclosureVi": "Nội dung được Codex tự rà soát năm pass cho mục đích tự học local; chưa được người bản ngữ kiểm duyệt."
+  },
+  "sourceBindings": [
+    {
+      "id": "scope",
+      "relativePath": "content/curriculum/hsk3-scope.json",
+      "sha256": "sha256:06ba985ee481f197a7f87ac40895f3172a706314d17738c19eff359d043a1def"
+    },
+    {
+      "id": "blueprints",
+      "relativePath": "content/drafts/hsk3-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:b7feed4dd3eaba2502a33fc18f3aa3b56529410a1103c7f215a4f52b627e40f8"
+    },
+    {
+      "id": "vocabulary",
+      "relativePath": "content/drafts/hsk3-vocabulary-2026.07.29.json",
+      "sha256": "sha256:1ae86de6c4a61979ba85b1536a91bbef4e677446738105d2fe338d8910540670"
+    },
+    {
+      "id": "assessment",
+      "relativePath": "content/drafts/hsk3-level-assessment-2026.07.json",
+      "sha256": "sha256:3faedc895e022471e8ec50c45878e11ea4eee2e803263a29de5bd104b6538ef6"
+    },
+    {
+      "id": "inventory",
+      "relativePath": "content/sources/hsk-syllabus-2026/inventory.json",
+      "sha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
+    },
+    {
+      "id": "paragraphIdentity",
+      "relativePath": "content/drafts/hsk3-personal-paragraph-identity-2026.07.json",
+      "sha256": "sha256:8e02da7b242cfb0f76e40f9771b4b5c3eeb4791ecaf0d9eaa583374e51654d5e"
+    },
+    {
+      "id": "paragraphPersonal",
+      "relativePath": "content/drafts/hsk3-personal-paragraph-domain-2026.07.json",
+      "sha256": "sha256:3b5603d1344d72902ea086d2a5f09ca7048caabb0b112f7af256c0ed4ea08490"
+    },
+    {
+      "id": "paragraphStudyWork",
+      "relativePath": "content/drafts/hsk3-study-work-paragraph-domain-2026.07.json",
+      "sha256": "sha256:9fcf416bca1d95ea36647291daaed1c4a8037e21d38eacf397af6e72c14d463f"
+    },
+    {
+      "id": "paragraphNature",
+      "relativePath": "content/drafts/hsk3-nature-environment-paragraph-domain-2026.07.json",
+      "sha256": "sha256:266164f83d138e4218333ad8cbe6b5dcffe68490352d3b8429b164bc432eb886"
+    },
+    {
+      "id": "paragraphSociety",
+      "relativePath": "content/drafts/hsk3-society-arts-sports-paragraph-domain-2026.07.json",
+      "sha256": "sha256:633bd280f51359eb27a56e8aeaf25d90980e84fdd30749e7edc9104402c7dd84"
+    },
+    {
+      "id": "paragraphCulture",
+      "relativePath": "content/drafts/hsk3-culture-tradition-paragraph-domain-2026.07.json",
+      "sha256": "sha256:69256d0cd9ee194b77435d0fcf516dbc368950a59c2c55331037915da783c14f"
+    },
+    {
+      "id": "narrationReference",
+      "relativePath": "content/drafts/hsk3-reference-quantity-narration-grammar-2026.07.json",
+      "sha256": "sha256:a86e87169bdce94044a96dbea570997b067f0a79c6dc9fc0ed7a2108026b1b84"
+    },
+    {
+      "id": "narrationModality",
+      "relativePath": "content/drafts/hsk3-modality-time-narration-grammar-2026.07.json",
+      "sha256": "sha256:7e76712b4b6f40e908a398bb6edc199a0c4aab14448807ea25a4649a82fad257"
+    },
+    {
+      "id": "narrationEvents",
+      "relativePath": "content/drafts/hsk3-event-complements-narration-grammar-2026.07.json",
+      "sha256": "sha256:ce8a5925d658c93c19eb02fbdeaf8253cf85165392bc93d0cac868c89995219a"
+    },
+    {
+      "id": "narrationComparison",
+      "relativePath": "content/drafts/hsk3-comparison-description-evaluation-narration-grammar-2026.07.json",
+      "sha256": "sha256:b53420642715c9fb1fb873eeb70b7ae1a02c98fbab51b2509a44d96c1b2787cc"
+    },
+    {
+      "id": "narrationDiscourse",
+      "relativePath": "content/drafts/hsk3-discourse-linking-narration-grammar-2026.07.json",
+      "sha256": "sha256:7252a939f59e36cb64c0f0c4806fb4b65a3854a54032767b2c8239e8d2aa72e3"
+    },
+    {
+      "id": "guidedNotes",
+      "relativePath": "content/drafts/hsk3-main-idea-detail-notes-2026.07.json",
+      "sha256": "sha256:aa72f7c37ff095ced3f18c870570bac9e02a1382deda17701f2a31628d3c2d99"
+    },
+    {
+      "id": "guidedCohesion",
+      "relativePath": "content/drafts/hsk3-cohesion-reconstruction-2026.07.json",
+      "sha256": "sha256:49effdaed879aefbbd54f985ab4a9e16c84c70107e786ed36ea08be370bff86d"
+    },
+    {
+      "id": "guidedRetelling",
+      "relativePath": "content/drafts/hsk3-event-retelling-2026.07.json",
+      "sha256": "sha256:86660eb57c10c31dd6f3b51c107e56462969d86468f5332bebe56dc332d1a7ee"
+    },
+    {
+      "id": "guidedParagraph",
+      "relativePath": "content/drafts/hsk3-guided-paragraph-2026.07.json",
+      "sha256": "sha256:328a797dbd3a5a230a516d0bac1189b6cf44843e615228bdb6259b7a65ee67de"
+    },
+    {
+      "id": "guidedExplanation",
+      "relativePath": "content/drafts/hsk3-structured-explanation-2026.07.json",
+      "sha256": "sha256:599857af480fe32234002ebe793190883248a4496dcb4f84071c116f14ed7e38"
+    }
+  ],
+  "coverage": {
+    "lessons": 55,
+    "paragraphInputLessons": 25,
+    "narrationLessons": 15,
+    "guidedProductionLessons": 15,
+    "vocabulary": 500,
+    "recognitionCharacters": 284,
+    "grammarRows": 96,
+    "tasks": 22,
+    "topics": 54,
+    "paragraphLines": 400,
+    "narrationLines": 90,
+    "guidedPromptUnits": 92,
+    "localLevelCheckObjectiveItems": 54,
+    "fullAssessmentDraftItems": 172
+  },
+  "coverageDigest": "sha256:d6a12241b1ba6148ac95a28e75646fbfcaff419c9af58643576b57cfee0e8235",
+  "reviewResult": {
+    "mode": "ai-assisted-self-review",
+    "aiAssistedDisclosed": true,
+    "humanReviewed": false,
+    "unresolvedIssueCount": 0,
+    "passResults": {
+      "mandarin-accuracy-and-naturalness": "passed-for-personal-local-study",
+      "pinyin-and-tone-consistency": "passed-for-personal-local-study",
+      "vietnamese-context-and-clarity": "passed-for-personal-local-study",
+      "pedagogy-rubric-and-distractors": "passed-for-personal-local-study",
+      "source-and-level-coverage": "passed-for-personal-local-study"
+    }
+  },
+  "findings": {
+    "resolved": [
+      {
+        "findingId": "hsk3-drafts-not-runtime-visible",
+        "pass": "source-and-level-coverage",
+        "resolution": "Đưa đủ 55 blueprint và inventory HSK3 vào package local kế tiếp, giữ nguyên pipeline hiện có."
+      },
+      {
+        "findingId": "hsk3-constructed-response-not-calibrated",
+        "pass": "pedagogy-rubric-and-distractors",
+        "resolution": "Giữ phần nói và viết ở chế độ luyện tập có gợi ý và tự sửa; không cấp mastery trước human review."
+      },
+      {
+        "findingId": "hsk3-browser-audio-synthetic",
+        "pass": "mandarin-accuracy-and-naturalness",
+        "resolution": "Browser TTS chỉ hỗ trợ luyện nghe/đọc, không được coi là audio người thật hay bằng chứng phát âm."
+      }
+    ],
+    "unresolved": []
+  },
+  "claims": {
+    "readyForPersonalLocalStudyPackaging": true,
+    "browserTtsPracticeOnly": true,
+    "nativeAudio": false,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false,
+    "officialHskCertification": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "reviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14"
+}

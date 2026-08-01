@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const CONTENT_VERSION = "foundation-2026.08.2";
+const CONTENT_VERSION = "foundation-2026.08.3";
 
 const localHsk1State = {
   schemaVersion: 2,
@@ -116,8 +116,8 @@ test("opens, resumes and completes the 50-item HSK1 local level check without ma
       evidenceCount: evidence.length,
       allContentVersioned: evidence.every(
         (item: { contentVersion?: string; activityVersion?: string }) =>
-          item.contentVersion === "foundation-2026.08.2"
-          && item.activityVersion?.startsWith("foundation-2026.08.2:"),
+          item.contentVersion === "foundation-2026.08.3"
+          && item.activityVersion?.startsWith("foundation-2026.08.3:"),
       ),
       allDescriptive: evidence.every(
         (item: {

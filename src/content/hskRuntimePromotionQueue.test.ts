@@ -24,9 +24,9 @@ describe("HSK1-4 runtime promotion queue", () => {
       blueprintApprovedLessons: 0,
       reviewBatches: 509,
       approvalRecords: 0,
-      learnerVisibleTargetLessons: 80,
+      learnerVisibleTargetLessons: 135,
       prerequisiteBlockedSourceLessons: 0,
-      unavailablePaths: 2,
+      unavailablePaths: 1,
       completionClaims: 0,
       promotionReadyUnits: 0,
     });
@@ -43,18 +43,18 @@ describe("HSK1-4 runtime promotion queue", () => {
     }))).toEqual([
       { pathId: "hsk1", authored: 40, visible: 40, pendingReview: 97 },
       { pathId: "hsk2", authored: 40, visible: 40, pendingReview: 122 },
-      { pathId: "hsk3", authored: 55, visible: 0, pendingReview: 122 },
+      { pathId: "hsk3", authored: 55, visible: 55, pendingReview: 122 },
       { pathId: "hsk4", authored: 78, visible: 0, pendingReview: 168 },
     ]);
   });
 
-  it("selects the earliest prerequisite-present HSK3 gap without promoting it", () => {
+  it("selects HSK4 as the next production promotion gap", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
 
     expect(report.nextPromotionCandidate).toEqual({
-      pathId: "hsk3",
-      unitId: "hsk3-paragraph-input",
-      authoredLessonBlueprintCount: 25,
+      pathId: "hsk4",
+      unitId: "hsk4-deep-comprehension",
+      authoredLessonBlueprintCount: 36,
       authoredPracticeItemCount: 0,
       audioDependentItemCount: 0,
       sourceReleasedLessonCount: 0,
@@ -77,7 +77,7 @@ describe("HSK1-4 runtime promotion queue", () => {
     });
   });
 
-  it("opens only the first HSK3 prerequisite closure while keeping upper content hidden", () => {
+  it("keeps HSK3 locally visible while HSK4 remains production-blocked", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
     const upperUnits = report.levels
       .filter((level: { pathId: string }) => ["hsk3", "hsk4"].includes(level.pathId))
@@ -88,21 +88,22 @@ describe("HSK1-4 runtime promotion queue", () => {
       }> }) => level.units);
 
     expect(upperUnits).toHaveLength(6);
-    expect(upperUnits[0].prerequisiteRuntimeClosurePresent).toBe(true);
-    expect(upperUnits[0].blockers).not.toContain(
-      "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-    );
     for (const [index, unit] of upperUnits.entries()) {
-      if (index > 0) {
+      if (index < 3) {
+        expect(unit.prerequisiteRuntimeClosurePresent).toBe(true);
+        expect(unit.learnerVisibleLessonIds.length).toBeGreaterThan(0);
+        expect(unit.blockers).not.toContain("RUNTIME_PACKAGE_MAPPING_INCOMPLETE");
+      } else {
+        expect(unit.learnerVisibleLessonIds).toEqual([]);
+      }
+      if (index > 3) {
         expect(unit.prerequisiteRuntimeClosurePresent).toBe(false);
         expect(unit.blockers).toContain(
           "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
         );
       }
-      expect(unit.learnerVisibleLessonIds).toEqual([]);
       expect(unit.blockers).toEqual(expect.arrayContaining([
         "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-        "RUNTIME_PACKAGE_MAPPING_INCOMPLETE",
       ]));
     }
   });

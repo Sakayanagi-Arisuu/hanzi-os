@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "policyId": "hsk0-4-unit-release-policy-2026.07.1",
   "curriculumGraphId": "hsk0-4-graduation-2026.07.2",
-  "runtimeContentVersion": "foundation-2026.08.2",
+  "runtimeContentVersion": "foundation-2026.08.3",
   "authorizationScope": "runtime-unit-activation-only",
   "grantsContentReviewApproval": false,
   "grantsMastery": false,
@@ -149,6 +149,76 @@
         "hsk2-guided-message-lesson-02",
         "hsk2-picture-description-lesson-01",
         "hsk2-picture-description-lesson-02"
+      ]
+    },
+    {
+      "unitId": "hsk3-paragraph-input",
+      "lessonIds": [
+        "hsk3-personal-life-narratives-identity-transactions",
+        "hsk3-personal-life-narratives-food-shopping",
+        "hsk3-personal-life-narratives-travel-transport",
+        "hsk3-personal-life-narratives-health-care",
+        "hsk3-personal-life-narratives-home-family-leisure",
+        "hsk3-study-work-accounts-courses-learning",
+        "hsk3-study-work-accounts-campus-education",
+        "hsk3-study-work-accounts-office-tasks",
+        "hsk3-study-work-accounts-colleague-workplace",
+        "hsk3-study-work-accounts-career-experience",
+        "hsk3-nature-environment-explanations-climate-seasons",
+        "hsk3-nature-environment-explanations-plants-animals",
+        "hsk3-nature-environment-explanations-landscape-place",
+        "hsk3-nature-environment-explanations-environment-state",
+        "hsk3-nature-environment-explanations-environment-protection",
+        "hsk3-society-arts-sports-reports-modern-life",
+        "hsk3-society-arts-sports-reports-city-development",
+        "hsk3-society-arts-sports-reports-arts-activities",
+        "hsk3-society-arts-sports-reports-sports-introduction",
+        "hsk3-society-arts-sports-reports-competition-report",
+        "hsk3-culture-tradition-descriptions-regional-cuisine",
+        "hsk3-culture-tradition-descriptions-tableware-etiquette",
+        "hsk3-culture-tradition-descriptions-festivals-customs",
+        "hsk3-culture-tradition-descriptions-regional-differences",
+        "hsk3-culture-tradition-descriptions-customs-comparison"
+      ]
+    },
+    {
+      "unitId": "hsk3-narration",
+      "lessonIds": [
+        "hsk3-reference-quantity-phrase-building-lesson-01",
+        "hsk3-reference-quantity-phrase-building-lesson-02",
+        "hsk3-reference-quantity-phrase-building-lesson-03",
+        "hsk3-modality-time-viewpoint-framing-lesson-01",
+        "hsk3-modality-time-viewpoint-framing-lesson-02",
+        "hsk3-modality-time-viewpoint-framing-lesson-03",
+        "hsk3-event-complements-voice-lesson-01",
+        "hsk3-event-complements-voice-lesson-02",
+        "hsk3-event-complements-voice-lesson-03",
+        "hsk3-comparison-description-evaluation-lesson-01",
+        "hsk3-comparison-description-evaluation-lesson-02",
+        "hsk3-comparison-description-evaluation-lesson-03",
+        "hsk3-discourse-linking-lesson-01",
+        "hsk3-discourse-linking-lesson-02",
+        "hsk3-discourse-linking-lesson-03"
+      ]
+    },
+    {
+      "unitId": "hsk3-guided-production",
+      "lessonIds": [
+        "hsk3-main-idea-detail-notes-lesson-01",
+        "hsk3-main-idea-detail-notes-lesson-02",
+        "hsk3-main-idea-detail-notes-lesson-03",
+        "hsk3-cohesion-reconstruction-lesson-01",
+        "hsk3-cohesion-reconstruction-lesson-02",
+        "hsk3-cohesion-reconstruction-lesson-03",
+        "hsk3-event-retelling-lesson-01",
+        "hsk3-event-retelling-lesson-02",
+        "hsk3-event-retelling-lesson-03",
+        "hsk3-guided-paragraph-lesson-01",
+        "hsk3-guided-paragraph-lesson-02",
+        "hsk3-guided-paragraph-lesson-03",
+        "hsk3-structured-explanation-lesson-01",
+        "hsk3-structured-explanation-lesson-02",
+        "hsk3-structured-explanation-lesson-03"
       ]
     }
   ]

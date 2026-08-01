@@ -26,11 +26,13 @@ describe("learner HSK0-4 curriculum view", () => {
     expect(hsk2.bridgeLessonIds).toHaveLength(44);
     expect(hsk2.visibleLessonIds).toHaveLength(84);
     expect(hsk2.targetContentAvailable).toBe(true);
-    for (const planned of [hsk3, hsk4]) {
-      expect(planned.targetLessonIds).toEqual([]);
-      expect(planned.visibleLessonIds).toEqual([]);
-      expect(planned.targetContentAvailable).toBe(false);
-    }
+    expect(hsk3.targetLessonIds).toHaveLength(55);
+    expect(hsk3.bridgeLessonIds).toHaveLength(84);
+    expect(hsk3.visibleLessonIds).toHaveLength(139);
+    expect(hsk3.targetContentAvailable).toBe(true);
+    expect(hsk4.targetLessonIds).toEqual([]);
+    expect(hsk4.visibleLessonIds).toEqual([]);
+    expect(hsk4.targetContentAvailable).toBe(false);
   });
 
   it("keeps the legacy basic value on the HSK1 graph", () => {

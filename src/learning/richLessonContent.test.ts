@@ -47,6 +47,34 @@ describe("learner-facing rich lesson adapter", () => {
       .toHaveLength(13);
   });
 
+  it("exposes all fifty-five HSK3 lessons through the shared rich UI", () => {
+    expect(getRichLessonContent(
+      "hsk3-personal-life-narratives-identity-transactions",
+    )).toMatchObject({
+      dialogue: expect.arrayContaining([
+        expect.objectContaining({
+          hanzi: "小林在一家公司办公室工作，最近他决定参加一个周末汉语活动。",
+        }),
+      ]),
+      topics: expect.arrayContaining([
+        expect.objectContaining({ id: "hsk3-topic-001" }),
+      ]),
+      tasks: expect.arrayContaining([
+        expect.objectContaining({
+          id: "hsk3-paragraph-task:hsk3-personal-life-narratives-identity-transactions",
+        }),
+      ]),
+    });
+    expect(getRichLessonContent(
+      "hsk3-reference-quantity-phrase-building-lesson-01",
+    )?.grammar).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: "hsk3-grammar-row-001" }),
+    ]));
+    expect(getRichLessonContent(
+      "hsk3-structured-explanation-lesson-03",
+    )?.tasks).toHaveLength(1);
+  });
+
   it("exposes rich dialogue, grammar and tasks for personal exchange", () => {
     expect(getRichLessonContent("survival-1")).toMatchObject({
       dialogue: expect.arrayContaining([

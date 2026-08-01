@@ -5,6 +5,7 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK2_LEVEL_BASE_VERSION = "foundation-2026.08.1";
 export const HSK2_LEVEL_TARGET_VERSION = "foundation-2026.08.2";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.3";
 export const HSK2_LEVEL_REVIEW_RELATIVE_PATH =
   "content/review/hsk2-level-batch-local-study-review.json";
 export const HSK2_LEVEL_CORE_RELATIVE_PATH =
@@ -754,7 +755,7 @@ export const projectHsk2LevelRichLessons = async (
     (item) => item.lessonIds,
   ));
   if (
-    authorization.runtimeContentVersion !== HSK2_LEVEL_TARGET_VERSION
+    authorization.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
     || hsk2Authorizations.length !== 3
     || authorizedLessonIds.size !== 40
     || core.lessons.some((lesson) =>
@@ -928,7 +929,7 @@ export const projectHsk2LevelRichLessons = async (
   const payload = {
     schemaVersion: 1,
     presentationId: "hsk2-level-rich-lessons-2026.08.2",
-    contentVersion: HSK2_LEVEL_TARGET_VERSION,
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
     level: "HSK2",
     state: "authorized-for-personal-local-study",
     disclosure: {

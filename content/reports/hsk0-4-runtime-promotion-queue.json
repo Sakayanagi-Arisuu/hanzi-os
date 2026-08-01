@@ -5,12 +5,12 @@
     {
       "id": "graph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:f26baaaf198ce382ae56d2ccafe24ea2aae9e07514834645abf14f94a8240f1c"
+      "sha256": "sha256:36100d362da97279ed67ad0adf87f43c367bbab36d02c3b5a6102d613c57a937"
     },
     {
       "id": "runtime",
       "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
-      "sha256": "sha256:91b1407130f57e1884c449416c6be8116e5e2aac8a8c6e0fb02f7e7abc6035cb"
+      "sha256": "sha256:90ad1e43891e03287b123602b76ff263922d3d0ea30e46337be9313fdbc106bd"
     },
     {
       "id": "hsk1Scope",
@@ -101,9 +101,9 @@
     "blueprintApprovedLessons": 0,
     "reviewBatches": 509,
     "approvalRecords": 0,
-    "learnerVisibleTargetLessons": 80,
+    "learnerVisibleTargetLessons": 135,
     "prerequisiteBlockedSourceLessons": 0,
-    "unavailablePaths": 2,
+    "unavailablePaths": 1,
     "completionClaims": 0,
     "promotionReadyUnits": 0
   },
@@ -525,7 +525,7 @@
     {
       "pathId": "hsk3",
       "officialExamLevel": 3,
-      "runtimeState": "unavailable",
+      "runtimeState": "partial",
       "completionClaim": false,
       "authoredLessonBlueprintCount": 55,
       "blueprintApprovedLessonCount": 0,
@@ -537,14 +537,14 @@
         "approvalRecordCount": 0,
         "releaseEligible": false
       },
-      "learnerVisibleTargetLessonCount": 0,
-      "sourceReleasedLessonCount": 0,
+      "learnerVisibleTargetLessonCount": 55,
+      "sourceReleasedLessonCount": 55,
       "prerequisiteBlockedSourceLessonCount": 0,
       "units": [
         {
           "unitId": "hsk3-paragraph-input",
           "sequence": 1,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk2-short-text-production"
           ],
@@ -553,20 +553,71 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 0,
           "audioDependentItemCount": 0,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
+          "sourceReleasedLessonIds": [
+            "hsk3-personal-life-narratives-identity-transactions",
+            "hsk3-personal-life-narratives-food-shopping",
+            "hsk3-personal-life-narratives-travel-transport",
+            "hsk3-personal-life-narratives-health-care",
+            "hsk3-personal-life-narratives-home-family-leisure",
+            "hsk3-study-work-accounts-courses-learning",
+            "hsk3-study-work-accounts-campus-education",
+            "hsk3-study-work-accounts-office-tasks",
+            "hsk3-study-work-accounts-colleague-workplace",
+            "hsk3-study-work-accounts-career-experience",
+            "hsk3-nature-environment-explanations-climate-seasons",
+            "hsk3-nature-environment-explanations-plants-animals",
+            "hsk3-nature-environment-explanations-landscape-place",
+            "hsk3-nature-environment-explanations-environment-state",
+            "hsk3-nature-environment-explanations-environment-protection",
+            "hsk3-society-arts-sports-reports-modern-life",
+            "hsk3-society-arts-sports-reports-city-development",
+            "hsk3-society-arts-sports-reports-arts-activities",
+            "hsk3-society-arts-sports-reports-sports-introduction",
+            "hsk3-society-arts-sports-reports-competition-report",
+            "hsk3-culture-tradition-descriptions-regional-cuisine",
+            "hsk3-culture-tradition-descriptions-tableware-etiquette",
+            "hsk3-culture-tradition-descriptions-festivals-customs",
+            "hsk3-culture-tradition-descriptions-regional-differences",
+            "hsk3-culture-tradition-descriptions-customs-comparison"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk3-personal-life-narratives-identity-transactions",
+            "hsk3-personal-life-narratives-food-shopping",
+            "hsk3-personal-life-narratives-travel-transport",
+            "hsk3-personal-life-narratives-health-care",
+            "hsk3-personal-life-narratives-home-family-leisure",
+            "hsk3-study-work-accounts-courses-learning",
+            "hsk3-study-work-accounts-campus-education",
+            "hsk3-study-work-accounts-office-tasks",
+            "hsk3-study-work-accounts-colleague-workplace",
+            "hsk3-study-work-accounts-career-experience",
+            "hsk3-nature-environment-explanations-climate-seasons",
+            "hsk3-nature-environment-explanations-plants-animals",
+            "hsk3-nature-environment-explanations-landscape-place",
+            "hsk3-nature-environment-explanations-environment-state",
+            "hsk3-nature-environment-explanations-environment-protection",
+            "hsk3-society-arts-sports-reports-modern-life",
+            "hsk3-society-arts-sports-reports-city-development",
+            "hsk3-society-arts-sports-reports-arts-activities",
+            "hsk3-society-arts-sports-reports-sports-introduction",
+            "hsk3-society-arts-sports-reports-competition-report",
+            "hsk3-culture-tradition-descriptions-regional-cuisine",
+            "hsk3-culture-tradition-descriptions-tableware-etiquette",
+            "hsk3-culture-tradition-descriptions-festivals-customs",
+            "hsk3-culture-tradition-descriptions-regional-differences",
+            "hsk3-culture-tradition-descriptions-customs-comparison"
+          ],
           "prerequisiteRuntimeClosurePresent": true,
-          "promotionState": "blocked",
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         },
         {
           "unitId": "hsk3-narration",
           "sequence": 2,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk3-paragraph-input"
           ],
@@ -575,21 +626,51 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 0,
           "audioDependentItemCount": 0,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
-          "promotionState": "blocked",
+          "sourceReleasedLessonIds": [
+            "hsk3-reference-quantity-phrase-building-lesson-01",
+            "hsk3-reference-quantity-phrase-building-lesson-02",
+            "hsk3-reference-quantity-phrase-building-lesson-03",
+            "hsk3-modality-time-viewpoint-framing-lesson-01",
+            "hsk3-modality-time-viewpoint-framing-lesson-02",
+            "hsk3-modality-time-viewpoint-framing-lesson-03",
+            "hsk3-event-complements-voice-lesson-01",
+            "hsk3-event-complements-voice-lesson-02",
+            "hsk3-event-complements-voice-lesson-03",
+            "hsk3-comparison-description-evaluation-lesson-01",
+            "hsk3-comparison-description-evaluation-lesson-02",
+            "hsk3-comparison-description-evaluation-lesson-03",
+            "hsk3-discourse-linking-lesson-01",
+            "hsk3-discourse-linking-lesson-02",
+            "hsk3-discourse-linking-lesson-03"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk3-reference-quantity-phrase-building-lesson-01",
+            "hsk3-reference-quantity-phrase-building-lesson-02",
+            "hsk3-reference-quantity-phrase-building-lesson-03",
+            "hsk3-modality-time-viewpoint-framing-lesson-01",
+            "hsk3-modality-time-viewpoint-framing-lesson-02",
+            "hsk3-modality-time-viewpoint-framing-lesson-03",
+            "hsk3-event-complements-voice-lesson-01",
+            "hsk3-event-complements-voice-lesson-02",
+            "hsk3-event-complements-voice-lesson-03",
+            "hsk3-comparison-description-evaluation-lesson-01",
+            "hsk3-comparison-description-evaluation-lesson-02",
+            "hsk3-comparison-description-evaluation-lesson-03",
+            "hsk3-discourse-linking-lesson-01",
+            "hsk3-discourse-linking-lesson-02",
+            "hsk3-discourse-linking-lesson-03"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         },
         {
           "unitId": "hsk3-guided-production",
           "sequence": 3,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk3-narration"
           ],
@@ -598,15 +679,45 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 0,
           "audioDependentItemCount": 0,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
-          "promotionState": "blocked",
+          "sourceReleasedLessonIds": [
+            "hsk3-main-idea-detail-notes-lesson-01",
+            "hsk3-main-idea-detail-notes-lesson-02",
+            "hsk3-main-idea-detail-notes-lesson-03",
+            "hsk3-cohesion-reconstruction-lesson-01",
+            "hsk3-cohesion-reconstruction-lesson-02",
+            "hsk3-cohesion-reconstruction-lesson-03",
+            "hsk3-event-retelling-lesson-01",
+            "hsk3-event-retelling-lesson-02",
+            "hsk3-event-retelling-lesson-03",
+            "hsk3-guided-paragraph-lesson-01",
+            "hsk3-guided-paragraph-lesson-02",
+            "hsk3-guided-paragraph-lesson-03",
+            "hsk3-structured-explanation-lesson-01",
+            "hsk3-structured-explanation-lesson-02",
+            "hsk3-structured-explanation-lesson-03"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk3-main-idea-detail-notes-lesson-01",
+            "hsk3-main-idea-detail-notes-lesson-02",
+            "hsk3-main-idea-detail-notes-lesson-03",
+            "hsk3-cohesion-reconstruction-lesson-01",
+            "hsk3-cohesion-reconstruction-lesson-02",
+            "hsk3-cohesion-reconstruction-lesson-03",
+            "hsk3-event-retelling-lesson-01",
+            "hsk3-event-retelling-lesson-02",
+            "hsk3-event-retelling-lesson-03",
+            "hsk3-guided-paragraph-lesson-01",
+            "hsk3-guided-paragraph-lesson-02",
+            "hsk3-guided-paragraph-lesson-03",
+            "hsk3-structured-explanation-lesson-01",
+            "hsk3-structured-explanation-lesson-02",
+            "hsk3-structured-explanation-lesson-03"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         }
       ]
@@ -644,12 +755,11 @@
           "audioDependentItemCount": 0,
           "sourceReleasedLessonIds": [],
           "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
+          "prerequisiteRuntimeClosurePresent": true,
           "promotionState": "blocked",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
             "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
           ]
         },
@@ -703,9 +813,9 @@
     }
   ],
   "nextPromotionCandidate": {
-    "pathId": "hsk3",
-    "unitId": "hsk3-paragraph-input",
-    "authoredLessonBlueprintCount": 25,
+    "pathId": "hsk4",
+    "unitId": "hsk4-deep-comprehension",
+    "authoredLessonBlueprintCount": 36,
     "authoredPracticeItemCount": 0,
     "audioDependentItemCount": 0,
     "sourceReleasedLessonCount": 0,

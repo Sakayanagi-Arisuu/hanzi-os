@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "authorizationId": "hsk0-4-local-study-authorizations-2026.08.2",
+  "authorizationId": "hsk0-4-local-study-authorizations-2026.08.3",
   "profileId": "hsk0-4-personal-study-2026.07.1",
-  "runtimeContentVersion": "foundation-2026.08.2",
+  "runtimeContentVersion": "foundation-2026.08.3",
   "scope": "personal-local-study-runtime-only",
   "sourceBindings": [
     {
@@ -31,24 +31,34 @@
       "sha256": "sha256:5dcac3da1c6191f1a2f93b87497ef6e8f1004b48e917e486ddde0b7ab9c13102"
     },
     {
+      "id": "hsk3LevelReview",
+      "relativePath": "content/review/hsk3-level-batch-local-study-review.json",
+      "sha256": "sha256:32d08bbfa2f52a87499c45aee99c698682414996a824d5e4a60432fe6bf8521a"
+    },
+    {
+      "id": "hsk3LevelCore",
+      "relativePath": "content/runtime/hsk3-level-core-projection.json",
+      "sha256": "sha256:f0bdf3500d6de0638c6ec419df190d912ee17c323b5a4feccb8e2f799ae5effd"
+    },
+    {
       "id": "curriculumGraph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:f26baaaf198ce382ae56d2ccafe24ea2aae9e07514834645abf14f94a8240f1c"
+      "sha256": "sha256:36100d362da97279ed67ad0adf87f43c367bbab36d02c3b5a6102d613c57a937"
     },
     {
       "id": "unitReleasePolicy",
       "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-      "sha256": "sha256:0c14a45126711da9b6cd1f035276e56473520a72a771914d3e77855d6b7d440d"
+      "sha256": "sha256:80890d0a09f1e4d7de620279a5a3994d1722160ad91adc2922c049c52d87aa6d"
     },
     {
       "id": "packageManifest",
-      "relativePath": "content/packages/foundation-2026.08.2/manifest.json",
-      "sha256": "sha256:7860dfe995f03374a64f2d1b45325fd27a21190459fb02a91c17fe504617d37e"
+      "relativePath": "content/packages/foundation-2026.08.3/manifest.json",
+      "sha256": "sha256:1ec1542ed49cc4f44bb332c7c9b22c1f9e14a42819e14177e5efaa38ae424b78"
     },
     {
       "id": "packageItemCatalog",
-      "relativePath": "content/packages/foundation-2026.08.2/item-catalog.json",
-      "sha256": "sha256:f943fcfa42020b3a80762268ff6ee8c6db3b721d9eba1b7c87a54c14b563966c"
+      "relativePath": "content/packages/foundation-2026.08.3/item-catalog.json",
+      "sha256": "sha256:114c94d07de782bf2a185912d26483cb815e326a7d69951642f422061116cf27"
     }
   ],
   "authorizations": [
@@ -68,8 +78,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -105,8 +115,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -138,8 +148,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -166,8 +176,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -201,8 +211,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -247,8 +257,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -291,8 +301,8 @@
       "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
       "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
       "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -329,8 +339,8 @@
       "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
       "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
       "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -363,8 +373,8 @@
       "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
       "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
       "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
-      "packageId": "foundation-2026.08.2",
-      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -374,6 +384,135 @@
           "character": 125,
           "characterPractice": 250,
           "productionPrompt": 104
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
+    },
+    {
+      "unitId": "hsk3-paragraph-input",
+      "lessonIds": [
+        "hsk3-personal-life-narratives-identity-transactions",
+        "hsk3-personal-life-narratives-food-shopping",
+        "hsk3-personal-life-narratives-travel-transport",
+        "hsk3-personal-life-narratives-health-care",
+        "hsk3-personal-life-narratives-home-family-leisure",
+        "hsk3-study-work-accounts-courses-learning",
+        "hsk3-study-work-accounts-campus-education",
+        "hsk3-study-work-accounts-office-tasks",
+        "hsk3-study-work-accounts-colleague-workplace",
+        "hsk3-study-work-accounts-career-experience",
+        "hsk3-nature-environment-explanations-climate-seasons",
+        "hsk3-nature-environment-explanations-plants-animals",
+        "hsk3-nature-environment-explanations-landscape-place",
+        "hsk3-nature-environment-explanations-environment-state",
+        "hsk3-nature-environment-explanations-environment-protection",
+        "hsk3-society-arts-sports-reports-modern-life",
+        "hsk3-society-arts-sports-reports-city-development",
+        "hsk3-society-arts-sports-reports-arts-activities",
+        "hsk3-society-arts-sports-reports-sports-introduction",
+        "hsk3-society-arts-sports-reports-competition-report",
+        "hsk3-culture-tradition-descriptions-regional-cuisine",
+        "hsk3-culture-tradition-descriptions-tableware-etiquette",
+        "hsk3-culture-tradition-descriptions-festivals-customs",
+        "hsk3-culture-tradition-descriptions-regional-differences",
+        "hsk3-culture-tradition-descriptions-customs-comparison"
+      ],
+      "unitReleaseDigest": "sha256:e96e3281ea99b593c1321282c4fb182dd9dc189afbfad0c413cb97d8ddb3bb51",
+      "localStudyReviewId": "hsk3-level-batch-local-study-review-2026.08.3",
+      "localStudyReviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 1263,
+        "sourceTargetTypeCounts": {
+          "lesson": 25,
+          "vocabulary": 500,
+          "character": 284,
+          "topic": 54,
+          "paragraphLine": 400
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
+    },
+    {
+      "unitId": "hsk3-narration",
+      "lessonIds": [
+        "hsk3-reference-quantity-phrase-building-lesson-01",
+        "hsk3-reference-quantity-phrase-building-lesson-02",
+        "hsk3-reference-quantity-phrase-building-lesson-03",
+        "hsk3-modality-time-viewpoint-framing-lesson-01",
+        "hsk3-modality-time-viewpoint-framing-lesson-02",
+        "hsk3-modality-time-viewpoint-framing-lesson-03",
+        "hsk3-event-complements-voice-lesson-01",
+        "hsk3-event-complements-voice-lesson-02",
+        "hsk3-event-complements-voice-lesson-03",
+        "hsk3-comparison-description-evaluation-lesson-01",
+        "hsk3-comparison-description-evaluation-lesson-02",
+        "hsk3-comparison-description-evaluation-lesson-03",
+        "hsk3-discourse-linking-lesson-01",
+        "hsk3-discourse-linking-lesson-02",
+        "hsk3-discourse-linking-lesson-03"
+      ],
+      "unitReleaseDigest": "sha256:e96e3281ea99b593c1321282c4fb182dd9dc189afbfad0c413cb97d8ddb3bb51",
+      "localStudyReviewId": "hsk3-level-batch-local-study-review-2026.08.3",
+      "localStudyReviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 223,
+        "sourceTargetTypeCounts": {
+          "lesson": 15,
+          "grammar": 96,
+          "task": 22,
+          "narrationLine": 90
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
+    },
+    {
+      "unitId": "hsk3-guided-production",
+      "lessonIds": [
+        "hsk3-main-idea-detail-notes-lesson-01",
+        "hsk3-main-idea-detail-notes-lesson-02",
+        "hsk3-main-idea-detail-notes-lesson-03",
+        "hsk3-cohesion-reconstruction-lesson-01",
+        "hsk3-cohesion-reconstruction-lesson-02",
+        "hsk3-cohesion-reconstruction-lesson-03",
+        "hsk3-event-retelling-lesson-01",
+        "hsk3-event-retelling-lesson-02",
+        "hsk3-event-retelling-lesson-03",
+        "hsk3-guided-paragraph-lesson-01",
+        "hsk3-guided-paragraph-lesson-02",
+        "hsk3-guided-paragraph-lesson-03",
+        "hsk3-structured-explanation-lesson-01",
+        "hsk3-structured-explanation-lesson-02",
+        "hsk3-structured-explanation-lesson-03"
+      ],
+      "unitReleaseDigest": "sha256:e96e3281ea99b593c1321282c4fb182dd9dc189afbfad0c413cb97d8ddb3bb51",
+      "localStudyReviewId": "hsk3-level-batch-local-study-review-2026.08.3",
+      "localStudyReviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14",
+      "packageId": "foundation-2026.08.3",
+      "itemCatalogSha256": "sha256:8a65d1a584cb16767bcde2c636023e3057ce0a7a583ff05fb618b0a53b640da6",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 107,
+        "sourceTargetTypeCounts": {
+          "lesson": 15,
+          "productionPrompt": 92
         },
         "aiAssistedReviewDisclosed": true,
         "humanReviewed": false,
@@ -392,5 +531,5 @@
     "grantsProductionEligibility": false,
     "sitesDeploymentAuthorized": false
   },
-  "authorizationSha256": "sha256:cab7e7b8a06c30a2368ef6939c756633ee9fbc21d33a7d8038c1d208d7418a14"
+  "authorizationSha256": "sha256:18a5b91d67c621be0710d618f6491771d8230cc4456a076d09717e0f52a61998"
 }

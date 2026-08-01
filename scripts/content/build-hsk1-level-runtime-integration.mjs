@@ -5,7 +5,7 @@ import {
   HSK1_LEVEL_CORE_RELATIVE_PATH,
 } from "../../src/content/hsk1LevelBatch.mjs";
 
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.2";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.3";
 
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";

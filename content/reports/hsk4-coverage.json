@@ -8,7 +8,7 @@
     "effective": "2026-07",
     "rightsDecision": "pending"
   },
-  "contentVersion": "foundation-2026.08.2",
+  "contentVersion": "foundation-2026.08.3",
   "officialInventory": {
     "tasks": {
       "1": 15,
@@ -44,8 +44,8 @@
   "currentCoverage": {
     "vocabulary": {
       "officialTotal": 2000,
-      "runtimeTotal": 516,
-      "runtimeMapped": 515,
+      "runtimeTotal": 1016,
+      "runtimeMapped": 1015,
       "unmatchedRuntime": [
         {
           "runtimeId": "yuenan",
@@ -139,31 +139,139 @@
           "officialPinyin": "yìqǐ"
         },
         {
+          "runtimeId": "hsk-vocab-00532",
+          "simplified": "别人",
+          "runtimePinyin": "biéren",
+          "officialPinyin": "biérén"
+        },
+        {
+          "runtimeId": "hsk-vocab-00538",
+          "simplified": "不但",
+          "runtimePinyin": "bùdàn",
+          "officialPinyin": "búdàn"
+        },
+        {
+          "runtimeId": "hsk-vocab-00539",
+          "simplified": "不见",
+          "runtimePinyin": "bùjiàn",
+          "officialPinyin": "bújiàn"
+        },
+        {
+          "runtimeId": "hsk-vocab-00540",
+          "simplified": "不用",
+          "runtimePinyin": "bùyòng",
+          "officialPinyin": "búyòng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00570",
+          "simplified": "聪明",
+          "runtimePinyin": "cōngming",
+          "officialPinyin": "cōngmíng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00643",
+          "simplified": "刚刚",
+          "runtimePinyin": "gānggang",
+          "officialPinyin": "gānggāng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00654",
+          "simplified": "关系",
+          "runtimePinyin": "guānxi",
+          "officialPinyin": "guānxì"
+        },
+        {
+          "runtimeId": "hsk-vocab-00730",
+          "simplified": "看来",
+          "runtimePinyin": "kànlai",
+          "officialPinyin": "kànlái"
+        },
+        {
+          "runtimeId": "hsk-vocab-00849",
+          "simplified": "太阳",
+          "runtimePinyin": "tàiyang",
+          "officialPinyin": "tàiyáng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00902",
+          "simplified": "心里",
+          "runtimePinyin": "xīnli",
+          "officialPinyin": "xīnlǐ"
+        },
+        {
+          "runtimeId": "hsk-vocab-00922",
+          "simplified": "一定",
+          "runtimePinyin": "yīdìng",
+          "officialPinyin": "yídìng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00923",
+          "simplified": "一共",
+          "runtimePinyin": "yīgòng",
+          "officialPinyin": "yígòng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00924",
+          "simplified": "一块儿",
+          "runtimePinyin": "yīkuàir",
+          "officialPinyin": "yíkuàir"
+        },
+        {
+          "runtimeId": "hsk-vocab-00925",
+          "simplified": "一样",
+          "runtimePinyin": "yīyàng",
+          "officialPinyin": "yíyàng"
+        },
+        {
+          "runtimeId": "hsk-vocab-00932",
+          "simplified": "一般",
+          "runtimePinyin": "yībān",
+          "officialPinyin": "yìbān"
+        },
+        {
+          "runtimeId": "hsk-vocab-00933",
+          "simplified": "一边",
+          "runtimePinyin": "yībiān",
+          "officialPinyin": "yìbiān"
+        },
+        {
+          "runtimeId": "hsk-vocab-00934",
+          "simplified": "一直",
+          "runtimePinyin": "yīzhí",
+          "officialPinyin": "yìzhí"
+        },
+        {
+          "runtimeId": "hsk-vocab-00971",
+          "simplified": "照顾",
+          "runtimePinyin": "zhàogu",
+          "officialPinyin": "zhàogù"
+        },
+        {
           "runtimeId": "xuesheng",
           "simplified": "学生",
           "runtimePinyin": "xuésheng",
           "officialPinyin": "xuéshēng"
         }
       ],
-      "coveragePercent": 25.75,
+      "coveragePercent": 50.75,
       "byLevel": [
         {
           "level": 1,
           "officialIncremental": 300,
-          "runtimeMapped": 316,
-          "coveragePercent": 105.33
+          "runtimeMapped": 317,
+          "coveragePercent": 105.67
         },
         {
           "level": 2,
           "officialIncremental": 200,
-          "runtimeMapped": 199,
-          "coveragePercent": 99.5
+          "runtimeMapped": 201,
+          "coveragePercent": 100.5
         },
         {
           "level": 3,
           "officialIncremental": 500,
-          "runtimeMapped": 0,
-          "coveragePercent": 0
+          "runtimeMapped": 497,
+          "coveragePercent": 99.4
         },
         {
           "level": 4,
@@ -214,8 +322,8 @@
       "tasks": 0,
       "topics": 0,
       "grammarRows": 0,
-      "officialVocabularyWithLessonMapping": 498,
-      "runtimeLessonsMapped": 84
+      "officialVocabularyWithLessonMapping": 995,
+      "runtimeLessonsMapped": 139
     },
     "authoringScope": {
       "hsk1": {
@@ -923,7 +1031,7 @@
       }
     },
     "learningMaterials": {
-      "runtimeLessons": 84,
+      "runtimeLessons": 139,
       "runtimeGradedTexts": 1,
       "curriculumPaths": 5,
       "curriculumUnits": 18

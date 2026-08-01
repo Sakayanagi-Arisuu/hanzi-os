@@ -12,7 +12,7 @@ export const HSK1_LEVEL_RICH_RELATIVE_PATH =
   "content/runtime/hsk1-level-rich-lessons.json";
 export const HSK1_LEVEL_PACKAGE_INPUT_DIRECTORY =
   "content/runtime/hsk1-level-package-input";
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.2";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.3";
 
 const PATHS = {
   scope: "content/curriculum/hsk1-scope.json",

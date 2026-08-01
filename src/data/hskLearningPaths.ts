@@ -157,9 +157,9 @@ export const HSK_LEARNING_PATHS = [
     title: "Đoạn văn và tường thuật",
     description:
       "Đọc/nghe đoạn, kể lại, dictation, grammar production và viết đoạn có hướng dẫn.",
-    availability: "planned",
+    availability: "foundation",
     availabilityNote:
-      "Blueprint đã được định nghĩa; chưa có content package HSK3 được phát hành.",
+      "55 bài local đã phủ inventory HSK3; level check 54 câu vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
     skillWeights: {
       pronunciation: 0.05,
       listening: 0.2,

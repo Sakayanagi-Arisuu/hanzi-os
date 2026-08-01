@@ -21,7 +21,7 @@ describe("no-progress HSK0-to-HSK1 local demo", () => {
       bridgeLessons: 4,
       targetLessons: 40,
       blockedLessons: 0,
-      unavailablePaths: 2,
+      unavailablePaths: 1,
       forbiddenProgressFields: 0,
     });
     expect(bundle.manifest.scenario).toMatchObject({
@@ -36,7 +36,7 @@ describe("no-progress HSK0-to-HSK1 local demo", () => {
       bridgeLessonIds: ["boot-1", "boot-2", "boot-3", "boot-4"],
       boundaryUnlockLessonId: "survival-1",
       blockedLessonIds: [],
-      unavailablePathIds: ["hsk3", "hsk4"],
+      unavailablePathIds: ["hsk4"],
     });
     expect(bundle.manifest.scenario.stillLockedLessonIds).toHaveLength(39);
     expect(bundle.manifest.scenario.stillLockedLessonIds.at(-1))

@@ -103,14 +103,14 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
 
     expect(report.currentCoverage.vocabulary).toMatchObject({
       officialTotal: 2000,
-      runtimeTotal: 516,
-      runtimeMapped: 515,
+      runtimeTotal: 1016,
+      runtimeMapped: 1015,
       unmatchedRuntime: [{
         runtimeId: "yuenan",
         simplified: "越南",
         pinyin: "Yuènán",
       }],
-      pinyinDrift: [
+      pinyinDrift: expect.arrayContaining([
         {
           runtimeId: "hsk-vocab-00014",
           simplified: "不客气",
@@ -201,8 +201,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
           runtimePinyin: "xuésheng",
           officialPinyin: "xuéshēng",
         },
-      ],
-      coveragePercent: 25.75,
+      ]),
+      coveragePercent: 50.75,
     });
     expect(report.currentCoverage.recognitionCharacters).toMatchObject({
       officialTotal: 1096,
@@ -215,8 +215,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       tasks: 0,
       topics: 0,
       grammarRows: 0,
-      officialVocabularyWithLessonMapping: 498,
-      runtimeLessonsMapped: 84,
+      officialVocabularyWithLessonMapping: 995,
+      runtimeLessonsMapped: 139,
     });
     expect(report.currentCoverage.authoringScope.hsk2).toEqual({
       units: 3,

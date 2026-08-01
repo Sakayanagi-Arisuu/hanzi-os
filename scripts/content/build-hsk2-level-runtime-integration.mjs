@@ -7,6 +7,8 @@ import {
 } from "../../src/content/hsk2LevelBatch.mjs";
 import { loadHskSyllabusBundle } from "../../src/content/hskSyllabusInventory.mjs";
 
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.3";
+
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";
 const serialized = (value) => `${JSON.stringify(value, null, 2)}\n`;
@@ -57,35 +59,35 @@ const project = (root) => {
   }
   const projectedGraph = {
     ...graph,
-    runtimeContentVersion: HSK2_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     units: graph.units.map((unit) => unit.pathId === "hsk2"
       ? { ...unit, status: "foundation" }
       : unit),
-    lessonMappings: [
-      ...graph.lessonMappings.filter((mapping) =>
-        !mapping.unitId.startsWith("hsk2-")
-      ),
-      ...core.lessons.map((lesson) => ({
-        lessonId: lesson.runtimeLessonId,
-        unitId: lesson.unitId,
-        mappingState: "partial",
-        officialVocabularyIds: officialVocabularyIds(lesson),
-        unmappedRuntimeWordIds: [],
-      })),
-    ],
+    lessonMappings: graph.units.flatMap((unit) => unit.pathId === "hsk2"
+      ? core.lessons
+        .filter((lesson) => lesson.unitId === unit.unitId)
+        .map((lesson) => ({
+          lessonId: lesson.runtimeLessonId,
+          unitId: lesson.unitId,
+          mappingState: "partial",
+          officialVocabularyIds: officialVocabularyIds(lesson),
+          unmappedRuntimeWordIds: [],
+        }))
+      : graph.lessonMappings.filter((mapping) => mapping.unitId === unit.unitId)),
   };
   const projectedRelease = {
     ...release,
-    runtimeContentVersion: HSK2_LEVEL_TARGET_VERSION,
-    units: [
-      ...release.units.filter((unit) => !unit.unitId.startsWith("hsk2-")),
-      ...projectedGraph.units
-        .filter((unit) => unit.pathId === "hsk2")
-        .map((unit) => ({
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
+    units: projectedGraph.units
+      .filter((unit) => release.units.some(
+        (candidate) => candidate.unitId === unit.unitId,
+      ) || unit.pathId === "hsk2")
+      .map((unit) => unit.pathId === "hsk2"
+        ? ({
           unitId: unit.unitId,
           lessonIds: lessonsByUnit.get(unit.unitId) ?? [],
-        })),
-    ],
+        })
+        : release.units.find((candidate) => candidate.unitId === unit.unitId)),
   };
   return { graph: projectedGraph, release: projectedRelease };
 };
