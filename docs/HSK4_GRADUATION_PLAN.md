@@ -7,19 +7,19 @@ dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1, B2 và B3 đã đưa toàn bộ HSK1-3 lên Path và shared
-rich Lesson UI; ba level check chạy end-to-end mà không giả làm chứng nhận.
+Nền local-first ổn định. B1-B4 đã đưa toàn bộ HSK1-4 lên Path và shared rich
+Lesson UI; bốn level check chạy end-to-end mà không giả làm chứng nhận.
 
-- **Sẵn sàng toàn dự án: 93/100 (93%)**.
+- **Sẵn sàng toàn dự án: 95/100 (95%)**.
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
 - **HSK2:** 40/40 learner-visible, rich 40/40.
 - **HSK3:** 55/55 learner-visible, rich 55/55.
-- **HSK4:** 0/78 learner-visible, rich 0/78.
-- **Toàn HSK1-4 learner-visible:** 135/213 (63,4%).
+- **HSK4:** 78/78 learner-visible, rich 78/78.
+- **Toàn HSK1-4 learner-visible:** 213/213 (100%).
 
-93% không có nghĩa kho HSK0-4 đã xong 93%; tiến độ bài thực sự học được luôn
-phải đọc cùng con số learner-visible từng level.
+95% là readiness toàn dự án; riêng kho bài HSK1-4 đã đạt 100% learner-visible.
+5 điểm còn lại thuộc đóng gói đồ án local, không phải nội dung còn thiếu.
 
 ## 2. Phạm vi inventory
 
@@ -42,14 +42,14 @@ mới được tính learner-visible.
 | HSK1 | **40/40** | **40/40** | 50 câu local E2E | hoàn thành B1 local |
 | HSK2 | **40/40** | **40/40** | 60 câu local E2E | hoàn thành B2 local |
 | HSK3 | **55/55** | **55/55** | 54 câu local E2E | hoàn thành B3 local |
-| HSK4 | 0/78 | 0/78 | 2 form draft | chưa học được trên UI |
+| HSK4 | **78/78** | **78/78** | 72 câu local E2E | hoàn thành B4 local |
 
-HSK3 local phủ đủ 500 từ, 284 chữ, 96 ngữ pháp, 22 nhiệm vụ và 54 chủ đề.
-55 bài rich gồm 25 paragraph input, 15 narration và 15 guided production;
-package hiện hành là `foundation-2026.08.3`. Browser TTS chỉ là synthetic
-practice và toàn bộ HSK1-3 giữ `humanReviewed: false`.
+HSK4 local phủ đủ 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm vụ và 77 chủ đề.
+78 bài rich gồm 36 deep comprehension, 24 summary/argument và 18 timed
+integration; package hiện hành là `foundation-2026.08.4`. Browser TTS chỉ là
+synthetic practice và toàn bộ HSK1-4 giữ `humanReviewed: false`.
 
-“Hoàn thành HSK1/2/3” ở đây chỉ có nghĩa hoàn thành level tự học local theo
+“Hoàn thành HSK1/2/3/4” ở đây chỉ có nghĩa hoàn thành level tự học local theo
 inventory đã pin. Nó không phải production release, native review hay chứng
 nhận tương đương kỳ thi HSK chính thức.
 
@@ -94,16 +94,24 @@ progress và persistence giữ đúng.
 
 ### B4 — toàn bộ HSK4
 
-**Batch duy nhất tiếp theo.** Tích hợp 78 blueprint deep comprehension,
-summary/argument và timed integration; phủ 1.000 vocabulary, 441 character,
-95 grammar, 30 task, 77 topic; long-form reading/listening, paraphrase,
-structured production và level check HSK4 end-to-end.
+**Hoàn thành tại readiness 95%.**
+
+- 78/78 bài learner-visible và rich;
+- 36 deep comprehension, 24 summary/argument, 18 timed integration;
+- phủ 1.000 vocabulary, 441 character, 95 grammar, 30 task, 77 topic;
+- 216 đoạn dài, 106 đơn vị prompt và 234 lượt văn bản/hội thoại trên rich UI;
+- prerequisite HSK3→HSK4, progress và persistence giữ đúng;
+- level check 72 câu end-to-end, không cấp mastery/waiver;
+- full boundary gate và E2E chạy đúng một lượt; generated, expectation và
+  fixture drift được sửa rồi xác nhận bằng targeted rerun;
+- Sites, production, commerce, CMS và human-review workflow giữ nguyên trạng.
 
 ### B5 — đóng gói đồ án local
 
-Kiểm tra xuyên suốt HSK0-4, mobile, keyboard, reduced-motion, restore; chạy full
-check, E2E, Lighthouse và audit; đóng local release candidate. Sites/deployment
-chỉ chạy sau lệnh riêng của người dùng.
+**Batch duy nhất tiếp theo.** Đóng local release candidate từ package `.08.4`,
+xác nhận Lighthouse/audit và handoff đồ án. Full check, E2E, mobile, keyboard,
+reduced-motion và restore đã có evidence B4; Sites/deployment chỉ chạy sau lệnh
+riêng của người dùng.
 
 ## 6. Thước đo sẵn sàng toàn dự án
 
@@ -111,11 +119,11 @@ chỉ chạy sau lệnh riêng của người dùng.
 | --- | ---: | ---: | --- |
 | A. Ứng dụng/offline learning loop | 20 | 19 | lesson/reader/review, persistence, offline, UX |
 | B. Mastery/evidence/remediation | 15 | 12 | FSRS, evidence theo skill, sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 14 | 5 path, 18 unit, blueprint/prerequisite |
-| D. Nội dung học được trong runtime | 30 | 29 | HSK0 bridge + toàn bộ HSK1-3 rich |
-| E. Assessment/mock | 10 | 10 | HSK1-3 level check E2E; HSK4 còn draft |
+| C. Lộ trình HSK0-4 khác biệt | 15 | 15 | 5 path, 18 unit, blueprint/prerequisite |
+| D. Nội dung học được trong runtime | 30 | 30 | HSK0 bridge + toàn bộ HSK1-4 rich |
+| E. Assessment/mock | 10 | 10 | HSK1-4 level check E2E |
 | F. Đồ án/QA/local release | 10 | 9 | demo/gates mạnh; final package còn mở |
-| **Tổng** | **100** | **93** | **Sẵn sàng toàn dự án: 93%** |
+| **Tổng** | **100** | **95** | **Sẵn sàng toàn dự án: 95%** |
 
 Trụ cột D chỉ tăng khi bài mới lên UI. Generated content, test count và số dòng
 không tạo điểm.

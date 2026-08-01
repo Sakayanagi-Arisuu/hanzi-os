@@ -24,9 +24,9 @@ describe("HSK1-4 runtime promotion queue", () => {
       blueprintApprovedLessons: 0,
       reviewBatches: 509,
       approvalRecords: 0,
-      learnerVisibleTargetLessons: 135,
+      learnerVisibleTargetLessons: 213,
       prerequisiteBlockedSourceLessons: 0,
-      unavailablePaths: 1,
+      unavailablePaths: 0,
       completionClaims: 0,
       promotionReadyUnits: 0,
     });
@@ -44,29 +44,14 @@ describe("HSK1-4 runtime promotion queue", () => {
       { pathId: "hsk1", authored: 40, visible: 40, pendingReview: 97 },
       { pathId: "hsk2", authored: 40, visible: 40, pendingReview: 122 },
       { pathId: "hsk3", authored: 55, visible: 55, pendingReview: 122 },
-      { pathId: "hsk4", authored: 78, visible: 0, pendingReview: 168 },
+      { pathId: "hsk4", authored: 78, visible: 78, pendingReview: 168 },
     ]);
   });
 
-  it("selects HSK4 as the next production promotion gap", () => {
+  it("has no local runtime promotion gap while production stays blocked", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
 
-    expect(report.nextPromotionCandidate).toEqual({
-      pathId: "hsk4",
-      unitId: "hsk4-deep-comprehension",
-      authoredLessonBlueprintCount: 36,
-      authoredPracticeItemCount: 0,
-      audioDependentItemCount: 0,
-      sourceReleasedLessonCount: 0,
-      blueprintApprovedLessonCount: 0,
-      blockers: [
-        "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-        "LESSON_REVIEW_INCOMPLETE",
-        "RUNTIME_PACKAGE_MAPPING_INCOMPLETE",
-      ],
-      requiredAction:
-        "complete attributable review and reviewed audio, then import into a versioned runtime package and recompile prerequisite closure",
-    });
+    expect(report.nextPromotionCandidate).toBeNull();
     expect(report.summary.promotionReadyUnits).toBe(0);
     expect(report.policy).toMatchObject({
       informationalOnly: true,
@@ -77,7 +62,7 @@ describe("HSK1-4 runtime promotion queue", () => {
     });
   });
 
-  it("keeps HSK3 locally visible while HSK4 remains production-blocked", () => {
+  it("keeps HSK3 and HSK4 locally visible while production remains blocked", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
     const upperUnits = report.levels
       .filter((level: { pathId: string }) => ["hsk3", "hsk4"].includes(level.pathId))
@@ -88,20 +73,11 @@ describe("HSK1-4 runtime promotion queue", () => {
       }> }) => level.units);
 
     expect(upperUnits).toHaveLength(6);
-    for (const [index, unit] of upperUnits.entries()) {
-      if (index < 3) {
-        expect(unit.prerequisiteRuntimeClosurePresent).toBe(true);
-        expect(unit.learnerVisibleLessonIds.length).toBeGreaterThan(0);
-        expect(unit.blockers).not.toContain("RUNTIME_PACKAGE_MAPPING_INCOMPLETE");
-      } else {
-        expect(unit.learnerVisibleLessonIds).toEqual([]);
-      }
-      if (index > 3) {
-        expect(unit.prerequisiteRuntimeClosurePresent).toBe(false);
-        expect(unit.blockers).toContain(
-          "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-        );
-      }
+    for (const unit of upperUnits) {
+      expect(unit.prerequisiteRuntimeClosurePresent).toBe(true);
+      expect(unit.learnerVisibleLessonIds.length).toBeGreaterThan(0);
+      expect(unit.blockers).not.toContain("RUNTIME_PACKAGE_MAPPING_INCOMPLETE");
+      expect(unit.blockers).not.toContain("PREREQUISITE_RUNTIME_CLOSURE_MISSING");
       expect(unit.blockers).toEqual(expect.arrayContaining([
         "LEVEL_HUMAN_REVIEW_INCOMPLETE",
       ]));

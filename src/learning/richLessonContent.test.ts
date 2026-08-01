@@ -75,6 +75,27 @@ describe("learner-facing rich lesson adapter", () => {
     )?.tasks).toHaveLength(1);
   });
 
+  it("exposes all seventy-eight HSK4 lessons through the shared rich UI", () => {
+    expect(getRichLessonContent(
+      "hsk4-personal-community-analysis-concept-actor-map",
+    )).toMatchObject({
+      dialogue: expect.arrayContaining([
+        expect.objectContaining({ hanzi: expect.stringContaining("社区") }),
+      ]),
+      topics: expect.arrayContaining([
+        expect.objectContaining({ id: "hsk4-topic-001" }),
+      ]),
+    });
+    expect(getRichLessonContent(
+      "hsk4-precision-reference-quantity-lesson-01",
+    )?.grammar).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: "hsk4-grammar-row-001" }),
+    ]));
+    expect(getRichLessonContent(
+      "hsk4-timed-sectional-rehearsal-lesson-03",
+    )?.tasks).toHaveLength(1);
+  });
+
   it("exposes rich dialogue, grammar and tasks for personal exchange", () => {
     expect(getRichLessonContent("survival-1")).toMatchObject({
       dialogue: expect.arrayContaining([

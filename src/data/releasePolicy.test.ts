@@ -56,7 +56,7 @@ describe("release policy", () => {
     const speakingLessonIds = RELEASED_LESSONS
       .filter((lesson) => lesson.skills.includes("speaking"))
       .map((lesson) => lesson.id);
-    expect(speakingLessonIds).toHaveLength(75);
+    expect(speakingLessonIds).toHaveLength(117);
     expect(speakingLessonIds).toEqual(expect.arrayContaining([
       "survival-1",
       "daily-1",

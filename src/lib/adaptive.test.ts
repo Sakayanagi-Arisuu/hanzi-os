@@ -139,11 +139,11 @@ describe("lesson release and prerequisite policy", () => {
     expect(getReleasedLessonProgress(makeState({}, "hsk2")).totalCount).toBe(84);
     expect(getReleasedLessonProgress(makeState({}, "hsk4"))).toEqual({
       completedCount: 0,
-      totalCount: 0,
-      remainingCount: 0,
+      totalCount: 217,
+      remainingCount: 217,
       progress: 0,
     });
-    expect(getNextLesson(makeState({}, "hsk4"))).toBeUndefined();
+    expect(getNextLesson(makeState({}, "hsk4"))?.id).toBe("boot-1");
   });
 
   it("never recommends an unreleased lesson", () => {

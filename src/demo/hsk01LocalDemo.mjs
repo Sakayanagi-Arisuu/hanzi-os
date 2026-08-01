@@ -60,7 +60,7 @@ const HSK1_TARGET_LESSON_IDS = [
   "characters-15",
 ];
 const BLOCKED_LESSON_IDS = [];
-const UNAVAILABLE_PATH_IDS = ["hsk4"];
+const UNAVAILABLE_PATH_IDS = [];
 const EXPECTATIONS = Object.freeze({
   lessonActivityCount: 10,
   intentionalIncorrectCount: 1,

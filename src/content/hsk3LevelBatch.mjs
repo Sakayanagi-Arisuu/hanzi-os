@@ -5,12 +5,15 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK3_LEVEL_BASE_VERSION = "foundation-2026.08.2";
 export const HSK3_LEVEL_TARGET_VERSION = "foundation-2026.08.3";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.4";
 export const HSK3_LEVEL_REVIEW_RELATIVE_PATH =
   "content/review/hsk3-level-batch-local-study-review.json";
 export const HSK3_LEVEL_CORE_RELATIVE_PATH =
   "content/runtime/hsk3-level-core-projection.json";
 export const HSK3_LEVEL_RICH_RELATIVE_PATH =
   "content/runtime/hsk3-level-rich-lessons.json";
+export const HSK3_LEVEL_CHECK_RELATIVE_PATH =
+  "content/runtime/hsk3-level-check-local.json";
 export const HSK3_LEVEL_PACKAGE_INPUT_DIRECTORY =
   "content/runtime/hsk3-level-package-input";
 
@@ -759,7 +762,7 @@ export const projectHsk3LevelRichLessons = async (
     (item) => item.unitId.startsWith("hsk3-"),
   ) ?? [];
   if (
-    authorization.runtimeContentVersion !== HSK3_LEVEL_TARGET_VERSION
+    authorization.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
     || hsk3Authorizations.length !== 3
     || hsk3Authorizations.reduce(
       (sum, item) => sum + item.lessonIds.length,
@@ -932,7 +935,7 @@ export const projectHsk3LevelRichLessons = async (
   const payload = {
     schemaVersion: 1,
     presentationId: "hsk3-level-rich-lessons-2026.08.3",
-    contentVersion: HSK3_LEVEL_TARGET_VERSION,
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
     level: "HSK3",
     state: "authorized-for-personal-local-study",
     disclosure: {
@@ -986,6 +989,93 @@ export const validateHsk3LevelRichLessons = async (
     || actual?.counts?.richLessons !== 55
   ) {
     errors.push("HSK3 rich lesson presentation policy is invalid");
+  }
+  return { valid: errors.length === 0, errors, summary: expected.counts };
+};
+
+export const projectHsk3LocalLevelCheck = async (
+  source = loadHsk3LevelBatchSources(),
+) => {
+  const objectiveIds = new Set(source.assessment.forms.find(
+    (form) => form.formId === "hsk3-level-form-a",
+  ).sections.filter((section) => section.sectionId.endsWith("-objective"))
+    .flatMap((section) => section.itemIds));
+  const unitByLessonId = new Map(source.blueprints.lessons.map((lesson) => [
+    lesson.lessonId,
+    lesson.unitId,
+  ]));
+  const items = source.assessment.items.filter((item) =>
+    objectiveIds.has(item.itemId)
+  ).map((item) => {
+    const stimulusText = item.stimulus.transcriptHanzi
+      ?? item.stimulus.text
+      ?? item.stimulus.lines?.map((line) => line.hanzi).join(" ")
+      ?? "";
+    const pinyinReference = item.stimulus.transcriptPinyin
+      ?? item.stimulus.pinyinAuthoringReference
+      ?? item.stimulus.lines?.map((line) => line.pinyin).join(" ")
+      ?? null;
+    const sourceUnitId = unitByLessonId.get(item.source.lessonId);
+    const correct = item.options?.find((option) =>
+      option.optionId === item.correctOptionId
+    );
+    if (!stimulusText || !sourceUnitId || !correct || item.options?.length !== 4) {
+      throw new Error(`${item.itemId} has incomplete HSK3 level-check context`);
+    }
+    return {
+      id: item.itemId,
+      sourceItemVersion: item.itemVersion,
+      skill: item.skill,
+      construct: item.construct,
+      promptVi: item.promptVi,
+      stimulusText,
+      pinyinReference,
+      syntheticTtsText: item.skill === "listening" ? stimulusText : null,
+      options: item.options.map((option) => ({ ...option })),
+      correctOptionId: item.correctOptionId,
+      explanationVi: `“${stimulusText}”${pinyinReference ? ` (${pinyinReference})` : ""}: ${correct.text}`,
+      sourceLessonId: item.source.lessonId,
+      sourceUnitId,
+      measurementEligible: false,
+      masteryEligible: false,
+      prerequisiteWaiverEligible: false,
+    };
+  });
+  const skillCounts = Object.fromEntries([
+    "listening", "reading", "vocabulary", "grammar",
+  ].map((skill) => [skill, items.filter((item) => item.skill === skill).length]));
+  if (items.length !== 54 || !exact(skillCounts, {
+    listening: 12,
+    reading: 12,
+    vocabulary: 15,
+    grammar: 15,
+  })) throw new Error("HSK3 local level-check objective coverage is incomplete");
+  const payload = {
+    schemaVersion: 1,
+    bankId: source.assessment.bankId,
+    formId: "hsk3-level-form-a",
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
+    state: "ai-reviewed-for-personal-local-self-check",
+    disclosure: {
+      humanReviewed: false,
+      browserTtsPracticeOnly: true,
+      measurementEligible: false,
+      masteryEligible: false,
+      prerequisiteWaiverEligible: false,
+    },
+    counts: { items: items.length, ...skillCounts },
+    items,
+  };
+  return { ...payload, integritySha256: await sha256Json(payload) };
+};
+
+export const validateHsk3LocalLevelCheck = async (root = process.cwd()) => {
+  const expected = await projectHsk3LocalLevelCheck(loadHsk3LevelBatchSources(root));
+  const actual = readJson(root, HSK3_LEVEL_CHECK_RELATIVE_PATH);
+  const errors = [];
+  if (!exact(actual, expected)) errors.push("HSK3 local level-check artifact has drifted");
+  if (actual.disclosure?.humanReviewed !== false || actual.counts?.items !== 54) {
+    errors.push("HSK3 local level-check disclosure is invalid");
   }
   return { valid: errors.length === 0, errors, summary: expected.counts };
 };

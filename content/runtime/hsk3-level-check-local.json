@@ -1,0 +1,1914 @@
+{
+  "schemaVersion": 1,
+  "bankId": "hsk3-level-assessment-2026.07",
+  "formId": "hsk3-level-form-a",
+  "contentVersion": "foundation-2026.08.4",
+  "state": "ai-reviewed-for-personal-local-self-check",
+  "disclosure": {
+    "humanReviewed": false,
+    "browserTtsPracticeOnly": true,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false
+  },
+  "counts": {
+    "items": 54,
+    "listening": 12,
+    "reading": 12,
+    "vocabulary": 15,
+    "grammar": 15
+  },
+  "items": [
+    {
+      "id": "hsk3-level-check:form-a:listening:01",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:01:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "周叔叔在小区的服务中心工作，每天都要接待不少客人。 今天上午，他收到一张奇怪的外卖单，名字却不在名单上。 送外卖的人说，客人住在附近，但是没有写房间号。 周叔叔没有马上决定收下，而是先照着电话号码联系客人。 客人解释说，外卖是给在草地上参加“四季摄影活动”的朋友订的。 原来活动的办公室不在楼里，而在小区花园旁边。 周叔叔请送餐员在纸上补写地点，然后带他过去。 这件事看起来很小，却说明服务工作总要先检查清楚。",
+      "pinyinReference": "Zhōu shūshu zài xiǎoqū de fúwù zhōngxīn gōngzuò, měitiān dōu yào jiēdài bù shǎo kèrén. Jīntiān shàngwǔ, tā shōudào yì zhāng qíguài de wàimài dān, míngzi què bú zài míngdān shàng. Sòng wàimài de rén shuō, kèrén zhù zài fùjìn, dànshì méiyǒu xiě fángjiān hào. Zhōu shūshu méiyǒu mǎshàng juédìng shōuxià, érshì xiān zhàozhe diànhuà hàomǎ liánxì kèrén. Kèrén jiěshì shuō, wàimài shì gěi zài cǎodì shàng cānjiā “Sìjì Shèyǐng Huódòng” de péngyou dìng de. Yuánlái huódòng de bàngōngshì bú zài lóu lǐ, ér zài xiǎoqū huāyuán pángbiān. Zhōu shūshu qǐng sòngcānyuán zài zhǐ shàng bǔxiě dìdiǎn, ránhòu dài tā guòqu. Zhè jiàn shì kànqilai hěn xiǎo, què shuōmíng fúwù gōngzuò zǒng yào xiān jiǎnchá qīngchu.",
+      "syntheticTtsText": "周叔叔在小区的服务中心工作，每天都要接待不少客人。 今天上午，他收到一张奇怪的外卖单，名字却不在名单上。 送外卖的人说，客人住在附近，但是没有写房间号。 周叔叔没有马上决定收下，而是先照着电话号码联系客人。 客人解释说，外卖是给在草地上参加“四季摄影活动”的朋友订的。 原来活动的办公室不在楼里，而在小区花园旁边。 周叔叔请送餐员在纸上补写地点，然后带他过去。 这件事看起来很小，却说明服务工作总要先检查清楚。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Một đơn giao đồ ăn thiếu thông tin địa điểm"
+        },
+        {
+          "optionId": "B",
+          "text": "Một khách hàng muốn chuyển nhà"
+        },
+        {
+          "optionId": "C",
+          "text": "Một hoạt động nhiếp ảnh bị hủy"
+        },
+        {
+          "optionId": "D",
+          "text": "Một văn phòng tuyển nhân viên mới"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“周叔叔在小区的服务中心工作，每天都要接待不少客人。 今天上午，他收到一张奇怪的外卖单，名字却不在名单上。 送外卖的人说，客人住在附近，但是没有写房间号。 周叔叔没有马上决定收下，而是先照着电话号码联系客人。 客人解释说，外卖是给在草地上参加“四季摄影活动”的朋友订的。 原来活动的办公室不在楼里，而在小区花园旁边。 周叔叔请送餐员在纸上补写地点，然后带他过去。 这件事看起来很小，却说明服务工作总要先检查清楚。” (Zhōu shūshu zài xiǎoqū de fúwù zhōngxīn gōngzuò, měitiān dōu yào jiēdài bù shǎo kèrén. Jīntiān shàngwǔ, tā shōudào yì zhāng qíguài de wàimài dān, míngzi què bú zài míngdān shàng. Sòng wàimài de rén shuō, kèrén zhù zài fùjìn, dànshì méiyǒu xiě fángjiān hào. Zhōu shūshu méiyǒu mǎshàng juédìng shōuxià, érshì xiān zhàozhe diànhuà hàomǎ liánxì kèrén. Kèrén jiěshì shuō, wàimài shì gěi zài cǎodì shàng cānjiā “Sìjì Shèyǐng Huódòng” de péngyou dìng de. Yuánlái huódòng de bàngōngshì bú zài lóu lǐ, ér zài xiǎoqū huāyuán pángbiān. Zhōu shūshu qǐng sòngcānyuán zài zhǐ shàng bǔxiě dìdiǎn, ránhòu dài tā guòqu. Zhè jiàn shì kànqilai hěn xiǎo, què shuōmíng fúwù gōngzuò zǒng yào xiān jiǎnchá qīngchu.): Một đơn giao đồ ăn thiếu thông tin địa điểm",
+      "sourceLessonId": "hsk3-personal-life-narratives-identity-transactions",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:02",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:02:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "两位游客站在马路边，看着地图却找不到宾馆。 他们走到一个路口，发现路边没有站牌。 一位司机停下汽车，问他们要去哪儿。 游客说，他们根据地图走了好久，还是没看见宾馆。 司机告诉他们，过了前面的红绿灯，右边就是汽车站。 从车站再走五分钟，宾馆就在第二个路口附近。 一辆公共汽车来了，司机说坐这辆车也行。 游客谢过司机，后来决定走路去，也顺便看看城市。",
+      "pinyinReference": "Liǎng wèi yóukè zhàn zài mǎlùbiān, kànzhe dìtú què zhǎobudào bīnguǎn. Tāmen zǒu dào yí ge lùkǒu, fāxiàn lùbiān méiyǒu zhànpái. Yí wèi sījī tíngxià qìchē, wèn tāmen yào qù nǎr. Yóukè shuō, tāmen gēnjù dìtú zǒu le hǎojiǔ, háishi méi kànjiàn bīnguǎn. Sījī gàosu tāmen, guò le qiánmiàn de hóng-lǜdēng, yòubian jiù shì qìchēzhàn. Cóng chēzhàn zài zǒu wǔ fēnzhōng, bīnguǎn jiù zài dì-èr ge lùkǒu fùjìn. Yí liàng gōnggòng qìchē lái le, sījī shuō zuò zhè liàng chē yě xíng. Yóukè xièguo sījī, hòulái juédìng zǒulù qù, yě shùnbiàn kànkan chéngshì.",
+      "syntheticTtsText": "两位游客站在马路边，看着地图却找不到宾馆。 他们走到一个路口，发现路边没有站牌。 一位司机停下汽车，问他们要去哪儿。 游客说，他们根据地图走了好久，还是没看见宾馆。 司机告诉他们，过了前面的红绿灯，右边就是汽车站。 从车站再走五分钟，宾馆就在第二个路口附近。 一辆公共汽车来了，司机说坐这辆车也行。 游客谢过司机，后来决定走路去，也顺便看看城市。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tài xế sửa xe ở ven đường"
+        },
+        {
+          "optionId": "B",
+          "text": "Du khách mua vé tàu"
+        },
+        {
+          "optionId": "C",
+          "text": "Khách sạn chuyển thành bến xe"
+        },
+        {
+          "optionId": "D",
+          "text": "Du khách hỏi và nhận chỉ đường tới khách sạn"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“两位游客站在马路边，看着地图却找不到宾馆。 他们走到一个路口，发现路边没有站牌。 一位司机停下汽车，问他们要去哪儿。 游客说，他们根据地图走了好久，还是没看见宾馆。 司机告诉他们，过了前面的红绿灯，右边就是汽车站。 从车站再走五分钟，宾馆就在第二个路口附近。 一辆公共汽车来了，司机说坐这辆车也行。 游客谢过司机，后来决定走路去，也顺便看看城市。” (Liǎng wèi yóukè zhàn zài mǎlùbiān, kànzhe dìtú què zhǎobudào bīnguǎn. Tāmen zǒu dào yí ge lùkǒu, fāxiàn lùbiān méiyǒu zhànpái. Yí wèi sījī tíngxià qìchē, wèn tāmen yào qù nǎr. Yóukè shuō, tāmen gēnjù dìtú zǒu le hǎojiǔ, háishi méi kànjiàn bīnguǎn. Sījī gàosu tāmen, guò le qiánmiàn de hóng-lǜdēng, yòubian jiù shì qìchēzhàn. Cóng chēzhàn zài zǒu wǔ fēnzhōng, bīnguǎn jiù zài dì-èr ge lùkǒu fùjìn. Yí liàng gōnggòng qìchē lái le, sījī shuō zuò zhè liàng chē yě xíng. Yóukè xièguo sījī, hòulái juédìng zǒulù qù, yě shùnbiàn kànkan chéngshì.): Du khách hỏi và nhận chỉ đường tới khách sạn",
+      "sourceLessonId": "hsk3-personal-life-narratives-travel-transport",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:03",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:03:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "小区里的老人和孩子周末常常一起做游戏。 一位老人对养花有兴趣，孩子们却更喜欢养小动物。 大家对话了好久，还是没有决定做什么。 后来一个邻居说，可以设计一个照顾植物的游戏。 孩子写句子介绍怎么养，老人准备大小不同的花盆。 游戏开始以后，大家几乎忘了吃午饭。 有人把土扫到一起，有人把花搬进活动室。 看来，共同的兴趣让不同年龄的人生活得更有意思。",
+      "pinyinReference": "Xiǎoqū lǐ de lǎorén hé háizi zhōumò chángcháng yìqǐ zuò yóuxì. Yí wèi lǎorén duì yǎng huā yǒu xìngqù, háizimen què gèng xǐhuan yǎng xiǎo dòngwù. Dàjiā duìhuà le hǎojiǔ, háishi méiyǒu juédìng zuò shénme. Hòulái yí ge línjū shuō, kěyǐ shèjì yí ge zhàogù zhíwù de yóuxì. Háizi xiě jùzi jièshào zěnme yǎng, lǎorén zhǔnbèi dàxiǎo bùtóng de huāpén. Yóuxì kāishǐ yǐhòu, dàjiā jīhū wàng le chī wǔfàn. Yǒurén bǎ tǔ sǎo dào yìqǐ, yǒurén bǎ huā bānjìn huódòngshì. Kànlái, gòngtóng de xìngqù ràng bùtóng niánlíng de rén shēnghuó de gèng yǒuyìsi.",
+      "syntheticTtsText": "小区里的老人和孩子周末常常一起做游戏。 一位老人对养花有兴趣，孩子们却更喜欢养小动物。 大家对话了好久，还是没有决定做什么。 后来一个邻居说，可以设计一个照顾植物的游戏。 孩子写句子介绍怎么养，老人准备大小不同的花盆。 游戏开始以后，大家几乎忘了吃午饭。 有人把土扫到一起，有人把花搬进活动室。 看来，共同的兴趣让不同年龄的人生活得更有意思。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trẻ em làm hỏng phòng hoạt động"
+        },
+        {
+          "optionId": "B",
+          "text": "Hàng xóm ngừng nuôi động vật"
+        },
+        {
+          "optionId": "C",
+          "text": "Người già và trẻ em tạo một trò chơi chăm cây"
+        },
+        {
+          "optionId": "D",
+          "text": "Một gia đình chuyển tới khách sạn"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“小区里的老人和孩子周末常常一起做游戏。 一位老人对养花有兴趣，孩子们却更喜欢养小动物。 大家对话了好久，还是没有决定做什么。 后来一个邻居说，可以设计一个照顾植物的游戏。 孩子写句子介绍怎么养，老人准备大小不同的花盆。 游戏开始以后，大家几乎忘了吃午饭。 有人把土扫到一起，有人把花搬进活动室。 看来，共同的兴趣让不同年龄的人生活得更有意思。” (Xiǎoqū lǐ de lǎorén hé háizi zhōumò chángcháng yìqǐ zuò yóuxì. Yí wèi lǎorén duì yǎng huā yǒu xìngqù, háizimen què gèng xǐhuan yǎng xiǎo dòngwù. Dàjiā duìhuà le hǎojiǔ, háishi méiyǒu juédìng zuò shénme. Hòulái yí ge línjū shuō, kěyǐ shèjì yí ge zhàogù zhíwù de yóuxì. Háizi xiě jùzi jièshào zěnme yǎng, lǎorén zhǔnbèi dàxiǎo bùtóng de huāpén. Yóuxì kāishǐ yǐhòu, dàjiā jīhū wàng le chī wǔfàn. Yǒurén bǎ tǔ sǎo dào yìqǐ, yǒurén bǎ huā bānjìn huódòngshì. Kànlái, gòngtóng de xìngqù ràng bùtóng niánlíng de rén shēnghuó de gèng yǒuyìsi.): Người già và trẻ em tạo một trò chơi chăm cây",
+      "sourceLessonId": "hsk3-personal-life-narratives-home-family-leisure",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:04",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:04:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "小安出生在南方，今年到北方上初中，住进了学校宿舍。 最近，他常把方便面放进公共冰箱，晚上才拿出来吃。 一天，他的两个姐妹来看他，还带来了两公斤水果。 他们在食堂门口见面，却发现小安只是吃方便面。 姐姐说，体育课很多，只吃这些不会有足够的力气。 宿舍老师也听到了他们的声音，请小安把情况说清楚。 老师建议他按年级的菜单吃饭，水果可以放在冰箱里。 小安受到大家的关心，答应从第二天开始认真吃晚饭。",
+      "pinyinReference": "Xiǎo Ān chūshēng zài nánfāng, jīnnián dào běifāng shàng chūzhōng, zhùjìn le xuéxiào sùshè. Zuìjìn, tā cháng bǎ fāngbiànmiàn fàngjìn gōnggòng bīngxiāng, wǎnshang cái ná chūlai chī. Yì tiān, tā de liǎng ge jiěmèi lái kàn tā, hái dàilai le liǎng gōngjīn shuǐguǒ. Tāmen zài shítáng ménkǒu jiànmiàn, què fāxiàn Xiǎo Ān zhǐshì chī fāngbiànmiàn. Jiějie shuō, tǐyù kè hěn duō, zhǐ chī zhèxiē bú huì yǒu zúgòu de lìqi. Sùshè lǎoshī yě tīngdào le tāmen de shēngyīn, qǐng Xiǎo Ān bǎ qíngkuàng shuō qīngchu. Lǎoshī jiànyì tā àn niánjí de càidān chīfàn, shuǐguǒ kěyǐ fàng zài bīngxiāng lǐ. Xiǎo Ān shòudào dàjiā de guānxīn, dāying cóng dì-èr tiān kāishǐ rènzhēn chī wǎnfàn.",
+      "syntheticTtsText": "小安出生在南方，今年到北方上初中，住进了学校宿舍。 最近，他常把方便面放进公共冰箱，晚上才拿出来吃。 一天，他的两个姐妹来看他，还带来了两公斤水果。 他们在食堂门口见面，却发现小安只是吃方便面。 姐姐说，体育课很多，只吃这些不会有足够的力气。 宿舍老师也听到了他们的声音，请小安把情况说清楚。 老师建议他按年级的菜单吃饭，水果可以放在冰箱里。 小安受到大家的关心，答应从第二天开始认真吃晚饭。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chọn trường cấp hai"
+        },
+        {
+          "optionId": "B",
+          "text": "Thói quen ăn tối của học sinh ở ký túc"
+        },
+        {
+          "optionId": "C",
+          "text": "Cách tổ chức tiết thể dục"
+        },
+        {
+          "optionId": "D",
+          "text": "Mua tủ lạnh mới"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“小安出生在南方，今年到北方上初中，住进了学校宿舍。 最近，他常把方便面放进公共冰箱，晚上才拿出来吃。 一天，他的两个姐妹来看他，还带来了两公斤水果。 他们在食堂门口见面，却发现小安只是吃方便面。 姐姐说，体育课很多，只吃这些不会有足够的力气。 宿舍老师也听到了他们的声音，请小安把情况说清楚。 老师建议他按年级的菜单吃饭，水果可以放在冰箱里。 小安受到大家的关心，答应从第二天开始认真吃晚饭。” (Xiǎo Ān chūshēng zài nánfāng, jīnnián dào běifāng shàng chūzhōng, zhùjìn le xuéxiào sùshè. Zuìjìn, tā cháng bǎ fāngbiànmiàn fàngjìn gōnggòng bīngxiāng, wǎnshang cái ná chūlai chī. Yì tiān, tā de liǎng ge jiěmèi lái kàn tā, hái dàilai le liǎng gōngjīn shuǐguǒ. Tāmen zài shítáng ménkǒu jiànmiàn, què fāxiàn Xiǎo Ān zhǐshì chī fāngbiànmiàn. Jiějie shuō, tǐyù kè hěn duō, zhǐ chī zhèxiē bú huì yǒu zúgòu de lìqi. Sùshè lǎoshī yě tīngdào le tāmen de shēngyīn, qǐng Xiǎo Ān bǎ qíngkuàng shuō qīngchu. Lǎoshī jiànyì tā àn niánjí de càidān chīfàn, shuǐguǒ kěyǐ fàng zài bīngxiāng lǐ. Xiǎo Ān shòudào dàjiā de guānxīn, dāying cóng dì-èr tiān kāishǐ rènzhēn chī wǎnfàn.): Thói quen ăn tối của học sinh ở ký túc",
+      "sourceLessonId": "hsk3-study-work-accounts-campus-education",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:05",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:05:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "公司要欢迎六位客人，接待组一共收到十二件行李。 同事小周说，只有两个人搬东西，时间可能不够。 另一位同事愿意帮助他们，可是她刚洗澡，还没换好工作服。 小周让她先放心换衣服，然后按房间号码分行李。 大家得看清标签，明白每件行李跟哪位客人有关系。 客人到了以后，他们会先介绍酒店，再带客人去房间。 因为分工清楚，十二件行李很快都送到了正确的地方。 接待组发现，互相帮助能让欢迎工作更轻松。",
+      "pinyinReference": "Gōngsī yào huānyíng liù wèi kèrén, jiēdàizǔ yígòng shōudào shí'èr jiàn xíngli. Tóngshì Xiǎo Zhōu shuō, zhǐyǒu liǎng ge rén bān dōngxi, shíjiān kěnéng bú gòu. Lìng yí wèi tóngshì yuànyì bāngzhù tāmen, kěshì tā gāng xǐzǎo, hái méi huànhǎo gōngzuòfú. Xiǎo Zhōu ràng tā xiān fàngxīn huàn yīfu, ránhòu àn fángjiān hàomǎ fēn xíngli. Dàjiā děi kànqīng biāoqiān, míngbai měi jiàn xíngli gēn nǎ wèi kèrén yǒu guānxì. Kèrén dào le yǐhòu, tāmen huì xiān jièshào jiǔdiàn, zài dài kèrén qù fángjiān. Yīnwèi fēngōng qīngchu, shí'èr jiàn xíngli hěn kuài dōu sòngdào le zhèngquè de dìfang. Jiēdàizǔ fāxiàn, hùxiāng bāngzhù néng ràng huānyíng gōngzuò gèng qīngsōng.",
+      "syntheticTtsText": "公司要欢迎六位客人，接待组一共收到十二件行李。 同事小周说，只有两个人搬东西，时间可能不够。 另一位同事愿意帮助他们，可是她刚洗澡，还没换好工作服。 小周让她先放心换衣服，然后按房间号码分行李。 大家得看清标签，明白每件行李跟哪位客人有关系。 客人到了以后，他们会先介绍酒店，再带客人去房间。 因为分工清楚，十二件行李很快都送到了正确的地方。 接待组发现，互相帮助能让欢迎工作更轻松。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Phân và chuyển mười hai kiện hành lý"
+        },
+        {
+          "optionId": "B",
+          "text": "Sửa một con tàu"
+        },
+        {
+          "optionId": "C",
+          "text": "Dạy sách giáo khoa"
+        },
+        {
+          "optionId": "D",
+          "text": "Tổ chức thi thể thao"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“公司要欢迎六位客人，接待组一共收到十二件行李。 同事小周说，只有两个人搬东西，时间可能不够。 另一位同事愿意帮助他们，可是她刚洗澡，还没换好工作服。 小周让她先放心换衣服，然后按房间号码分行李。 大家得看清标签，明白每件行李跟哪位客人有关系。 客人到了以后，他们会先介绍酒店，再带客人去房间。 因为分工清楚，十二件行李很快都送到了正确的地方。 接待组发现，互相帮助能让欢迎工作更轻松。” (Gōngsī yào huānyíng liù wèi kèrén, jiēdàizǔ yígòng shōudào shí'èr jiàn xíngli. Tóngshì Xiǎo Zhōu shuō, zhǐyǒu liǎng ge rén bān dōngxi, shíjiān kěnéng bú gòu. Lìng yí wèi tóngshì yuànyì bāngzhù tāmen, kěshì tā gāng xǐzǎo, hái méi huànhǎo gōngzuòfú. Xiǎo Zhōu ràng tā xiān fàngxīn huàn yīfu, ránhòu àn fángjiān hàomǎ fēn xíngli. Dàjiā děi kànqīng biāoqiān, míngbai měi jiàn xíngli gēn nǎ wèi kèrén yǒu guānxì. Kèrén dào le yǐhòu, tāmen huì xiān jièshào jiǔdiàn, zài dài kèrén qù fángjiān. Yīnwèi fēngōng qīngchu, shí'èr jiàn xíngli hěn kuài dōu sòngdào le zhèngquè de dìfang. Jiēdàizǔ fāxiàn, hùxiāng bāngzhù néng ràng huānyíng gōngzuò gèng qīngsōng.): Phân và chuyển mười hai kiện hành lý",
+      "sourceLessonId": "hsk3-study-work-accounts-colleague-workplace",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:06",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:06:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "小方春天去旅行时遇到大风，回来以后还感冒发烧了。 这次秋天再出发，他必须先看网站上的季节天气。 网站说白天有太阳，很凉快，可是晚上会刮冷风。 妈妈提醒他带外衣、雨衣和每天常用的牙刷。 她还说，如果路上看到冰，走路时一定要慢一点。 小方把这些有关安全和健康的东西都写进清单。 他发现，夏天和冬天的行李不同，每个季节都要重新准备。 注意小事以后，他对这次旅行更放心了。",
+      "pinyinReference": "Xiǎo Fāng chūntiān qù lǚxíng shí yùdào dàfēng, huílai yǐhòu hái gǎnmào fāshāo le. Zhè cì qiūtiān zài chūfā, tā bìxū xiān kàn wǎngzhàn shàng de jìjié tiānqì. Wǎngzhàn shuō báitiān yǒu tàiyáng, hěn liángkuai, kěshì wǎnshang huì guā lěngfēng. Māma tíxǐng tā dài wàiyī, yǔyī hé měitiān chángyòng de yáshuā. Tā hái shuō, rúguǒ lùshang kàndào bīng, zǒulù shí yídìng yào màn yìdiǎn. Xiǎo Fāng bǎ zhèxiē yǒuguān ānquán hé jiànkāng de dōngxi dōu xiějìn qīngdān. Tā fāxiàn, xiàtiān hé dōngtiān de xíngli bùtóng, měi ge jìjié dōu yào chóngxīn zhǔnbèi. Zhùyì xiǎoshì yǐhòu, tā duì zhè cì lǚxíng gèng fàngxīn le.",
+      "syntheticTtsText": "小方春天去旅行时遇到大风，回来以后还感冒发烧了。 这次秋天再出发，他必须先看网站上的季节天气。 网站说白天有太阳，很凉快，可是晚上会刮冷风。 妈妈提醒他带外衣、雨衣和每天常用的牙刷。 她还说，如果路上看到冰，走路时一定要慢一点。 小方把这些有关安全和健康的东西都写进清单。 他发现，夏天和冬天的行李不同，每个季节都要重新准备。 注意小事以后，他对这次旅行更放心了。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Điều trị bệnh dài ngày"
+        },
+        {
+          "optionId": "B",
+          "text": "Mua bàn chải mới"
+        },
+        {
+          "optionId": "C",
+          "text": "Trồng hoa trong công viên"
+        },
+        {
+          "optionId": "D",
+          "text": "Chuẩn bị hành lý theo mùa"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“小方春天去旅行时遇到大风，回来以后还感冒发烧了。 这次秋天再出发，他必须先看网站上的季节天气。 网站说白天有太阳，很凉快，可是晚上会刮冷风。 妈妈提醒他带外衣、雨衣和每天常用的牙刷。 她还说，如果路上看到冰，走路时一定要慢一点。 小方把这些有关安全和健康的东西都写进清单。 他发现，夏天和冬天的行李不同，每个季节都要重新准备。 注意小事以后，他对这次旅行更放心了。” (Xiǎo Fāng chūntiān qù lǚxíng shí yùdào dàfēng, huílai yǐhòu hái gǎnmào fāshāo le. Zhè cì qiūtiān zài chūfā, tā bìxū xiān kàn wǎngzhàn shàng de jìjié tiānqì. Wǎngzhàn shuō báitiān yǒu tàiyáng, hěn liángkuai, kěshì wǎnshang huì guā lěngfēng. Māma tíxǐng tā dài wàiyī, yǔyī hé měitiān chángyòng de yáshuā. Tā hái shuō, rúguǒ lùshang kàndào bīng, zǒulù shí yídìng yào màn yìdiǎn. Xiǎo Fāng bǎ zhèxiē yǒuguān ānquán hé jiànkāng de dōngxi dōu xiějìn qīngdān. Tā fāxiàn, xiàtiān hé dōngtiān de xíngli bùtóng, měi ge jìjié dōu yào chóngxīn zhǔnbèi. Zhùyì xiǎoshì yǐhòu, tā duì zhè cì lǚxíng gèng fàngxīn le.): Chuẩn bị hành lý theo mùa",
+      "sourceLessonId": "hsk3-nature-environment-explanations-climate-seasons",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:07",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:07:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "学校原来要在东边的花园复习地理，可是早上发生了大雨。 老师马上关了花园门，把活动地点换到山下的教室。 他在桌上放了一张地图，请学生找北方和南方。 第一组复习东、东北和东南，第二组复习西、西北和西南。 一位学生问，为什么东方和西方不只是地图上的地方。 老师说明，这两个词也常用来谈文化和生活方式。 虽然不能在地上走方向路线，大家还是完成了复习。 雨停以后，老师说下次再回原来的地方做活动。",
+      "pinyinReference": "Xuéxiào yuánlái yào zài dōngbian de huāyuán fùxí dìlǐ, kěshì zǎoshang fāshēng le dàyǔ. Lǎoshī mǎshàng guān le huāyuán mén, bǎ huódòng dìdiǎn huàndào shānxià de jiàoshì. Tā zài zhuō shàng fàng le yì zhāng dìtú, qǐng xuéshēng zhǎo běifāng hé nánfāng. Dì-yī zǔ fùxí dōng, dōngběi hé dōngnán, dì-èr zǔ fùxí xī, xīběi hé xīnán. Yí wèi xuéshēng wèn, wèishénme dōngfāng hé xīfāng bù zhǐshì dìtú shàng de dìfang. Lǎoshī shuōmíng, zhè liǎng ge cí yě chángyòng lái tán wénhuà hé shēnghuó fāngshì. Suīrán bù néng zài dìshang zǒu fāngxiàng lùxiàn, dàjiā háishi wánchéng le fùxí. Yǔ tíng yǐhòu, lǎoshī shuō xià cì zài huí yuánlái de dìfang zuò huódòng.",
+      "syntheticTtsText": "学校原来要在东边的花园复习地理，可是早上发生了大雨。 老师马上关了花园门，把活动地点换到山下的教室。 他在桌上放了一张地图，请学生找北方和南方。 第一组复习东、东北和东南，第二组复习西、西北和西南。 一位学生问，为什么东方和西方不只是地图上的地方。 老师说明，这两个词也常用来谈文化和生活方式。 虽然不能在地上走方向路线，大家还是完成了复习。 雨停以后，老师说下次再回原来的地方做活动。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Học sinh quên áo"
+        },
+        {
+          "optionId": "B",
+          "text": "Bản đồ bị mất"
+        },
+        {
+          "optionId": "C",
+          "text": "Mưa lớn xảy ra"
+        },
+        {
+          "optionId": "D",
+          "text": "Vườn quá xa"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“学校原来要在东边的花园复习地理，可是早上发生了大雨。 老师马上关了花园门，把活动地点换到山下的教室。 他在桌上放了一张地图，请学生找北方和南方。 第一组复习东、东北和东南，第二组复习西、西北和西南。 一位学生问，为什么东方和西方不只是地图上的地方。 老师说明，这两个词也常用来谈文化和生活方式。 虽然不能在地上走方向路线，大家还是完成了复习。 雨停以后，老师说下次再回原来的地方做活动。” (Xuéxiào yuánlái yào zài dōngbian de huāyuán fùxí dìlǐ, kěshì zǎoshang fāshēng le dàyǔ. Lǎoshī mǎshàng guān le huāyuán mén, bǎ huódòng dìdiǎn huàndào shānxià de jiàoshì. Tā zài zhuō shàng fàng le yì zhāng dìtú, qǐng xuéshēng zhǎo běifāng hé nánfāng. Dì-yī zǔ fùxí dōng, dōngběi hé dōngnán, dì-èr zǔ fùxí xī, xīběi hé xīnán. Yí wèi xuéshēng wèn, wèishénme dōngfāng hé xīfāng bù zhǐshì dìtú shàng de dìfang. Lǎoshī shuōmíng, zhè liǎng ge cí yě chángyòng lái tán wénhuà hé shēnghuó fāngshì. Suīrán bù néng zài dìshang zǒu fāngxiàng lùxiàn, dàjiā háishi wánchéng le fùxí. Yǔ tíng yǐhòu, lǎoshī shuō xià cì zài huí yuánlái de dìfang zuò huódòng.): Mưa lớn xảy ra",
+      "sourceLessonId": "hsk3-nature-environment-explanations-landscape-place",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:08",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:08:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "小马刚刚在网上看到一段很短的视频，就为大熊猫着急。 视频里的动物看起来像羊，旁边的男人却说它是生病的熊猫。 小马差不多要把消息发给所有朋友，幸好没有忘记先检查。 他或者查看有名动物园的网站，或者问平时研究动物的老师。 老师解释，那其实是一只羊，视频加了错误的文字。 如果大家看到短消息就马上转发，错误会很快增加。 提高保护意识不只是关心动物，也包括认真判断信息。 小马找到办法以后放心了，还跟朋友聊了检查来源的重要性。",
+      "pinyinReference": "Xiǎo Mǎ gānggāng zài wǎngshàng kàndào yí duàn hěn duǎn de shìpín, jiù wèi dàxióngmāo zháojí. Shìpín lǐ de dòngwù kànqilai xiàng yáng, pángbiān de nánrén què shuō tā shì shēngbìng de xióngmāo. Xiǎo Mǎ chàbuduō yào bǎ xiāoxi fā gěi suǒyǒu péngyou, xìnghǎo méiyǒu wàngjì xiān jiǎnchá. Tā huòzhě chákàn yǒumíng dòngwùyuán de wǎngzhàn, huòzhě wèn píngshí yánjiū dòngwù de lǎoshī. Lǎoshī jiěshì, nà qíshí shì yì zhī yáng, shìpín jiā le cuòwù de wénzì. Rúguǒ dàjiā kàndào duǎn xiāoxi jiù mǎshàng zhuǎnfā, cuòwù huì hěn kuài zēngjiā. Tígāo bǎohù yìshi bù zhǐshì guānxīn dòngwù, yě bāokuò rènzhēn pànduàn xìnxī. Xiǎo Mǎ zhǎodào bànfǎ yǐhòu fàngxīn le, hái gēn péngyou liáo le jiǎnchá láiyuán de zhòngyàoxìng.",
+      "syntheticTtsText": "小马刚刚在网上看到一段很短的视频，就为大熊猫着急。 视频里的动物看起来像羊，旁边的男人却说它是生病的熊猫。 小马差不多要把消息发给所有朋友，幸好没有忘记先检查。 他或者查看有名动物园的网站，或者问平时研究动物的老师。 老师解释，那其实是一只羊，视频加了错误的文字。 如果大家看到短消息就马上转发，错误会很快增加。 提高保护意识不只是关心动物，也包括认真判断信息。 小马找到办法以后放心了，还跟朋友聊了检查来源的重要性。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đường tới công viên"
+        },
+        {
+          "optionId": "B",
+          "text": "Tin trên mạng về động vật chưa được kiểm chứng"
+        },
+        {
+          "optionId": "C",
+          "text": "Cách nuôi gấu trúc"
+        },
+        {
+          "optionId": "D",
+          "text": "Cách mua cừu"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“小马刚刚在网上看到一段很短的视频，就为大熊猫着急。 视频里的动物看起来像羊，旁边的男人却说它是生病的熊猫。 小马差不多要把消息发给所有朋友，幸好没有忘记先检查。 他或者查看有名动物园的网站，或者问平时研究动物的老师。 老师解释，那其实是一只羊，视频加了错误的文字。 如果大家看到短消息就马上转发，错误会很快增加。 提高保护意识不只是关心动物，也包括认真判断信息。 小马找到办法以后放心了，还跟朋友聊了检查来源的重要性。” (Xiǎo Mǎ gānggāng zài wǎngshàng kàndào yí duàn hěn duǎn de shìpín, jiù wèi dàxióngmāo zháojí. Shìpín lǐ de dòngwù kànqilai xiàng yáng, pángbiān de nánrén què shuō tā shì shēngbìng de xióngmāo. Xiǎo Mǎ chàbuduō yào bǎ xiāoxi fā gěi suǒyǒu péngyou, xìnghǎo méiyǒu wàngjì xiān jiǎnchá. Tā huòzhě chákàn yǒumíng dòngwùyuán de wǎngzhàn, huòzhě wèn píngshí yánjiū dòngwù de lǎoshī. Lǎoshī jiěshì, nà qíshí shì yì zhī yáng, shìpín jiā le cuòwù de wénzì. Rúguǒ dàjiā kàndào duǎn xiāoxi jiù mǎshàng zhuǎnfā, cuòwù huì hěn kuài zēngjiā. Tígāo bǎohù yìshi bù zhǐshì guānxīn dòngwù, yě bāokuò rènzhēn pànduàn xìnxī. Xiǎo Mǎ zhǎodào bànfǎ yǐhòu fàngxīn le, hái gēn péngyou liáo le jiǎnchá láiyuán de zhòngyàoxìng.): Tin trên mạng về động vật chưa được kiểm chứng",
+      "sourceLessonId": "hsk3-nature-environment-explanations-environment-protection",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:09",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:09:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "李阿姨急着进活动房，可是社区卡又卡在门口的机器里。 她为这件事给服务中心写了一封信，而且告诉了别人。 年轻工作人员请她别急，先检查卡，再看机器水平。 他发现机器跟地面不水平，入口只要有人碰就会出问题。 工作人员换了位置，卡和其他卡片就都能正常使用。 李阿姨嘴上说谢谢，还送来一块自己做的蛋糕。 服务中心把经验写给每一层工作人员，让处理方法一样。 一个小问题解决以后，公共服务又向前发展了一步。",
+      "pinyinReference": "Lǐ āyí jízhe jìn huódòngfáng, kěshì shèqū kǎ yòu kǎ zài ménkǒu de jīqì lǐ. Tā wèi zhè jiàn shì gěi fúwù zhōngxīn xiě le yì fēng xìn, érqiě gàosu le biérén. Niánqīng gōngzuòrényuán qǐng tā bié jí, xiān jiǎnchá kǎ, zài kàn jīqì shuǐpíng. Tā fāxiàn jīqì gēn dìmiàn bù shuǐpíng, rùkǒu zhǐyào yǒurén pèng jiù huì chū wèntí. Gōngzuòrényuán huàn le wèizhi, kǎ hé qítā kǎpiàn jiù dōu néng zhèngcháng shǐyòng. Lǐ āyí zuǐ shàng shuō xièxie, hái sònglai yí kuài zìjǐ zuò de dàngāo. Fúwù zhōngxīn bǎ jīngyàn xiě gěi měi yì céng gōngzuòrényuán, ràng chǔlǐ fāngfǎ yíyàng. Yí ge xiǎo wèntí jiějué yǐhòu, gōnggòng fúwù yòu xiàng qián fāzhǎn le yí bù.",
+      "syntheticTtsText": "李阿姨急着进活动房，可是社区卡又卡在门口的机器里。 她为这件事给服务中心写了一封信，而且告诉了别人。 年轻工作人员请她别急，先检查卡，再看机器水平。 他发现机器跟地面不水平，入口只要有人碰就会出问题。 工作人员换了位置，卡和其他卡片就都能正常使用。 李阿姨嘴上说谢谢，还送来一块自己做的蛋糕。 服务中心把经验写给每一层工作人员，让处理方法一样。 一个小问题解决以后，公共服务又向前发展了一步。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Thẻ bị kẹt do máy đặt không cân"
+        },
+        {
+          "optionId": "B",
+          "text": "Nhà bị mất điện"
+        },
+        {
+          "optionId": "C",
+          "text": "Bánh không ngon"
+        },
+        {
+          "optionId": "D",
+          "text": "Thư gửi sai tầng"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“李阿姨急着进活动房，可是社区卡又卡在门口的机器里。 她为这件事给服务中心写了一封信，而且告诉了别人。 年轻工作人员请她别急，先检查卡，再看机器水平。 他发现机器跟地面不水平，入口只要有人碰就会出问题。 工作人员换了位置，卡和其他卡片就都能正常使用。 李阿姨嘴上说谢谢，还送来一块自己做的蛋糕。 服务中心把经验写给每一层工作人员，让处理方法一样。 一个小问题解决以后，公共服务又向前发展了一步。” (Lǐ āyí jízhe jìn huódòngfáng, kěshì shèqū kǎ yòu kǎ zài ménkǒu de jīqì lǐ. Tā wèi zhè jiàn shì gěi fúwù zhōngxīn xiě le yì fēng xìn, érqiě gàosu le biérén. Niánqīng gōngzuòrényuán qǐng tā bié jí, xiān jiǎnchá kǎ, zài kàn jīqì shuǐpíng. Tā fāxiàn jīqì gēn dìmiàn bù shuǐpíng, rùkǒu zhǐyào yǒurén pèng jiù huì chū wèntí. Gōngzuòrényuán huàn le wèizhi, kǎ hé qítā kǎpiàn jiù dōu néng zhèngcháng shǐyòng. Lǐ āyí zuǐ shàng shuō xièxie, hái sònglai yí kuài zìjǐ zuò de dàngāo. Fúwù zhōngxīn bǎ jīngyàn xiě gěi měi yì céng gōngzuòrényuán, ràng chǔlǐ fāngfǎ yíyàng. Yí ge xiǎo wèntí jiějué yǐhòu, gōnggòng fúwù yòu xiàng qián fāzhǎn le yí bù.): Thẻ bị kẹt do máy đặt không cân",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-city-development",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:10",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:10:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "一位运动员前天到外地参加网球活动，带了一个大箱子。 报名员问护照号码时，他突然发现护照不在身边。 他打开箱子，只有衬衫、鞋和一般运动用品。 语言帮助员请他想想前天得到过哪些文件。 他记起酒店按身高登记时复印过护照，就马上打电话。 酒店说护照在桌上，工作人员正努力送过来。 等的时候，教练给他冰激凌，还介绍一位可爱的小运动员。 护照送到后，他满意地报名，也更注意检查重要东西。",
+      "pinyinReference": "Yí wèi yùndòngyuán qiántiān dào wàidì cānjiā wǎngqiú huódòng, dài le yí ge dà xiāngzi. Bàomíngyuán wèn hùzhào hàomǎ shí, tā tūrán fāxiàn hùzhào bú zài shēnbiān. Tā dǎkāi xiāngzi, zhǐyǒu chènshān, xié hé yìbān yùndòng yòngpǐn. Yǔyán bāngzhùyuán qǐng tā xiǎngxiang qiántiān dédàoguo nǎxiē wénjiàn. Tā jìqǐ jiǔdiàn àn shēngāo dēngjì shí fùyìngguo hùzhào, jiù mǎshàng dǎ diànhuà. Jiǔdiàn shuō hùzhào zài zhuō shàng, gōngzuòrényuán zhèng nǔlì sòngguolai. Děng de shíhou, jiàoliàn gěi tā bīngjīlíng, hái jièshào yí wèi kě'ài de xiǎo yùndòngyuán. Hùzhào sòngdào hòu, tā mǎnyì de bàomíng, yě gèng zhùyì jiǎnchá zhòngyào dōngxi.",
+      "syntheticTtsText": "一位运动员前天到外地参加网球活动，带了一个大箱子。 报名员问护照号码时，他突然发现护照不在身边。 他打开箱子，只有衬衫、鞋和一般运动用品。 语言帮助员请他想想前天得到过哪些文件。 他记起酒店按身高登记时复印过护照，就马上打电话。 酒店说护照在桌上，工作人员正努力送过来。 等的时候，教练给他冰激凌，还介绍一位可爱的小运动员。 护照送到后，他满意地报名，也更注意检查重要东西。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Mất va-li trên tàu"
+        },
+        {
+          "optionId": "B",
+          "text": "Không biết chơi quần vợt"
+        },
+        {
+          "optionId": "C",
+          "text": "Áo sơ mi bị hỏng"
+        },
+        {
+          "optionId": "D",
+          "text": "Để quên hộ chiếu ở khách sạn"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“一位运动员前天到外地参加网球活动，带了一个大箱子。 报名员问护照号码时，他突然发现护照不在身边。 他打开箱子，只有衬衫、鞋和一般运动用品。 语言帮助员请他想想前天得到过哪些文件。 他记起酒店按身高登记时复印过护照，就马上打电话。 酒店说护照在桌上，工作人员正努力送过来。 等的时候，教练给他冰激凌，还介绍一位可爱的小运动员。 护照送到后，他满意地报名，也更注意检查重要东西。” (Yí wèi yùndòngyuán qiántiān dào wàidì cānjiā wǎngqiú huódòng, dài le yí ge dà xiāngzi. Bàomíngyuán wèn hùzhào hàomǎ shí, tā tūrán fāxiàn hùzhào bú zài shēnbiān. Tā dǎkāi xiāngzi, zhǐyǒu chènshān, xié hé yìbān yùndòng yòngpǐn. Yǔyán bāngzhùyuán qǐng tā xiǎngxiang qiántiān dédàoguo nǎxiē wénjiàn. Tā jìqǐ jiǔdiàn àn shēngāo dēngjì shí fùyìngguo hùzhào, jiù mǎshàng dǎ diànhuà. Jiǔdiàn shuō hùzhào zài zhuō shàng, gōngzuòrényuán zhèng nǔlì sòngguolai. Děng de shíhou, jiàoliàn gěi tā bīngjīlíng, hái jièshào yí wèi kě'ài de xiǎo yùndòngyuán. Hùzhào sòngdào hòu, tā mǎnyì de bàomíng, yě gèng zhùyì jiǎnchá zhòngyào dōngxi.): Để quên hộ chiếu ở khách sạn",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-sports-introduction",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:11",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:11:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "美玲刚借到一本电子书，打算周末学做家乡的甜饭。 书里说，先选择合适的米，再放黄色的香蕉和少量糖。 她过去只在节日吃过这种饭，所以认得味道，却不会做。 第一次做得太甜，她急得想哭，不知道怎么办。 奶奶通过视频告诉她，米和糖的多少比拍照好看更重要。 她重新选择材料，在安静的厨房里慢慢试了一次。 饭做好以后，她拿到草地上请朋友尝，还用银行卡买了饮料。 朋友说这次甜得正好，她也记录了完整做法。",
+      "pinyinReference": "Měilíng gāng jièdào yì běn diànzǐshū, dǎsuàn zhōumò xué zuò jiāxiāng de tiánfàn. Shū lǐ shuō, xiān xuǎnzé héshì de mǐ, zài fàng huángsè de xiāngjiāo hé shǎoliàng táng. Tā guòqù zhǐ zài jiérì chīguo zhè zhǒng fàn, suǒyǐ rènde wèidào, què bú huì zuò. Dì-yī cì zuò de tài tián, tā jí de xiǎng kū, bù zhīdào zěnme bàn. Nǎinai tōngguò shìpín gàosu tā, mǐ hé táng de duōshao bǐ pāizhào hǎokàn gèng zhòngyào. Tā chóngxīn xuǎnzé cáiliào, zài ānjìng de chúfáng lǐ mànmàn shì le yí cì. Fàn zuòhǎo yǐhòu, tā nádào cǎodì shàng qǐng péngyou cháng, hái yòng yínhángkǎ mǎi le yǐnliào. Péngyou shuō zhè cì tián de zhènghǎo, tā yě jìlù le wánzhěng zuòfǎ.",
+      "syntheticTtsText": "美玲刚借到一本电子书，打算周末学做家乡的甜饭。 书里说，先选择合适的米，再放黄色的香蕉和少量糖。 她过去只在节日吃过这种饭，所以认得味道，却不会做。 第一次做得太甜，她急得想哭，不知道怎么办。 奶奶通过视频告诉她，米和糖的多少比拍照好看更重要。 她重新选择材料，在安静的厨房里慢慢试了一次。 饭做好以后，她拿到草地上请朋友尝，还用银行卡买了饮料。 朋友说这次甜得正好，她也记录了完整做法。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Cô bán sách điện tử"
+        },
+        {
+          "optionId": "B",
+          "text": "Cô tổ chức thi đấu"
+        },
+        {
+          "optionId": "C",
+          "text": "Mỹ Linh học điều chỉnh món cơm ngọt quê nhà"
+        },
+        {
+          "optionId": "D",
+          "text": "Cô mở ngân hàng"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“美玲刚借到一本电子书，打算周末学做家乡的甜饭。 书里说，先选择合适的米，再放黄色的香蕉和少量糖。 她过去只在节日吃过这种饭，所以认得味道，却不会做。 第一次做得太甜，她急得想哭，不知道怎么办。 奶奶通过视频告诉她，米和糖的多少比拍照好看更重要。 她重新选择材料，在安静的厨房里慢慢试了一次。 饭做好以后，她拿到草地上请朋友尝，还用银行卡买了饮料。 朋友说这次甜得正好，她也记录了完整做法。” (Měilíng gāng jièdào yì běn diànzǐshū, dǎsuàn zhōumò xué zuò jiāxiāng de tiánfàn. Shū lǐ shuō, xiān xuǎnzé héshì de mǐ, zài fàng huángsè de xiāngjiāo hé shǎoliàng táng. Tā guòqù zhǐ zài jiérì chīguo zhè zhǒng fàn, suǒyǐ rènde wèidào, què bú huì zuò. Dì-yī cì zuò de tài tián, tā jí de xiǎng kū, bù zhīdào zěnme bàn. Nǎinai tōngguò shìpín gàosu tā, mǐ hé táng de duōshao bǐ pāizhào hǎokàn gèng zhòngyào. Tā chóngxīn xuǎnzé cáiliào, zài ānjìng de chúfáng lǐ mànmàn shì le yí cì. Fàn zuòhǎo yǐhòu, tā nádào cǎodì shàng qǐng péngyou cháng, hái yòng yínhángkǎ mǎi le yǐnliào. Péngyou shuō zhè cì tián de zhènghǎo, tā yě jìlù le wánzhěng zuòfǎ.): Mỹ Linh học điều chỉnh món cơm ngọt quê nhà",
+      "sourceLessonId": "hsk3-culture-tradition-descriptions-regional-cuisine",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:listening:12",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:listening:12:1",
+      "skill": "listening",
+      "construct": "eight-line-paragraph-listening-comprehension",
+      "promptVi": "Nghe đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "各位同学，关于下周的月亮节活动，请先听三个安排。 学校放假一天，但参加活动的同学不算休假，要上午回来准备。 数学小组负责算材料，外语小组负责介绍不同国家怎样过节。 有爱人或已经结婚的老师，也可以讲自己的家庭习惯。 请大家准备一件小礼物，不久我们会公布交换方法。 活动在五楼，电梯旁有热情的学生帮助找教室。 晚上看见月亮以后，最聪明的回答也不一定只有一个。 活动终于结束时，请每组说说自己学到的新年和节日知识。",
+      "pinyinReference": "Gèwèi tóngxué, guānyú xià zhōu de yuèliang jié huódòng, qǐng xiān tīng sān ge ānpái. Xuéxiào fàngjià yì tiān, dàn cānjiā huódòng de tóngxué bú suàn xiūjià, yào shàngwǔ huílai zhǔnbèi. Shùxué xiǎozǔ fùzé suàn cáiliào, wàiyǔ xiǎozǔ fùzé jièshào bùtóng guójiā zěnyàng guòjié. Yǒu àiren huò yǐjīng jiéhūn de lǎoshī, yě kěyǐ jiǎng zìjǐ de jiātíng xíguàn. Qǐng dàjiā zhǔnbèi yí jiàn xiǎo lǐwù, bùjiǔ wǒmen huì gōngbù jiāohuàn fāngfǎ. Huódòng zài wǔ lóu, diàntī páng yǒu rèqíng de xuésheng bāngzhù zhǎo jiàoshì. Wǎnshang kànjiàn yuèliang yǐhòu, zuì cōngmíng de huídá yě bù yídìng zhǐyǒu yí ge. Huódòng zhōngyú jiéshù shí, qǐng měi zǔ shuōshuo zìjǐ xuédào de xīnnián hé jiérì zhīshi.",
+      "syntheticTtsText": "各位同学，关于下周的月亮节活动，请先听三个安排。 学校放假一天，但参加活动的同学不算休假，要上午回来准备。 数学小组负责算材料，外语小组负责介绍不同国家怎样过节。 有爱人或已经结婚的老师，也可以讲自己的家庭习惯。 请大家准备一件小礼物，不久我们会公布交换方法。 活动在五楼，电梯旁有热情的学生帮助找教室。 晚上看见月亮以后，最聪明的回答也不一定只有一个。 活动终于结束时，请每组说说自己学到的新年和节日知识。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Kế hoạch cưới giáo viên"
+        },
+        {
+          "optionId": "B",
+          "text": "Phân công và quy trình cho hoạt động lễ hội trăng"
+        },
+        {
+          "optionId": "C",
+          "text": "Lịch thi toán"
+        },
+        {
+          "optionId": "D",
+          "text": "Cách dùng thang máy"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“各位同学，关于下周的月亮节活动，请先听三个安排。 学校放假一天，但参加活动的同学不算休假，要上午回来准备。 数学小组负责算材料，外语小组负责介绍不同国家怎样过节。 有爱人或已经结婚的老师，也可以讲自己的家庭习惯。 请大家准备一件小礼物，不久我们会公布交换方法。 活动在五楼，电梯旁有热情的学生帮助找教室。 晚上看见月亮以后，最聪明的回答也不一定只有一个。 活动终于结束时，请每组说说自己学到的新年和节日知识。” (Gèwèi tóngxué, guānyú xià zhōu de yuèliang jié huódòng, qǐng xiān tīng sān ge ānpái. Xuéxiào fàngjià yì tiān, dàn cānjiā huódòng de tóngxué bú suàn xiūjià, yào shàngwǔ huílai zhǔnbèi. Shùxué xiǎozǔ fùzé suàn cáiliào, wàiyǔ xiǎozǔ fùzé jièshào bùtóng guójiā zěnyàng guòjié. Yǒu àiren huò yǐjīng jiéhūn de lǎoshī, yě kěyǐ jiǎng zìjǐ de jiātíng xíguàn. Qǐng dàjiā zhǔnbèi yí jiàn xiǎo lǐwù, bùjiǔ wǒmen huì gōngbù jiāohuàn fāngfǎ. Huódòng zài wǔ lóu, diàntī páng yǒu rèqíng de xuésheng bāngzhù zhǎo jiàoshì. Wǎnshang kànjiàn yuèliang yǐhòu, zuì cōngmíng de huídá yě bù yídìng zhǐyǒu yí ge. Huódòng zhōngyú jiéshù shí, qǐng měi zǔ shuōshuo zìjǐ xuédào de xīnnián hé jiérì zhīshi.): Phân công và quy trình cho hoạt động lễ hội trăng",
+      "sourceLessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:01",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:01:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "小林在一家公司办公室工作，最近他决定参加一个周末汉语活动。活动给年轻人一个练习说汉语的机会，可是时间正好是星期五下午。按照公司的要求，他得先在一张纸上写请假的原因。他不知道该怎么办，就去问办公室的王阿姨。王阿姨告诉他，最好的方法是先请组长照着名单检查工作安排。如果没有重要的客人，他就可以把申请交给经理。经理收到申请以后，很快同意了。小林觉得这次办得不难，也明白了公司为什么需要这样的手续。",
+      "pinyinReference": "Xiǎo Lín zài yì jiā gōngsī bàngōngshì gōngzuò, zuìjìn tā juédìng cānjiā yí ge zhōumò Hànyǔ huódòng. Huódòng gěi niánqīng rén yí ge liànxí shuō Hànyǔ de jīhuì, kěshì shíjiān zhènghǎo shì Xīngqīwǔ xiàwǔ. Ànzhào gōngsī de yāoqiú, tā děi xiān zài yì zhāng zhǐ shàng xiě qǐngjià de yuányīn. Tā bù zhīdào gāi zěnme bàn, jiù qù wèn bàngōngshì de Wáng āyí. Wáng āyí gàosu tā, zuì hǎo de fāngfǎ shì xiān qǐng zǔzhǎng zhàozhe míngdān jiǎnchá gōngzuò ānpái. Rúguǒ méiyǒu zhòngyào de kèrén, tā jiù kěyǐ bǎ shēnqǐng jiāo gěi jīnglǐ. Jīnglǐ shōudào shēnqǐng yǐhòu, hěn kuài tóngyì le. Xiǎo Lín juéde zhè cì bàn de bù nán, yě míngbai le gōngsī wèishénme xūyào zhèyàng de shǒuxù.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tiểu Lâm tìm hiểu và hoàn thành thủ tục xin nghỉ"
+        },
+        {
+          "optionId": "B",
+          "text": "Tiểu Lâm đổi sang một công ty mới"
+        },
+        {
+          "optionId": "C",
+          "text": "Công ty tổ chức lớp tiếng Trung cuối tuần"
+        },
+        {
+          "optionId": "D",
+          "text": "Tổ trưởng từ chối tiếp khách"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“小林在一家公司办公室工作，最近他决定参加一个周末汉语活动。活动给年轻人一个练习说汉语的机会，可是时间正好是星期五下午。按照公司的要求，他得先在一张纸上写请假的原因。他不知道该怎么办，就去问办公室的王阿姨。王阿姨告诉他，最好的方法是先请组长照着名单检查工作安排。如果没有重要的客人，他就可以把申请交给经理。经理收到申请以后，很快同意了。小林觉得这次办得不难，也明白了公司为什么需要这样的手续。” (Xiǎo Lín zài yì jiā gōngsī bàngōngshì gōngzuò, zuìjìn tā juédìng cānjiā yí ge zhōumò Hànyǔ huódòng. Huódòng gěi niánqīng rén yí ge liànxí shuō Hànyǔ de jīhuì, kěshì shíjiān zhènghǎo shì Xīngqīwǔ xiàwǔ. Ànzhào gōngsī de yāoqiú, tā děi xiān zài yì zhāng zhǐ shàng xiě qǐngjià de yuányīn. Tā bù zhīdào gāi zěnme bàn, jiù qù wèn bàngōngshì de Wáng āyí. Wáng āyí gàosu tā, zuì hǎo de fāngfǎ shì xiān qǐng zǔzhǎng zhàozhe míngdān jiǎnchá gōngzuò ānpái. Rúguǒ méiyǒu zhòngyào de kèrén, tā jiù kěyǐ bǎ shēnqǐng jiāo gěi jīnglǐ. Jīnglǐ shōudào shēnqǐng yǐhòu, hěn kuài tóngyì le. Xiǎo Lín juéde zhè cì bàn de bù nán, yě míngbai le gōngsī wèishénme xūyào zhèyàng de shǒuxù.): Tiểu Lâm tìm hiểu và hoàn thành thủ tục xin nghỉ",
+      "sourceLessonId": "hsk3-personal-life-narratives-identity-transactions",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:02",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:02:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "小安是留学生，来中国留学已经半年了。他好久没有旅行，就在笔记本上写下周末计划。根据网上的信息，他要先坐汽车到火车站，再检票上车。出发那天，一辆汽车在红绿灯前被别的车挡住了。司机说这样等下去不行，就换了一条路。小安还是迟到了，跑到车站时已经开始检票。后来工作人员让他先出示车票，再从旁边的入口进去。虽然有点儿紧张，他最后还是顺利出发了。",
+      "pinyinReference": "Xiǎo Ān shì liúxuéshēng, lái Zhōngguó liúxué yǐjīng bànnián le. Tā hǎojiǔ méiyǒu lǚxíng, jiù zài bǐjìběn shàng xiěxia zhōumò jìhuà. Gēnjù wǎngshàng de xìnxī, tā yào xiān zuò qìchē dào huǒchēzhàn, zài jiǎnpiào shàng chē. Chūfā nà tiān, yí liàng qìchē zài hóng-lǜdēng qián bèi bié de chē dǎngzhù le. Sījī shuō zhèyàng děng xiàqu bù xíng, jiù huàn le yì tiáo lù. Xiǎo Ān háishi chídào le, pǎo dào chēzhàn shí yǐjīng kāishǐ jiǎnpiào. Hòulái gōngzuò rényuán ràng tā xiān chūshì chēpiào, zài cóng pángbiān de rùkǒu jìnqu. Suīrán yǒudiǎnr jǐnzhāng, tā zuìhòu háishi shùnlì chūfā le.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Một tài xế học ở nước ngoài"
+        },
+        {
+          "optionId": "B",
+          "text": "Một nhân viên làm mất vé"
+        },
+        {
+          "optionId": "C",
+          "text": "Một chuyến đi bị hủy"
+        },
+        {
+          "optionId": "D",
+          "text": "Một du học sinh xử lý việc đến ga muộn"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“小安是留学生，来中国留学已经半年了。他好久没有旅行，就在笔记本上写下周末计划。根据网上的信息，他要先坐汽车到火车站，再检票上车。出发那天，一辆汽车在红绿灯前被别的车挡住了。司机说这样等下去不行，就换了一条路。小安还是迟到了，跑到车站时已经开始检票。后来工作人员让他先出示车票，再从旁边的入口进去。虽然有点儿紧张，他最后还是顺利出发了。” (Xiǎo Ān shì liúxuéshēng, lái Zhōngguó liúxué yǐjīng bànnián le. Tā hǎojiǔ méiyǒu lǚxíng, jiù zài bǐjìběn shàng xiěxia zhōumò jìhuà. Gēnjù wǎngshàng de xìnxī, tā yào xiān zuò qìchē dào huǒchēzhàn, zài jiǎnpiào shàng chē. Chūfā nà tiān, yí liàng qìchē zài hóng-lǜdēng qián bèi bié de chē dǎngzhù le. Sījī shuō zhèyàng děng xiàqu bù xíng, jiù huàn le yì tiáo lù. Xiǎo Ān háishi chídào le, pǎo dào chēzhàn shí yǐjīng kāishǐ jiǎnpiào. Hòulái gōngzuò rényuán ràng tā xiān chūshì chēpiào, zài cóng pángbiān de rùkǒu jìnqu. Suīrán yǒudiǎnr jǐnzhāng, tā zuìhòu háishi shùnlì chūfā le.): Một du học sinh xử lý việc đến ga muộn",
+      "sourceLessonId": "hsk3-personal-life-narratives-travel-transport",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:03",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:03:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "一对夫妻周末搬家，搬进了一个安静的小区。新屋子大小合适，有客厅、卧室和一个卫生间。附近有宾馆、商店和公园，生活很方便。他们刚开始整理，邻居和一位老人就来帮忙。老人帮他们扫屋子，邻居检查了卫生间的水。丈夫发现一个箱子几乎打不开，有点儿生气。妻子跟他对话，问他为什么生气，两个人一起想出了办法。看来，有热心的邻居，搬家也能变成开心的经历。",
+      "pinyinReference": "Yí duì fūqī zhōumò bānjiā, bānjìn le yí ge ānjìng de xiǎoqū. Xīn wūzi dàxiǎo héshì, yǒu kètīng, wòshì hé yí ge wèishēngjiān. Fùjìn yǒu bīnguǎn, shāngdiàn hé gōngyuán, shēnghuó hěn fāngbiàn. Tāmen gāng kāishǐ zhěnglǐ, línjū hé yí wèi lǎorén jiù lái bāngmáng. Lǎorén bāng tāmen sǎo wūzi, línjū jiǎnchá le wèishēngjiān de shuǐ. Zhàngfu fāxiàn yí ge xiāngzi jīhū dǎbukāi, yǒudiǎnr shēngqì. Qīzi gēn tā duìhuà, wèn tā wèishénme shēngqì, liǎng ge rén yìqǐ xiǎngchū le bànfǎ. Kànlái, yǒu rèxīn de línjū, bānjiā yě néng biànchéng kāixīn de jīnglì.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Một người cao tuổi bán nhà"
+        },
+        {
+          "optionId": "B",
+          "text": "Hai người tranh cãi rồi chuyển đi"
+        },
+        {
+          "optionId": "C",
+          "text": "Một cặp vợ chồng chuyển nhà và được hàng xóm giúp"
+        },
+        {
+          "optionId": "D",
+          "text": "Một khách sạn sửa nhà vệ sinh"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“一对夫妻周末搬家，搬进了一个安静的小区。新屋子大小合适，有客厅、卧室和一个卫生间。附近有宾馆、商店和公园，生活很方便。他们刚开始整理，邻居和一位老人就来帮忙。老人帮他们扫屋子，邻居检查了卫生间的水。丈夫发现一个箱子几乎打不开，有点儿生气。妻子跟他对话，问他为什么生气，两个人一起想出了办法。看来，有热心的邻居，搬家也能变成开心的经历。” (Yí duì fūqī zhōumò bānjiā, bānjìn le yí ge ānjìng de xiǎoqū. Xīn wūzi dàxiǎo héshì, yǒu kètīng, wòshì hé yí ge wèishēngjiān. Fùjìn yǒu bīnguǎn, shāngdiàn hé gōngyuán, shēnghuó hěn fāngbiàn. Tāmen gāng kāishǐ zhěnglǐ, línjū hé yí wèi lǎorén jiù lái bāngmáng. Lǎorén bāng tāmen sǎo wūzi, línjū jiǎnchá le wèishēngjiān de shuǐ. Zhàngfu fāxiàn yí ge xiāngzi jīhū dǎbukāi, yǒudiǎnr shēngqì. Qīzi gēn tā duìhuà, wèn tā wèishénme shēngqì, liǎng ge rén yìqǐ xiǎngchū le bànfǎ. Kànlái, yǒu rèxīn de línjū, bānjiā yě néng biànchéng kāixīn de jīnglì.): Một cặp vợ chồng chuyển nhà và được hàng xóm giúp",
+      "sourceLessonId": "hsk3-personal-life-narratives-home-family-leisure",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:04",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:04:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "最近，李校长请初中一年级的学生和家长参观新校园。小雨和她的姐妹在图书馆面前见面，然后一起进学校。校长站在黑板旁边，声音很清楚地介绍每天的安排。学生上午学习，下午有体育课，也能到图书馆看书。小雨的妹妹刚从外地来到这里，只是还不太了解校园。她听完介绍以后，清楚了每座楼的方向和使用时间。家长们也受到欢迎，还可以向老师提出自己的问题。参观结束时，姐妹俩都觉得新的学习环境让人放心。",
+      "pinyinReference": "Zuìjìn, Lǐ xiàozhǎng qǐng chūzhōng yì niánjí de xuéshēng hé jiāzhǎng cānguān xīn xiàoyuán. Xiǎo Yǔ hé tā de jiěmèi zài túshūguǎn miànqián jiànmiàn, ránhòu yìqǐ jìn xuéxiào. Xiàozhǎng zhàn zài hēibǎn pángbiān, shēngyīn hěn qīngchu de jièshào měitiān de ānpái. Xuéshēng shàngwǔ xuéxí, xiàwǔ yǒu tǐyù kè, yě néng dào túshūguǎn kàn shū. Xiǎo Yǔ de mèimei gāng cóng wàidì láidào zhèlǐ, zhǐshì hái bú tài liǎojiě xiàoyuán. Tā tīngwán jièshào yǐhòu, qīngchu le měi zuò lóu de fāngxiàng hé shǐyòng shíjiān. Jiāzhǎngmen yě shòudào huānyíng, hái kěyǐ xiàng lǎoshī tíchū zìjǐ de wèntí. Cānguān jiéshù shí, jiěmèi liǎ dōu juéde xīn de xuéxí huánjìng ràng rén fàngxīn.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chuyến về quê"
+        },
+        {
+          "optionId": "B",
+          "text": "Buổi tham quan trường cho học sinh và gia đình"
+        },
+        {
+          "optionId": "C",
+          "text": "Một cuộc thi thể thao"
+        },
+        {
+          "optionId": "D",
+          "text": "Một ngày làm việc ở thư viện"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“最近，李校长请初中一年级的学生和家长参观新校园。小雨和她的姐妹在图书馆面前见面，然后一起进学校。校长站在黑板旁边，声音很清楚地介绍每天的安排。学生上午学习，下午有体育课，也能到图书馆看书。小雨的妹妹刚从外地来到这里，只是还不太了解校园。她听完介绍以后，清楚了每座楼的方向和使用时间。家长们也受到欢迎，还可以向老师提出自己的问题。参观结束时，姐妹俩都觉得新的学习环境让人放心。” (Zuìjìn, Lǐ xiàozhǎng qǐng chūzhōng yì niánjí de xuéshēng hé jiāzhǎng cānguān xīn xiàoyuán. Xiǎo Yǔ hé tā de jiěmèi zài túshūguǎn miànqián jiànmiàn, ránhòu yìqǐ jìn xuéxiào. Xiàozhǎng zhàn zài hēibǎn pángbiān, shēngyīn hěn qīngchu de jièshào měitiān de ānpái. Xuéshēng shàngwǔ xuéxí, xiàwǔ yǒu tǐyù kè, yě néng dào túshūguǎn kàn shū. Xiǎo Yǔ de mèimei gāng cóng wàidì láidào zhèlǐ, zhǐshì hái bú tài liǎojiě xiàoyuán. Tā tīngwán jièshào yǐhòu, qīngchu le měi zuò lóu de fāngxiàng hé shǐyòng shíjiān. Jiāzhǎngmen yě shòudào huānyíng, hái kěyǐ xiàng lǎoshī tíchū zìjǐ de wèntí. Cānguān jiéshù shí, jiěmèi liǎ dōu juéde xīn de xuéxí huánjìng ràng rén fàngxīn.): Buổi tham quan trường cho học sinh và gia đình",
+      "sourceLessonId": "hsk3-study-work-accounts-campus-education",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:05",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:05:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "公司欢迎新同事陈海，他刚收到去港口培训的通知。培训员说，他得带课本和行李，一共要住三个晚上。只有学会安全规则，大家才可以上船工作。陈海不明白怎样爬船边的短梯子，同事就慢慢做给他看。他先看清每一步，然后自己练习，大家也愿意帮助他。培训结束后，他们回宿舍洗澡，把湿衣服放好。陈海说：“现在我明白了，你们可以放心。”这次合作让新老同事的关系从第一天就更近了。",
+      "pinyinReference": "Gōngsī huānyíng xīn tóngshì Chén Hǎi, tā gāng shōudào qù gǎngkǒu péixùn de tōngzhī. Péixùnyuán shuō, tā děi dài kèběn hé xíngli, yígòng yào zhù sān ge wǎnshang. Zhǐyǒu xuéhuì ānquán guīzé, dàjiā cái kěyǐ shàng chuán gōngzuò. Chén Hǎi bù míngbai zěnyàng pá chuánbiān de duǎn tīzi, tóngshì jiù mànmàn zuò gěi tā kàn. Tā xiān kànqīng měi yí bù, ránhòu zìjǐ liànxí, dàjiā yě yuànyì bāngzhù tā. Péixùn jiéshù hòu, tāmen huí sùshè xǐzǎo, bǎ shī yīfu fànghǎo. Chén Hǎi shuō: “Xiànzài wǒ míngbai le, nǐmen kěyǐ fàngxīn.” Zhè cì hézuò ràng xīn lǎo tóngshì de guānxì cóng dì-yī tiān jiù gèng jìn le.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đồng nghiệp hỗ trợ người mới học an toàn"
+        },
+        {
+          "optionId": "B",
+          "text": "Một chuyến du lịch bằng tàu"
+        },
+        {
+          "optionId": "C",
+          "text": "Cách giặt quần áo"
+        },
+        {
+          "optionId": "D",
+          "text": "Một buổi mua sách"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“公司欢迎新同事陈海，他刚收到去港口培训的通知。培训员说，他得带课本和行李，一共要住三个晚上。只有学会安全规则，大家才可以上船工作。陈海不明白怎样爬船边的短梯子，同事就慢慢做给他看。他先看清每一步，然后自己练习，大家也愿意帮助他。培训结束后，他们回宿舍洗澡，把湿衣服放好。陈海说：“现在我明白了，你们可以放心。”这次合作让新老同事的关系从第一天就更近了。” (Gōngsī huānyíng xīn tóngshì Chén Hǎi, tā gāng shōudào qù gǎngkǒu péixùn de tōngzhī. Péixùnyuán shuō, tā děi dài kèběn hé xíngli, yígòng yào zhù sān ge wǎnshang. Zhǐyǒu xuéhuì ānquán guīzé, dàjiā cái kěyǐ shàng chuán gōngzuò. Chén Hǎi bù míngbai zěnyàng pá chuánbiān de duǎn tīzi, tóngshì jiù mànmàn zuò gěi tā kàn. Tā xiān kànqīng měi yí bù, ránhòu zìjǐ liànxí, dàjiā yě yuànyì bāngzhù tā. Péixùn jiéshù hòu, tāmen huí sùshè xǐzǎo, bǎ shī yīfu fànghǎo. Chén Hǎi shuō: “Xiànzài wǒ míngbai le, nǐmen kěyǐ fàngxīn.” Zhè cì hézuò ràng xīn lǎo tóngshì de guānxì cóng dì-yī tiān jiù gèng jìn le.): Đồng nghiệp hỗ trợ người mới học an toàn",
+      "sourceLessonId": "hsk3-study-work-accounts-colleague-workplace",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:06",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:06:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "这个城市的季节变化很清楚，春天一到，公园里的花就开花了。夏天太阳很大，人们喜欢傍晚到河边找凉快的地方。秋天常有风，树叶变黄，走路时必须注意脚下。冬天有时刮北风，水面会有薄薄的冰。天气网站每天介绍跟温度有关的信息，也提醒大家带雨衣。换季时容易感冒，如果连续发烧，就应该去看医生。有人以为只有冬天才会生病，其实每个季节都要照顾身体。了解四季不是为了怕天气，而是为了安排好每天的生活。",
+      "pinyinReference": "Zhège chéngshì de jìjié biànhuà hěn qīngchu, chūntiān yí dào, gōngyuán lǐ de huā jiù kāihuā le. Xiàtiān tàiyáng hěn dà, rénmen xǐhuan bàngwǎn dào hébiān zhǎo liángkuai de dìfang. Qiūtiān cháng yǒu fēng, shùyè biàn huáng, zǒulù shí bìxū zhùyì jiǎoxià. Dōngtiān yǒushí guā běifēng, shuǐmiàn huì yǒu báobáo de bīng. Tiānqì wǎngzhàn měitiān jièshào gēn wēndù yǒuguān de xìnxī, yě tíxǐng dàjiā dài yǔyī. Huànjì shí róngyì gǎnmào, rúguǒ liánxù fāshāo, jiù yīnggāi qù kàn yīshēng. Yǒurén yǐwéi zhǐyǒu dōngtiān cái huì shēngbìng, qíshí měi ge jìjié dōu yào zhàogù shēntǐ. Liǎojiě sìjì bú shì wèile pà tiānqì, érshì wèile ānpáihǎo měitiān de shēnghuó.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Cách trồng một loại hoa"
+        },
+        {
+          "optionId": "B",
+          "text": "Lịch khám bệnh"
+        },
+        {
+          "optionId": "C",
+          "text": "Cách xây trang web"
+        },
+        {
+          "optionId": "D",
+          "text": "Đặc điểm bốn mùa và cách thích ứng"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“这个城市的季节变化很清楚，春天一到，公园里的花就开花了。夏天太阳很大，人们喜欢傍晚到河边找凉快的地方。秋天常有风，树叶变黄，走路时必须注意脚下。冬天有时刮北风，水面会有薄薄的冰。天气网站每天介绍跟温度有关的信息，也提醒大家带雨衣。换季时容易感冒，如果连续发烧，就应该去看医生。有人以为只有冬天才会生病，其实每个季节都要照顾身体。了解四季不是为了怕天气，而是为了安排好每天的生活。” (Zhège chéngshì de jìjié biànhuà hěn qīngchu, chūntiān yí dào, gōngyuán lǐ de huā jiù kāihuā le. Xiàtiān tàiyáng hěn dà, rénmen xǐhuan bàngwǎn dào hébiān zhǎo liángkuai de dìfang. Qiūtiān cháng yǒu fēng, shùyè biàn huáng, zǒulù shí bìxū zhùyì jiǎoxià. Dōngtiān yǒushí guā běifēng, shuǐmiàn huì yǒu báobáo de bīng. Tiānqì wǎngzhàn měitiān jièshào gēn wēndù yǒuguān de xìnxī, yě tíxǐng dàjiā dài yǔyī. Huànjì shí róngyì gǎnmào, rúguǒ liánxù fāshāo, jiù yīnggāi qù kàn yīshēng. Yǒurén yǐwéi zhǐyǒu dōngtiān cái huì shēngbìng, qíshí měi ge jìjié dōu yào zhàogù shēntǐ. Liǎojiě sìjì bú shì wèile pà tiānqì, érshì wèile ānpáihǎo měitiān de shēnghuó.): Đặc điểm bốn mùa và cách thích ứng",
+      "sourceLessonId": "hsk3-nature-environment-explanations-climate-seasons",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:07",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:07:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "这座山城在北方，最有名的地点是中间的一座山。山的东边是老花园，东方的太阳升起时，地上会变得很亮。东北有火车站，东南有一条常见的小吃街。南边的地方比较暖，很多南方来的植物都种在那里。西边是新学校，西方的建筑方法给它带来了一些特点。西北的风很大，西南却有安静的湖和散步的小路。冬天来这里要穿大衣，进山以前也要看清地图。记住方向以后，游客就能了解每个地方不同的景色。",
+      "pinyinReference": "Zhè zuò shānchéng zài běifāng, zuì yǒumíng de dìdiǎn shì zhōngjiān de yí zuò shān. Shān de dōngbian shì lǎo huāyuán, dōngfāng de tàiyáng shēngqǐ shí, dìshang huì biànde hěn liàng. Dōngběi yǒu huǒchēzhàn, dōngnán yǒu yì tiáo chángjiàn de xiǎochī jiē. Nánbian de dìfang bǐjiào nuǎn, hěn duō nánfāng lái de zhíwù dōu zhòng zài nàli. Xībian shì xīn xuéxiào, xīfāng de jiànzhù fāngfǎ gěi tā dàilai le yìxiē tèdiǎn. Xīběi de fēng hěn dà, xīnán què yǒu ānjìng de hú hé sànbù de xiǎolù. Dōngtiān lái zhèlǐ yào chuān dàyī, jìn shān yǐqián yě yào kànqīng dìtú. Jìzhù fāngxiàng yǐhòu, yóukè jiù néng liǎojiě měi ge dìfang bùtóng de jǐngsè.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "So sánh bốn mùa"
+        },
+        {
+          "optionId": "B",
+          "text": "Liệt kê giá vé"
+        },
+        {
+          "optionId": "C",
+          "text": "Miêu tả địa điểm theo tám hướng"
+        },
+        {
+          "optionId": "D",
+          "text": "Kể lịch sử một gia đình"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“这座山城在北方，最有名的地点是中间的一座山。山的东边是老花园，东方的太阳升起时，地上会变得很亮。东北有火车站，东南有一条常见的小吃街。南边的地方比较暖，很多南方来的植物都种在那里。西边是新学校，西方的建筑方法给它带来了一些特点。西北的风很大，西南却有安静的湖和散步的小路。冬天来这里要穿大衣，进山以前也要看清地图。记住方向以后，游客就能了解每个地方不同的景色。” (Zhè zuò shānchéng zài běifāng, zuì yǒumíng de dìdiǎn shì zhōngjiān de yí zuò shān. Shān de dōngbian shì lǎo huāyuán, dōngfāng de tàiyáng shēngqǐ shí, dìshang huì biànde hěn liàng. Dōngběi yǒu huǒchēzhàn, dōngnán yǒu yì tiáo chángjiàn de xiǎochī jiē. Nánbian de dìfang bǐjiào nuǎn, hěn duō nánfāng lái de zhíwù dōu zhòng zài nàli. Xībian shì xīn xuéxiào, xīfāng de jiànzhù fāngfǎ gěi tā dàilai le yìxiē tèdiǎn. Xīběi de fēng hěn dà, xīnán què yǒu ānjìng de hú hé sànbù de xiǎolù. Dōngtiān lái zhèlǐ yào chuān dàyī, jìn shān yǐqián yě yào kànqīng dìtú. Jìzhù fāngxiàng yǐhòu, yóukè jiù néng liǎojiě měi ge dìfang bùtóng de jǐngsè.): Miêu tả địa điểm theo tám hướng",
+      "sourceLessonId": "hsk3-nature-environment-explanations-landscape-place",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:08",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:08:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "一个有名的城市公园刚刚完成了新的交通调查。工作人员跟一百位男人和女人聊他们平时怎样来公园。差不多一半的人走路，三十人骑自行车，其他人坐车。如果路比较短，很多人愿意走路或者骑车。可是有人着急上班，常忘记带水，也觉得骑车不方便。公园想出的办法是加几个饮水点，并提高自行车停车安全。工作人员说，像遮阳处和清楚的路牌也会帮助大家。只要选择低污染的出行方式，每个人都能保护一点环境。",
+      "pinyinReference": "Yí ge yǒumíng de chéngshì gōngyuán gānggāng wánchéng le xīn de jiāotōng diàochá. Gōngzuòrényuán gēn yìbǎi wèi nánrén hé nǚrén liáo tāmen píngshí zěnyàng lái gōngyuán. Chàbuduō yíbàn de rén zǒulù, sānshí rén qí zìxíngchē, qítā rén zuòchē. Rúguǒ lù bǐjiào duǎn, hěn duō rén yuànyì zǒulù huòzhě qíchē. Kěshì yǒurén zháojí shàngbān, cháng wàngjì dài shuǐ, yě juéde qíchē bù fāngbiàn. Gōngyuán xiǎngchū de bànfǎ shì jiā jǐ ge yǐnshuǐdiǎn, bìng tígāo zìxíngchē tíngchē ānquán. Gōngzuòrényuán shuō, xiàng zhēyángchù hé qīngchu de lùpái yě huì bāngzhù dàjiā. Zhǐyào xuǎnzé dī wūrǎn de chūxíng fāngshì, měi ge rén dōu néng bǎohù yìdiǎn huánjìng.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Thiết kế áo mưa"
+        },
+        {
+          "optionId": "B",
+          "text": "Cách đi lại ít ô nhiễm tới công viên"
+        },
+        {
+          "optionId": "C",
+          "text": "Thức ăn cho động vật"
+        },
+        {
+          "optionId": "D",
+          "text": "Giờ mở cửa thư viện"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“一个有名的城市公园刚刚完成了新的交通调查。工作人员跟一百位男人和女人聊他们平时怎样来公园。差不多一半的人走路，三十人骑自行车，其他人坐车。如果路比较短，很多人愿意走路或者骑车。可是有人着急上班，常忘记带水，也觉得骑车不方便。公园想出的办法是加几个饮水点，并提高自行车停车安全。工作人员说，像遮阳处和清楚的路牌也会帮助大家。只要选择低污染的出行方式，每个人都能保护一点环境。” (Yí ge yǒumíng de chéngshì gōngyuán gānggāng wánchéng le xīn de jiāotōng diàochá. Gōngzuòrényuán gēn yìbǎi wèi nánrén hé nǚrén liáo tāmen píngshí zěnyàng lái gōngyuán. Chàbuduō yíbàn de rén zǒulù, sānshí rén qí zìxíngchē, qítā rén zuòchē. Rúguǒ lù bǐjiào duǎn, hěn duō rén yuànyì zǒulù huòzhě qíchē. Kěshì yǒurén zháojí shàngbān, cháng wàngjì dài shuǐ, yě juéde qíchē bù fāngbiàn. Gōngyuán xiǎngchū de bànfǎ shì jiā jǐ ge yǐnshuǐdiǎn, bìng tígāo zìxíngchē tíngchē ānquán. Gōngzuòrényuán shuō, xiàng zhēyángchù hé qīngchu de lùpái yě huì bāngzhù dàjiā. Zhǐyào xuǎnzé dī wūrǎn de chūxíng fāngshì, měi ge rén dōu néng bǎohù yìdiǎn huánjìng.): Cách đi lại ít ô nhiễm tới công viên",
+      "sourceLessonId": "hsk3-nature-environment-explanations-environment-protection",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:09",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:09:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "街角有一座三层旧房子，以前只给别人寄信和办卡。城市为社区发展重新设计它，而且请年轻居民一起提意见。第一层变成服务大厅，可以办卡，也能急用电脑。第二层让年轻人聊天儿，第三层给其他居民学习。开放那天，工作人员穿着一样的上衣，嘴上一直带着笑。大家还准备了蛋糕，欢迎住在附近的人来看看。有人担心水平不一样，工作人员说每层都有不同帮助。旧房子又有了作用，也成了城市公共服务发展的例子。",
+      "pinyinReference": "Jiējiǎo yǒu yí zuò sān céng jiù fángzi, yǐqián zhǐ gěi biérén jì xìn hé bàn kǎ. Chéngshì wèi shèqū fāzhǎn chóngxīn shèjì tā, érqiě qǐng niánqīng jūmín yìqǐ tí yìjiàn. Dì-yī céng biànchéng fúwù dàtīng, kěyǐ bàn kǎ, yě néng jíyòng diànnǎo. Dì-èr céng ràng niánqīngrén liáotiānr, dì-sān céng gěi qítā jūmín xuéxí. Kāifàng nà tiān, gōngzuòrényuán chuānzhe yíyàng de shàngyī, zuǐ shàng yìzhí dàizhe xiào. Dàjiā hái zhǔnbèi le dàngāo, huānyíng zhù zài fùjìn de rén lái kànkan. Yǒurén dānxīn shuǐpíng bù yíyàng, gōngzuòrényuán shuō měi céng dōu yǒu bùtóng bāngzhù. Jiù fángzi yòu yǒu le zuòyòng, yě chéng le chéngshì gōnggòng fúwù fāzhǎn de lìzi.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trở thành trung tâm dịch vụ cộng đồng"
+        },
+        {
+          "optionId": "B",
+          "text": "Thành nhà riêng"
+        },
+        {
+          "optionId": "C",
+          "text": "Chỉ bán bánh"
+        },
+        {
+          "optionId": "D",
+          "text": "Làm kho quần áo"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“街角有一座三层旧房子，以前只给别人寄信和办卡。城市为社区发展重新设计它，而且请年轻居民一起提意见。第一层变成服务大厅，可以办卡，也能急用电脑。第二层让年轻人聊天儿，第三层给其他居民学习。开放那天，工作人员穿着一样的上衣，嘴上一直带着笑。大家还准备了蛋糕，欢迎住在附近的人来看看。有人担心水平不一样，工作人员说每层都有不同帮助。旧房子又有了作用，也成了城市公共服务发展的例子。” (Jiējiǎo yǒu yí zuò sān céng jiù fángzi, yǐqián zhǐ gěi biérén jì xìn hé bàn kǎ. Chéngshì wèi shèqū fāzhǎn chóngxīn shèjì tā, érqiě qǐng niánqīng jūmín yìqǐ tí yìjiàn. Dì-yī céng biànchéng fúwù dàtīng, kěyǐ bàn kǎ, yě néng jíyòng diànnǎo. Dì-èr céng ràng niánqīngrén liáotiānr, dì-sān céng gěi qítā jūmín xuéxí. Kāifàng nà tiān, gōngzuòrényuán chuānzhe yíyàng de shàngyī, zuǐ shàng yìzhí dàizhe xiào. Dàjiā hái zhǔnbèi le dàngāo, huānyíng zhù zài fùjìn de rén lái kànkan. Yǒurén dānxīn shuǐpíng bù yíyàng, gōngzuòrényuán shuō měi céng dōu yǒu bùtóng bāngzhù. Jiù fángzi yòu yǒu le zuòyòng, yě chéng le chéngshì gōnggòng fúwù fāzhǎn de lìzi.): Trở thành trung tâm dịch vụ cộng đồng",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-city-development",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:10",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:10:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "前天，国际青年中心办了网球体验日，欢迎一般水平的学生。外国学生报名时要写护照号码，也可以选择帮助语言。运动员先了解每个人的身高，再分给他们合适的球拍。小丁打开箱子，发现自己的衬衫和运动鞋都带来了。练习中他突然遇到一位可爱的小运动员，动作比他更快。小丁努力跟着练，最后得到教练满意的评价。休息时大家吃冰激凌，用不同语言交流运动经验。他发现，体验日不要求专业水平，只要求愿意努力。",
+      "pinyinReference": "Qiántiān, Guójì Qīngnián Zhōngxīn bàn le wǎngqiú tǐyànrì, huānyíng yìbān shuǐpíng de xuéshēng. Wàiguó xuéshēng bàomíng shí yào xiě hùzhào hàomǎ, yě kěyǐ xuǎnzé bāngzhù yǔyán. Yùndòngyuán xiān liǎojiě měi ge rén de shēngāo, zài fēn gěi tāmen héshì de qiúpāi. Xiǎo Dīng dǎkāi xiāngzi, fāxiàn zìjǐ de chènshān hé yùndòngxié dōu dàilai le. Liànxí zhōng tā tūrán yùdào yí wèi kě'ài de xiǎo yùndòngyuán, dòngzuò bǐ tā gèng kuài. Xiǎo Dīng nǔlì gēnzhe liàn, zuìhòu dédào jiàoliàn mǎnyì de píngjià. Xiūxi shí dàjiā chī bīngjīlíng, yòng bùtóng yǔyán jiāoliú yùndòng jīngyàn. Tā fāxiàn, tǐyànrì bù yāoqiú zhuānyè shuǐpíng, zhǐ yāoqiú yuànyì nǔlì.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chỉ vận động viên chuyên nghiệp"
+        },
+        {
+          "optionId": "B",
+          "text": "Người bán kem"
+        },
+        {
+          "optionId": "C",
+          "text": "Chỉ khách không có hộ chiếu"
+        },
+        {
+          "optionId": "D",
+          "text": "Học sinh trình độ phổ thông muốn thử quần vợt"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“前天，国际青年中心办了网球体验日，欢迎一般水平的学生。外国学生报名时要写护照号码，也可以选择帮助语言。运动员先了解每个人的身高，再分给他们合适的球拍。小丁打开箱子，发现自己的衬衫和运动鞋都带来了。练习中他突然遇到一位可爱的小运动员，动作比他更快。小丁努力跟着练，最后得到教练满意的评价。休息时大家吃冰激凌，用不同语言交流运动经验。他发现，体验日不要求专业水平，只要求愿意努力。” (Qiántiān, Guójì Qīngnián Zhōngxīn bàn le wǎngqiú tǐyànrì, huānyíng yìbān shuǐpíng de xuéshēng. Wàiguó xuéshēng bàomíng shí yào xiě hùzhào hàomǎ, yě kěyǐ xuǎnzé bāngzhù yǔyán. Yùndòngyuán xiān liǎojiě měi ge rén de shēngāo, zài fēn gěi tāmen héshì de qiúpāi. Xiǎo Dīng dǎkāi xiāngzi, fāxiàn zìjǐ de chènshān hé yùndòngxié dōu dàilai le. Liànxí zhōng tā tūrán yùdào yí wèi kě'ài de xiǎo yùndòngyuán, dòngzuò bǐ tā gèng kuài. Xiǎo Dīng nǔlì gēnzhe liàn, zuìhòu dédào jiàoliàn mǎnyì de píngjià. Xiūxi shí dàjiā chī bīngjīlíng, yòng bùtóng yǔyán jiāoliú yùndòng jīngyàn. Tā fāxiàn, tǐyànrì bù yāoqiú zhuānyè shuǐpíng, zhǐ yāoqiú yuànyì nǔlì.): Học sinh trình độ phổ thông muốn thử quần vợt",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-sports-introduction",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:11",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:11:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "过去，山村的人常在安静的草地上一起吃米饭。这种米饭是黄色的，里面有香蕉和一点儿糖，吃起来很甜。小林刚到村里，就认得了小时候吃过的味道。他打算拍照记录做法，还借了一本介绍当地菜的电子书。主人说，选择什么米很重要，不同的米会有不同的口感。小林想用银行卡付钱，可小市场只能收现金，他不知道怎么办。朋友先借给他一些钱，他才买到了米、糖和香蕉。他想起家里的味道，感动得差点儿哭，也更懂得食物和记忆的关系。",
+      "pinyinReference": "Guòqù, shāncūn de rén cháng zài ānjìng de cǎodì shàng yìqǐ chī mǐfàn. Zhè zhǒng mǐfàn shì huángsè de, lǐmiàn yǒu xiāngjiāo hé yìdiǎnr táng, chīqǐlái hěn tián. Xiǎo Lín gāng dào cūn lǐ, jiù rènde le xiǎoshíhou chīguo de wèidào. Tā dǎsuàn pāizhào jìlù zuòfǎ, hái jiè le yì běn jièshào dāngdì cài de diànzǐshū. Zhǔrén shuō, xuǎnzé shénme mǐ hěn zhòngyào, bùtóng de mǐ huì yǒu bùtóng de kǒugǎn. Xiǎo Lín xiǎng yòng yínhángkǎ fùqián, kě xiǎo shìchǎng zhǐ néng shōu xiànjīn, tā bù zhīdào zěnme bàn. Péngyou xiān jiè gěi tā yìxiē qián, tā cái mǎidào le mǐ, táng hé xiāngjiāo. Tā xiǎngqǐ jiālǐ de wèidào, gǎndòng de chàdiǎnr kū, yě gèng dǒngde shíwù hé jìyì de guānxi.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Một chuyến mua sách"
+        },
+        {
+          "optionId": "B",
+          "text": "Lịch sử của bãi cỏ"
+        },
+        {
+          "optionId": "C",
+          "text": "Một món cơm vùng miền gắn với ký ức và cách làm"
+        },
+        {
+          "optionId": "D",
+          "text": "Cách mở thẻ ngân hàng"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“过去，山村的人常在安静的草地上一起吃米饭。这种米饭是黄色的，里面有香蕉和一点儿糖，吃起来很甜。小林刚到村里，就认得了小时候吃过的味道。他打算拍照记录做法，还借了一本介绍当地菜的电子书。主人说，选择什么米很重要，不同的米会有不同的口感。小林想用银行卡付钱，可小市场只能收现金，他不知道怎么办。朋友先借给他一些钱，他才买到了米、糖和香蕉。他想起家里的味道，感动得差点儿哭，也更懂得食物和记忆的关系。” (Guòqù, shāncūn de rén cháng zài ānjìng de cǎodì shàng yìqǐ chī mǐfàn. Zhè zhǒng mǐfàn shì huángsè de, lǐmiàn yǒu xiāngjiāo hé yìdiǎnr táng, chīqǐlái hěn tián. Xiǎo Lín gāng dào cūn lǐ, jiù rènde le xiǎoshíhou chīguo de wèidào. Tā dǎsuàn pāizhào jìlù zuòfǎ, hái jiè le yì běn jièshào dāngdì cài de diànzǐshū. Zhǔrén shuō, xuǎnzé shénme mǐ hěn zhòngyào, bùtóng de mǐ huì yǒu bùtóng de kǒugǎn. Xiǎo Lín xiǎng yòng yínhángkǎ fùqián, kě xiǎo shìchǎng zhǐ néng shōu xiànjīn, tā bù zhīdào zěnme bàn. Péngyou xiān jiè gěi tā yìxiē qián, tā cái mǎidào le mǐ, táng hé xiāngjiāo. Tā xiǎngqǐ jiālǐ de wèidào, gǎndòng de chàdiǎnr kū, yě gèng dǒngde shíwù hé jìyì de guānxi.): Một món cơm vùng miền gắn với ký ức và cách làm",
+      "sourceLessonId": "hsk3-culture-tradition-descriptions-regional-cuisine",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:reading:12",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:reading:12:1",
+      "skill": "reading",
+      "construct": "eight-line-paragraph-reading-comprehension",
+      "promptVi": "Đọc đoạn tám dòng và chọn ý chính phù hợp nhất.",
+      "stimulusText": "今年新年放假时，王老师和爱人终于决定结婚。关于在节日办婚礼，家里人先讨论了很久，才选好日期。亲戚们很热情，有人休假回来，有人从外地带来礼物。一个聪明的孩子用数学算座位，还用外语欢迎外国客人。客人坐电梯上楼时，看见墙上写着各地过节的方法。婚礼不久就开始了，每一节活动都有说明，不让客人猜。晚上月亮出来以后，新人先感谢家人，再介绍礼物的意义。他们说传统可以一起过节，但每个家庭也能选择自己的做法。",
+      "pinyinReference": "Jīnnián xīnnián fàngjià shí, Wáng lǎoshī hé àiren zhōngyú juédìng jiéhūn. Guānyú zài jiérì bàn hūnlǐ, jiālǐrén xiān tǎolùn le hěn jiǔ, cái xuǎnhǎo rìqī. Qīnqi men hěn rèqíng, yǒurén xiūjià huílai, yǒurén cóng wàidì dàilai lǐwù. Yí ge cōngmíng de háizi yòng shùxué suàn zuòwèi, hái yòng wàiyǔ huānyíng wàiguó kèrén. Kèrén zuò diàntī shànglóu shí, kànjiàn qiáng shàng xiězhe gèdì guòjié de fāngfǎ. Hūnlǐ bùjiǔ jiù kāishǐ le, měi yì jié huódòng dōu yǒu shuōmíng, bú ràng kèrén cāi. Wǎnshang yuèliang chūlai yǐhòu, xīnrén xiān gǎnxiè jiārén, zài jièshào lǐwù de yìyì. Tāmen shuō chuántǒng kěyǐ yìqǐ guòjié, dàn měi ge jiātíng yě néng xuǎnzé zìjǐ de zuòfǎ.",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Một kỳ thi ngoại ngữ"
+        },
+        {
+          "optionId": "B",
+          "text": "Một đám cưới dịp năm mới có giải thích phong tục"
+        },
+        {
+          "optionId": "C",
+          "text": "Một tiết toán ở trường"
+        },
+        {
+          "optionId": "D",
+          "text": "Một chuyến đi thang máy"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“今年新年放假时，王老师和爱人终于决定结婚。关于在节日办婚礼，家里人先讨论了很久，才选好日期。亲戚们很热情，有人休假回来，有人从外地带来礼物。一个聪明的孩子用数学算座位，还用外语欢迎外国客人。客人坐电梯上楼时，看见墙上写着各地过节的方法。婚礼不久就开始了，每一节活动都有说明，不让客人猜。晚上月亮出来以后，新人先感谢家人，再介绍礼物的意义。他们说传统可以一起过节，但每个家庭也能选择自己的做法。” (Jīnnián xīnnián fàngjià shí, Wáng lǎoshī hé àiren zhōngyú juédìng jiéhūn. Guānyú zài jiérì bàn hūnlǐ, jiālǐrén xiān tǎolùn le hěn jiǔ, cái xuǎnhǎo rìqī. Qīnqi men hěn rèqíng, yǒurén xiūjià huílai, yǒurén cóng wàidì dàilai lǐwù. Yí ge cōngmíng de háizi yòng shùxué suàn zuòwèi, hái yòng wàiyǔ huānyíng wàiguó kèrén. Kèrén zuò diàntī shànglóu shí, kànjiàn qiáng shàng xiězhe gèdì guòjié de fāngfǎ. Hūnlǐ bùjiǔ jiù kāishǐ le, měi yì jié huódòng dōu yǒu shuōmíng, bú ràng kèrén cāi. Wǎnshang yuèliang chūlai yǐhòu, xīnrén xiān gǎnxiè jiārén, zài jièshào lǐwù de yìyì. Tāmen shuō chuántǒng kěyǐ yìqǐ guòjié, dàn měi ge jiātíng yě néng xuǎnzé zìjǐ de zuòfǎ.): Một đám cưới dịp năm mới có giải thích phong tục",
+      "sourceLessonId": "hsk3-culture-tradition-descriptions-festivals-customs",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:01",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:01:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "阿姨",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "làm; giải quyết hoặc tổ chức một việc"
+        },
+        {
+          "optionId": "B",
+          "text": "cô, dì hoặc người phụ nữ cùng thế hệ với cha mẹ"
+        },
+        {
+          "optionId": "C",
+          "text": "văn phòng"
+        },
+        {
+          "optionId": "D",
+          "text": "cỏ"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“阿姨”: cô, dì hoặc người phụ nữ cùng thế hệ với cha mẹ",
+      "sourceLessonId": "hsk3-personal-life-narratives-identity-transactions",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:02",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:02:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "瘦",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "gầy; chật đối với quần áo"
+        },
+        {
+          "optionId": "B",
+          "text": "nhất định; chắc chắn"
+        },
+        {
+          "optionId": "C",
+          "text": "đồ uống"
+        },
+        {
+          "optionId": "D",
+          "text": "máy ảnh"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“瘦”: gầy; chật đối với quần áo",
+      "sourceLessonId": "hsk3-personal-life-narratives-food-shopping",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:03",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:03:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "健康",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "luyện tập; bài tập"
+        },
+        {
+          "optionId": "B",
+          "text": "chai; lọ"
+        },
+        {
+          "optionId": "C",
+          "text": "luyện; tập"
+        },
+        {
+          "optionId": "D",
+          "text": "khỏe mạnh; sức khỏe"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“健康”: khỏe mạnh; sức khỏe",
+      "sourceLessonId": "hsk3-personal-life-narratives-health-care",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:04",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:04:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "把",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "ví dụ; chẳng hạn"
+        },
+        {
+          "optionId": "B",
+          "text": "lớp học; khối lớp"
+        },
+        {
+          "optionId": "C",
+          "text": "đưa, cầm; giới từ đưa tân ngữ lên trước động từ"
+        },
+        {
+          "optionId": "D",
+          "text": "phía bắc; miền bắc"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“把”: đưa, cầm; giới từ đưa tân ngữ lên trước động từ",
+      "sourceLessonId": "hsk3-study-work-accounts-courses-learning",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:05",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:05:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "作业",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "đưa, cầm; giới từ đưa tân ngữ lên trước động từ"
+        },
+        {
+          "optionId": "B",
+          "text": "bài tập; công việc được giao"
+        },
+        {
+          "optionId": "C",
+          "text": "lớp học; khối lớp"
+        },
+        {
+          "optionId": "D",
+          "text": "phía bắc; miền bắc"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“作业”: bài tập; công việc được giao",
+      "sourceLessonId": "hsk3-study-work-accounts-courses-learning",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:06",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:06:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "晚点",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trễ giờ; chậm chuyến"
+        },
+        {
+          "optionId": "B",
+          "text": "liên tục; luôn luôn"
+        },
+        {
+          "optionId": "C",
+          "text": "thư; thư điện tử"
+        },
+        {
+          "optionId": "D",
+          "text": "cần; nhu cầu"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“晚点”: trễ giờ; chậm chuyến",
+      "sourceLessonId": "hsk3-study-work-accounts-office-tasks",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:07",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:07:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "世界",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "máy giặt"
+        },
+        {
+          "optionId": "B",
+          "text": "tươi; mới mẻ"
+        },
+        {
+          "optionId": "C",
+          "text": "chải; quét; cọ"
+        },
+        {
+          "optionId": "D",
+          "text": "thế giới"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“世界”: thế giới",
+      "sourceLessonId": "hsk3-study-work-accounts-career-experience",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:08",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:08:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "假期",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "cân; nửa ki-lô-gam"
+        },
+        {
+          "optionId": "B",
+          "text": "đơn giản"
+        },
+        {
+          "optionId": "C",
+          "text": "kỳ nghỉ"
+        },
+        {
+          "optionId": "D",
+          "text": "phố; đường phố"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“假期”: kỳ nghỉ",
+      "sourceLessonId": "hsk3-nature-environment-explanations-plants-animals",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:09",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:09:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "西方",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "tây nam"
+        },
+        {
+          "optionId": "B",
+          "text": "phương tây; phía tây"
+        },
+        {
+          "optionId": "C",
+          "text": "phía bắc; miền bắc"
+        },
+        {
+          "optionId": "D",
+          "text": "thường thấy; phổ biến"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“西方”: phương tây; phía tây",
+      "sourceLessonId": "hsk3-nature-environment-explanations-landscape-place",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:10",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:10:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "提高",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "nâng cao; tăng"
+        },
+        {
+          "optionId": "B",
+          "text": "giống như; ví dụ như"
+        },
+        {
+          "optionId": "C",
+          "text": "cừu; dê"
+        },
+        {
+          "optionId": "D",
+          "text": "quên"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“提高”: nâng cao; tăng",
+      "sourceLessonId": "hsk3-nature-environment-explanations-environment-protection",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:11",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:11:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "卡",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "trẻ; trẻ tuổi"
+        },
+        {
+          "optionId": "B",
+          "text": "khác; những thứ khác"
+        },
+        {
+          "optionId": "C",
+          "text": "trò chuyện"
+        },
+        {
+          "optionId": "D",
+          "text": "thẻ; bị kẹt; chậm"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“卡”: thẻ; bị kẹt; chậm",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-city-development",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:12",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:12:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "衬衫",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "càng; hơn nữa"
+        },
+        {
+          "optionId": "B",
+          "text": "nhận được; đạt được"
+        },
+        {
+          "optionId": "C",
+          "text": "áo sơ mi"
+        },
+        {
+          "optionId": "D",
+          "text": "phát hiện"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“衬衫”: áo sơ mi",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-sports-introduction",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:13",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:13:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "以下",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "đại hội thể thao"
+        },
+        {
+          "optionId": "B",
+          "text": "trở xuống; dưới đây"
+        },
+        {
+          "optionId": "C",
+          "text": "tốt nhất; nên"
+        },
+        {
+          "optionId": "D",
+          "text": "thi đấu; cuộc thi; trận đấu"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“以下”: trở xuống; dưới đây",
+      "sourceLessonId": "hsk3-society-arts-sports-reports-competition-report",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:14",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:14:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "容易",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "dễ"
+        },
+        {
+          "optionId": "B",
+          "text": "bát"
+        },
+        {
+          "optionId": "C",
+          "text": "hướng về"
+        },
+        {
+          "optionId": "D",
+          "text": "thìa"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“容易”: dễ",
+      "sourceLessonId": "hsk3-culture-tradition-descriptions-tableware-etiquette",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:vocabulary:15",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:vocabulary:15:1",
+      "skill": "vocabulary",
+      "construct": "hsk3-word-meaning-recognition",
+      "promptVi": "Chọn nghĩa phù hợp nhất của từ HSK3.",
+      "stimulusText": "或",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "mặt"
+        },
+        {
+          "optionId": "B",
+          "text": "người nổi tiếng"
+        },
+        {
+          "optionId": "C",
+          "text": "lâu"
+        },
+        {
+          "optionId": "D",
+          "text": "hoặc"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“或”: hoặc",
+      "sourceLessonId": "hsk3-culture-tradition-descriptions-regional-differences",
+      "sourceUnitId": "hsk3-paragraph-input",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:01",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:01:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "回忆 người hướng dẫn quen thuộc: ____昨天给我们讲了老街的历史。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "老王昨天给我们讲了老街的历史。"
+        },
+        {
+          "optionId": "B",
+          "text": "第一次见面时，怎样介绍自己比较合适？"
+        },
+        {
+          "optionId": "C",
+          "text": "时间不早了，咱们回学校吧。"
+        },
+        {
+          "optionId": "D",
+          "text": "服务员端来两盘菜和三碗米饭。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“回忆 người hướng dẫn quen thuộc: ____昨天给我们讲了老街的历史。”: 老王昨天给我们讲了老街的历史。",
+      "sourceLessonId": "hsk3-reference-quantity-phrase-building-lesson-01",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:02",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:02:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Chọn tham chiếu chung: 时间不早了，____回学校吧。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "今天一共来了十个人，其中只有三个人带了照片。"
+        },
+        {
+          "optionId": "B",
+          "text": "出发前看地图能帮助大家少走错路。"
+        },
+        {
+          "optionId": "C",
+          "text": "时间不早了，咱们回学校吧。"
+        },
+        {
+          "optionId": "D",
+          "text": "服务员端来两盘菜和三碗米饭。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Chọn tham chiếu chung: 时间不早了，____回学校吧。”: 时间不早了，咱们回学校吧。",
+      "sourceLessonId": "hsk3-reference-quantity-phrase-building-lesson-01",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:03",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:03:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Hoàn thành phạm vi: 今天____来了十个人，其中____三个人带了照片。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "今天一共来了十个人，其中只有三个人带了照片。"
+        },
+        {
+          "optionId": "B",
+          "text": "出发前看地图能帮助大家少走错路。"
+        },
+        {
+          "optionId": "C",
+          "text": "我们大概下午三点到宾馆。"
+        },
+        {
+          "optionId": "D",
+          "text": "休息以后，她的精神更好了。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Hoàn thành phạm vi: 今天____来了十个人，其中____三个人带了照片。”: 今天一共来了十个人，其中只有三个人带了照片。",
+      "sourceLessonId": "hsk3-reference-quantity-phrase-building-lesson-02",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:04",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:04:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền ước lượng: 我们____下午三点到宾馆。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "医生说她必须按时吃药。"
+        },
+        {
+          "optionId": "B",
+          "text": "护士向病人介绍了关于检查的安排。"
+        },
+        {
+          "optionId": "C",
+          "text": "我们大概下午三点到宾馆。"
+        },
+        {
+          "optionId": "D",
+          "text": "休息以后，她的精神更好了。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Điền ước lượng: 我们____下午三点到宾馆。”: 我们大概下午三点到宾馆。",
+      "sourceLessonId": "hsk3-reference-quantity-phrase-building-lesson-03",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:05",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:05:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Chọn mức chắc chắn: 医生说她____按时吃药。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "医生说她必须按时吃药。"
+        },
+        {
+          "optionId": "B",
+          "text": "护士向病人介绍了关于检查的安排。"
+        },
+        {
+          "optionId": "C",
+          "text": "听不懂的话，可以再听一遍。"
+        },
+        {
+          "optionId": "D",
+          "text": "在我看来，每天复习十分钟比周末学很久更好。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Chọn mức chắc chắn: 医生说她____按时吃药。”: 医生说她必须按时吃药。",
+      "sourceLessonId": "hsk3-modality-time-viewpoint-framing-lesson-01",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:06",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:06:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền điều kiện: 听不懂____，可以再听一遍。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "对初学者来说，每天听新闻是一个新挑战。"
+        },
+        {
+          "optionId": "B",
+          "text": "吃饭以前先洗手，吃饭以后再收拾桌子。"
+        },
+        {
+          "optionId": "C",
+          "text": "听不懂的话，可以再听一遍。"
+        },
+        {
+          "optionId": "D",
+          "text": "在我看来，每天复习十分钟比周末学很久更好。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Điền điều kiện: 听不懂____，可以再听一遍。”: 听不懂的话，可以再听一遍。",
+      "sourceLessonId": "hsk3-modality-time-viewpoint-framing-lesson-02",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:07",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:07:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền đối tượng: ____，每天听新闻是一个新挑战。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "对初学者来说，每天听新闻是一个新挑战。"
+        },
+        {
+          "optionId": "B",
+          "text": "吃饭以前先洗手，吃饭以后再收拾桌子。"
+        },
+        {
+          "optionId": "C",
+          "text": "姐姐大学毕业两年了，现在在银行工作。"
+        },
+        {
+          "optionId": "D",
+          "text": "为了完成作业，我们见了三次面。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Điền đối tượng: ____，每天听新闻是一个新挑战。”: 对初学者来说，每天听新闻是一个新挑战。",
+      "sourceLessonId": "hsk3-modality-time-viewpoint-framing-lesson-02",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:08",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:08:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền khoảng từ mốc: 姐姐大学毕业____，现在在银行工作。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "说明很清楚，大家都听懂了。"
+        },
+        {
+          "optionId": "B",
+          "text": "听到音乐，孩子们都跳起来了。"
+        },
+        {
+          "optionId": "C",
+          "text": "姐姐大学毕业两年了，现在在银行工作。"
+        },
+        {
+          "optionId": "D",
+          "text": "为了完成作业，我们见了三次面。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Điền khoảng từ mốc: 姐姐大学毕业____，现在在银行工作。”: 姐姐大学毕业两年了，现在在银行工作。",
+      "sourceLessonId": "hsk3-modality-time-viewpoint-framing-lesson-03",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:09",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:09:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền kết quả: 说明很清楚，大家都____了。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "说明很清楚，大家都听懂了。"
+        },
+        {
+          "optionId": "B",
+          "text": "听到音乐，孩子们都跳起来了。"
+        },
+        {
+          "optionId": "C",
+          "text": "请把椅子搬到窗户旁边。"
+        },
+        {
+          "optionId": "D",
+          "text": "会议被客户取消了。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Điền kết quả: 说明很清楚，大家都____了。”: 说明很清楚，大家都听懂了。",
+      "sourceLessonId": "hsk3-event-complements-voice-lesson-01",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:10",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:10:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền vị trí kết quả: 请把椅子____窗户旁边。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "下班以后，办公室里走了三个人。"
+        },
+        {
+          "optionId": "B",
+          "text": "路上都是水，看起来刚下过雨。"
+        },
+        {
+          "optionId": "C",
+          "text": "请把椅子搬到窗户旁边。"
+        },
+        {
+          "optionId": "D",
+          "text": "会议被客户取消了。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Điền vị trí kết quả: 请把椅子____窗户旁边。”: 请把椅子搬到窗户旁边。",
+      "sourceLessonId": "hsk3-event-complements-voice-lesson-02",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:11",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:11:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền sự biến mất: 下班以后，办公室里____三个人。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "下班以后，办公室里走了三个人。"
+        },
+        {
+          "optionId": "B",
+          "text": "路上都是水，看起来刚下过雨。"
+        },
+        {
+          "optionId": "C",
+          "text": "风越刮越大，海浪越变越高。"
+        },
+        {
+          "optionId": "D",
+          "text": "找不到孩子，妈妈急坏了。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Điền sự biến mất: 下班以后，办公室里____三个人。”: 下班以后，办公室里走了三个人。",
+      "sourceLessonId": "hsk3-event-complements-voice-lesson-03",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:12",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:12:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Hoàn thành tương quan: 风____，海浪____。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "公共汽车跟地铁一样方便。"
+        },
+        {
+          "optionId": "B",
+          "text": "可以坐地铁或者公共汽车去剧院。"
+        },
+        {
+          "optionId": "C",
+          "text": "风越刮越大，海浪越变越高。"
+        },
+        {
+          "optionId": "D",
+          "text": "找不到孩子，妈妈急坏了。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Hoàn thành tương quan: 风____，海浪____。”: 风越刮越大，海浪越变越高。",
+      "sourceLessonId": "hsk3-comparison-description-evaluation-lesson-01",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:13",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:13:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Điền mẫu ngang bằng: 公共汽车____地铁____方便。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "公共汽车跟地铁一样方便。"
+        },
+        {
+          "optionId": "B",
+          "text": "可以坐地铁或者公共汽车去剧院。"
+        },
+        {
+          "optionId": "C",
+          "text": "我们先出示票，再进场。"
+        },
+        {
+          "optionId": "D",
+          "text": "这个汤又热又鲜。"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Điền mẫu ngang bằng: 公共汽车____地铁____方便。”: 公共汽车跟地铁一样方便。",
+      "sourceLessonId": "hsk3-comparison-description-evaluation-lesson-03",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:14",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:14:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Sắp thứ tự: 进场；出示票。→ ____。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "虽然菜很辣，可是我还是想尝一尝。"
+        },
+        {
+          "optionId": "B",
+          "text": "只有主人请你坐，你才坐下。"
+        },
+        {
+          "optionId": "C",
+          "text": "我们先出示票，再进场。"
+        },
+        {
+          "optionId": "D",
+          "text": "这个汤又热又鲜。"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“Sắp thứ tự: 进场；出示票。→ ____。”: 我们先出示票，再进场。",
+      "sourceLessonId": "hsk3-discourse-linking-lesson-01",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk3-level-check:form-a:grammar:15",
+      "sourceItemVersion": "hsk3-level-assessment-2026.07:hsk3-level-check:form-a:grammar:15:1",
+      "skill": "grammar",
+      "construct": "hsk3-grammar-in-paragraph-completion",
+      "promptVi": "Đọc ngữ cảnh và chọn câu hoàn thành đúng cấu trúc HSK3.",
+      "stimulusText": "Hoàn thành chuyển ý: ____菜很辣，____我还是想尝一尝。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "虽然菜很辣，可是我还是想尝一尝。"
+        },
+        {
+          "optionId": "B",
+          "text": "只有主人请你坐，你才坐下。"
+        },
+        {
+          "optionId": "C",
+          "text": "老王昨天给我们讲了老街的历史。"
+        },
+        {
+          "optionId": "D",
+          "text": "第一次见面时，怎样介绍自己比较合适？"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“Hoàn thành chuyển ý: ____菜很辣，____我还是想尝一尝。”: 虽然菜很辣，可是我还是想尝一尝。",
+      "sourceLessonId": "hsk3-discourse-linking-lesson-02",
+      "sourceUnitId": "hsk3-narration",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    }
+  ],
+  "integritySha256": "sha256:4bd65b894a3e85a60b82bb8a19e918cd4a313829d177c05521d3fd227bdee803"
+}

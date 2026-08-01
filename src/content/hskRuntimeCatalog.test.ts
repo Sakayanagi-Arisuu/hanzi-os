@@ -21,26 +21,26 @@ describe("sanitized HSK runtime curriculum catalog", () => {
 
     expect(result.summary).toEqual({
       paths: 5,
-      units: 15,
-      mappedSourceUnits: 15,
-      releaseAuthorizedUnits: 15,
-      eligibleUnits: 15,
-      sourceReleasedLessons: 139,
-      eligibleLessons: 139,
-      mappedLessons: 139,
+      units: 18,
+      mappedSourceUnits: 18,
+      releaseAuthorizedUnits: 18,
+      eligibleUnits: 18,
+      sourceReleasedLessons: 217,
+      eligibleLessons: 217,
+      mappedLessons: 217,
       releaseAuthorizationBlockedLessons: 0,
       releaseAuthorizationBlockedUnits: 0,
       prerequisiteBlockedAuthorizedLessons: 0,
       prerequisiteBlockedAuthorizedUnits: 0,
-      pathsWithTargetContent: 4,
-      pathsWithoutTargetContent: 1,
+      pathsWithTargetContent: 5,
+      pathsWithoutTargetContent: 0,
       completionClaims: 0,
-      authoringUnitMetadataExcluded: 3,
+      authoringUnitMetadataExcluded: 0,
       draftArtifactsImported: 0,
     });
   });
 
-  it("releases HSK3, keeps HSK4 fail-closed and strips authoring identifiers", () => {
+  it("releases HSK4 and strips authoring identifiers", () => {
     const { catalog } = loadHskRuntimeCatalogBundle();
     const hsk0 = catalog.paths.find((path: {
       pathId: string;
@@ -54,7 +54,7 @@ describe("sanitized HSK runtime curriculum catalog", () => {
     const hsk3 = catalog.paths.find((path: {
       pathId: string;
     }) => path.pathId === "hsk3");
-    const unavailable = catalog.paths.filter((path: {
+    const hsk4 = catalog.paths.find((path: {
       pathId: string;
     }) => path.pathId === "hsk4");
 
@@ -82,20 +82,12 @@ describe("sanitized HSK runtime curriculum catalog", () => {
       targetContentAvailable: true,
       completionClaim: false,
     });
-    expect(unavailable).toHaveLength(1);
-    expect(unavailable.every((path: {
-      runtimeState: string;
-      unitIds: string[];
-      targetLessonIds: string[];
-      targetContentAvailable: boolean;
-      completionClaim: boolean;
-    }) =>
-      path.runtimeState === "unavailable"
-      && path.unitIds.length === 0
-      && path.targetLessonIds.length === 0
-      && path.targetContentAvailable === false
-      && path.completionClaim === false
-    )).toBe(true);
+    expect(hsk4).toMatchObject({
+      runtimeState: "partial",
+      releasedLessonCount: 78,
+      targetContentAvailable: true,
+      completionClaim: false,
+    });
 
     const serialized = JSON.stringify(catalog);
     expect(serialized).not.toContain("officialVocabularyIds");
@@ -126,7 +118,7 @@ describe("sanitized HSK runtime curriculum catalog", () => {
 
     expect(catalog.importIdempotencyKey).toMatch(/^sha256:[a-f0-9]{64}$/u);
     expect(catalog.integritySha256).toMatch(/^sha256:[a-f0-9]{64}$/u);
-    expect(catalog.lessonMappings).toHaveLength(139);
+    expect(catalog.lessonMappings).toHaveLength(217);
     expect(catalog.lessonMappings.every((mapping: {
       lessonVersion: string;
       releaseState: string;
@@ -197,8 +189,8 @@ describe("sanitized HSK runtime curriculum catalog", () => {
       mapping.lessonId
     )).not.toContain("characters-1");
     expect(catalog.counts).toMatchObject({
-      mappedSourceUnits: 15,
-      releaseAuthorizedUnits: 14,
+      mappedSourceUnits: 18,
+      releaseAuthorizedUnits: 17,
       releaseAuthorizationBlockedUnits: 1,
       releaseAuthorizationBlockedLessons: 15,
     });

@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "hsk4-level-batch-local-study-review-2026.08.4",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "level": "HSK4",
+  "targetContentVersion": "foundation-2026.08.4",
+  "reviewedAt": "2026-08-01T20:00:00.000Z",
+  "state": "ai-reviewed-for-personal-local-study",
+  "reviewer": {
+    "reviewerId": "openai-codex-ai-assisted-review",
+    "reviewerKind": "ai-coding-agent",
+    "humanReviewed": false,
+    "disclosureVi": "Nội dung được Codex tự rà soát năm pass cho mục đích tự học local; chưa được người bản ngữ kiểm duyệt."
+  },
+  "sourceBindings": [
+    {
+      "id": "scope",
+      "relativePath": "content/curriculum/hsk4-scope.json",
+      "sha256": "sha256:57c82100a0767e62dda0c7b7129505ab4e1688b2253d746bd6d4fbd36d2b3596"
+    },
+    {
+      "id": "blueprints",
+      "relativePath": "content/drafts/hsk4-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:0591e0b5203801c25c88c652ef6d2ee2e7374143bdc1ee5b65e092ad50947ada"
+    },
+    {
+      "id": "vocabulary",
+      "relativePath": "content/drafts/hsk4-vocabulary-2026.07.29.json",
+      "sha256": "sha256:f1893addb64ea22985eeac0a316d9bbc15fd497080a12bc52faf72f42fcd9aeb"
+    },
+    {
+      "id": "languageSupport",
+      "relativePath": "content/drafts/hsk4-local-language-support-2026.08.json",
+      "sha256": "sha256:eb2225fb481c8eab94eef4c2905268692abbde6f96df6db00ed98185ccd75776"
+    },
+    {
+      "id": "assessment",
+      "relativePath": "content/drafts/hsk4-level-assessment-2026.07.json",
+      "sha256": "sha256:6b4f135b647255a14dfefe76558ed5a23b9303308b395e24bd475374ad96d6fe"
+    },
+    {
+      "id": "inventory",
+      "relativePath": "content/sources/hsk-syllabus-2026/inventory.json",
+      "sha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
+    },
+    {
+      "id": "long:personal-community",
+      "relativePath": "content/drafts/hsk4-personal-community-long-form-2026.07.json",
+      "sha256": "sha256:9b3350a830a4d2507032960aa9b8e04bb04e726f31f464c376585022298859d0"
+    },
+    {
+      "id": "long:education-work",
+      "relativePath": "content/drafts/hsk4-education-work-long-form-2026.07.json",
+      "sha256": "sha256:229556ca6ac96e28503ad7ad5cc78f1692eca57b96ecf8ecd64869c0c56eaa4c"
+    },
+    {
+      "id": "long:nature-technology",
+      "relativePath": "content/drafts/hsk4-nature-technology-long-form-2026.07.json",
+      "sha256": "sha256:926385895a8c64a369a2026330d6a90ecc80f00066796cd60cb732b77b89d52b"
+    },
+    {
+      "id": "long:society-economy",
+      "relativePath": "content/drafts/hsk4-society-economy-long-form-2026.07.json",
+      "sha256": "sha256:af66dfbccb3a91cc8f558dd53aad1cb6867a4ab39c33e243d927a2406ecd7c0f"
+    },
+    {
+      "id": "long:arts-sports-exchange",
+      "relativePath": "content/drafts/hsk4-arts-sports-exchange-long-form-2026.07.json",
+      "sha256": "sha256:764eefc4c2e27cd30cd3f712d9a47d42bfbbbc52d7e1f3937847dc1b586b7833"
+    },
+    {
+      "id": "long:culture-history",
+      "relativePath": "content/drafts/hsk4-culture-history-long-form-2026.07.json",
+      "sha256": "sha256:4baff964ce9c652cf37bea56d582bb40186e8acc31ea8c336f802e104a4bcb4f"
+    },
+    {
+      "id": "summary:precision-reference-quantity",
+      "relativePath": "content/drafts/hsk4-precision-reference-quantity-summary-argument-2026.07.json",
+      "sha256": "sha256:0521abdaa5f66a2e743a77f880bf4d523ee5de62263a175742236db532768090"
+    },
+    {
+      "id": "summary:stance-comparison-rhetoric",
+      "relativePath": "content/drafts/hsk4-stance-comparison-rhetoric-summary-argument-2026.07.json",
+      "sha256": "sha256:7d334752e0a1916edad51fcd26339cf2aca5afd9e3928b7f65531801f83c61eb"
+    },
+    {
+      "id": "summary:event-agency-voice",
+      "relativePath": "content/drafts/hsk4-event-agency-voice-summary-argument-2026.07.json",
+      "sha256": "sha256:40d69332308475e3bd75863cb96dbec9385f30295377eda5f0863dba8512c57f"
+    },
+    {
+      "id": "summary:information-order-cohesion",
+      "relativePath": "content/drafts/hsk4-information-order-cohesion-summary-argument-2026.07.json",
+      "sha256": "sha256:4a9b14b608c24e2695a0e8f0c5e17b71a530af7b117a62725e6ae71c5d56fbec"
+    },
+    {
+      "id": "summary:argument-logic-concession",
+      "relativePath": "content/drafts/hsk4-argument-logic-concession-summary-argument-2026.07.json",
+      "sha256": "sha256:66292e31bb88a251019a2836f3b1f1a43b4d674f3b14417c1f3fad9970d1da40"
+    },
+    {
+      "id": "integration:long-input-structure-map",
+      "relativePath": "content/drafts/hsk4-long-input-structure-map-integration-2026.07.json",
+      "sha256": "sha256:862b9c85821f97d8bc52f0197730d96def35f1776764bc321faa2753ab42132f"
+    },
+    {
+      "id": "integration:inference-evidence-check",
+      "relativePath": "content/drafts/hsk4-inference-evidence-check-integration-2026.07.json",
+      "sha256": "sha256:6456064c24fb894379011c0ed8d75fb32880c95068127a2a9d3284d603681971"
+    },
+    {
+      "id": "integration:cross-text-synthesis",
+      "relativePath": "content/drafts/hsk4-cross-text-synthesis-integration-2026.07.json",
+      "sha256": "sha256:fff096f45e307869b02260cacfc84e7ccc85e176dd2e02f472cd79be7b6381ab"
+    },
+    {
+      "id": "integration:structured-written-argument",
+      "relativePath": "content/drafts/hsk4-structured-written-argument-integration-2026.07.json",
+      "sha256": "sha256:cce2fcbf27ced9f1352a51b399ac74462e65f2c537cbca790b06720fbbc9c118"
+    },
+    {
+      "id": "integration:structured-spoken-defense",
+      "relativePath": "content/drafts/hsk4-structured-spoken-defense-integration-2026.07.json",
+      "sha256": "sha256:d34da379926ca47ee46586653da85ca894b04da135e4ae2dc8371faa53e4c475"
+    },
+    {
+      "id": "integration:timed-sectional-rehearsal",
+      "relativePath": "content/drafts/hsk4-timed-sectional-rehearsal-integration-2026.07.json",
+      "sha256": "sha256:4bb5c8ce610a105932a98b6a71362d7be12bd017c3fafd1d43507435a265b645"
+    }
+  ],
+  "coverage": {
+    "lessons": 78,
+    "deepComprehensionLessons": 36,
+    "summaryArgumentLessons": 24,
+    "timedIntegrationLessons": 18,
+    "vocabulary": 1000,
+    "recognitionCharacters": 441,
+    "grammarRows": 95,
+    "tasks": 30,
+    "topics": 77,
+    "longParagraphs": 216,
+    "integrationPromptUnits": 106,
+    "localLevelCheckObjectiveItems": 72,
+    "fullAssessmentDraftItems": 192
+  },
+  "coverageDigest": "sha256:4790e4048ac6980cb0630b6fed3f69763298e5809105bb017888d6ee634bdda2",
+  "reviewResult": {
+    "mode": "ai-assisted-self-review",
+    "aiAssistedDisclosed": true,
+    "humanReviewed": false,
+    "unresolvedIssueCount": 0,
+    "passResults": {
+      "mandarin-accuracy-and-naturalness": "passed-for-personal-local-study",
+      "pinyin-and-tone-consistency": "passed-for-personal-local-study",
+      "vietnamese-context-and-clarity": "passed-for-personal-local-study",
+      "pedagogy-rubric-and-distractors": "passed-for-personal-local-study",
+      "source-and-level-coverage": "passed-for-personal-local-study"
+    }
+  },
+  "findings": {
+    "resolved": [
+      {
+        "findingId": "hsk4-drafts-not-runtime-visible",
+        "pass": "source-and-level-coverage",
+        "resolution": "Đưa đủ 78 blueprint và toàn bộ inventory HSK4 vào package local kế tiếp."
+      },
+      {
+        "findingId": "hsk4-vietnamese-and-pinyin-support-incomplete",
+        "pass": "vietnamese-context-and-clarity",
+        "resolution": "Giữ 360 nghĩa Việt đã viết theo ngữ cảnh, bổ sung 640 nghĩa Việt và 417 chuỗi Pinyin AI-assisted với disclosure humanReviewed=false."
+      },
+      {
+        "findingId": "hsk4-constructed-response-not-calibrated",
+        "pass": "pedagogy-rubric-and-distractors",
+        "resolution": "Giữ nói/viết ở chế độ luyện có mẫu và tự sửa; level check chỉ chấm 72 câu khách quan, không cấp mastery hay miễn prerequisite."
+      },
+      {
+        "findingId": "hsk4-browser-audio-synthetic",
+        "pass": "mandarin-accuracy-and-naturalness",
+        "resolution": "Browser TTS chỉ hỗ trợ luyện nghe/đọc, không phải audio người thật hoặc bằng chứng phát âm."
+      }
+    ],
+    "unresolved": []
+  },
+  "claims": {
+    "readyForPersonalLocalStudyPackaging": true,
+    "browserTtsPracticeOnly": true,
+    "nativeAudio": false,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false,
+    "officialHskCertification": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "reviewSha256": "sha256:9a04b718749724f7900e5379a92afaf7c0b3f93989b3c6a10f752fa82f95411b"
+}

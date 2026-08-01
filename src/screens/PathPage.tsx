@@ -220,6 +220,23 @@ export function PathPage() {
         </section>
       )}
 
+      {selectedPath.id === "hsk4" && (
+        <section className="hsk-level-check-card" data-testid="hsk4-level-check-card">
+          <div className="hsk-level-check-icon"><Crosshair size={28} /></div>
+          <div>
+            <span className="system-kicker">LEVEL CHECK · LOCAL SELF-STUDY</span>
+            <h2>Kiểm tra cuối chặng HSK4</h2>
+            <p>
+              72 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
+              gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
+            </p>
+          </div>
+          <Link className="primary-button" to="/assessment/hsk4">
+            Mở level check <ChevronRight size={17} />
+          </Link>
+        </section>
+      )}
+
       <footer className="path-footer-note">
         <Orbit size={18} />
         <p><strong>Các cảnh giới khóa mở theo kết quả bài tiên quyết.</strong> Hãy củng cố phần còn sai trước khi tiến sang vùng tiếp theo.</p>

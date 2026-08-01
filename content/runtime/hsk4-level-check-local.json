@@ -1,0 +1,2544 @@
+{
+  "schemaVersion": 1,
+  "bankId": "hsk4-level-assessment-2026.07",
+  "formId": "hsk4-level-form-a",
+  "contentVersion": "foundation-2026.08.4",
+  "state": "ai-reviewed-for-personal-local-self-check",
+  "disclosure": {
+    "humanReviewed": false,
+    "browserTtsPracticeOnly": true,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false
+  },
+  "counts": {
+    "items": 72,
+    "listening": 18,
+    "reading": 18,
+    "vocabulary": 18,
+    "grammar": 18
+  },
+  "items": [
+    {
+      "id": "hsk4-level-check:form-a:listening:01",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:01:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "高温联系网运行一周后，志愿者发现白天的送水名单到了晚上常常已经过时。有些居民临时去了亲戚家，有些人已经从邻居那里得到水，还有人因为手机没电一直没有回复。于是值班组不再直接按照早上的名单出发。新流程要求出发前由两个人分别确认：一人检查最新留言，另一人给楼道联系人打电话。若两种信息不一致，任务会被标为“需要再次判断”，而不是自动取消。诊所有紧急建议时，只有经过培训的负责人才能改变优先顺序。三晚以后，重复送水减少了，但再次确认平均多花了七分钟。负责人认为这七分钟不能简单算作浪费，因为它也减少了敲错门和公开健康信息的风险。下一轮还要记录真正延误的紧急任务，才能判断流程是否需要缩短。",
+      "pinyinReference": null,
+      "syntheticTtsText": "高温联系网运行一周后，志愿者发现白天的送水名单到了晚上常常已经过时。有些居民临时去了亲戚家，有些人已经从邻居那里得到水，还有人因为手机没电一直没有回复。于是值班组不再直接按照早上的名单出发。新流程要求出发前由两个人分别确认：一人检查最新留言，另一人给楼道联系人打电话。若两种信息不一致，任务会被标为“需要再次判断”，而不是自动取消。诊所有紧急建议时，只有经过培训的负责人才能改变优先顺序。三晚以后，重复送水减少了，但再次确认平均多花了七分钟。负责人认为这七分钟不能简单算作浪费，因为它也减少了敲错门和公开健康信息的风险。下一轮还要记录真正延误的紧急任务，才能判断流程是否需要缩短。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Danh sách ban đêm cần xác nhận kép và phải đánh giá tốc độ cùng rủi ro riêng tư, giao nhầm."
+        },
+        {
+          "optionId": "B",
+          "text": "Quy trình mới tốn thêm trung bình bảy phút và đồng thời giảm giao nước trùng."
+        },
+        {
+          "optionId": "C",
+          "text": "Thời gian xác nhận tăng không tự nó chứng minh hỗ trợ khẩn cấp chậm đi."
+        },
+        {
+          "optionId": "D",
+          "text": "Mọi tình nguyện viên đều có thể tự công khai dữ liệu sức khỏe và đổi ưu tiên."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Nguồn mô tả lý do danh sách cũ sai, quy trình xác nhận và cách cân nhắc chi phí thời gian. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:02",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:02:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "高温联系网运行一周后，志愿者发现白天的送水名单到了晚上常常已经过时。有些居民临时去了亲戚家，有些人已经从邻居那里得到水，还有人因为手机没电一直没有回复。于是值班组不再直接按照早上的名单出发。新流程要求出发前由两个人分别确认：一人检查最新留言，另一人给楼道联系人打电话。若两种信息不一致，任务会被标为“需要再次判断”，而不是自动取消。诊所有紧急建议时，只有经过培训的负责人才能改变优先顺序。三晚以后，重复送水减少了，但再次确认平均多花了七分钟。负责人认为这七分钟不能简单算作浪费，因为它也减少了敲错门和公开健康信息的风险。下一轮还要记录真正延误的紧急任务，才能判断流程是否需要缩短。",
+      "pinyinReference": null,
+      "syntheticTtsText": "高温联系网运行一周后，志愿者发现白天的送水名单到了晚上常常已经过时。有些居民临时去了亲戚家，有些人已经从邻居那里得到水，还有人因为手机没电一直没有回复。于是值班组不再直接按照早上的名单出发。新流程要求出发前由两个人分别确认：一人检查最新留言，另一人给楼道联系人打电话。若两种信息不一致，任务会被标为“需要再次判断”，而不是自动取消。诊所有紧急建议时，只有经过培训的负责人才能改变优先顺序。三晚以后，重复送水减少了，但再次确认平均多花了七分钟。负责人认为这七分钟不能简单算作浪费，因为它也减少了敲错门和公开健康信息的风险。下一轮还要记录真正延误的紧急任务，才能判断流程是否需要缩短。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Quy trình mới tốn thêm trung bình bảy phút và đồng thời giảm giao nước trùng."
+        },
+        {
+          "optionId": "B",
+          "text": "Thời gian xác nhận tăng không tự nó chứng minh hỗ trợ khẩn cấp chậm đi."
+        },
+        {
+          "optionId": "C",
+          "text": "Mọi tình nguyện viên đều có thể tự công khai dữ liệu sức khỏe và đổi ưu tiên."
+        },
+        {
+          "optionId": "D",
+          "text": "Danh sách ban đêm cần xác nhận kép và phải đánh giá tốc độ cùng rủi ro riêng tư, giao nhầm."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Hai kết quả này được nêu trực tiếp ở đoạn ba. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:03",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:03:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "高温联系网运行一周后，志愿者发现白天的送水名单到了晚上常常已经过时。有些居民临时去了亲戚家，有些人已经从邻居那里得到水，还有人因为手机没电一直没有回复。于是值班组不再直接按照早上的名单出发。新流程要求出发前由两个人分别确认：一人检查最新留言，另一人给楼道联系人打电话。若两种信息不一致，任务会被标为“需要再次判断”，而不是自动取消。诊所有紧急建议时，只有经过培训的负责人才能改变优先顺序。三晚以后，重复送水减少了，但再次确认平均多花了七分钟。负责人认为这七分钟不能简单算作浪费，因为它也减少了敲错门和公开健康信息的风险。下一轮还要记录真正延误的紧急任务，才能判断流程是否需要缩短。",
+      "pinyinReference": null,
+      "syntheticTtsText": "高温联系网运行一周后，志愿者发现白天的送水名单到了晚上常常已经过时。有些居民临时去了亲戚家，有些人已经从邻居那里得到水，还有人因为手机没电一直没有回复。于是值班组不再直接按照早上的名单出发。新流程要求出发前由两个人分别确认：一人检查最新留言，另一人给楼道联系人打电话。若两种信息不一致，任务会被标为“需要再次判断”，而不是自动取消。诊所有紧急建议时，只有经过培训的负责人才能改变优先顺序。三晚以后，重复送水减少了，但再次确认平均多花了七分钟。负责人认为这七分钟不能简单算作浪费，因为它也减少了敲错门和公开健康信息的风险。下一轮还要记录真正延误的紧急任务，才能判断流程是否需要缩短。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Thời gian xác nhận tăng không tự nó chứng minh hỗ trợ khẩn cấp chậm đi."
+        },
+        {
+          "optionId": "B",
+          "text": "Mọi tình nguyện viên đều có thể tự công khai dữ liệu sức khỏe và đổi ưu tiên."
+        },
+        {
+          "optionId": "C",
+          "text": "Danh sách ban đêm cần xác nhận kép và phải đánh giá tốc độ cùng rủi ro riêng tư, giao nhầm."
+        },
+        {
+          "optionId": "D",
+          "text": "Quy trình mới tốn thêm trung bình bảy phút và đồng thời giảm giao nước trùng."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Nguồn nói cần ghi riêng các nhiệm vụ khẩn thực sự bị chậm. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:01",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:01:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "去年夏天，青河社区把独居老人、志愿者和附近诊所连成一张高温联系网。气温超过三十五度时，志愿者先发信息，再给没有回复的人打电话。社区强调，这张表只用于确认是否需要帮助，不能代替医生判断，也不能随便交给商业机构。第一次试行涉及八十四户，六十一户当天回复，十七户需要送水或买药，四户后来由诊所继续联系。工作人员发现，接通电话并不等于问题已经解决；有的人虽然说“没事”，房间里却没有风扇，也不知道最近的避暑点在哪里。第二次试行增加了本人同意、两种联系方式和“是否已经得到帮助”三项记录。社区准备同时比较回复速度、实际完成的帮助和漏掉的高风险情况。不过，数据只来自两个炎热星期，季节更长或居民更多时是否有效，还需要继续观察。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Mạng liên lạc phải tách phản hồi, hỗ trợ thực tế và nguy cơ bỏ sót, đồng thời bảo vệ sự đồng ý của cư dân."
+        },
+        {
+          "optionId": "B",
+          "text": "Trong 84 hộ có 61 hộ phản hồi trong ngày và 17 hộ cần giao nước hoặc mua thuốc."
+        },
+        {
+          "optionId": "C",
+          "text": "Chỉ báo tỷ lệ bắt máy có thể che giấu hỗ trợ chưa hoàn tất."
+        },
+        {
+          "optionId": "D",
+          "text": "Mạng này đã chứng minh mọi người cao tuổi sống một mình trong toàn thành phố đều an toàn qua đợt nóng."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Cả ba đoạn lần lượt nêu mục đích, khoảng cách giữa bắt máy và được giúp, rồi cách đo lường thận trọng. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:02",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:02:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "去年夏天，青河社区把独居老人、志愿者和附近诊所连成一张高温联系网。气温超过三十五度时，志愿者先发信息，再给没有回复的人打电话。社区强调，这张表只用于确认是否需要帮助，不能代替医生判断，也不能随便交给商业机构。第一次试行涉及八十四户，六十一户当天回复，十七户需要送水或买药，四户后来由诊所继续联系。工作人员发现，接通电话并不等于问题已经解决；有的人虽然说“没事”，房间里却没有风扇，也不知道最近的避暑点在哪里。第二次试行增加了本人同意、两种联系方式和“是否已经得到帮助”三项记录。社区准备同时比较回复速度、实际完成的帮助和漏掉的高风险情况。不过，数据只来自两个炎热星期，季节更长或居民更多时是否有效，还需要继续观察。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trong 84 hộ có 61 hộ phản hồi trong ngày và 17 hộ cần giao nước hoặc mua thuốc."
+        },
+        {
+          "optionId": "B",
+          "text": "Chỉ báo tỷ lệ bắt máy có thể che giấu hỗ trợ chưa hoàn tất."
+        },
+        {
+          "optionId": "C",
+          "text": "Mạng này đã chứng minh mọi người cao tuổi sống một mình trong toàn thành phố đều an toàn qua đợt nóng."
+        },
+        {
+          "optionId": "D",
+          "text": "Mạng liên lạc phải tách phản hồi, hỗ trợ thực tế và nguy cơ bỏ sót, đồng thời bảo vệ sự đồng ý của cư dân."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Đây là hai con số được nêu trực tiếp ở đoạn hai. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:03",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:03:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "去年夏天，青河社区把独居老人、志愿者和附近诊所连成一张高温联系网。气温超过三十五度时，志愿者先发信息，再给没有回复的人打电话。社区强调，这张表只用于确认是否需要帮助，不能代替医生判断，也不能随便交给商业机构。第一次试行涉及八十四户，六十一户当天回复，十七户需要送水或买药，四户后来由诊所继续联系。工作人员发现，接通电话并不等于问题已经解决；有的人虽然说“没事”，房间里却没有风扇，也不知道最近的避暑点在哪里。第二次试行增加了本人同意、两种联系方式和“是否已经得到帮助”三项记录。社区准备同时比较回复速度、实际完成的帮助和漏掉的高风险情况。不过，数据只来自两个炎热星期，季节更长或居民更多时是否有效，还需要继续观察。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chỉ báo tỷ lệ bắt máy có thể che giấu hỗ trợ chưa hoàn tất."
+        },
+        {
+          "optionId": "B",
+          "text": "Mạng này đã chứng minh mọi người cao tuổi sống một mình trong toàn thành phố đều an toàn qua đợt nóng."
+        },
+        {
+          "optionId": "C",
+          "text": "Mạng liên lạc phải tách phản hồi, hỗ trợ thực tế và nguy cơ bỏ sót, đồng thời bảo vệ sự đồng ý của cư dân."
+        },
+        {
+          "optionId": "D",
+          "text": "Trong 84 hộ có 61 hộ phản hồi trong ngày và 17 hộ cần giao nước hoặc mua thuốc."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Nguồn phân biệt rõ bắt máy với giải quyết vấn đề và bổ sung chỉ số hoàn tất. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:01",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:01:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "去年夏天，青河社区把独居老人、志愿者和附近诊所连成一张高温____网。",
+      "pinyinReference": "liánxì",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "联系"
+        },
+        {
+          "optionId": "B",
+          "text": "判断"
+        },
+        {
+          "optionId": "C",
+          "text": "顺序"
+        },
+        {
+          "optionId": "D",
+          "text": "结果"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“联系” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:02",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:02:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "社区强调，这张表只用于确认是否需要帮助，不能代替医生____，也不能随便交给商业机构。",
+      "pinyinReference": "pànduàn",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "判断"
+        },
+        {
+          "optionId": "B",
+          "text": "顺序"
+        },
+        {
+          "optionId": "C",
+          "text": "结果"
+        },
+        {
+          "optionId": "D",
+          "text": "联系"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“判断” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:03",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:03:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "诊所有紧急建议时，只有经过培训的负责人才能改变优先____。",
+      "pinyinReference": "shùnxù",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "顺序"
+        },
+        {
+          "optionId": "B",
+          "text": "结果"
+        },
+        {
+          "optionId": "C",
+          "text": "联系"
+        },
+        {
+          "optionId": "D",
+          "text": "判断"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“顺序” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:01",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:01:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "____居民已经接通电话，工作人员____要确认帮助是否完成。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "即使……也……"
+        },
+        {
+          "optionId": "B",
+          "text": "因为……所以……"
+        },
+        {
+          "optionId": "C",
+          "text": "不但……而且……"
+        },
+        {
+          "optionId": "D",
+          "text": "与其……不如……"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-089 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:02",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:02:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "____没有回复的人____要再次确认，高风险情况____不能忽略。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "因为……所以……也……"
+        },
+        {
+          "optionId": "B",
+          "text": "只要……就……才……"
+        },
+        {
+          "optionId": "C",
+          "text": "虽然……但是……却……"
+        },
+        {
+          "optionId": "D",
+          "text": "连……也……更……"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-075 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:03",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:03:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "为了避免遗漏，值班员____再次检查名单。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "从不"
+        },
+        {
+          "optionId": "B",
+          "text": "未必"
+        },
+        {
+          "optionId": "C",
+          "text": "不能不"
+        },
+        {
+          "optionId": "D",
+          "text": "并不"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-065 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Hai đợt thử nghiệm ngắn tại một khu dân cư không đại diện cho toàn thành phố; không bắt máy cũng không tự động có nghĩa là an toàn hay gặp nguy hiểm.",
+      "sourceLessonId": "hsk4-personal-community-analysis-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:04",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:04:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "仓库原来把十分钟安全微课放在夜班开始前。签到率有百分之九十，可不少员工为了赶交接只打开视频，没有完成最后的情境判断。培训组因此怀疑，高签到率并没有表示大家真正理解了危险信号。第二个月，两个班组改在工作一小时后学习，并由组长用当天的一个例子提问。完成判断题的人变多了，但机器最忙时暂停学习也造成了压力。另一班继续使用原时间，作为比较，不过两班承担的订单并不完全相同。培训组没有马上宣布新时间更好，而是准备同时记录完成率、错误类型和生产中断。员工还可以匿名说明哪个时间最难集中。只有把学习效果和工作负担放在一起，安排才可能长期执行。",
+      "pinyinReference": null,
+      "syntheticTtsText": "仓库原来把十分钟安全微课放在夜班开始前。签到率有百分之九十，可不少员工为了赶交接只打开视频，没有完成最后的情境判断。培训组因此怀疑，高签到率并没有表示大家真正理解了危险信号。第二个月，两个班组改在工作一小时后学习，并由组长用当天的一个例子提问。完成判断题的人变多了，但机器最忙时暂停学习也造成了压力。另一班继续使用原时间，作为比较，不过两班承担的订单并不完全相同。培训组没有马上宣布新时间更好，而是准备同时记录完成率、错误类型和生产中断。员工还可以匿名说明哪个时间最难集中。只有把学习效果和工作负担放在一起，安排才可能长期执行。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Khi chuyển sang sau một giờ làm, số người hoàn thành phán đoán tình huống tăng."
+        },
+        {
+          "optionId": "B",
+          "text": "Khác biệt lượng đơn có thể ảnh hưởng việc so sánh hai nhóm."
+        },
+        {
+          "optionId": "C",
+          "text": "Giờ học mới đã được chứng minh không ảnh hưởng sản xuất ở mọi kho."
+        },
+        {
+          "optionId": "D",
+          "text": "Điều chỉnh giờ học phải cùng xem mức hoàn thành, lỗi và gián đoạn công việc, không chỉ điểm danh."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Nguồn đi từ giới hạn của điểm danh tới thử nghiệm và bộ chỉ số mới. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:05",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:05:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "仓库原来把十分钟安全微课放在夜班开始前。签到率有百分之九十，可不少员工为了赶交接只打开视频，没有完成最后的情境判断。培训组因此怀疑，高签到率并没有表示大家真正理解了危险信号。第二个月，两个班组改在工作一小时后学习，并由组长用当天的一个例子提问。完成判断题的人变多了，但机器最忙时暂停学习也造成了压力。另一班继续使用原时间，作为比较，不过两班承担的订单并不完全相同。培训组没有马上宣布新时间更好，而是准备同时记录完成率、错误类型和生产中断。员工还可以匿名说明哪个时间最难集中。只有把学习效果和工作负担放在一起，安排才可能长期执行。",
+      "pinyinReference": null,
+      "syntheticTtsText": "仓库原来把十分钟安全微课放在夜班开始前。签到率有百分之九十，可不少员工为了赶交接只打开视频，没有完成最后的情境判断。培训组因此怀疑，高签到率并没有表示大家真正理解了危险信号。第二个月，两个班组改在工作一小时后学习，并由组长用当天的一个例子提问。完成判断题的人变多了，但机器最忙时暂停学习也造成了压力。另一班继续使用原时间，作为比较，不过两班承担的订单并不完全相同。培训组没有马上宣布新时间更好，而是准备同时记录完成率、错误类型和生产中断。员工还可以匿名说明哪个时间最难集中。只有把学习效果和工作负担放在一起，安排才可能长期执行。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Khác biệt lượng đơn có thể ảnh hưởng việc so sánh hai nhóm."
+        },
+        {
+          "optionId": "B",
+          "text": "Giờ học mới đã được chứng minh không ảnh hưởng sản xuất ở mọi kho."
+        },
+        {
+          "optionId": "C",
+          "text": "Điều chỉnh giờ học phải cùng xem mức hoàn thành, lỗi và gián đoạn công việc, không chỉ điểm danh."
+        },
+        {
+          "optionId": "D",
+          "text": "Khi chuyển sang sau một giờ làm, số người hoàn thành phán đoán tình huống tăng."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Đây là kết quả trực tiếp của tháng thử nghiệm thứ hai. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:06",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:06:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "仓库原来把十分钟安全微课放在夜班开始前。签到率有百分之九十，可不少员工为了赶交接只打开视频，没有完成最后的情境判断。培训组因此怀疑，高签到率并没有表示大家真正理解了危险信号。第二个月，两个班组改在工作一小时后学习，并由组长用当天的一个例子提问。完成判断题的人变多了，但机器最忙时暂停学习也造成了压力。另一班继续使用原时间，作为比较，不过两班承担的订单并不完全相同。培训组没有马上宣布新时间更好，而是准备同时记录完成率、错误类型和生产中断。员工还可以匿名说明哪个时间最难集中。只有把学习效果和工作负担放在一起，安排才可能长期执行。",
+      "pinyinReference": null,
+      "syntheticTtsText": "仓库原来把十分钟安全微课放在夜班开始前。签到率有百分之九十，可不少员工为了赶交接只打开视频，没有完成最后的情境判断。培训组因此怀疑，高签到率并没有表示大家真正理解了危险信号。第二个月，两个班组改在工作一小时后学习，并由组长用当天的一个例子提问。完成判断题的人变多了，但机器最忙时暂停学习也造成了压力。另一班继续使用原时间，作为比较，不过两班承担的订单并不完全相同。培训组没有马上宣布新时间更好，而是准备同时记录完成率、错误类型和生产中断。员工还可以匿名说明哪个时间最难集中。只有把学习效果和工作负担放在一起，安排才可能长期执行。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Giờ học mới đã được chứng minh không ảnh hưởng sản xuất ở mọi kho."
+        },
+        {
+          "optionId": "B",
+          "text": "Điều chỉnh giờ học phải cùng xem mức hoàn thành, lỗi và gián đoạn công việc, không chỉ điểm danh."
+        },
+        {
+          "optionId": "C",
+          "text": "Khi chuyển sang sau một giờ làm, số người hoàn thành phán đoán tình huống tăng."
+        },
+        {
+          "optionId": "D",
+          "text": "Khác biệt lượng đơn có thể ảnh hưởng việc so sánh hai nhóm."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Nguồn cảnh báo hai nhóm không chịu cùng lượng công việc. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:04",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:04:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "一家物流公司为六十名新员工安排了三个月的导师制。过去，公司只记录每对师徒见了几次面，见面四次以上就算“完成”。人力部门后来发现，有些见面只是签字，没有讨论真实任务；也有人只见两次，却解决了关键的安全问题。新方案把目标分成三类：理解流程、独立处理常见问题、知道何时求助。每次交流后，新员工要写一个遇到的情况和下一步，导师则说明自己提供了什么支持。主管不能看个人日记，只能看去掉姓名后的共同困难。一个季度后，求助时间缩短，安全错误也减少，但样本来自两个工作组，而且最忙的月份还没开始。公司决定保留见面次数，却不再把它当成唯一结果，并在下季度比较不同班次是否得到同样支持。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Phương án mới yêu cầu ghi tình huống thật và bước tiếp theo, đồng thời bảo vệ nhật ký cá nhân."
+        },
+        {
+          "optionId": "B",
+          "text": "Cùng số buổi gặp có thể tương ứng với chất lượng hỗ trợ khác nhau."
+        },
+        {
+          "optionId": "C",
+          "text": "Dữ liệu ba tháng đã chứng minh chương trình phù hợp mọi ngành và mọi ca."
+        },
+        {
+          "optionId": "D",
+          "text": "Chương trình cố vấn nên được đánh giá theo năng lực và kết quả tìm trợ giúp; số buổi gặp chỉ là chỉ số quy trình."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Các đoạn đối chiếu cách đếm cũ với mục tiêu năng lực và kết luận thận trọng. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:05",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:05:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "一家物流公司为六十名新员工安排了三个月的导师制。过去，公司只记录每对师徒见了几次面，见面四次以上就算“完成”。人力部门后来发现，有些见面只是签字，没有讨论真实任务；也有人只见两次，却解决了关键的安全问题。新方案把目标分成三类：理解流程、独立处理常见问题、知道何时求助。每次交流后，新员工要写一个遇到的情况和下一步，导师则说明自己提供了什么支持。主管不能看个人日记，只能看去掉姓名后的共同困难。一个季度后，求助时间缩短，安全错误也减少，但样本来自两个工作组，而且最忙的月份还没开始。公司决定保留见面次数，却不再把它当成唯一结果，并在下季度比较不同班次是否得到同样支持。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Cùng số buổi gặp có thể tương ứng với chất lượng hỗ trợ khác nhau."
+        },
+        {
+          "optionId": "B",
+          "text": "Dữ liệu ba tháng đã chứng minh chương trình phù hợp mọi ngành và mọi ca."
+        },
+        {
+          "optionId": "C",
+          "text": "Chương trình cố vấn nên được đánh giá theo năng lực và kết quả tìm trợ giúp; số buổi gặp chỉ là chỉ số quy trình."
+        },
+        {
+          "optionId": "D",
+          "text": "Phương án mới yêu cầu ghi tình huống thật và bước tiếp theo, đồng thời bảo vệ nhật ký cá nhân."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Cả yêu cầu phản tư lẫn giới hạn quyền xem đều nằm ở đoạn hai. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:06",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:06:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "一家物流公司为六十名新员工安排了三个月的导师制。过去，公司只记录每对师徒见了几次面，见面四次以上就算“完成”。人力部门后来发现，有些见面只是签字，没有讨论真实任务；也有人只见两次，却解决了关键的安全问题。新方案把目标分成三类：理解流程、独立处理常见问题、知道何时求助。每次交流后，新员工要写一个遇到的情况和下一步，导师则说明自己提供了什么支持。主管不能看个人日记，只能看去掉姓名后的共同困难。一个季度后，求助时间缩短，安全错误也减少，但样本来自两个工作组，而且最忙的月份还没开始。公司决定保留见面次数，却不再把它当成唯一结果，并在下季度比较不同班次是否得到同样支持。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Dữ liệu ba tháng đã chứng minh chương trình phù hợp mọi ngành và mọi ca."
+        },
+        {
+          "optionId": "B",
+          "text": "Chương trình cố vấn nên được đánh giá theo năng lực và kết quả tìm trợ giúp; số buổi gặp chỉ là chỉ số quy trình."
+        },
+        {
+          "optionId": "C",
+          "text": "Phương án mới yêu cầu ghi tình huống thật và bước tiếp theo, đồng thời bảo vệ nhật ký cá nhân."
+        },
+        {
+          "optionId": "D",
+          "text": "Cùng số buổi gặp có thể tương ứng với chất lượng hỗ trợ khác nhau."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Nguồn nêu buổi ký tên hình thức và buổi ít nhưng giải quyết vấn đề quan trọng. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:04",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:04:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "也有人只见两次，却解决了____的安全问题。",
+      "pinyinReference": "guānjiàn",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "交流"
+        },
+        {
+          "optionId": "B",
+          "text": "支持"
+        },
+        {
+          "optionId": "C",
+          "text": "结果"
+        },
+        {
+          "optionId": "D",
+          "text": "关键"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“关键” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:05",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:05:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "每次____后，新员工要写一个遇到的情况和下一步，导师则说明自己提供了什么支持。",
+      "pinyinReference": "jiāoliú",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "支持"
+        },
+        {
+          "optionId": "B",
+          "text": "结果"
+        },
+        {
+          "optionId": "C",
+          "text": "关键"
+        },
+        {
+          "optionId": "D",
+          "text": "交流"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“交流” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:06",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:06:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "每次交流后，新员工要写一个遇到的情况和下一步，导师则说明自己提供了什么____。",
+      "pinyinReference": "zhīchí",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "结果"
+        },
+        {
+          "optionId": "B",
+          "text": "关键"
+        },
+        {
+          "optionId": "C",
+          "text": "交流"
+        },
+        {
+          "optionId": "D",
+          "text": "支持"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“支持” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:04",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:04:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "只统计见面次数____检查员工能否解决真实问题。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "不管"
+        },
+        {
+          "optionId": "B",
+          "text": "不但"
+        },
+        {
+          "optionId": "C",
+          "text": "不过"
+        },
+        {
+          "optionId": "D",
+          "text": "不如"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-063 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:05",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:05:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "新指标记录完成率，____区分错误类型和生产中断。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "然而"
+        },
+        {
+          "optionId": "B",
+          "text": "于是"
+        },
+        {
+          "optionId": "C",
+          "text": "并且"
+        },
+        {
+          "optionId": "D",
+          "text": "否则"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-074 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:06",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:06:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "签到率____很高，但不能代表员工真正理解。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "偶尔"
+        },
+        {
+          "optionId": "B",
+          "text": "确实"
+        },
+        {
+          "optionId": "C",
+          "text": "互相"
+        },
+        {
+          "optionId": "D",
+          "text": "重新"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-013 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Dữ liệu của một công ty và một quý không chứng minh cùng mô hình phù hợp mọi ngành hay mọi nhân viên.",
+      "sourceLessonId": "hsk4-education-work-evaluation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:07",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:07:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "五月的一次短暂停电让屋顶系统停止上传数据六小时。恢复供电后，网页一次补上许多数字，看起来像土壤突然变湿。值班学生按照旧规则准备停止第二天浇水，但园艺老师先去现场看了花盆。现场有一半花盆表面干燥，另一些仍有水。技术人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出提醒。修改以后，学生能分清旧数据和新数据，不过项目组还没有比较误读是否真的减少。下一步，他们会记录提醒出现后有多少次人工复查，以及复查是否改变了浇水决定。",
+      "pinyinReference": null,
+      "syntheticTtsText": "五月的一次短暂停电让屋顶系统停止上传数据六小时。恢复供电后，网页一次补上许多数字，看起来像土壤突然变湿。值班学生按照旧规则准备停止第二天浇水，但园艺老师先去现场看了花盆。现场有一半花盆表面干燥，另一些仍有水。技术人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出提醒。修改以后，学生能分清旧数据和新数据，不过项目组还没有比较误读是否真的减少。下一步，他们会记录提醒出现后有多少次人工复查，以及复查是否改变了浇水决定。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Giao diện rõ hơn không đồng nghĩa việc đọc sai đã thực sự giảm."
+        },
+        {
+          "optionId": "B",
+          "text": "Chỉ cần có điện lại thì mọi số tải bù đều có thể xem là phép đo mới nhất."
+        },
+        {
+          "optionId": "C",
+          "text": "Khi giải thích dữ liệu cảm biến phải tách thời điểm đo và tải lên, đồng thời kiểm tra thủ công sau gián đoạn."
+        },
+        {
+          "optionId": "D",
+          "text": "Dữ liệu tải bù sau mất điện khiến biểu đồ trông như đất đột nhiên ướt."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Nguồn mô tả lỗi thời gian, chỉnh giao diện và kế hoạch đánh giá tác động. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:08",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:08:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "五月的一次短暂停电让屋顶系统停止上传数据六小时。恢复供电后，网页一次补上许多数字，看起来像土壤突然变湿。值班学生按照旧规则准备停止第二天浇水，但园艺老师先去现场看了花盆。现场有一半花盆表面干燥，另一些仍有水。技术人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出提醒。修改以后，学生能分清旧数据和新数据，不过项目组还没有比较误读是否真的减少。下一步，他们会记录提醒出现后有多少次人工复查，以及复查是否改变了浇水决定。",
+      "pinyinReference": null,
+      "syntheticTtsText": "五月的一次短暂停电让屋顶系统停止上传数据六小时。恢复供电后，网页一次补上许多数字，看起来像土壤突然变湿。值班学生按照旧规则准备停止第二天浇水，但园艺老师先去现场看了花盆。现场有一半花盆表面干燥，另一些仍有水。技术人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出提醒。修改以后，学生能分清旧数据和新数据，不过项目组还没有比较误读是否真的减少。下一步，他们会记录提醒出现后有多少次人工复查，以及复查是否改变了浇水决定。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Chỉ cần có điện lại thì mọi số tải bù đều có thể xem là phép đo mới nhất."
+        },
+        {
+          "optionId": "B",
+          "text": "Khi giải thích dữ liệu cảm biến phải tách thời điểm đo và tải lên, đồng thời kiểm tra thủ công sau gián đoạn."
+        },
+        {
+          "optionId": "C",
+          "text": "Dữ liệu tải bù sau mất điện khiến biểu đồ trông như đất đột nhiên ướt."
+        },
+        {
+          "optionId": "D",
+          "text": "Giao diện rõ hơn không đồng nghĩa việc đọc sai đã thực sự giảm."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Đây là hiện tượng trực tiếp dẫn tới nguy cơ quyết định sai. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:09",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:09:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "五月的一次短暂停电让屋顶系统停止上传数据六小时。恢复供电后，网页一次补上许多数字，看起来像土壤突然变湿。值班学生按照旧规则准备停止第二天浇水，但园艺老师先去现场看了花盆。现场有一半花盆表面干燥，另一些仍有水。技术人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出提醒。修改以后，学生能分清旧数据和新数据，不过项目组还没有比较误读是否真的减少。下一步，他们会记录提醒出现后有多少次人工复查，以及复查是否改变了浇水决定。",
+      "pinyinReference": null,
+      "syntheticTtsText": "五月的一次短暂停电让屋顶系统停止上传数据六小时。恢复供电后，网页一次补上许多数字，看起来像土壤突然变湿。值班学生按照旧规则准备停止第二天浇水，但园艺老师先去现场看了花盆。现场有一半花盆表面干燥，另一些仍有水。技术人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出提醒。修改以后，学生能分清旧数据和新数据，不过项目组还没有比较误读是否真的减少。下一步，他们会记录提醒出现后有多少次人工复查，以及复查是否改变了浇水决定。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Khi giải thích dữ liệu cảm biến phải tách thời điểm đo và tải lên, đồng thời kiểm tra thủ công sau gián đoạn."
+        },
+        {
+          "optionId": "B",
+          "text": "Dữ liệu tải bù sau mất điện khiến biểu đồ trông như đất đột nhiên ướt."
+        },
+        {
+          "optionId": "C",
+          "text": "Giao diện rõ hơn không đồng nghĩa việc đọc sai đã thực sự giảm."
+        },
+        {
+          "optionId": "D",
+          "text": "Chỉ cần có điện lại thì mọi số tải bù đều có thể xem là phép đo mới nhất."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Nhóm vẫn phải đo số lần kiểm tra và thay đổi quyết định. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:07",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:07:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "一所学校在屋顶菜园安装了十二个湿度传感器，希望按土壤情况自动浇水。系统上线后，用水量下降了约四分之一，学生也能在网页上看到每天的变化。老师起初认为，只要数字低于标准，就可以直接启动水泵。两周后，靠墙的三个传感器连续报告“缺水”，可是那里的叶子反而发黄。检查发现，墙面下午升温，使探头附近变干，而花盆下层仍然很湿。若只按一个位置浇水，植物根部可能长期泡在水里。项目组随后把传感器数字、叶子状态和人工抽查放在同一张记录表上，并为靠墙区域设置不同标准。节水结果仍然存在，但负责人只把它称为春季试行结果；夏季温度更高时，还要重新检查标准。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Cùng một chuẩn độ ẩm chưa chắc phù hợp mọi vị trí trên mái."
+        },
+        {
+          "optionId": "B",
+          "text": "Tiết kiệm một phần tư vào mùa xuân chứng minh cảm biến hoàn toàn chính xác mọi mùa."
+        },
+        {
+          "optionId": "C",
+          "text": "Cảm biến giúp tiết kiệm nước nhưng quyết định tự động phải kết hợp vị trí, tình trạng cây và kiểm tra thủ công."
+        },
+        {
+          "optionId": "D",
+          "text": "Khi vùng gần đầu dò sát tường khô, đáy chậu vẫn có thể rất ướt."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Ba đoạn nêu lợi ích, lỗi do vị trí và cách kiểm chứng đa nguồn. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:08",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:08:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "一所学校在屋顶菜园安装了十二个湿度传感器，希望按土壤情况自动浇水。系统上线后，用水量下降了约四分之一，学生也能在网页上看到每天的变化。老师起初认为，只要数字低于标准，就可以直接启动水泵。两周后，靠墙的三个传感器连续报告“缺水”，可是那里的叶子反而发黄。检查发现，墙面下午升温，使探头附近变干，而花盆下层仍然很湿。若只按一个位置浇水，植物根部可能长期泡在水里。项目组随后把传感器数字、叶子状态和人工抽查放在同一张记录表上，并为靠墙区域设置不同标准。节水结果仍然存在，但负责人只把它称为春季试行结果；夏季温度更高时，还要重新检查标准。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tiết kiệm một phần tư vào mùa xuân chứng minh cảm biến hoàn toàn chính xác mọi mùa."
+        },
+        {
+          "optionId": "B",
+          "text": "Cảm biến giúp tiết kiệm nước nhưng quyết định tự động phải kết hợp vị trí, tình trạng cây và kiểm tra thủ công."
+        },
+        {
+          "optionId": "C",
+          "text": "Khi vùng gần đầu dò sát tường khô, đáy chậu vẫn có thể rất ướt."
+        },
+        {
+          "optionId": "D",
+          "text": "Cùng một chuẩn độ ẩm chưa chắc phù hợp mọi vị trí trên mái."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Chi tiết này giải thích vì sao một số đo có thể gây tưới quá mức. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:09",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:09:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "一所学校在屋顶菜园安装了十二个湿度传感器，希望按土壤情况自动浇水。系统上线后，用水量下降了约四分之一，学生也能在网页上看到每天的变化。老师起初认为，只要数字低于标准，就可以直接启动水泵。两周后，靠墙的三个传感器连续报告“缺水”，可是那里的叶子反而发黄。检查发现，墙面下午升温，使探头附近变干，而花盆下层仍然很湿。若只按一个位置浇水，植物根部可能长期泡在水里。项目组随后把传感器数字、叶子状态和人工抽查放在同一张记录表上，并为靠墙区域设置不同标准。节水结果仍然存在，但负责人只把它称为春季试行结果；夏季温度更高时，还要重新检查标准。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Cảm biến giúp tiết kiệm nước nhưng quyết định tự động phải kết hợp vị trí, tình trạng cây và kiểm tra thủ công."
+        },
+        {
+          "optionId": "B",
+          "text": "Khi vùng gần đầu dò sát tường khô, đáy chậu vẫn có thể rất ướt."
+        },
+        {
+          "optionId": "C",
+          "text": "Cùng một chuẩn độ ẩm chưa chắc phù hợp mọi vị trí trên mái."
+        },
+        {
+          "optionId": "D",
+          "text": "Tiết kiệm một phần tư vào mùa xuân chứng minh cảm biến hoàn toàn chính xác mọi mùa."
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Nhóm dự án đã đặt chuẩn riêng cho vùng gần tường sau khi phát hiện sai lệch. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:07",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:07:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "老师起初认为，只要数字低于____，就可以直接启动水泵。",
+      "pinyinReference": "biāozhǔn",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "提醒"
+        },
+        {
+          "optionId": "B",
+          "text": "结果"
+        },
+        {
+          "optionId": "C",
+          "text": "标准"
+        },
+        {
+          "optionId": "D",
+          "text": "技术"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“标准” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:08",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:08:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "____人员解释，补传时间和实际测量时间被网页混在一起，曲线因此容易误读。",
+      "pinyinReference": "jìshù",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "结果"
+        },
+        {
+          "optionId": "B",
+          "text": "标准"
+        },
+        {
+          "optionId": "C",
+          "text": "技术"
+        },
+        {
+          "optionId": "D",
+          "text": "提醒"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“技术” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:09",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:09:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "他们给每个数字增加了“测量时间”和“上传时间”，并在数据中断时发出____。",
+      "pinyinReference": "tíxǐng",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "标准"
+        },
+        {
+          "optionId": "B",
+          "text": "技术"
+        },
+        {
+          "optionId": "C",
+          "text": "提醒"
+        },
+        {
+          "optionId": "D",
+          "text": "结果"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "“提醒” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:07",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:07:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "项目组____叶子状态和人工抽查修改湿度标准。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "随着"
+        },
+        {
+          "optionId": "B",
+          "text": "由于"
+        },
+        {
+          "optionId": "C",
+          "text": "按照"
+        },
+        {
+          "optionId": "D",
+          "text": "对于"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-018 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:08",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:08:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "____网页混合了两种时间，____曲线容易被误读。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "不是……而是……"
+        },
+        {
+          "optionId": "B",
+          "text": "由于……因此……"
+        },
+        {
+          "optionId": "C",
+          "text": "即使……也……"
+        },
+        {
+          "optionId": "D",
+          "text": "一边……一边……"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-087 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:09",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:09:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "系统标出上传时间，____让学生分清旧数据和新数据。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "好"
+        },
+        {
+          "optionId": "B",
+          "text": "却"
+        },
+        {
+          "optionId": "C",
+          "text": "否则"
+        },
+        {
+          "optionId": "D",
+          "text": "甚至"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-088 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Kết quả ở một mái nhà trong mùa xuân không chứng minh thiết bị hoạt động giống nhau ở mọi khí hậu hay với mọi loại cây.",
+      "sourceLessonId": "hsk4-nature-technology-explanation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:10",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:10:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "夜市准备增加电子退款后，管理方邀请十二位摊主讨论。大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的责任。技术公司建议所有退款由中央账户处理，摊位只扫描杯子。试验当天，平均操作时间从四十秒降到二十五秒，可是有九笔退款晚了十多分钟。工作人员最后都处理成功，但没有记录顾客是否因此放弃继续购买。管理方决定在应用里明确显示“已扫描、处理中、已退款”三个状态，并设人工服务台。下次评估除了速度，还要比较错误、投诉和小摊位花在解释上的时间。一次顺利完成技术流程，并不表示商业关系没有受到影响。",
+      "pinyinReference": null,
+      "syntheticTtsText": "夜市准备增加电子退款后，管理方邀请十二位摊主讨论。大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的责任。技术公司建议所有退款由中央账户处理，摊位只扫描杯子。试验当天，平均操作时间从四十秒降到二十五秒，可是有九笔退款晚了十多分钟。工作人员最后都处理成功，但没有记录顾客是否因此放弃继续购买。管理方决定在应用里明确显示“已扫描、处理中、已退款”三个状态，并设人工服务台。下次评估除了速度，还要比较错误、投诉和小摊位花在解释上的时间。一次顺利完成技术流程，并不表示商业关系没有受到影响。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tài khoản trung tâm bảo đảm hoàn ngay trong mọi điều kiện mạng."
+        },
+        {
+          "optionId": "B",
+          "text": "Hoàn tiền điện tử phải cùng đánh giá tốc độ, trì hoãn, khiếu nại và chi phí giải thích của quầy nhỏ."
+        },
+        {
+          "optionId": "C",
+          "text": "Trong thử nghiệm, thao tác trung bình ngắn hơn 15 giây nhưng có 9 khoản hoàn chậm đáng kể."
+        },
+        {
+          "optionId": "D",
+          "text": "Hoàn tiền cuối cùng thành công không có nghĩa niềm tin hoặc mua tiếp không thay đổi."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Nguồn đối chiếu tiện lợi với rủi ro và xác định bộ chỉ số rộng hơn. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:11",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:11:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "夜市准备增加电子退款后，管理方邀请十二位摊主讨论。大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的责任。技术公司建议所有退款由中央账户处理，摊位只扫描杯子。试验当天，平均操作时间从四十秒降到二十五秒，可是有九笔退款晚了十多分钟。工作人员最后都处理成功，但没有记录顾客是否因此放弃继续购买。管理方决定在应用里明确显示“已扫描、处理中、已退款”三个状态，并设人工服务台。下次评估除了速度，还要比较错误、投诉和小摊位花在解释上的时间。一次顺利完成技术流程，并不表示商业关系没有受到影响。",
+      "pinyinReference": null,
+      "syntheticTtsText": "夜市准备增加电子退款后，管理方邀请十二位摊主讨论。大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的责任。技术公司建议所有退款由中央账户处理，摊位只扫描杯子。试验当天，平均操作时间从四十秒降到二十五秒，可是有九笔退款晚了十多分钟。工作人员最后都处理成功，但没有记录顾客是否因此放弃继续购买。管理方决定在应用里明确显示“已扫描、处理中、已退款”三个状态，并设人工服务台。下次评估除了速度，还要比较错误、投诉和小摊位花在解释上的时间。一次顺利完成技术流程，并不表示商业关系没有受到影响。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Hoàn tiền điện tử phải cùng đánh giá tốc độ, trì hoãn, khiếu nại và chi phí giải thích của quầy nhỏ."
+        },
+        {
+          "optionId": "B",
+          "text": "Trong thử nghiệm, thao tác trung bình ngắn hơn 15 giây nhưng có 9 khoản hoàn chậm đáng kể."
+        },
+        {
+          "optionId": "C",
+          "text": "Hoàn tiền cuối cùng thành công không có nghĩa niềm tin hoặc mua tiếp không thay đổi."
+        },
+        {
+          "optionId": "D",
+          "text": "Tài khoản trung tâm bảo đảm hoàn ngay trong mọi điều kiện mạng."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Đây là hai kết quả trực tiếp và trái chiều. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:12",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:12:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "夜市准备增加电子退款后，管理方邀请十二位摊主讨论。大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的责任。技术公司建议所有退款由中央账户处理，摊位只扫描杯子。试验当天，平均操作时间从四十秒降到二十五秒，可是有九笔退款晚了十多分钟。工作人员最后都处理成功，但没有记录顾客是否因此放弃继续购买。管理方决定在应用里明确显示“已扫描、处理中、已退款”三个状态，并设人工服务台。下次评估除了速度，还要比较错误、投诉和小摊位花在解释上的时间。一次顺利完成技术流程，并不表示商业关系没有受到影响。",
+      "pinyinReference": null,
+      "syntheticTtsText": "夜市准备增加电子退款后，管理方邀请十二位摊主讨论。大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的责任。技术公司建议所有退款由中央账户处理，摊位只扫描杯子。试验当天，平均操作时间从四十秒降到二十五秒，可是有九笔退款晚了十多分钟。工作人员最后都处理成功，但没有记录顾客是否因此放弃继续购买。管理方决定在应用里明确显示“已扫描、处理中、已退款”三个状态，并设人工服务台。下次评估除了速度，还要比较错误、投诉和小摊位花在解释上的时间。一次顺利完成技术流程，并不表示商业关系没有受到影响。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Trong thử nghiệm, thao tác trung bình ngắn hơn 15 giây nhưng có 9 khoản hoàn chậm đáng kể."
+        },
+        {
+          "optionId": "B",
+          "text": "Hoàn tiền cuối cùng thành công không có nghĩa niềm tin hoặc mua tiếp không thay đổi."
+        },
+        {
+          "optionId": "C",
+          "text": "Tài khoản trung tâm bảo đảm hoàn ngay trong mọi điều kiện mạng."
+        },
+        {
+          "optionId": "D",
+          "text": "Hoàn tiền điện tử phải cùng đánh giá tốc độ, trì hoãn, khiếu nại và chi phí giải thích của quầy nhỏ."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Nguồn thiếu dữ liệu mua tiếp và cảnh báo quan hệ kinh doanh có thể bị tác động. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:10",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:10:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "东桥夜市用六个周末试行押金杯。顾客买饮料时多付五元，把杯子交回任何回收点就能拿回押金。前三周共借出四千只杯子，归还率达到百分之八十七，地面上的一次性杯明显减少。不过，清洗中心离夜市十二公里，周六要增加一辆运输车。部分只带手机付款的游客也不知道现金押金怎样退回。摊主担心解释规则占用时间，小摊位则没有地方存放归还的杯子。管理方因此没有只公布归还率，而是增加运输距离、清洗用水、退款等待和不同摊位的成本。下一轮会提供电子退款，并在两个入口设置集中回收点。只有比较完整流程，才能判断减少的垃圾是否大于新增的资源消耗。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Tỷ lệ hoàn cao đã chứng minh cốc đặt cọc xanh và công bằng hơn ở mọi mặt."
+        },
+        {
+          "optionId": "B",
+          "text": "Đánh giá cốc đặt cọc phải cùng tính hoàn trả, vận chuyển, rửa, hoàn tiền và gánh nặng quầy hàng."
+        },
+        {
+          "optionId": "C",
+          "text": "Ba tuần đầu cho mượn 4.000 cốc và tỷ lệ hoàn là 87%."
+        },
+        {
+          "optionId": "D",
+          "text": "Hoàn tiền điện tử có thể cải thiện trải nghiệm của người chỉ dùng điện thoại, nhưng hiệu quả còn phải kiểm chứng."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Nguồn nêu kết quả tích cực rồi bổ sung chi phí bị chỉ số hoàn trả che khuất. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:11",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:11:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "东桥夜市用六个周末试行押金杯。顾客买饮料时多付五元，把杯子交回任何回收点就能拿回押金。前三周共借出四千只杯子，归还率达到百分之八十七，地面上的一次性杯明显减少。不过，清洗中心离夜市十二公里，周六要增加一辆运输车。部分只带手机付款的游客也不知道现金押金怎样退回。摊主担心解释规则占用时间，小摊位则没有地方存放归还的杯子。管理方因此没有只公布归还率，而是增加运输距离、清洗用水、退款等待和不同摊位的成本。下一轮会提供电子退款，并在两个入口设置集中回收点。只有比较完整流程，才能判断减少的垃圾是否大于新增的资源消耗。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Đánh giá cốc đặt cọc phải cùng tính hoàn trả, vận chuyển, rửa, hoàn tiền và gánh nặng quầy hàng."
+        },
+        {
+          "optionId": "B",
+          "text": "Ba tuần đầu cho mượn 4.000 cốc và tỷ lệ hoàn là 87%."
+        },
+        {
+          "optionId": "C",
+          "text": "Hoàn tiền điện tử có thể cải thiện trải nghiệm của người chỉ dùng điện thoại, nhưng hiệu quả còn phải kiểm chứng."
+        },
+        {
+          "optionId": "D",
+          "text": "Tỷ lệ hoàn cao đã chứng minh cốc đặt cọc xanh và công bằng hơn ở mọi mặt."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Hai số liệu nằm trực tiếp ở đoạn một. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:12",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:12:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "东桥夜市用六个周末试行押金杯。顾客买饮料时多付五元，把杯子交回任何回收点就能拿回押金。前三周共借出四千只杯子，归还率达到百分之八十七，地面上的一次性杯明显减少。不过，清洗中心离夜市十二公里，周六要增加一辆运输车。部分只带手机付款的游客也不知道现金押金怎样退回。摊主担心解释规则占用时间，小摊位则没有地方存放归还的杯子。管理方因此没有只公布归还率，而是增加运输距离、清洗用水、退款等待和不同摊位的成本。下一轮会提供电子退款，并在两个入口设置集中回收点。只有比较完整流程，才能判断减少的垃圾是否大于新增的资源消耗。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Ba tuần đầu cho mượn 4.000 cốc và tỷ lệ hoàn là 87%."
+        },
+        {
+          "optionId": "B",
+          "text": "Hoàn tiền điện tử có thể cải thiện trải nghiệm của người chỉ dùng điện thoại, nhưng hiệu quả còn phải kiểm chứng."
+        },
+        {
+          "optionId": "C",
+          "text": "Tỷ lệ hoàn cao đã chứng minh cốc đặt cọc xanh và công bằng hơn ở mọi mặt."
+        },
+        {
+          "optionId": "D",
+          "text": "Đánh giá cốc đặt cọc phải cùng tính hoàn trả, vận chuyển, rửa, hoàn tiền và gánh nặng quầy hàng."
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Vấn đề và giải pháp dự kiến cho phép suy luận có điều kiện, chưa cho kết quả. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:10",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:10:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "____买饮料时多付五元，把杯子交回任何回收点就能拿回押金。",
+      "pinyinReference": "gùkè",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "结果"
+        },
+        {
+          "optionId": "B",
+          "text": "顾客"
+        },
+        {
+          "optionId": "C",
+          "text": "距离"
+        },
+        {
+          "optionId": "D",
+          "text": "责任"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“顾客” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:11",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:11:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "管理方因此没有只公布归还率，而是增加运输____、清洗用水、退款等待和不同摊位的成本。",
+      "pinyinReference": "jùlí",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "顾客"
+        },
+        {
+          "optionId": "B",
+          "text": "距离"
+        },
+        {
+          "optionId": "C",
+          "text": "责任"
+        },
+        {
+          "optionId": "D",
+          "text": "结果"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“距离” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:12",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:12:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "大摊位认为顾客不用排队拿现金会更方便，小摊主却担心网络不稳定时，顾客会把退款延迟当成摊位的____。",
+      "pinyinReference": "zérèn",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "距离"
+        },
+        {
+          "optionId": "B",
+          "text": "责任"
+        },
+        {
+          "optionId": "C",
+          "text": "结果"
+        },
+        {
+          "optionId": "D",
+          "text": "顾客"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "“责任” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:10",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:10:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "电子退款____减少现金排队，____可能带来网络延迟。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "除了……还……"
+        },
+        {
+          "optionId": "B",
+          "text": "一方面……另一方面……"
+        },
+        {
+          "optionId": "C",
+          "text": "因为……所以……"
+        },
+        {
+          "optionId": "D",
+          "text": "只要……就……"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-068 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:11",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:11:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "平均操作时间缩短了，____仍有九笔退款明显延迟。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "不过"
+        },
+        {
+          "optionId": "B",
+          "text": "因此"
+        },
+        {
+          "optionId": "C",
+          "text": "于是"
+        },
+        {
+          "optionId": "D",
+          "text": "此外"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-020 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:12",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:12:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "若只看归还率，____会忽略运输和清洗成本。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "互相"
+        },
+        {
+          "optionId": "B",
+          "text": "重新"
+        },
+        {
+          "optionId": "C",
+          "text": "按时"
+        },
+        {
+          "optionId": "D",
+          "text": "恐怕"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-012 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Thử nghiệm sáu cuối tuần ở một chợ chưa đo toàn bộ vòng đời cốc hoặc tác động tới mọi nhóm khách.",
+      "sourceLessonId": "hsk4-society-economy-argument-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:13",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:13:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "一家小剧场为方言戏增加了普通话字幕。第一次演出把字幕投在舞台正上方，听力不便的观众说内容更容易理解，可坐在前排的人需要不断抬头，错过了演员的表情。第二次演出在舞台两侧各放一块较小屏幕，并把长句改成两行。调查中，更多观众表示阅读轻松，但右侧屏幕有三次比演员慢了两秒。负责字幕的学生解释，方言中的临时笑话很难提前写好。剧场决定保留两侧屏幕，同时给字幕员增加排练时间，并记录延迟出现在哪类台词。导演没有承诺字幕完全同步，因为即兴表演本来就会变化。评价标准将包括可读性、表演注意力和延迟，而不是只问“有没有字幕”。",
+      "pinyinReference": null,
+      "syntheticTtsText": "一家小剧场为方言戏增加了普通话字幕。第一次演出把字幕投在舞台正上方，听力不便的观众说内容更容易理解，可坐在前排的人需要不断抬头，错过了演员的表情。第二次演出在舞台两侧各放一块较小屏幕，并把长句改成两行。调查中，更多观众表示阅读轻松，但右侧屏幕有三次比演员慢了两秒。负责字幕的学生解释，方言中的临时笑话很难提前写好。剧场决定保留两侧屏幕，同时给字幕员增加排练时间，并记录延迟出现在哪类台词。导演没有承诺字幕完全同步，因为即兴表演本来就会变化。评价标准将包括可读性、表演注意力和延迟，而不是只问“有没有字幕”。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Thiết kế phụ đề phải cân bằng khả năng đọc, theo dõi biểu diễn và độ trễ do lời ứng biến."
+        },
+        {
+          "optionId": "B",
+          "text": "Màn hai bên dễ đọc hơn nhưng màn phải từng ba lần chậm hai giây."
+        },
+        {
+          "optionId": "C",
+          "text": "Không thể đánh giá phụ đề thành công chỉ bằng việc nó có tồn tại."
+        },
+        {
+          "optionId": "D",
+          "text": "Tăng thời gian tập có thể bảo đảm mọi lời ứng biến luôn đồng bộ."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Ba đoạn mô tả xung đột vị trí, thử nghiệm và tiêu chí đánh giá. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:14",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:14:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "一家小剧场为方言戏增加了普通话字幕。第一次演出把字幕投在舞台正上方，听力不便的观众说内容更容易理解，可坐在前排的人需要不断抬头，错过了演员的表情。第二次演出在舞台两侧各放一块较小屏幕，并把长句改成两行。调查中，更多观众表示阅读轻松，但右侧屏幕有三次比演员慢了两秒。负责字幕的学生解释，方言中的临时笑话很难提前写好。剧场决定保留两侧屏幕，同时给字幕员增加排练时间，并记录延迟出现在哪类台词。导演没有承诺字幕完全同步，因为即兴表演本来就会变化。评价标准将包括可读性、表演注意力和延迟，而不是只问“有没有字幕”。",
+      "pinyinReference": null,
+      "syntheticTtsText": "一家小剧场为方言戏增加了普通话字幕。第一次演出把字幕投在舞台正上方，听力不便的观众说内容更容易理解，可坐在前排的人需要不断抬头，错过了演员的表情。第二次演出在舞台两侧各放一块较小屏幕，并把长句改成两行。调查中，更多观众表示阅读轻松，但右侧屏幕有三次比演员慢了两秒。负责字幕的学生解释，方言中的临时笑话很难提前写好。剧场决定保留两侧屏幕，同时给字幕员增加排练时间，并记录延迟出现在哪类台词。导演没有承诺字幕完全同步，因为即兴表演本来就会变化。评价标准将包括可读性、表演注意力和延迟，而不是只问“有没有字幕”。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Màn hai bên dễ đọc hơn nhưng màn phải từng ba lần chậm hai giây."
+        },
+        {
+          "optionId": "B",
+          "text": "Không thể đánh giá phụ đề thành công chỉ bằng việc nó có tồn tại."
+        },
+        {
+          "optionId": "C",
+          "text": "Tăng thời gian tập có thể bảo đảm mọi lời ứng biến luôn đồng bộ."
+        },
+        {
+          "optionId": "D",
+          "text": "Thiết kế phụ đề phải cân bằng khả năng đọc, theo dõi biểu diễn và độ trễ do lời ứng biến."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Đoạn hai nêu đồng thời cải thiện và lỗi còn lại. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:15",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:15:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "一家小剧场为方言戏增加了普通话字幕。第一次演出把字幕投在舞台正上方，听力不便的观众说内容更容易理解，可坐在前排的人需要不断抬头，错过了演员的表情。第二次演出在舞台两侧各放一块较小屏幕，并把长句改成两行。调查中，更多观众表示阅读轻松，但右侧屏幕有三次比演员慢了两秒。负责字幕的学生解释，方言中的临时笑话很难提前写好。剧场决定保留两侧屏幕，同时给字幕员增加排练时间，并记录延迟出现在哪类台词。导演没有承诺字幕完全同步，因为即兴表演本来就会变化。评价标准将包括可读性、表演注意力和延迟，而不是只问“有没有字幕”。",
+      "pinyinReference": null,
+      "syntheticTtsText": "一家小剧场为方言戏增加了普通话字幕。第一次演出把字幕投在舞台正上方，听力不便的观众说内容更容易理解，可坐在前排的人需要不断抬头，错过了演员的表情。第二次演出在舞台两侧各放一块较小屏幕，并把长句改成两行。调查中，更多观众表示阅读轻松，但右侧屏幕有三次比演员慢了两秒。负责字幕的学生解释，方言中的临时笑话很难提前写好。剧场决定保留两侧屏幕，同时给字幕员增加排练时间，并记录延迟出现在哪类台词。导演没有承诺字幕完全同步，因为即兴表演本来就会变化。评价标准将包括可读性、表演注意力和延迟，而不是只问“有没有字幕”。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Không thể đánh giá phụ đề thành công chỉ bằng việc nó có tồn tại."
+        },
+        {
+          "optionId": "B",
+          "text": "Tăng thời gian tập có thể bảo đảm mọi lời ứng biến luôn đồng bộ."
+        },
+        {
+          "optionId": "C",
+          "text": "Thiết kế phụ đề phải cân bằng khả năng đọc, theo dõi biểu diễn và độ trễ do lời ứng biến."
+        },
+        {
+          "optionId": "D",
+          "text": "Màn hai bên dễ đọc hơn nhưng màn phải từng ba lần chậm hai giây."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Nguồn chỉ ra phụ đề có thể làm mất chú ý và cần đo nhiều tiêu chí. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:13",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:13:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "市美术馆为一场摄影展制作了中英双语语音导览。入口二维码被扫描了六千多次，比旧展览高一倍。策展人原以为，使用次数增加就表示更多观众完整理解了展览的历史顺序。路线记录却显示，许多观众听完前三段后直接去了最后一厅，因为应用把“推荐作品”放在屏幕最上面。带孩子的家庭更常跳过七分钟以上的说明，外国游客则反复播放地名和年代。不同选择不一定是理解失败，也可能反映时间和语言需要。美术馆后来增加“按年代”“按主题”和“二十分钟短线”三种入口，并请观众回答一个开放问题，而不是只点满意或不满意。下一步要比较回答内容和实际停留位置，才能知道导览是否帮助观众建立自己的解释。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Hiệu quả hướng dẫn phải kết hợp mức dùng, lộ trình và cách giải thích của khách, đồng thời cho phép nhu cầu tham quan khác nhau."
+        },
+        {
+          "optionId": "B",
+          "text": "Gia đình có trẻ thường bỏ qua phần thuyết minh dài trên bảy phút."
+        },
+        {
+          "optionId": "C",
+          "text": "Cung cấp nhiều lộ trình có thể phù hợp nhu cầu hơn việc buộc mọi người đi theo niên đại."
+        },
+        {
+          "optionId": "D",
+          "text": "Lượt quét mã tăng đã chứng minh mọi khách hiểu trọn lịch sử nhiếp ảnh."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Nguồn bác bỏ một chỉ số, giải thích khác biệt hành vi và đưa cách đánh giá mới. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:14",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:14:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "市美术馆为一场摄影展制作了中英双语语音导览。入口二维码被扫描了六千多次，比旧展览高一倍。策展人原以为，使用次数增加就表示更多观众完整理解了展览的历史顺序。路线记录却显示，许多观众听完前三段后直接去了最后一厅，因为应用把“推荐作品”放在屏幕最上面。带孩子的家庭更常跳过七分钟以上的说明，外国游客则反复播放地名和年代。不同选择不一定是理解失败，也可能反映时间和语言需要。美术馆后来增加“按年代”“按主题”和“二十分钟短线”三种入口，并请观众回答一个开放问题，而不是只点满意或不满意。下一步要比较回答内容和实际停留位置，才能知道导览是否帮助观众建立自己的解释。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Gia đình có trẻ thường bỏ qua phần thuyết minh dài trên bảy phút."
+        },
+        {
+          "optionId": "B",
+          "text": "Cung cấp nhiều lộ trình có thể phù hợp nhu cầu hơn việc buộc mọi người đi theo niên đại."
+        },
+        {
+          "optionId": "C",
+          "text": "Lượt quét mã tăng đã chứng minh mọi khách hiểu trọn lịch sử nhiếp ảnh."
+        },
+        {
+          "optionId": "D",
+          "text": "Hiệu quả hướng dẫn phải kết hợp mức dùng, lộ trình và cách giải thích của khách, đồng thời cho phép nhu cầu tham quan khác nhau."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Đây là khác biệt hành vi được nêu trực tiếp. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:15",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:15:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "市美术馆为一场摄影展制作了中英双语语音导览。入口二维码被扫描了六千多次，比旧展览高一倍。策展人原以为，使用次数增加就表示更多观众完整理解了展览的历史顺序。路线记录却显示，许多观众听完前三段后直接去了最后一厅，因为应用把“推荐作品”放在屏幕最上面。带孩子的家庭更常跳过七分钟以上的说明，外国游客则反复播放地名和年代。不同选择不一定是理解失败，也可能反映时间和语言需要。美术馆后来增加“按年代”“按主题”和“二十分钟短线”三种入口，并请观众回答一个开放问题，而不是只点满意或不满意。下一步要比较回答内容和实际停留位置，才能知道导览是否帮助观众建立自己的解释。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Cung cấp nhiều lộ trình có thể phù hợp nhu cầu hơn việc buộc mọi người đi theo niên đại."
+        },
+        {
+          "optionId": "B",
+          "text": "Lượt quét mã tăng đã chứng minh mọi khách hiểu trọn lịch sử nhiếp ảnh."
+        },
+        {
+          "optionId": "C",
+          "text": "Hiệu quả hướng dẫn phải kết hợp mức dùng, lộ trình và cách giải thích của khách, đồng thời cho phép nhu cầu tham quan khác nhau."
+        },
+        {
+          "optionId": "D",
+          "text": "Gia đình có trẻ thường bỏ qua phần thuyết minh dài trên bảy phút."
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Nguồn nêu nhu cầu khác nhau và việc bổ sung ba lựa chọn lộ trình. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:13",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:13:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "策展人原以为，使用次数增加就表示更多____完整理解了展览的历史顺序。",
+      "pinyinReference": "guānzhòng",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "观众"
+        },
+        {
+          "optionId": "B",
+          "text": "解释"
+        },
+        {
+          "optionId": "C",
+          "text": "作品"
+        },
+        {
+          "optionId": "D",
+          "text": "结果"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“观众” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:14",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:14:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "下一步要比较回答内容和实际停留位置，才能知道导览是否帮助观众建立自己的____。",
+      "pinyinReference": "jiěshì",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "解释"
+        },
+        {
+          "optionId": "B",
+          "text": "作品"
+        },
+        {
+          "optionId": "C",
+          "text": "结果"
+        },
+        {
+          "optionId": "D",
+          "text": "观众"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“解释” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:15",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:15:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "路线记录却显示，许多观众听完前三段后直接去了最后一厅，因为应用把“推荐____”放在屏幕最上面。",
+      "pinyinReference": "zuòpǐn",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "作品"
+        },
+        {
+          "optionId": "B",
+          "text": "结果"
+        },
+        {
+          "optionId": "C",
+          "text": "观众"
+        },
+        {
+          "optionId": "D",
+          "text": "解释"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "“作品” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:13",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:13:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "____只按年代参观____，多种路线给观众更多选择。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "跟……相比"
+        },
+        {
+          "optionId": "B",
+          "text": "被……所……"
+        },
+        {
+          "optionId": "C",
+          "text": "由于……因此……"
+        },
+        {
+          "optionId": "D",
+          "text": "不管……都……"
+        }
+      ],
+      "correctOptionId": "A",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-064 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:14",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:14:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "字幕设计____要容易阅读，____要让观众看见演员表情。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "如果……就……"
+        },
+        {
+          "optionId": "B",
+          "text": "虽然……但是……"
+        },
+        {
+          "optionId": "C",
+          "text": "只有……才……"
+        },
+        {
+          "optionId": "D",
+          "text": "既……又……"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-067 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:15",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:15:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "不同路线____一定表示理解失败，____可能反映时间和语言需要。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "除了……还……"
+        },
+        {
+          "optionId": "B",
+          "text": "因为……所以……"
+        },
+        {
+          "optionId": "C",
+          "text": "不是……而是……"
+        },
+        {
+          "optionId": "D",
+          "text": "一边……一边……"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-066 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Số liệu từ một triển lãm sáu tuần không đại diện cho mọi bảo tàng, ngôn ngữ hoặc kiểu khách tham quan.",
+      "sourceLessonId": "hsk4-arts-sports-exchange-critique-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:16",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:16:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "地方博物馆为一座旧石桥制作新说明牌。过去的牌子写着“建于一八六零年”，可是工作人员查到的县志只说十九世纪中期，维修账本上的第一个明确日期则是一八六四年。一些居民记得祖辈说桥在大水以前就存在，另一些故事却把它和后来的一位商人联系起来。研究员认为口述记忆能说明桥对社区的重要性，但不能自动解决建造年份。把所有故事合成一个确定答案，反而会隐藏证据差异。新牌子因此写“约建于十九世纪中期”，列出县志、账本和口述来源，并在一八六零后保留问号。博物馆还设置二维码，让访客查看证据原文。问号不是研究失败，而是说明目前能确定到什么程度。",
+      "pinyinReference": null,
+      "syntheticTtsText": "地方博物馆为一座旧石桥制作新说明牌。过去的牌子写着“建于一八六零年”，可是工作人员查到的县志只说十九世纪中期，维修账本上的第一个明确日期则是一八六四年。一些居民记得祖辈说桥在大水以前就存在，另一些故事却把它和后来的一位商人联系起来。研究员认为口述记忆能说明桥对社区的重要性，但不能自动解决建造年份。把所有故事合成一个确定答案，反而会隐藏证据差异。新牌子因此写“约建于十九世纪中期”，列出县志、账本和口述来源，并在一八六零后保留问号。博物馆还设置二维码，让访客查看证据原文。问号不是研究失败，而是说明目前能确定到什么程度。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Ngày rõ sớm nhất trong sổ sửa chữa là năm 1864."
+        },
+        {
+          "optionId": "B",
+          "text": "Giữ dấu hỏi giúp khách phân biệt sự kiện, ký ức và suy đoán."
+        },
+        {
+          "optionId": "C",
+          "text": "Câu chuyện cư dân đã chứng minh chính xác cầu xây năm 1860."
+        },
+        {
+          "optionId": "D",
+          "text": "Thuyết minh lịch sử nên công khai các bằng chứng và mức chắc chắn thay vì tạo một năm quá chính xác."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Nguồn so sánh ba loại bằng chứng và giải thích lựa chọn ghi khoảng thời gian. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:17",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:17:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "地方博物馆为一座旧石桥制作新说明牌。过去的牌子写着“建于一八六零年”，可是工作人员查到的县志只说十九世纪中期，维修账本上的第一个明确日期则是一八六四年。一些居民记得祖辈说桥在大水以前就存在，另一些故事却把它和后来的一位商人联系起来。研究员认为口述记忆能说明桥对社区的重要性，但不能自动解决建造年份。把所有故事合成一个确定答案，反而会隐藏证据差异。新牌子因此写“约建于十九世纪中期”，列出县志、账本和口述来源，并在一八六零后保留问号。博物馆还设置二维码，让访客查看证据原文。问号不是研究失败，而是说明目前能确定到什么程度。",
+      "pinyinReference": null,
+      "syntheticTtsText": "地方博物馆为一座旧石桥制作新说明牌。过去的牌子写着“建于一八六零年”，可是工作人员查到的县志只说十九世纪中期，维修账本上的第一个明确日期则是一八六四年。一些居民记得祖辈说桥在大水以前就存在，另一些故事却把它和后来的一位商人联系起来。研究员认为口述记忆能说明桥对社区的重要性，但不能自动解决建造年份。把所有故事合成一个确定答案，反而会隐藏证据差异。新牌子因此写“约建于十九世纪中期”，列出县志、账本和口述来源，并在一八六零后保留问号。博物馆还设置二维码，让访客查看证据原文。问号不是研究失败，而是说明目前能确定到什么程度。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Giữ dấu hỏi giúp khách phân biệt sự kiện, ký ức và suy đoán."
+        },
+        {
+          "optionId": "B",
+          "text": "Câu chuyện cư dân đã chứng minh chính xác cầu xây năm 1860."
+        },
+        {
+          "optionId": "C",
+          "text": "Thuyết minh lịch sử nên công khai các bằng chứng và mức chắc chắn thay vì tạo một năm quá chính xác."
+        },
+        {
+          "optionId": "D",
+          "text": "Ngày rõ sớm nhất trong sổ sửa chữa là năm 1864."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Đây là mốc được nói trực tiếp, không đồng nghĩa năm xây. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:listening:18",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:listening:18:1",
+      "skill": "listening",
+      "construct": "hsk4-three-paragraph-evidence-bound-listening",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "地方博物馆为一座旧石桥制作新说明牌。过去的牌子写着“建于一八六零年”，可是工作人员查到的县志只说十九世纪中期，维修账本上的第一个明确日期则是一八六四年。一些居民记得祖辈说桥在大水以前就存在，另一些故事却把它和后来的一位商人联系起来。研究员认为口述记忆能说明桥对社区的重要性，但不能自动解决建造年份。把所有故事合成一个确定答案，反而会隐藏证据差异。新牌子因此写“约建于十九世纪中期”，列出县志、账本和口述来源，并在一八六零后保留问号。博物馆还设置二维码，让访客查看证据原文。问号不是研究失败，而是说明目前能确定到什么程度。",
+      "pinyinReference": null,
+      "syntheticTtsText": "地方博物馆为一座旧石桥制作新说明牌。过去的牌子写着“建于一八六零年”，可是工作人员查到的县志只说十九世纪中期，维修账本上的第一个明确日期则是一八六四年。一些居民记得祖辈说桥在大水以前就存在，另一些故事却把它和后来的一位商人联系起来。研究员认为口述记忆能说明桥对社区的重要性，但不能自动解决建造年份。把所有故事合成一个确定答案，反而会隐藏证据差异。新牌子因此写“约建于十九世纪中期”，列出县志、账本和口述来源，并在一八六零后保留问号。博物馆还设置二维码，让访客查看证据原文。问号不是研究失败，而是说明目前能确定到什么程度。",
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Câu chuyện cư dân đã chứng minh chính xác cầu xây năm 1860."
+        },
+        {
+          "optionId": "B",
+          "text": "Thuyết minh lịch sử nên công khai các bằng chứng và mức chắc chắn thay vì tạo một năm quá chính xác."
+        },
+        {
+          "optionId": "C",
+          "text": "Ngày rõ sớm nhất trong sổ sửa chữa là năm 1864."
+        },
+        {
+          "optionId": "D",
+          "text": "Giữ dấu hỏi giúp khách phân biệt sự kiện, ký ức và suy đoán."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Bảng mới trình bày nguồn và mức chắc chắn thay vì xóa khác biệt. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:16",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:16:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Kết luận trung tâm nào phù hợp nhất với toàn bộ nguồn?",
+      "stimulusText": "山口村的青年小组采访了十二位老人，记录旧码头和搬迁前的生活。最初的同意书只有“可以保存录音”一句话，没有说明录音会不会放到公开网站，也没有区分姓名、照片和声音。准备上线时，两位讲述者希望隐藏姓名，一位要求删掉涉及邻居家庭的片段。小组没有把这些变化看成反对历史保护，而是重新设计了三种授权：只供村内学习、可公开节选、可公开完整录音。讲述者每年都能修改选择。网站还在每段录音旁标明采访日期、剪辑者和无法确认的记忆细节。访问量可能说明有人听，却不能证明材料准确或社区同意。项目下一步会记录撤回处理时间，并邀请讲述者检查文字说明。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Dự án thiết kế ba quyền: học trong làng, công khai trích đoạn và công khai toàn bộ."
+        },
+        {
+          "optionId": "B",
+          "text": "Lượt truy cập tăng không thay thế kiểm tra độ chính xác và đồng ý liên tục."
+        },
+        {
+          "optionId": "C",
+          "text": "Một lần ký nghĩa là dự án được công khai vĩnh viễn mọi tên và chi tiết gia đình."
+        },
+        {
+          "optionId": "D",
+          "text": "Số hóa lịch sử truyền miệng phải tách lưu giữ với công khai, đồng thời để người kể tiếp tục kiểm soát quyền và bối cảnh."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Nguồn nêu lỗ hổng đồng ý, cơ chế quyền mới và yêu cầu minh bạch bối cảnh. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:17",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:17:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Chi tiết nào là bằng chứng trực tiếp quan trọng nhất trong nguồn?",
+      "stimulusText": "山口村的青年小组采访了十二位老人，记录旧码头和搬迁前的生活。最初的同意书只有“可以保存录音”一句话，没有说明录音会不会放到公开网站，也没有区分姓名、照片和声音。准备上线时，两位讲述者希望隐藏姓名，一位要求删掉涉及邻居家庭的片段。小组没有把这些变化看成反对历史保护，而是重新设计了三种授权：只供村内学习、可公开节选、可公开完整录音。讲述者每年都能修改选择。网站还在每段录音旁标明采访日期、剪辑者和无法确认的记忆细节。访问量可能说明有人听，却不能证明材料准确或社区同意。项目下一步会记录撤回处理时间，并邀请讲述者检查文字说明。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Lượt truy cập tăng không thay thế kiểm tra độ chính xác và đồng ý liên tục."
+        },
+        {
+          "optionId": "B",
+          "text": "Một lần ký nghĩa là dự án được công khai vĩnh viễn mọi tên và chi tiết gia đình."
+        },
+        {
+          "optionId": "C",
+          "text": "Số hóa lịch sử truyền miệng phải tách lưu giữ với công khai, đồng thời để người kể tiếp tục kiểm soát quyền và bối cảnh."
+        },
+        {
+          "optionId": "D",
+          "text": "Dự án thiết kế ba quyền: học trong làng, công khai trích đoạn và công khai toàn bộ."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Ba mức quyền được nêu trực tiếp. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:reading:18",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:reading:18:1",
+      "skill": "reading",
+      "construct": "hsk4-three-paragraph-evidence-bound-reading",
+      "promptVi": "Suy luận nào hợp lý nhưng vẫn giữ đúng giới hạn bằng chứng?",
+      "stimulusText": "山口村的青年小组采访了十二位老人，记录旧码头和搬迁前的生活。最初的同意书只有“可以保存录音”一句话，没有说明录音会不会放到公开网站，也没有区分姓名、照片和声音。准备上线时，两位讲述者希望隐藏姓名，一位要求删掉涉及邻居家庭的片段。小组没有把这些变化看成反对历史保护，而是重新设计了三种授权：只供村内学习、可公开节选、可公开完整录音。讲述者每年都能修改选择。网站还在每段录音旁标明采访日期、剪辑者和无法确认的记忆细节。访问量可能说明有人听，却不能证明材料准确或社区同意。项目下一步会记录撤回处理时间，并邀请讲述者检查文字说明。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "Một lần ký nghĩa là dự án được công khai vĩnh viễn mọi tên và chi tiết gia đình."
+        },
+        {
+          "optionId": "B",
+          "text": "Số hóa lịch sử truyền miệng phải tách lưu giữ với công khai, đồng thời để người kể tiếp tục kiểm soát quyền và bối cảnh."
+        },
+        {
+          "optionId": "C",
+          "text": "Dự án thiết kế ba quyền: học trong làng, công khai trích đoạn và công khai toàn bộ."
+        },
+        {
+          "optionId": "D",
+          "text": "Lượt truy cập tăng không thay thế kiểm tra độ chính xác và đồng ý liên tục."
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Nguồn phân biệt có người nghe với dữ liệu đúng hoặc cộng đồng đồng ý. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:16",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:16:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "小组没有把这些变化看成反对历史____，而是重新设计了三种授权：只供村内学习、可公开节选、可公开完整录音。",
+      "pinyinReference": "bǎohù",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "材料"
+        },
+        {
+          "optionId": "B",
+          "text": "准确"
+        },
+        {
+          "optionId": "C",
+          "text": "结果"
+        },
+        {
+          "optionId": "D",
+          "text": "保护"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“保护” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:17",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:17:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "访问量可能说明有人听，却不能证明____准确或社区同意。",
+      "pinyinReference": "cáiliào",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "准确"
+        },
+        {
+          "optionId": "B",
+          "text": "结果"
+        },
+        {
+          "optionId": "C",
+          "text": "保护"
+        },
+        {
+          "optionId": "D",
+          "text": "材料"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“材料” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:vocabulary:18",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:vocabulary:18:1",
+      "skill": "vocabulary",
+      "construct": "hsk4-vocabulary-in-hanzi-context",
+      "promptVi": "Chọn từ Hán phù hợp nhất để hoàn thành ngữ cảnh.",
+      "stimulusText": "访问量可能说明有人听，却不能证明材料____或社区同意。",
+      "pinyinReference": "zhǔnquè",
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "结果"
+        },
+        {
+          "optionId": "B",
+          "text": "保护"
+        },
+        {
+          "optionId": "C",
+          "text": "材料"
+        },
+        {
+          "optionId": "D",
+          "text": "准确"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "“准确” xuất hiện trong nguồn và hoàn thành đúng ngữ nghĩa của câu; các lựa chọn còn lại không phù hợp quan hệ ngữ cảnh. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:16",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:16:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "在授权____，保存录音和公开录音必须分开处理。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "左右"
+        },
+        {
+          "optionId": "B",
+          "text": "以来"
+        },
+        {
+          "optionId": "C",
+          "text": "之中"
+        },
+        {
+          "optionId": "D",
+          "text": "方面"
+        }
+      ],
+      "correctOptionId": "D",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-034 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:17",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:17:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "新说明牌____写出大概年代，____列明三类来源。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "虽然……但是……"
+        },
+        {
+          "optionId": "B",
+          "text": "一边……一边……"
+        },
+        {
+          "optionId": "C",
+          "text": "不仅……还……"
+        },
+        {
+          "optionId": "D",
+          "text": "只要……就……"
+        }
+      ],
+      "correctOptionId": "C",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-073 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    },
+    {
+      "id": "hsk4-level-check:form-a:grammar:18",
+      "sourceItemVersion": "hsk4-level-assessment-2026.07:hsk4-level-check:form-a:grammar:18:1",
+      "skill": "grammar",
+      "construct": "hsk4-grammar-discourse-control-in-hanzi-context",
+      "promptVi": "Chọn cấu trúc Hán ngữ phù hợp nhất với quan hệ ý nghĩa.",
+      "stimulusText": "项目组把三种授权____，再请讲述者选择。",
+      "pinyinReference": null,
+      "syntheticTtsText": null,
+      "options": [
+        {
+          "optionId": "A",
+          "text": "列过吗"
+        },
+        {
+          "optionId": "B",
+          "text": "列一列"
+        },
+        {
+          "optionId": "C",
+          "text": "列着"
+        },
+        {
+          "optionId": "D",
+          "text": "被列"
+        }
+      ],
+      "correctOptionId": "B",
+      "explanationVi": "Cấu trúc thuộc hsk4-grammar-row-055 hoàn thành đúng quan hệ ý nghĩa trong ngữ cảnh nguồn HSK4. Mười hai cuộc phỏng vấn của một làng không thể đại diện cho toàn vùng, và sự đồng ý ở một thời điểm không mặc nhiên kéo dài mãi mãi.",
+      "sourceLessonId": "hsk4-culture-history-interpretation-concept-actor-map",
+      "sourceUnitId": "hsk4-deep-comprehension",
+      "measurementEligible": false,
+      "masteryEligible": false,
+      "prerequisiteWaiverEligible": false
+    }
+  ],
+  "integritySha256": "sha256:3380b97d6afa8afabcf405303b52f8fe3d11b225082c4337f18765be4f47925a"
+}

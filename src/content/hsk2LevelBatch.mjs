@@ -5,7 +5,7 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 
 export const HSK2_LEVEL_BASE_VERSION = "foundation-2026.08.1";
 export const HSK2_LEVEL_TARGET_VERSION = "foundation-2026.08.2";
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.3";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.4";
 export const HSK2_LEVEL_REVIEW_RELATIVE_PATH =
   "content/review/hsk2-level-batch-local-study-review.json";
 export const HSK2_LEVEL_CORE_RELATIVE_PATH =

@@ -3,12 +3,12 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   HSK3_LEVEL_CORE_RELATIVE_PATH,
-  HSK3_LEVEL_TARGET_VERSION,
 } from "../../src/content/hsk3LevelBatch.mjs";
 import { loadHskSyllabusBundle } from "../../src/content/hskSyllabusInventory.mjs";
 
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.4";
 const serialized = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const readJson = (root, relativePath) => JSON.parse(readFileSync(
   resolve(root, relativePath),
@@ -24,7 +24,7 @@ const project = (root) => {
   const release = readJson(root, RELEASE_PATH);
   const runtime = readJson(
     root,
-    `content/packages/${HSK3_LEVEL_TARGET_VERSION}/runtime-catalog.json`,
+    `content/packages/${CURRENT_LOCAL_STUDY_VERSION}/runtime-catalog.json`,
   );
   const syllabus = loadHskSyllabusBundle(root);
   const vocabularyById = new Map(runtime.vocabulary.map((item) => [item.id, item]));
@@ -54,33 +54,35 @@ const project = (root) => {
   }
   const projectedGraph = {
     ...graph,
-    runtimeContentVersion: HSK3_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     units: graph.units.map((unit) => unit.pathId === "hsk3"
       ? { ...unit, status: "foundation" }
       : unit),
-    lessonMappings: [
-      ...graph.lessonMappings.filter((mapping) => !mapping.unitId.startsWith("hsk3-")),
-      ...core.lessons.map((lesson) => ({
-        lessonId: lesson.runtimeLessonId,
-        unitId: lesson.unitId,
-        mappingState: "partial",
-        officialVocabularyIds: officialVocabularyIds(lesson),
-        unmappedRuntimeWordIds: [],
-      })),
-    ],
+    lessonMappings: graph.units.flatMap((unit) => unit.pathId === "hsk3"
+      ? core.lessons
+        .filter((lesson) => lesson.unitId === unit.unitId)
+        .map((lesson) => ({
+          lessonId: lesson.runtimeLessonId,
+          unitId: lesson.unitId,
+          mappingState: "partial",
+          officialVocabularyIds: officialVocabularyIds(lesson),
+          unmappedRuntimeWordIds: [],
+        }))
+      : graph.lessonMappings.filter((mapping) => mapping.unitId === unit.unitId)),
   };
   const projectedRelease = {
     ...release,
-    runtimeContentVersion: HSK3_LEVEL_TARGET_VERSION,
-    units: [
-      ...release.units.filter((unit) => !unit.unitId.startsWith("hsk3-")),
-      ...projectedGraph.units
-        .filter((unit) => unit.pathId === "hsk3")
-        .map((unit) => ({
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
+    units: projectedGraph.units
+      .filter((unit) => release.units.some(
+        (candidate) => candidate.unitId === unit.unitId,
+      ) || unit.pathId === "hsk3")
+      .map((unit) => unit.pathId === "hsk3"
+        ? ({
           unitId: unit.unitId,
           lessonIds: lessonsByUnit.get(unit.unitId) ?? [],
-        })),
-    ],
+        })
+        : release.units.find((candidate) => candidate.unitId === unit.unitId)),
   };
   return { graph: projectedGraph, release: projectedRelease };
 };

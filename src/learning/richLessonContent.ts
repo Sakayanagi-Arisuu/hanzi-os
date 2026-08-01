@@ -1,6 +1,7 @@
 import hsk1LevelRichLessonContentJson from "../../content/runtime/hsk1-level-rich-lessons.json";
 import hsk2LevelRichLessonContentJson from "../../content/runtime/hsk2-level-rich-lessons.json";
 import hsk3LevelRichLessonContentJson from "../../content/runtime/hsk3-level-rich-lessons.json";
+import hsk4LevelRichLessonContentJson from "../../content/runtime/hsk4-level-rich-lessons.json";
 import { CONTENT_VERSION } from "../data/curriculum";
 
 export type RichDialogueTurn = {
@@ -82,6 +83,7 @@ const artifacts = [
   hsk1LevelRichLessonContentJson,
   hsk2LevelRichLessonContentJson,
   hsk3LevelRichLessonContentJson,
+  hsk4LevelRichLessonContentJson,
 ] as unknown as RichLessonArtifact[];
 
 const isLocallyAuthorized = (artifact: RichLessonArtifact) =>

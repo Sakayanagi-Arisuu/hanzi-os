@@ -7,6 +7,7 @@ const AssessmentPage = lazy(async () => ({ default: (await import("./screens/Ass
 const Hsk1LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk1LevelCheckPage")).Hsk1LevelCheckPage }));
 const Hsk2LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk2LevelCheckPage")).Hsk2LevelCheckPage }));
 const Hsk3LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk3LevelCheckPage")).Hsk3LevelCheckPage }));
+const Hsk4LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk4LevelCheckPage")).Hsk4LevelCheckPage }));
 const CharactersPage = lazy(async () => ({ default: (await import("./screens/CharactersPage")).CharactersPage }));
 const DashboardPage = lazy(async () => ({ default: (await import("./screens/DashboardPage")).DashboardPage }));
 const DictionaryPage = lazy(async () => ({ default: (await import("./screens/DictionaryPage")).DictionaryPage }));
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/assessment/hsk1" element={<Hsk1LevelCheckPage />} />
           <Route path="/assessment/hsk2" element={<Hsk2LevelCheckPage />} />
           <Route path="/assessment/hsk3" element={<Hsk3LevelCheckPage />} />
+          <Route path="/assessment/hsk4" element={<Hsk4LevelCheckPage />} />
           <Route path="/pronunciation" element={<PronunciationPage />} />
           <Route path="/characters" element={<CharactersPage />} />
           <Route path="/reader" element={<ReaderPage />} />

@@ -30,9 +30,10 @@ describe("learner HSK0-4 curriculum view", () => {
     expect(hsk3.bridgeLessonIds).toHaveLength(84);
     expect(hsk3.visibleLessonIds).toHaveLength(139);
     expect(hsk3.targetContentAvailable).toBe(true);
-    expect(hsk4.targetLessonIds).toEqual([]);
-    expect(hsk4.visibleLessonIds).toEqual([]);
-    expect(hsk4.targetContentAvailable).toBe(false);
+    expect(hsk4.targetLessonIds).toHaveLength(78);
+    expect(hsk4.bridgeLessonIds).toHaveLength(139);
+    expect(hsk4.visibleLessonIds).toHaveLength(217);
+    expect(hsk4.targetContentAvailable).toBe(true);
   });
 
   it("keeps the legacy basic value on the HSK1 graph", () => {
@@ -72,15 +73,15 @@ describe("learner HSK0-4 curriculum view", () => {
     });
   });
 
-  it("does not substitute beginner lessons for an unpublished target", () => {
+  it("requires prior-path evidence before the first HSK4 lesson", () => {
     expect(resolveHskPlacement({
       startingLevel: "hsk4",
       diagnosticCompleted: true,
       passedLessonIds: new Set(),
     })).toMatchObject({
-      status: "target-content-unavailable",
+      status: "prerequisite-evidence-required",
       diagnosticUse: "observed-only",
-      recommendedLessonId: null,
+      recommendedLessonId: "boot-1",
       grantsMastery: false,
       grantsPrerequisiteWaiver: false,
     });

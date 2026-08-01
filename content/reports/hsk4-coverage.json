@@ -8,7 +8,7 @@
     "effective": "2026-07",
     "rightsDecision": "pending"
   },
-  "contentVersion": "foundation-2026.08.3",
+  "contentVersion": "foundation-2026.08.4",
   "officialInventory": {
     "tasks": {
       "1": 15,
@@ -44,8 +44,8 @@
   "currentCoverage": {
     "vocabulary": {
       "officialTotal": 2000,
-      "runtimeTotal": 1016,
-      "runtimeMapped": 1015,
+      "runtimeTotal": 2016,
+      "runtimeMapped": 2015,
       "unmatchedRuntime": [
         {
           "runtimeId": "yuenan",
@@ -247,25 +247,31 @@
           "officialPinyin": "zhàogù"
         },
         {
+          "runtimeId": "hsk-vocab-01688",
+          "simplified": "熟",
+          "runtimePinyin": "shú",
+          "officialPinyin": "shú/shóu"
+        },
+        {
           "runtimeId": "xuesheng",
           "simplified": "学生",
           "runtimePinyin": "xuésheng",
           "officialPinyin": "xuéshēng"
         }
       ],
-      "coveragePercent": 50.75,
+      "coveragePercent": 100.75,
       "byLevel": [
         {
           "level": 1,
           "officialIncremental": 300,
-          "runtimeMapped": 317,
-          "coveragePercent": 105.67
+          "runtimeMapped": 318,
+          "coveragePercent": 106
         },
         {
           "level": 2,
           "officialIncremental": 200,
-          "runtimeMapped": 201,
-          "coveragePercent": 100.5
+          "runtimeMapped": 202,
+          "coveragePercent": 101
         },
         {
           "level": 3,
@@ -276,8 +282,8 @@
         {
           "level": 4,
           "officialIncremental": 1000,
-          "runtimeMapped": 0,
-          "coveragePercent": 0
+          "runtimeMapped": 998,
+          "coveragePercent": 99.8
         }
       ]
     },
@@ -322,8 +328,8 @@
       "tasks": 0,
       "topics": 0,
       "grammarRows": 0,
-      "officialVocabularyWithLessonMapping": 995,
-      "runtimeLessonsMapped": 139
+      "officialVocabularyWithLessonMapping": 1992,
+      "runtimeLessonsMapped": 217
     },
     "authoringScope": {
       "hsk1": {
@@ -1031,7 +1037,7 @@
       }
     },
     "learningMaterials": {
-      "runtimeLessons": 139,
+      "runtimeLessons": 217,
       "runtimeGradedTexts": 1,
       "curriculumPaths": 5,
       "curriculumUnits": 18

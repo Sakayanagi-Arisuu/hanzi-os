@@ -103,6 +103,13 @@ const outputs = [
       "hsk3-smoke",
     ),
   },
+  {
+    path: "e2e/fixtures/hsk4-bridge-evidence.json",
+    evidence: buildPassedEvidence(
+      "hsk3-structured-explanation-lesson-03",
+      "hsk4-smoke",
+    ),
+  },
 ];
 
 for (const output of outputs) {

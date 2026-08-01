@@ -150,6 +150,28 @@ const sessionProvenance = (
   };
 };
 
+const MAX_RESOLVED_SESSION_CACHE_ENTRIES = 64;
+const resolvedSessionRuntimeCache = new Map<string, LocalLessonRuntimeV1>();
+
+const resolvedSessionCacheKey = (
+  lessonId: string,
+  sessionId: string,
+  script: "simplified" | "traditional",
+) => `${lessonId}\u0000${sessionId}\u0000${script}`;
+
+const cacheResolvedSessionRuntime = (
+  key: string,
+  runtime: LocalLessonRuntimeV1,
+) => {
+  resolvedSessionRuntimeCache.delete(key);
+  resolvedSessionRuntimeCache.set(key, runtime);
+  while (resolvedSessionRuntimeCache.size > MAX_RESOLVED_SESSION_CACHE_ENTRIES) {
+    const oldestKey = resolvedSessionRuntimeCache.keys().next().value;
+    if (oldestKey === undefined) break;
+    resolvedSessionRuntimeCache.delete(oldestKey);
+  }
+};
+
 /**
  * Compiles one local session only when the checked HSK curriculum catalog,
  * the sanitized lesson payload, and the deterministic activity form agree.
@@ -274,17 +296,30 @@ const resolveExactSessionProvenance = (
 
   const lesson = LESSON_BY_ID.get(value.lessonId);
   if (!lesson) return null;
-  const result = materializeLocalLessonRuntime(
-    lesson,
-    value.script,
+  const cacheKey = resolvedSessionCacheKey(
+    value.lessonId,
     value.sessionId,
+    value.script,
   );
-  if (!result.ok) return null;
-  const expected = localLessonSessionProvenance(result.runtime);
+  let runtime = resolvedSessionRuntimeCache.get(cacheKey);
+  if (!runtime) {
+    const result = materializeLocalLessonRuntime(
+      lesson,
+      value.script,
+      value.sessionId,
+    );
+    if (!result.ok) return null;
+    runtime = result.runtime;
+    cacheResolvedSessionRuntime(cacheKey, runtime);
+  } else {
+    resolvedSessionRuntimeCache.delete(cacheKey);
+    resolvedSessionRuntimeCache.set(cacheKey, runtime);
+  }
+  const expected = localLessonSessionProvenance(runtime);
   return canonicalStringify(value) === canonicalStringify(expected)
     ? {
         provenance: value as LocalLessonSessionProvenanceV1,
-        runtime: result.runtime,
+        runtime,
       }
     : null;
 };

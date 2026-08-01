@@ -4,23 +4,23 @@ Cập nhật: 01/08/2026
 
 ## 1. Tình trạng một câu
 
-B3 đã hoàn tất toàn bộ HSK3 cho bản tự học local: 55/55 bài mở trên Path và
-shared rich Lesson UI, phủ đủ inventory HSK3 và level check 54 câu chạy
-end-to-end. HSK4 vẫn chỉ là inventory/blueprint/draft, chưa được tính
-learner-visible.
+B4 đã hoàn tất toàn bộ HSK4 cho bản tự học local: 78/78 bài mở trên Path và
+shared rich Lesson UI, phủ đủ inventory HSK4 và level check 72 câu chạy
+end-to-end. Toàn bộ 213 blueprint HSK1-4 hiện đã học được trên UI.
 
 ## 2. Dashboard tiến độ bắt buộc
 
-- **Sẵn sàng toàn dự án:** 93/100 (93%).
+- **Sẵn sàng toàn dự án:** 95/100 (95%).
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK2 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK3 learner-visible:** 55/55; rich Lesson UI 55/55.
-- **HSK4 learner-visible:** 0/78; rich Lesson UI 0/78.
-- **Toàn HSK1-4 learner-visible:** 135/213 blueprint (63,4%).
+- **HSK4 learner-visible:** 78/78; rich Lesson UI 78/78.
+- **Toàn HSK1-4 learner-visible:** 213/213 blueprint (100%).
 
-93% đo cả nền ứng dụng, learning loop, QA, assessment và nội dung. 135/213 mới
-là tiến độ đưa kho HSK1-4 lên giao diện để người học thực sự mở và học được.
+95% đo cả nền ứng dụng, learning loop, QA, assessment, nội dung và đóng gói local.
+Kho HSK1-4 trên UI đã đạt 213/213; 5 điểm còn lại thuộc batch đóng gói đồ án local,
+không phải bài học còn thiếu.
 
 ## 3. Nội dung người học nhìn thấy
 
@@ -32,46 +32,49 @@ là tiến độ đưa kho HSK1-4 lên giao diện để người học thực s
 | HSK3 paragraph input | 25/25 | 25/25 | hoàn thành local |
 | HSK3 narration grammar | 15/15 | 15/15 | hoàn thành local |
 | HSK3 guided production | 15/15 | 15/15 | hoàn thành local |
-| HSK4 | 0/78 | 0/78 | learner-hidden |
+| HSK4 deep comprehension | 36/36 | 36/36 | hoàn thành local |
+| HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
+| HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B3 đã thêm cho người học
+## 4. B4 đã thêm cho người học
 
-- Materialize và AI self-review năm pass đủ 55 blueprint HSK3; không còn lỗi
+- Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
-- Package hiện hành `foundation-2026.08.3` giao 139 lesson runtime: 4 HSK0,
-  40 HSK1, 40 HSK2 và 55 HSK3. Package B0 `foundation-2026.07.8` giữ nguyên.
-- Phủ đủ **500 vocabulary, 284 character, 96 grammar, 22 task và 54 topic**
-  HSK3.
-- 55 bài rich có nội dung thật trên Lesson UI, gồm 25 bài paragraph input,
-  15 bài narration và 15 bài guided production. Nguồn authoring chứa 400 dòng
-  paragraph, 90 dòng narration và 92 đơn vị prompt; projection UI giao 410
-  lượt văn bản/hội thoại giàu ngữ cảnh.
-- Path mở HSK3 từ bài cuối HSK2 rồi giữ đúng chuỗi prerequisite của 55
+- Package hiện hành `foundation-2026.08.4` giao 217 lesson runtime: 4 HSK0,
+  40 HSK1, 40 HSK2, 55 HSK3 và 78 HSK4. Package B0
+  `foundation-2026.07.8` giữ nguyên.
+- Phủ đủ **1.000 vocabulary, 441 character, 95 grammar, 30 task và 77 topic**
+  HSK4.
+- 78 bài rich có nội dung thật trên Lesson UI, gồm 36 bài deep comprehension,
+  24 bài summary/argument và 18 bài timed integration. Nguồn authoring có 216
+  đoạn dài và 106 đơn vị prompt; projection UI giao 234 lượt văn bản/hội thoại
+  giàu ngữ cảnh.
+- Path mở HSK4 từ bài cuối HSK3 rồi giữ đúng chuỗi prerequisite của 78
   blueprint. Persistence chỉ khôi phục completion từ evidence đúng version;
   fixture E2E cũng đi qua chính policy này, không bypass.
-- Route `/assessment/hsk3` giao form A gồm 54 câu khách quan: 12 nghe, 12 đọc,
-  15 từ vựng và 15 ngữ pháp. Resume và kết quả được lưu theo version riêng;
+- Route `/assessment/hsk4` giao form A gồm 72 câu khách quan: 18 nghe, 18 đọc,
+  18 từ vựng và 18 ngữ pháp. Resume và kết quả được lưu theo version riêng;
   kết quả không cấp mastery, không miễn prerequisite và không tuyên bố chứng
   nhận HSK.
 - Browser TTS chỉ là synthetic practice, không phải native audio hay bằng chứng
   nghe/nói đã thành thạo.
-- HSK1 và HSK2 vẫn giữ 40/40 bài, 40/40 rich UI và level check tương ứng sau
-  package upgrade.
+- HSK1-3 vẫn giữ nguyên toàn bộ bài rich và level check tương ứng sau package
+  upgrade.
 
-Runtime hiện có 1.016 vocabulary ID: 1.000 mục official HSK1+HSK2+HSK3 và 16
+Runtime hiện có 2.016 vocabulary ID: 2.000 mục official HSK1+HSK2+HSK3+HSK4 và 16
 mục bridge/legacy còn consumer hợp lệ.
 
-## 5. Đường dữ liệu B3
+## 5. Đường dữ liệu B4
 
-1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK3 hiện có; không xây lại
+1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
    auth, sync, FSRS, Reader, Review, CMS hay content pipeline.
-2. `content/review/hsk3-level-batch-local-study-review.json` ghi AI self-review
+2. `content/review/hsk4-level-batch-local-study-review.json` ghi AI self-review
    năm pass cho phạm vi local, unresolved bằng 0.
-3. `content/packages/foundation-2026.08.3/` là package immutable hiện hành.
-4. Graph, release policy và local authorization mở 12 unit/135 bài HSK1-3;
-   runtime catalog giao thêm 4 bài bridge HSK0 và tiếp tục khóa HSK4.
-5. Shared rich adapter giao đủ 40 HSK1, 40 HSK2 và 55 HSK3.
-6. Ba level check HSK1-3 có persistence và evidence versioned riêng.
+3. `content/packages/foundation-2026.08.4/` là package immutable hiện hành.
+4. Graph, release policy và local authorization mở 15 unit/213 bài HSK1-4;
+   runtime catalog giao thêm 4 bài bridge HSK0.
+5. Shared rich adapter giao đủ 40 HSK1, 40 HSK2, 55 HSK3 và 78 HSK4.
+6. Bốn level check HSK1-4 có persistence và evidence versioned riêng.
 7. E2E prerequisite dùng completion evidence được materialize từ runtime hiện
    hành; evidence package cũ bị hạ cấp đúng thiết kế và không thể tự mở bài.
 
@@ -79,37 +82,38 @@ Human/production review manifest vẫn pending và production gate tiếp tục
 fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 được mở trong batch này.
 
-## 6. Trạng thái kiểm tra B3
+## 6. Trạng thái kiểm tra B4
 
-- Validator trực tiếp xanh cho 55 bài, 500 từ, 284 chữ, 96 ngữ pháp, 22 nhiệm
-  vụ, 54 chủ đề, rich UI 55/55 và level check 54 câu.
+- Validator trực tiếp xanh cho 78 bài, 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm
+  vụ, 77 chủ đề, rich UI 78/78 và level check 72 câu.
 - Targeted content/package/runtime/graph/UI/persistence/level-check checks xanh.
-- Một lượt `npm run check` đã chạy tại ranh giới batch. Precheck, lockfile,
-  typecheck, lint, content, graph, database và restore xanh. Full Vitest đạt
-  1.727/1.743 trước khi lộ 14 fixture package chưa biết `.08.3` và hai timeout
-  do quét catalog 139 bài.
-- Sau khi sửa đúng phạm vi, ba cụm Vitest liên quan xanh 48/48. Không chạy lại
-  toàn bộ gate lần hai theo quy tắc chỉ chạy full gate một lần ở ranh giới.
-- `npm run test:e2e` chạy một lần toàn bộ: build và bundle budget xanh; 23/26
-  hành trình xanh ngay. Ba lỗi còn lại là hai fixture prerequisite mang version
-  cũ và một smoke HSK1 làm dư nhiều lesson sau mục tiêu cầu nối.
-- Targeted rerun sau sửa xác nhận rich HSK2/3 xanh 2/2 và smoke HSK0→rich HSK1
-  xanh 1/1. Trong lượt full, level check HSK1 50 câu, HSK2 60 câu và HSK3 54
-  câu đều hoàn tất end-to-end; offline, mobile, keyboard và reduced motion xanh.
+- Một lượt full boundary gate đã chạy. Hai generated/lint drift được sửa đúng
+  phạm vi. Content, package, graph, database, restore, typecheck và lint xanh.
+  Full Vitest đạt 1.817/1.827 trước khi lộ ba kỳ vọng HSK4 cũ và timeout do
+  generator quét catalog 2.016 từ cho mỗi distractor.
+- Generator chuyển sang lấy mẫu distractor có giới hạn; năm module lỗi xanh
+  45/45 sau sửa và thời gian targeted giảm còn khoảng 7 giây. Không chạy lại
+  toàn bộ gate lần hai.
+- `npm run test:e2e` chạy một lần toàn bộ: build/bundle budget xanh; 24/28 hành
+  trình xanh ngay. Bốn lỗi còn lại là ba fixture bridge sinh trước thay đổi thứ
+  tự activity và một smoke vẫn mong HSK4 chưa phát hành.
+- Targeted rerun sau sửa xác nhận bốn luồng lỗi xanh 4/4. Trong lượt full, level
+  check HSK1 50 câu, HSK2 60 câu, HSK3 54 câu và HSK4 72 câu đều hoàn tất
+  end-to-end; offline, mobile, keyboard và reduced motion xanh.
+- Bundle ceiling 797,8 KiB, dưới budget bảo thủ 800 KiB.
 - Không chạy Lighthouse/audit vì batch không đổi dependency hoặc shared
-  performance; giữ các gate này cho local release candidate.
+  visual UI; giữ các gate này cho B5 local release candidate.
 
-Không còn lỗi nội dung hoặc tích hợp thật đã biết trong B3.
+Không còn lỗi nội dung hoặc tích hợp thật đã biết trong B4.
 
 ## 7. Ranh giới và batch tiếp theo
 
 - Workspace: `D:\Projects\hanzi-os`; branch: `codex/hsk4-graduation`.
-- B1 commit `5ad93ae`; B2 package `foundation-2026.08.2`; B3 package
-  `foundation-2026.08.3`.
+- B1 commit `5ad93ae`; B3 commit `c295191`; B4 package
+  `foundation-2026.08.4`.
 - Không commit staging, build output hoặc report thử.
 - Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
 
-**Batch duy nhất tiếp theo: B4 — toàn bộ HSK4 (78 blueprint)**, batch-first:
-deep comprehension, summary/argument và timed integration; phủ 1.000 vocabulary,
-441 character, 95 grammar, 30 task, 77 topic; đưa 78/78 bài lên rich Lesson UI
-và tích hợp level check HSK4 end-to-end.
+**Batch duy nhất tiếp theo: B5 — đóng gói đồ án local.** Không còn bài HSK1-4
+phải materialize. B5 chỉ xác nhận local release candidate, Lighthouse/audit và
+handoff; Sites/deployment vẫn để người dùng thực hiện cuối cùng.

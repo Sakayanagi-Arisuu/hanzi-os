@@ -15,6 +15,8 @@ export const HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY =
   "hanzi-os-hsk2-level-check-session-v1";
 export const HSK3_LEVEL_CHECK_SESSION_STORAGE_KEY =
   "hanzi-os-hsk3-level-check-session-v1";
+export const HSK4_LEVEL_CHECK_SESSION_STORAGE_KEY =
+  "hanzi-os-hsk4-level-check-session-v1";
 
 export const isLegacyLearningResumeStorageKey = (key: string) =>
   key === ASSESSMENT_SESSION_STORAGE_KEY
@@ -29,6 +31,7 @@ export const isLearningProgressStorageKey = (key: string) =>
   || key === HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY
   || key === HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY
   || key === HSK3_LEVEL_CHECK_SESSION_STORAGE_KEY
+  || key === HSK4_LEVEL_CHECK_SESSION_STORAGE_KEY
   || isLegacyLearningResumeStorageKey(key);
 
 export const isHanziOsStorageKey = (key: string) => key.startsWith("hanzi-os-");

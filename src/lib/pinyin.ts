@@ -40,7 +40,16 @@ const PINYIN_FINALS = new Set([
   "i", "ia", "ie", "iao", "iu", "ian", "in", "iang", "ing", "iong",
   "u", "ua", "uo", "uai", "ui", "uan", "un", "uang", "ueng", "ue",
   "ü", "üe", "üan", "ün",
+  "m", "n", "ng", "hm", "hng",
 ]);
+
+const SYLLABIC_TONE_MARKS: Record<string, readonly string[]> = {
+  m: ["m̄", "ḿ", "m̌", "m̀"],
+  n: ["n̄", "ń", "ň", "ǹ"],
+  ng: ["n̄g", "ńg", "ňg", "ǹg"],
+  hm: ["hm̄", "hḿ", "hm̌", "hm̀"],
+  hng: ["hn̄g", "hńg", "hňg", "hǹg"],
+};
 
 const NUMBERED_SYLLABLE = /([A-Za-züÜvV:]+)([1-5])/gu;
 
@@ -57,6 +66,10 @@ const markVowel = (spelling: string, tone: MandarinTone) => {
   if (tone === 0) return spelling;
 
   const lower = spelling.toLocaleLowerCase("en");
+  const syllabic = SYLLABIC_TONE_MARKS[lower]?.[tone - 1];
+  if (syllabic) return spelling === lower
+    ? syllabic
+    : syllabic.toLocaleUpperCase("en");
   let targetIndex = lower.indexOf("a");
   if (targetIndex < 0) targetIndex = lower.indexOf("e");
   if (targetIndex < 0) {
@@ -86,6 +99,7 @@ const markVowel = (spelling: string, tone: MandarinTone) => {
 export const splitPinyinSyllable = (spelling: string) => {
   const normalized = normalizeUmlaut(spelling);
   const lower = normalized.toLocaleLowerCase("en");
+  if (SYLLABIC_TONE_MARKS[lower]) return { initial: "", final: lower };
   const initial = PINYIN_INITIALS.find((candidate) => lower.startsWith(candidate)) ?? "";
   return {
     initial,

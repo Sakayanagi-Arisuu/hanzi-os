@@ -18,11 +18,18 @@ import {
 import {
   HSK3_LEVEL_CORE_RELATIVE_PATH,
   HSK3_LEVEL_REVIEW_RELATIVE_PATH,
-  HSK3_LEVEL_TARGET_VERSION,
   loadHsk3LevelBatchBundle,
   validateHsk3LevelBatchBundle,
   validateMaterializedHsk3LevelPackage,
 } from "./hsk3LevelBatch.mjs";
+import {
+  HSK4_LEVEL_CORE_RELATIVE_PATH,
+  HSK4_LEVEL_REVIEW_RELATIVE_PATH,
+  HSK4_LEVEL_TARGET_VERSION,
+  loadHsk4LevelBatchBundle,
+  validateHsk4LevelBatchBundle,
+  validateMaterializedHsk4LevelPackage,
+} from "./hsk4LevelBatch.mjs";
 import {
   HSK_LOCAL_STUDY_PROFILE_ID,
   HSK_LOCAL_STUDY_PROFILE_RELATIVE_PATH,
@@ -32,15 +39,15 @@ import { fileSha256 } from "./hskSyllabusInventory.mjs";
 export const HSK1_LOCAL_STUDY_AUTHORIZATION_RELATIVE_PATH =
   "content/curriculum/hsk0-4-local-study-authorizations.json";
 export const HSK1_LOCAL_STUDY_AUTHORIZATION_ID =
-  "hsk0-4-local-study-authorizations-2026.08.3";
+  "hsk0-4-local-study-authorizations-2026.08.4";
 
 const GRAPH_RELATIVE_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_POLICY_RELATIVE_PATH =
   "content/curriculum/hsk0-4-unit-release-policy.json";
 const PACKAGE_MANIFEST_RELATIVE_PATH =
-  `content/packages/${HSK3_LEVEL_TARGET_VERSION}/manifest.json`;
+  `content/packages/${HSK4_LEVEL_TARGET_VERSION}/manifest.json`;
 const PACKAGE_ITEM_CATALOG_RELATIVE_PATH =
-  `content/packages/${HSK3_LEVEL_TARGET_VERSION}/item-catalog.json`;
+  `content/packages/${HSK4_LEVEL_TARGET_VERSION}/item-catalog.json`;
 
 const readJson = (root, relativePath) => JSON.parse(readFileSync(
   resolve(root, relativePath),
@@ -149,6 +156,22 @@ const PRESENTATION_COUNTS = {
     lesson: 15,
     productionPrompt: 92,
   },
+  "hsk4-deep-comprehension": {
+    lesson: 36,
+    vocabulary: 1000,
+    character: 441,
+    topic: 77,
+    paragraph: 216,
+  },
+  "hsk4-summary-argument": {
+    lesson: 24,
+    grammar: 95,
+    task: 30,
+  },
+  "hsk4-timed-integration": {
+    lesson: 18,
+    productionPrompt: 106,
+  },
 };
 
 export const loadHsk1LocalStudyAuthorizationSources = (
@@ -162,6 +185,7 @@ export const loadHsk1LocalStudyAuthorizationSources = (
   hsk1LevelBundle: loadHsk1LevelBatchBundle(root),
   hsk2LevelBundle: loadHsk2LevelBatchBundle(root),
   hsk3LevelBundle: loadHsk3LevelBatchBundle(root),
+  hsk4LevelBundle: loadHsk4LevelBatchBundle(root),
 });
 
 export const projectHsk1LocalStudyAuthorization = async (source) => {
@@ -169,41 +193,49 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
     hsk1Validation,
     hsk2Validation,
     hsk3Validation,
+    hsk4Validation,
     hsk1Package,
     hsk2Package,
     hsk3Package,
+    hsk4Package,
   ] =
     await Promise.all([
       validateHsk1LevelBatchBundle(source.hsk1LevelBundle),
       validateHsk2LevelBatchBundle(source.hsk2LevelBundle),
       validateHsk3LevelBatchBundle(source.hsk3LevelBundle),
+      validateHsk4LevelBatchBundle(source.hsk4LevelBundle),
       validateMaterializedHsk1LevelPackage(source.root),
       validateMaterializedHsk2LevelPackage(source.root),
       validateMaterializedHsk3LevelPackage(source.root),
+      validateMaterializedHsk4LevelPackage(source.root),
     ]);
   if (
     !hsk1Validation.valid
     || !hsk2Validation.valid
     || !hsk3Validation.valid
+    || !hsk4Validation.valid
     || !hsk1Package.valid
     || !hsk2Package.valid
     || !hsk3Package.valid
+    || !hsk4Package.valid
   ) {
-    throw new Error("HSK1/2/3 review or package lineage is invalid");
+    throw new Error("HSK1/2/3/4 review or package lineage is invalid");
   }
   if (
-    source.graph.runtimeContentVersion !== HSK3_LEVEL_TARGET_VERSION
-    || source.releasePolicy.runtimeContentVersion !== HSK3_LEVEL_TARGET_VERSION
-    || source.packageManifest.packageId !== HSK3_LEVEL_TARGET_VERSION
-    || source.packageManifest.contentVersion !== HSK3_LEVEL_TARGET_VERSION
+    source.graph.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
+    || source.releasePolicy.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
+    || source.packageManifest.packageId !== HSK4_LEVEL_TARGET_VERSION
+    || source.packageManifest.contentVersion !== HSK4_LEVEL_TARGET_VERSION
   ) {
-    throw new Error("HSK1/2/3 local authorization source identity is inconsistent");
+    throw new Error("HSK1/2/3/4 local authorization source identity is inconsistent");
   }
   const itemCatalogSha256 = source.packageManifest.artifacts["item-catalog.json"];
   const authorizations = Object.entries(PRESENTATION_COUNTS).map(
     ([unitId, typeCounts]) => {
-      const bundle = unitId.startsWith("hsk3-")
-        ? source.hsk3LevelBundle
+      const bundle = unitId.startsWith("hsk4-")
+        ? source.hsk4LevelBundle
+        : unitId.startsWith("hsk3-")
+          ? source.hsk3LevelBundle
         : unitId.startsWith("hsk2-")
           ? source.hsk2LevelBundle
           : source.hsk1LevelBundle;
@@ -265,7 +297,7 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
     schemaVersion: 1,
     authorizationId: HSK1_LOCAL_STUDY_AUTHORIZATION_ID,
     profileId: HSK_LOCAL_STUDY_PROFILE_ID,
-    runtimeContentVersion: HSK3_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: HSK4_LEVEL_TARGET_VERSION,
     scope: "personal-local-study-runtime-only",
     sourceBindings: [
       sourceBinding(source.root, "localStudyProfile", HSK_LOCAL_STUDY_PROFILE_RELATIVE_PATH),
@@ -275,6 +307,8 @@ export const projectHsk1LocalStudyAuthorization = async (source) => {
       sourceBinding(source.root, "hsk2LevelCore", HSK2_LEVEL_CORE_RELATIVE_PATH),
       sourceBinding(source.root, "hsk3LevelReview", HSK3_LEVEL_REVIEW_RELATIVE_PATH),
       sourceBinding(source.root, "hsk3LevelCore", HSK3_LEVEL_CORE_RELATIVE_PATH),
+      sourceBinding(source.root, "hsk4LevelReview", HSK4_LEVEL_REVIEW_RELATIVE_PATH),
+      sourceBinding(source.root, "hsk4LevelCore", HSK4_LEVEL_CORE_RELATIVE_PATH),
       sourceBinding(source.root, "curriculumGraph", GRAPH_RELATIVE_PATH),
       sourceBinding(source.root, "unitReleasePolicy", RELEASE_POLICY_RELATIVE_PATH),
       sourceBinding(source.root, "packageManifest", PACKAGE_MANIFEST_RELATIVE_PATH),
@@ -319,16 +353,21 @@ export const validateHsk1LocalStudyAuthorizationBundle = async ({
   const hsk3 = authorization?.authorizations?.filter(
     (item) => item.unitId.startsWith("hsk3-"),
   ) ?? [];
+  const hsk4 = authorization?.authorizations?.filter(
+    (item) => item.unitId.startsWith("hsk4-"),
+  ) ?? [];
   if (
     authorization?.authorizationId !== HSK1_LOCAL_STUDY_AUTHORIZATION_ID
-    || authorization?.runtimeContentVersion !== HSK3_LEVEL_TARGET_VERSION
-    || authorization?.authorizations?.length !== 12
+    || authorization?.runtimeContentVersion !== HSK4_LEVEL_TARGET_VERSION
+    || authorization?.authorizations?.length !== 15
     || hsk1.length !== 6
     || hsk1.reduce((sum, item) => sum + item.lessonIds.length, 0) !== 40
     || hsk2.length !== 3
     || hsk2.reduce((sum, item) => sum + item.lessonIds.length, 0) !== 40
     || hsk3.length !== 3
     || hsk3.reduce((sum, item) => sum + item.lessonIds.length, 0) !== 55
+    || hsk4.length !== 3
+    || hsk4.reduce((sum, item) => sum + item.lessonIds.length, 0) !== 78
     || authorization?.authorizations?.some((item) =>
       item.presentation?.humanReviewed !== false
       || item.presentation?.measurementEligible !== false
@@ -361,6 +400,10 @@ export const validateHsk1LocalStudyAuthorizationBundle = async ({
         0,
       ),
       hsk3Lessons: hsk3.reduce(
+        (sum, item) => sum + item.lessonIds.length,
+        0,
+      ),
+      hsk4Lessons: hsk4.reduce(
         (sum, item) => sum + item.lessonIds.length,
         0,
       ),

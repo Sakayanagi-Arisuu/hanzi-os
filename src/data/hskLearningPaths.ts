@@ -192,9 +192,9 @@ export const HSK_LEARNING_PATHS = [
     title: "Đọc sâu, tóm tắt và lập luận",
     description:
       "Văn bản dài hơn, chủ đề xã hội, paraphrase, tóm tắt, viết/nói có cấu trúc và timed mock.",
-    availability: "planned",
+    availability: "foundation",
     availabilityNote:
-      "Blueprint đã được định nghĩa; chưa có content package HSK4 được phát hành.",
+      "78 bài local đã phủ inventory HSK4; level check 72 câu vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
     skillWeights: {
       pronunciation: 0.04,
       listening: 0.2,
