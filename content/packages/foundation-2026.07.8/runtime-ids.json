@@ -1,0 +1,687 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "foundation-2026.07.8",
+  "vocabularyIds": [
+    "ni",
+    "hao",
+    "wo",
+    "shi",
+    "xuesheng",
+    "laoshi",
+    "ma",
+    "bu",
+    "xiexie",
+    "zaijian",
+    "yi",
+    "er",
+    "san",
+    "ren",
+    "zhongguo",
+    "yuenan",
+    "jia",
+    "chi",
+    "shu",
+    "jinri",
+    "hsk-vocab-00002",
+    "hsk-vocab-00005",
+    "hsk-vocab-00006",
+    "hsk-vocab-00007",
+    "hsk-vocab-00011",
+    "hsk-vocab-00029",
+    "hsk-vocab-00031",
+    "hsk-vocab-00033",
+    "hsk-vocab-00049",
+    "hsk-vocab-00055",
+    "hsk-vocab-00056",
+    "hsk-vocab-00076",
+    "hsk-vocab-00080",
+    "hsk-vocab-00093",
+    "hsk-vocab-00094",
+    "hsk-vocab-00095",
+    "hsk-vocab-00109",
+    "hsk-vocab-00110",
+    "hsk-vocab-00111",
+    "hsk-vocab-00112",
+    "hsk-vocab-00113",
+    "hsk-vocab-00128",
+    "hsk-vocab-00129",
+    "hsk-vocab-00131",
+    "hsk-vocab-00132",
+    "hsk-vocab-00133",
+    "hsk-vocab-00134",
+    "hsk-vocab-00135",
+    "hsk-vocab-00136",
+    "hsk-vocab-00137",
+    "hsk-vocab-00138",
+    "hsk-vocab-00139",
+    "hsk-vocab-00140",
+    "hsk-vocab-00141",
+    "hsk-vocab-00149",
+    "hsk-vocab-00163",
+    "hsk-vocab-00168",
+    "hsk-vocab-00169",
+    "hsk-vocab-00172",
+    "hsk-vocab-00175",
+    "hsk-vocab-00178",
+    "hsk-vocab-00185",
+    "hsk-vocab-00186",
+    "hsk-vocab-00207",
+    "hsk-vocab-00208",
+    "hsk-vocab-00212",
+    "hsk-vocab-00213",
+    "hsk-vocab-00215",
+    "hsk-vocab-00217",
+    "hsk-vocab-00226",
+    "hsk-vocab-00227",
+    "hsk-vocab-00230",
+    "hsk-vocab-00160",
+    "hsk-vocab-00162",
+    "hsk-vocab-00173",
+    "hsk-vocab-00184",
+    "hsk-vocab-00198",
+    "hsk-vocab-00223",
+    "hsk-vocab-00232",
+    "hsk-vocab-00236",
+    "hsk-vocab-00239",
+    "hsk-vocab-00243",
+    "hsk-vocab-00244",
+    "hsk-vocab-00245",
+    "hsk-vocab-00251",
+    "hsk-vocab-00254",
+    "hsk-vocab-00267",
+    "hsk-vocab-00269",
+    "hsk-vocab-00271",
+    "hsk-vocab-00273",
+    "hsk-vocab-00275",
+    "hsk-vocab-00279",
+    "hsk-vocab-00280",
+    "hsk-vocab-00281",
+    "hsk-vocab-00282",
+    "hsk-vocab-00283",
+    "hsk-vocab-00284",
+    "hsk-vocab-00286",
+    "hsk-vocab-00291",
+    "hsk-vocab-00294",
+    "hsk-vocab-00297",
+    "hsk-vocab-00008",
+    "hsk-vocab-00009",
+    "hsk-vocab-00012",
+    "hsk-vocab-00016",
+    "hsk-vocab-00017",
+    "hsk-vocab-00019",
+    "hsk-vocab-00021",
+    "hsk-vocab-00023",
+    "hsk-vocab-00034",
+    "hsk-vocab-00040",
+    "hsk-vocab-00046",
+    "hsk-vocab-00047",
+    "hsk-vocab-00050",
+    "hsk-vocab-00051",
+    "hsk-vocab-00052",
+    "hsk-vocab-00060",
+    "hsk-vocab-00065",
+    "hsk-vocab-00072",
+    "hsk-vocab-00077",
+    "hsk-vocab-00084",
+    "hsk-vocab-00085",
+    "hsk-vocab-00089",
+    "hsk-vocab-00090",
+    "hsk-vocab-00100",
+    "hsk-vocab-00104",
+    "hsk-vocab-00105",
+    "hsk-vocab-00116",
+    "hsk-vocab-00117",
+    "hsk-vocab-00125",
+    "hsk-vocab-00126",
+    "hsk-vocab-00127",
+    "hsk-vocab-00151",
+    "hsk-vocab-00157",
+    "hsk-vocab-00159",
+    "hsk-vocab-00164",
+    "hsk-vocab-00174",
+    "hsk-vocab-00180",
+    "hsk-vocab-00183",
+    "hsk-vocab-00192",
+    "hsk-vocab-00193",
+    "hsk-vocab-00216",
+    "hsk-vocab-00224",
+    "hsk-vocab-00255",
+    "hsk-vocab-00256",
+    "hsk-vocab-00257",
+    "hsk-vocab-00258",
+    "hsk-vocab-00260",
+    "hsk-vocab-00261",
+    "hsk-vocab-00262",
+    "hsk-vocab-00268",
+    "hsk-vocab-00274",
+    "hsk-vocab-00278",
+    "hsk-vocab-00295",
+    "hsk-vocab-00300"
+  ],
+  "unitIds": [
+    "boot",
+    "survival",
+    "daily",
+    "characters",
+    "journey",
+    "professional",
+    "hsk1-time-place-events"
+  ],
+  "lessons": [
+    {
+      "id": "boot-1",
+      "unitId": "boot",
+      "prerequisiteIds": [],
+      "wordIds": [
+        "yi",
+        "ren",
+        "ni",
+        "er"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "boot-2",
+      "unitId": "boot",
+      "prerequisiteIds": [
+        "boot-1"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "wo"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "boot-3",
+      "unitId": "boot",
+      "prerequisiteIds": [
+        "boot-2"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zhongguo",
+        "chi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "boot-4",
+      "unitId": "boot",
+      "prerequisiteIds": [
+        "boot-3"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "xuesheng",
+        "laoshi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-1",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "boot-4"
+      ],
+      "wordIds": [
+        "wo",
+        "shi",
+        "xuesheng",
+        "laoshi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-2",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "survival-1"
+      ],
+      "wordIds": [
+        "ni",
+        "hao",
+        "ma",
+        "bu"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-3",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "survival-2"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zaijian",
+        "ni"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "survival-4",
+      "unitId": "survival",
+      "prerequisiteIds": [
+        "survival-3"
+      ],
+      "wordIds": [
+        "ren",
+        "zhongguo",
+        "yuenan",
+        "shi"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "characters-1",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "daily-4"
+      ],
+      "wordIds": [
+        "yi",
+        "ren",
+        "san"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "characters-2",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "characters-1"
+      ],
+      "wordIds": [
+        "ren",
+        "jia",
+        "hao"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "characters-3",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "characters-2"
+      ],
+      "wordIds": [
+        "shu",
+        "chi"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "characters-4",
+      "unitId": "characters",
+      "prerequisiteIds": [
+        "characters-3"
+      ],
+      "wordIds": [
+        "wo",
+        "ni",
+        "shi"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-1",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "characters-4"
+      ],
+      "wordIds": [
+        "ni",
+        "zhongguo",
+        "jinri"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-2",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "journey-1"
+      ],
+      "wordIds": [
+        "yi",
+        "er",
+        "san"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-3",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "journey-2"
+      ],
+      "wordIds": [
+        "jinri",
+        "ma"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "journey-4",
+      "unitId": "journey",
+      "prerequisiteIds": [
+        "journey-3"
+      ],
+      "wordIds": [
+        "xiexie",
+        "zaijian",
+        "hao"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-1",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "journey-4"
+      ],
+      "wordIds": [
+        "xuesheng",
+        "laoshi",
+        "shu"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-2",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "professional-1"
+      ],
+      "wordIds": [
+        "xiexie",
+        "ni",
+        "hao"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-3",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "professional-2"
+      ],
+      "wordIds": [
+        "shi",
+        "bu"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "professional-4",
+      "unitId": "professional",
+      "prerequisiteIds": [
+        "professional-3"
+      ],
+      "wordIds": [
+        "jinri",
+        "zhongguo"
+      ],
+      "releaseState": "draft"
+    },
+    {
+      "id": "hsk1-time-place-events-01-numbers",
+      "unitId": "hsk1-time-place-events",
+      "prerequisiteIds": [
+        "survival-4"
+      ],
+      "wordIds": [
+        "hsk-vocab-00002",
+        "hsk-vocab-00006",
+        "hsk-vocab-00007",
+        "hsk-vocab-00049",
+        "hsk-vocab-00095",
+        "hsk-vocab-00111",
+        "hsk-vocab-00112",
+        "hsk-vocab-00113",
+        "hsk-vocab-00160",
+        "hsk-vocab-00162",
+        "hsk-vocab-00173",
+        "hsk-vocab-00184",
+        "hsk-vocab-00198",
+        "hsk-vocab-00223",
+        "hsk-vocab-00254"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "hsk1-time-place-events-02-calendar",
+      "unitId": "hsk1-time-place-events",
+      "prerequisiteIds": [
+        "hsk1-time-place-events-01-numbers"
+      ],
+      "wordIds": [
+        "hsk-vocab-00031",
+        "hsk-vocab-00076",
+        "hsk-vocab-00093",
+        "hsk-vocab-00094",
+        "hsk-vocab-00128",
+        "hsk-vocab-00129",
+        "hsk-vocab-00149",
+        "hsk-vocab-00168",
+        "hsk-vocab-00172",
+        "hsk-vocab-00207",
+        "hsk-vocab-00269",
+        "hsk-vocab-00297"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "hsk1-time-place-events-03-week-and-day-parts",
+      "unitId": "hsk1-time-place-events",
+      "prerequisiteIds": [
+        "hsk1-time-place-events-02-calendar"
+      ],
+      "wordIds": [
+        "hsk-vocab-00005",
+        "hsk-vocab-00178",
+        "hsk-vocab-00215",
+        "hsk-vocab-00217",
+        "hsk-vocab-00230",
+        "hsk-vocab-00243",
+        "hsk-vocab-00244",
+        "hsk-vocab-00245",
+        "hsk-vocab-00273",
+        "hsk-vocab-00275",
+        "hsk-vocab-00291"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "hsk1-time-place-events-04-clock-and-duration",
+      "unitId": "hsk1-time-place-events",
+      "prerequisiteIds": [
+        "hsk1-time-place-events-03-week-and-day-parts"
+      ],
+      "wordIds": [
+        "hsk-vocab-00029",
+        "hsk-vocab-00033",
+        "hsk-vocab-00055",
+        "hsk-vocab-00056",
+        "hsk-vocab-00080",
+        "hsk-vocab-00163",
+        "hsk-vocab-00185",
+        "hsk-vocab-00186",
+        "hsk-vocab-00232",
+        "hsk-vocab-00236"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "hsk1-time-place-events-05-location",
+      "unitId": "hsk1-time-place-events",
+      "prerequisiteIds": [
+        "hsk1-time-place-events-04-clock-and-duration"
+      ],
+      "wordIds": [
+        "hsk-vocab-00011",
+        "hsk-vocab-00110",
+        "hsk-vocab-00131",
+        "hsk-vocab-00132",
+        "hsk-vocab-00133",
+        "hsk-vocab-00134",
+        "hsk-vocab-00135",
+        "hsk-vocab-00136",
+        "hsk-vocab-00137",
+        "hsk-vocab-00138",
+        "hsk-vocab-00139",
+        "hsk-vocab-00140",
+        "hsk-vocab-00141",
+        "hsk-vocab-00175",
+        "hsk-vocab-00212",
+        "hsk-vocab-00213",
+        "hsk-vocab-00226",
+        "hsk-vocab-00239",
+        "hsk-vocab-00279",
+        "hsk-vocab-00280",
+        "hsk-vocab-00281",
+        "hsk-vocab-00282",
+        "hsk-vocab-00283",
+        "hsk-vocab-00284"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "hsk1-time-place-events-06-weather-and-residence",
+      "unitId": "hsk1-time-place-events",
+      "prerequisiteIds": [
+        "hsk1-time-place-events-05-location"
+      ],
+      "wordIds": [
+        "hsk-vocab-00109",
+        "hsk-vocab-00169",
+        "hsk-vocab-00208",
+        "hsk-vocab-00227",
+        "hsk-vocab-00251",
+        "hsk-vocab-00267",
+        "hsk-vocab-00271",
+        "hsk-vocab-00286",
+        "hsk-vocab-00294"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-1",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "hsk1-time-place-events-06-weather-and-residence"
+      ],
+      "wordIds": [
+        "hsk-vocab-00046",
+        "hsk-vocab-00047",
+        "hsk-vocab-00060",
+        "hsk-vocab-00085",
+        "hsk-vocab-00104",
+        "hsk-vocab-00105",
+        "hsk-vocab-00164",
+        "hsk-vocab-00180",
+        "hsk-vocab-00258",
+        "hsk-vocab-00261",
+        "hsk-vocab-00262",
+        "hsk-vocab-00268"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-2",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "daily-1"
+      ],
+      "wordIds": [
+        "hsk-vocab-00008",
+        "hsk-vocab-00009",
+        "hsk-vocab-00016",
+        "hsk-vocab-00017",
+        "hsk-vocab-00021",
+        "hsk-vocab-00050",
+        "hsk-vocab-00051",
+        "hsk-vocab-00072",
+        "hsk-vocab-00077",
+        "hsk-vocab-00084",
+        "hsk-vocab-00090",
+        "hsk-vocab-00125",
+        "hsk-vocab-00126",
+        "hsk-vocab-00127",
+        "hsk-vocab-00151",
+        "hsk-vocab-00159",
+        "hsk-vocab-00192",
+        "hsk-vocab-00193",
+        "hsk-vocab-00216",
+        "hsk-vocab-00224",
+        "hsk-vocab-00274",
+        "hsk-vocab-00300"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-3",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "daily-2"
+      ],
+      "wordIds": [
+        "hsk-vocab-00019",
+        "hsk-vocab-00023",
+        "hsk-vocab-00034",
+        "hsk-vocab-00040",
+        "hsk-vocab-00065",
+        "hsk-vocab-00089",
+        "hsk-vocab-00116",
+        "hsk-vocab-00117",
+        "hsk-vocab-00157",
+        "hsk-vocab-00174",
+        "hsk-vocab-00255",
+        "hsk-vocab-00278"
+      ],
+      "releaseState": "beta"
+    },
+    {
+      "id": "daily-4",
+      "unitId": "daily",
+      "prerequisiteIds": [
+        "daily-3"
+      ],
+      "wordIds": [
+        "hsk-vocab-00012",
+        "hsk-vocab-00052",
+        "hsk-vocab-00100",
+        "hsk-vocab-00183",
+        "hsk-vocab-00256",
+        "hsk-vocab-00257",
+        "hsk-vocab-00260",
+        "hsk-vocab-00295"
+      ],
+      "releaseState": "beta"
+    }
+  ],
+  "stories": [
+    {
+      "id": "first-day",
+      "wordIds": [
+        "jinri",
+        "shi",
+        "yi",
+        "laoshi",
+        "ni",
+        "hao",
+        "xuesheng",
+        "ma",
+        "wo",
+        "yuenan",
+        "ren",
+        "shu",
+        "xiexie"
+      ],
+      "releaseState": "beta"
+    }
+  ]
+}

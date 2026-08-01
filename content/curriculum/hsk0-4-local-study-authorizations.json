@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "authorizationId": "hsk0-4-local-study-authorizations-2026.07.1",
+  "authorizationId": "hsk0-4-local-study-authorizations-2026.07.2",
   "profileId": "hsk0-4-personal-study-2026.07.1",
-  "runtimeContentVersion": "foundation-2026.07.7",
+  "runtimeContentVersion": "foundation-2026.07.8",
   "scope": "personal-local-study-runtime-only",
   "sourceBindings": [
     {
@@ -11,29 +11,39 @@
       "sha256": "sha256:d720eb9fc08b8424f73c81dbdba7d2159e9ca7ab46bc27f968145ebf39f8b76d"
     },
     {
-      "id": "localStudyReview",
+      "id": "timePlaceEventsReview",
       "relativePath": "content/review/hsk1-time-place-events-local-study-review.json",
       "sha256": "sha256:dc319b4f973b54a6f6e9964424112e47817df9d54cd2101534439b96e8857540"
     },
     {
+      "id": "dailyLifeReview",
+      "relativePath": "content/review/hsk1-daily-life-local-study-review.json",
+      "sha256": "sha256:ec9fe89841d37b82518ae5c7614ee1a79661cec80bd1a22fd09542bdcb180b4e"
+    },
+    {
+      "id": "dailyLifeCore",
+      "relativePath": "content/runtime/hsk1-daily-life-core-projection.json",
+      "sha256": "sha256:85d3b14d6fc4c8e4dea21e4744391b5bb895f29535aecaa48574235e32168443"
+    },
+    {
       "id": "curriculumGraph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:57e654e9e4ce5dfbd7bc64ef9157d2344a49c8af24a52508a1a20e406555b495"
+      "sha256": "sha256:77dff3080780927732394f0f9d3a65a79c95c68fc73d9d6a8fc6750e937297bb"
     },
     {
       "id": "unitReleasePolicy",
       "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-      "sha256": "sha256:6a20f6dae8d06c60136bf9e0483e6040cad918c6261ca3ba736f3e84c6fc828e"
+      "sha256": "sha256:2bb00ede5222da185b15d33dea7f3b8e4afa238e9aa9226a87232cd0e607bbfb"
     },
     {
       "id": "packageManifest",
-      "relativePath": "content/packages/foundation-2026.07.7/manifest.json",
-      "sha256": "sha256:ad01e53ad9eaab26a692c6f3af9624ce846a884194bfc34e18b5a56c63c3eef5"
+      "relativePath": "content/packages/foundation-2026.07.8/manifest.json",
+      "sha256": "sha256:8bd696787fa8a0a4f7bb4287400c1a4810fab83c668bd2cac7529311740ec70d"
     },
     {
       "id": "packageItemCatalog",
-      "relativePath": "content/packages/foundation-2026.07.7/item-catalog.json",
-      "sha256": "sha256:c6d4e44403a525a3dfbbf75cdd256c6a4663e7d9a27f6ad2bfe7df79690f08ad"
+      "relativePath": "content/packages/foundation-2026.07.8/item-catalog.json",
+      "sha256": "sha256:9feb6fa42d25e6e93100bebf8a39bcbb8cb3dced2708e0b1e511adeed0125e8b"
     }
   ],
   "authorizations": [
@@ -50,8 +60,8 @@
       "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
       "localStudyReviewId": "hsk1-time-place-events-local-study-review-2026.07.1",
       "localStudyReviewSha256": "sha256:6fbcdeb04deb5dd90e389f8dddda0622aee638082096768c4ca6a92272035bcf",
-      "packageId": "foundation-2026.07.7",
-      "itemCatalogSha256": "sha256:ec9826e68b5f9991e7359eeafc6ca4b29843147f1b886576d36ef9fa5c686e0e",
+      "packageId": "foundation-2026.07.8",
+      "itemCatalogSha256": "sha256:049ace864778206ee6f80929f89730823bf9b3bfc47aec89bfab32aad2fc0911",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -71,6 +81,36 @@
         "measurementEligible": false,
         "masteryEligible": false
       }
+    },
+    {
+      "unitId": "hsk1-daily-life",
+      "lessonIds": [
+        "daily-1",
+        "daily-2",
+        "daily-3",
+        "daily-4"
+      ],
+      "unitReleaseDigest": "sha256:38fe5b1b8f6bc69289492d763898ed8dc111906cb2fc92f51dbd1f369e162a13",
+      "localStudyReviewId": "hsk1-daily-life-local-study-review-2026.07.1",
+      "localStudyReviewSha256": "sha256:f22615f1ce7da2332c243afd2fbc81fceff68a9763d12c590f545db06692dab1",
+      "packageId": "foundation-2026.07.8",
+      "itemCatalogSha256": "sha256:049ace864778206ee6f80929f89730823bf9b3bfc47aec89bfab32aad2fc0911",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 56,
+        "sourceTargetTypeCounts": {
+          "dialogue-turn": 16,
+          "grammar-draft": 5,
+          "task-dialogue-turn": 20,
+          "task-scenario": 5,
+          "topic-draft": 10
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
     }
   ],
   "policy": {
@@ -83,5 +123,5 @@
     "grantsProductionEligibility": false,
     "sitesDeploymentAuthorized": false
   },
-  "authorizationSha256": "sha256:2a888fa2425c680c40bb286bbb18f291b1babc6d8445d996a4fc574e317cec18"
+  "authorizationSha256": "sha256:6325b61dbc2d788bbbf2533f3c52d8e25b82ca3af2c9cef7685e630db96cea47"
 }

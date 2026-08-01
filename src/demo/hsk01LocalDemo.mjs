@@ -28,12 +28,12 @@ const HSK1_TARGET_LESSON_IDS = [
   "hsk1-time-place-events-04-clock-and-duration",
   "hsk1-time-place-events-05-location",
   "hsk1-time-place-events-06-weather-and-residence",
-];
-const BLOCKED_LESSON_IDS = [
   "daily-1",
   "daily-2",
   "daily-3",
   "daily-4",
+];
+const BLOCKED_LESSON_IDS = [
   "characters-1",
   "characters-2",
 ];

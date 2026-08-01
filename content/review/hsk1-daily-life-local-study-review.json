@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "hsk1-daily-life-local-study-review-2026.07.1",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "unitId": "hsk1-daily-life",
+  "targetContentVersion": "foundation-2026.07.8",
+  "reviewedAt": "2026-07-31T08:30:00.000Z",
+  "reviewer": {
+    "reviewerId": "openai-codex-ai-assisted-review",
+    "reviewerKind": "ai-coding-agent",
+    "humanReviewed": false,
+    "disclosureVi": "Nội dung được Codex rà soát bằng AI cho mục đích tự học; chưa được người bản ngữ kiểm duyệt."
+  },
+  "sourceBindings": [
+    {
+      "id": "localStudyProfile",
+      "relativePath": "config/hsk0-4-local-study-profile.json",
+      "selectedPayloadSha256": "sha256:bafa24d54f799801a2ca9b090109828b13ed3602b4d65186969f4eabfb61b927"
+    },
+    {
+      "id": "communicativeUnit",
+      "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+      "selectedPayloadSha256": "sha256:b1daa3e499951b2289e87a75497e5c064a0289025f6d3efb3d854930ef6b052e"
+    },
+    {
+      "id": "grammarUnit",
+      "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
+      "selectedPayloadSha256": "sha256:ba452e647e23623d31c100c503154429469b26f758ff05a49169c792cbef5276"
+    },
+    {
+      "id": "taskUnit",
+      "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
+      "selectedPayloadSha256": "sha256:ff5c1c34ef45aef6ace742c12c3c1eb850431e98c3b213e061d592f828996cb4"
+    },
+    {
+      "id": "vocabularySources",
+      "relativePath": "content/drafts/hsk1-vocabulary-2026.07.28.json",
+      "selectedPayloadSha256": "sha256:c647b432b1c1d90a3e3ba86e4563497feefcc4572c23af31854cd0d9f6e73141"
+    }
+  ],
+  "coverage": {
+    "lessonIds": [
+      "daily-1",
+      "daily-2",
+      "daily-3",
+      "daily-4"
+    ],
+    "sourceTargetCount": 286,
+    "sourceTargetTypeCounts": {
+      "dialogue-turn": 16,
+      "grammar-draft": 5,
+      "grammar-practice": 5,
+      "lesson-blueprint": 4,
+      "task-dialogue-turn": 20,
+      "task-practice": 5,
+      "task-scenario": 5,
+      "topic-draft": 10,
+      "vocabulary-draft": 54,
+      "vocabulary-practice": 162
+    },
+    "reviewedTargetDigest": "sha256:201b9e94358ba7b2aa405997823cad00af3f351ab5ec98cc2bb9bbe88c9aa217",
+    "coreRuntimeTargetCount": 58,
+    "coreRuntimeDigest": "sha256:f414c3d9fa60c1a1e8f79dd5efb77629965e54ef173b1ac6a439e743f4e88dd4"
+  },
+  "reviewResult": {
+    "mode": "ai-assisted-self-review",
+    "schemaValid": true,
+    "sourceBound": true,
+    "aiAssistedDisclosed": true,
+    "humanReviewed": false,
+    "unresolvedIssueCount": 0,
+    "passResults": {
+      "mandarin-accuracy-and-naturalness": "passed",
+      "pinyin-and-tone-consistency": "passed",
+      "vietnamese-meaning-and-usage": "passed",
+      "pedagogy-rubric-and-distractors": "passed",
+      "source-and-level-mapping": "passed"
+    }
+  },
+  "findings": {
+    "resolved": [
+      {
+        "findingId": "quantity-answer-classifier-mismatch",
+        "pass": "pedagogy-rubric-and-distractors",
+        "summary": "Câu hỏi 你要几个？ được trả lời bằng 一点儿, không khớp đơn vị đếm 个.",
+        "resolution": "Projection local trả lời 我要三个。 để luyện đúng số + lượng từ đã hỏi."
+      },
+      {
+        "findingId": "shopping-response-naturalness",
+        "pass": "mandarin-accuracy-and-naturalness",
+        "summary": "买，我找一下钱。 thiếu tự nhiên trong lượt chốt chọn quần áo.",
+        "resolution": "Projection local dùng 买，我要这件。 với nghĩa Tôi mua, tôi lấy chiếc này."
+      },
+      {
+        "findingId": "separable-verb-lesson-placement",
+        "pass": "source-and-level-mapping",
+        "summary": "Điểm ngữ pháp động từ ly hợp được gắn vào bài ăn uống dù ví dụ chính thuộc sức khỏe/công việc.",
+        "resolution": "Projection local chuyển row 007 sang bài sức khỏe, nơi dạy 生病 và 看病."
+      },
+      {
+        "findingId": "erhua-numbered-pinyin-runtime-shape",
+        "pass": "pinyin-and-tone-consistency",
+        "summary": "Hai mục 面条儿 và 一点儿 dùng hậu tố r5 tách rời, không tương thích với parser âm tiết runtime.",
+        "resolution": "Projection chuẩn hóa Pinyin số thành mian4tiaor2 và yi1dianr3, đồng thời giữ Pinyin hiển thị và thanh biến điệu chuẩn."
+      }
+    ],
+    "unresolved": []
+  },
+  "claims": {
+    "readyForPersonalLocalStudyPackaging": true,
+    "humanReview": false,
+    "nativeAudio": false,
+    "calibratedAssessment": false,
+    "masteryEligible": false,
+    "officialHskCertification": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "reviewSha256": "sha256:f22615f1ce7da2332c243afd2fbc81fceff68a9763d12c590f545db06692dab1"
+}

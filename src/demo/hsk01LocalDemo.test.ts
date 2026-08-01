@@ -19,8 +19,8 @@ describe("no-progress HSK0-to-HSK1 local demo", () => {
 
     expect(result.summary).toEqual({
       bridgeLessons: 4,
-      targetLessons: 10,
-      blockedLessons: 6,
+      targetLessons: 14,
+      blockedLessons: 2,
       unavailablePaths: 3,
       forbiddenProgressFields: 0,
     });
@@ -45,12 +45,12 @@ describe("no-progress HSK0-to-HSK1 local demo", () => {
         "hsk1-time-place-events-04-clock-and-duration",
         "hsk1-time-place-events-05-location",
         "hsk1-time-place-events-06-weather-and-residence",
-      ],
-      blockedLessonIds: [
         "daily-1",
         "daily-2",
         "daily-3",
         "daily-4",
+      ],
+      blockedLessonIds: [
         "characters-1",
         "characters-2",
       ],

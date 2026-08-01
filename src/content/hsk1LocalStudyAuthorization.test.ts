@@ -5,7 +5,7 @@ import {
 } from "./hsk1LocalStudyAuthorization.mjs";
 
 describe("HSK1 local-study authorization", () => {
-  it("authorizes exactly six lessons for local study and nothing else", async () => {
+  it("authorizes exactly ten lessons across two reviewed units", async () => {
     const result = await validateHsk1LocalStudyAuthorizationBundle(
       loadHsk1LocalStudyAuthorizationBundle(),
     );
@@ -14,9 +14,9 @@ describe("HSK1 local-study authorization", () => {
       valid: true,
       errors: [],
       summary: {
-        units: 1,
-        lessons: 6,
-        runtimeContentVersion: "foundation-2026.07.7",
+        units: 2,
+        lessons: 10,
+        runtimeContentVersion: "foundation-2026.07.8",
         humanReviewed: false,
         productionEligible: false,
         sitesAuthorized: false,

@@ -44,6 +44,9 @@ const PINYIN_FINALS = new Set([
 
 const NUMBERED_SYLLABLE = /([A-Za-züÜvV:]+)([1-5])/gu;
 
+const isValidFinal = (final: string) => PINYIN_FINALS.has(final)
+  || (final.endsWith("r") && PINYIN_FINALS.has(final.slice(0, -1)));
+
 const normalizeUmlaut = (value: string) =>
   value.replace(/u:/giu, "ü").replace(/v/giu, (match) => match === "V" ? "Ü" : "ü");
 
@@ -103,7 +106,7 @@ export const parseNumberedPinyin = (numberedPinyin: string): MandarinSyllable[] 
     const lexicalTone = toneFromDigit(match[2]);
     const { initial, final } = splitPinyinSyllable(spelling);
     if (!final) throw new Error(`Âm tiết pinyin thiếu vận mẫu: ${match[0]}`);
-    if (!PINYIN_FINALS.has(final)) throw new Error(`Vận mẫu pinyin không hợp lệ: ${match[0]}`);
+    if (!isValidFinal(final)) throw new Error(`Vận mẫu pinyin không hợp lệ: ${match[0]}`);
     return {
       index,
       spelling,

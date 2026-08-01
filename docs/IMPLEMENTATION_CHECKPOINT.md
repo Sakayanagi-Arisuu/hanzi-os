@@ -1,1355 +1,162 @@
-# HANZI.OS implementation checkpoint
+# HANZI.OS — checkpoint triển khai hiện tại
 
-Date: 31 July 2026
+Cập nhật: 01/08/2026
 
-This is a local engineering checkpoint, not production release evidence.
+Tài liệu này trả lời ba câu hỏi: người học đang dùng được gì, code đang ở đâu,
+và agent tiếp theo phải làm gì. Git history giữ chi tiết các lát cắt cũ; không
+chép nhật ký dài vào đây.
 
-## Active HSK0-4 graduation scope
+## 1. Tình trạng một câu
 
-The active source of truth is now `docs/HSK4_GRADUATION_PLAN.md`. The target is
-a local-first graduation and personal-study product with distinct HSK0, HSK1,
-HSK2, HSK3 and HSK4 paths. Production-only operator auth, commerce, hosted
-pilot, operational qualification and Sites are deferred.
+Nền ứng dụng đã ổn định; HSK0 có lát nền và HSK1 có 14 bài learner-visible,
+trong đó 10 bài đã có nội dung chuyên sâu trên Lesson UI. HSK2-4 có inventory,
+scope và blueprint/draft nhưng chưa được đưa lên UI.
 
-Active progress: **78%** under the usable-product-weighted rubric adopted for
-the graduation/personal-study scope on 31 July 2026.
+## 2. Dashboard tiến độ
 
-| Pillar | Earned / max | Current evidence |
-| --- | ---: | --- |
-| Application/offline learning foundation | 19 / 20 | Local lesson, Reader, Review, FSRS, persistence and recovery now consume a deterministic HSK lesson/activity adapter with exact catalog/session/schema provenance and fail-closed idempotency. |
-| Mastery/evidence/remediation | 12 / 15 | Skill-separated evidence and mistake correction exist; HSK0-4 calibration does not. |
-| Distinct HSK0-4 paths | 14 / 15 | Five profiles have a cycle-safe 18-unit graph; HSK1-4 have level-specific scopes, and HSK4 now has 78 source-bound long-form, argument and timed-integration lesson blueprints. |
-| HSK0-4 learner-usable runtime content | 17 / 30 | Runtime exposes HSK0 and 10 HSK1 target lessons. The six-lesson time/place/events unit now surfaces source-bound dialogue, grammar, guided self-checks and communicative tasks in both lesson screens. |
-| HSK0-4 assessment/mock | 7 / 10 | Diagnostic authority, an uncalibrated HSK1 bank and source-disjoint form pairs for HSK2, HSK3 and HSK4 exist; the forms do not yet run end-to-end or carry calibration evidence. |
-| Graduation QA/local release | 9 / 10 | Checked demo and clean-source local candidate bind 4/4 gates and 8/8 G5 capabilities; the local-study profile plus a source-bound HSK1 AI review are machine-checked without weakening production gates. |
+- **Sẵn sàng toàn dự án:** 82/100 (82%).
+- **HSK1 learner-visible:** 14/40 blueprint (35%).
+- **HSK1 rich Lesson UI:** 10/40 (25%).
+- **Toàn HSK1-4 learner-visible:** 14/213 blueprint (6,6%).
+- **HSK2:** 0/40; **HSK3:** 0/55; **HSK4:** 0/78.
+- **HSK0:** 4 bài cầu nối đang dùng được; 12 pronunciation draft tồn tại.
 
-The previous 90% figure was authoring/evidence-weighted. The user clarified that
-the active outcome is a web they can actually study with, so the 31 July baseline
-was deliberately recalculated to 72%: learner-hidden drafts no longer earn the
-same points as reviewed runtime content. No completed code or authored content
-was removed. Historical 90% entries below retain their old-rubric meaning.
-Every commit must update this percentage here and in the active roadmap.
+Con số 82% đo cả nền ứng dụng/kiến trúc/QA. Con số 14/213 mới phản ánh tốc độ
+đưa kho HSK1-4 lên giao diện.
 
-### Local-study acceptance pivot in progress
+## 3. Bảng nội dung người học nhìn thấy
 
-- Added a checked `personal-local-study` profile accepting a transparently
-  labelled AI-assisted linguistic review after five exact passes: Mandarin
-  accuracy/naturalness, Pinyin/tone consistency, Vietnamese meaning/usage,
-  pedagogy/rubric/distractors and source/level mapping.
-- A local-study review must be schema-valid, source-bound and issue-free. It
-  must explicitly say `humanReviewed: false`; claiming human review fails the
-  gate.
-- Browser speech synthesis is allowed as synthetic practice with Hanzi and
-  Pinyin fallbacks. It cannot create listening or pronunciation mastery.
-- Production eligibility, native-audio, calibrated-assessment and official HSK
-  certification claims remain false. Sites stays deferred. The obsolete HSK1
-  human-review/audio handoff tests now live in a named deferred-production
-  suite that remains required by fail-closed `verify:production`, while the
-  active local-study suite measures the declared graduation scope.
-- Completed the five-pass AI-assisted review for all 6 lessons and 425/425
-  source/runtime targets in `hsk1-time-place-events`. Six issues were fixed:
-  one objective mismatch, three misplaced vocabulary concepts, substring-based
-  single-character examples, Vietnamese date order, an over-broad grammar note
-  and a task instruction/answer mismatch. The checked artifact binds 27 review
-  batches, reports zero unresolved issues and explicitly records
-  `humanReviewed: false` / `productionEligible: false`.
-- Created immutable package `foundation-2026.07.7` with 81 new HSK1 lexemes
-  and all 6 safe-ID lessons, then added exact local-study authorization bound
-  to the acceptance profile, review, graph, release policy, package manifest
-  and runtime catalog. It explicitly grants no production or Sites authority.
-- The learner runtime now exposes 14 eligible lessons total and 10 HSK1 target
-  lessons; `hsk1-daily-life` remains blocked by its own authorization. Lesson
-  screens disclose browser TTS as synthetic practice-only audio.
-- Authoring scopes now retain immutable planning-snapshot hashes and validate
-  current graph compatibility structurally. A runtime-only HSK1 release no
-  longer cascades into meaningless regeneration of unchanged HSK2-4 drafts.
-- Added a fail-closed learner presentation bound to the exact local-study
-  authorization and reviewed sources: 6 lessons, 24 model-dialogue turns, 25
-  grammar points, 25 guided self-checks, 3 topics and 3 communicative tasks
-  with 12 task-dialogue turns. Both local and authenticated lesson screens
-  expose the same Hanzi/Pinyin/Vietnamese payload and per-utterance browser
-  TTS while disclosing AI review and synthetic-audio limits.
-- Unit projection validators, adapter regression tests and the real-UI demo
-  exercise the rich content. Desktop and 390 x 844 mobile inspection showed
-  the one-column responsive layout without horizontal overflow. Active
-  progress is therefore **78%**, not a claim that HSK1 is complete.
+| Level/unit | Bài trên UI | Rich UI | Trạng thái |
+| --- | ---: | ---: | --- |
+| HSK0 foundation bridge | 4 | 0 | learner-visible |
+| HSK1 personal exchange | 4 | 0 | learner-visible, lesson cơ bản |
+| HSK1 time/place/events | 6 | 6 | hoàn thành local |
+| HSK1 daily life | 4 | 4 | hoàn thành local trong B0 |
+| HSK1 travel/leisure | 0 | 0 | draft/blueprint |
+| HSK1 study/work | 0 | 0 | draft/blueprint |
+| HSK1 character foundation | 0 target blueprint; 2 source lesson bị khóa | 0 | chưa authorize |
+| HSK2 | 0/40 | 0 | learner-hidden |
+| HSK3 | 0/55 | 0 | learner-hidden |
+| HSK4 | 0/78 | 0 | learner-hidden |
 
-### Active G0 slice completed
+## 4. Lát B0 đã hoàn thành
 
-- Added exactly five learner-visible starting levels: HSK0, HSK1, HSK2, HSK3
-  and HSK4. The legacy stored value `basic` remains accepted and maps to HSK1
-  without creating a sixth path.
-- Each level has a distinct skill-weight vector, activity set, assessment mode
-  and bounded exit-evidence requirements.
-- Productive pronunciation, speaking and writing requirements explicitly
-  require reviewed rubrics; recognition items cannot stand in for those skills.
-- Onboarding, Profile, Path, local persistence, backup import and sync protocol
-  all accept the expanded level contract. Self-declaration still grants no
-  lesson completion, mastery or prerequisite unlock.
+`hsk1-daily-life` đã được xử lý như một feature learner-facing, không chỉ là
+data warehouse:
 
-### Active G1 slice completed
+- AI-assisted self-review 5 pass cho 286 source target;
+- sửa 4 nhóm lỗi: lượng từ, hội thoại mua hàng, động từ ly hợp và Erhua/tone
+  sandhi;
+- immutable package `foundation-2026.07.8` thêm 54 lexeme và 4 lesson;
+- runtime vocabulary hiện 155 ID; 154 ánh xạ inventory, `越南` là mục ngoài
+  inventory đang được báo rõ;
+- local authorization chỉ mở 4 bài sau 6 bài time/place prerequisite;
+- rich payload gồm 16 lượt hội thoại, 5 grammar point + guided self-check, 10
+  topic, 5 nhiệm vụ giao tiếp và 20 lượt thoại nhiệm vụ;
+- browser TTS được gắn nhãn synthetic và không cấp mastery;
+- promotion queue trỏ tới `hsk1-travel-leisure`.
 
-- Pinned the official syllabus descriptor to its URL, 406-page PDF SHA-256,
-  publication/effective dates, extraction tooling versions and exact page
-  ranges. The PDF itself is not redistributed and the rights decision remains
-  explicitly pending.
-- Added a deterministic extractor and committed data inventory for HSK1-4:
-  84 task rows, 195 topics, 2,000 vocabulary entries, 1,096 recognition
-  characters and 332 grammar rows.
-- Added fail-closed validation for source identity, exact section counts,
-  sequence, level boundaries, page ranges, duplicate IDs and required fields.
-- Added a checked coverage report. The current runtime maps 23 of 2,000 official
-  vocabulary entries (1.15% overall; 7.67% of the HSK1 increment), reports
-  `越南` as unmatched and detects a pinyin drift for `学生`. Seven character
-  records map in authoring but none are released; task/topic/grammar mappings
-  remain zero.
-- All four HSK completion claims remain false. Inventory presence does not
-  publish content, unlock lessons or count as mastery/review evidence.
+## 5. Bằng chứng bài daily-life đã nối vào UI
 
-### Active G2 slice in progress
+Đường dữ liệu:
 
-- Added an inventory-bound curriculum graph with exactly five paths and 18
-  cycle-safe units. Path and unit prerequisites are explicit and HSK1-4 use
-  the exact incremental inventory counts from the pinned syllabus.
-- Mapped all 14 released runtime lessons to HSK0/1 units and to the exact 23
-  official vocabulary records they currently teach. `越南` remains explicitly
-  unmapped; no task/topic/grammar mapping was invented.
-- Anonymous Path and Dashboard now use the selected runtime projection. HSK0
-  exposes four boot lessons; HSK1 retains the prerequisite bridge plus four
-  personal-exchange lessons. Six daily/character lessons remain withheld
-  behind unpublished time/travel/work prerequisite units, and HSK2-4 expose no
-  lower-level substitute while their target packages are unpublished.
-- Placement is fail-closed: self-declaration chooses the target view only;
-  the current uncalibrated diagnostic remains observed-only and grants neither
-  mastery nor a prerequisite waiver.
-- Added a deterministic local-first HSK runtime compiler bound to the exact
-  curriculum graph, registry, package manifest, item catalog and sanitized
-  runtime catalog. Its checked artifact carries source/content/schema versions,
-  source hashes, an import idempotency key and an integrity digest.
-- The learner bundle now receives only five path shells, four units with a
-  complete prerequisite closure and eight eligible lesson mappings. Six
-  beta/published daily/character lessons are withheld behind two blocked units;
-  metadata for all 14 ineligible authoring units, official inventory
-  identifiers and every draft/review payload are excluded. HSK2-4 remain empty
-  and fail-closed; no completion, mastery or prerequisite-waiver claim exists.
-- Added a deterministic local lesson/activity adapter over those eight
-  mappings. Each session binds the checked catalog/compiler/import key and
-  integrity digest, content and item-catalog schema versions, lesson version,
-  script, session identity, activity schema/version and exact payload.
-- Local answer handling resolves the authoritative adapter activity and derives
-  outcome, method and skill instead of trusting caller claims. Exact retries
-  are no-ops; reuse of an idempotency key with a different answer, activity,
-  version or provenance fails closed without changing evidence or mastery.
-- Reload revalidates every provenance-bearing answer and completion against the
-  exact deterministic form. Legacy evidence for eligible lessons remains
-  readable, while the six catalog-blocked lessons cannot be replayed into
-  completion, knowledge, mistakes or mastery.
-- Fixed backup-import recovery so inspectable history survives a real reload
-  with explicit `measurementEligible: false` / `restoredFromBackup: true`
-  markers. Imported history remains unverified and cannot restore aggregate
-  completion, knowledge or mastery.
-- Expanded the D1 `profiles.starting_level` constraint with a data-preserving
-  migration. Restore rehearsal proves an existing HSK2 row survives, HSK4 is
-  accepted and HSK5 is rejected; authenticated sync now covers HSK4.
-- G2 remains open until calibrated placement authority, topic/task/grammar
-  mappings and complete per-level progress behavior exist.
-- Added a checked HSK1-4 runtime promotion queue bound to 16 exact graph,
-  runtime, scope, authoring and review artifacts. It distinguishes 213 authored
-  lesson blueprints from 0 blueprint approval, 497 review batches/0 approval
-  records, 4 learner-visible HSK1 target lessons, 6 prerequisite-blocked source
-  lessons, 3 unavailable paths and 0 completion claim. The earliest dependency-
-  valid gap is `hsk1-time-place-events` (6 lessons, 243 practice items and 81
-  listening items), but attributable review, reviewed audio and a versioned
-  runtime import are all missing. This audit mutates/exposes nothing and keeps
-  active progress at **90%**.
-- Added the exact-hash handoff for the first dependency-valid lesson,
-  `hsk1-time-place-events:01-numbers`. It binds 67 content targets without
-  duplicating draft payloads: 1 blueprint, 15 vocabulary drafts, 4 dialogue
-  turns, 45 vocabulary items, 1 grammar row and 1 grammar item. Its two review
-  batches require 6 attributable role receipts; 15 listening plus 1 dialogue
-  audio target require reviewed assets and rights. All receipt/audio/package
-  slots remain empty, all learning/release claims remain false, and the
-  versioned import contract mutates nothing. Review packaging alone does not
-  add learner coverage, so active progress remains **90%**.
-- Added a fail-closed first-lesson promotion dry-run. Its original simulation
-  exposed that mapping-based eligibility could open `hsk1-daily-life` plus
-  `daily-1..4` while five target-unit lessons were absent, establishing the
-  atomic 6/6 and zero-downstream-activation requirements. Complete hash-bound
-  test fixtures satisfy the evidence contract but never authorize import;
-  graph/runtime bytes remain unchanged. Compiler v2 later removed that
-  mapping-implies-release behavior and rebound this report, as recorded below.
-  This safety work adds no learner coverage, so progress stays **90%**.
-- Added an atomic handoff for all six `hsk1-time-place-events` lessons. Its
-  unit-release digest binds 425 exact content targets: 6 blueprints, 81
-  vocabulary drafts, 24 communicative turns, 243 vocabulary items, 25 grammar
-  rows/items, 3 topics, 3 task scenarios, 12 task turns and 3 roleplays. The
-  15 batches require 45 role receipts and 90 audio targets remain empty.
-  First-lesson parity is exact, downstream authorization is empty and the
-  explicit unit-release gate/package/receipt remain blockers. This packaging
-  is learner-hidden and adds no coverage, so progress remains **90%**.
-- Added a checked, exact-hash unit-release policy and compiler v2 boundary.
-  Runtime eligibility now requires an explicit unit authorization as well as
-  released lesson state and complete prerequisite closure. The policy
-  allow-lists only the existing 4 units/8 lessons and explicitly grants
-  neither content-review approval nor mastery; the 2 other source-mapped units
-  and their 6 lessons remain withheld. Source mapping or prerequisite
-  completion alone can no longer publish a unit. Active progress remains
-  **90%** because learner coverage did not change.
-- Rebound the single-lesson dry-run to the new boundary: it still rejects the
-  incomplete 1/6-unit request, but no longer predicts an implicit daily-life
-  spillover. Added a second checked dry-run over the atomic handoff using the
-  production eligibility resolver. A complete six-lesson test projection
-  activates only `hsk1-time-place-events`; `hsk1-daily-life` and all four
-  `daily-*` lessons remain withheld without separate authorization. Test
-  fixtures never authorize import, all real review/audio/package/receipt slots
-  stay false and graph/policy/runtime bytes are unchanged, so progress stays
-  **90%**.
-- Added a deterministic reviewer packet for the atomic unit. It resolves all
-  425 handoff hashes plus 425 runtime payloads into exact reviewer-readable
-  data, indexes six lessons, carries 27 batch definitions and maps all 81
-  required role slots
-  to Mandarin, Vietnamese, assessment, grammar or task-pedagogy checklists. Its
-  90-entry audio manifest includes exact scripts, source hashes and safe WAV
-  names for 6 lesson dialogues, 81 vocabulary utterances and 3 task dialogues,
-  while enforcing the canonical PCM format plus speaker provenance, native
-  review and rights requirements. The accompanying guide uses the existing
-  assignment/receipt workflow. All slots/assets remain empty and the packet is
-  explicitly non-authoritative, so active progress remains **90%**.
-- Added a checked unit evidence-intake/readiness gate plus live local status
-  command. The checked repository baseline truthfully reports 0/81 approved
-  review slots and 0/90 reviewed audio/rights records, with package readiness
-  and import authorization false. Local assignment/receipt pairs are
-  revalidated against the current manifest and handoff digest; audio records
-  bind inspected canonical WAV bytes, speaker provenance/consent, rights
-  evidence, independent native review and audio-rights review. Duplicate
-  slots/targets, reviewer reuse across roles in one batch, reused audio bytes,
-  unsafe paths/symlinks, hash drift and fixture relabeling fail closed. A
-  complete 81/81 + 90/90 test fixture proves the contract but remains
-  non-authoritative, so active progress stays **90%**.
-- Added a checked, versioned package planner for the atomic unit. It binds the
-  current `foundation-2026.07.6` package and planned `.07.7` successor, exact
-  handoff/evidence hashes and the runtime schema without writing any package,
-  registry, policy or runtime bytes. The plan finds 425 required runtime items
-  and 425 drafted/0 reviewed payloads: all 6 authoring lesson IDs now have an
-  explicit safe runtime-ID mapping; 81 lexemes include draft decisions for 7
-  traditional choices, 2 source-pronunciation reconciliations, 81 example
-  triples and 81 tag sets. All six lessons now have Chinese titles, duration,
-  XP support values and skill vectors. A separate versioned projection now
-  preserves all 338 dialogue, practice, grammar and task targets one-to-one,
-  leaving zero representability gap while import remains review-blocked. It
-  keeps draft review separate from
-  package content-owner/native/source-license/audio-rights governance and
-  reports all real evidence, owner/license, audio descriptor, package,
-  authorization and promotion-receipt blockers. No release or learning claim
-  changed, so active progress remains **90%**.
-- Added the checked runtime-core projection behind that planner: 81 lexeme and
-  6 lesson payloads, six safe runtime lesson IDs, one cross-unit prerequisite,
-  42 new AI-assisted example drafts and 39 exact dialogue candidates. Seven
-  traditional selections, two syllabus/source pronunciation reconciliations
-  and three runtime-parser erhua normalizations retain decision provenance.
-  Numbered pinyin round-trips to the marked form, including new `nǎr`/`zhèr`
-  parser regressions. Six projection batches add 18 attributable slots to the
-  real workflow. The non-core projection adds 338 exact source-preserving
-  payloads: 36 dialogue, 271 activity and 31 knowledge records; 120 payloads
-  bind the existing 90 audio targets. Together they take HSK1 to 8 sources, 97
-  batches, 294 role assignments and 2,606 exact targets, with zero
-  representability gap. All projection approvals/finalized/release counts stay
-  zero, so progress stays **90%**.
-- Added a packet-bound bulk assignment exporter for the atomic HSK1 unit. One
-  ignored local roster now produces all 81 exact batch/role assignment
-  templates, while requiring the current packet hash, exactly five distinct
-  declared role identities and a canonical assignment timestamp. Stale packets,
-  missing/extra roles, reviewer role reuse and conflicting existing bytes fail
-  closed; idempotent reruns are allowed. The roster and templates grant no
-  approval, audio authority, import authority, measurement or mastery, so
-  active progress remains **90%** until real review/audio evidence exists.
-- Added a two-step real-audio evidence workflow for all 90 packet targets.
-  Export inspects and binds the exact canonical WAV, transcript/script, speaker
-  provenance, consent bytes, rights bytes, current packet hash and two distinct
-  assigned reviewers while leaving both review checklists empty. Import accepts
-  only complete attributable Mandarin and audio-rights approvals, re-hashes all
-  current files and runs the existing unit evidence evaluator before writing an
-  ignored local record. Unsafe paths/symlinks, byte drift, stale targets,
-  identity reuse, incomplete decisions and conflicting records fail closed.
-  The workflow mutates no package/runtime/visibility/mastery state, so active
-  progress remains **90%** pending the actual 90 recordings and reviews.
-- Expanded HSK1 from three broad units to six ordered authoring units with
-  distinct objectives and exit-evidence modes: personal exchange; time/place/
-  events; daily needs; travel/leisure; study/work; and character integration.
-- Added a graph- and inventory-bound HSK1 scope that partitions each official
-  item into exactly one primary unit: 15 tasks, 30 topics, 300 vocabulary
-  records, 66 grammar rows and 246 recognition characters. Duplicate, missing,
-  cross-level or stale graph assignments fail validation.
-- The scope is explicitly not lesson coverage and grants no mastery. Current
-  released learning mappings remain 23 vocabulary, 0 task, 0 topic and
-  0 grammar; G2 therefore remains open for real practice mapping, calibrated
-  placement and complete per-level progress behavior.
-- Added a graph- and inventory-bound HSK2 scope while preserving its distinct
-  three-unit path: multi-turn situational dialogue, sentence/grammar chains
-  and reviewed dictation/short-text production.
-- The situational unit partitions all 17 tasks, 34 topics and 200 incremental
-  vocabulary records across four semantic strands. Four grammar modules
-  partition all 75 grammar rows; four production stages plan dictation,
-  sentence reconstruction, guided messages and picture description; all 125
-  recognition characters remain isolated in the productive-text unit.
-- The scope plans 40 lesson blueprints but authors zero lesson or practice
-  item. It remains learner-hidden, grants no mastery and keeps lesson coverage,
-  reviewed content and HSK2 completion false. This differentiated roadmap
-  deliverable raises active progress to **73%** without claiming content
-  completion.
+1. `content/packages/foundation-2026.07.8/` — package immutable.
+2. `content/curriculum/hsk0-4-local-study-authorizations.json` — authorization.
+3. `content/runtime/hsk0-4-runtime-catalog.json` — runtime catalog sanitized.
+4. `content/runtime/hsk1-daily-life-rich-lessons.json` — rich presentation.
+5. `src/learning/richLessonContent.ts` — merge artifact time/place + daily.
+6. Hai Lesson screen dùng shared rich adapter.
+7. `e2e/hsk01-local-demo.spec.ts` mở `daily-1` sau prerequisite và kiểm tra nội
+   dung `这个多少钱？`, `我要三个。` cùng mục “Nhiệm vụ giao tiếp”.
 
-### Active G3 slice in progress
+Nếu app không hiển thị, phải coi đó là integration regression. Không tạo lại
+nội dung trước khi kiểm tra bảy mắt xích trên.
 
-- Pinned a 28 July 2026 CC-CEDICT editor-export snapshot by URL, byte length,
-  entry count and SHA-256. The source declares CC BY-SA 4.0; attribution and
-  ShareAlike treatment are explicit, while project legal review remains
-  pending.
-- Added a deterministic importer that filters the 124,725-entry snapshot to
-  all 300 official HSK1 vocabulary records. It checks snapshot bytes, source
-  license header, official ID/order/surface/pinyin and writes a compact draft
-  artifact rather than editing runtime content.
-- All 300 records have English source senses. 297 are pronunciation-compatible
-  directly or through standard `不`/`一` sandhi; `那边`, `那里` and `学生`
-  retain explicit source-vs-syllabus tone review items. Twenty-three official
-  records have multiple source matches and remain in the editorial queue.
-- The checked backlog report separates source readiness from learner coverage:
-  authoring scope 300/300, Vietnamese gloss review 0/300, lesson mapping
-  23/300, learner-visible 0/300 and release-eligible 0/300. No HSK1 completion
-  claim was created.
-- G3 can proceed before the remaining placement calibration because this slice
-  is learner-hidden authoring input. Runtime promotion still depends on
-  Vietnamese definitions, examples, unit/practice mapping and review.
-- Added the first unit content pack for `hsk1-personal-exchange`: 107
-  AI-assisted Vietnamese gloss drafts with exact source-line provenance,
-  9 sequential lesson blueprints, 38 model-dialogue turns and complete
-  blueprint partitions for its 2 tasks, 5 topics and 32 grammar rows.
-- The pack explicitly records AI-assisted authorship, CC BY-SA treatment,
-  missing Mandarin/Vietnamese/assessment reviewers and browser-TTS-only audio
-  policy.
-- Added 321 vocabulary practice items: exactly one meaning-recall, one
-  pinyin-recognition and one listening-selection item per lexeme. Distractors
-  are deterministic and distinct; synthetic voice is disclosed; every item is
-  measurement/mastery-ineligible pending review.
-- Added nine exact lesson review batches requiring native Mandarin,
-  Vietnamese editorial and assessment roles. All batches have zero approvals,
-  and the pack still has zero release-eligible item, so it is not imported
-  into runtime.
-- Added learner-hidden draft packs for the other four communicative HSK1
-  units: 193 Vietnamese gloss drafts, 16 sequential lesson blueprints, 64
-  dialogue turns and exact blueprint partitions for their 13 tasks, 25
-  topics and 34 grammar rows.
-- Added 579 more vocabulary practice items and 16 exact review batches. The
-  complete communicative HSK1 authoring layer now covers all 300 vocabulary
-  records with 25 lessons, 102 dialogue turns and 900 practice items. Every
-  item remains review-pending, measurement/mastery-ineligible and excluded
-  from runtime; HSK1 completion therefore remains false.
-- Added the learner-hidden `hsk1-character-foundation` pack: all 246 official
-  recognition characters are mapped to existing HSK1 vocabulary contexts,
-  partitioned across 15 sequential lessons and exercised by 246
-  character-in-word items plus 246 glyph-copy self-checks.
-- The pack explicitly records zero complete pinned stroke metadata, teaches
-  and assesses no stroke order, never infers writing mastery from recognition
-  or self-check, and leaves all 15 character review batches unapproved.
-- Added the learner-hidden HSK1 grammar/context pack: all 66 official grammar
-  rows retain their source text and exact lesson mapping, with one Vietnamese
-  explanation, model example and guided production self-check per row.
-- Twenty grammar review batches cover the 20 applicable lesson blueprints.
-  All 66 productive items remain unreviewed, self-reveal-only and
-  measurement/mastery-ineligible; no runtime lesson or completion claim was
-  created.
-- Corrected task/topic lesson semantics while preserving exact partitions:
-  weather and environment, product and health, travel planning, traditional
-  food, school and work topics now bind to the intended scenario lessons.
-- Added all 15 HSK1 task scenarios and all 30 topic prompts, with 60 model
-  dialogue turns and 15 guided roleplays. The associated level-check blueprint
-  plans 55 items across four sections; 50 objective drafts are authored but
-  none is scored, reviewed, calibrated or eligible for mastery.
-- Added the learner-hidden HSK1 objective item bank: 15 listening, 15 reading,
-  10 vocabulary and 10 grammar items, each bound to an exact draft entity.
-  Listening audio remains null and requires reviewed human/licensed recordings.
-  Source-exposed drafts require independent alternate forms before calibration.
-- Expanded the exact-hash review manifest to eight HSK1 draft artifacts and 97
-  pending batches (25 vocabulary, 15 character, 20 grammar, 15 task and 10
-  assessment). It contains zero approval and cannot publish content.
-- Added the local HSK1 review workflow over the exact manifest: 97 batches,
-  294 required role assignments and 2,606 normalized exact target references.
-  Exported assignments bind manifest/source/target hashes and require one
-  decision per target; imports create idempotent Git-ignored receipts only.
-- Reviewer/operator identities remain declared local metadata. The workflow
-  does not mutate source drafts, manifest approvals, runtime, calibration or
-  mastery, and absent listening audio cannot receive audio-rights approval.
-- Pinned the official five-page `汉语拼音方案` descriptor by Ministry URL,
-  PDF byte length/SHA-256 and approval date, and recorded active
-  GB/T 16159-2012 orthography metadata. Rights remain pending and neither
-  official PDF is redistributed.
-- Added a learner-hidden 12-lesson HSK0 pronunciation pack with 111 targets
-  and 208 authored activities. It covers all 21 official initials, all 35
-  final-table spellings plus `er`, 14 orthography rewrites, 20 initial
-  contrasts, 20 tone-category drills, the full 25-cell tone-pair matrix,
-  12 connected-speech analyses and 24 survival shadowing prompts.
-- Twelve exact lesson review batches require native Mandarin, Vietnamese and
-  pronunciation-pedagogy review; batches with listening/recording also require
-  audio-rights review. All 89 audio-dependent activities retain `audio: null`;
-  browser TTS is preview-only and browser ASR cannot score tone mastery.
-- The pack has 0 reviewed audio, measurement/mastery/release-eligible activity
-  and remains excluded from runtime. This named G3 authoring deliverable raises
-  content coverage by one point; active progress is now **72%**, while HSK0
-  completion remains false until human review, audio and runtime promotion.
-- Pinned a separate Debian CC-CEDICT source repack for HSK2 with exact archive
-  and UTF-8 payload identities, CC BY-SA attribution and pending legal review.
-  The full archive and dictionary payload remain local reconstruction inputs,
-  not redistributed repository content.
-- Added a deterministic importer and learner-hidden compact backlog for all
-  200 official HSK2 vocabulary records. It retains 232 exact source matches,
-  isolates 26 records with multiple candidates and queues 6 pronunciation
-  drifts rather than silently normalizing them.
-- At the source-only checkpoint, the HSK2 backlog retained 0 Vietnamese
-  draft/review, blueprint/runtime lesson mapping, practice, learner-visible and
-  release-eligible item. Vocabulary and level completion claims remained false.
-  That bounded source-enrichment deliverable raised content coverage by one
-  point and active project progress to **74%**.
-- Added a deterministic HSK2 lesson-blueprint pack with 20 situational
-  dialogue lessons, 10 sentence/grammar-chain lessons and 10 dictation or
-  short-production lessons. One ordered prerequisite chain spans all 40
-  blueprints without making them learner-visible.
-- The blueprints exact-partition all 17 tasks, 34 topics, 200 vocabulary
-  records, 75 grammar rows and 125 recognition characters from the pinned
-  scope. Evidence modes, required practice kinds and audio requirements stay
-  distinct across the three units.
-- Forty pending blueprint review batches require native Mandarin curriculum,
-  Vietnamese editorial and assessment roles. Authored practice, assessment
-  prompts, rubrics, approvals and release-eligible lessons all remain zero;
-  HSK2 completion stays false. This named authoring deliverable raises active
-  progress to **75%**.
-- Added 200 Vietnamese AI-assisted HSK2 vocabulary gloss drafts with exact
-  official ID, part-of-speech, lesson and CC-CEDICT source-line provenance.
-  Homographs remain separate records and every gloss still requires Mandarin
-  linguistic plus Vietnamese editorial review.
-- Added exactly three practice items per HSK2 lexeme: 200 meaning recall,
-  200 pinyin recognition and 200 listening selection items across the 20
-  situational blueprints. Twenty exact review batches cover all 600 items.
-- All listening items retain `audio: null` and disclose synthetic browser TTS.
-  The pack has zero reviewed audio, approval, measurement/mastery or
-  release-eligible item; grammar, character, task production and assessment
-  content remain open. This deliverable raises active progress to **76%**.
-- Added 250 character-practice items over all 125 HSK2 recognition characters
-  in the ten short-production blueprints: 124 character-in-word items, one
-  isolated recognition item and 125 glyph-copy self-checks.
-- The checked report records `留` as the one character without a cumulative
-  HSK1-2 vocabulary context instead of inventing a mapping. All radical,
-  stroke-count and stroke-data fields remain null; stroke order and writing
-  mastery are neither taught nor assessed.
-- Ten character review batches remain pending with zero approval,
-  measurement/mastery or release-eligible item. Active progress remains
-  **76%** because grammar, task production, assessment and HSK3-4 content are
-  still substantially larger remaining deliverables.
-- Added the learner-hidden HSK2 grammar-context pack: all 75 official rows
-  retain exact source text/page and lesson/track mapping across the ten
-  sentence-chain blueprints. Each row has one Vietnamese AI-assisted
-  explanation, one Hanzi-Pinyin-Vietnamese model example and one distinct
-  guided-pattern-production self-check.
-- Ten grammar review batches require native Mandarin, Vietnamese editorial
-  and grammar-pedagogy roles. All 75 productive items remain unreviewed,
-  self-reveal-only and measurement/mastery/release-ineligible. This bounded
-  named deliverable raises content coverage by one point and active progress
-  to **77%**; task/dialogue production, assessment, audio, runtime promotion
-  and HSK3-4 remain open.
-- Replaced count-even HSK2 situational assignment with explicit semantic
-  lesson mappings while preserving exact partitions. Regression coverage now
-  pins object/color comparison to its object-description task and Chinese
-  surnames/forms of address to the culture lesson.
-- Added 20 six-turn situational dialogues (120 Hanzi-Pinyin-Vietnamese turns),
-  17 task scenarios, 34 topic prompts with support questions and 20 guided
-  roleplay self-checks. Twenty exact review batches remain pending; all audio
-  is null and approval, measurement/mastery and release eligibility remain
-  zero. This named G3 deliverable raises content coverage by one point and
-  active progress to **78%**; short-text production, assessment, review/audio,
-  runtime promotion and HSK3-4 remain open.
-- Added all 104 minimum prompt units for the ten HSK2 short-text production
-  blueprints: 36 dictations, 36 sentence reconstructions, 16 three-sentence
-  messages and 16 picture descriptions, with 168
-  Hanzi-Pinyin-Vietnamese model sentences for self-revision.
-- All 125 assigned recognition characters occur in exactly one prompt answer
-  within their lesson. Reconstruction fragments must exactly match the model
-  answer; guided prompts require three elements and three model sentences.
-  The `留学生` support context does not erase the recorded absence of a
-  cumulative official HSK1-2 vocabulary context for `留`.
-- Thirty-six dictation prompts retain null audio. Ten review batches have no
-  approvals and every item remains self-reveal-only and
-  measurement/mastery/release-ineligible. Active progress remains **78%**
-  rather than exhausting the content pillar while HSK2 assessment and all
-  HSK3-4 content remain open.
-- Added two source-disjoint HSK2 assessment forms with 86 items each: 15
-  listening, 15 reading, 15 vocabulary, 15 grammar, 10 speaking and 16 writing
-  per form. Across both forms the bank contains 120 objective items and 52
-  constructed responses, while exact source-entity overlap remains zero.
-- Speaking prompts cover all 17 official tasks and 34 topics through the 20
-  situational lessons; writing prompts cover all 32 guided-message and
-  picture-description sources. Every item contributes to exactly one declared
-  skill, and 12 section/form review batches exact-partition the 172 items.
-- All 30 listening audio references remain null. The bank is source-exposed,
-  unreviewed and uncalibrated, with no cut score, measurement, mastery,
-  prerequisite waiver or release eligibility. Independent authoring raises
-  the assessment pillar by one point and active progress to **79%**; it does
-  not make the HSK2 level check issuable.
-- Added an exact-hash HSK2 review manifest over seven source artifacts and all
-  122 pending batches: 40 blueprint, 20 vocabulary, 10 character, 10 grammar,
-  20 situational, 10 short-text production and 12 assessment batches.
-- The local workflow resolves 405 role assignments and 1,732 normalized exact
-  targets. Exports bind manifest/source/target hashes and require one decision
-  per target; imports create idempotent Git-ignored receipts only.
-- The workflow cannot approve absent audio rights and never mutates draft
-  content, manifest approvals, runtime, calibration or mastery. No human
-  receipt exists, so this packaging slice keeps active progress at **79%**.
-- Added the graph- and inventory-bound HSK3 scope with three ordered units:
-  paragraph listening/reading input, narration/discourse linking and guided
-  paragraph/spoken production. It does not reuse the HSK2 situational/
-  sentence-chain/short-text route shape.
-- Five semantic discourse domains exact-partition all 22 tasks and 54 topics;
-  five grammar modules exact-partition all 96 rows. All 500 vocabulary records
-  and 284 recognition characters are scoped to paragraph input without
-  inventing source-unreviewed semantic clusters.
-- The scope plans 55 lesson blueprints and five production stages with at
-  least 92 prompts: main-idea/detail notes, cohesion reconstruction, retelling,
-  six-to-eight-sentence paragraphs and spoken explanation/comparison. It is
-  learner-hidden and grants no lesson coverage or mastery. This differentiated
-  route raises active progress to **80%**.
-- Pinned the HSK3 vocabulary enrichment to the exact Debian CC-CEDICT archive
-  and UTF-8 payload already governed in the source descriptor. All 500 official
-  HSK3 records resolve to 529 source matches; 24 multiple-candidate records and
-  8 pronunciation drifts remain explicit review work.
-- Added 55 learner-hidden HSK3 lesson blueprints: 25 paragraph input, 15
-  narration/grammar and 15 guided production. One ordered prerequisite chain
-  exact-partitions all 22 tasks, 54 topics, 500 vocabulary records, 96 grammar
-  rows and 284 recognition characters.
-- Source-sense scoring provides a declared signal for 287 vocabulary records;
-  213 cross-domain/function records remain explicitly labelled foundation
-  fallback rather than receiving a false semantic claim. 283 characters have
-  an incremental vocabulary context and one gap remains visible.
-- All 55 review batches are pending and the pack has zero authored practice,
-  rubric, approval, measurement/mastery or release eligibility. This closes a
-  named G2 lesson-architecture/prerequisite deliverable and raises active
-  progress to **81%** without increasing content coverage.
-- Authored the first HSK3 paragraph-input content pack for the
-  identity/transactions lesson: 20 Vietnamese AI-assisted glosses and two
-  eight-line Hanzi-Pinyin-Vietnamese texts, one graded reading and one graded
-  listening. Every lesson vocabulary record appears in the authored texts.
-- Added 60 vocabulary items, ten reading/listening comprehension items, two
-  note grids and two guided summaries or retellings: 74 practice items total.
-  Main idea, detail, sequence, reference and simple inference remain separate
-  item kinds.
-- Twenty-seven items require listening or recorded retelling and retain null
-  audio. One exact review batch has zero approvals; measurement, mastery and
-  release eligibility remain zero. At 1/55 authored HSK3 lessons this bounded
-  slice keeps active progress at **81%**.
-- Completed the other four personal-life paragraph lessons: food/shopping,
-  travel/transport, health care and home/family/leisure. They add 80
-  Vietnamese gloss drafts, eight eight-line texts and 296 practice items.
-- Combined with the first lesson, this discourse domain now has 5/5 lessons,
-  100 vocabulary drafts, 10 Hanzi-Pinyin-Vietnamese texts with 80 lines, 300
-  vocabulary items, 50 comprehension items, ten note grids and ten guided
-  summaries/retellings: 370 practice items in five exact review batches.
-- All 135 audio-dependent items remain silent and all five batches have zero
-  approval. One of five paragraph discourse domains, 5/55 total HSK3 lessons,
-  is authored; review, runtime and level completion remain false, so active
-  progress stays **81%**.
-- Authored all five HSK3 study/work paragraph lessons across learning methods,
-  campus education, office process, colleague coordination and career
-  experience. Their exact blueprint partition contains 107 vocabulary drafts,
-  10 eight-line Hanzi-Pinyin-Vietnamese texts, 321 vocabulary items, 50
-  comprehension items, ten note grids and ten summaries/retellings: 391
-  practice items in five pending review batches.
-- The two completed paragraph domains now total 10/25 paragraph lessons, 207
-  vocabulary drafts, 20 texts/160 lines and 761 practice items. A shared
-  builder and fail-closed validator now enforce source/prerequisite digests,
-  exact vocabulary partition, in-lesson text coverage, item identity and
-  review eligibility for the remaining domains.
-- All 277 combined audio-dependent items remain silent and all ten batches
-  have zero approval. Narration/grammar, guided production, assessment,
-  runtime and HSK3 completion remain false, so active progress stays **81%**.
-- Authored all five HSK3 nature/environment paragraph lessons across
-  climate/seasons, plants/animals, landscape/directions, environmental state
-  and protection responses. The exact partition adds 100 vocabulary drafts,
-  10 eight-line texts and 370 practice items: 300 vocabulary items, 50
-  comprehension items, ten note grids and ten summaries/retellings.
-- Three of five paragraph domains now total 15/25 paragraph lessons, 307
-  vocabulary drafts, 30 texts/240 lines and 1,131 practice items. All 412
-  audio-dependent items remain silent and all 15 batches have zero approval.
-  The remaining paragraph, narration/grammar, guided production, assessment,
-  runtime and HSK3 completion work keeps active progress at **81%**.
-- Authored all five HSK3 society/arts/sports paragraph lessons across modern
-  life, city services, performing arts, sports introduction and competition
-  reporting. The exact partition adds 96 vocabulary drafts, 10 eight-line
-  texts and 358 practice items: 288 vocabulary items, 50 comprehension items,
-  ten note grids and ten summaries/retellings.
-- Four of five paragraph domains now total 20/25 paragraph lessons, 403
-  vocabulary drafts, 40 texts/320 lines and 1,489 practice items. All 543
-  audio-dependent items remain silent and all 20 batches have zero approval.
-  The final paragraph domain plus narration/grammar, guided production,
-  assessment, runtime and HSK3 completion keep progress at **81%**.
-- Authored all five HSK3 culture/tradition paragraph lessons across regional
-  cuisine, table etiquette, festivals, bounded regional comparison and
-  intercultural visits. The exact partition adds 97 vocabulary drafts, ten
-  eight-line texts and 361 practice items: 291 vocabulary items, 50
-  comprehension items, ten note grids and ten summaries/retellings.
-- All five paragraph domains now close 25/25 paragraph-input lessons and all
-  500 HSK3 vocabulary mappings with 50 texts/400 lines and 1,850 practice
-  items. Cultural comparisons require sources and limitations rather than
-  turning examples into universal rules. All 675 audio-dependent items remain
-  silent, all 25 batches have zero approval and all content remains hidden.
-  Narration/grammar, guided production, assessment, runtime and HSK3
-  completion keep active progress at **81%**.
-- Authored the first HSK3 narration/grammar module over reference, quantity
-  and phrase building: three lessons exact-partition 21/96 official grammar
-  rows into 21 bounded explanations, examples and correction pairs, three
-  six-line model narrations and 45 practice items.
-- The practice layer has 21 grammar-in-paragraph items, 21 discourse
-  corrections and three ordered retellings. Grammar-writing and
-  speaking-retelling evidence remain separate; self-reveal and browser ASR
-  cannot grant mastery. All three batches have zero approval and remain
-  learner-hidden. The remaining 12 narration lessons, 15 guided-production
-  lessons, assessment, review and runtime keep progress at **81%**.
-- Authored the HSK3 modality/time/viewpoint narration module: three lessons
-  exact-partition 27 grammar rows for health advice, learning viewpoints and
-  family attitude into 27 explanations/examples/correction pairs, three
-  six-line narrations and 57 practice items.
-- The two completed modules now total 6/15 narration lessons, 48/96 grammar
-  rows, six narrations/36 lines and 102 practice items. Viewpoint and
-  generalization patterns explicitly retain scope and exceptions. All six
-  batches have zero approval and remain learner-hidden; nine narration
-  lessons plus guided production, assessment, review and runtime keep
-  progress at **81%**.
-- Authored the HSK3 event/complements/voice narration module: three lessons
-  exact-partition 18 grammar rows for event sequencing, result/potential/
-  directional complements, 把/被 and existential change into 18 bounded
-  explanations/examples/correction pairs, three six-line narrations and 39
-  practice items.
-- The three completed modules now total 9/15 narration lessons, 66/96 grammar
-  rows, nine narrations/54 lines and 141 practice items. Exact prerequisite,
-  official-row provenance and skill-separated evidence remain fail-closed.
-  All nine batches have zero approval and remain learner-hidden; six
-  narration lessons plus guided production, assessment, review and runtime
-  keep progress at **81%**.
-- Authored the HSK3 comparison/description/evaluation narration module: three
-  lessons exact-partition 13 grammar rows for natural change, environmental
-  description and scoped social-service comparison into 13 bounded
-  explanations/examples/correction pairs, three six-line narrations and 29
-  practice items.
-- The four completed modules now total 12/15 narration lessons, 79/96 grammar
-  rows, 12 narrations/72 lines and 170 practice items. Comparisons require the
-  same dimension and conditions; `不比` cannot be inflated into a stronger
-  conclusion and narration claims cannot exceed their evidence. All 12
-  batches have zero approval and remain learner-hidden; three narration
-  lessons plus guided production, assessment, review and runtime keep
-  progress at **81%**.
-- Authored the fifth and final HSK3 discourse-linking narration module: three
-  lessons exact-partition 17 grammar rows for arts information, match/food
-  sequencing and custom-related condition/purpose into 17 bounded
-  explanations/examples/correction pairs, three six-line narrations and 37
-  practice items.
-- All five narration modules now total 15/15 lessons, 96/96 official grammar
-  rows, 15 narrations/90 lines and 207 practice items. Hypothetical, necessary
-  and sufficient conditions remain distinct; sequence, concurrency,
-  progression and concession cannot substitute for one another. All 15
-  batches have zero approval and remain learner-hidden. Narration authoring is
-  complete, but guided production, assessment, review and runtime keep active
-  progress at **81%**.
-- Authored the first HSK3 guided-production stage for main-idea/detail notes:
-  three lessons bind 24 prompt units to 24 exact paragraph source texts/192
-  lines. Eight prompts use reading, eight use listening and eight integrate a
-  reading/listening pair, yielding 16 reading-input and 16 listening-input
-  prompts.
-- Every prompt binds evidence lines, four response fields, an answer guide and
-  a three-step revision checklist. Input and writing evidence remain separate;
-  model reveal and browser TTS cannot grant mastery. The stage consumes the
-  existing 284 paragraph-bound character mappings and claims zero new
-  character ownership. All 16 audio-dependent prompts lack reviewed audio and
-  all three batches remain pending, so progress stays **81%**.
-- Authored the second HSK3 guided-production stage for cohesion
-  reconstruction: three lessons bind 20 reading/writing prompts to 18 exact
-  paragraph source texts/144 lines. The split is seven temporal-order
-  reconstructions, seven reference/linker restorations and six order-rationale
-  explanations.
-- Every ordering block, cloze answer and evidence line is exact-source-bound.
-  Source exposure, automatic ordering and model reveal can only start a
-  revision loop; they cannot grant writing mastery or calibrate assessment.
-  Two stages now total 6/15 lessons, 44 prompts, 42 source bindings/336 lines
-  and six pending review batches. The stage claims zero new character
-  ownership and keeps progress at **81%** while nine production lessons,
-  assessment, review and runtime remain.
-- Authored the third HSK3 guided-production stage for event retelling:
-  three lessons use all 20 unique graded-listening texts from the study,
-  nature, society and culture domains exactly once. The 7/7/6 split covers
-  retelling from a four-point note card, change–cause retelling and a complete
-  opening–body–closing paragraph.
-- Each listening-to-speaking prompt binds all eight source lines, the exact
-  four-element source summary and its existing Hanzi/Pinyin/Vietnamese model.
-  The learner loop is listen, note, record, reveal, revise and record again.
-  Browser TTS cannot count as listening mastery; an unreviewed self-recording
-  cannot count as speaking mastery. Three stages now total 9/15 lessons, 64
-  prompts, 62 source bindings/496 lines and nine pending batches. All 36
-  audio-dependent prompts lack reviewed audio and all 20 recording prompts
-  lack a reviewed rubric, so progress remains **81%** while six guided
-  production lessons, assessment, review and runtime remain.
-- Authored the fourth HSK3 guided-production stage for paragraph writing:
-  three lessons contain 16 reading-to-writing prompts—six question-guided
-  six-sentence paragraphs, five dual-source evidence comparisons and five
-  eight-sentence paragraphs with a cohesion audit.
-- The stage binds 16 exact graded-reading texts/128 lines through 21 source
-  inputs and 21 exact source-summary models. Learners must produce at least
-  106 sentences across first drafts, reveal evidence only afterward, mark two
-  revisions and submit a rewritten draft. Source exposure, model summaries
-  and self-checks cannot grant writing mastery without a reviewed rubric.
-  Four stages now total 12/15 lessons, 80 prompts, 78 source artifacts/624
-  lines and 12 pending batches. Progress remains **81%** while the final three
-  guided-production lessons, assessment, review and runtime remain.
-- Authored the fifth and final HSK3 guided-production stage for structured
-  spoken explanation: 12 dual-source listening/speaking prompts split evenly
-  across choice-with-reason, criteria-based comparison and bounded viewpoint.
-  They bind 18 exact listening texts/144 lines through 24 source inputs.
-- Each prompt requires evidence from both sources, a limit or counterpoint,
-  at least 4–6 spoken sentences and two recording attempts. Across the stage
-  that is at least 64 spoken sentences and 24 recordings. Browser TTS,
-  revealed models and self-recordings remain non-mastery until reviewed audio
-  and a reviewed speaking rubric exist. All five stages now total 15/15
-  lessons, 92 prompts, 96 source artifacts/768 lines and 15 pending batches.
-  Guided-production authoring is complete, but assessment, human review,
-  runtime publication and HSK4 content keep progress at **81%**.
+## 6. Thay đổi kỹ thuật nhỏ đi kèm B0
 
-### Active G5 slice in progress
+- Pinyin parser chấp nhận Erhua final kết thúc bằng `r` như `miàntiáor` và
+  `yìdiǎnr`.
+- Validation cho phép learner-visible tone sandhi chuẩn trong khi numbered
+  internal syllable vẫn giữ lexical tone.
+- Loại 4 alias vocabulary cũ `cha`, `he`, `kan`, `you` khỏi package/runtime và
+  hidden lesson references để tránh ID mastery giả.
+- Test fixture cũ đang được cập nhật từ 10 lên 14 bài HSK1 và từ 105 lên 155
+  runtime vocabulary.
 
-- Added a deterministic, learner-hidden demo contract bound to the exact
-  checked HSK runtime catalog, import identity, integrity digest and source
-  hashes. It contains profile/boundary expectations only; strict validation
-  rejects any answer, evidence, completion, mistake, knowledge, mastery, XP,
-  streak or resume seed.
-- Added a real-UI Playwright walkthrough that onboards an anonymous HSK1
-  target without a prerequisite waiver, proves only `boot-1` starts open,
-  reloads the exact checked session, records 10 answer rows plus one completion
-  for a 90% first lesson, creates one real mistake and closes it with two
-  unassisted local remediation attempts.
-- The same walkthrough completes `boot-2..4` through browser controls and
-  proves `survival-1` opens while `survival-2..4`, all six blocked
-  daily/character lessons and HSK2-4 stay fail-closed. Final assertions cover
-  44 lesson evidence rows, 2 remediation rows, unique idempotency keys, exact
-  runtime provenance and no cross-skill mastery inference.
-- Added the defense runbook `docs/HSK01_LOCAL_DEMO.md` with reproduction steps,
-  expected ledger, architecture links and explicit limits. This earns one G5
-  QA point; it does not publish content or claim HSK/production readiness.
-- Added the local-candidate contract/runner foundation while keeping active
-  progress at **89%** until a clean-source receipt exists. The contract binds 10
-  artifacts, four allow-listed gates and eight exact Playwright cases covering
-  demo, mobile, keyboard, reduced motion, offline shell, owner-safe reset and
-  real UI backup export/import/reload. Its validator requires all 9 production
-  gates/23 blockers to remain fail-closed and prohibits production, hosted,
-  human-review, calibration or Sites claims. A code/content/config edit after
-  the tested revision makes the candidate stale; runner infrastructure alone
-  does not earn another G5 point.
-- Generated and checked the deterministic local candidate receipt from clean
-  source `83e967d`. It binds 10 artifacts, a 220-file/7,001,874-byte
-  build, all four local gates and all eight exact acceptance capabilities.
-  The run passed 217 Vitest files/1,560 tests, 21/21 Playwright tests,
-  Lighthouse median P96/A100/BP100/SEO100 and dependency audit with zero
-  vulnerability. The receipt keeps 9 production gates/23 blockers open and
-  every production/hosted/review/calibration/Sites claim false. This earns one
-  G5 point and raises active progress to **90%**.
-- Post-commit verification exposed key-order-sensitive equality between the
-  canonical receipt and insertion-ordered runtime objects. The verifier now
-  compares canonical JSON for boundary, exact gate command, acceptance,
-  production-blocker and build records. Regression coverage pins reordered
-  objects and changed values. Progress stays **90%**, but the source change
-  intentionally made the previous receipt stale; a clean regeneration on
-  `83e967d` has now replaced it.
+## 7. Dọn dẹp đã thực hiện
 
-## Repository state
+- Thư mục staging `content/runtime/daily-life-package-input/` đã được chuyển ra
+  ngoài repo sau khi package immutable được tạo; nó không được commit.
+- Roadmap/checkpoint cũ dài hơn 2.300 dòng, chủ yếu là nhật ký lặp, đã được thay
+  bằng tài liệu hiện tại. Nội dung lịch sử vẫn phục hồi được từ Git.
+- `docs/ROADMAP.md` marketing/production trùng lặp được xóa; nguồn production
+  duy nhất là `docs/PRODUCTION_UPGRADE_PLAN.md`.
+- Các script production deferred chưa bị xóa vì `verify:production` vẫn tham
+  chiếu chúng; chúng chỉ bị loại khỏi critical path.
 
+## 8. Trạng thái kiểm tra B0
+
+- Targeted package/graph/release/persistence/content validation: **9 file,
+  139/139 test qua**.
+- Local-study/content precheck: package `.07.8`, 4 daily-life lesson, 54 lexeme,
+  286 source target, 10 authorized rich lesson và runtime 18 lesson đều hợp lệ.
+- Typecheck và lint: qua.
+- Toàn bộ Vitest: **229 file, 1.607/1.607 test qua**.
+- D1 restore rehearsal: 14 migration, 26 table, integrity/foreign key/write qua.
+- Production build và bundle budget: qua; Brotli client JS/CSS 287,3 KiB,
+  conservative ceiling 413,7 KiB.
+- Learner UI walkthrough: **1/1 Playwright qua trong 1,9 phút**; luồng hoàn
+  thành prerequisite thật rồi mở `daily-1` và kiểm tra rich dialogue/task.
+- `git diff --check`: chạy ngay trước commit.
+
+Lighthouse/audit không chạy lại ở B0 vì không đổi shared visual/performance hay
+dependency; chúng được giữ cho local release candidate theo playbook mới.
+
+## 9. Branch và ranh giới
+
+- Workspace: `D:\Projects\hanzi-os`
 - Branch: `codex/hsk4-graduation`
-- Base commit: `5cc78673cd91445adbcad8f69286c0b9081d1d1d`
-- Production checkpoint carried forward: `594cf83`.
-- This branch contains a reviewed local engineering checkpoint split into
-  auditable commits. No release tag, saved Sites version, deployment or
-  production evidence was created.
-- Commit boundaries organize the reconstructed worktree by dependency layer
-  for review; intermediate commits are not a green-bisect guarantee. The full
-  verification below applies to the complete branch tip.
-- The committed source contains technical slices mapped to Phases 0-3; it does
-  not satisfy any phase exit criterion.
-- Phase 4, commerce, reviewed A0/HSK coverage, pilot evidence, hosted
-  operational qualification and Sites deployment remain pending.
-- The local Sites-era D1 binding and Drizzle migration packaging in
-  `.openai/hosting.json` and `build/sites-vite-plugin.ts` are preparation only.
-  Freeze both files until the final Sites step; no saved version or deployment
-  has occurred.
+- Commit trước B0: `4cef075` — rich HSK1 time/place lesson content.
+- Checkpoint B0: commit chứa chính file này; dùng `git log -1` để lấy SHA sau
+  khi checkout, không hard-code một hash tự tham chiếu.
+- Base lịch sử lúc chuyển repo: `5cc7867`.
+- Không deploy, không tạo Sites version và không sửa hosting.
+- `.openai/hosting.json` giữ nguyên cho bước cuối do người dùng quyết định.
 
-## Deferred production roadmap progress estimate
+## 10. Batch tiếp theo sau B0
 
-Headline estimate: **55.1% of the original production roadmap** as of
-28 July 2026.
+Không tiếp tục chỉ làm 2 bài travel/leisure rồi dừng. Batch tiếp theo là **B1 —
+hoàn tất toàn bộ HSK1**:
 
-This is a planning estimate, not a release claim. The nine workstreams are
-weighted equally. Each workstream has at most 40 points for implemented product
-and infrastructure, 30 points for repeatable local evidence, and 30 points for
-hosted, human, pilot, legal or operational acceptance evidence. No production
-acceptance points are claimed yet because the project still has no deployment,
-reviewed content release, learner pilot, hosted recovery drill or independent
-security/privacy sign-off.
+- lấy 40 HSK1 blueprint làm danh sách đích;
+- materialize phần còn thiếu theo cả level;
+- review 5 pass theo unit, sửa lỗi theo nhóm;
+- package/authorize/runtime-wire một lô lớn;
+- đưa 40/40 lên shared Lesson UI;
+- phủ 300 vocabulary, 246 character, 66 grammar, 15 task và 30 topic;
+- chạy level check HSK1 end-to-end;
+- chạy full gate một lần ở cuối level và commit.
 
-| Workstream | Technical + local evidence (max 70) | Production acceptance (max 30) | Overall | Current position |
-| --- | ---: | ---: | ---: | --- |
-| WS1 Identity/backend/durable data | 58 | 0 | 58% | Repository boundaries, D1 schema, sync/outboxes, export/delete and local restore exist; immutable provider identity, hosted multi-device proof, PostgreSQL target and hosted recovery remain. |
-| WS2 Curriculum/content production | 56 | 0 | 56% | Versioned packages, governance/import tooling, readiness projection and the verified E3a assignment persistence kernel exist; authenticated editor workflow, reviewed A0 volume, licensed audio and human approvals remain. |
-| WS3 Mandarin phonology/tone | 52 | 0 | 52% | Syllable-aware technical model and validation exist; native golden approval and release evidence remain. |
-| WS4 Assessment/mastery | 55 | 0 | 55% | Skill-specific server authority and evidence separation exist; adaptive calibration, confidence thresholds and pilot validity remain. |
-| WS5 Release/prerequisites | 64 | 0 | 64% | Fail-closed states, prerequisites, content versions and route/server guards are broadly implemented; hosted contract proof and reviewed activation remain. |
-| WS6 Unified learning evidence | 51 | 0 | 51% | Lesson, Reader, assessment and Review command/evidence paths exist; verified writing/speaking and consented acoustic scoring remain. |
-| WS7 Quality/operations | 58 | 0 | 58% | Strong local unit/content/restore/E2E/Lighthouse gates include the E3a database boundary; production telemetry, staging, alert ownership, SLO and incident/rollback drills remain. |
-| WS8 Performance/inclusive UX | 62 | 0 | 62% | Bundle budgets, responsive assets, offline recovery, keyboard/mobile/reduced-motion and local Lighthouse targets exist; production RUM p75 evidence remains. |
-| WS9 Security/privacy/legal/SEO | 40 | 0 | 40% | Baseline headers, policy gates, dependency audit and public metadata exist; independent review, consent lifecycle, privacy operations, legal decisions and public verification remain. |
+Mục tiêu thấy được sau B1: Path HSK1 có đủ lộ trình từ personal exchange đến
+study/work và character foundation; người dùng không cần đọc file JSON để biết
+nội dung tồn tại.
 
-The technical/local portion is about **79% complete** (496 of 630 possible
-technical/local points), while the end-to-end production acceptance portion is
-still **0% claimed**. This explains why the repository can contain substantial
-engineering work while `verify:production` correctly remains fail-closed.
+## 11. Những việc không được làm ở batch tiếp theo
 
-Current bounded milestone:
+- Không xây lại auth, sync, FSRS, Reader, Review hoặc lesson engine.
+- Không mở Sites/commerce/production/CMS.
+- Không dựng human reviewer/audio-rights workflow cho bản local.
+- Không chạy full check lặp lại sau từng file.
+- Không cộng tiến độ cho draft/generated/test nếu UI chưa mở bài.
+- Không tạo thêm tài liệu nhật ký dài; cập nhật bảng và kết quả hiện tại.
 
-- E3a assignment persistence kernel: **100%** — implementation, migration,
-  restore rehearsal, focused lifecycle/integrity tests and the complete local
-  baseline are green.
-- E3b authenticated/authorized operator workflow: **0%** — next dependency,
-  deliberately not started before E3a is green and committed.
-- Sites ownership, saved version and deployment: deferred to the final step at
-  the user's request.
+## 12. Mẫu handoff bắt buộc
 
-Forecast from the current delivery pace:
+Khi dừng phiên, agent ghi:
 
-- The available Git sample covers 26–28 July, not a complete seven-day
-  steady-state week. It contains 21 commits, but the first 12 split a
-  reconstructed checkpoint into auditable boundaries and must not be treated
-  as ordinary feature throughput.
-- If the later bounded-slice pace is sustained, the remaining local
-  engineering can reach a feature-complete, pre-deployment candidate in about
-  **2–3 weeks** (11–18 August 2026).
-- A closed-alpha-ready candidate is more realistically **4–7 weeks** away
-  (25 August–15 September 2026), assuming legal and native reviewers, licensed
-  content/audio and pilot recruitment are available in parallel.
-- Full production completion is approximately **12–16 weeks** away
-  (20 October–17 November 2026) in an optimistic cross-functional path.
-  A primarily solo path or delayed human review/content/pilot recruitment is
-  more realistically **16–24 weeks** (17 November 2026–12 January 2027).
-- These dates cannot be shortened by code throughput alone: the roadmap
-  requires a 14-day, 100-person closed alpha, followed by retention/outcome
-  observation including D30, plus legal, security, hosted recovery and
-  operational evidence.
-
-Progress accounting rules:
-
-- Update this section at every green checkpoint commit, not after every test
-  invocation.
-- Generated migration snapshots and line counts do not increase the estimate.
-- Tests increase only the local-evidence portion; they cannot close content,
-  pilot, hosted, legal, security or operational acceptance gates.
-- A workstream percentage moves only when a named roadmap deliverable and its
-  applicable evidence are both present.
-
-## Stabilization completed
-
-- Reader open, attempt, submission and abandonment records now hash the same
-  canonical queued command at enqueue and delivery preparation.
-- Compatibility assumption: the Reader command outbox is new in this
-  checkpoint and was absent from base `5cc7867`; no released v1 Reader records
-  therefore require migration from pre-canonical timestamps.
-- Delivery preparation rejects a valid-looking command mutation when its
-  envelope or original request hash no longer matches.
-- Reader dependency aliases, sequence ordering and submission dependency keys
-  are checked before delivery.
-- Projected Reader anchor insertion and open-receipt acknowledgement now
-  perform opposing duplicate-authority checks inside serialized IndexedDB
-  read/write transactions. A redundant open is terminally quarantined when the
-  projected authority committed first, so it cannot be resent indefinitely.
-- Regression coverage reproduces mutations of all four Reader command kinds
-  and the projected-anchor/open-receipt interleaving, including coordinator
-  proof that the redundant open is sent only once.
-- The remediation E2E selector was aligned with the current local-practice
-  wording.
-- Reset E2E proves the injected cache and response are removed while allowing
-  the active service worker to recreate public offline asset caches.
-- All six registered content packages now retain exact immutable source
-  snapshots, so historical validation no longer depends on mutable HEAD files.
-- The mandatory content gate validates every registry entry and lineage edge;
-  runtime-bound candidates also fail on live-source drift.
-- Content mutations serialize through a repository lock, new versions validate
-  the existing history before staged rename, and reviews cannot be appended
-  after publication.
-- `foundation-2026.07.5` is the first schema-v4 / item-catalog-v2 candidate.
-  Its full authoring inventory has 74 canonical payloads: 24 lexemes, 24
-  lessons, 1 graded text, 5 grammar items, 5 pronunciation items, 7 character
-  items and 8 communicative-function items.
-- The four new knowledge-item types are source-derived from immutable lesson
-  guides, lexemes and explicit blueprints. They remain `review`, have no
-  owner/license/review evidence, and character radical/stroke metadata remains
-  null rather than being guessed.
-- Lesson knowledge membership, typed prerequisite references/cycles, source
-  reciprocity, runtime-representable lesson closure and graded-text prerequisite
-  limits fail closed. Review scopes name exact targets and coverage paths must
-  equal the full typed transitive dependency closure.
-- Client curriculum imports a separate canonical `runtime-catalog.json` with
-  24 used lexemes, 14 released lessons and 1 released story. Field allowlists
-  strip item governance, review/audio metadata, hashes, draft/review payloads
-  and all four new knowledge types; schema-v4 source may not import any other
-  package JSON artifact.
-- Catalog export rehydrates the complete immutable authoring inventory instead
-  of reading sanitized runtime, preventing the 10 draft lessons from being
-  dropped in the next version.
-- Catalog-v4 export now reprojects core and knowledge payloads from current
-  authoring sources while preserving exact source-addressed character
-  artifacts. Canonical audio bindings may follow an unchanged transcript;
-  incompatible text changes require explicit replacement and target removal is
-  rejected until an audio-retirement workflow exists.
-- Release counts use distinct reviewed payloads, not raw IDs. Empty graded
-  texts, duplicate payload IDs, boolean-only audio, incomplete A0 graphs,
-  relabeled HSK paths and production that skips closed-alpha gates all fail
-  closed.
-- The candidate has no owner/license, scoped approval, coverage claim or audio;
-  24 cataloged lexemes therefore count as 0 reviewed lexemes and 64 transitive
-  release-relevant items remain unready.
-- A separate `content:audio:import` mutation can create future content-schema-v5
-  / item-catalog-v3 candidates from a schema-v2 authoring catalog plus an exact
-  descriptor. It derives canonical target/file/transcript hashes, speaker and
-  rights bindings, byte-inspected WAV media metadata and timestamp alignment.
-- Audio policy v1 accepts only bounded RIFF/WAVE PCM mono 16-bit bytes at an
-  allow-listed sample rate. Repository-relative non-symlink source files are
-  copied exclusively into a temporary package and re-read/revalidated before
-  rename and registry mutation; errors clean the temporary package and retain
-  the previous registry/target.
-- Historical catalog schemas remain validation-compatible, but their
-  uninspected audio can no longer satisfy the production audio gate. Malformed
-  audio collections also fail policy assessment without throwing.
-- This is tooling only: no real audio, speaker identity, license evidence,
-  review, release promotion or runtime playback was added to `.07.5`.
-- A separate `content:character:import` mutation can create a future
-  content-schema-v6 / item-catalog-v4 candidate from the schema-v2 authoring
-  catalog and an exact, complete character descriptor. It binds every
-  radical, component and structure claim to package-local source records and
-  every stroke count to inspected Hanzi Writer bytes.
-- Character policy v1 rejects malformed UTF-8/JSON, unknown or duplicate root
-  keys, oversized data, invalid paths/medians and duplicate or out-of-range
-  radical stroke indices. Linguistic records must be non-empty JSON objects
-  whose character key matches the target; stroke records carry the same
-  record key and glyph filename. Repository-relative sources are hash-checked,
-  protected from symlink/junction escape, aggregate-bounded, copied
-  exclusively into a temporary package and re-read before the package rename
-  and registry mutation.
-- Catalog v4 distinguishes independent characters, where zero components are
-  valid, from compound characters. Linguistic claims must resolve to a
-  linguistic reference, stroke data must resolve to exactly one stroke
-  dataset, every declared source must be used, and inspected stroke count must
-  match the payload. Legacy hash-shaped character fields are release-ineligible.
-- The Characters screen now stays fail-closed while no reviewed character
-  projection exists. Released vocabulary is no longer repurposed as a
-  character inventory, and hard-coded radical, structure and mnemonic claims
-  are no longer exposed. The public build likewise publishes no stroke JSON
-  until character content has passed its own release boundary.
-- The bundled Arphic license is copied byte-for-byte from
-  `hanzi-writer-data`; repository attributes and a regression test prevent
-  newline or trailing-whitespace rewriting.
-- `foundation-2026.07.6` is the first real schema-v6 / catalog-v4 character
-  candidate. It copies exact source-addressed radical, IDS and stroke records
-  for 一, 二, 三, 人, 你, 好 and 家 into an immutable package.
-- Radical records pin Make Me a Hanzi `dictionary.txt` revision
-  `618dbab8a8ddefb958763c8b4afbaa741a4460de`; structure/component records pin
-  CJKVI IDS revision `86b4d16159f0079437870408f0ca186e529015db`;
-  stroke bytes match `hanzi-writer-data@2.0.1` tag commit
-  `ad1a9905cada18d07630acc27d438b070d753ec0` byte-for-byte.
-- IDS root/self mappings, not glyph appearance, determine independent,
-  left-right and top-bottom structure. Component roles remain neutral
-  `graphic`; no semantic or phonetic role was invented.
-- The CJKVI README delegates `ids.txt` licensing to CHISE terms. The candidate
-  records `CHISE-IDS-terms` without inventing an SPDX identity; legal/license
-  review remains a release blocker.
-- All seven items remain `review`, owner and item/package source license remain
-  null, reviews and coverage claims remain empty, and no promotion or runtime
-  character exposure occurred.
-- Schema-v6 routine versioning, audio import and character reimport now preserve
-  and reinspect both media families. Audio replacement may reuse an ID only on
-  its existing target; partial rights rotation, stale target text and silent
-  artifact loss fail before registry handoff.
-- Immutable package control files, nested snapshots and inherited artifacts are
-  captured only through trusted regular-file paths with post-read identity
-  checks. Mutation failures keep the registry and target package unchanged.
-- Runtime and item prerequisite cycle checks are iterative. Matched
-  item/runtime lesson closure uses a bounded reachability bitset, including
-  non-lesson dependency frontiers, so a 10,000-lesson chain no longer performs
-  repeated quadratic closure scans.
-- `content:report` now includes a deterministic editorial-readiness projection
-  bound to the exact content version, manifest, item catalog and review
-  envelope. It reuses release-policy scope, precedence, dependency closure,
-  self-review, audio and character semantics rather than maintaining a second
-  approval model.
-- The `.07.6` projection exposes 74 authoring items, 64 release-relevant items,
-  74 missing owners/licenses, 25 unresolved prerequisite decisions and zero
-  approvals. Draft inventory remains visible but separate from the
-  release-critical queue; no payload or evidence reference is emitted.
-- E2 adds `EditorialAssignmentEnvelope` schema v1 and a pure validator for one
-  immutable assignment bound to exact content version, manifest, item catalog,
-  accountable role, declared operators, timestamp and item/audio scope.
-- The assignment contract stays outside immutable content packages,
-  `reviews.json`, registry, promotion and learner runtime. It never counts as
-  review, mastery, coverage or release evidence.
-- E3a adds one operational `editorial_assignment_events` table outside the
-  learner/user realm. Exact content streams append immutable `assigned`,
-  `reassigned` and `cancelled` events through predecessor CAS and
-  operator-scoped idempotency; replay independently verifies the canonical
-  stream, intent, envelope and event hash plus lifecycle and active
-  role/target ownership.
-- The database rejects update/delete, forks, invalid transitions, overlapping
-  active role/targets, oversized rows and streams, while the repository bounds
-  replay to 10,000 events and 16 MiB. Restore rehearsal now covers the event
-  chain and all five authority triggers.
-- No real assignment row, descriptor, mutation CLI, authenticated/authorized
-  operator, service/API, learner-runtime route, dashboard UI, hosted D1
-  mutation, Sites version or deployment was created. Operator IDs remain
-  declared strings until the next trusted-principal boundary.
-
-## Local verification
-
-### Current G2 runtime-gap audit and G3/G5 baseline
-
-The current `npm run check` result is rebound at each engineering checkpoint.
-The G5 receipt remains exact evidence for source `83e967d`; any later code,
-configuration or content edit intentionally makes that candidate stale until
-the next local release checkpoint rather than erasing the completed G5
-deliverable.
-
-- `npm run check`: all constituent gates pass
-  - lockfile policy, typecheck, full lint, content validation and Drizzle check
-  - local D1 restore rehearsal: 14 migrations, 26 restored tables, expanded
-    HSK4 profile persistence, 4 editorial events and 5 editorial triggers
-  - pinned HSK1-4 source/inventory validation and checked coverage report
-  - source-bound HSK0 pronunciation draft: 12 lessons, 111 targets and 208
-    activities; 89 audio-dependent activities remain silent and ineligible
-  - exact HSK2 authoring scope: 3 graph units, 4 situational strands, 4 grammar
-    modules, 4 production stages, 17 tasks, 34 topics, 200 vocabulary, 75
-    grammar rows and 125 recognition characters
-  - exact HSK3 authoring scope: 3 graph units, 5 discourse domains, 5 grammar
-    modules, 5 production stages, 55 planned lesson blueprints, 92 planned
-    prompt units, 22 tasks, 54 topics, 500 vocabulary, 96 grammar rows and 284
-    recognition characters
-  - pinned HSK3 CC-CEDICT draft: 500/500 source-matched, 529 source matches,
-    24 multiple-match records, 8 pronunciation review items and 0
-    release-eligible item
-  - exact HSK3 lesson-blueprint pack: 25 paragraph-input, 15
-    narration/grammar and 15 guided-production lessons; all 22 tasks, 54
-    topics, 500 vocabulary, 96 grammar rows and 284 recognition characters
-    mapped; 287 source-sense keyword matches, 213 declared foundation
-    fallbacks, 283 incremental character contexts and one gap; 0 authored
-    practice, approval, mastery or release-eligible lesson
-  - first HSK3 paragraph-input content pack: 1 lesson, 20 vocabulary drafts,
-    2 eight-line Hanzi-Pinyin-Vietnamese texts, 60 vocabulary items, 10
-    comprehension items, 2 note grids and 2 guided summaries/retellings;
-    74 total practice items, 27 audio-dependent and 0 measurement/mastery/
-    release-eligible
-  - complete HSK3 personal-life paragraph domain draft: 5 lessons, 100
-    vocabulary drafts, 10 texts/80 lines, 300 vocabulary items, 50
-    comprehension items, 10 note grids and 10 summaries/retellings; 370 total
-    practice items, 135 audio-dependent and 0 reviewed audio, approval,
-    measurement/mastery or release eligibility
-  - complete HSK3 study/work paragraph domain draft: 5 lessons, 107
-    vocabulary drafts, 10 texts/80 lines, 321 vocabulary items, 50
-    comprehension items, 10 note grids and 10 summaries/retellings; 391 total
-    practice items, 142 audio-dependent and 0 reviewed audio, approval,
-    measurement/mastery or release eligibility
-  - complete HSK3 nature/environment paragraph domain draft: 5 lessons, 100
-    vocabulary drafts, 10 texts/80 lines, 300 vocabulary items, 50
-    comprehension items, 10 note grids and 10 summaries/retellings; 370 total
-    practice items, 135 audio-dependent and 0 reviewed audio, approval,
-    measurement/mastery or release eligibility
-  - complete HSK3 society/arts/sports paragraph domain draft: 5 lessons, 96
-    vocabulary drafts, 10 texts/80 lines, 288 vocabulary items, 50
-    comprehension items, 10 note grids and 10 summaries/retellings; 358 total
-    practice items, 131 audio-dependent and 0 reviewed audio, approval,
-    measurement/mastery or release eligibility
-  - complete HSK3 culture/tradition paragraph domain draft: 5 lessons, 97
-    vocabulary drafts, 10 texts/80 lines, 291 vocabulary items, 50
-    comprehension items, 10 note grids and 10 summaries/retellings; 361 total
-    practice items, 132 audio-dependent and 0 reviewed audio, approval,
-    measurement/mastery or release eligibility
-  - current combined HSK3 paragraph authoring: 5/5 discourse domains, 25/25
-    paragraph lessons, all 500 vocabulary drafts, 50 texts/400 lines and 1,850
-    practice items; 675 audio-dependent, 25 pending review batches and 0
-    learner-visible item
-  - first HSK3 narration/grammar module draft: 3/15 lessons, 21/96 exact
-    grammar rows, 21 explanations/examples/correction pairs, 3 model
-    narrations/18 lines and 45 practice items (21 grammar-in-paragraph, 21
-    discourse corrections and 3 ordered retellings); 3 pending review batches
-    and 0 measurement/mastery/release-eligible item
-  - complete HSK3 narration/grammar authoring: 5/5 modules, 15/15 lessons,
-    96/96 exact grammar rows, 96 explanations/examples/correction pairs, 15
-    model narrations/90 lines and 207 practice items; 15 pending review
-    batches and 0 measurement/mastery/release-eligible item
-  - first HSK3 guided-production stage: 3/15 lessons, 24 source texts/192
-    lines and 24 prompt units; 16 reading-input, 16 listening-input and 8
-    integrated listening/reading prompts with evidence lines and revision
-    checklists; 16 audio-dependent, 3 pending review batches and 0
-    measurement/mastery/release-eligible item
-  - second HSK3 guided-production stage: 3 more lessons and 20 reading/writing
-    prompts over 18 exact source texts/144 lines: 7 temporal-order
-    reconstructions, 7 reference/linker restorations and 6 order-rationale
-    explanations; two stages total 6/15 lessons, 44 prompts and 6 pending
-    review batches with 0 measurement/mastery/release-eligible item
-  - third HSK3 guided-production stage: 3 more lessons and 20
-    listening/speaking retellings over all 20 unique study, nature, society
-    and culture listening texts/160 lines: 7 note-card, 7 change–cause and 6
-    opening–body–closing prompts; three stages total 9/15 lessons, 64 prompts,
-    36 audio-dependent prompts, 20 learner-recording prompts and 9 pending
-    review batches with 0 reviewed audio/rubric or
-    measurement/mastery/release-eligible item
-  - fourth HSK3 guided-production stage: 3 more lessons and 16
-    reading/writing prompts over 16 exact graded-reading texts/128 lines and
-    21 source bindings: 6 question-guided six-sentence paragraphs, 5
-    dual-source comparisons and 5 eight-sentence cohesion-revision paragraphs;
-    at least 106 learner-written sentences, 21 exact model evidence summaries,
-    3 pending batches and 0 reviewed rubric or
-    measurement/mastery/release-eligible item
-  - fifth HSK3 guided-production stage: final 3 lessons and 12 dual-source
-    listening/speaking prompts over 18 exact listening texts/144 lines and 24
-    input bindings: 4 choice–reason, 4 criteria-comparison and 4 bounded
-    viewpoint explanations; at least 64 spoken sentences and 24 recording
-    attempts, 3 pending batches and 0 reviewed audio/rubric or
-    measurement/mastery/release-eligible item
-  - complete HSK3 guided-production authoring: 5/5 stages, 15/15 lessons, 92
-    prompts, 96 source artifacts/768 lines, 117 source input bindings, 15
-    pending batches and 0 measurement/mastery/release-eligible item
-  - HSK3 level-assessment draft bank: 2 source-disjoint forms, 86 items per
-    form, 108 objective items and 64 speaking/writing responses across 12
-    pending review batches; 56 audio-dependent items, 0 reviewed audio,
-    review, calibration, measurement, mastery, prerequisite waiver or
-    release-eligible item
-  - exact-hash HSK3 review manifest: 18 source artifacts and 122 pending
-    batches; local workflow resolves 423 role assignments and 3,037 exact
-    targets with 0 manifest approval or content/runtime/calibration/mastery
-    mutation
-  - exact HSK4 authoring scope: 3 units, 6 discourse domains, 5 grammar
-    modules and 6 integration stages (3 timed), planning 78 lessons and at
-    least 106 prompts; all 30 tasks, 77 topics, 1,000 vocabulary, 95 grammar
-    rows and 441 recognition characters are partitioned exactly, with 0
-    authored lesson, review, calibration, release or mastery claim
-  - pinned HSK4 CC-CEDICT draft: 1,000 official entries, 999 source-matched,
-    1,051 source matches, 40 multiple-match entries, 15 pronunciation-review
-    items and one explicit `嗯 / ǹg` source gap; 0 reviewed Vietnamese gloss
-    or release-eligible entry
-  - exact HSK4 lesson-blueprint pack: 78 lessons split 36 long-form
-    comprehension, 24 summary/argument and 18 integration; all official HSK4
-    inventory is mapped once, 9 lessons plan timed evidence, 106 minimum
-    prompt units are allocated and 78 review batches remain pending; 0
-    authored practice/prompt, calibration, release or mastery claim
-  - HSK4 personal/community long-form draft: 6/36 deep-comprehension lessons
-    and 1/6 domains, 12 three-paragraph reading/listening sources, 60 targeted
-    lexeme contexts, 180 vocabulary items, 60 evidence-bound comprehension
-    items, 12 bounded inferences, 12 note maps/60 nodes and 6 cross-source
-    synthesis prompts; 258 practice items and 6 review batches remain
-    learner-hidden with 0 reviewed audio, measurement/mastery or release item
-  - HSK4 education/work long-form draft raises the cumulative chain to 12/36
-    lessons and 2/6 domains; its 12 three-paragraph sources, 60 target lexeme
-    contexts, 180 vocabulary items, 60 evidence-bound comprehension items,
-    12 bounded inferences, 12 note maps/60 nodes and 6 cross-source synthesis
-    prompts add 258 practice items; source hash chaining, review, audio,
-    measurement/mastery and release stay fail-closed
-  - HSK4 nature/technology long-form draft raises the chain to 18/36 lessons
-    and 3/6 domains; it adds 12 three-paragraph sources, 60 target lexeme
-    contexts, 180 vocabulary items, 60 evidence-bound questions, 12 bounded
-    inferences, 12 note maps/60 nodes and 6 cross-source synthesis prompts;
-    the 258 new practice items preserve correlation/causation and scope
-    boundaries with 0 review, measurement/mastery or release eligibility
-  - HSK4 society/economy long-form draft raises the chain to 24/36 lessons
-    and 4/6 domains; it adds 12 three-paragraph sources, 60 target lexeme
-    contexts, 180 vocabulary items, 60 evidence-bound questions, 12 bounded
-    inferences, 12 note maps/60 nodes and 6 cross-source synthesis prompts;
-    the cumulative four-domain draft now contains 48 sources/144 paragraphs
-    and 1,032 practice items, with 0 review, measurement/mastery or release
-    eligibility
-  - HSK4 arts/sports/exchange long-form draft raises the chain to 30/36
-    lessons and 5/6 domains; it adds 12 three-paragraph sources, 60 target
-    lexeme contexts, 180 vocabulary items, 60 evidence-bound questions,
-    12 bounded inferences, 12 note maps/60 nodes and 6 cross-source synthesis
-    prompts; the cumulative five-domain draft now contains 60 sources/180
-    paragraphs and 1,290 practice items, with 0 review, measurement/mastery
-    or release eligibility
-  - HSK4 culture/history long-form draft completes 36/36 lessons and 6/6
-    domains; it adds 12 three-paragraph sources, 60 target lexeme contexts,
-    180 vocabulary items, 60 evidence-bound questions, 12 bounded inferences,
-    12 note maps/60 nodes and 6 cross-source synthesis prompts; the complete
-    deep-comprehension chain contains 72 sources/216 paragraphs, 360 target
-    lexeme contexts and 1,548 practice items, with 0 review, measurement/
-    mastery or release eligibility
-  - complete HSK4 summary/argument draft chain: 24/24 lessons over 5/5 grammar
-    modules, 48 exact-hash reading/listening source bindings, all 95 assigned
-    grammar rows and 263 practice items: 95 grammar applications, 48
-    fact/interpretation audits, 48 bounded paraphrases, 24 structured
-    summaries, 24 counterargument-aware written arguments and 24 three-minute
-    spoken defenses; 120 audio-dependent items, 24 recordings and all three
-    rubric families remain unreviewed, with 0 measurement/mastery/release
-    eligibility
-  - complete HSK4 integration draft chain: 18/18 lessons over 6/6 stages,
-    60 unique long-form source bindings (30 reading + 30 listening) and all
-    106 blueprint prompt units; primary-skill evidence is separated into
-    29 listening, 29 reading, 11 speaking and 37 writing prompts, with 44
-    timed-practice prompts, 69 audio-dependent prompts and 11 learner
-    recordings; response contracts bind length, sections, sources and
-    revision passes, while 18 review batches remain pending and every prompt
-    has 0 measurement/mastery/release eligibility
-  - HSK4 level-assessment draft bank: 2 source-disjoint forms, 96 items per
-    form, 144 objective items and 48 speaking/writing responses across 12
-    assessment-authored source families/24 texts/72 paragraphs; 36 vocabulary
-    items and 36 grammar items bind official HSK4 inventory records, each
-    form's mock selects 54 items in 6,000 seconds and retains 42 alternates;
-    60 audio-dependent items and 0 reviewed audio, calibration, measurement,
-    mastery, prerequisite waiver or release-eligible item
-  - exact-hash HSK4 review manifest: 19 source artifacts and 168 pending
-    batches; local workflow resolves 629 role assignments and 2,979 exact
-    targets with 0 manifest approval or content/runtime/calibration/mastery
-    mutation
-  - exact HSK1 authoring scope: 6 units, 15 tasks, 30 topics, 300 vocabulary,
-    66 grammar rows and 246 recognition characters
-  - HSK1 communicative draft packs: 25 lesson blueprints, 300 Vietnamese gloss
-    drafts, 66 grammar mappings, 102 dialogue turns, 900 vocabulary practice
-    items and 25 pending review batches; 0 release-eligible item
-  - HSK1 character-foundation draft pack: 15 lesson blueprints, 246
-    vocabulary-context mappings, 492 recognition/copy practice items and 15
-    pending review batches; 0 pinned full-inventory stroke metadata and 0
-    release-eligible item
-  - HSK1 grammar-context draft pack: 66 Vietnamese explanations, 66 model
-    examples, 66 guided production self-checks and 20 pending review batches;
-    0 measurement-eligible or release-eligible item
-  - HSK1 task/assessment draft pack: 30 topic prompts, 15 task scenarios, 60
-    dialogue turns, 15 roleplay self-checks and 15 pending review batches;
-    level-check blueprint plans 55 items and binds 50 objective drafts
-  - hidden HSK1 objective item bank: 15 listening, 15 reading, 10 vocabulary
-    and 10 grammar items in 10 pending review batches; 0 reviewed audio,
-    independent form, calibrated or measurement-eligible item
-  - exact-hash HSK1 review manifest: 8 source artifacts and 97 pending batches
-    with 0 approval; manifest assignment readiness does not publish content
-  - local HSK1 review workflow: 97 exact batches, 294 role assignments and
-    2,606 normalized target references; 0 manifest approval or runtime mutation
-  - pinned CC-CEDICT source identity and HSK1 draft/report validation:
-    300/300 source-matched, 297 pronunciation-compatible, 0 release-eligible
-  - pinned Debian CC-CEDICT source identity and HSK2 draft/report validation:
-    200/200 source-matched, 232 source matches, 26 multiple-match records,
-    194 pronunciation-compatible and 0 release-eligible
-  - exact HSK2 lesson-blueprint pack: 40 lessons split 20 situational,
-    10 sentence-chain and 10 short-production; all 17 tasks, 34 topics,
-    200 vocabulary, 75 grammar rows and 125 recognition characters mapped;
-    0 authored practice, assessment prompt, approval or release-eligible lesson
-  - HSK2 vocabulary-practice pack: 200 Vietnamese AI-assisted gloss drafts,
-    200 meaning-recall, 200 pinyin-recognition and 200 listening-selection
-    items across 20 situational lessons; 0 reviewed audio, measurement/mastery
-    or release-eligible item
-  - HSK2 character-practice pack: 125 character drafts and 250 practice items
-    across 10 production lessons; 124 cumulative vocabulary contexts plus the
-    explicit `留` gap, 0 pinned stroke metadata or writing-mastery claim
-  - HSK2 grammar-context draft pack: 75 Vietnamese explanations, 75 distinct
-    model examples, 75 guided production self-checks and 10 pending review
-    batches; 0 approval, measurement/mastery or release-eligible item
-  - HSK2 situational-dialogue draft pack: 20 lessons, 120 model-dialogue
-    turns, 17 task scenarios, 34 topic prompts, 20 guided roleplay self-checks
-    and 20 pending review batches; 0 reviewed audio, approval,
-    measurement/mastery or release-eligible item
-  - HSK2 short-text production draft pack: 10 lessons, 104 prompt units
-    (36 dictation, 36 reconstruction, 16 guided-message and 16
-    picture-description), 168 model sentences, 125 exact character-prompt
-    mappings and 10 pending review batches; 0 reviewed audio, approval,
-    measurement/mastery or release-eligible item
-  - HSK2 level-assessment draft bank: 2 source-disjoint forms, 86 items per
-    form, 120 objective items and 52 speaking/writing responses across 12
-    pending review batches; 0 reviewed audio, calibration, measurement,
-    mastery, prerequisite waiver or release-eligible item
-  - exact-hash HSK2 review manifest: 7 source artifacts and 122 pending
-    batches; local workflow resolves 405 role assignments and 1,732 exact
-    targets with 0 manifest approval or runtime/calibration/mastery mutation
-  - checked HSK runtime curriculum projection: 5 path shells, 7 mapped source
-    units, an explicit allow-list of 5 units, 5 prerequisite-complete eligible
-    units and 14 eligible lesson mappings; 6 released source lessons across 2
-    units remain authorization-blocked, 13 authoring-unit metadata records are
-    excluded and draft imports/completion claims remain 0
-  - first HSK1 lesson promotion handoff: 67 exact content targets, 2 pending
-    batches, 6 missing attributable role receipts and 16 missing reviewed audio
-    assets; target version/receipt contract defined with 0 runtime mutation,
-    learner visibility, completion or mastery claim
-  - first-lesson promotion dry-run: real evidence contract false, atomic safety
-    false and import authorization false because 5/6 target-unit lessons are
-    missing; explicit unit authorization now prevents implicit downstream
-    activation, complete test fixtures remain non-authoritative and no graph,
-    policy or runtime bytes are written
-  - atomic `hsk1-time-place-events` handoff: 6 lessons, 425 exact content
-    targets, 15 pending batches/45 missing role receipts and 90 missing reviewed
-    audio assets; first-lesson parity exact, downstream authorization empty and
-    0 runtime mutation, visibility, completion or mastery claim
-  - atomic unit promotion dry-run: complete six-lesson test projection opens
-    exactly 1 explicitly authorized unit while `hsk1-daily-life` and its 4
-    mapped lessons stay withheld; real review/audio/package/receipt evidence
-    and import authorization remain false
-  - atomic unit reviewer packet: 425 source payloads plus 425 runtime payloads,
-    6 indexed lessons, 27 review batches/81 role checklists and 90
-    source-hash-bound recording
-    scripts with 0 completed review slot, 0 reviewed audio and 0 release item
-  - unit evidence readiness: checked real baseline 0/81 approved review slots
-    and 0/90 reviewed audio/rights records; a complete test-only fixture passes
-    all hashes but remains package-ineligible and never authorizes import
-  - atomic unit package plan: 425 required runtime payloads drafted and 0
-    finalized, with 6 safe runtime lesson IDs, 7 traditional decisions and 2
-    source-pronunciation reconciliations; all 338 non-core targets have a
-    source-preserving projection, while `.07.7`, governance, authorization and
-    receipt remain absent, with no mutation
-  - versioned local runtime: exact adapter coverage for 14 eligible lessons,
-    deterministic activity payloads, fail-closed catalog/session/schema
-    provenance, idempotency conflict detection and safe legacy/backup reload
-  - checked HSK0→HSK1 demo: 4 bridge lessons, 10 HSK1 target lessons, 6 blocked
-    lessons, 3 unavailable paths and 0 forbidden progress fields; focused
-    Playwright completes the exact real-UI walkthrough
-  - local candidate contract: 10 checked artifacts, 4 allow-listed gates and
-    8 exact G5 acceptance bindings; receipt source `83e967d`
-  - Vitest: 229 files, 1,625 tests passed
-  - production build and bundle policy passed; conservative client asset
-    ceiling: 396.9 KiB
-- `npm run test:e2e`: 21 tests passed
-- `npm run test:lighthouse`: three cold-profile runs
-  - Performance: 98 / 96 / 96, median 96
-  - Accessibility: 100
-  - Best Practices: 100
-  - SEO: 100
-  - Median LCP: 1,894 ms; CLS: 0; TBT: 180 ms
-- `npm audit --omit=dev`: 0 vulnerabilities
-- `git diff --check`: pass
-
-## Deliberately pending release evidence
-
-`verify:production` must remain fail-closed. The readiness manifest still has
-9 pending gates and 23 blockers:
-
-- native linguistic review;
-- content ownership, licensing, exact-hash approval and production promotion;
-- learner pilot and assessment calibration;
-- immutable provider identity and public recovery rehearsal;
-- hosted backup/restore;
-- independent security and privacy review;
-- operational owner, on-call, SLO, alert and incident rehearsal;
-- production load, accessibility and performance qualification;
-- Sites ownership and production deployment verification.
-
-The production content channel separately remains blocked by 10 policy
-requirements plus registry activation. Local tests cannot close any of these
-human, pilot, hosted or ownership gates.
-
-## Next dependency-ordered milestone
-
-1. Feed the reviewed dialogue, grammar and task projections for
-   `hsk1-time-place-events` into a versioned Lesson UI adapter; do not flatten
-   them into generic vocabulary questions or claim mastery from TTS.
-2. Run the real Path → all-six-lessons → practice → review flow, including
-   reload, keyboard/mobile and the disclosed TTS fallback. Refresh local demo
-   evidence without touching Sites.
-3. Apply the same five-pass AI review, local package and exact authorization
-   workflow to `hsk1-daily-life`, the next dependency-valid unit.
-
-Use one bounded G0-G5 slice at a time and end each commit with updated active
-progress in both roadmap and checkpoint.
+- commit/branch và worktree sạch hay không;
+- project readiness A%; learner-visible X/Y từng level;
+- bài/unit mới thực sự hiện trên UI;
+- targeted/full/E2E đã chạy và kết quả;
+- file staging nào đã xóa;
+- batch duy nhất cần làm tiếp.

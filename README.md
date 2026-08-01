@@ -42,8 +42,10 @@ npm run start
 - [Kiến trúc kỹ thuật](docs/ARCHITECTURE.md)
 - [Hệ thống nội dung](docs/CONTENT_SYSTEM.md)
 - [Mô hình làm chủ và thích ứng](docs/MASTERY_SYSTEM.md)
-- [Roadmap thương mại hóa](docs/ROADMAP.md)
 - [Kế hoạch đồ án HSK0-4 đang hoạt động](docs/HSK4_GRADUATION_PLAN.md)
+- [Checkpoint triển khai hiện tại](docs/IMPLEMENTATION_CHECKPOINT.md)
+- [Playbook đưa nội dung lên giao diện](docs/CONTENT_DELIVERY_PLAYBOOK.md)
+- [Prompt chuyển sang phiên Codex mới](docs/NEXT_SESSION_PROMPT.md)
 - [Walkthrough demo local HSK0 → HSK1](docs/HSK01_LOCAL_DEMO.md)
 - [Đóng gói và kiểm chứng local release candidate](docs/LOCAL_RELEASE_CANDIDATE.md)
 - [Kế hoạch nâng cấp production đang tạm hoãn](docs/PRODUCTION_UPGRADE_PLAN.md)
@@ -63,9 +65,8 @@ bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần c
 production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
 đường D1.
 
-Ứng viên nội dung `foundation-2026.07.6` dùng schema v6 / item catalog v4 với
-74 item và sanitized runtime catalog chỉ chứa nội dung đã phát hành. 25 grammar,
-pronunciation, character và communicative-function item vẫn ở state `review`;
-bảy character đã có source-addressed radical/IDS/stroke metadata nhưng chưa có
-legal/license decision hay linguistic approval. Package chưa được promote, nên
-README không tuyên bố nội dung này đã sẵn sàng production.
+Package local hiện tại là `foundation-2026.07.8`. Sanitized runtime có 18 lesson
+eligible tổng cộng, gồm 4 bài cầu nối HSK0 và 14 bài HSK1; 10 bài HSK1 đã có
+hội thoại, ngữ pháp, guided self-check và nhiệm vụ riêng trên Lesson UI. Đây là
+nội dung AI-assisted cho tự học local, không phải release production, human/native
+review hay chứng nhận độ phủ HSK hoàn chỉnh.

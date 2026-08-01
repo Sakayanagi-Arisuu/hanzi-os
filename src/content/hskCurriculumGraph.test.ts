@@ -16,7 +16,7 @@ describe("HSK0-4 curriculum graph contract", () => {
       units: 18,
       releasedLessons: 20,
       mappedLessons: 20,
-      officialVocabularyWithLessonMapping: 100,
+      officialVocabularyWithLessonMapping: 148,
     });
   });
 

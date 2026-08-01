@@ -352,17 +352,17 @@ describe("trusted persisted learning state", () => {
 
   it("does not replay a released lesson blocked by the checked HSK path", () => {
     const state = structuredClone(INITIAL_LEARNING_STATE);
-    const blocked = lessonSessionEvidence("daily-1");
+    const blocked = lessonSessionEvidence("characters-1");
     state.evidence = [...blocked.answers, blocked.completion];
-    state.completedLessons["daily-1"] = {
+    state.completedLessons["characters-1"] = {
       score: blocked.score.gateScore,
       bestScore: blocked.score.gateScore,
       attempts: 1,
       completedAt: COMPLETION_TIME,
     };
     state.mistakes = [{
-      id: "daily-1:blocked",
-      lessonId: "daily-1",
+      id: "characters-1:blocked",
+      lessonId: "characters-1",
       questionId: "blocked",
       kind: "meaning",
       skill: "vocabulary",

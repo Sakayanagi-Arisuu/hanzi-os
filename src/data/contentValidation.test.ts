@@ -74,6 +74,13 @@ describe("content package validation", () => {
     expect(errors).toContain("hao: dữ liệu âm tiết 1 không nhất quán");
   });
 
+  it("accepts standard tone sandhi for learner-visible pinyin", () => {
+    const content = makePackage();
+    findVocabulary(content, "hsk-vocab-00258").pinyin = "yíbàn";
+
+    expect(validateContentPackage(content)).toEqual([]);
+  });
+
   it("rejects stale derived syllables and mismatched content versions", () => {
     const content = makePackage();
     findVocabulary(content, "ni").syllables[0].surfaceTone = 4;

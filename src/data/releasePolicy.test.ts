@@ -53,7 +53,11 @@ describe("release policy", () => {
     );
     expect(RELEASED_LESSONS.every(isLessonReleased)).toBe(true);
     expect(RELEASED_LESSONS.some((lesson) => lesson.releaseState === "draft")).toBe(false);
-    expect(RELEASED_LESSONS.every((lesson) => !lesson.skills.includes("speaking"))).toBe(true);
+    expect(
+      RELEASED_LESSONS
+        .filter((lesson) => lesson.skills.includes("speaking"))
+        .map((lesson) => lesson.id),
+    ).toEqual(["daily-1", "daily-2", "daily-3", "daily-4"]);
   });
 
   it("scopes stories and vocabulary to released content references", () => {

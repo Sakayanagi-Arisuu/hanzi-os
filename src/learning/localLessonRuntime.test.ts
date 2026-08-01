@@ -45,6 +45,16 @@ describe("checked local lesson runtime", () => {
     "survival-2",
     "survival-3",
     "survival-4",
+    "hsk1-time-place-events-01-numbers",
+    "hsk1-time-place-events-02-calendar",
+    "hsk1-time-place-events-03-week-and-day-parts",
+    "hsk1-time-place-events-04-clock-and-duration",
+    "hsk1-time-place-events-05-location",
+    "hsk1-time-place-events-06-weather-and-residence",
+    "daily-1",
+    "daily-2",
+    "daily-3",
+    "daily-4",
   ])("materializes checked eligible lesson %s", (lessonId) => {
     expect(materializeLocalLessonRuntime(
       lessonFixture(lessonId),
@@ -88,10 +98,6 @@ describe("checked local lesson runtime", () => {
   });
 
   it.each([
-    "daily-1",
-    "daily-2",
-    "daily-3",
-    "daily-4",
     "characters-1",
     "characters-2",
   ])("keeps prerequisite-blocked runtime lesson %s unavailable", (lessonId) => {

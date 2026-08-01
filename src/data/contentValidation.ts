@@ -1,4 +1,9 @@
-import { formatMarkedPinyin, parseNumberedPinyin, stripPinyinMarks } from "../lib/pinyin";
+import {
+  applyToneSandhi,
+  formatMarkedPinyin,
+  parseNumberedPinyin,
+  stripPinyinMarks,
+} from "../lib/pinyin";
 import type { CourseUnit, Story, VocabularyItem } from "../types";
 
 export type ContentPackageInput = {
@@ -29,11 +34,17 @@ export const validateContentPackage = (content: ContentPackageInput) => {
     try {
       const parsed = parseNumberedPinyin(word.pinyinNumbered);
       const generatedMarked = formatMarkedPinyin(parsed);
+      const generatedSurface = formatMarkedPinyin(applyToneSandhi(parsed));
+      const acceptedMarked = [...new Set([generatedMarked, generatedSurface])];
       if (stripPinyinMarks(generatedMarked) !== stripPinyinMarks(word.pinyin)) {
         errors.push(`${word.id}: pinyin dấu và pinyin số không cùng âm tiết`);
       }
-      if (generatedMarked.toLocaleLowerCase("en") !== word.pinyin.toLocaleLowerCase("en")) {
-        errors.push(`${word.id}: pinyin dấu phải là ${generatedMarked}, nhận ${word.pinyin}`);
+      if (
+        !acceptedMarked.some((candidate) =>
+          candidate.toLocaleLowerCase("en") === word.pinyin.toLocaleLowerCase("en")
+        )
+      ) {
+        errors.push(`${word.id}: pinyin dấu phải là ${acceptedMarked.join(" hoặc ")}, nhận ${word.pinyin}`);
       }
       if (parsed.length !== word.syllables.length) {
         errors.push(`${word.id}: số âm tiết không nhất quán`);

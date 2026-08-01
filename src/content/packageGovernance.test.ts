@@ -1183,7 +1183,7 @@ describe("content package governance", () => {
     expect(publication.blockers).toEqual(
       expect.arrayContaining([
         "Package audience is closed-alpha, not public",
-        "Released catalog items missing item-level governance or exact scoped review: 151",
+        "Released catalog items missing item-level governance or exact scoped review: 195",
       ]),
     );
     expect(closedAlpha.eligible).toBe(false);
@@ -1191,7 +1191,7 @@ describe("content package governance", () => {
       expect.arrayContaining([
         "Closed alpha requires at least 300 released, catalog-backed, native-reviewed lexemes (found 0)",
         "Closed alpha requires an evidence-backed complete A0 coverage claim",
-        "Released catalog items missing item-level governance or exact scoped review: 151",
+        "Released catalog items missing item-level governance or exact scoped review: 195",
       ]),
     );
     expect(publication.warnings).toContain(
@@ -1642,6 +1642,12 @@ describe("content package governance", () => {
     if (!lexeme || lexeme.itemType !== "lexeme" || !lesson) {
       throw new Error("Catalog item fixture is missing");
     }
+    const lexemeIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemKey === lexeme.itemKey,
+    );
+    const lessonIndex = bundle.itemCatalog.items.findIndex(
+      (item) => item.itemKey === lesson.itemKey,
+    );
     (lexeme.payload as unknown as Record<string, unknown>).id = "override";
     lexeme.itemVersion = "cosmetic-version";
     lesson.prerequisites = [null] as unknown as typeof lesson.prerequisites;
@@ -1649,13 +1655,13 @@ describe("content package governance", () => {
     const validation = await validateContentBundle(bundle);
 
     expect(validation.errors).toContain(
-      "item-catalog.items[0].payload has unknown field id",
+      `item-catalog.items[${lexemeIndex}].payload has unknown field id`,
     );
     expect(validation.errors).toContain(
-      "item-catalog.items[0].itemVersion must match item-catalog.contentVersion",
+      `item-catalog.items[${lexemeIndex}].itemVersion must match item-catalog.contentVersion`,
     );
     expect(validation.errors).toContain(
-      "item-catalog.items[24].prerequisites[0].itemType is invalid",
+      `item-catalog.items[${lessonIndex}].prerequisites[0].itemType is invalid`,
     );
   });
 
@@ -1922,7 +1928,7 @@ describe("content package governance", () => {
       "manifest.governance.includesAudio must equal the presence of catalog audio assets",
     );
     expect(publication.blockers).toContain(
-      "Public beta requires licensed native audio for released core content (missing 151 targets)",
+      "Public beta requires licensed native audio for released core content (missing 195 targets)",
     );
   });
 

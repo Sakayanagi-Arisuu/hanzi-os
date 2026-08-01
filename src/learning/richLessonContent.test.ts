@@ -27,4 +27,24 @@ describe("learner-facing rich lesson adapter", () => {
   it("does not invent rich content for another released lesson", () => {
     expect(getRichLessonContent("survival-1")).toBeNull();
   });
+
+  it("exposes the corrected daily-life lesson presentation", () => {
+    const lesson = getRichLessonContent("daily-1");
+
+    expect(lesson).toMatchObject({
+      dialogue: expect.arrayContaining([
+        expect.objectContaining({ hanzi: "我要三个。" }),
+      ]),
+      grammar: expect.arrayContaining([
+        expect.objectContaining({ id: "hsk1-grammar-row-012" }),
+      ]),
+      topics: [expect.objectContaining({ id: "hsk1-topic-017" })],
+      tasks: [expect.objectContaining({ id: "hsk1-task-09" })],
+    });
+    expect(getRichLessonContent("daily-4")?.grammar).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ id: "hsk1-grammar-row-007" }),
+      ]),
+    );
+  });
 });

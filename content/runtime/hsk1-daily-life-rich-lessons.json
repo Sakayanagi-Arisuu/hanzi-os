@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "presentationId": "hsk1-daily-life-rich-lessons-2026.07.1",
+  "contentVersion": "foundation-2026.07.8",
+  "unitId": "hsk1-daily-life",
+  "state": "authorized-for-personal-local-study",
+  "disclosure": {
+    "reviewVi": "Nội dung được Codex rà soát bằng AI cho mục đích tự học; chưa phải kiểm duyệt người bản ngữ.",
+    "audioVi": "Nút nghe dùng giọng TTS tổng hợp của trình duyệt và không tạo bằng chứng nghe hoặc phát âm."
+  },
+  "policy": {
+    "learnerVisibleForPersonalLocalStudy": true,
+    "humanReviewed": false,
+    "browserTtsPracticeOnly": true,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "sourceBindings": [
+    {
+      "id": "localAuthorization",
+      "relativePath": "content/curriculum/hsk0-4-local-study-authorizations.json",
+      "sha256": "sha256:ff4670730f88726e95c486e6b7d536cf6b763889566a36f4b86bb2cb621e95bc"
+    },
+    {
+      "id": "communicativeCollection",
+      "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
+      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
+    },
+    {
+      "id": "grammarPack",
+      "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
+      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
+    },
+    {
+      "id": "taskPack",
+      "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
+      "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0"
+    }
+  ],
+  "counts": {
+    "lessons": 4,
+    "dialogueTurns": 16,
+    "grammarPoints": 5,
+    "guidedGrammarPrompts": 5,
+    "topics": 10,
+    "tasks": 5,
+    "taskDialogueTurns": 20
+  },
+  "lessons": [
+    {
+      "lessonId": "daily-1",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "这个多少钱？",
+          "pinyin": "Zhège duōshao qián?",
+          "meaningVi": "Cái này bao nhiêu tiền?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "五块钱。",
+          "pinyin": "Wǔ kuài qián.",
+          "meaningVi": "Năm tệ."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你要几个？",
+          "pinyin": "Nǐ yào jǐ ge?",
+          "meaningVi": "Bạn muốn mấy cái?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我要三个。",
+          "pinyin": "Wǒ yào sān ge.",
+          "meaningVi": "Tôi muốn ba cái."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-012",
+          "category": "量词",
+          "label": "名量词",
+          "officialContent": "（1）专用名量词：本、个、家、口、块、 / 件、只、元",
+          "explanationVi": "Lượng từ chuyên dụng đứng giữa số/từ chỉ định và danh từ: 本、个、家、口、块、件、只、元.",
+          "modelExample": {
+            "hanzi": "这里有三本书。",
+            "pinyin": "Zhèlǐ yǒu sān běn shū.",
+            "meaningVi": "Ở đây có ba quyển sách."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Tôi mua một bộ quần áo.",
+            "modelAnswerHanzi": "我买一件衣服。",
+            "modelAnswerPinyin": "Wǒ mǎi yí jiàn yīfu.",
+            "modelAnswerMeaningVi": "Tôi mua một bộ quần áo."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-013",
+          "category": "量词",
+          "label": "名量词",
+          "officialContent": "（2）借用名量词：杯",
+          "explanationVi": "杯 vốn là danh từ “cốc” và được mượn làm lượng từ cho đồ uống.",
+          "modelExample": {
+            "hanzi": "我喝一杯茶。",
+            "pinyin": "Wǒ hē yì bēi chá.",
+            "meaningVi": "Tôi uống một cốc trà."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Hai cốc sữa.",
+            "modelAnswerHanzi": "两杯牛奶。",
+            "modelAnswerPinyin": "Liǎng bēi niúnǎi.",
+            "modelAnswerMeaningVi": "Hai cốc sữa."
+          }
+        },
+        {
+          "id": "hsk1-grammar-row-063",
+          "category": "数的表达法",
+          "label": "钱数表示法",
+          "officialContent": "钱数表示法",
+          "explanationVi": "Giá tiền dùng số + đơn vị 元/块; danh từ hàng hóa có thể đứng trước cụm giá.",
+          "modelExample": {
+            "hanzi": "这本书十块钱。",
+            "pinyin": "Zhè běn shū shí kuài qián.",
+            "meaningVi": "Quyển sách này giá mười tệ."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Một cốc trà giá năm tệ.",
+            "modelAnswerHanzi": "一杯茶五元。",
+            "modelAnswerPinyin": "Yì bēi chá wǔ yuán.",
+            "modelAnswerMeaningVi": "Một cốc trà giá năm tệ."
+          }
+        }
+      ],
+      "topics": [
+        {
+          "id": "hsk1-topic-017",
+          "group": "购物",
+          "officialTopic": "商品价格",
+          "promptVi": "Hỏi và trả lời giá sản phẩm."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-09",
+          "titleVi": "Hỏi thông tin sản phẩm",
+          "instructionVi": "Hỏi giá hoặc số lượng và trả lời bằng cụm số-lượng phù hợp.",
+          "targetFunctions": [
+            "ask-product-information",
+            "answer-price-and-quantity"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "这件衣服多少钱？",
+              "pinyin": "Zhè jiàn yīfu duōshao qián?",
+              "meaningVi": "Bộ quần áo này bao nhiêu tiền?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "五十块钱。",
+              "pinyin": "Wǔshí kuài qián.",
+              "meaningVi": "Năm mươi tệ."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "你要几件？",
+              "pinyin": "Nǐ yào jǐ jiàn?",
+              "meaningVi": "Bạn muốn mấy bộ?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "我要一件。",
+              "pinyin": "Wǒ yào yí jiàn.",
+              "meaningVi": "Tôi muốn một bộ."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "daily-2",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你想吃什么？",
+          "pinyin": "Nǐ xiǎng chī shénme?",
+          "meaningVi": "Bạn muốn ăn gì?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我想吃米饭。",
+          "pinyin": "Wǒ xiǎng chī mǐfàn.",
+          "meaningVi": "Tôi muốn ăn cơm."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你喝茶吗？",
+          "pinyin": "Nǐ hē chá ma?",
+          "meaningVi": "Bạn uống trà không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "喝，我也喝牛奶。",
+          "pinyin": "Hē, wǒ yě hē niúnǎi.",
+          "meaningVi": "Có, tôi cũng uống sữa."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-025",
+          "category": "助词",
+          "label": "动态助词",
+          "officialContent": "了1",
+          "explanationVi": "了 đứng sau động từ để đánh dấu hành động hoàn thành trong ngữ cảnh cụ thể.",
+          "modelExample": {
+            "hanzi": "我吃了早饭。",
+            "pinyin": "Wǒ chī le zǎofàn.",
+            "meaningVi": "Tôi đã ăn sáng."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Anh ấy đã mua quyển sách kia.",
+            "modelAnswerHanzi": "他买了那本书。",
+            "modelAnswerPinyin": "Tā mǎi le nà běn shū.",
+            "modelAnswerMeaningVi": "Anh ấy đã mua quyển sách kia."
+          }
+        }
+      ],
+      "topics": [
+        {
+          "id": "hsk1-topic-011",
+          "group": "饮食",
+          "officialTopic": "食物饮品",
+          "promptVi": "Nêu tên và lựa chọn đồ ăn, thức uống."
+        },
+        {
+          "id": "hsk1-topic-012",
+          "group": "饮食",
+          "officialTopic": "就餐",
+          "promptVi": "Gọi món hoặc trao đổi trong một bữa ăn."
+        },
+        {
+          "id": "hsk1-topic-029",
+          "group": "饮食文化",
+          "officialTopic": "中餐",
+          "promptVi": "Nhận biết và trao đổi về món ăn Trung Quốc cơ bản."
+        },
+        {
+          "id": "hsk1-topic-030",
+          "group": "饮食文化",
+          "officialTopic": "传统饮品",
+          "promptVi": "Nhận biết và trao đổi về đồ uống truyền thống."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-07",
+          "titleVi": "Trao đổi sở thích ăn uống",
+          "instructionVi": "Hỏi món hoặc đồ uống yêu thích và trả lời bằng lựa chọn cụ thể.",
+          "targetFunctions": [
+            "ask-food-preference",
+            "state-food-preference"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "你喜欢吃什么？",
+              "pinyin": "Nǐ xǐhuan chī shénme?",
+              "meaningVi": "Bạn thích ăn gì?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "我喜欢吃饺子。",
+              "pinyin": "Wǒ xǐhuan chī jiǎozi.",
+              "meaningVi": "Tôi thích ăn bánh chẻo."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "你喜欢喝茶吗？",
+              "pinyin": "Nǐ xǐhuan hē chá ma?",
+              "meaningVi": "Bạn thích uống trà không?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "喜欢，我也喜欢牛奶。",
+              "pinyin": "Xǐhuan, wǒ yě xǐhuan niúnǎi.",
+              "meaningVi": "Có, tôi cũng thích sữa."
+            }
+          ]
+        },
+        {
+          "id": "hsk1-task-15",
+          "titleVi": "Trao đổi về ẩm thực Trung Quốc",
+          "instructionVi": "Hỏi và trả lời về một món ăn hoặc đồ uống Trung Quốc quen thuộc.",
+          "targetFunctions": [
+            "ask-traditional-food",
+            "state-traditional-food-preference"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "你喜欢中国菜吗？",
+              "pinyin": "Nǐ xǐhuan Zhōngguó cài ma?",
+              "meaningVi": "Bạn thích món Trung Quốc không?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "喜欢，我喜欢饺子。",
+              "pinyin": "Xǐhuan, wǒ xǐhuan jiǎozi.",
+              "meaningVi": "Có, tôi thích bánh chẻo."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "你喝茶吗？",
+              "pinyin": "Nǐ hē chá ma?",
+              "meaningVi": "Bạn uống trà không?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "喝，中国茶很好喝。",
+              "pinyin": "Hē, Zhōngguó chá hěn hǎohē.",
+              "meaningVi": "Có, trà Trung Quốc rất ngon."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "daily-3",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "这件衣服贵吗？",
+          "pinyin": "Zhè jiàn yīfu guì ma?",
+          "meaningVi": "Bộ quần áo này đắt không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "不贵，很便宜。",
+          "pinyin": "Bú guì, hěn piányi.",
+          "meaningVi": "Không đắt, rất rẻ."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你买吗？",
+          "pinyin": "Nǐ mǎi ma?",
+          "meaningVi": "Bạn mua không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "买，我要这件。",
+          "pinyin": "Mǎi, wǒ yào zhè jiàn.",
+          "meaningVi": "Có, tôi lấy chiếc này."
+        }
+      ],
+      "grammar": [],
+      "topics": [
+        {
+          "id": "hsk1-topic-004",
+          "group": "物品信息",
+          "officialTopic": "物品名称",
+          "promptVi": "Gọi đúng tên một đồ vật quen thuộc."
+        },
+        {
+          "id": "hsk1-topic-005",
+          "group": "物品信息",
+          "officialTopic": "物品特征",
+          "promptVi": "Miêu tả một đặc điểm đơn giản của đồ vật."
+        },
+        {
+          "id": "hsk1-topic-016",
+          "group": "购物",
+          "officialTopic": "商品名称",
+          "promptVi": "Hỏi hoặc nói tên sản phẩm cần mua."
+        },
+        {
+          "id": "hsk1-topic-018",
+          "group": "购物",
+          "officialTopic": "商品选购",
+          "promptVi": "Chọn sản phẩm theo đặc điểm và giá."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-03",
+          "titleVi": "Hỏi thông tin đồ vật",
+          "instructionVi": "Hỏi tên và một đặc điểm của đồ vật đang được chỉ tới.",
+          "targetFunctions": [
+            "identify-object",
+            "describe-object"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "这是什么？",
+              "pinyin": "Zhè shì shénme?",
+              "meaningVi": "Đây là gì?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "这是一本书。",
+              "pinyin": "Zhè shì yì běn shū.",
+              "meaningVi": "Đây là một quyển sách."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "这本书怎么样？",
+              "pinyin": "Zhè běn shū zěnmeyàng?",
+              "meaningVi": "Quyển sách này thế nào?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "这本书很好。",
+              "pinyin": "Zhè běn shū hěn hǎo.",
+              "meaningVi": "Quyển sách này rất hay."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "lessonId": "daily-4",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "dialogue": [
+        {
+          "speaker": "A",
+          "hanzi": "你怎么了？",
+          "pinyin": "Nǐ zěnme le?",
+          "meaningVi": "Bạn bị làm sao?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "我生病了。",
+          "pinyin": "Wǒ shēngbìng le.",
+          "meaningVi": "Tôi bị ốm."
+        },
+        {
+          "speaker": "A",
+          "hanzi": "你去医院吗？",
+          "pinyin": "Nǐ qù yīyuàn ma?",
+          "meaningVi": "Bạn có đi bệnh viện không?"
+        },
+        {
+          "speaker": "B",
+          "hanzi": "去，我去看病。",
+          "pinyin": "Qù, wǒ qù kànbìng.",
+          "meaningVi": "Có, tôi đi khám bệnh."
+        }
+      ],
+      "grammar": [
+        {
+          "id": "hsk1-grammar-row-007",
+          "category": "动词",
+          "label": "离合词",
+          "officialContent": "看病、睡觉、说话、上课、下课、上班、 / 下班、生病",
+          "explanationVi": "Động từ ly hợp có phần động từ và tân ngữ; thành phần thời gian/số lượng thường chen giữa hai phần.",
+          "modelExample": {
+            "hanzi": "我八点上班，五点下班。",
+            "pinyin": "Wǒ bā diǎn shàngbān, wǔ diǎn xiàbān.",
+            "meaningVi": "Tôi đi làm lúc tám giờ, tan làm lúc năm giờ."
+          },
+          "guidedPractice": {
+            "promptVi": "Nói: Tôi bị ốm, phải đi khám bệnh.",
+            "modelAnswerHanzi": "我生病了，要去看病。",
+            "modelAnswerPinyin": "Wǒ shēngbìng le, yào qù kànbìng.",
+            "modelAnswerMeaningVi": "Tôi bị ốm, phải đi khám bệnh."
+          }
+        }
+      ],
+      "topics": [
+        {
+          "id": "hsk1-topic-019",
+          "group": "医疗健康",
+          "officialTopic": "生病、看病、探病等",
+          "promptVi": "Nói mình bị ốm, đi khám hoặc hỏi thăm người bệnh."
+        }
+      ],
+      "tasks": [
+        {
+          "id": "hsk1-task-10",
+          "titleVi": "Báo ốm và hỏi thăm",
+          "instructionVi": "Nói tình trạng bị ốm và phản hồi bằng một câu hỏi hoặc đề nghị đơn giản.",
+          "targetFunctions": [
+            "report-illness",
+            "ask-about-care"
+          ],
+          "modelDialogue": [
+            {
+              "speaker": "A",
+              "hanzi": "你怎么了？",
+              "pinyin": "Nǐ zěnme le?",
+              "meaningVi": "Bạn bị làm sao?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "我生病了。",
+              "pinyin": "Wǒ shēngbìng le.",
+              "meaningVi": "Tôi bị ốm."
+            },
+            {
+              "speaker": "A",
+              "hanzi": "你去医院看病吗？",
+              "pinyin": "Nǐ qù yīyuàn kànbìng ma?",
+              "meaningVi": "Bạn có đi bệnh viện khám không?"
+            },
+            {
+              "speaker": "B",
+              "hanzi": "去，谢谢。",
+              "pinyin": "Qù, xièxie.",
+              "meaningVi": "Có, cảm ơn."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "integritySha256": "sha256:33f736de2ed020b6cdd0d42f0dc2cc439433aeda87fed8dbaee98c5b4fbcb1c6"
+}

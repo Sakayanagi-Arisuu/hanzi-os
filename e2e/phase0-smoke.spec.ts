@@ -59,7 +59,7 @@ test("does not substitute beginner lessons for an HSK4 target", async ({ page })
   await expect(page.locator(".lesson-node")).toHaveCount(0);
 });
 
-test("does not bypass an unpublished HSK1 prerequisite unit", async ({ page }) => {
+test("does not bypass a released HSK1 lesson prerequisite", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", {
     name: /Đánh thức một ngôn ngữ mới/i,
@@ -73,7 +73,7 @@ test("does not bypass an unpublished HSK1 prerequisite unit", async ({ page }) =
 
   await page.goto("/lesson/daily-1");
   await expect(page.getByRole("heading", {
-    name: "Nội dung này chưa được phát hành",
+    name: "Bài tự luyện cục bộ này chưa mở",
   })).toBeVisible();
 });
 

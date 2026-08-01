@@ -1,0 +1,1823 @@
+{
+  "schemaVersion": 1,
+  "projectionId": "hsk1-daily-life-core-projection-2026.07.1",
+  "unitId": "hsk1-daily-life",
+  "targetContentVersion": "foundation-2026.07.8",
+  "lexemes": [
+    {
+      "authoringItemId": "hsk-vocab-00008",
+      "runtimeItemId": "hsk-vocab-00008",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:a604d076ca7147e3d62cfb0d59aa228f95527b24cd7946512f79a7d1f0d2c7f2",
+      "selectedDictionaryLineSha256": "sha256:9479630f16f9fd8178127ccbf955851462d135aa58e302be1028f02808c5432e",
+      "payload": {
+        "simplified": "包子",
+        "traditional": "包子",
+        "pinyin": "bāozi",
+        "pinyinNumbered": "bao1zi5",
+        "meaning": "bánh bao",
+        "partOfSpeech": "danh từ",
+        "example": "我想吃包子。",
+        "examplePinyin": "Wǒ xiǎng chī bāozi.",
+        "exampleMeaning": "Tôi muốn ăn bánh bao.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:3570e839985f57f9024556fa5c38091f7b8f0df5be337cdd11222654d62ad475"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00009",
+      "runtimeItemId": "hsk-vocab-00009",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:f0c8dd240dba377fd25a4e8cf69ced8b3971008d23f0db99383917475d664c16",
+      "selectedDictionaryLineSha256": "sha256:a6fe5adce1884eb6ca1896156b6be2aca566eba7ee4eead90ba4baf1e4e2b69e",
+      "payload": {
+        "simplified": "杯子",
+        "traditional": "杯子",
+        "pinyin": "bēizi",
+        "pinyinNumbered": "bei1zi5",
+        "meaning": "cốc; ly",
+        "partOfSpeech": "danh từ",
+        "example": "杯子里有水。",
+        "examplePinyin": "Bēizi lǐ yǒu shuǐ.",
+        "exampleMeaning": "Trong cốc có nước.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:1d8489dc7b8ecccadf1ea997ceadffa5f729c1657614552c5b4e5f2282878ac2"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00012",
+      "runtimeItemId": "hsk-vocab-00012",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:5cd19b50d650d5dd537936599fdcd96a285eea1189b4edc7f20494d15675ff66",
+      "selectedDictionaryLineSha256": "sha256:ed674d0af6bd298089db6beac6d0d766d0de06ae923f620dde3206537c90e17b",
+      "payload": {
+        "simplified": "病",
+        "traditional": "病",
+        "pinyin": "bìng",
+        "pinyinNumbered": "bing4",
+        "meaning": "bệnh; ốm",
+        "partOfSpeech": "danh từ; động từ",
+        "example": "他的病好了。",
+        "examplePinyin": "Tā de bìng hǎo le.",
+        "exampleMeaning": "Bệnh của anh ấy đã khỏi.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:aab6c3bf24601793333cc0cc09b09adb5a4c02a45c64cc92c16471e7026679a2"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00016",
+      "runtimeItemId": "hsk-vocab-00016",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:2ba93606729925fdc8cbee0ef072680c018a914632bc1908b3c39e80689c35a4",
+      "selectedDictionaryLineSha256": "sha256:f2149a71d45ca647ad31f1b161ee8b4e243e94b92564a22fbee0b721ec9ba593",
+      "payload": {
+        "simplified": "菜",
+        "traditional": "菜",
+        "pinyin": "cài",
+        "pinyinNumbered": "cai4",
+        "meaning": "món ăn; rau",
+        "partOfSpeech": "danh từ",
+        "example": "我喜欢中国菜。",
+        "examplePinyin": "Wǒ xǐhuan Zhōngguó cài.",
+        "exampleMeaning": "Tôi thích món ăn Trung Quốc.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:8a3f8a9a59c4e5a0e47e46157260272df0fe86eb6d4c66db25b42a8f75537f44"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00017",
+      "runtimeItemId": "hsk-vocab-00017",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:9667a0869f27861ed9f876d0beaac96c4260b9fa60cd460687174c2e77564aed",
+      "selectedDictionaryLineSha256": "sha256:f16788423756e19d7d40933de563cf5fc37081f8f088edb846c4d31d2b229ac9",
+      "payload": {
+        "simplified": "茶",
+        "traditional": "茶",
+        "pinyin": "chá",
+        "pinyinNumbered": "cha2",
+        "meaning": "trà",
+        "partOfSpeech": "danh từ",
+        "example": "请喝茶。",
+        "examplePinyin": "Qǐng hē chá.",
+        "exampleMeaning": "Mời uống trà.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:57bad4ce9eed80e262dfd540b2cbaacfdad30f767e566a097f7dc8ad886c728c"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00019",
+      "runtimeItemId": "hsk-vocab-00019",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:ac0f4cde97168ef7c9cc61d327ee277c332d12d60442856e7a49cd2d941d5ea2",
+      "selectedDictionaryLineSha256": "sha256:5de1a27a3d3c2275b44ad4f9e5568698c82d74d71c3af579cc2cfd878a9268ca",
+      "payload": {
+        "simplified": "超市",
+        "traditional": "超市",
+        "pinyin": "chāoshì",
+        "pinyinNumbered": "chao1shi4",
+        "meaning": "siêu thị",
+        "partOfSpeech": "danh từ",
+        "example": "我去超市买东西。",
+        "examplePinyin": "Wǒ qù chāoshì mǎi dōngxi.",
+        "exampleMeaning": "Tôi đi siêu thị mua đồ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:c256b31ad0fc27874f769528633377f258ff36944b5c06597d6f26b74039d87a"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00021",
+      "runtimeItemId": "hsk-vocab-00021",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:2d9af9c0cf327e995c2361081f4f5feba9fbaf7bd8f8a890fcf496ee670b7be4",
+      "selectedDictionaryLineSha256": "sha256:cb4fb54c7ad5d9e4fd1c73c6bff07a1597cdae0892b332f62c96aa8365b21028",
+      "payload": {
+        "simplified": "吃",
+        "traditional": "吃",
+        "pinyin": "chī",
+        "pinyinNumbered": "chi1",
+        "meaning": "ăn",
+        "partOfSpeech": "động từ",
+        "example": "我吃米饭。",
+        "examplePinyin": "Wǒ chī mǐfàn.",
+        "exampleMeaning": "Tôi ăn cơm.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:170552726cc7b3dc646a3c590a6f43714020c971c82899d024f7ae7cc86065d1"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00023",
+      "runtimeItemId": "hsk-vocab-00023",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:858a348c2f1f846c576d9179e947a18dbcf28c8e58afd1456808da75ec446a1b",
+      "selectedDictionaryLineSha256": "sha256:0ef4092565a3984703902a3a739fd07d0f9179548bd6e5ec0fe37aec1200fdf7",
+      "payload": {
+        "simplified": "穿",
+        "traditional": "穿",
+        "pinyin": "chuān",
+        "pinyinNumbered": "chuan1",
+        "meaning": "mặc",
+        "partOfSpeech": "động từ",
+        "example": "她穿红衣服。",
+        "examplePinyin": "Tā chuān hóng yīfu.",
+        "exampleMeaning": "Cô ấy mặc quần áo màu đỏ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:6c8a2e9754e4c569c74bd52cb252d21eb64107700b557a3fd942ab92faa0a514"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00034",
+      "runtimeItemId": "hsk-vocab-00034",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:3af1ab8c14ba51676fb130d2f357dc9936ca4e6742472ea1c007f6f0cd88e739",
+      "selectedDictionaryLineSha256": "sha256:1198b6ac68d7fabb8aa6d2e10f6e6087755524c35101e4610c4a7d80c5904508",
+      "payload": {
+        "simplified": "店",
+        "traditional": "店",
+        "pinyin": "diàn",
+        "pinyinNumbered": "dian4",
+        "meaning": "cửa hàng",
+        "partOfSpeech": "danh từ",
+        "example": "这家店很大。",
+        "examplePinyin": "Zhè jiā diàn hěn dà.",
+        "exampleMeaning": "Cửa hàng này rất lớn.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:40459de643ae06ada46d72d534102011892f74713bfa6ce9e40f872f451d217d"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00040",
+      "runtimeItemId": "hsk-vocab-00040",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:3886f4c42c388bb8c3e971a652dd2d0ad8f9528276802274ee94846850d32fdd",
+      "selectedDictionaryLineSha256": "sha256:c3a7901999c8d283d3623a69ed03abf08b9d2278b5323a2727570557f94cdad8",
+      "payload": {
+        "simplified": "东西",
+        "traditional": "東西",
+        "pinyin": "dōngxi",
+        "pinyinNumbered": "dong1xi5",
+        "meaning": "đồ; vật; thứ",
+        "partOfSpeech": "danh từ",
+        "example": "我买了一些东西。",
+        "examplePinyin": "Wǒ mǎi le yìxiē dōngxi.",
+        "exampleMeaning": "Tôi đã mua một ít đồ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:104a37e9775779cd0dc62a2aa33091aed4ecb227b2ce1179919b1765e0a7d653"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00046",
+      "runtimeItemId": "hsk-vocab-00046",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:4878130ded6cc4709ce805a902827e03b1a7ba1e62b9cde839d9d62eb9cf1c15",
+      "selectedDictionaryLineSha256": "sha256:8ec8a7c57c40db84cc4e2b52017678bf3902823f7dad341029b51354b0385be3",
+      "payload": {
+        "simplified": "多",
+        "traditional": "多",
+        "pinyin": "duō",
+        "pinyinNumbered": "duo1",
+        "meaning": "nhiều; bao nhiêu",
+        "partOfSpeech": "tính từ; động từ; đại từ; số từ; phó từ",
+        "example": "这里人很多。",
+        "examplePinyin": "Zhèlǐ rén hěn duō.",
+        "exampleMeaning": "Ở đây có rất nhiều người.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:1c32450615b65d3144aab6bd0c00069d3b44ed517c729f0e2871f698c12e784e"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00047",
+      "runtimeItemId": "hsk-vocab-00047",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:a995e21bd4aedeb5285b5fde4fb6a58aff5b92aef2bd9cf3c2167a033a494463",
+      "selectedDictionaryLineSha256": "sha256:9383d6049d889d1266d552e86231022a9bef1c90806e18a60f3d0db176f4372b",
+      "payload": {
+        "simplified": "多少",
+        "traditional": "多少",
+        "pinyin": "duōshao",
+        "pinyinNumbered": "duo1shao5",
+        "meaning": "bao nhiêu",
+        "partOfSpeech": "đại từ",
+        "example": "这个多少钱？",
+        "examplePinyin": "Zhège duōshao qián?",
+        "exampleMeaning": "Cái này bao nhiêu tiền?",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:19cbb3f3acbd27c3d55a4572629b45fc42aa235e4127c08006c70b7b7c67bb75"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00050",
+      "runtimeItemId": "hsk-vocab-00050",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:d309b69d938e7e291a0f171a83b8b2d9354a664f2b0734775d352e4739e9a2f4",
+      "selectedDictionaryLineSha256": "sha256:507af8101110dffd6f142a0f067bba827636375c6cb90eaabe4aa493d66ccc10",
+      "payload": {
+        "simplified": "饭",
+        "traditional": "飯",
+        "pinyin": "fàn",
+        "pinyinNumbered": "fan4",
+        "meaning": "cơm; bữa ăn",
+        "partOfSpeech": "danh từ",
+        "example": "我们吃饭吧。",
+        "examplePinyin": "Wǒmen chīfàn ba.",
+        "exampleMeaning": "Chúng ta ăn cơm nhé.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:d838bebb7a41a1612a7cce1826df395f592d6f300accfe08aa11a2c32a6dd9f7"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00051",
+      "runtimeItemId": "hsk-vocab-00051",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:7aa07fa60f7f300b623a61d342f1645c16d1baf86ce0479f3aeecc6c07f1b7cc",
+      "selectedDictionaryLineSha256": "sha256:e3abb8566496762f669e3d965201486997d6cd60700f59b15266c7699b23600f",
+      "payload": {
+        "simplified": "饭店",
+        "traditional": "飯店",
+        "pinyin": "fàndiàn",
+        "pinyinNumbered": "fan4dian4",
+        "meaning": "nhà hàng",
+        "partOfSpeech": "danh từ",
+        "example": "饭店在那边。",
+        "examplePinyin": "Fàndiàn zài nàbian.",
+        "exampleMeaning": "Nhà hàng ở phía bên kia.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:d6f533c54f65fe37f9c1cdeb0422e3d3928542571a7857ba9358af5823b000e2"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00052",
+      "runtimeItemId": "hsk-vocab-00052",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:dadb74077a68a56ec0f9e45a129b61ee6465d1b4c86ac442dbe25c7eeccf5587",
+      "selectedDictionaryLineSha256": "sha256:60d000957c5327dfe23176f10e826dead9a5a0ed6c4884c5ae580fd545d3a31c",
+      "payload": {
+        "simplified": "房间",
+        "traditional": "房間",
+        "pinyin": "fángjiān",
+        "pinyinNumbered": "fang2jian1",
+        "meaning": "phòng",
+        "partOfSpeech": "danh từ",
+        "example": "房间里有两把椅子。",
+        "examplePinyin": "Fángjiān lǐ yǒu liǎng bǎ yǐzi.",
+        "exampleMeaning": "Trong phòng có hai chiếc ghế.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:808f713ed3270ddb9753c11c793e74d7e18179716b9be7d3497f228069394214"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00060",
+      "runtimeItemId": "hsk-vocab-00060",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:08010de751eff311ae9b6f95ae824dddd3c69ea3311d74389d2052984657942e",
+      "selectedDictionaryLineSha256": "sha256:bcc65779600e2529389a7944af55c2e31e0b365cf9be3caf7a4d74f7f12acdc2",
+      "payload": {
+        "simplified": "个",
+        "traditional": "個",
+        "pinyin": "gè",
+        "pinyinNumbered": "ge4",
+        "meaning": "cái; người (lượng từ phổ biến)",
+        "partOfSpeech": "lượng từ",
+        "example": "我买三个苹果。",
+        "examplePinyin": "Wǒ mǎi sān ge píngguǒ.",
+        "exampleMeaning": "Tôi mua ba quả táo.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:29f9f4a7f79d0fa34754347eada78d948e1e514ad68de3858fe36cdc028e6ea4"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00065",
+      "runtimeItemId": "hsk-vocab-00065",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:42632dc747b822c4f814f12d09acb82753719bde9b2a6a9c009dd72ba4521118",
+      "selectedDictionaryLineSha256": "sha256:b3d9e5b3a41be6162d766bd17133551ea04ad49d7ed8150246e34b6779ac2cb8",
+      "payload": {
+        "simplified": "贵",
+        "traditional": "貴",
+        "pinyin": "guì",
+        "pinyinNumbered": "gui4",
+        "meaning": "đắt",
+        "partOfSpeech": "tính từ",
+        "example": "这件衣服太贵了。",
+        "examplePinyin": "Zhè jiàn yīfu tài guì le.",
+        "exampleMeaning": "Bộ quần áo này đắt quá.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:c40836bdc934b4bd5948a30127e8937aca3dbcd9fd32b154182d9c54c80c2916"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00072",
+      "runtimeItemId": "hsk-vocab-00072",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:8f4d7037abdae98f09c209f988cb6eb95565d5176a13c2c6f8aa8ea55cabdc21",
+      "selectedDictionaryLineSha256": "sha256:c490a23e440e247db0113451350306dd36e442aff640c7d7a802beef4b3ada8b",
+      "payload": {
+        "simplified": "好吃",
+        "traditional": "好吃",
+        "pinyin": "hǎochī",
+        "pinyinNumbered": "hao3chi1",
+        "meaning": "ngon",
+        "partOfSpeech": "tính từ",
+        "example": "饺子很好吃。",
+        "examplePinyin": "Jiǎozi hěn hǎochī.",
+        "exampleMeaning": "Bánh chẻo rất ngon.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:d32ce2613f91f4015ac7aa1f19e54459107cabd67f293ea4aaceee860b76dba3"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00077",
+      "runtimeItemId": "hsk-vocab-00077",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:7594531688da306ae48902307f9d3462f282a7b05f9266c46cde30ea8d8e28b7",
+      "selectedDictionaryLineSha256": "sha256:8bc80b3353a7648dfc9a81bb8d847c244c5a61e8431d0c8bb8c7fd46b53790ca",
+      "payload": {
+        "simplified": "喝",
+        "traditional": "喝",
+        "pinyin": "hē",
+        "pinyinNumbered": "he1",
+        "meaning": "uống",
+        "partOfSpeech": "động từ",
+        "example": "我喝牛奶。",
+        "examplePinyin": "Wǒ hē niúnǎi.",
+        "exampleMeaning": "Tôi uống sữa.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:099b3261d5af7620f10db5cfcc7eeebe75ef42c1a87645399be02bc2627d5efa"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00084",
+      "runtimeItemId": "hsk-vocab-00084",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:4d89289405f3ba06461a09aeb348fb30026cf7900b9206d077839cac667ec8ce",
+      "selectedDictionaryLineSha256": "sha256:716e349e40b2a12c1b2618cb2083d87c22d69526c2c647b781755c0c50e19073",
+      "payload": {
+        "simplified": "鸡蛋",
+        "traditional": "雞蛋",
+        "pinyin": "jīdàn",
+        "pinyinNumbered": "ji1dan4",
+        "meaning": "trứng gà",
+        "partOfSpeech": "danh từ",
+        "example": "我早饭吃鸡蛋。",
+        "examplePinyin": "Wǒ zǎofàn chī jīdàn.",
+        "exampleMeaning": "Bữa sáng tôi ăn trứng gà.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:042706a2d93274f1c654f76ac2410e7b255c9b030772e6f6129803d7c4c7a4e2"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00085",
+      "runtimeItemId": "hsk-vocab-00085",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:50045f15d49732eae8f70884f42e145927e24b2ebfc69ba632f335a314d670aa",
+      "selectedDictionaryLineSha256": "sha256:9f40f27aa270d29faf3ea32474c717dac4b5c4c998781a4d3b6951a4f3bf4f92",
+      "payload": {
+        "simplified": "几",
+        "traditional": "幾",
+        "pinyin": "jǐ",
+        "pinyinNumbered": "ji3",
+        "meaning": "mấy; bao nhiêu",
+        "partOfSpeech": "đại từ; số từ",
+        "example": "你要几个？",
+        "examplePinyin": "Nǐ yào jǐ ge?",
+        "exampleMeaning": "Bạn muốn mấy cái?",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:0276fbc78b85814e982c6de8d4d2cb8a99db56bab32a42e5cfa8117f8cf66f97"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00089",
+      "runtimeItemId": "hsk-vocab-00089",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:b765a3d5a6cbdc3c05f3d76b87278e50ab4e3aa17c0afae2d3b1213f5c38bf5c",
+      "selectedDictionaryLineSha256": "sha256:7c5fded1fdd0a668ba88ed4d4ac95dce1d00bd2dcc3dfc39ae108e2659665d49",
+      "payload": {
+        "simplified": "件",
+        "traditional": "件",
+        "pinyin": "jiàn",
+        "pinyinNumbered": "jian4",
+        "meaning": "chiếc; bộ (lượng từ cho quần áo, đồ vật)",
+        "partOfSpeech": "lượng từ",
+        "example": "我买一件衣服。",
+        "examplePinyin": "Wǒ mǎi yí jiàn yīfu.",
+        "exampleMeaning": "Tôi mua một bộ quần áo.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:e4052dfc175f52cf5c9c8c5f8b3aeca62be6b4f0121d6aaf3b37427d32bdac7e"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00090",
+      "runtimeItemId": "hsk-vocab-00090",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:522e16eddc2ea20a6016ab237dcbd97bc7f67abaa81dce54747cbc1ec3fa8ee7",
+      "selectedDictionaryLineSha256": "sha256:9fc18c2776b8366bf9c7a0aa15159af9f2961f1059c772a686c4563356891a56",
+      "payload": {
+        "simplified": "饺子",
+        "traditional": "餃子",
+        "pinyin": "jiǎozi",
+        "pinyinNumbered": "jiao3zi5",
+        "meaning": "bánh chẻo",
+        "partOfSpeech": "danh từ",
+        "example": "我喜欢吃饺子。",
+        "examplePinyin": "Wǒ xǐhuan chī jiǎozi.",
+        "exampleMeaning": "Tôi thích ăn bánh chẻo.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:61c842fc6c244602dec8edcad56058c6c5cd802e0f565d29a6cf5aae1c047bc9"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00100",
+      "runtimeItemId": "hsk-vocab-00100",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:fd73b5864b574a6308ab628606b1750364adddd9d3a5fba6d6d604726dfb2f75",
+      "selectedDictionaryLineSha256": "sha256:06efff9d74f0cf1da07bd30455ad5e00c332a5872a7ccb3b7a6e4abac4650a1d",
+      "payload": {
+        "simplified": "看病",
+        "traditional": "看病",
+        "pinyin": "kànbìng",
+        "pinyinNumbered": "kan4bing4",
+        "meaning": "đi khám bệnh",
+        "partOfSpeech": "động từ",
+        "example": "我去医院看病。",
+        "examplePinyin": "Wǒ qù yīyuàn kànbìng.",
+        "exampleMeaning": "Tôi đến bệnh viện khám bệnh.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:44c8aa98dcd655e7cb7446d43755da38b5c347f39f99b133a208eca64f4fc48f"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00104",
+      "runtimeItemId": "hsk-vocab-00104",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:f6cbf671dac8e13df72c6f83e48f32313baffb969882a0c5d3c253ef22bacf63",
+      "selectedDictionaryLineSha256": "sha256:57ba74dc4aabd8a340735d970125410517bcae59cb33bf62cd83c31594974535",
+      "payload": {
+        "simplified": "口",
+        "traditional": "口",
+        "pinyin": "kǒu",
+        "pinyinNumbered": "kou3",
+        "meaning": "miệng; người (lượng từ cho gia đình)",
+        "partOfSpeech": "danh từ; lượng từ",
+        "example": "我家有三口人。",
+        "examplePinyin": "Wǒ jiā yǒu sān kǒu rén.",
+        "exampleMeaning": "Nhà tôi có ba người.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:339c3aea6130654ed25cf6c72907fcd76fafde7496080612ddef1dee4c05bd22"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00105",
+      "runtimeItemId": "hsk-vocab-00105",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:5c5dba4d35f2325af660cb55b8c914567c205cc9648520ecfac7fe96fe2946e2",
+      "selectedDictionaryLineSha256": "sha256:bf49daca0e17b955b327253d0a3ef8cd392e7e79f86edf240727246b5058a8e3",
+      "payload": {
+        "simplified": "块",
+        "traditional": "塊",
+        "pinyin": "kuài",
+        "pinyinNumbered": "kuai4",
+        "meaning": "đồng; tệ; miếng",
+        "partOfSpeech": "lượng từ",
+        "example": "这本书五块钱。",
+        "examplePinyin": "Zhè běn shū wǔ kuài qián.",
+        "exampleMeaning": "Quyển sách này giá năm tệ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:f2c5a58a30dc41331300db791cc93801a95b107f188c65546c9d47d91eeb0540"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00116",
+      "runtimeItemId": "hsk-vocab-00116",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:65161d9a0b7382f0a2cd2bdf9dbb8060f202abe2efdbb9b19b6143a112973205",
+      "selectedDictionaryLineSha256": "sha256:2c7eaabf6d4fd06a54a7098162ebe9a8650c6bc1bc2c48e52893bd21216c4535",
+      "payload": {
+        "simplified": "买",
+        "traditional": "買",
+        "pinyin": "mǎi",
+        "pinyinNumbered": "mai3",
+        "meaning": "mua",
+        "partOfSpeech": "động từ",
+        "example": "我想买苹果。",
+        "examplePinyin": "Wǒ xiǎng mǎi píngguǒ.",
+        "exampleMeaning": "Tôi muốn mua táo.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:13b0d00caeb41c73c13fa5cecd95d5f92b131758c249509f5d7ba69a91c0da5c"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00117",
+      "runtimeItemId": "hsk-vocab-00117",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:994beb65d66f1c0c3f908849a68da8e2c488caf91e7c1845ff62d37fd83e6418",
+      "selectedDictionaryLineSha256": "sha256:d2ad0150cbb451cf8f3e77bf9f41417729d69a85acfec80402db5e57d4e2ffc4",
+      "payload": {
+        "simplified": "卖",
+        "traditional": "賣",
+        "pinyin": "mài",
+        "pinyinNumbered": "mai4",
+        "meaning": "bán",
+        "partOfSpeech": "động từ",
+        "example": "这家店卖水果。",
+        "examplePinyin": "Zhè jiā diàn mài shuǐguǒ.",
+        "exampleMeaning": "Cửa hàng này bán hoa quả.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:c5e976d11fb48d9e509da6d1e79da42bd8a68d223b42c99376d09ae9a37d1f7f"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00125",
+      "runtimeItemId": "hsk-vocab-00125",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:4c7ec66fc265f71212814ccd6db64c85b80b8ecfc422a439ed9f32651dfb77ef",
+      "selectedDictionaryLineSha256": "sha256:523ca20bba5b49e0ebd20e56b9a7bc436b7eb15d88d9901c8e89a9aec131a8c7",
+      "payload": {
+        "simplified": "米饭",
+        "traditional": "米飯",
+        "pinyin": "mǐfàn",
+        "pinyinNumbered": "mi3fan4",
+        "meaning": "cơm",
+        "partOfSpeech": "danh từ",
+        "example": "我午饭吃米饭。",
+        "examplePinyin": "Wǒ wǔfàn chī mǐfàn.",
+        "exampleMeaning": "Bữa trưa tôi ăn cơm.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:a39d0bcd19d19031ed2c5e3dc2be54c8bb619de20ff7938a940b62eaa03fc3be"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00126",
+      "runtimeItemId": "hsk-vocab-00126",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:2c7bc74d6af0bfc4e87b3eb8440b615b37e6da162cab8a99684b9541251d7d19",
+      "selectedDictionaryLineSha256": "sha256:e35f9cbd8cbeef8740c69b2be36fc7f70e14ac04fbad56beb505a64ea1a6259e",
+      "payload": {
+        "simplified": "面包",
+        "traditional": "麵包",
+        "pinyin": "miànbāo",
+        "pinyinNumbered": "mian4bao1",
+        "meaning": "bánh mì",
+        "partOfSpeech": "danh từ",
+        "example": "我早饭吃面包。",
+        "examplePinyin": "Wǒ zǎofàn chī miànbāo.",
+        "exampleMeaning": "Bữa sáng tôi ăn bánh mì.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:e58d7a6f2defc3ef39675f6d7178fe708edb9cd810ee7f4848e44b7768c791db"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00127",
+      "runtimeItemId": "hsk-vocab-00127",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:81318d5dea74f61b16c7e09551c77a74c6dd8664fcba4f0963eaafa14ee68a71",
+      "selectedDictionaryLineSha256": "sha256:ce3c0af9ca7c2c4d499049517d42f11ed3bfbb7a610866354eae7be95d9bb9c6",
+      "payload": {
+        "simplified": "面条儿",
+        "traditional": "麵條兒",
+        "pinyin": "miàntiáor",
+        "pinyinNumbered": "mian4tiaor2",
+        "meaning": "mì sợi",
+        "partOfSpeech": "danh từ",
+        "example": "我想吃面条儿。",
+        "examplePinyin": "Wǒ xiǎng chī miàntiáor.",
+        "exampleMeaning": "Tôi muốn ăn mì sợi.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:0c6c5fe62506c7e1b3ef9d7acc163a396cba53453eddf815081d4096464e3be4"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00151",
+      "runtimeItemId": "hsk-vocab-00151",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:93e49392b5560eed35a135118f08634b19d6e0a82861609e01b05ab302466b73",
+      "selectedDictionaryLineSha256": "sha256:a4dad9cac4694aeab7066db3ee1f555b03ac4401ec090b243713ca5713210762",
+      "payload": {
+        "simplified": "牛奶",
+        "traditional": "牛奶",
+        "pinyin": "niúnǎi",
+        "pinyinNumbered": "niu2nai3",
+        "meaning": "sữa bò",
+        "partOfSpeech": "danh từ",
+        "example": "她每天喝牛奶。",
+        "examplePinyin": "Tā měitiān hē niúnǎi.",
+        "exampleMeaning": "Cô ấy uống sữa mỗi ngày.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:0dc33816a8865bba859e6afb30b90f4a021cd3f5ab946653edb1c601f1130cb1"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00157",
+      "runtimeItemId": "hsk-vocab-00157",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:6674c6b0f47ecab2fb06ceb014751a37e8f3a3ab8409e8e981a5aeee856cd889",
+      "selectedDictionaryLineSha256": "sha256:2bca903969339104279409c7e7e1664bd2e864ecbf34390c66bcdffa2547ba96",
+      "payload": {
+        "simplified": "便宜",
+        "traditional": "便宜",
+        "pinyin": "piányi",
+        "pinyinNumbered": "pian2yi5",
+        "meaning": "rẻ",
+        "partOfSpeech": "tính từ",
+        "example": "这件衣服很便宜。",
+        "examplePinyin": "Zhè jiàn yīfu hěn piányi.",
+        "exampleMeaning": "Bộ quần áo này rất rẻ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:6221bfa8a8b5dcbc1318dae4f32f3188ebddd8fdc904377b06fa3ece132c582b"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00159",
+      "runtimeItemId": "hsk-vocab-00159",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:a3d1716b209c6adac6f5735d2d0fc0b582a19470c2f391da7e7a6334a34e653c",
+      "selectedDictionaryLineSha256": "sha256:dbd896c66668b395ad1e56ef5286f67c3adcf957d3fbb3668a5d4f38877ca631",
+      "payload": {
+        "simplified": "苹果",
+        "traditional": "蘋果",
+        "pinyin": "píngguǒ",
+        "pinyinNumbered": "ping2guo3",
+        "meaning": "táo",
+        "partOfSpeech": "danh từ",
+        "example": "我买了三个苹果。",
+        "examplePinyin": "Wǒ mǎi le sān ge píngguǒ.",
+        "exampleMeaning": "Tôi đã mua ba quả táo.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:e460488579229150b99473e464349600c788a124c93f3d32c3a0b695419c7b2d"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00164",
+      "runtimeItemId": "hsk-vocab-00164",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:97816e3196029bf9ee55c314547ecc26e07f59107c44ed5854a9fc3dc7bb01b9",
+      "selectedDictionaryLineSha256": "sha256:536aa1b3ea6c0a4a771ffa28c068380bb2578d5a5ae0ea1d3b4215d47fa0de43",
+      "payload": {
+        "simplified": "钱",
+        "traditional": "錢",
+        "pinyin": "qián",
+        "pinyinNumbered": "qian2",
+        "meaning": "tiền",
+        "partOfSpeech": "danh từ",
+        "example": "我没有钱。",
+        "examplePinyin": "Wǒ méiyǒu qián.",
+        "exampleMeaning": "Tôi không có tiền.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:49378f407c1b629746fb739b2bb6156661d517a37d1a38829224fcab74df6618"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00174",
+      "runtimeItemId": "hsk-vocab-00174",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:8342a96284afca4045e9cf8254beff6469458fe7e125c591cfce3f443c4e79d4",
+      "selectedDictionaryLineSha256": "sha256:daa8650ee05c6dd06442d18ea5e5d89c9d8f829c3294bb68796e30f244161322",
+      "payload": {
+        "simplified": "商店",
+        "traditional": "商店",
+        "pinyin": "shāngdiàn",
+        "pinyinNumbered": "shang1dian4",
+        "meaning": "cửa hàng",
+        "partOfSpeech": "danh từ",
+        "example": "商店几点开门？",
+        "examplePinyin": "Shāngdiàn jǐ diǎn kāimén?",
+        "exampleMeaning": "Cửa hàng mở cửa lúc mấy giờ?",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:a278d9ebe3a5da3a48693199a0e11a6e21d8e7237ec4c0423c4875921195e6db"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00180",
+      "runtimeItemId": "hsk-vocab-00180",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:6c1e9d20653d2657aa213d696ed050383aad55740d075b2f0c983a3f5b424632",
+      "selectedDictionaryLineSha256": "sha256:d2f14faa27937f81e59515ff70aef9362bd3785836bf3f7fc0630b483a968fe4",
+      "payload": {
+        "simplified": "少",
+        "traditional": "少",
+        "pinyin": "shǎo",
+        "pinyinNumbered": "shao3",
+        "meaning": "ít",
+        "partOfSpeech": "tính từ; động từ",
+        "example": "今天人很少。",
+        "examplePinyin": "Jīntiān rén hěn shǎo.",
+        "exampleMeaning": "Hôm nay có rất ít người.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:b23ea561a50c855e977a1aaeaa721bda427be40d471d16daa7988bf5e1e81160"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00183",
+      "runtimeItemId": "hsk-vocab-00183",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:f1bc96d3815ea66840b7508facec7ec8fae33a4e58042cd783f111c1c005025e",
+      "selectedDictionaryLineSha256": "sha256:89b1430815713672039e6d8b512791be54c9cabc42c71fb03b1b076c0d1a7bc2",
+      "payload": {
+        "simplified": "生病",
+        "traditional": "生病",
+        "pinyin": "shēngbìng",
+        "pinyinNumbered": "sheng1bing4",
+        "meaning": "bị ốm",
+        "partOfSpeech": "động từ",
+        "example": "他生病了。",
+        "examplePinyin": "Tā shēngbìng le.",
+        "exampleMeaning": "Anh ấy bị ốm rồi.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:4cc1dc612f2eb91693110face51f71c777a73314d3584a5d68dcbb8b6c324157"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00192",
+      "runtimeItemId": "hsk-vocab-00192",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:6732d1df2090b6e2d6d79c69791195a2efac1767ec9cbcaa437d40985b44f575",
+      "selectedDictionaryLineSha256": "sha256:0af066bc25cd0c8d395b8853c6d459aef955a2bf7872deea3980ef9eb3e983e5",
+      "payload": {
+        "simplified": "水",
+        "traditional": "水",
+        "pinyin": "shuǐ",
+        "pinyinNumbered": "shui3",
+        "meaning": "nước",
+        "partOfSpeech": "danh từ",
+        "example": "请给我一杯水。",
+        "examplePinyin": "Qǐng gěi wǒ yì bēi shuǐ.",
+        "exampleMeaning": "Vui lòng cho tôi một cốc nước.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:4b8517bc2dffc87b32677ed295032ad96ea73559fc2058873576abbb0ef5b076"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00193",
+      "runtimeItemId": "hsk-vocab-00193",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:404aedc31cb6d91959d768d58ecaa82ce11a24e3ad07ba1355081491b374eae6",
+      "selectedDictionaryLineSha256": "sha256:d6b2e3d6f43738a90e473279c9cf83649c5c756b281912ebda5456d0a4ddf954",
+      "payload": {
+        "simplified": "水果",
+        "traditional": "水果",
+        "pinyin": "shuǐguǒ",
+        "pinyinNumbered": "shui3guo3",
+        "meaning": "hoa quả",
+        "partOfSpeech": "danh từ",
+        "example": "我喜欢吃水果。",
+        "examplePinyin": "Wǒ xǐhuan chī shuǐguǒ.",
+        "exampleMeaning": "Tôi thích ăn hoa quả.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:66e634ec971d2ad0ab5c57612ebd548d0dd49c5a9c973e7566dd878eccdabcc6"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00216",
+      "runtimeItemId": "hsk-vocab-00216",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:cfa978706767ead73a6cc543c5db501ffed09de558b72b82ed0b75f05189873d",
+      "selectedDictionaryLineSha256": "sha256:79aed80f4a47e6f2e71b076ebcfe5480144163522571ab61e899da4fd2fe41d8",
+      "payload": {
+        "simplified": "晚饭",
+        "traditional": "晚飯",
+        "pinyin": "wǎnfàn",
+        "pinyinNumbered": "wan3fan4",
+        "meaning": "bữa tối",
+        "partOfSpeech": "danh từ",
+        "example": "我们六点吃晚饭。",
+        "examplePinyin": "Wǒmen liù diǎn chī wǎnfàn.",
+        "exampleMeaning": "Chúng tôi ăn tối lúc sáu giờ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:5f640021d9c76fe39102867bf3aa33502c3540711da21215a7590da207cd9112"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00224",
+      "runtimeItemId": "hsk-vocab-00224",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:437ab38c43874016c84dbe28b3d4cd43623eff7aa051d1b5a628911e3268caa3",
+      "selectedDictionaryLineSha256": "sha256:6b1efecc24a401de97fd7a076fed507245a071328ca1e17187b9263ef2156ea8",
+      "payload": {
+        "simplified": "午饭",
+        "traditional": "午飯",
+        "pinyin": "wǔfàn",
+        "pinyinNumbered": "wu3fan4",
+        "meaning": "bữa trưa",
+        "partOfSpeech": "danh từ",
+        "example": "你午饭吃什么？",
+        "examplePinyin": "Nǐ wǔfàn chī shénme?",
+        "exampleMeaning": "Bữa trưa bạn ăn gì?",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:3f5944ddf90810cd2d28a30e46a278d49ae4aac807725164ac09ccdf5ccf0f9e"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00255",
+      "runtimeItemId": "hsk-vocab-00255",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:7951a5e4bc3813a2838388c128f69c7a6ff05b8bc9b6866d65faa1ef5bcea6e2",
+      "selectedDictionaryLineSha256": "sha256:49b833153d089e33c9e8e0e1d651032e2e17d3652eb40a2fb804991de33906c3",
+      "payload": {
+        "simplified": "衣服",
+        "traditional": "衣服",
+        "pinyin": "yīfu",
+        "pinyinNumbered": "yi1fu5",
+        "meaning": "quần áo",
+        "partOfSpeech": "danh từ",
+        "example": "这件衣服很好看。",
+        "examplePinyin": "Zhè jiàn yīfu hěn hǎokàn.",
+        "exampleMeaning": "Bộ quần áo này rất đẹp.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:78df96b4af42f5e62dc764088c411e4a2b627b78e65ebed1c3a28426db3774cb"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00256",
+      "runtimeItemId": "hsk-vocab-00256",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:078530e9d4366bb89d84da56d7b263bd6926ba035969ad5bb03c59be203f94dc",
+      "selectedDictionaryLineSha256": "sha256:4aac2099536ac94c59f3966dfa93df766e698ae55be9cfb1aeee02e816e437f6",
+      "payload": {
+        "simplified": "医生",
+        "traditional": "醫生",
+        "pinyin": "yīshēng",
+        "pinyinNumbered": "yi1sheng1",
+        "meaning": "bác sĩ",
+        "partOfSpeech": "danh từ",
+        "example": "她是医生。",
+        "examplePinyin": "Tā shì yīshēng.",
+        "exampleMeaning": "Cô ấy là bác sĩ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:f8950fc106447d47d1748c7c92accc828ca058c278ae877f7f94cf09a449befe"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00257",
+      "runtimeItemId": "hsk-vocab-00257",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:107d294a34ac6064c0a4cd027d50bb33cf94ea55b8afcbf4edcf2ec924261400",
+      "selectedDictionaryLineSha256": "sha256:4d81c01e1f0b3534d1009204fd80b1a4bfe4d2f05b23cca6fc127d8be2f85098",
+      "payload": {
+        "simplified": "医院",
+        "traditional": "醫院",
+        "pinyin": "yīyuàn",
+        "pinyinNumbered": "yi1yuan4",
+        "meaning": "bệnh viện",
+        "partOfSpeech": "danh từ",
+        "example": "医院在学校旁边。",
+        "examplePinyin": "Yīyuàn zài xuéxiào pángbiān.",
+        "exampleMeaning": "Bệnh viện ở cạnh trường học.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:a69a289608e1cdf7ca12253685560cbd1702fe6606a5d94b7286fd518b23fa43"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00258",
+      "runtimeItemId": "hsk-vocab-00258",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:75662ed91c4bb2b56a2840ea3502b9bd8a4e8a90661f307a7363a22d802b3421",
+      "selectedDictionaryLineSha256": "sha256:f2055206578955ac7ce7d9df443ad10f2eb63e85554f499d1d391e78ad71a361",
+      "payload": {
+        "simplified": "一半",
+        "traditional": "一半",
+        "pinyin": "yíbàn",
+        "pinyinNumbered": "yi1ban4",
+        "meaning": "một nửa",
+        "partOfSpeech": "số từ",
+        "example": "我吃了一半。",
+        "examplePinyin": "Wǒ chī le yíbàn.",
+        "exampleMeaning": "Tôi đã ăn một nửa.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:12ef1097c9def16943ea06d4f2be9f557073e22ce61cf6f279dc06e5726e82f6"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00260",
+      "runtimeItemId": "hsk-vocab-00260",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:d4c9cb72ff6b15ee86ca2ec8d71141b395ac98d56d87da9f92efa7c82b1cb4bc",
+      "selectedDictionaryLineSha256": "sha256:0b853344262af7b6bd81e2b41785bdbc164ec7d24c09cc0d10a009b217821e04",
+      "payload": {
+        "simplified": "椅子",
+        "traditional": "椅子",
+        "pinyin": "yǐzi",
+        "pinyinNumbered": "yi3zi5",
+        "meaning": "ghế",
+        "partOfSpeech": "danh từ",
+        "example": "椅子在桌子旁边。",
+        "examplePinyin": "Yǐzi zài zhuōzi pángbiān.",
+        "exampleMeaning": "Ghế ở cạnh bàn.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:17d46f8d428dfe67dce065daf30bc26940cb8534bebc21bffda9d8a271c39d00"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00261",
+      "runtimeItemId": "hsk-vocab-00261",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:2201aa1985c70e63a37045a439c00291984a29b499260960db1836147d0d8316",
+      "selectedDictionaryLineSha256": "sha256:e8d283a7be7b06a26c0cb75f7a7c23b907bbe8e4a10537d3d376c56f062340e6",
+      "payload": {
+        "simplified": "一点儿",
+        "traditional": "一點兒",
+        "pinyin": "yìdiǎnr",
+        "pinyinNumbered": "yi1dianr3",
+        "meaning": "một chút",
+        "partOfSpeech": "cụm số lượng",
+        "example": "我想喝一点儿水。",
+        "examplePinyin": "Wǒ xiǎng hē yìdiǎnr shuǐ.",
+        "exampleMeaning": "Tôi muốn uống một ít nước.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:bd95da1477a8854593cfa67ae1d55c73c47ba5bfa7832c840982b5d6a4b72456"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00262",
+      "runtimeItemId": "hsk-vocab-00262",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:8aa71afa686a40900ac46f9f27962c67147a6a598c1c2f8e69cb619c527f4787",
+      "selectedDictionaryLineSha256": "sha256:ef565005e56af901b94ed8358ca66cb3d462205a2e65b73eba3a68ea6d8239ea",
+      "payload": {
+        "simplified": "一些",
+        "traditional": "一些",
+        "pinyin": "yìxiē",
+        "pinyinNumbered": "yi1xie1",
+        "meaning": "một số; một ít",
+        "partOfSpeech": "cụm số lượng",
+        "example": "我买了一些水果。",
+        "examplePinyin": "Wǒ mǎi le yìxiē shuǐguǒ.",
+        "exampleMeaning": "Tôi đã mua một ít hoa quả.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:a3d9c2f6551231f669496905e6fe6345affd11211ee2f07b264c50805bb7f3dc"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00268",
+      "runtimeItemId": "hsk-vocab-00268",
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:0fd83b8a9943b42bae0913964689a73afba8f137f6726ebd893d9bdb55d672a9",
+      "selectedDictionaryLineSha256": "sha256:f0cc95ceb1ab58629a086a3989f25e394db633376c53dd8cab08ac8ca3beab67",
+      "payload": {
+        "simplified": "元",
+        "traditional": "元",
+        "pinyin": "yuán",
+        "pinyinNumbered": "yuan2",
+        "meaning": "đồng; tệ",
+        "partOfSpeech": "lượng từ",
+        "example": "一杯茶五元。",
+        "examplePinyin": "Yì bēi chá wǔ yuán.",
+        "exampleMeaning": "Một cốc trà giá năm tệ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "số lượng và giá tiền"
+        ]
+      },
+      "payloadSha256": "sha256:bcc4be818615d6d4d0c45eb8ef0d326b13a86d7de8ddb2b079f54a289ae3df7e"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00274",
+      "runtimeItemId": "hsk-vocab-00274",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:392f9a3ab54fd39677c80bc3524f1818ba7caa2417db537da777a93484340903",
+      "selectedDictionaryLineSha256": "sha256:c17b100a22034c3ae11d2057f0d8f99849afd602a3f3c9fc00edf3364e1cea2b",
+      "payload": {
+        "simplified": "早饭",
+        "traditional": "早飯",
+        "pinyin": "zǎofàn",
+        "pinyinNumbered": "zao3fan4",
+        "meaning": "bữa sáng",
+        "partOfSpeech": "danh từ",
+        "example": "我七点吃早饭。",
+        "examplePinyin": "Wǒ qī diǎn chī zǎofàn.",
+        "exampleMeaning": "Tôi ăn sáng lúc bảy giờ.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:907276e9eadd6a13b56bda2f4f7e55c4dda0b768c025e169f5b7cec33f6755ca"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00278",
+      "runtimeItemId": "hsk-vocab-00278",
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:78efba3d46fb2209e81aa316daf9e700c23cd5c574e7f510b3b04e731421b291",
+      "selectedDictionaryLineSha256": "sha256:723eaf65ca3c3229b3f217edfe90a2290148edec0f1bd8ed315aa472cc874824",
+      "payload": {
+        "simplified": "找",
+        "traditional": "找",
+        "pinyin": "zhǎo",
+        "pinyinNumbered": "zhao3",
+        "meaning": "tìm; tìm tiền thừa",
+        "partOfSpeech": "động từ",
+        "example": "我在找我的钱。",
+        "examplePinyin": "Wǒ zài zhǎo wǒ de qián.",
+        "exampleMeaning": "Tôi đang tìm tiền của mình.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "mua sắm và quần áo"
+        ]
+      },
+      "payloadSha256": "sha256:4d834e0063756d542f328460961dcb47f523306e01feebf157e8b2de87038b46"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00295",
+      "runtimeItemId": "hsk-vocab-00295",
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:a4e383b41eeb442904590da7af6e1ce8b37b48919fb24dc156180e013e5e2120",
+      "selectedDictionaryLineSha256": "sha256:055541d2954f7ef8c8bcda3106320e360c56e207f31a747a6a8211eb4906aab6",
+      "payload": {
+        "simplified": "桌子",
+        "traditional": "桌子",
+        "pinyin": "zhuōzi",
+        "pinyinNumbered": "zhuo1zi5",
+        "meaning": "bàn",
+        "partOfSpeech": "danh từ",
+        "example": "书在桌子上。",
+        "examplePinyin": "Shū zài zhuōzi shàng.",
+        "exampleMeaning": "Sách ở trên bàn.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "sức khỏe và đồ dùng"
+        ]
+      },
+      "payloadSha256": "sha256:8f4db2ab5f8093b2056827918f50d288877a26fb9a49d94adb1d2b170e07c0d6"
+    },
+    {
+      "authoringItemId": "hsk-vocab-00300",
+      "runtimeItemId": "hsk-vocab-00300",
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:4129f5eb5b985bc1c627c7ca1512ea44a6e1f2faca0957683280afce95d3511c",
+      "selectedDictionaryLineSha256": "sha256:8e1a593cce1d26d91af863dfb60df6c84ab3739260d14a50f0c99858d406404d",
+      "payload": {
+        "simplified": "做饭",
+        "traditional": "做飯",
+        "pinyin": "zuòfàn",
+        "pinyinNumbered": "zuo4fan4",
+        "meaning": "nấu cơm",
+        "partOfSpeech": "cụm từ",
+        "example": "我妈妈在做饭。",
+        "examplePinyin": "Wǒ māma zài zuòfàn.",
+        "exampleMeaning": "Mẹ tôi đang nấu cơm.",
+        "hsk": 1,
+        "tags": [
+          "hsk1",
+          "đời sống hằng ngày",
+          "ăn uống"
+        ]
+      },
+      "payloadSha256": "sha256:2b462b279095f83976d2e6183c77523b5b287ca8062fc53d35fc9a8893883a97"
+    }
+  ],
+  "lessons": [
+    {
+      "authoringLessonId": "hsk1-daily-life:01-quantity-and-money",
+      "runtimeLessonId": "daily-1",
+      "sourceTargetSha256": "sha256:e7eb9a5a23205fbf12b7c30e5603df3f7f23a613e98cd66905d56774f36d6d8a",
+      "reviewedTargetSha256": "sha256:a5665468f7ed81a13a4ee021b096a33de059d7bd87fcc213ccb36c7a8ca35b15",
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "hsk1-time-place-events-06-weather-and-residence"
+        }
+      ],
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00046"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00047"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00060"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00085"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00104"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00105"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00164"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00180"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00258"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00261"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00262"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00268"
+        }
+      ],
+      "payload": {
+        "unitId": "daily",
+        "title": "Số lượng và tiền",
+        "chineseTitle": "数量和价格",
+        "objective": "Hỏi số lượng, giá tiền và dùng lượng từ trong trao đổi ngắn.",
+        "minutes": 26,
+        "xp": 130,
+        "wordIds": [
+          "hsk-vocab-00046",
+          "hsk-vocab-00047",
+          "hsk-vocab-00060",
+          "hsk-vocab-00085",
+          "hsk-vocab-00104",
+          "hsk-vocab-00105",
+          "hsk-vocab-00164",
+          "hsk-vocab-00180",
+          "hsk-vocab-00258",
+          "hsk-vocab-00261",
+          "hsk-vocab-00262",
+          "hsk-vocab-00268"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "grammar",
+          "speaking"
+        ]
+      },
+      "payloadSha256": "sha256:61debc02460bd8467612ccd7e44b6b5c12832b98763e6469617201705e753d77"
+    },
+    {
+      "authoringLessonId": "hsk1-daily-life:02-food-and-drink",
+      "runtimeLessonId": "daily-2",
+      "sourceTargetSha256": "sha256:67e0e117a7f9dcd289ac82b7f171c7782647977261f57afa0c79d86442a22249",
+      "reviewedTargetSha256": "sha256:4a90fa5f21ef737079fbf2ed79b2a81900b71bd859ef8939ae9b6232a2440d8d",
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-1"
+        }
+      ],
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00008"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00009"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00016"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00017"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00021"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00050"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00051"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00072"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00077"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00084"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00090"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00125"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00126"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00127"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00151"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00159"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00192"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00193"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00216"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00224"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00274"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00300"
+        }
+      ],
+      "payload": {
+        "unitId": "daily",
+        "title": "Đồ ăn và thức uống",
+        "chineseTitle": "饮食选择",
+        "objective": "Gọi món và nói lựa chọn ăn uống trong các bữa hằng ngày.",
+        "minutes": 30,
+        "xp": 150,
+        "wordIds": [
+          "hsk-vocab-00008",
+          "hsk-vocab-00009",
+          "hsk-vocab-00016",
+          "hsk-vocab-00017",
+          "hsk-vocab-00021",
+          "hsk-vocab-00050",
+          "hsk-vocab-00051",
+          "hsk-vocab-00072",
+          "hsk-vocab-00077",
+          "hsk-vocab-00084",
+          "hsk-vocab-00090",
+          "hsk-vocab-00125",
+          "hsk-vocab-00126",
+          "hsk-vocab-00127",
+          "hsk-vocab-00151",
+          "hsk-vocab-00159",
+          "hsk-vocab-00192",
+          "hsk-vocab-00193",
+          "hsk-vocab-00216",
+          "hsk-vocab-00224",
+          "hsk-vocab-00274",
+          "hsk-vocab-00300"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ]
+      },
+      "payloadSha256": "sha256:51605f74471625318c91def797edacdee0a3c2e3b7c2085705cdbbe5a3bb955f"
+    },
+    {
+      "authoringLessonId": "hsk1-daily-life:03-shopping-and-clothing",
+      "runtimeLessonId": "daily-3",
+      "sourceTargetSha256": "sha256:21d8ec45dc1fe2c4e1044c3741f6d38d9b980a13ee35ec2e11b77ff039480ff5",
+      "reviewedTargetSha256": "sha256:396f0ade48c8591de72f1832312d70a2bb34009eef43e868b0b75f96c4ee6a70",
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-2"
+        }
+      ],
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00019"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00023"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00034"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00040"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00065"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00089"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00116"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00117"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00157"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00174"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00255"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00278"
+        }
+      ],
+      "payload": {
+        "unitId": "daily",
+        "title": "Mua sắm và quần áo",
+        "chineseTitle": "购物和衣服",
+        "objective": "Hỏi giá, đánh giá đắt rẻ và trao đổi khi mua quần áo.",
+        "minutes": 26,
+        "xp": 130,
+        "wordIds": [
+          "hsk-vocab-00019",
+          "hsk-vocab-00023",
+          "hsk-vocab-00034",
+          "hsk-vocab-00040",
+          "hsk-vocab-00065",
+          "hsk-vocab-00089",
+          "hsk-vocab-00116",
+          "hsk-vocab-00117",
+          "hsk-vocab-00157",
+          "hsk-vocab-00174",
+          "hsk-vocab-00255",
+          "hsk-vocab-00278"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ]
+      },
+      "payloadSha256": "sha256:fd379716ae3bf65a0a82ca1d3ab8cdc874f1bfd7b4b9efba37d5742d9a8c71be"
+    },
+    {
+      "authoringLessonId": "hsk1-daily-life:04-health-and-home",
+      "runtimeLessonId": "daily-4",
+      "sourceTargetSha256": "sha256:610e8d1ef2d6838979bb0745dfa426d9f73bdf76b42f119337d6206f685ba600",
+      "reviewedTargetSha256": "sha256:461c19bd5b6f85b342b9a505afe205632ab2cfb35aa5a181c71ceb69f7d07baf",
+      "prerequisites": [
+        {
+          "itemType": "lesson",
+          "itemId": "daily-3"
+        }
+      ],
+      "knowledgeItems": [
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00012"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00052"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00100"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00183"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00256"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00257"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00260"
+        },
+        {
+          "itemType": "lexeme",
+          "itemId": "hsk-vocab-00295"
+        }
+      ],
+      "payload": {
+        "unitId": "daily",
+        "title": "Sức khỏe và đồ dùng trong nhà",
+        "chineseTitle": "健康和房间",
+        "objective": "Nói tình trạng sức khỏe và xác định đồ vật cơ bản trong phòng.",
+        "minutes": 24,
+        "xp": 120,
+        "wordIds": [
+          "hsk-vocab-00012",
+          "hsk-vocab-00052",
+          "hsk-vocab-00100",
+          "hsk-vocab-00183",
+          "hsk-vocab-00256",
+          "hsk-vocab-00257",
+          "hsk-vocab-00260",
+          "hsk-vocab-00295"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "grammar",
+          "speaking"
+        ]
+      },
+      "payloadSha256": "sha256:e35d40afdef823529937547110204d4e51d239ae89c02f9f1eb988a262db104f"
+    }
+  ],
+  "counts": {
+    "lexemes": 54,
+    "lessons": 4,
+    "runtimeCatalogItems": 58
+  },
+  "policy": {
+    "aiAssistedReview": true,
+    "humanReviewed": false,
+    "learnerVisibleBeforeAuthorization": false,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "integritySha256": "sha256:38fe5b1b8f6bc69289492d763898ed8dc111906cb2fc92f51dbd1f369e162a13"
+}

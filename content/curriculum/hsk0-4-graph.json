@@ -6,7 +6,7 @@
     "sourcePdfSha256": "sha256:ec74ce0439e837bbb15154be13e747ae798903b2fd3a331629df6c3b45504941",
     "inventorySha256": "sha256:6e3550bdfbca871b3d650e21350e753e219d878ef5369c0753cc39952cad58d3"
   },
-  "runtimeContentVersion": "foundation-2026.07.7",
+  "runtimeContentVersion": "foundation-2026.07.8",
   "coverageClaims": {
     "hsk1": false,
     "hsk2": false,
@@ -374,28 +374,28 @@
       "lessonId": "daily-1",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00086", "hsk-vocab-00263", "hsk-vocab-00170", "hsk-vocab-00173"],
+      "officialVocabularyIds": ["hsk-vocab-00046", "hsk-vocab-00047", "hsk-vocab-00060", "hsk-vocab-00085", "hsk-vocab-00104", "hsk-vocab-00105", "hsk-vocab-00164", "hsk-vocab-00180", "hsk-vocab-00258", "hsk-vocab-00261", "hsk-vocab-00262", "hsk-vocab-00268"],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-2",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00021", "hsk-vocab-00077", "hsk-vocab-00017", "hsk-vocab-00221"],
+      "officialVocabularyIds": ["hsk-vocab-00008", "hsk-vocab-00009", "hsk-vocab-00016", "hsk-vocab-00017", "hsk-vocab-00021", "hsk-vocab-00050", "hsk-vocab-00051", "hsk-vocab-00072", "hsk-vocab-00077", "hsk-vocab-00084", "hsk-vocab-00090", "hsk-vocab-00125", "hsk-vocab-00126", "hsk-vocab-00127", "hsk-vocab-00151", "hsk-vocab-00159", "hsk-vocab-00192", "hsk-vocab-00193", "hsk-vocab-00216", "hsk-vocab-00224", "hsk-vocab-00274", "hsk-vocab-00300"],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-3",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00094", "hsk-vocab-00071", "hsk-vocab-00099"],
+      "officialVocabularyIds": ["hsk-vocab-00019", "hsk-vocab-00023", "hsk-vocab-00034", "hsk-vocab-00040", "hsk-vocab-00065", "hsk-vocab-00089", "hsk-vocab-00116", "hsk-vocab-00117", "hsk-vocab-00157", "hsk-vocab-00174", "hsk-vocab-00255", "hsk-vocab-00278"],
       "unmappedRuntimeWordIds": []
     },
     {
       "lessonId": "daily-4",
       "unitId": "hsk1-daily-life",
       "mappingState": "partial",
-      "officialVocabularyIds": ["hsk-vocab-00190", "hsk-vocab-00099", "hsk-vocab-00221"],
+      "officialVocabularyIds": ["hsk-vocab-00012", "hsk-vocab-00052", "hsk-vocab-00100", "hsk-vocab-00183", "hsk-vocab-00256", "hsk-vocab-00257", "hsk-vocab-00260", "hsk-vocab-00295"],
       "unmappedRuntimeWordIds": []
     },
     {

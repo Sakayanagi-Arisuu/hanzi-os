@@ -2,34 +2,34 @@
   "schemaVersion": 1,
   "catalogId": "hsk0-4-local-runtime-2026.07.1",
   "compilerVersion": "hsk-runtime-curriculum-compiler-v2",
-  "runtimeContentVersion": "foundation-2026.07.7",
-  "importIdempotencyKey": "sha256:03ec46365a5a8019bc581a36cb233a439b70e2162a203f59d8bda382e9968f9b",
+  "runtimeContentVersion": "foundation-2026.07.8",
+  "importIdempotencyKey": "sha256:5bf8a2077281e02e6b9713361c6095f8bb40125bf16d006221152fc612bd81b1",
   "sourceBindings": {
     "curriculumGraph": {
       "graphId": "hsk0-4-graduation-2026.07.2",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:57e654e9e4ce5dfbd7bc64ef9157d2344a49c8af24a52508a1a20e406555b495"
+      "sha256": "sha256:77dff3080780927732394f0f9d3a65a79c95c68fc73d9d6a8fc6750e937297bb"
     },
     "unitReleasePolicy": {
       "policyId": "hsk0-4-unit-release-policy-2026.07.1",
       "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-      "sha256": "sha256:6a20f6dae8d06c60136bf9e0483e6040cad918c6261ca3ba736f3e84c6fc828e"
+      "sha256": "sha256:2bb00ede5222da185b15d33dea7f3b8e4afa238e9aa9226a87232cd0e607bbfb"
     },
     "contentRegistry": {
       "relativePath": "content/registry.json",
-      "sha256": "sha256:72a1170f1edc1e246f77ac6e7bfbc159a76b380f87d3986c043213346df140aa"
+      "sha256": "sha256:328c38ed071dabea9704c227dcc63c876f663c05b10db427cdb988246bfff0ee"
     },
     "contentPackage": {
-      "packageId": "foundation-2026.07.7",
-      "contentVersion": "foundation-2026.07.7",
+      "packageId": "foundation-2026.07.8",
+      "contentVersion": "foundation-2026.07.8",
       "contentSchemaVersion": 6,
       "itemCatalogSchemaVersion": 4,
-      "manifestRelativePath": "content/packages/foundation-2026.07.7/manifest.json",
-      "manifestSha256": "sha256:b653cf9527aff7899c06573b1dddab3e317d5ebb81d5c195d07ec88a6ca4b250",
-      "itemCatalogRelativePath": "content/packages/foundation-2026.07.7/item-catalog.json",
-      "itemCatalogSha256": "sha256:ec9826e68b5f9991e7359eeafc6ca4b29843147f1b886576d36ef9fa5c686e0e",
-      "runtimeCatalogRelativePath": "content/packages/foundation-2026.07.7/runtime-catalog.json",
-      "runtimeCatalogSha256": "sha256:6f15dcf6bf8da81033dd3d3b1d21fed100b1189b94f3385959f82c013c5ca432"
+      "manifestRelativePath": "content/packages/foundation-2026.07.8/manifest.json",
+      "manifestSha256": "sha256:958e47aa3a91895ff0da8235a71fad678680fc7c0204fe65bd3c95d09c72a648",
+      "itemCatalogRelativePath": "content/packages/foundation-2026.07.8/item-catalog.json",
+      "itemCatalogSha256": "sha256:049ace864778206ee6f80929f89730823bf9b3bfc47aec89bfab32aad2fc0911",
+      "runtimeCatalogRelativePath": "content/packages/foundation-2026.07.8/runtime-catalog.json",
+      "runtimeCatalogSha256": "sha256:fb2c906ba2c85ee35650a598755923b67a2defe94ebb9af2bae75c158c326ffb"
     }
   },
   "policy": {
@@ -78,7 +78,8 @@
       ],
       "unitIds": [
         "hsk1-personal-exchange",
-        "hsk1-time-place-events"
+        "hsk1-time-place-events",
+        "hsk1-daily-life"
       ],
       "placementPolicy": "verified-placement-or-prerequisite-completion",
       "runtimeState": "partial",
@@ -92,10 +93,14 @@
         "hsk1-time-place-events-03-week-and-day-parts",
         "hsk1-time-place-events-04-clock-and-duration",
         "hsk1-time-place-events-05-location",
-        "hsk1-time-place-events-06-weather-and-residence"
+        "hsk1-time-place-events-06-weather-and-residence",
+        "daily-1",
+        "daily-2",
+        "daily-3",
+        "daily-4"
       ],
-      "releasedLessonCount": 10,
-      "mappedOfficialVocabularyCount": 93,
+      "releasedLessonCount": 14,
+      "mappedOfficialVocabularyCount": 147,
       "targetContentAvailable": true,
       "completionClaim": false
     },
@@ -232,126 +237,173 @@
       ],
       "releasedLessonCount": 6,
       "mappedOfficialVocabularyCount": 81
+    },
+    {
+      "unitId": "hsk1-daily-life",
+      "pathId": "hsk1",
+      "sequence": 3,
+      "title": "Ăn uống, mua sắm và sức khỏe",
+      "objective": "Hoàn thành lượt thoại ngắn về nhu cầu hằng ngày, giá cả và sức khỏe.",
+      "prerequisiteUnitIds": [
+        "hsk1-time-place-events"
+      ],
+      "runtimeState": "partial",
+      "lessonIds": [
+        "daily-1",
+        "daily-2",
+        "daily-3",
+        "daily-4"
+      ],
+      "releasedLessonCount": 4,
+      "mappedOfficialVocabularyCount": 54
     }
   ],
   "lessonMappings": [
     {
       "lessonId": "boot-1",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk0-tone-basics",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "boot-2",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk0-first-interaction",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "boot-3",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk0-pronunciation-control",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "boot-4",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk0-pronunciation-control",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "survival-1",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "survival-2",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 4
     },
     {
       "lessonId": "survival-3",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "survival-4",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-personal-exchange",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 3
     },
     {
       "lessonId": "hsk1-time-place-events-01-numbers",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 15
     },
     {
       "lessonId": "hsk1-time-place-events-02-calendar",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 12
     },
     {
       "lessonId": "hsk1-time-place-events-03-week-and-day-parts",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 11
     },
     {
       "lessonId": "hsk1-time-place-events-04-clock-and-duration",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 10
     },
     {
       "lessonId": "hsk1-time-place-events-05-location",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 24
     },
     {
       "lessonId": "hsk1-time-place-events-06-weather-and-residence",
-      "lessonVersion": "foundation-2026.07.7",
+      "lessonVersion": "foundation-2026.07.8",
       "unitId": "hsk1-time-place-events",
       "releaseState": "beta",
       "mappedOfficialVocabularyCount": 9
+    },
+    {
+      "lessonId": "daily-1",
+      "lessonVersion": "foundation-2026.07.8",
+      "unitId": "hsk1-daily-life",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 12
+    },
+    {
+      "lessonId": "daily-2",
+      "lessonVersion": "foundation-2026.07.8",
+      "unitId": "hsk1-daily-life",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 22
+    },
+    {
+      "lessonId": "daily-3",
+      "lessonVersion": "foundation-2026.07.8",
+      "unitId": "hsk1-daily-life",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 12
+    },
+    {
+      "lessonId": "daily-4",
+      "lessonVersion": "foundation-2026.07.8",
+      "unitId": "hsk1-daily-life",
+      "releaseState": "beta",
+      "mappedOfficialVocabularyCount": 8
     }
   ],
   "counts": {
     "paths": 5,
-    "units": 5,
+    "units": 6,
     "mappedSourceUnits": 7,
-    "releaseAuthorizedUnits": 5,
-    "eligibleUnits": 5,
+    "releaseAuthorizedUnits": 6,
+    "eligibleUnits": 6,
     "sourceReleasedLessons": 20,
-    "eligibleLessons": 14,
-    "mappedLessons": 14,
-    "releaseAuthorizationBlockedLessons": 6,
-    "releaseAuthorizationBlockedUnits": 2,
+    "eligibleLessons": 18,
+    "mappedLessons": 18,
+    "releaseAuthorizationBlockedLessons": 2,
+    "releaseAuthorizationBlockedUnits": 1,
     "prerequisiteBlockedAuthorizedLessons": 0,
     "prerequisiteBlockedAuthorizedUnits": 0,
     "pathsWithTargetContent": 2,
     "pathsWithoutTargetContent": 3,
     "completionClaims": 0,
-    "authoringUnitMetadataExcluded": 13,
+    "authoringUnitMetadataExcluded": 12,
     "draftArtifactsImported": 0
   },
-  "integritySha256": "sha256:3d37737c25ce1fdcf70d4bfa563a0d0cf91d0731c923168c4bc8f753e34ec482"
+  "integritySha256": "sha256:4208c1486d118a147f7e8c1febecb3c35066e4c2fdf93029b91d92b799ae7d49"
 }
