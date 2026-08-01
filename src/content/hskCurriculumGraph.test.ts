@@ -14,9 +14,9 @@ describe("HSK0-4 curriculum graph contract", () => {
     expect(result.summary).toEqual({
       paths: 5,
       units: 18,
-      releasedLessons: 44,
-      mappedLessons: 44,
-      officialVocabularyWithLessonMapping: 300,
+      releasedLessons: 84,
+      mappedLessons: 84,
+      officialVocabularyWithLessonMapping: 498,
     });
   });
 

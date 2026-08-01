@@ -136,6 +136,7 @@ describe("lesson release and prerequisite policy", () => {
   it("uses distinct active slices and never backfills an unpublished target", () => {
     expect(getReleasedLessonProgress(makeState({}, "zero")).totalCount).toBe(4);
     expect(getReleasedLessonProgress(makeState({}, "hsk1")).totalCount).toBe(44);
+    expect(getReleasedLessonProgress(makeState({}, "hsk2")).totalCount).toBe(84);
     expect(getReleasedLessonProgress(makeState({}, "hsk4"))).toEqual({
       completedCount: 0,
       totalCount: 0,

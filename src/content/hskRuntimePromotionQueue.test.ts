@@ -24,9 +24,9 @@ describe("HSK1-4 runtime promotion queue", () => {
       blueprintApprovedLessons: 0,
       reviewBatches: 509,
       approvalRecords: 0,
-      learnerVisibleTargetLessons: 40,
+      learnerVisibleTargetLessons: 80,
       prerequisiteBlockedSourceLessons: 0,
-      unavailablePaths: 3,
+      unavailablePaths: 2,
       completionClaims: 0,
       promotionReadyUnits: 0,
     });
@@ -42,19 +42,19 @@ describe("HSK1-4 runtime promotion queue", () => {
       pendingReview: level.levelReview.pendingBatchCount,
     }))).toEqual([
       { pathId: "hsk1", authored: 40, visible: 40, pendingReview: 97 },
-      { pathId: "hsk2", authored: 40, visible: 0, pendingReview: 122 },
+      { pathId: "hsk2", authored: 40, visible: 40, pendingReview: 122 },
       { pathId: "hsk3", authored: 55, visible: 0, pendingReview: 122 },
       { pathId: "hsk4", authored: 78, visible: 0, pendingReview: 168 },
     ]);
   });
 
-  it("selects the earliest prerequisite-present HSK2 gap without promoting it", () => {
+  it("selects the earliest prerequisite-present HSK3 gap without promoting it", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
 
     expect(report.nextPromotionCandidate).toEqual({
-      pathId: "hsk2",
-      unitId: "hsk2-situational-dialogue",
-      authoredLessonBlueprintCount: 20,
+      pathId: "hsk3",
+      unitId: "hsk3-paragraph-input",
+      authoredLessonBlueprintCount: 25,
       authoredPracticeItemCount: 0,
       audioDependentItemCount: 0,
       sourceReleasedLessonCount: 0,
@@ -77,17 +77,17 @@ describe("HSK1-4 runtime promotion queue", () => {
     });
   });
 
-  it("opens only the first HSK2 prerequisite closure while keeping upper content hidden", () => {
+  it("opens only the first HSK3 prerequisite closure while keeping upper content hidden", () => {
     const { report } = loadHskRuntimePromotionQueueBundle();
     const upperUnits = report.levels
-      .filter((level: { pathId: string }) => level.pathId !== "hsk1")
+      .filter((level: { pathId: string }) => ["hsk3", "hsk4"].includes(level.pathId))
       .flatMap((level: { units: Array<{
         prerequisiteRuntimeClosurePresent: boolean;
         blockers: string[];
         learnerVisibleLessonIds: string[];
       }> }) => level.units);
 
-    expect(upperUnits).toHaveLength(9);
+    expect(upperUnits).toHaveLength(6);
     expect(upperUnits[0].prerequisiteRuntimeClosurePresent).toBe(true);
     expect(upperUnits[0].blockers).not.toContain(
       "PREREQUISITE_RUNTIME_CLOSURE_MISSING",

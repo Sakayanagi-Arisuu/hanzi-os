@@ -103,8 +103,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
 
     expect(report.currentCoverage.vocabulary).toMatchObject({
       officialTotal: 2000,
-      runtimeTotal: 316,
-      runtimeMapped: 315,
+      runtimeTotal: 516,
+      runtimeMapped: 515,
       unmatchedRuntime: [{
         runtimeId: "yuenan",
         simplified: "越南",
@@ -142,13 +142,67 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
           officialPinyin: "yíxià",
         },
         {
+          runtimeId: "hsk-vocab-00312",
+          simplified: "不错",
+          runtimePinyin: "bùcuò",
+          officialPinyin: "búcuò",
+        },
+        {
+          runtimeId: "hsk-vocab-00356",
+          simplified: "后面",
+          runtimePinyin: "hòumian",
+          officialPinyin: "hòumiàn",
+        },
+        {
+          runtimeId: "hsk-vocab-00361",
+          simplified: "回来",
+          runtimePinyin: "huílai",
+          officialPinyin: "huílái",
+        },
+        {
+          runtimeId: "hsk-vocab-00362",
+          simplified: "回去",
+          runtimePinyin: "huíqu",
+          officialPinyin: "huíqù",
+        },
+        {
+          runtimeId: "hsk-vocab-00418",
+          simplified: "起来",
+          runtimePinyin: "qǐlai",
+          officialPinyin: "qǐlái",
+        },
+        {
+          runtimeId: "hsk-vocab-00451",
+          simplified: "网上",
+          runtimePinyin: "wǎngshàng",
+          officialPinyin: "wǎngshang",
+        },
+        {
+          runtimeId: "hsk-vocab-00458",
+          simplified: "下来",
+          runtimePinyin: "xiàlai",
+          officialPinyin: "xiàlái",
+        },
+        {
+          runtimeId: "hsk-vocab-00471",
+          simplified: "一会儿",
+          runtimePinyin: "yīhuìr",
+          officialPinyin: "yíhuìr",
+        },
+        {
+          runtimeId: "hsk-vocab-00473",
+          simplified: "一起",
+          runtimePinyin: "yīqǐ",
+          officialPinyin: "yìqǐ",
+        },
+        {
           runtimeId: "xuesheng",
           simplified: "学生",
           runtimePinyin: "xuésheng",
           officialPinyin: "xuéshēng",
         },
       ],
-      coveragePercent: 15.75,
+      coveragePercent: 25.75,
     });
     expect(report.currentCoverage.recognitionCharacters).toMatchObject({
       officialTotal: 1096,
@@ -161,8 +215,8 @@ describe("pinned official HSK1-4 syllabus inventory", () => {
       tasks: 0,
       topics: 0,
       grammarRows: 0,
-      officialVocabularyWithLessonMapping: 300,
-      runtimeLessonsMapped: 44,
+      officialVocabularyWithLessonMapping: 498,
+      runtimeLessonsMapped: 84,
     });
     expect(report.currentCoverage.authoringScope.hsk2).toEqual({
       units: 3,

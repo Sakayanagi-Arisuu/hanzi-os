@@ -3,8 +3,9 @@ import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   HSK1_LEVEL_CORE_RELATIVE_PATH,
-  HSK1_LEVEL_TARGET_VERSION,
 } from "../../src/content/hsk1LevelBatch.mjs";
+
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.2";
 
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";
@@ -26,7 +27,7 @@ const project = (root) => {
   }
   const projectedGraph = {
     ...graph,
-    runtimeContentVersion: HSK1_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     units: graph.units.map((unit) => unit.pathId === "hsk1"
       ? { ...unit, status: "foundation" }
       : unit),
@@ -42,22 +43,33 @@ const project = (root) => {
         officialVocabularyIds: [...lesson.payload.wordIds],
         unmappedRuntimeWordIds: [],
       })),
+      ...graph.lessonMappings.filter((mapping) => {
+        const pathId = graph.units.find(
+          (unit) => unit.unitId === mapping.unitId,
+        )?.pathId;
+        return pathId !== "hsk0" && pathId !== "hsk1";
+      }),
     ],
   };
-  const hsk0UnitIds = new Set(projectedGraph.units
-    .filter((unit) => unit.pathId === "hsk0")
-    .map((unit) => unit.unitId));
   const projectedRelease = {
     ...release,
-    runtimeContentVersion: HSK1_LEVEL_TARGET_VERSION,
+    runtimeContentVersion: CURRENT_LOCAL_STUDY_VERSION,
     units: [
-      ...release.units.filter((unit) => hsk0UnitIds.has(unit.unitId)),
+      ...release.units.filter((unit) => graph.units.find(
+        (candidate) => candidate.unitId === unit.unitId,
+      )?.pathId === "hsk0"),
       ...projectedGraph.units
         .filter((unit) => unit.pathId === "hsk1")
         .map((unit) => ({
           unitId: unit.unitId,
           lessonIds: hsk1LessonIdsByUnit.get(unit.unitId) ?? [],
         })),
+      ...release.units.filter((unit) => {
+        const pathId = graph.units.find(
+          (candidate) => candidate.unitId === unit.unitId,
+        )?.pathId;
+        return pathId !== "hsk0" && pathId !== "hsk1";
+      }),
     ],
   };
   return { graph: projectedGraph, release: projectedRelease };

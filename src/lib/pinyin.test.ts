@@ -26,6 +26,13 @@ describe("numbered pinyin", () => {
     );
   });
 
+  it("normalizes dictionary-style neutral r suffixes into Erhua syllables", () => {
+    const syllables = parseNumberedPinyin("nan2hai2r5");
+    expect(formatMarkedPinyin(syllables)).toBe("nánháir");
+    expect(syllables.map((syllable) => syllable.numbered).join(""))
+      .toBe("nan2hair2");
+  });
+
   it("extracts the longest valid initial", () => {
     expect(splitPinyinSyllable("zhong")).toEqual({ initial: "zh", final: "ong" });
     expect(splitPinyinSyllable("an")).toEqual({ initial: "", final: "an" });

@@ -12,6 +12,7 @@ export const HSK1_LEVEL_RICH_RELATIVE_PATH =
   "content/runtime/hsk1-level-rich-lessons.json";
 export const HSK1_LEVEL_PACKAGE_INPUT_DIRECTORY =
   "content/runtime/hsk1-level-package-input";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.2";
 
 const PATHS = {
   scope: "content/curriculum/hsk1-scope.json",
@@ -931,12 +932,15 @@ export const projectHsk1LevelRichLessons = async (
     source.root,
     "content/curriculum/hsk0-4-local-study-authorizations.json",
   );
-  const authorizedLessonIds = new Set(
-    authorization.authorizations?.flatMap((item) => item.lessonIds) ?? [],
-  );
+  const hsk1Authorizations = authorization.authorizations?.filter(
+    (item) => item.unitId.startsWith("hsk1-"),
+  ) ?? [];
+  const authorizedLessonIds = new Set(hsk1Authorizations.flatMap(
+    (item) => item.lessonIds,
+  ));
   if (
-    authorization.runtimeContentVersion !== HSK1_LEVEL_TARGET_VERSION
-    || authorization.authorizations?.length !== 6
+    authorization.runtimeContentVersion !== CURRENT_LOCAL_STUDY_VERSION
+    || hsk1Authorizations.length !== 6
     || authorizedLessonIds.size !== 40
     || core.lessons.some((lesson) =>
       !authorizedLessonIds.has(lesson.runtimeLessonId)
@@ -1105,8 +1109,8 @@ export const projectHsk1LevelRichLessons = async (
   }
   const payload = {
     schemaVersion: 1,
-    presentationId: "hsk1-level-rich-lessons-2026.08.1",
-    contentVersion: HSK1_LEVEL_TARGET_VERSION,
+    presentationId: "hsk1-level-rich-lessons-2026.08.2",
+    contentVersion: CURRENT_LOCAL_STUDY_VERSION,
     level: "HSK1",
     state: "authorized-for-personal-local-study",
     disclosure: {

@@ -5,7 +5,7 @@ import {
 } from "./richLessonContent";
 
 describe("learner-facing rich lesson adapter", () => {
-  it("exposes only the locally authorized HSK1 presentation", () => {
+  it("exposes the locally authorized HSK1 presentation", () => {
     const lesson = getRichLessonContent(
       "hsk1-time-place-events-02-calendar",
     );
@@ -22,6 +22,29 @@ describe("learner-facing rich lesson adapter", () => {
       tasks: [expect.objectContaining({ id: "hsk1-task-02" })],
     });
     expect(RICH_LESSON_DISCLOSURE.reviewVi).toContain("AI");
+  });
+
+  it("exposes all three HSK2 lesson modes through the shared rich UI", () => {
+    expect(getRichLessonContent(
+      "hsk2-person-events-environment-lesson-01",
+    )).toMatchObject({
+      dialogue: expect.arrayContaining([
+        expect.objectContaining({ hanzi: "你个子很高，你小时候也这么高吗？" }),
+      ]),
+      topics: expect.arrayContaining([
+        expect.objectContaining({ id: "hsk2-topic-001" }),
+      ]),
+      tasks: expect.arrayContaining([
+        expect.objectContaining({ id: "hsk2-task-01" }),
+      ]),
+    });
+    expect(getRichLessonContent(
+      "hsk2-reference-description-comparison-lesson-01",
+    )?.grammar).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: "hsk2-grammar-row-001" }),
+    ]));
+    expect(getRichLessonContent("hsk2-dictation-lesson-01")?.characters)
+      .toHaveLength(13);
   });
 
   it("exposes rich dialogue, grammar and tasks for personal exchange", () => {

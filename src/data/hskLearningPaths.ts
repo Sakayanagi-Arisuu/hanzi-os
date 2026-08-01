@@ -122,9 +122,9 @@ export const HSK_LEARNING_PATHS = [
     title: "Đời sống và chuỗi câu",
     description:
       "Hội thoại tình huống, aspect và bổ ngữ nền, sentence building và dictation ngắn.",
-    availability: "planned",
+    availability: "foundation",
     availabilityNote:
-      "Blueprint đã được định nghĩa; chưa có content package HSK2 được phát hành.",
+      "40 bài local đã phủ inventory HSK2; level check 60 câu vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
     skillWeights: {
       pronunciation: 0.08,
       listening: 0.19,

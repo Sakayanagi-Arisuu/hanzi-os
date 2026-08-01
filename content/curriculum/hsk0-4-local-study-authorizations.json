@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "authorizationId": "hsk0-4-local-study-authorizations-2026.08.1",
+  "authorizationId": "hsk0-4-local-study-authorizations-2026.08.2",
   "profileId": "hsk0-4-personal-study-2026.07.1",
-  "runtimeContentVersion": "foundation-2026.08.1",
+  "runtimeContentVersion": "foundation-2026.08.2",
   "scope": "personal-local-study-runtime-only",
   "sourceBindings": [
     {
@@ -21,24 +21,34 @@
       "sha256": "sha256:11cc97ca9ccb5ea512e05a52735f0afba302904a827f946fda16828016ec6073"
     },
     {
+      "id": "hsk2LevelReview",
+      "relativePath": "content/review/hsk2-level-batch-local-study-review.json",
+      "sha256": "sha256:1d2a401beabe764aa1ae36cac423ef3947ed304d4f1f4be71b9ee8ca0296a062"
+    },
+    {
+      "id": "hsk2LevelCore",
+      "relativePath": "content/runtime/hsk2-level-core-projection.json",
+      "sha256": "sha256:5dcac3da1c6191f1a2f93b87497ef6e8f1004b48e917e486ddde0b7ab9c13102"
+    },
+    {
       "id": "curriculumGraph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:c3b1bcc0c9e27006b91cf955eaa51cba62f98cd77094a391d88ee66d3319989c"
+      "sha256": "sha256:f26baaaf198ce382ae56d2ccafe24ea2aae9e07514834645abf14f94a8240f1c"
     },
     {
       "id": "unitReleasePolicy",
       "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-      "sha256": "sha256:219dbd4df9519bc7d735abfb62fb48080f91120567783ea3fb81262892672cee"
+      "sha256": "sha256:0c14a45126711da9b6cd1f035276e56473520a72a771914d3e77855d6b7d440d"
     },
     {
       "id": "packageManifest",
-      "relativePath": "content/packages/foundation-2026.08.1/manifest.json",
-      "sha256": "sha256:2be3f74a383eb2aa37118712c617e019800b5bbb343459d6724ed23f9a564a33"
+      "relativePath": "content/packages/foundation-2026.08.2/manifest.json",
+      "sha256": "sha256:7860dfe995f03374a64f2d1b45325fd27a21190459fb02a91c17fe504617d37e"
     },
     {
       "id": "packageItemCatalog",
-      "relativePath": "content/packages/foundation-2026.08.1/item-catalog.json",
-      "sha256": "sha256:350dec57a0867f885f49bb68455ffa7b06002f33528fdfd0f10b004e8c5930d0"
+      "relativePath": "content/packages/foundation-2026.08.2/item-catalog.json",
+      "sha256": "sha256:f943fcfa42020b3a80762268ff6ee8c6db3b721d9eba1b7c87a54c14b563966c"
     }
   ],
   "authorizations": [
@@ -58,8 +68,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.1",
-      "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -95,8 +105,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.1",
-      "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -128,8 +138,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.1",
-      "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -156,8 +166,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.1",
-      "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -191,8 +201,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.1",
-      "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -237,8 +247,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.1",
-      "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -247,6 +257,123 @@
           "lesson": 15,
           "character": 246,
           "characterPractice": 492
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
+    },
+    {
+      "unitId": "hsk2-situational-dialogue",
+      "lessonIds": [
+        "hsk2-person-events-environment-lesson-01",
+        "hsk2-person-events-environment-lesson-02",
+        "hsk2-person-events-environment-lesson-03",
+        "hsk2-person-events-environment-lesson-04",
+        "hsk2-person-events-environment-lesson-05",
+        "hsk2-daily-needs-family-lesson-01",
+        "hsk2-daily-needs-family-lesson-02",
+        "hsk2-daily-needs-family-lesson-03",
+        "hsk2-daily-needs-family-lesson-04",
+        "hsk2-daily-needs-family-lesson-05",
+        "hsk2-travel-leisure-lesson-01",
+        "hsk2-travel-leisure-lesson-02",
+        "hsk2-travel-leisure-lesson-03",
+        "hsk2-travel-leisure-lesson-04",
+        "hsk2-travel-leisure-lesson-05",
+        "hsk2-study-work-culture-lesson-01",
+        "hsk2-study-work-culture-lesson-02",
+        "hsk2-study-work-culture-lesson-03",
+        "hsk2-study-work-culture-lesson-04",
+        "hsk2-study-work-culture-lesson-05"
+      ],
+      "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
+      "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
+      "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 1011,
+        "sourceTargetTypeCounts": {
+          "lesson": 20,
+          "vocabulary": 200,
+          "vocabularyPractice": 600,
+          "dialogueTurn": 120,
+          "task": 17,
+          "topic": 34,
+          "guidedRoleplay": 20
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
+    },
+    {
+      "unitId": "hsk2-sentence-chains",
+      "lessonIds": [
+        "hsk2-reference-description-comparison-lesson-01",
+        "hsk2-reference-description-comparison-lesson-02",
+        "hsk2-reference-description-comparison-lesson-03",
+        "hsk2-reference-description-comparison-lesson-04",
+        "hsk2-aspect-time-experience-lesson-01",
+        "hsk2-aspect-time-experience-lesson-02",
+        "hsk2-complements-and-motion-lesson-01",
+        "hsk2-complements-and-motion-lesson-02",
+        "hsk2-clause-linking-lesson-01",
+        "hsk2-clause-linking-lesson-02"
+      ],
+      "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
+      "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
+      "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 160,
+        "sourceTargetTypeCounts": {
+          "lesson": 10,
+          "grammar": 75,
+          "grammarPractice": 75
+        },
+        "aiAssistedReviewDisclosed": true,
+        "humanReviewed": false,
+        "measurementEligible": false,
+        "masteryEligible": false
+      }
+    },
+    {
+      "unitId": "hsk2-short-text-production",
+      "lessonIds": [
+        "hsk2-dictation-lesson-01",
+        "hsk2-dictation-lesson-02",
+        "hsk2-dictation-lesson-03",
+        "hsk2-sentence-reconstruction-lesson-01",
+        "hsk2-sentence-reconstruction-lesson-02",
+        "hsk2-sentence-reconstruction-lesson-03",
+        "hsk2-guided-message-lesson-01",
+        "hsk2-guided-message-lesson-02",
+        "hsk2-picture-description-lesson-01",
+        "hsk2-picture-description-lesson-02"
+      ],
+      "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
+      "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
+      "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
+      "packageId": "foundation-2026.08.2",
+      "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+      "authorizationState": "authorized-for-personal-local-study",
+      "presentation": {
+        "authorizationState": "authorized-for-personal-local-study",
+        "sourceTargetCount": 489,
+        "sourceTargetTypeCounts": {
+          "lesson": 10,
+          "character": 125,
+          "characterPractice": 250,
+          "productionPrompt": 104
         },
         "aiAssistedReviewDisclosed": true,
         "humanReviewed": false,
@@ -265,5 +392,5 @@
     "grantsProductionEligibility": false,
     "sitesDeploymentAuthorized": false
   },
-  "authorizationSha256": "sha256:f653624733ccb7d28cc5a86e8df0c4a0abbae6e1470c6faa921c0b5e9b310e40"
+  "authorizationSha256": "sha256:cab7e7b8a06c30a2368ef6939c756633ee9fbc21d33a7d8038c1d208d7418a14"
 }

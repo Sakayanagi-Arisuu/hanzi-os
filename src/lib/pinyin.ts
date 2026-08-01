@@ -94,7 +94,9 @@ export const splitPinyinSyllable = (spelling: string) => {
 };
 
 export const parseNumberedPinyin = (numberedPinyin: string): MandarinSyllable[] => {
-  const compact = numberedPinyin.replace(/[\s'’-]/gu, "");
+  const compact = numberedPinyin
+    .replace(/[\s'’-]/gu, "")
+    .replace(/([A-Za-züÜvV:]+)([1-5])r5/gu, "$1r$2");
   const matches = [...compact.matchAll(NUMBERED_SYLLABLE)];
   const consumed = matches.map((match) => match[0]).join("");
   if (!matches.length || consumed.toLocaleLowerCase("en") !== compact.toLocaleLowerCase("en")) {

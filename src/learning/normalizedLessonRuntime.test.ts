@@ -303,7 +303,7 @@ describe("normalized lesson server-form materializer", () => {
       }
     }
     expect(reusedPresentationCount).toBeGreaterThan(0);
-  });
+  }, 30_000);
 
   it("does not expose feedback text or a typed-recall answer in presentation", async () => {
     const serverForm = formFor(

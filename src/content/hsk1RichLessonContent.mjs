@@ -27,7 +27,7 @@ export const HSK1_RICH_LESSON_CONTENT_ID =
   "hsk1-time-place-events-rich-lessons-2026.07.1";
 
 const UNIT_ID = "hsk1-time-place-events";
-const CONTENT_VERSION = "foundation-2026.08.1";
+const CONTENT_VERSION = "foundation-2026.08.2";
 const SOURCE_PROJECTION_VERSION = "foundation-2026.07.7";
 const SOURCE_PATHS = {
   communicative: HSK1_COMMUNICATIVE_UNIT_PACKS_RELATIVE_PATH,

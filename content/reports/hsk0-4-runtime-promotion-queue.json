@@ -5,12 +5,12 @@
     {
       "id": "graph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:c3b1bcc0c9e27006b91cf955eaa51cba62f98cd77094a391d88ee66d3319989c"
+      "sha256": "sha256:f26baaaf198ce382ae56d2ccafe24ea2aae9e07514834645abf14f94a8240f1c"
     },
     {
       "id": "runtime",
       "relativePath": "content/runtime/hsk0-4-runtime-catalog.json",
-      "sha256": "sha256:4b316f3c5f1c05436b8e7d57593ffd74f292b5087b59e623a7eb607ef43da3ec"
+      "sha256": "sha256:91b1407130f57e1884c449416c6be8116e5e2aac8a8c6e0fb02f7e7abc6035cb"
     },
     {
       "id": "hsk1Scope",
@@ -101,9 +101,9 @@
     "blueprintApprovedLessons": 0,
     "reviewBatches": 509,
     "approvalRecords": 0,
-    "learnerVisibleTargetLessons": 40,
+    "learnerVisibleTargetLessons": 80,
     "prerequisiteBlockedSourceLessons": 0,
-    "unavailablePaths": 3,
+    "unavailablePaths": 2,
     "completionClaims": 0,
     "promotionReadyUnits": 0
   },
@@ -355,7 +355,7 @@
     {
       "pathId": "hsk2",
       "officialExamLevel": 2,
-      "runtimeState": "unavailable",
+      "runtimeState": "partial",
       "completionClaim": false,
       "authoredLessonBlueprintCount": 40,
       "blueprintApprovedLessonCount": 0,
@@ -367,14 +367,14 @@
         "approvalRecordCount": 0,
         "releaseEligible": false
       },
-      "learnerVisibleTargetLessonCount": 0,
-      "sourceReleasedLessonCount": 0,
+      "learnerVisibleTargetLessonCount": 40,
+      "sourceReleasedLessonCount": 40,
       "prerequisiteBlockedSourceLessonCount": 0,
       "units": [
         {
           "unitId": "hsk2-situational-dialogue",
           "sequence": 1,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk1-character-foundation"
           ],
@@ -383,20 +383,61 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 0,
           "audioDependentItemCount": 0,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
+          "sourceReleasedLessonIds": [
+            "hsk2-person-events-environment-lesson-01",
+            "hsk2-person-events-environment-lesson-02",
+            "hsk2-person-events-environment-lesson-03",
+            "hsk2-person-events-environment-lesson-04",
+            "hsk2-person-events-environment-lesson-05",
+            "hsk2-daily-needs-family-lesson-01",
+            "hsk2-daily-needs-family-lesson-02",
+            "hsk2-daily-needs-family-lesson-03",
+            "hsk2-daily-needs-family-lesson-04",
+            "hsk2-daily-needs-family-lesson-05",
+            "hsk2-travel-leisure-lesson-01",
+            "hsk2-travel-leisure-lesson-02",
+            "hsk2-travel-leisure-lesson-03",
+            "hsk2-travel-leisure-lesson-04",
+            "hsk2-travel-leisure-lesson-05",
+            "hsk2-study-work-culture-lesson-01",
+            "hsk2-study-work-culture-lesson-02",
+            "hsk2-study-work-culture-lesson-03",
+            "hsk2-study-work-culture-lesson-04",
+            "hsk2-study-work-culture-lesson-05"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk2-person-events-environment-lesson-01",
+            "hsk2-person-events-environment-lesson-02",
+            "hsk2-person-events-environment-lesson-03",
+            "hsk2-person-events-environment-lesson-04",
+            "hsk2-person-events-environment-lesson-05",
+            "hsk2-daily-needs-family-lesson-01",
+            "hsk2-daily-needs-family-lesson-02",
+            "hsk2-daily-needs-family-lesson-03",
+            "hsk2-daily-needs-family-lesson-04",
+            "hsk2-daily-needs-family-lesson-05",
+            "hsk2-travel-leisure-lesson-01",
+            "hsk2-travel-leisure-lesson-02",
+            "hsk2-travel-leisure-lesson-03",
+            "hsk2-travel-leisure-lesson-04",
+            "hsk2-travel-leisure-lesson-05",
+            "hsk2-study-work-culture-lesson-01",
+            "hsk2-study-work-culture-lesson-02",
+            "hsk2-study-work-culture-lesson-03",
+            "hsk2-study-work-culture-lesson-04",
+            "hsk2-study-work-culture-lesson-05"
+          ],
           "prerequisiteRuntimeClosurePresent": true,
-          "promotionState": "blocked",
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         },
         {
           "unitId": "hsk2-sentence-chains",
           "sequence": 2,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk2-situational-dialogue"
           ],
@@ -405,21 +446,41 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 0,
           "audioDependentItemCount": 0,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
-          "promotionState": "blocked",
+          "sourceReleasedLessonIds": [
+            "hsk2-reference-description-comparison-lesson-01",
+            "hsk2-reference-description-comparison-lesson-02",
+            "hsk2-reference-description-comparison-lesson-03",
+            "hsk2-reference-description-comparison-lesson-04",
+            "hsk2-aspect-time-experience-lesson-01",
+            "hsk2-aspect-time-experience-lesson-02",
+            "hsk2-complements-and-motion-lesson-01",
+            "hsk2-complements-and-motion-lesson-02",
+            "hsk2-clause-linking-lesson-01",
+            "hsk2-clause-linking-lesson-02"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk2-reference-description-comparison-lesson-01",
+            "hsk2-reference-description-comparison-lesson-02",
+            "hsk2-reference-description-comparison-lesson-03",
+            "hsk2-reference-description-comparison-lesson-04",
+            "hsk2-aspect-time-experience-lesson-01",
+            "hsk2-aspect-time-experience-lesson-02",
+            "hsk2-complements-and-motion-lesson-01",
+            "hsk2-complements-and-motion-lesson-02",
+            "hsk2-clause-linking-lesson-01",
+            "hsk2-clause-linking-lesson-02"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         },
         {
           "unitId": "hsk2-short-text-production",
           "sequence": 3,
-          "graphState": "planned",
+          "graphState": "foundation",
           "prerequisiteUnitIds": [
             "hsk2-sentence-chains"
           ],
@@ -428,15 +489,35 @@
           "blueprintApprovedLessonCount": 0,
           "authoredPracticeItemCount": 0,
           "audioDependentItemCount": 0,
-          "sourceReleasedLessonIds": [],
-          "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
-          "promotionState": "blocked",
+          "sourceReleasedLessonIds": [
+            "hsk2-dictation-lesson-01",
+            "hsk2-dictation-lesson-02",
+            "hsk2-dictation-lesson-03",
+            "hsk2-sentence-reconstruction-lesson-01",
+            "hsk2-sentence-reconstruction-lesson-02",
+            "hsk2-sentence-reconstruction-lesson-03",
+            "hsk2-guided-message-lesson-01",
+            "hsk2-guided-message-lesson-02",
+            "hsk2-picture-description-lesson-01",
+            "hsk2-picture-description-lesson-02"
+          ],
+          "learnerVisibleLessonIds": [
+            "hsk2-dictation-lesson-01",
+            "hsk2-dictation-lesson-02",
+            "hsk2-dictation-lesson-03",
+            "hsk2-sentence-reconstruction-lesson-01",
+            "hsk2-sentence-reconstruction-lesson-02",
+            "hsk2-sentence-reconstruction-lesson-03",
+            "hsk2-guided-message-lesson-01",
+            "hsk2-guided-message-lesson-02",
+            "hsk2-picture-description-lesson-01",
+            "hsk2-picture-description-lesson-02"
+          ],
+          "prerequisiteRuntimeClosurePresent": true,
+          "promotionState": "learner-visible-partial",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
-            "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
-            "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
+            "LESSON_REVIEW_INCOMPLETE"
           ]
         }
       ]
@@ -474,12 +555,11 @@
           "audioDependentItemCount": 0,
           "sourceReleasedLessonIds": [],
           "learnerVisibleLessonIds": [],
-          "prerequisiteRuntimeClosurePresent": false,
+          "prerequisiteRuntimeClosurePresent": true,
           "promotionState": "blocked",
           "blockers": [
             "LEVEL_HUMAN_REVIEW_INCOMPLETE",
             "LESSON_REVIEW_INCOMPLETE",
-            "PREREQUISITE_RUNTIME_CLOSURE_MISSING",
             "RUNTIME_PACKAGE_MAPPING_INCOMPLETE"
           ]
         },
@@ -623,9 +703,9 @@
     }
   ],
   "nextPromotionCandidate": {
-    "pathId": "hsk2",
-    "unitId": "hsk2-situational-dialogue",
-    "authoredLessonBlueprintCount": 20,
+    "pathId": "hsk3",
+    "unitId": "hsk3-paragraph-input",
+    "authoredLessonBlueprintCount": 25,
     "authoredPracticeItemCount": 0,
     "audioDependentItemCount": 0,
     "sourceReleasedLessonCount": 0,

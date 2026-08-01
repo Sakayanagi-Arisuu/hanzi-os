@@ -1,4 +1,5 @@
 import hsk1LevelRichLessonContentJson from "../../content/runtime/hsk1-level-rich-lessons.json";
+import hsk2LevelRichLessonContentJson from "../../content/runtime/hsk2-level-rich-lessons.json";
 import { CONTENT_VERSION } from "../data/curriculum";
 
 export type RichDialogueTurn = {
@@ -56,11 +57,30 @@ export type RichLessonContent = {
   characters: RichLessonCharacter[];
 };
 
-type RichLessonArtifact = typeof hsk1LevelRichLessonContentJson & {
+type RichLessonArtifact = {
+  schemaVersion: number;
+  contentVersion: string;
+  state: string;
+  disclosure: {
+    reviewVi: string;
+    audioVi: string;
+    levelCheckVi: string;
+  };
+  policy: {
+    learnerVisibleForPersonalLocalStudy: boolean;
+    humanReviewed: boolean;
+    measurementEligible: boolean;
+    masteryEligible: boolean;
+    productionEligible: boolean;
+    sitesAuthorized: boolean;
+  };
   lessons: RichLessonContent[];
 };
 
-const artifact = hsk1LevelRichLessonContentJson as unknown as RichLessonArtifact;
+const artifacts = [
+  hsk1LevelRichLessonContentJson,
+  hsk2LevelRichLessonContentJson,
+] as unknown as RichLessonArtifact[];
 
 const isLocallyAuthorized = (artifact: RichLessonArtifact) =>
   artifact.schemaVersion === 1
@@ -74,12 +94,16 @@ const isLocallyAuthorized = (artifact: RichLessonArtifact) =>
   && artifact.policy.sitesAuthorized === false;
 
 const lessonById = new Map(
-  isLocallyAuthorized(artifact)
+  artifacts.flatMap((artifact) => isLocallyAuthorized(artifact)
     ? artifact.lessons.map((lesson) => [lesson.lessonId, lesson] as const)
-    : [],
+    : []),
 );
 
-export const RICH_LESSON_DISCLOSURE = hsk1LevelRichLessonContentJson.disclosure;
+export const RICH_LESSON_DISCLOSURE = {
+  ...hsk1LevelRichLessonContentJson.disclosure,
+  reviewVi:
+    "Nội dung được Codex rà soát bằng AI cho mục đích tự học local; humanReviewed=false.",
+};
 
 export const getRichLessonContent = (
   lessonId: string,

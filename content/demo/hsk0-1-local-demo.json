@@ -7,35 +7,35 @@
     "schemaVersion": 1,
     "catalogId": "hsk0-4-local-runtime-2026.07.1",
     "compilerVersion": "hsk-runtime-curriculum-compiler-v2",
-    "runtimeContentVersion": "foundation-2026.08.1",
-    "importIdempotencyKey": "sha256:0ca359b2afcc9c588398977b2075437e0c2f5ce5c175db513742aab5ed69bb71",
-    "integritySha256": "sha256:36a2e9ff2b977c6f67e88001dd73b598dd8cb45006b9778e572de148a130b240",
+    "runtimeContentVersion": "foundation-2026.08.2",
+    "importIdempotencyKey": "sha256:086b93c55e9611d0ea04c5a553c048f1753a6f72837c7e4123976bc118a1678b",
+    "integritySha256": "sha256:b78d9861a4fbbfce5c5f3bf685dc3e54bd114e4cc1f8338938f432b08352ec8d",
     "sourceBindings": {
       "curriculumGraph": {
         "graphId": "hsk0-4-graduation-2026.07.2",
         "relativePath": "content/curriculum/hsk0-4-graph.json",
-        "sha256": "sha256:c3b1bcc0c9e27006b91cf955eaa51cba62f98cd77094a391d88ee66d3319989c"
+        "sha256": "sha256:f26baaaf198ce382ae56d2ccafe24ea2aae9e07514834645abf14f94a8240f1c"
       },
       "unitReleasePolicy": {
         "policyId": "hsk0-4-unit-release-policy-2026.07.1",
         "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-        "sha256": "sha256:219dbd4df9519bc7d735abfb62fb48080f91120567783ea3fb81262892672cee"
+        "sha256": "sha256:0c14a45126711da9b6cd1f035276e56473520a72a771914d3e77855d6b7d440d"
       },
       "contentRegistry": {
         "relativePath": "content/registry.json",
-        "sha256": "sha256:c4ef43aa9fc3548fdc65c5dfdfbf38c60d68ebd2edbe58f0816da8f6245bdd03"
+        "sha256": "sha256:fb67ad8264121234b43bbf0596c039d824afa96618ee0e330a91a76b5d2467bc"
       },
       "contentPackage": {
-        "packageId": "foundation-2026.08.1",
-        "contentVersion": "foundation-2026.08.1",
+        "packageId": "foundation-2026.08.2",
+        "contentVersion": "foundation-2026.08.2",
         "contentSchemaVersion": 6,
         "itemCatalogSchemaVersion": 4,
-        "manifestRelativePath": "content/packages/foundation-2026.08.1/manifest.json",
-        "manifestSha256": "sha256:8eba35806eef428b26f8731fa197879a5427458e1b8a5f0719ccd3ce6e74fb45",
-        "itemCatalogRelativePath": "content/packages/foundation-2026.08.1/item-catalog.json",
-        "itemCatalogSha256": "sha256:8a40281285e56b2555ff7a9dc108b5f52b78f2d019fdcbf410bdc0cefcbf56ee",
-        "runtimeCatalogRelativePath": "content/packages/foundation-2026.08.1/runtime-catalog.json",
-        "runtimeCatalogSha256": "sha256:46858060a5776ab0a17d4ff572f7b65cacb4fef336a17bc040fe6e1b5d0d7285"
+        "manifestRelativePath": "content/packages/foundation-2026.08.2/manifest.json",
+        "manifestSha256": "sha256:c3674ff91d7e421155ec93abf14226774ee4f9eb1d44278585df8416536282c9",
+        "itemCatalogRelativePath": "content/packages/foundation-2026.08.2/item-catalog.json",
+        "itemCatalogSha256": "sha256:e39f27f3f7914fa25b864decb00486b7c375a981fa8266bcb55e41238b147dca",
+        "runtimeCatalogRelativePath": "content/packages/foundation-2026.08.2/runtime-catalog.json",
+        "runtimeCatalogSha256": "sha256:28135b52126ebe1d1bb4d3d3778e63a86fd98a90f427db80f0f85388badc2ddf"
       }
     }
   },
@@ -98,7 +98,6 @@
     ],
     "blockedLessonIds": [],
     "unavailablePathIds": [
-      "hsk2",
       "hsk3",
       "hsk4"
     ]

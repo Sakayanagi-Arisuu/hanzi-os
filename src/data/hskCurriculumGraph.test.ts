@@ -22,7 +22,11 @@ describe("learner HSK0-4 curriculum view", () => {
     expect(hsk1.targetLessonIds).toHaveLength(40);
     expect(hsk1.bridgeLessonIds).toEqual(hsk0.targetLessonIds);
     expect(hsk1.visibleLessonIds).toHaveLength(44);
-    for (const planned of [hsk2, hsk3, hsk4]) {
+    expect(hsk2.targetLessonIds).toHaveLength(40);
+    expect(hsk2.bridgeLessonIds).toHaveLength(44);
+    expect(hsk2.visibleLessonIds).toHaveLength(84);
+    expect(hsk2.targetContentAvailable).toBe(true);
+    for (const planned of [hsk3, hsk4]) {
       expect(planned.targetLessonIds).toEqual([]);
       expect(planned.visibleLessonIds).toEqual([]);
       expect(planned.targetContentAvailable).toBe(false);

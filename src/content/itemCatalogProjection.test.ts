@@ -31,7 +31,7 @@ describe("schema-v2 item catalog projection", () => {
     });
 
     expect(catalog.schemaVersion).toBe(2);
-    expect(LESSONS).toHaveLength(44);
+    expect(LESSONS).toHaveLength(84);
     expect(authoring.lessons).toHaveLength(24);
     expect(
       authoring.lessons.filter((lesson) => lesson.releaseState === "draft"),

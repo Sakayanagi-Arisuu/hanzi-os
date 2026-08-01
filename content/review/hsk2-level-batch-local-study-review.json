@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "reviewId": "hsk2-level-batch-local-study-review-2026.08.2",
+  "profileId": "hsk0-4-personal-study-2026.07.1",
+  "level": "HSK2",
+  "targetContentVersion": "foundation-2026.08.2",
+  "reviewedAt": "2026-08-01T12:30:00.000Z",
+  "state": "ai-reviewed-for-personal-local-study",
+  "reviewer": {
+    "reviewerId": "openai-codex-ai-assisted-review",
+    "reviewerKind": "ai-coding-agent",
+    "humanReviewed": false,
+    "disclosureVi": "Nội dung được Codex tự rà soát năm pass cho mục đích tự học local; chưa được người bản ngữ kiểm duyệt."
+  },
+  "sourceBindings": [
+    {
+      "id": "scope",
+      "relativePath": "content/curriculum/hsk2-scope.json",
+      "sha256": "sha256:7e9f071a15095d06fcaf32521e92bfbc46bc66a81c042d5e372b9bb20004f9dd"
+    },
+    {
+      "id": "blueprints",
+      "relativePath": "content/drafts/hsk2-lesson-blueprints-2026.07.json",
+      "sha256": "sha256:17724b4ca36b34495583c7db2f7e740d49c7462c3d449e5aaac779af7f5ec0d1"
+    },
+    {
+      "id": "vocabularyPractice",
+      "relativePath": "content/drafts/hsk2-vocabulary-practice-2026.07.json",
+      "sha256": "sha256:974127f566d617533800e9d0f3312196769ce35aff899773e7da7713894fe78d"
+    },
+    {
+      "id": "vocabulary",
+      "relativePath": "content/drafts/hsk2-vocabulary-2026.07.28.json",
+      "sha256": "sha256:8a6c2874abd463f57409c6da6f2f2da48674ca5cda9faf939c52fa84dc0fa90f"
+    },
+    {
+      "id": "characters",
+      "relativePath": "content/drafts/hsk2-character-practice-2026.07.json",
+      "sha256": "sha256:29e50329008eb8aefea960458dc98be0aa46bf22f746fdf82e308876b3c1967b"
+    },
+    {
+      "id": "grammar",
+      "relativePath": "content/drafts/hsk2-grammar-context-2026.07.json",
+      "sha256": "sha256:af2a00eefa7c1e40f30a0711102b40bb5ca70bf2f2fed90fc3385ea20f19f9fb"
+    },
+    {
+      "id": "dialogues",
+      "relativePath": "content/drafts/hsk2-situational-dialogues-2026.07.json",
+      "sha256": "sha256:07b5c1b0992ae76035b48d4f600aa69c5ce20d26b3acbafe2a18f685bf6234bd"
+    },
+    {
+      "id": "shortText",
+      "relativePath": "content/drafts/hsk2-short-text-production-2026.07.json",
+      "sha256": "sha256:b1be18996f253d505d3bb4190a43aa1592a56bc834c5753cbb233b1ca251485a"
+    },
+    {
+      "id": "assessment",
+      "relativePath": "content/drafts/hsk2-level-assessment-2026.07.json",
+      "sha256": "sha256:ef26fb9fd697eb622f080d64a3c2e3c22c0545341a42a98262784b82588680a3"
+    }
+  ],
+  "coverage": {
+    "lessons": 40,
+    "vocabulary": 200,
+    "recognitionCharacters": 125,
+    "grammarRows": 75,
+    "tasks": 17,
+    "topics": 34,
+    "dialogueTurns": 120,
+    "vocabularyPracticeItems": 600,
+    "characterPracticeItems": 250,
+    "grammarPracticeItems": 75,
+    "shortTextPromptUnits": 104,
+    "localLevelCheckObjectiveItems": 60,
+    "fullAssessmentDraftItems": 172
+  },
+  "coverageDigest": "sha256:6c2c1e032a99e7bdb65bd1c37cea6b74d4688a5fb0bcc91aa948be27e4144c41",
+  "reviewResult": {
+    "mode": "ai-assisted-self-review",
+    "aiAssistedDisclosed": true,
+    "humanReviewed": false,
+    "unresolvedIssueCount": 0,
+    "passResults": {
+      "mandarin-accuracy-and-naturalness": "passed-for-personal-local-study",
+      "pinyin-and-tone-consistency": "passed-for-personal-local-study",
+      "vietnamese-context-and-clarity": "passed-for-personal-local-study",
+      "pedagogy-rubric-and-distractors": "passed-for-personal-local-study",
+      "source-and-level-coverage": "passed-for-personal-local-study"
+    }
+  },
+  "findings": {
+    "resolved": [
+      {
+        "findingId": "hsk2-drafts-not-runtime-visible",
+        "pass": "source-and-level-coverage",
+        "resolution": "Chiếu đủ 40 blueprint và inventory HSK2 vào package local kế tiếp, không thay đổi pipeline production."
+      },
+      {
+        "findingId": "hsk2-audio-and-rubric-production-gates-open",
+        "pass": "pedagogy-rubric-and-distractors",
+        "resolution": "Giữ audio người thật và rubric chấm nói/viết ngoài phạm vi; browser TTS và self-reveal chỉ dùng luyện tập, không cấp mastery."
+      },
+      {
+        "findingId": "hsk2-level-check-source-exposed",
+        "pass": "pedagogy-rubric-and-distractors",
+        "resolution": "Chỉ dùng 60 câu objective form A như local self-check; không công bố đây là form đo lường, không cấp waiver hoặc chứng nhận."
+      }
+    ],
+    "unresolved": []
+  },
+  "claims": {
+    "readyForPersonalLocalStudyPackaging": true,
+    "browserTtsPracticeOnly": true,
+    "nativeAudio": false,
+    "measurementEligible": false,
+    "masteryEligible": false,
+    "prerequisiteWaiverEligible": false,
+    "officialHskCertification": false,
+    "productionEligible": false,
+    "sitesAuthorized": false
+  },
+  "reviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90"
+}
