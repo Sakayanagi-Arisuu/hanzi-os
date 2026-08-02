@@ -226,8 +226,8 @@ export function Hsk2LevelCheckPage() {
     return (
       <div className="assessment-intro hsk2-level-check" data-testid="hsk2-level-check-intro">
         <div className="assessment-core"><BrainCircuit size={38} /><span /></div>
-        <span className="system-kicker">HSK2 LOCAL SELF-CHECK · 60 CÂU</span>
-        <h1>Kiểm tra cuối chặng HSK2</h1>
+        <span className="system-kicker">ĐẠI KHẢO CẢNH GIỚI HSK2 · 60 CÂU</span>
+        <h1>Đại Khảo Cảnh Giới HSK2</h1>
         <p>
           Kiểm tra toàn bộ phần nghe, đọc, từ vựng và ngữ pháp đã học trong 40
           bài HSK2. Phiên đang làm được lưu trên thiết bị để bạn có thể quay lại.
@@ -235,7 +235,7 @@ export function Hsk2LevelCheckPage() {
         <div className="assessment-facts">
           <span><Gauge size={18} /><strong>25–30 phút</strong><small>thời lượng gợi ý</small></span>
           <span><BrainCircuit size={18} /><strong>60 câu</strong><small>15 nghe · 15 đọc · 15 từ · 15 ngữ pháp</small></span>
-          <span><ShieldCheck size={18} /><strong>AI self-review</strong><small>humanReviewed=false</small></span>
+          <span><ShieldCheck size={18} /><strong>Ấn Minh Bạch Nội Dung</strong><small>AI tự rà 5 pass · humanReviewed=false</small></span>
         </div>
         <p>{HSK2_LEVEL_CHECK_DISCLOSURE.listeningVi} {HSK2_LEVEL_CHECK_DISCLOSURE.resultVi}</p>
         <div className="assessment-actions">
@@ -263,8 +263,8 @@ export function Hsk2LevelCheckPage() {
     return (
       <div className="assessment-result uncalibrated-result" data-testid="hsk2-level-check-result">
         <div className="result-sigil passed"><CircleCheck size={38} /><span /></div>
-        <span className="system-kicker">HSK2 LOCAL SELF-CHECK COMPLETE</span>
-        <h1>Đã có bản đồ ôn tập HSK2</h1>
+        <span className="system-kicker">ĐẠI KHẢO HSK2 · TỰ KIỂM HOÀN TẤT</span>
+        <h1>Bản Đồ Bù Khuyết HSK2</h1>
         <div className="assessment-score"><strong>{totalCorrect}/60</strong><span> câu đúng quan sát</span></div>
         <p>{HSK2_LEVEL_CHECK_DISCLOSURE.resultVi}</p>
         <div className="mastery-skill-list">

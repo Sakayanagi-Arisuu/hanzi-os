@@ -1,15 +1,16 @@
 # Kế hoạch HANZI.OS — bản đồ án/tự học HSK0 đến HSK4
 
-Cập nhật: 01/08/2026
+Cập nhật: 02/08/2026
 
 Production thương mại, CMS và Sites nằm ngoài critical path cho đến khi người
 dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1-B5 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
-HSK1-4 có trên Path và shared rich Lesson UI, bốn level check chạy end-to-end,
-package handoff `.08.5` đã qua performance/audit mà không giả làm chứng nhận.
+Nền local-first ổn định. B1-B6 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
+HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
+package handoff `.08.5` có lớp trải nghiệm Hệ Thống Thức Tỉnh mà không giả làm
+chứng nhận.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
@@ -119,6 +120,28 @@ fail-closed. Full check/E2E/mobile/keyboard/reduced-motion/restore dùng evidenc
 ranh giới B4 và chỉ các luồng B5 bị tác động được targeted smoke lại. Không còn
 batch local nào mở; Sites/deployment vẫn do người dùng thực hiện cuối cùng.
 
+### B6 — Hệ Thống Thức Tỉnh
+
+**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Toàn bộ app dùng art
+direction Huyền Ngọc Thức Tỉnh: không gian nhiều lớp, chuyển cảnh, nghi lễ, tinh
+đồ và bảng chỉ số. Tên chức năng được chuyển sang ngôn ngữ “hệ thống” nhưng luôn
+giữ nghĩa học tập đi kèm; prerequisite, persistence, evidence và mastery policy
+không đổi.
+
+- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible;
+- Cảnh giới hoạt động, Chức hệ theo Thiên Mệnh và danh hiệu hành trình không suy
+  XP thành mastery hoặc chứng nhận;
+- nghi lễ một lần chỉ mở tại Thức Tỉnh Điện, có thể replay trong Bảng Thuộc Tính;
+- bốn mức hiệu ứng Tự động/Cân bằng/Điện ảnh/Giảm chuyển động được lưu local;
+- desktop, tablet, mobile, keyboard, focus trap và reduced-motion đã smoke;
+- full E2E ban đầu lộ lỗi overlay/thuật ngữ cũ; targeted rerun sau sửa xác nhận
+  toàn bộ 28/28 hành trình xanh;
+- bundle ceiling 797,9 KiB dưới hard ceiling 800 KiB, không thêm dependency;
+- cold onboarding được tách khỏi curriculum nặng; targeted Lighthouse sau sửa
+  đạt performance 96, accessibility 100, best-practices 100, SEO 100, LCP
+  2.000 ms, CLS 0 và TBT 154 ms;
+- Sites, production, commerce, CMS và human-review workflow vẫn nguyên trạng.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -128,7 +151,7 @@ batch local nào mở; Sites/deployment vẫn do người dùng thực hiện cu
 | C. Lộ trình HSK0-4 khác biệt | 15 | 15 | 5 path, 18 unit, blueprint/prerequisite |
 | D. Nội dung học được trong runtime | 30 | 30 | HSK0 bridge + toàn bộ HSK1-4 rich |
 | E. Assessment/mock | 10 | 10 | HSK1-4 level check E2E |
-| F. Đồ án/QA/local release | 10 | 10 | package `.08.5`, handoff, Lighthouse/audit xanh |
+| F. Đồ án/QA/local release | 10 | 10 | package `.08.5`, Hệ Thống Thức Tỉnh, handoff/QA local |
 | **Tổng** | **100** | **96** | **Sẵn sàng toàn dự án: 96%** |
 
 Trụ cột D chỉ tăng khi bài mới lên UI. Generated content, test count và số dòng

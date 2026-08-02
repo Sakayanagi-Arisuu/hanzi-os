@@ -30,6 +30,8 @@ const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
   await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
   await expect(page.getByRole("heading", { name: /Đánh thức tiếng Trung trong bạn/i })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
+  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
 };
 
 test("onboards a new learner into the released path", async ({ page }) => {
@@ -45,7 +47,7 @@ test("shows the complete HSK4 target while retaining its prerequisite bridge", a
     name: /Đánh thức một ngôn ngữ mới/i,
   })).toBeVisible();
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("radiogroup", { name: "Điểm xuất phát" })
+  await page.getByRole("radiogroup", { name: /Căn Cơ Tự Khai · điểm xuất phát/u })
     .getByRole("radio", { name: /^HSK4/u })
     .click();
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
@@ -62,7 +64,7 @@ test("does not bypass a released HSK1 lesson prerequisite", async ({ page }) => 
     name: /Đánh thức một ngôn ngữ mới/i,
   })).toBeVisible();
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("radiogroup", { name: "Điểm xuất phát" })
+  await page.getByRole("radiogroup", { name: /Căn Cơ Tự Khai · điểm xuất phát/u })
     .getByRole("radio", { name: /^HSK1/u })
     .click();
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
@@ -70,7 +72,7 @@ test("does not bypass a released HSK1 lesson prerequisite", async ({ page }) => 
 
   await page.goto("/lesson/daily-1");
   await expect(page.getByRole("heading", {
-    name: "Bài tự luyện cục bộ này chưa mở",
+    name: "Thử Luyện này chưa khai mở",
   })).toBeVisible();
 });
 

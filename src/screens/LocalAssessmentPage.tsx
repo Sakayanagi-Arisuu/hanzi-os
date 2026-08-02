@@ -269,9 +269,9 @@ export function LocalAssessmentPage() {
     return (
       <div className="assessment-intro">
         <div className="assessment-core"><Crosshair size={38} /><span /></div>
-        <span className="system-kicker">LOCAL PROTOTYPE · UNCALIBRATED</span>
-        <h1>Khảo nghiệm căn cơ</h1>
-        <p>Form local này chỉ tự kiểm tra độ chính xác quan sát để gợi ý điểm luyện trên thiết bị. Nó không phải evidence server, chưa được hiệu chỉnh bằng pilot, không bỏ qua prerequisite và không suy diễn nói hoặc viết.</p>
+        <span className="system-kicker">KHẢO NGHIỆM CĂN CƠ · CHƯA HIỆU CHỈNH</span>
+        <h1>Khảo Nghiệm Căn Cơ</h1>
+        <p>Form trên thiết bị chỉ đo Chỉ Số Quan Sát để gợi ý điểm luyện. Nó chưa được hiệu chỉnh bằng pilot, không bỏ qua Điều Kiện Khai Mở và không suy diễn năng lực nói hoặc viết.</p>
         <div className="assessment-facts">
           <span><Gauge size={18} /><strong>4–6 phút</strong><small>thời lượng</small></span>
           <span><BrainCircuit size={18} /><strong>10 câu</strong><small>đa năng lực</small></span>
@@ -296,10 +296,10 @@ export function LocalAssessmentPage() {
     return (
       <div className="assessment-result">
         <div className="result-sigil passed"><CircleCheck size={38} /><span /></div>
-        <span className="system-kicker">LOCAL SCREENING COMPLETE · CALIBRATION PENDING</span>
-        <h1>Đã tạo gợi ý luyện tập</h1>
+        <span className="system-kicker">KHẢO NGHIỆM HOÀN TẤT · CHƯA HIỆU CHỈNH</span>
+        <h1>Bản Đồ Bù Khuyết đã sẵn sàng</h1>
         <div className="assessment-score"><strong>{summary.overall.correct}/{summary.overall.n}</strong><span>mục đo được</span></div>
-        <p>{formatObservedEstimate(summary.overall)}. Đây là khoảng độ chính xác quan sát, không phải calibrated mastery hay chứng nhận HSK.</p>
+        <p>{formatObservedEstimate(summary.overall)}. Đây là Khoảng Quan Sát, không phải mastery đã hiệu chỉnh hay chứng nhận HSK.</p>
         <div className="mastery-skill-list">
           {(Object.entries(summary.skills) as Array<[
             keyof typeof screeningSkillLabels,
@@ -349,7 +349,7 @@ export function LocalAssessmentPage() {
         {current.audio ? (
           <button className="sound-orb" type="button" onClick={() => speakMandarin(current.audio!)} aria-label="Nghe câu hỏi"><Volume2 size={37} /><span /></button>
         ) : <h1>{current.prompt}</h1>}
-        {current.audio && <p>Nhấn để nghe lại · TTS tổng hợp chỉ dùng luyện tập, không tính vào ước lượng</p>}
+        {current.audio && <p>Nhấn để nghe lại · Âm Mẫu Tổng Hợp · TTS chỉ dùng luyện tập, không tính vào ước lượng</p>}
         <div
           className="assessment-options"
           role="radiogroup"

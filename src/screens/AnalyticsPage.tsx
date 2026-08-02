@@ -144,9 +144,9 @@ export function AnalyticsPage() {
     <div className="content-page analytics-page">
       <header className="page-hero analytics-hero">
         <div>
-          <span className="system-kicker"><BarChart3 size={15} /> OBSERVED EVIDENCE · CALIBRATION PENDING</span>
-          <h1>Thiên Cơ Kính</h1>
-          <p>Hiển thị số bằng chứng cùng khoảng Wilson 95% theo từng kỹ năng cho mục tiêu “{goal.label}”; đây là mô tả quan sát, chưa phải calibrated mastery hay chứng nhận trình độ.</p>
+          <span className="system-kicker"><BarChart3 size={15} /> THẤT TRỤ · TÍN HIỆU QUAN SÁT</span>
+          <h1>Thất Trụ Học Tập</h1>
+          <p>Hiển thị số bằng chứng cùng khoảng Wilson 95% theo từng kỹ năng cho Thiên Mệnh “{goal.label}”. Đây là mô tả quan sát, chưa phải độ tinh thông đã hiệu chuẩn hay chứng nhận trình độ.</p>
         </div>
         <div className="analytics-rank">
           <span>RANK</span><strong>{String(level).padStart(2, "0")}</strong><small>{state.xp} XP tương tác cục bộ</small>
@@ -163,7 +163,7 @@ export function AnalyticsPage() {
       <div className="analytics-grid">
         <section className="activity-chart-panel">
           <header className="section-heading">
-            <div><span>SEVEN DAY SIGNAL</span><h2>Hoạt động 7 ngày</h2></div>
+            <div><span>NHỊP HỆ THỐNG · 7 NGÀY</span><h2>Hoạt động 7 ngày</h2></div>
             <span className="live-indicator"><i /> LIVE PROFILE</span>
           </header>
           <div className="activity-chart">
@@ -183,7 +183,7 @@ export function AnalyticsPage() {
 
         <section className="mastery-map-panel">
           <header className="section-heading">
-            <div><span>SKILL EVIDENCE GRAPH</span><h2>Bản đồ bằng chứng</h2></div>
+            <div><span>THẤT TRỤ · BẰNG CHỨNG</span><h2>Bản đồ bằng chứng</h2></div>
             <CircleGauge size={21} />
           </header>
           <div className="mastery-map">
@@ -207,7 +207,7 @@ export function AnalyticsPage() {
 
       <section className="priority-protocol">
         <header className="section-heading">
-          <div><span>ADAPTIVE DIRECTIVE</span><h2>Ưu tiên phiên kế tiếp</h2></div>
+          <div><span>CHỈ THỊ THÍCH ỨNG</span><h2>Ưu tiên phiên kế tiếp</h2></div>
           <Sparkles size={21} />
         </header>
         <div className="priority-list">

@@ -21,6 +21,8 @@ const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await expect(page.getByRole("heading", {
     name: /Đánh thức tiếng Trung trong bạn/i,
   })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
+  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
 };
 
 const assessmentResume = async (
@@ -83,7 +85,7 @@ test("resumes anonymous screening without turning it into mastery or an unlock",
   }
 
   await expect(page.getByText(
-    "LOCAL SCREENING COMPLETE · CALIBRATION PENDING",
+    "KHẢO NGHIỆM HOÀN TẤT · CHƯA HIỆU CHỈNH",
     { exact: true },
   )).toBeVisible();
   await expect(page.getByRole("link", {

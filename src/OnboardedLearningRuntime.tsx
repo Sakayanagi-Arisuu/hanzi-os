@@ -3,13 +3,16 @@ import App from "./App";
 import {
   NormalizedLearningProjectionProvider,
 } from "./store/NormalizedLearningProjectionStore";
+import { SystemUiProvider } from "./system/systemUiPreferences";
 
 export function OnboardedLearningRuntime() {
   return (
-    <NormalizedLearningProjectionProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </NormalizedLearningProjectionProvider>
+    <SystemUiProvider>
+      <NormalizedLearningProjectionProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </NormalizedLearningProjectionProvider>
+    </SystemUiProvider>
   );
 }

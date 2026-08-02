@@ -148,10 +148,10 @@ export function LocalMistakesPage() {
     if (isCorrect) {
       notify(
         hint.used
-          ? "Đáp án đúng sau khi mở gợi ý chỉ được ghi là practice local; chuỗi không tăng."
+          ? "Đáp án đúng sau khi mở gợi ý chỉ được ghi là luyện tập trên thiết bị; Chuỗi Phá Giải không tăng."
           : attempt.correctedStreak >= 2
-            ? "Đã đóng lỗi trong practice local bằng hai lần tự gọi đúng liên tiếp."
-            : "Đã hoàn thành lượt tự gọi đầu tiên trong practice local.",
+            ? "Đã phá giải Nghịch Cảnh bằng hai lần tự gọi đúng liên tiếp trên thiết bị."
+            : "Đã hoàn thành lượt tự gọi đầu tiên trên thiết bị.",
       );
     }
   };
@@ -172,8 +172,8 @@ export function LocalMistakesPage() {
           <ShieldCheck size={43} />
           <span />
         </div>
-        <span className="system-kicker">LOCAL PRACTICE · CLEAR</span>
-        <h1>Không còn lỗi practice local đang mở</h1>
+        <span className="system-kicker">NGHỊCH CẢNH · ĐÃ THANH LỌC</span>
+        <h1>Không còn Nghịch Cảnh đang mở</h1>
         <p>
           Trạng thái này chỉ được lưu trên thiết bị và không phải mastery hoặc
           authority của tài khoản.
@@ -200,24 +200,24 @@ export function LocalMistakesPage() {
       <header className="page-hero mistakes-hero">
         <div>
           <span className="system-kicker">
-            <Swords size={15} /> LOCAL PRACTICE · NO MASTERY
+            <Swords size={15} /> NGHỊCH CẢNH LỤC · LUYỆN TRÊN THIẾT BỊ
           </span>
           <h1>Nghịch Cảnh Lục</h1>
           <p>
-            Đây là practice lưu trên thiết bị. Kết quả, XP tương tác và trạng
-            thái đóng lỗi không phải mastery hoặc authority của tài khoản.
+            Đây là luyện tập lưu trên thiết bị. Kết quả, XP tương tác và trạng
+            thái phá giải không phải mastery hoặc tiến độ tài khoản đã xác nhận.
           </p>
         </div>
         <div className="mistake-hero-stats">
           <span><strong>{unresolved.length}</strong><small>đang mở</small></span>
-          <span><strong>{resolved.length}</strong><small>đã đóng local</small></span>
+          <span><strong>{resolved.length}</strong><small>đã phá giải</small></span>
         </div>
       </header>
 
       <div className="mistake-layout">
         <aside className="mistake-index">
           <header className="section-heading">
-            <div><span>LOCAL ANOMALIES</span><h2>Lỗi practice ưu tiên</h2></div>
+            <div><span>TÍN HIỆU CẦN KHẮC PHỤC</span><h2>Nghịch Cảnh ưu tiên</h2></div>
             <ShieldX size={20} />
           </header>
           <div className="mistake-list">
@@ -244,7 +244,7 @@ export function LocalMistakesPage() {
         {mistake && (
           <section className="correction-arena">
             <header>
-              <span><Swords size={16} /> LOCAL REMEDIATION NODE</span>
+              <span><Swords size={16} /> NÚT PHÁ GIẢI TRÊN THIẾT BỊ</span>
               <strong>{mistake.correctedStreak}/2 lượt tự gọi đúng</strong>
             </header>
             <div className="correction-prompt">

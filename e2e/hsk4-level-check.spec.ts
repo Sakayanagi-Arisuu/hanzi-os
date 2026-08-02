@@ -116,7 +116,7 @@ test("shows the complete HSK4 path and completes its 72-item local level check w
   )).toBeVisible();
   const card = page.getByTestId("hsk4-level-check-card");
   await expect(card).toBeVisible();
-  await card.getByRole("link", { name: /Mở level check/u }).click();
+  await card.getByRole("link", { name: /Bước vào Đại Khảo/u }).click();
 
   await expect(page.getByTestId("hsk4-level-check-intro")).toBeVisible();
   await page.getByRole("button", { name: /Bắt đầu tự kiểm tra/u }).click();

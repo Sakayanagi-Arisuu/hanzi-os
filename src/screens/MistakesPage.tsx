@@ -14,10 +14,10 @@ const LocalMistakesPage = lazy(async () => ({
 const pending = (
   <div className="lesson-state-screen" role="status" aria-live="polite">
     <BrainCircuit size={44} />
-    <h1>Đang xác nhận tài khoản sửa lỗi</h1>
+    <h1>Đang mở Nghịch Cảnh Lục</h1>
     <p>
-      Danh tính phải được xác định trước khi chọn practice local hoặc
-      remediation có thẩm quyền từ máy chủ.
+      Hệ thống đang chọn đúng phiên phá giải trên thiết bị hoặc từ tài khoản
+      đã xác thực.
     </p>
   </div>
 );

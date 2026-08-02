@@ -39,7 +39,7 @@ export function DictionaryPage() {
     <div className="content-page dictionary-page">
       <header className="page-hero dictionary-hero">
         <div>
-          <span className="system-kicker"><BookOpen size={15} /> LEXICON MATRIX · LOCAL INDEX</span>
+          <span className="system-kicker"><BookOpen size={15} /> TÀNG TỰ KHỐ · CHỈ MỤC TRÊN THIẾT BỊ</span>
           <h1>Tàng Tự Khố</h1>
           <p>Tra chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt; lưu trực tiếp vào lịch ôn cá nhân.</p>
         </div>
@@ -77,7 +77,7 @@ export function DictionaryPage() {
           <aside className="dictionary-entry">
             <div className="entry-scanline" aria-hidden="true" />
             <header>
-              <span>LEXICON · CLOSED-ALPHA BETA</span>
+              <span>HỒ SƠ TỪ MỤC · NỘI DUNG ĐÃ PHÁT HÀNH</span>
               <div>
                 <h1>{state.profile.script === "traditional" ? selected.traditional : selected.simplified}</h1>
                 {selected.simplified !== selected.traditional && <small>{selected.simplified} / {selected.traditional}</small>}
@@ -98,7 +98,7 @@ export function DictionaryPage() {
               <h2>{selected.meaning}</h2>
             </div>
             <div className="entry-example">
-              <span>EXAMPLE CIRCUIT</span>
+              <span>NGỮ CẢNH DẪN Ý</span>
               <strong>{selected.example}</strong>
               <small>{selected.examplePinyin}</small>
               <p>{selected.exampleMeaning}</p>

@@ -172,11 +172,11 @@ const finishHsk1TargetOnboarding = async (page: Page) => {
   await expect(page.getByRole("heading", {
     name: /Đánh thức một ngôn ngữ mới/i,
   })).toBeVisible();
-  await page.getByRole("radiogroup", { name: "Mục tiêu thức tỉnh" })
+  await page.getByRole("radiogroup", { name: "Thiên Mệnh, mục tiêu học" })
     .getByRole("radio", { name: /^Hướng tới HSK/u })
     .click();
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("radiogroup", { name: "Điểm xuất phát" })
+  await page.getByRole("radiogroup", { name: /Căn Cơ Tự Khai · điểm xuất phát/u })
     .getByRole("radio", { name: /^HSK1/u })
     .click();
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
@@ -184,6 +184,8 @@ const finishHsk1TargetOnboarding = async (page: Page) => {
   await expect(page.getByRole("heading", {
     name: /Đánh thức tiếng Trung trong bạn/i,
   })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
+  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
 };
 
 const expectLessonNodeState = async (
@@ -205,7 +207,7 @@ const expectLessonNodeState = async (
 const startLesson = async (page: Page, lessonId: string) => {
   await page.goto(`/lesson/${lessonId}`);
   await restoredStateExpect(page.getByText(
-    /Âm thanh trong bài là TTS tổng hợp của trình duyệt/i,
+    /TTS của trình duyệt chỉ dùng để luyện nghe và nhại/i,
   )).toBeVisible();
   await page.getByRole("button", {
     name: /Bước vào Thử Luyện/i,
@@ -323,7 +325,7 @@ const finishLiveLesson = async (
           name: "Hoàn tất thử luyện",
         }).click();
         await expect(page.getByRole("heading", {
-          name: "Đã hoàn tất tự kiểm cục bộ",
+          name: "Thử Luyện đã thông qua",
         })).toBeVisible();
         return;
       }
@@ -741,7 +743,7 @@ test("walks the real local UI from the HSK0 bridge into rich HSK1 study", async 
   for (const lessonId of demo.scenario.stillLockedLessonIds) {
     await page.goto(`/lesson/${lessonId}`);
     await expect(page.getByRole("heading", {
-      name: "Bài tự luyện cục bộ này chưa mở",
+      name: "Thử Luyện này chưa khai mở",
     })).toBeVisible();
   }
   for (const lessonId of demo.scenario.blockedLessonIds) {

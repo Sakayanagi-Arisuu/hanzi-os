@@ -77,14 +77,14 @@ export function PathPage() {
     <div className="content-page path-page">
       <header className="page-hero compact-hero">
         <div>
-          <span className="system-kicker"><Map size={15} /> {selectedPath.label} · PERSONAL LEARNING GRAPH</span>
+          <span className="system-kicker"><Map size={15} /> {selectedPath.label} · TINH ĐỒ TIÊN QUYẾT</span>
           <h1>Thiên Lộ</h1>
           <p><strong>{selectedPath.title}.</strong> {selectedPath.description} {selectedPath.availabilityNote}</p>
-          {mode === "anonymous" && !state.diagnostic.completed && <Link className="hero-inline-action" to="/assessment">Khảo nghiệm căn cơ <ChevronRight size={16} /></Link>}
+          {mode === "anonymous" && !state.diagnostic.completed && <Link className="hero-inline-action" to="/assessment" viewTransition>Khảo nghiệm Căn Cơ <ChevronRight size={16} /></Link>}
         </div>
         <div className="path-overview">
-          <span><strong>{completedCount}</strong><small>đã hoàn tất</small></span>
-          <span><strong>{remainingCount}</strong><small>đang chờ</small></span>
+          <span><strong>{completedCount}</strong><small>Thử Luyện đã thông qua</small></span>
+          <span><strong>{remainingCount}</strong><small>đang chờ khai mở</small></span>
           <span><strong>{progress}%</strong><small>{mode === "authoritative" ? "máy chủ" : "trên máy"}</small></span>
         </div>
       </header>
@@ -119,7 +119,7 @@ export function PathPage() {
             lessonAuthority.get(item.id)?.passed === true
           ).length;
           return (
-            <section className={`course-realm realm-${unit.color}`} key={unit.id}>
+            <section className={`course-realm realm-${unit.color}`} key={unit.id} data-realm-status={completedInUnit === unit.lessons.length ? "cleared" : "active"}>
               <header className="realm-header">
                 <div className="realm-number"><span>{String(unitIndex + 1).padStart(2, "0")}</span></div>
                 <div>
@@ -129,7 +129,7 @@ export function PathPage() {
                 </div>
                 <div className="realm-completion">
                   <strong>{completedInUnit}/{unit.lessons.length}</strong>
-                  <span>nút hoàn tất</span>
+                  <span>Thử Luyện thông quan</span>
                 </div>
               </header>
 
@@ -144,7 +144,7 @@ export function PathPage() {
                         {passed ? <Check size={20} /> : locked ? <LockKeyhole size={18} /> : lessonIndex === 0 ? <Sparkles size={19} /> : <CircleDot size={18} />}
                       </span>
                       <span className="lesson-node-copy">
-                        <small>NODE {unitIndex + 1}.{lessonIndex + 1} · {lesson.chineseTitle}</small>
+                        <small>THỬ LUYỆN {unitIndex + 1}.{lessonIndex + 1} · {lesson.chineseTitle}</small>
                         <strong>{lesson.title}</strong>
                         <span>{lesson.objective}</span>
                       </span>
@@ -160,7 +160,7 @@ export function PathPage() {
                   return locked ? (
                     <div className="lesson-node locked" key={lesson.id} aria-disabled="true">{content}</div>
                   ) : (
-                    <Link className={`lesson-node ${passed ? "completed" : access?.bestScore != null ? "attempted" : ""}`} to={`/lesson/${lesson.id}`} key={lesson.id}>{content}</Link>
+                    <Link className={`lesson-node ${passed ? "completed" : access?.bestScore != null ? "attempted" : ""}`} to={`/lesson/${lesson.id}`} viewTransition key={lesson.id}>{content}</Link>
                   );
                 })}
               </div>
@@ -173,15 +173,15 @@ export function PathPage() {
         <section className="hsk-level-check-card" data-testid="hsk1-level-check-card">
           <div className="hsk-level-check-icon"><Crosshair size={28} /></div>
           <div>
-            <span className="system-kicker">LEVEL CHECK · LOCAL SELF-STUDY</span>
-            <h2>Kiểm tra cuối chặng HSK1</h2>
+            <span className="system-kicker">ĐẠI KHẢO · TỰ KIỂM TRÊN THIẾT BỊ</span>
+            <h2>Đại Khảo Cảnh Giới HSK1</h2>
             <p>
               50 câu phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ gợi ý vùng
               ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
             </p>
           </div>
-          <Link className="primary-button" to="/assessment/hsk1">
-            Mở level check <ChevronRight size={17} />
+          <Link className="primary-button" to="/assessment/hsk1" viewTransition>
+            Bước vào Đại Khảo <ChevronRight size={17} />
           </Link>
         </section>
       )}
@@ -190,15 +190,15 @@ export function PathPage() {
         <section className="hsk-level-check-card" data-testid="hsk2-level-check-card">
           <div className="hsk-level-check-icon"><Crosshair size={28} /></div>
           <div>
-            <span className="system-kicker">LEVEL CHECK · LOCAL SELF-STUDY</span>
-            <h2>Kiểm tra cuối chặng HSK2</h2>
+            <span className="system-kicker">ĐẠI KHẢO · TỰ KIỂM TRÊN THIẾT BỊ</span>
+            <h2>Đại Khảo Cảnh Giới HSK2</h2>
             <p>
               60 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
               gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
             </p>
           </div>
-          <Link className="primary-button" to="/assessment/hsk2">
-            Mở level check <ChevronRight size={17} />
+          <Link className="primary-button" to="/assessment/hsk2" viewTransition>
+            Bước vào Đại Khảo <ChevronRight size={17} />
           </Link>
         </section>
       )}
@@ -207,15 +207,15 @@ export function PathPage() {
         <section className="hsk-level-check-card" data-testid="hsk3-level-check-card">
           <div className="hsk-level-check-icon"><Crosshair size={28} /></div>
           <div>
-            <span className="system-kicker">LEVEL CHECK · LOCAL SELF-STUDY</span>
-            <h2>Kiểm tra cuối chặng HSK3</h2>
+            <span className="system-kicker">ĐẠI KHẢO · TỰ KIỂM TRÊN THIẾT BỊ</span>
+            <h2>Đại Khảo Cảnh Giới HSK3</h2>
             <p>
               54 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
               gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
             </p>
           </div>
-          <Link className="primary-button" to="/assessment/hsk3">
-            Mở level check <ChevronRight size={17} />
+          <Link className="primary-button" to="/assessment/hsk3" viewTransition>
+            Bước vào Đại Khảo <ChevronRight size={17} />
           </Link>
         </section>
       )}
@@ -224,15 +224,15 @@ export function PathPage() {
         <section className="hsk-level-check-card" data-testid="hsk4-level-check-card">
           <div className="hsk-level-check-icon"><Crosshair size={28} /></div>
           <div>
-            <span className="system-kicker">LEVEL CHECK · LOCAL SELF-STUDY</span>
-            <h2>Kiểm tra cuối chặng HSK4</h2>
+            <span className="system-kicker">ĐẠI KHẢO · TỰ KIỂM TRÊN THIẾT BỊ</span>
+            <h2>Đại Khảo Cảnh Giới HSK4</h2>
             <p>
               72 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
               gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
             </p>
           </div>
-          <Link className="primary-button" to="/assessment/hsk4">
-            Mở level check <ChevronRight size={17} />
+          <Link className="primary-button" to="/assessment/hsk4" viewTransition>
+            Bước vào Đại Khảo <ChevronRight size={17} />
           </Link>
         </section>
       )}

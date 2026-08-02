@@ -78,7 +78,7 @@ export function LessonPage() {
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <BrainCircuit size={44} />
         <h1>Đang xác nhận tài khoản học</h1>
-        <p>Danh tính phải được xác định trước khi chọn authority local hoặc server.</p>
+        <p>Hệ thống đang xác định sẽ dùng tiến độ trên thiết bị hay tiến độ tài khoản đã xác nhận.</p>
       </div>
     );
   }
@@ -257,9 +257,9 @@ function LocalLessonPage() {
     return (
       <div className="lesson-state-screen locked-screen">
         <LockKeyhole size={44} />
-        <span>LOCAL PROTOTYPE · SEQUENCE REQUIRED</span>
-        <h1>Bài tự luyện cục bộ này chưa mở</h1>
-        <p>Đạt 70% ở bài local trước để tiếp tục chuỗi prototype; đây không phải prerequisite do máy chủ xác nhận.</p>
+        <span>PHONG ẤN · CẦN THỬ LUYỆN TIÊN QUYẾT</span>
+        <h1>Thử Luyện này chưa khai mở</h1>
+        <p>Đạt 70% ở bài trước trên thiết bị để tiếp tục chuỗi học; kết quả này không thay thế tiến độ tài khoản đã xác nhận.</p>
         <Link className="primary-button" to="/path"><ArrowLeft size={17} /> Trở về Thiên Lộ</Link>
       </div>
     );
@@ -318,7 +318,7 @@ function LocalLessonPage() {
           </div>
           <div className="mastery-gate">
             <Target size={26} />
-            <span>Ngưỡng tự kiểm local</span>
+            <span>Ngưỡng Thông Qua Tự Kiểm</span>
             <strong>70%</strong>
             <small>Hiểu quy tắc rồi tự gọi lại, không học bằng đoán đáp án.</small>
           </div>
@@ -372,7 +372,7 @@ function LocalLessonPage() {
         <LessonDepthPanel lessonId={lesson.id} />
 
         <p className="synthetic-audio-note">
-          Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
+          Âm Mẫu Tổng Hợp · TTS của trình duyệt chỉ dùng để luyện nghe và nhại; không phải audio người thật hay bằng chứng phát âm.
         </p>
 
         <footer className="briefing-actions">
@@ -468,15 +468,15 @@ function LocalLessonPage() {
           {passed ? <CircleCheck size={38} /> : <RotateCcw size={38} />}
           <span />
         </div>
-        <span className="system-kicker">LOCAL PROTOTYPE · NOT SERVER EVIDENCE</span>
-        <h1>{passed ? "Đã hoàn tất tự kiểm cục bộ" : "Phiên tự luyện đã được lưu local"}</h1>
-        <p>{passed ? "Kết quả local đã vượt ngưỡng 70% và chỉ mở bước tiếp theo trong chuỗi prototype ẩn danh; tài khoản server không dùng kết quả này làm mastery." : requiredPassed ? "Các câu sai được giữ trong nhật ký local để luyện lại; chúng chưa phải evidence có thẩm quyền." : "Checkpoint thanh điệu local chưa đạt 70%. Hãy ôn phần cốt lõi rồi thử lại; không có prerequisite server nào được mở."}</p>
+        <span className="system-kicker">THỬ LUYỆN TRÊN THIẾT BỊ · TỰ KIỂM</span>
+        <h1>{passed ? "Thử Luyện đã thông qua" : "Phiên Thử Luyện đã được lưu trên thiết bị"}</h1>
+        <p>{passed ? "Kết quả đã vượt ngưỡng 70% và chỉ khai mở bước tiếp theo trong chuỗi học trên thiết bị; tài khoản không dùng kết quả này để suy mastery." : requiredPassed ? "Các câu sai được giữ trong Nghịch Cảnh Lục để luyện lại; chúng chưa phải Tín Hiệu Học Tập đã xác nhận." : "Checkpoint thanh điệu chưa đạt 70%. Hãy ôn phần cốt lõi rồi thử lại; không có Điều Kiện Khai Mở tài khoản nào bị thay đổi."}</p>
         <div className="result-metrics">
-          <div><small>Điểm tự kiểm local</small><strong>{gateScore}%</strong></div>
+          <div><small>Điểm Thông Qua Tự Kiểm</small><strong>{gateScore}%</strong></div>
           <div><small>Tốt nhất trên máy này</small><strong>{bestScore}%</strong></div>
-          <div><small>XP tương tác local</small><strong>+{earnedXp} XP</strong></div>
+          <div><small>Năng Lượng Tương Tác</small><strong>+{earnedXp} XP</strong></div>
         </div>
-        <div className="mastery-threshold"><span style={{ width: `${gateScore}%` }} /><i style={{ left: "70%" }}>70% · TỰ KIỂM LOCAL</i></div>
+        <div className="mastery-threshold"><span style={{ width: `${gateScore}%` }} /><i style={{ left: "70%" }}>70% · THÔNG QUA TỰ KIỂM</i></div>
         <div className="result-actions">
           <button className="secondary-button" type="button" onClick={restart}><RotateCcw size={17} /> Học và thử lại</button>
           {passed ? (
@@ -527,7 +527,7 @@ function LocalLessonPage() {
           {current.kind === "listening" && <p>{current.promptMeta}</p>}
           {current.spokenText && (
             <small className="synthetic-audio-note compact">
-              TTS tổng hợp · chỉ dùng luyện tập
+              Âm Mẫu Tổng Hợp · TTS luyện tập
             </small>
           )}
         </div>

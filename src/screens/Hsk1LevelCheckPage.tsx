@@ -226,8 +226,8 @@ export function Hsk1LevelCheckPage() {
     return (
       <div className="assessment-intro hsk1-level-check" data-testid="hsk1-level-check-intro">
         <div className="assessment-core"><BrainCircuit size={38} /><span /></div>
-        <span className="system-kicker">HSK1 LOCAL SELF-CHECK · 50 CÂU</span>
-        <h1>Kiểm tra cuối chặng HSK1</h1>
+        <span className="system-kicker">ĐẠI KHẢO CẢNH GIỚI HSK1 · 50 CÂU</span>
+        <h1>Đại Khảo Cảnh Giới HSK1</h1>
         <p>
           Kiểm tra toàn bộ phần nghe, đọc, từ vựng và ngữ pháp đã học trong 40
           bài HSK1. Phiên đang làm được lưu trên thiết bị để bạn có thể quay lại.
@@ -235,7 +235,7 @@ export function Hsk1LevelCheckPage() {
         <div className="assessment-facts">
           <span><Gauge size={18} /><strong>20–25 phút</strong><small>thời lượng gợi ý</small></span>
           <span><BrainCircuit size={18} /><strong>50 câu</strong><small>15 nghe · 15 đọc · 10 từ · 10 ngữ pháp</small></span>
-          <span><ShieldCheck size={18} /><strong>AI self-review</strong><small>humanReviewed=false</small></span>
+          <span><ShieldCheck size={18} /><strong>Ấn Minh Bạch Nội Dung</strong><small>AI tự rà 5 pass · humanReviewed=false</small></span>
         </div>
         <p>{HSK1_LEVEL_CHECK_DISCLOSURE.listeningVi} {HSK1_LEVEL_CHECK_DISCLOSURE.resultVi}</p>
         <div className="assessment-actions">
@@ -263,8 +263,8 @@ export function Hsk1LevelCheckPage() {
     return (
       <div className="assessment-result uncalibrated-result" data-testid="hsk1-level-check-result">
         <div className="result-sigil passed"><CircleCheck size={38} /><span /></div>
-        <span className="system-kicker">HSK1 LOCAL SELF-CHECK COMPLETE</span>
-        <h1>Đã có bản đồ ôn tập HSK1</h1>
+        <span className="system-kicker">ĐẠI KHẢO HSK1 · TỰ KIỂM HOÀN TẤT</span>
+        <h1>Bản Đồ Bù Khuyết HSK1</h1>
         <div className="assessment-score"><strong>{totalCorrect}/50</strong><span> câu đúng quan sát</span></div>
         <p>{HSK1_LEVEL_CHECK_DISCLOSURE.resultVi}</p>
         <div className="mastery-skill-list">

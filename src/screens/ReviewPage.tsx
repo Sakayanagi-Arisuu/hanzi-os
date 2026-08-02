@@ -11,8 +11,8 @@ const AuthenticatedReviewPage = lazy(async () => ({
 const pending = (
   <div className="lesson-state-screen" role="status" aria-live="polite">
     <BrainCircuit size={44} />
-    <h1>Đang xác nhận tài khoản ôn tập</h1>
-    <p>Danh tính phải được xác định trước khi chọn hàng đợi local hoặc hàng đợi có thẩm quyền từ máy chủ.</p>
+    <h1>Đang kết nối Ký Ức Trận</h1>
+    <p>Hệ thống đang chọn đúng hàng đợi trên thiết bị hoặc từ tài khoản đã xác thực.</p>
   </div>
 );
 

@@ -1,5 +1,6 @@
 import {
   BriefcaseBusiness,
+  Award,
   Check,
   CircleUserRound,
   Cloud,
@@ -15,6 +16,7 @@ import {
   RefreshCw,
   Save,
   ShieldCheck,
+  Sparkles,
   Target,
   Trash2,
   Upload,
@@ -35,6 +37,15 @@ import { parseLearningStateImport } from "../lib/learningStateImport";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { INITIAL_LEARNING_STATE, useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+import {
+  deriveJourneyTitles,
+  getInteractionRankProgress,
+  getSystemClass,
+} from "../system/systemProgression";
+import {
+  useSystemUi,
+  type SystemMotionMode,
+} from "../system/systemUiPreferences";
 import type { LearningGoal, Profile } from "../types";
 
 const goals: Array<{ id: LearningGoal; label: string; description: string; icon: typeof Target }> = [
@@ -51,12 +62,19 @@ const startingLevels = HSK_STARTING_LEVEL_OPTIONS.map((item) => ({
 
 const dailyMinuteOptions = [10, 20, 30] as const;
 const scriptOptions = ["simplified", "traditional"] as const;
+const motionModes: Array<{ id: SystemMotionMode; label: string; description: string }> = [
+  { id: "auto", label: "Tự động", description: "Theo thiết bị và tùy chọn giảm chuyển động." },
+  { id: "balanced", label: "Cân bằng", description: "Chiều sâu rõ, ít chuyển động nền." },
+  { id: "cinematic", label: "Điện ảnh", description: "Nghi thức và không gian đầy đủ hơn." },
+  { id: "reduced", label: "Giảm chuyển động", description: "Tắt tilt, parallax và chuyển động nền lặp lại." },
+];
 const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
   const { state, actions, level, sync } = useLearning();
   const normalized = useNormalizedLearningProjection();
   const { notify } = useSystemFeedback();
+  const { preferences, setMotionMode, replayCeremonies } = useSystemUi();
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -67,6 +85,11 @@ export function ProfilePage() {
   const completedCount = sync.session?.authenticated
     ? normalized.authoritativeProgress?.completedCount ?? null
     : localProgress.completedCount;
+  const rank = getInteractionRankProgress(state.xp);
+  const systemClass = getSystemClass(draft.goal);
+  const journeyTitle = deriveJourneyTitles(state.completedLessons)
+    .filter((item) => item.completed)
+    .at(-1)?.title ?? "Hành Giả Sơ Khởi";
   const currentSnapshot = serializeLearningStateSnapshot(state);
   const deletionReadiness = getAccountDeletionReadiness({
     authenticated: sync.session?.authenticated === true,
@@ -86,7 +109,7 @@ export function ProfilePage() {
   const save = () => {
     actions.updateProfile({ ...draft, name: draft.name.trim() || "Hành giả vô danh" });
     setSaved(true);
-    notify("Cấu hình hành trình đã được đồng bộ trên thiết bị này.");
+    notify("Cấu hình hành trình đã được lưu trên thiết bị này.");
   };
 
   const exportProgress = () => {
@@ -242,22 +265,27 @@ export function ProfilePage() {
     <div className="content-page profile-page">
       <header className="page-hero profile-hero">
         <div>
-          <span className="system-kicker"><CircleUserRound size={15} /> IDENTITY & SYSTEM CONTROL</span>
-          <h1>Hồ sơ Hành Giả</h1>
-          <p>Điều chỉnh mục tiêu, nhịp học và dữ liệu cá nhân đang lưu trên thiết bị.</p>
+          <span className="system-kicker"><CircleUserRound size={15} /> BẢNG THUỘC TÍNH · HỒ SƠ HÀNH GIẢ</span>
+          <h1>Bảng Thuộc Tính</h1>
+          <p>Điều chỉnh Thiên Mệnh, Nhịp Tu Luyện, hiệu ứng hệ thống và dữ liệu cá nhân đang lưu trên thiết bị.</p>
         </div>
-        <div className="profile-rank-badge"><span>RANK</span><strong>{String(level).padStart(2, "0")}</strong><small>{state.xp} XP</small></div>
+        <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(level).padStart(2, "0")}</strong><small>{rank.title} · {state.xp} XP tương tác</small></div>
       </header>
 
       <div className="profile-layout">
         <section className="profile-settings">
-          <header className="section-heading"><div><span>LEARNER CONFIG</span><h2>Cấu hình hành trình</h2></div><Languages size={21} /></header>
+          <header className="section-heading"><div><span>HỒ SƠ HÀNH GIẢ</span><h2>Cấu hình hành trình</h2></div><Languages size={21} /></header>
+          <div className="sys-profile-identity" aria-label="Danh hiệu nội bộ HANZI.OS">
+            <Award size={22} />
+            <span><small>CHỨC HỆ ĐỊNH HƯỚNG</small><strong>{systemClass.title}</strong><em>{systemClass.plain}</em></span>
+            <span><small>DANH HIỆU HÀNH TRÌNH</small><strong>{journeyTitle}</strong><em>Không phải chứng nhận HSK hoặc xác nhận mastery.</em></span>
+          </div>
           <label className="field-label">
             <span>Tên hiển thị</span>
             <input value={draft.name} onChange={(event) => updateDraft({ name: event.target.value })} maxLength={40} />
           </label>
           <fieldset className="profile-fieldset">
-            <legend id="profile-goal-legend">Mục tiêu chính</legend>
+            <legend id="profile-goal-legend">Thiên Mệnh · mục tiêu chính</legend>
             <div
               className="goal-option-grid"
               role="radiogroup"
@@ -287,7 +315,7 @@ export function ProfilePage() {
             </div>
           </fieldset>
           <fieldset className="profile-fieldset inline-fieldset">
-            <legend id="profile-daily-minutes-legend">Thời lượng mỗi ngày</legend>
+            <legend id="profile-daily-minutes-legend">Nhịp Tu Luyện · thời lượng mỗi ngày</legend>
             <div
               className="segmented-control"
               role="radiogroup"
@@ -317,7 +345,7 @@ export function ProfilePage() {
             </div>
           </fieldset>
           <fieldset className="profile-fieldset inline-fieldset">
-            <legend id="profile-starting-level-legend">Căn cơ tự khai báo</legend>
+            <legend id="profile-starting-level-legend">Căn Cơ Tự Khai · không miễn bài tiên quyết</legend>
             <div
               className="segmented-control starting-control"
               role="radiogroup"
@@ -392,6 +420,31 @@ export function ProfilePage() {
               </button>
             </div>
           </fieldset>
+          <fieldset className="profile-fieldset">
+            <legend id="profile-motion-legend">Cường độ hiệu ứng hệ thống</legend>
+            <div className="sys-motion-options" role="radiogroup" aria-labelledby="profile-motion-legend">
+              {motionModes.map((mode) => (
+                <button
+                  className={preferences.motionMode === mode.id ? "active" : ""}
+                  key={mode.id}
+                  role="radio"
+                  aria-checked={preferences.motionMode === mode.id}
+                  type="button"
+                  onClick={() => setMotionMode(mode.id)}
+                >
+                  <Sparkles size={17} />
+                  <span><strong>{mode.label}</strong><small>{mode.description}</small></span>
+                  {preferences.motionMode === mode.id && <Check size={16} />}
+                </button>
+              ))}
+            </div>
+            <button className="sys-replay-button" type="button" onClick={() => {
+              replayCeremonies();
+              notify("Các nghi thức nội bộ sẽ được phép hiển thị lại khi bạn trở về Thức Tỉnh Điện.", "info");
+            }}>
+              <Sparkles size={16} /> Cho phép xem lại nghi thức
+            </button>
+          </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>
         </section>
 
@@ -418,7 +471,7 @@ export function ProfilePage() {
             </div>
           </div>
           <dl className="data-counters">
-            <div><dt>Cảnh giới đã vượt</dt><dd>{completedCount ?? "—"}</dd></div>
+            <div><dt>Thử Luyện đã thông qua</dt><dd>{completedCount ?? "—"}</dd></div>
             <div><dt>Từ đã lưu</dt><dd>{state.savedWords.filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
             <div><dt>Thẻ FSRS</dt><dd>{Object.keys(state.fsrsCards).filter((wordId) => RELEASED_WORD_BY_ID.has(wordId)).length}</dd></div>
             <div><dt>Lượt truy hồi</dt><dd>{state.reviewCount}</dd></div>

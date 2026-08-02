@@ -159,7 +159,7 @@ export function PronunciationPage() {
     <div className="content-page pronunciation-page">
       <header className="page-hero voice-hero">
         <div>
-          <span className="system-kicker"><Radio size={15} /> VOICE CALIBRATION CHAMBER</span>
+          <span className="system-kicker"><Radio size={15} /> ÂM MẪU TỔNG HỢP · ĐỘ KHỚP NHẬN DẠNG</span>
           <h1>Vạn Âm Điện</h1>
           <p>Quan sát đường cao độ, nghe mẫu, ghi âm và so khớp câu nói trong cùng một vòng luyện.</p>
         </div>
@@ -171,7 +171,7 @@ export function PronunciationPage() {
       <div className="pronunciation-layout">
         <section className="tone-lab">
           <header className="section-heading">
-            <div><span>TONE CONTOUR · MANDARIN</span><h2>Bốn đường thanh</h2></div>
+            <div><span>QUỸ ĐẠO THANH ĐIỆU · PHỔ THÔNG</span><h2>Bốn đường thanh</h2></div>
             <Waves size={21} />
           </header>
           <div className="tone-selector" role="tablist" aria-label="Chọn thanh điệu">
@@ -220,7 +220,7 @@ export function PronunciationPage() {
 
         <section className="voice-trial">
           <header className="section-heading">
-            <div><span>LIVE SPEECH TRIAL</span><h2>Buồng hiệu chỉnh</h2></div>
+            <div><span>THỬ ÂM · TRÌNH DUYỆT</span><h2>Buồng hiệu chỉnh</h2></div>
             <Mic2 size={21} />
           </header>
           <div className="phrase-navigator">

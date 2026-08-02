@@ -96,7 +96,7 @@ export function LocalReviewPage() {
           <span />
         </div>
         <span className="system-kicker">
-          MEMORY CYCLE · {queue.length ? "COMPLETE" : "STANDBY"}
+          KÝ ỨC TRẬN · {queue.length ? "ĐÃ KHÉP VÒNG" : "ĐANG CHỜ"}
         </span>
         <h1>
           {queue.length
@@ -122,14 +122,14 @@ export function LocalReviewPage() {
               {(ratings[Rating.Good] ?? 0) + (ratings[Rating.Easy] ?? 0)}
             </strong>
           </div>
-          <div><small>Nhận được</small><strong>+{queue.length * 5} XP</strong></div>
+          <div><small>Năng lượng tương tác</small><strong>+{queue.length * 5} XP</strong></div>
         </div>
         {queue.length ? (
           <button className="secondary-button" type="button" onClick={restart}>
             <RotateCcw size={17} /> Mở lượt ôn mới
           </button>
         ) : (
-          <Link className="primary-button" to="/path">
+          <Link className="primary-button" to="/path" viewTransition>
             <Sparkles size={17} /> Học bài để kích hoạt ký ức
           </Link>
         )}
@@ -147,7 +147,7 @@ export function LocalReviewPage() {
       <header className="page-hero review-hero">
         <div>
           <span className="system-kicker">
-            <BrainCircuit size={15} /> FSRS MEMORY CORE
+            <BrainCircuit size={15} /> KÝ ỨC TRẬN · LỊCH FSRS
           </span>
           <h1>Ký Ức Trận</h1>
           <p>
@@ -166,7 +166,7 @@ export function LocalReviewPage() {
       </header>
 
       <div className="review-session-bar">
-        <span>MEMORY BLOCK {String(index + 1).padStart(2, "0")}</span>
+        <span>MẢNH KÝ ỨC {String(index + 1).padStart(2, "0")}</span>
         <div><i style={{ width: `${progress}%` }} /></div>
         <strong>{index + 1}/{queue.length}</strong>
       </div>
@@ -248,7 +248,7 @@ export function LocalReviewPage() {
             ? new Date(card.last_review).toLocaleDateString("vi-VN")
             : "thẻ mới"}
         </span>
-        <span><Zap size={15} /> +5 XP mỗi phán định</span>
+          <span><Zap size={15} /> +5 XP tương tác mỗi phán định</span>
         <span><CircleCheck size={15} /> Tự động lưu sau mỗi thẻ</span>
       </footer>
     </div>

@@ -175,7 +175,7 @@ export function LocalReaderPage() {
       <div className="reading-layout">
         <article className="story-manuscript">
           <header>
-            <span>LOCAL PRACTICE · {story.id.toUpperCase()}</span>
+            <span>BÍ QUYỂN · LUYỆN TRÊN THIẾT BỊ · {story.id.toUpperCase()}</span>
             <h1>{story.chineseTitle}</h1>
             <h2>{story.title}</h2>
             <p>{story.summary}</p>
@@ -210,7 +210,7 @@ export function LocalReaderPage() {
             className="reader-check"
             aria-labelledby="reader-check-title"
           >
-            <span>LOCAL PRACTICE CHECK</span>
+            <span>THỬ THÁCH ĐỌC HIỂU · TỰ KIỂM</span>
             <h3 id="reader-check-title">{question.prompt}</h3>
             <div role="radiogroup" aria-labelledby="reader-check-title">
               {question.options.map((option, optionIndex) => {
@@ -258,8 +258,8 @@ export function LocalReaderPage() {
                   <strong>
                     {comprehensionCorrect ? "Đã hiểu đúng" : "Chưa đúng"}
                   </strong>
-                  {question.explanation} Đây là practice local, không phải
-                  mastery evidence.
+                  {question.explanation} Đây là lượt tự luyện trên thiết bị,
+                  chưa phải bằng chứng tinh thông đã được xác thực.
                 </span>
               </p>
             )}

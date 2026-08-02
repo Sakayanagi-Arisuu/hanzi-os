@@ -226,16 +226,16 @@ export function Hsk3LevelCheckPage() {
     return (
       <div className="assessment-intro hsk3-level-check" data-testid="hsk3-level-check-intro">
         <div className="assessment-core"><BrainCircuit size={38} /><span /></div>
-        <span className="system-kicker">HSK3 LOCAL SELF-CHECK · 54 CÂU</span>
-        <h1>Kiểm tra cuối chặng HSK3</h1>
+        <span className="system-kicker">ĐẠI KHẢO CẢNH GIỚI HSK3 · 54 CÂU</span>
+        <h1>Đại Khảo Cảnh Giới HSK3</h1>
         <p>
-          Kiểm tra toàn bộ phần nghe, đọc, từ vựng và ngữ pháp đã học trong 40
+          Kiểm tra toàn bộ phần nghe, đọc, từ vựng và ngữ pháp đã học trong 55
           bài HSK3. Phiên đang làm được lưu trên thiết bị để bạn có thể quay lại.
         </p>
         <div className="assessment-facts">
           <span><Gauge size={18} /><strong>25–30 phút</strong><small>thời lượng gợi ý</small></span>
           <span><BrainCircuit size={18} /><strong>54 câu</strong><small>12 nghe · 12 đọc · 15 từ · 15 ngữ pháp</small></span>
-          <span><ShieldCheck size={18} /><strong>AI self-review</strong><small>humanReviewed=false</small></span>
+          <span><ShieldCheck size={18} /><strong>Ấn Minh Bạch Nội Dung</strong><small>AI tự rà 5 pass · humanReviewed=false</small></span>
         </div>
         <p>{HSK3_LEVEL_CHECK_DISCLOSURE.listeningVi} {HSK3_LEVEL_CHECK_DISCLOSURE.resultVi}</p>
         <div className="assessment-actions">
@@ -263,8 +263,8 @@ export function Hsk3LevelCheckPage() {
     return (
       <div className="assessment-result uncalibrated-result" data-testid="hsk3-level-check-result">
         <div className="result-sigil passed"><CircleCheck size={38} /><span /></div>
-        <span className="system-kicker">HSK3 LOCAL SELF-CHECK COMPLETE</span>
-        <h1>Đã có bản đồ ôn tập HSK3</h1>
+        <span className="system-kicker">ĐẠI KHẢO HSK3 · TỰ KIỂM HOÀN TẤT</span>
+        <h1>Bản Đồ Bù Khuyết HSK3</h1>
         <div className="assessment-score"><strong>{totalCorrect}/54</strong><span> câu đúng quan sát</span></div>
         <p>{HSK3_LEVEL_CHECK_DISCLOSURE.resultVi}</p>
         <div className="mastery-skill-list">

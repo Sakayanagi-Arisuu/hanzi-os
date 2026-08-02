@@ -21,8 +21,16 @@ import {
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { getRank } from "../lib/adaptive";
 import { useLearning } from "../store/LearningStore";
+import { resolveSystemPageName } from "../system/systemLexicon";
+import {
+  getInteractionRankProgress,
+  getSystemClass,
+} from "../system/systemProgression";
+import { useSystemUi } from "../system/systemUiPreferences";
+import { SystemAtmosphere } from "./system/SystemAtmosphere";
+import { SystemPromotionOverlay } from "./system/SystemPromotionOverlay";
+import { SystemRoutePulse } from "./system/SystemRoutePulse";
 
 const navItems = [
   { to: "/", label: "Thức Tỉnh Điện", short: "Tâm", icon: Gauge },
@@ -36,23 +44,11 @@ const navItems = [
   { to: "/analytics", label: "Thiên Cơ Kính", short: "Số", icon: BarChart3 },
 ];
 
-const pageNames: Record<string, { code: string; title: string }> = {
-  "/": { code: "CORE-01", title: "Thức Tỉnh Điện" },
-  "/path": { code: "PATH-02", title: "Thiên Lộ" },
-  "/review": { code: "MEM-03", title: "Ký Ức Trận FSRS" },
-  "/mistakes": { code: "REMEDY-04", title: "Nghịch Cảnh Lục" },
-  "/assessment": { code: "ORIGIN-05", title: "Khảo Nghiệm Căn Cơ" },
-  "/pronunciation": { code: "VOICE-06", title: "Vạn Âm Điện" },
-  "/characters": { code: "GLYPH-07", title: "Thần Văn Lô" },
-  "/reader": { code: "READ-08", title: "Vạn Quyển Các" },
-  "/dictionary": { code: "LEX-09", title: "Tàng Tự Khố" },
-  "/analytics": { code: "MIRROR-10", title: "Thiên Cơ Kính" },
-  "/profile": { code: "USER-11", title: "Hồ Sơ Hành Giả" },
-};
-
 export function AppShell({ children }: { children: ReactNode }) {
   const { state, dueWordIds, level } = useLearning();
-  const rank = getRank(state.xp);
+  const { resolvedMotion } = useSystemUi();
+  const rank = getInteractionRankProgress(state.xp);
+  const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
@@ -61,11 +57,10 @@ export function AppShell({ children }: { children: ReactNode }) {
   const dailyTarget = state.profile.dailyMinutes * 6;
 
   useEffect(() => setMobileMenuOpen(false), [location.pathname]);
-  const page = location.pathname.startsWith("/lesson/")
-    ? { code: "TRIAL-LIVE", title: "Thử luyện đang tiến hành" }
-    : (pageNames[location.pathname] ?? pageNames["/"]);
+  const page = resolveSystemPageName(location.pathname);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     mainRef.current?.focus({ preventScroll: true });
     document.title = `${page.title} | HANZI.OS`;
   }, [location.pathname, page.title]);
@@ -105,10 +100,11 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [mobileMenuOpen]);
 
   return (
-    <div className="app-frame">
+    <div className="app-frame" data-system-motion={resolvedMotion}>
       <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
+      <SystemAtmosphere />
       <aside className="side-rail">
-        <NavLink className="brand-core" to="/" aria-label="HANZI.OS - Trang chủ">
+        <NavLink className="brand-core" to="/" viewTransition aria-label="HANZI.OS - Trang chủ">
           <span className="brand-hex"><Languages size={24} /></span>
           <span>
             <strong>HANZI.OS</strong>
@@ -117,18 +113,18 @@ export function AppShell({ children }: { children: ReactNode }) {
         </NavLink>
 
         <div className="system-rank">
-          <div className="rank-ring" style={{ "--rank": `${Math.min(360, state.xp * 0.72)}deg` } as React.CSSProperties}>
+          <div className="rank-ring" style={{ "--rank": `${rank.progress * 3.6}deg` } as React.CSSProperties}>
             <span>{level}</span>
           </div>
           <span>
-            <small>RANK</small>
-            <strong>{rank.title} · {state.xp} XP</strong>
+            <small>CẤP HỆ THỐNG · HOẠT ĐỘNG</small>
+            <strong>{rank.title} · {state.xp} XP tương tác</strong>
           </span>
         </div>
 
         <nav className="primary-nav" aria-label="Điều hướng chính">
           {navItems.map(({ to, label, icon: Icon }) => (
-            <NavLink key={to} to={to} end={to === "/"} aria-label={label} title={label}>
+            <NavLink key={to} to={to} end={to === "/"} viewTransition aria-label={label} title={label}>
               <Icon size={19} />
               <span>{label}</span>
               <ChevronRight className="nav-chevron" size={15} />
@@ -137,7 +133,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         </nav>
 
         <div className="rail-footer">
-          <NavLink to="/profile" title="Cài đặt hồ sơ">
+          <NavLink to="/profile" viewTransition title="Cài đặt hồ sơ">
             <Settings size={18} />
             <span>Cấu hình hệ thống</span>
           </NavLink>
@@ -147,11 +143,12 @@ export function AppShell({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="app-stage">
+        <SystemRoutePulse />
         <header className="command-bar">
           <div className="command-title">
             <Orbit size={20} />
             <span>
-              <small>{page.code}</small>
+              <small>{page.code} · {page.plain}</small>
               <strong>{page.title}</strong>
             </span>
           </div>
@@ -160,10 +157,10 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span><Flame size={15} /> {state.streak} ngày</span>
             <span><Zap size={15} /> {state.dailyXp}/{dailyTarget} XP</span>
           </div>
-          <NavLink className="profile-chip" to="/profile">
+          <NavLink className="profile-chip" to="/profile" viewTransition>
             <span className="profile-avatar">{state.profile.name.slice(0, 1).toUpperCase()}</span>
             <span>
-              <small>{rank.chinese}</small>
+              <small>{systemClass.title}</small>
               <strong>{state.profile.name}</strong>
             </span>
           </NavLink>
@@ -174,7 +171,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
       <nav className="mobile-nav" aria-label="Điều hướng di động">
         {navItems.slice(0, 4).map(({ to, short, icon: Icon }) => (
-          <NavLink key={to} to={to} end={to === "/"}>
+          <NavLink key={to} to={to} end={to === "/"} viewTransition>
             <Icon size={19} />
             <span>{short}</span>
           </NavLink>
@@ -197,18 +194,19 @@ export function AppShell({ children }: { children: ReactNode }) {
             </header>
             <nav>
               {navItems.slice(4).map(({ to, label, icon: Icon }) => (
-                <NavLink key={to} to={to}>
+                <NavLink key={to} to={to} viewTransition>
                   <Icon size={20} />
                   <span>{label}</span>
                   <ChevronRight size={16} />
                 </NavLink>
               ))}
-              <NavLink to="/assessment"><Target size={20} /><span>Khảo Nghiệm Căn Cơ</span><ChevronRight size={16} /></NavLink>
-              <NavLink to="/profile"><Settings size={20} /><span>Hồ Sơ Hành Giả</span><ChevronRight size={16} /></NavLink>
+              <NavLink to="/assessment" viewTransition><Target size={20} /><span>Khảo Nghiệm Căn Cơ</span><ChevronRight size={16} /></NavLink>
+              <NavLink to="/profile" viewTransition><Settings size={20} /><span>Bảng Thuộc Tính</span><ChevronRight size={16} /></NavLink>
             </nav>
           </section>
         </div>
       )}
+      <SystemPromotionOverlay />
     </div>
   );
 }

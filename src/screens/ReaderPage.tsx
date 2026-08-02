@@ -14,8 +14,8 @@ const LocalReaderPage = lazy(async () => ({
 const pending = (
   <div className="lesson-state-screen" role="status" aria-live="polite">
     <BookOpenText size={44} />
-    <h1>Đang xác nhận tài khoản đọc</h1>
-    <p>Danh tính phải được xác định trước khi chọn Reader local hoặc server.</p>
+    <h1>Đang mở Vạn Quyển Các</h1>
+    <p>Hệ thống đang chọn đúng bí quyển trên thiết bị hoặc từ tài khoản đã xác thực.</p>
   </div>
 );
 

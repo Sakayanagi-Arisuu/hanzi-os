@@ -11,6 +11,8 @@ const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await expect(page.getByRole("heading", {
     name: /Đánh thức tiếng Trung trong bạn/i,
   })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
+  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
 };
 
 test.use({ ...devices["Pixel 7"] });
@@ -31,7 +33,7 @@ test("keeps the mobile command sheet keyboard-safe and routes without overflow",
   const closeButton = menu.getByRole("button", {
     name: "Đóng bảng chức năng",
   });
-  const profileLink = menu.getByRole("link", { name: "Hồ Sơ Hành Giả" });
+  const profileLink = menu.getByRole("link", { name: "Bảng Thuộc Tính" });
   await expect(menu).toBeVisible();
   await expect(closeButton).toBeFocused();
 
@@ -68,7 +70,7 @@ test("keeps the mobile command sheet keyboard-safe and routes without overflow",
     },
     {
       path: "/profile",
-      ready: () => page.getByRole("heading", { name: /Hồ sơ Hành Giả/i }),
+      ready: () => page.getByRole("heading", { name: /Bảng Thuộc Tính/i }),
     },
   ];
 
@@ -92,7 +94,7 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
   })).toBeVisible();
 
   const goalGroup = page.getByRole("radiogroup", {
-    name: "Mục tiêu thức tỉnh",
+    name: "Thiên Mệnh, mục tiêu học",
   });
   const conversation = goalGroup.getByRole("radio", { name: /^Giao tiếp/u });
   const hsk = goalGroup.getByRole("radio", { name: /^Hướng tới HSK/u });
@@ -105,7 +107,7 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
 
   await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
   const startingGroup = page.getByRole("radiogroup", {
-    name: "Điểm xuất phát",
+    name: /Căn Cơ Tự Khai · điểm xuất phát/u,
   });
   const zero = startingGroup.getByRole("radio", { name: /^HSK0/u });
   const hsk1 = startingGroup.getByRole("radio", { name: /^HSK1/u });
@@ -119,7 +121,7 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
   await page.goto("/profile");
 
   const profileGoalGroup = page.getByRole("radiogroup", {
-    name: "Mục tiêu chính",
+    name: /Thiên Mệnh · mục tiêu chính/u,
   });
   const profileHsk = profileGoalGroup.getByRole("radio", {
     name: /^Hướng tới HSK/u,

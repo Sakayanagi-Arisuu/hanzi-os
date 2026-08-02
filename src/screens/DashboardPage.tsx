@@ -28,7 +28,6 @@ import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
   buildDailyMissions,
-  getRank,
   GOAL_CONFIG,
   isLessonReleased,
   type DailyMission,
@@ -40,6 +39,11 @@ import {
 } from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+import {
+  deriveJourneyTitles,
+  getInteractionRankProgress,
+  getSystemClass,
+} from "../system/systemProgression";
 import type { Skill } from "../types";
 
 const skillLabels: Record<Skill, string> = {
@@ -135,7 +139,16 @@ export function DashboardPage() {
   const dailyProgress = Math.min(100, Math.round((state.dailyXp / dailyTarget) * 100));
   const authoritativeGoal = normalized.projection?.enrollment?.goal;
   const goal = GOAL_CONFIG[authoritativeGoal ?? state.profile.goal];
-  const rank = getRank(state.xp);
+  const rank = getInteractionRankProgress(state.xp);
+  const systemClass = getSystemClass(authoritativeGoal ?? state.profile.goal);
+  const journeyTitle = deriveJourneyTitles(state.completedLessons)
+    .filter((item) => item.completed)
+    .at(-1)?.title ?? "Hành Giả Sơ Khởi";
+  const channelLabel = authenticated
+    ? sync.phase === "offline"
+      ? "TÀI KHOẢN · NGOẠI TUYẾN"
+      : "TÀI KHOẢN · ĐÃ XÁC NHẬN"
+    : "TRÊN THIẾT BỊ · LOCAL-FIRST";
   const authoritativeNextLesson = RELEASED_LESSONS.find(
     (lesson) => lesson.id === pathView.nextLessonId,
   );
@@ -187,18 +200,23 @@ export function DashboardPage() {
           <span>EVIDENCE {eligibleEvidenceCount} · SKILLS {skillsWithEvidence}/7</span>
         </div>
         <div className="hero-copy">
-          <div className="system-kicker"><Orbit size={15} /> DAILY DIRECTIVE · ONLINE</div>
+          <div className="system-kicker"><Orbit size={15} /> CHỈ THỊ NGÀY · {channelLabel}</div>
           <p className="hero-chinese">觉醒，从第一声开始</p>
           <h1>Đánh thức<br /><span>tiếng Trung</span> trong bạn.</h1>
           <p className="hero-lead">
             Hệ thống đã chọn hành động có tác động lớn nhất tới mục tiêu của bạn hôm nay.
           </p>
+          <div className="sys-identity-band" aria-label="Định hướng và danh hiệu nội bộ">
+            <span><small>THIÊN MỆNH</small><strong>{systemClass.title}</strong></span>
+            <i aria-hidden="true" />
+            <span><small>HÀNH TRÌNH</small><strong>{journeyTitle}</strong></span>
+          </div>
           <div className="hero-actions">
-            <Link className="primary-button hero-primary" to={primaryMission.to}>
+            <Link className="primary-button hero-primary" to={primaryMission.to} viewTransition>
               <Sparkles size={18} /> Kích hoạt nhiệm vụ
               <ArrowRight size={18} />
             </Link>
-            <Link className="ghost-button" to="/path">
+            <Link className="ghost-button" to="/path" viewTransition>
               Xem Thiên Lộ <ChevronRight size={17} />
             </Link>
           </div>
@@ -206,11 +224,16 @@ export function DashboardPage() {
         <div className="hero-core-meter">
           <span className="core-orbit" aria-hidden="true" />
           <div><small>{rank.chinese}</small><strong>{String(level).padStart(2, "0")}</strong></div>
-          <p>{rank.title} · {state.xp % 500} / 500 XP tương tác đến bậc tiếp theo</p>
+          <p>{rank.title} · {rank.xpToNext === null ? "đã chạm ngưỡng cao nhất" : `còn ${rank.xpToNext.toLocaleString("vi-VN")} XP tương tác đến bậc tiếp theo`}</p>
+          <span className="sys-core-progress" style={{ "--sys-core-progress": `${rank.progress * 3.6}deg` } as React.CSSProperties} aria-hidden="true" />
         </div>
       </section>
 
-      <section className="status-strip" aria-label="Chỉ số hôm nay">
+      <div className="sys-window-heading">
+        <span>CỬA SỔ TRẠNG THÁI</span>
+        <strong>Dữ liệu học thật trên thiết bị</strong>
+      </div>
+      <section className="status-strip sys-status-window" aria-label="Cửa Sổ Trạng Thái hôm nay">
         <div className="status-cell">
           <span className="metric-icon jade"><Zap size={18} /></span>
           <span className="status-copy"><small>Năng lượng hôm nay</small><strong>{state.dailyXp} / {dailyTarget} XP</strong></span>
@@ -237,7 +260,7 @@ export function DashboardPage() {
 
       <section className="destiny-directive">
         <div className="destiny-copy">
-          <span className="system-kicker"><Target size={15} /> DESTINATION LOCKED</span>
+          <span className="system-kicker"><Target size={15} /> THIÊN MỆNH · CÓ THỂ ĐIỀU CHỈNH</span>
           <h2>{goal.label}</h2>
           <p>{goal.destination}</p>
         </div>
@@ -246,7 +269,7 @@ export function DashboardPage() {
         </div>
         <div className="destiny-actions">
           <span><ShieldCheck size={16} /> Hệ thống đang thu thêm bằng chứng cho: <strong>{skillLabels[priorityEvidence.skill]}</strong></span>
-          <Link to={authenticated || state.diagnostic.completed ? "/analytics" : "/assessment"}>
+          <Link to={authenticated || state.diagnostic.completed ? "/analytics" : "/assessment"} viewTransition>
             {authenticated || state.diagnostic.completed ? "Xem phân tích đích đến" : "Khảo nghiệm căn cơ"} <ChevronRight size={16} />
           </Link>
         </div>
@@ -256,8 +279,8 @@ export function DashboardPage() {
         <section className="mission-console">
           <header className="section-heading">
             <div>
-              <span>MISSION QUEUE · ADAPTIVE</span>
-              <h2>Nhiệm vụ ưu tiên</h2>
+              <span>CHỈ THỊ NGÀY · ƯU TIÊN THEO TÍN HIỆU</span>
+              <h2>Hàng Đợi Nhiệm Vụ</h2>
             </div>
             <Target size={22} />
           </header>
@@ -273,7 +296,7 @@ export function DashboardPage() {
                 <li><BrainCircuit size={14} /> Ưu tiên theo bằng chứng</li>
               </ul>
             </div>
-            <Link className="icon-command" to={primaryMission.to} aria-label={`Bắt đầu ${primaryMission.title}`}>
+            <Link className="icon-command" to={primaryMission.to} viewTransition aria-label={`Bắt đầu ${primaryMission.title}`}>
               <ArrowRight size={22} />
             </Link>
           </div>
@@ -281,7 +304,7 @@ export function DashboardPage() {
             {missions.slice(1).map((mission, index) => {
               const Icon = missionIcon(mission);
               return (
-                <Link to={mission.to} key={mission.id}>
+                <Link to={mission.to} key={mission.id} viewTransition>
                   <span className="queue-index">{String(index + 2).padStart(2, "0")}</span>
                   <Icon size={18} />
                   <span><strong>{mission.title}</strong><small>{mission.minutes} phút · {mission.reward}</small></span>
@@ -294,8 +317,8 @@ export function DashboardPage() {
 
         <section className="skill-matrix">
           <header className="section-heading">
-            <div><span>EVIDENCE MATRIX</span><h2>Ma trận bằng chứng</h2></div>
-            <Link to="/analytics">Phân tích <ChevronRight size={15} /></Link>
+            <div><span>TÍN HIỆU QUAN SÁT · 7 KỸ NĂNG</span><h2>Thất Trụ Học Tập</h2></div>
+            <Link to="/analytics" viewTransition>Phân tích <ChevronRight size={15} /></Link>
           </header>
           <div className="mastery-orbit">
             <div className="mastery-dial" style={{ "--progress": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
@@ -320,7 +343,7 @@ export function DashboardPage() {
 
       <section className="realm-progress">
         <header className="section-heading">
-          <div><span>REALM PROGRESSION</span><h2>Lộ trình tổng thể</h2></div>
+          <div><span>CẢNH GIỚI HÀNH TRÌNH</span><h2>Tinh Đồ Thiên Lộ</h2></div>
           <strong>{courseProgress}% nút đạt ngưỡng</strong>
         </header>
         <div className="realm-line" style={{ "--course-progress": `${courseProgress}%` } as React.CSSProperties}>

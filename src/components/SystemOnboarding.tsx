@@ -17,6 +17,7 @@ import { ResponsiveHeroBackdrop } from "./ResponsiveHeroBackdrop";
 import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { useLearning } from "../store/LearningStore";
+import { getSystemClass } from "../system/systemLexicon";
 import type { LearningGoal, Profile } from "../types";
 
 const goals: Array<{
@@ -60,6 +61,12 @@ export function SystemOnboarding() {
     <main className="onboarding-shell">
       <ResponsiveHeroBackdrop priority />
       <div className="onboarding-grid" aria-hidden="true" />
+      <div className="sys-awakening-ritual" aria-hidden="true">
+        <span className="sys-awakening-ring ring-one" />
+        <span className="sys-awakening-ring ring-two" />
+        <span className="sys-awakening-ring ring-three" />
+        <strong>觉</strong>
+      </div>
       <section className="onboarding-brand">
         <div className="boot-badge"><ScanLine size={16} /> AWAKENING PROTOCOL 0{step + 1}/03</div>
         <div className="onboarding-logo">
@@ -71,13 +78,14 @@ export function SystemOnboarding() {
         </div>
         <h1>Đánh thức một<br /><em>ngôn ngữ mới.</em></h1>
         <p>
-          Từ thanh điệu đầu tiên đến hội thoại, đọc và viết. Hệ thống sẽ dựng một
-          lộ trình riêng từ bằng chứng học tập của bạn.
+          Từ thanh điệu đầu tiên đến hội thoại, đọc và viết. Hệ thống khởi tạo
+          Thiên Lộ từ mục tiêu và Căn Cơ Tự Khai; Tín Hiệu Học Tập phát sinh
+          sau đó sẽ giúp ưu tiên hoạt động phù hợp hơn.
         </p>
         <div className="boot-status">
           <span><ShieldCheck size={15} /> FSRS memory core</span>
-          <span><CircleGauge size={15} /> 7 năng lực độc lập</span>
-          <span><Sparkles size={15} /> Adaptive missions</span>
+          <span><CircleGauge size={15} /> Thất Trụ Học Tập</span>
+          <span><Sparkles size={15} /> Chỉ Thị Ngày thích ứng</span>
         </div>
       </section>
 
@@ -85,7 +93,7 @@ export function SystemOnboarding() {
         <header>
           <div>
             <small>INITIALIZATION NODE</small>
-            <strong>{step === 0 ? "Chọn mục tiêu thức tỉnh" : step === 1 ? "Thiết lập nhịp tu luyện" : "Xác nhận hồ sơ"}</strong>
+            <strong>{step === 0 ? "Kích hoạt Thiên Mệnh" : step === 1 ? "Quét Căn Cơ và Nhịp Tu Luyện" : "Xác nhận Bảng Thuộc Tính"}</strong>
           </div>
           <div className="step-dots">
             {[0, 1, 2].map((item) => <span className={item <= step ? "active" : ""} key={item} />)}
@@ -96,7 +104,7 @@ export function SystemOnboarding() {
           <div
             className="goal-grid"
             role="radiogroup"
-            aria-label="Mục tiêu thức tỉnh"
+            aria-label="Thiên Mệnh, mục tiêu học"
           >
             {goals.map(({ id, title, description, icon: Icon }, optionIndex) => (
               <button
@@ -136,7 +144,7 @@ export function SystemOnboarding() {
               />
             </label>
             <fieldset>
-              <legend id="onboarding-starting-level-legend">Điểm xuất phát</legend>
+              <legend id="onboarding-starting-level-legend">Căn Cơ Tự Khai · điểm xuất phát</legend>
               <div
                 className="starting-level-grid"
                 role="radiogroup"
@@ -169,7 +177,7 @@ export function SystemOnboarding() {
               </div>
             </fieldset>
             <fieldset>
-              <legend id="onboarding-daily-minutes-legend">Thời lượng mỗi ngày</legend>
+              <legend id="onboarding-daily-minutes-legend">Nhịp Tu Luyện · thời lượng mỗi ngày</legend>
               <div
                 className="segmented-options"
                 role="radiogroup"
@@ -242,7 +250,7 @@ export function SystemOnboarding() {
                     })),
                   })}
                 >
-                  <strong>繁體</strong><span>Truyền thống</span>
+                  <strong>繁體</strong><span>Phồn thể</span>
                 </button>
               </div>
             </fieldset>
@@ -252,15 +260,16 @@ export function SystemOnboarding() {
         {step === 2 && (
           <div className="activation-summary">
             <div className="activation-core"><Languages size={34} /><span /></div>
-            <h2>Hồ sơ đã sẵn sàng</h2>
+            <h2>Bảng Thuộc Tính đã sẵn sàng</h2>
             <dl>
               <div><dt>Danh xưng</dt><dd>{profile.name || "Hành giả vô danh"}</dd></div>
-              <div><dt>Mục tiêu</dt><dd>{goals.find((goal) => goal.id === profile.goal)?.title}</dd></div>
-              <div><dt>Căn cơ</dt><dd>{startingLevels.find((level) => level.id === profile.startingLevel)?.title}</dd></div>
-              <div><dt>Nhịp học</dt><dd>{profile.dailyMinutes} phút/ngày</dd></div>
-              <div><dt>Hệ chữ</dt><dd>{profile.script === "simplified" ? "Giản thể" : "Truyền thống"}</dd></div>
+              <div><dt>Thiên Mệnh</dt><dd>{goals.find((goal) => goal.id === profile.goal)?.title}</dd></div>
+              <div><dt>Chức hệ định hướng</dt><dd>{getSystemClass(profile.goal).title}</dd></div>
+              <div><dt>Căn Cơ Tự Khai</dt><dd>{startingLevels.find((level) => level.id === profile.startingLevel)?.title}</dd></div>
+              <div><dt>Nhịp Tu Luyện</dt><dd>{profile.dailyMinutes} phút/ngày</dd></div>
+              <div><dt>Hệ chữ</dt><dd>{profile.script === "simplified" ? "Giản thể" : "Phồn thể"}</dd></div>
             </dl>
-            <p><Map size={16} /> Hệ thống sẽ đề nghị khảo nghiệm ngắn để hiệu chỉnh điểm xuất phát sau khi kích hoạt.</p>
+            <p><Map size={16} /> Căn Cơ Tự Khai không miễn Điều Kiện Khai Mở; hệ thống sẽ đề nghị Khảo Nghiệm ngắn sau khi kích hoạt.</p>
           </div>
         )}
 

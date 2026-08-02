@@ -14,8 +14,8 @@ const LocalAssessmentPage = lazy(async () => ({
 const pending = (
   <div className="lesson-state-screen" role="status" aria-live="polite">
     <BrainCircuit size={44} />
-    <h1>Đang xác nhận tài khoản khảo nghiệm</h1>
-    <p>Danh tính phải được xác định trước khi chọn screening local hoặc server.</p>
+    <h1>Đang mở Khảo Nghiệm Căn Cơ</h1>
+    <p>Hệ thống đang chọn đúng khảo nghiệm trên thiết bị hoặc từ tài khoản đã xác thực.</p>
   </div>
 );
 

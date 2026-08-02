@@ -1,12 +1,13 @@
 # HANZI.OS — checkpoint triển khai hiện tại
 
-Cập nhật: 01/08/2026
+Cập nhật: 02/08/2026
 
 ## 1. Tình trạng một câu
 
-B5 đã đóng gói xong phạm vi đồ án/tự học local trên package `.08.5`: toàn bộ
-213 blueprint HSK1-4 học được trên rich UI, bốn level check chạy end-to-end và
-bootstrap/performance/audit đã qua cổng local. Sites và production vẫn đóng.
+B6 đã hoàn tất lớp trải nghiệm “Hệ Thống Thức Tỉnh” trên package `.08.5`: toàn
+bộ 213 blueprint HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo chạy end-to-end,
+giao diện không gian/3D có chế độ giảm chuyển động và cold bootstrap đã được giữ
+nhẹ. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
@@ -36,7 +37,7 @@ mastery/production bị hoãn, không phải bài học hay lỗi tích hợp c�
 | HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
 | HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B4-B5 đã giao cho người học
+## 4. B4-B6 đã giao cho người học
 
 - Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
@@ -64,6 +65,23 @@ mastery/production bị hoãn, không phải bài học hay lỗi tích hợp c�
 Runtime hiện có 2.016 vocabulary ID: 2.000 mục official HSK1+HSK2+HSK3+HSK4 và 16
 mục bridge/legacy còn consumer hợp lệ.
 
+### B6 — Hệ Thống Thức Tỉnh
+
+- Thức Tỉnh Điện, Thiên Lộ, Thử Luyện, Ký Ức Trận, Nghịch Cảnh Lục, Vạn Âm
+  Điện, Thần Văn Lô, Vạn Quyển Các, Tàng Tự Khố, Thiên Cơ Kính và Bảng Thuộc
+  Tính dùng chung một ngôn ngữ “hệ thống”, nhưng vẫn kèm nghĩa học tập rõ ràng.
+- Giao diện có trường không gian nhiều lớp, quỹ đạo, tinh đồ, chuyển cảnh, chiều
+  sâu thẻ và nghi lễ thức tỉnh/thăng cấp. Nghi lễ chỉ xuất hiện ở Thức Tỉnh Điện
+  nên không chặn link mở thẳng Lesson, Reader hay Đại Khảo.
+- Cảnh giới hoạt động dùng các ngưỡng XP không đều; Chức hệ lấy từ Thiên Mệnh;
+  danh hiệu hành trình chỉ mở theo bài tiên quyết đã thực sự thông qua. XP vẫn
+  chỉ là tương tác, không được đổi tên thành mastery hay chứng nhận HSK.
+- Người học chọn được Tự động, Cân bằng, Điện ảnh hoặc Giảm chuyển động. Tùy chọn
+  lưu trên thiết bị; keyboard, focus trap, mobile và `prefers-reduced-motion`
+  tiếp tục hoạt động.
+- Cold onboarding không tải curriculum 213 bài chỉ để hiện tên Chức hệ. Tên hệ
+  được tách thành bảng nhẹ; curriculum chỉ tải sau khi hồ sơ đã kích hoạt.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -83,7 +101,7 @@ Human/production review manifest vẫn pending và production gate tiếp tục
 fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 được mở trong batch này.
 
-## 6. Trạng thái kiểm tra B4-B5
+## 6. Trạng thái kiểm tra B4-B6
 
 - Validator trực tiếp xanh cho 78 bài, 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm
   vụ, 77 chủ đề, rich UI 78/78 và level check 72 câu.
@@ -113,6 +131,28 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   chạy lại; evidence ranh giới B4 tiếp tục là full-suite evidence hiện hành.
 - Candidate contract `.08.5` bind đủ 10 artifact và 8 acceptance capability;
   production vẫn fail-closed với 9 nhóm gate pending, không claim Sites.
+- B6 targeted unit cho cảnh giới và tùy chọn hiệu ứng xanh 14/14; typecheck và
+  build xanh. Client asset ceiling cuối là 797,9 KiB, dưới hard ceiling 800 KiB
+  và cao hơn soft target 795 KiB 2,9 KiB; không thêm dependency.
+- Full boundary B6 chạy đúng một lượt: toàn bộ validator, package, graph,
+  database restore, typecheck và lint xanh. Vitest chạy song song đạt 1.782/1.841;
+  59 mục còn lại đều timeout do tải máy, không có assertion sai. Targeted tuần
+  tự xác nhận 100/106 mục đầu; bốn file/19 test tiếp theo xanh với timeout 60 giây.
+  Riêng hai test report inventory mất khoảng 41–44 giây nên vẫn vượt timeout
+  30 giây đặt ngay trong test wrapper, trong khi chính validator/report `--check`
+  đã xanh.
+- Full E2E B6 chạy đúng một lượt ban đầu đạt 4/28 vì nghi lễ phủ cả deep-link và
+  smoke vẫn tìm thuật ngữ cũ. Sau khi giới hạn nghi lễ về Thức Tỉnh Điện, cập
+  nhật selector theo tên mới và sửa tràn ngang 4 px trong lúc materialize,
+  targeted rerun xác nhận đủ 28/28 hành trình xanh theo từng nhóm.
+- Lighthouse ba cold-profile đầu phát hiện onboarding kéo cả curriculum: median
+  performance 73, accessibility/best-practices/SEO đều 100, TBT 1.342 ms. Sau
+  khi tách bảng Chức hệ khỏi curriculum và chỉ mount provider hiệu ứng sau
+  onboarding, cold-profile targeted đạt performance 96, accessibility 100,
+  best-practices 100, SEO 100; LCP 2.000 ms, CLS 0 và TBT 154 ms.
+- Browser QA trực tiếp đã kiểm desktop, tablet và mobile; không còn overflow,
+  lỗi console hay nghi lễ chặn deep-link. Chế độ Giảm chuyển động là authoritative
+  và tắt route pulse/chuyển động nền lặp lại.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -120,7 +160,7 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 
 - Workspace: `D:\Projects\hanzi-os`; branch: `codex/hsk4-graduation`.
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
-  hiện hành `foundation-2026.08.5`.
+  hiện hành `foundation-2026.08.5`; B6 là batch giao diện hiện tại.
 - Không commit staging, build output hoặc report thử.
 - Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
 

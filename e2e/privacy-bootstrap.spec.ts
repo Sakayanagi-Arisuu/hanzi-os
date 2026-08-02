@@ -108,7 +108,7 @@ for (const ownerCase of [
     await expect(page.getByText("PRIVATE VAULT LEARNER")).toHaveCount(0);
 
     releaseSession();
-    await expect(page.getByText("Chọn mục tiêu thức tỉnh")).toBeVisible();
+    await expect(page.getByText("Kích hoạt Thiên Mệnh")).toBeVisible();
     await expect(page.getByText("PRIVATE VAULT LEARNER")).toHaveCount(0);
 
     const persisted = await page.evaluate(() => {

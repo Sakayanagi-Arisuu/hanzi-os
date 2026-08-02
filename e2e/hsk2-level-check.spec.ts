@@ -109,7 +109,7 @@ test("opens, resumes and completes the 60-item HSK2 local level check without ma
   await page.goto("/path");
   const card = page.getByTestId("hsk2-level-check-card");
   await expect(card).toBeVisible();
-  await card.getByRole("link", { name: /Mở level check/u }).click();
+  await card.getByRole("link", { name: /Bước vào Đại Khảo/u }).click();
 
   await expect(page.getByTestId("hsk2-level-check-intro")).toBeVisible();
   await page.getByRole("button", { name: /Bắt đầu tự kiểm tra/u }).click();
