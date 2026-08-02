@@ -1,6 +1,7 @@
 import {
   BriefcaseBusiness,
   Award,
+  AudioLines,
   Check,
   CircleUserRound,
   Cloud,
@@ -20,6 +21,8 @@ import {
   Target,
   Trash2,
   Upload,
+  Volume2,
+  VolumeX,
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router";
@@ -74,7 +77,16 @@ export function ProfilePage() {
   const { state, actions, level, sync } = useLearning();
   const normalized = useNormalizedLearningProjection();
   const { notify } = useSystemFeedback();
-  const { preferences, setMotionMode, replayCeremonies } = useSystemUi();
+  const {
+    preferences,
+    setMotionMode,
+    setSoundEnabled,
+    setSoundVolume,
+    setVoiceEnabled,
+    previewSystemSound,
+    speakSystemMessage,
+    replayCeremonies,
+  } = useSystemUi();
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -444,6 +456,68 @@ export function ProfilePage() {
             }}>
               <Sparkles size={16} /> Cho phép xem lại nghi thức
             </button>
+          </fieldset>
+          <fieldset className="profile-fieldset">
+            <legend>Giao thức âm thanh hệ thống</legend>
+            <div className="sys-audio-console">
+              <button
+                className={preferences.soundEnabled ? "active" : ""}
+                type="button"
+                aria-pressed={preferences.soundEnabled}
+                data-system-silent="true"
+                onClick={() => {
+                  const enabled = !preferences.soundEnabled;
+                  setSoundEnabled(enabled);
+                  if (enabled) previewSystemSound("summon");
+                }}
+              >
+                {preferences.soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
+                <span>
+                  <strong>Âm phản hồi · {preferences.soundEnabled ? "Đang bật" : "Đang tắt"}</strong>
+                  <small>Âm ngắn khi triệu hồi, điều hướng, xác nhận và đạt ngưỡng.</small>
+                </span>
+                <i aria-hidden="true" />
+              </button>
+              <label className={preferences.soundEnabled ? "" : "disabled"}>
+                <span><strong>Cường độ âm</strong><output>{Math.round(preferences.soundVolume * 100)}%</output></span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={preferences.soundVolume}
+                  disabled={!preferences.soundEnabled}
+                  onChange={(event) => setSoundVolume(Number(event.target.value))}
+                  onPointerUp={() => previewSystemSound("select")}
+                  aria-label="Cường độ âm thanh hệ thống"
+                />
+              </label>
+              <button
+                className={preferences.voiceEnabled ? "active voice" : "voice"}
+                type="button"
+                aria-pressed={preferences.voiceEnabled}
+                onClick={() => setVoiceEnabled(!preferences.voiceEnabled)}
+              >
+                <AudioLines size={20} />
+                <span>
+                  <strong>Giọng hệ thống · {preferences.voiceEnabled ? "Đã mở" : "Tùy chọn"}</strong>
+                  <small>Giọng Việt tổng hợp của trình duyệt, chỉ phát khi bạn chủ động yêu cầu.</small>
+                </span>
+                <i aria-hidden="true" />
+              </button>
+              <button
+                className="sys-audio-test"
+                type="button"
+                data-system-silent="true"
+                onClick={() => {
+                  previewSystemSound("summon");
+                  speakSystemMessage(`Hệ thống đã kết nối. Chào mừng ${state.profile.name}.`);
+                }}
+              >
+                <Sparkles size={16} /> Thử liên kết âm thanh
+              </button>
+              <small className="sys-audio-disclosure">Không có file thu giọng người thật: mọi âm báo do Web Audio tạo tại chỗ; giọng nói là browser TTS synthetic và không được tính là bằng chứng phát âm.</small>
+            </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>
         </section>

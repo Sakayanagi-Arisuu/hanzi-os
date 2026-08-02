@@ -87,6 +87,39 @@ test("keeps the mobile command sheet keyboard-safe and routes without overflow",
   }
 });
 
+test("summons a keyboard-safe status hologram backed by live learning signals", async ({
+  page,
+}) => {
+  await finishOnboarding(page);
+
+  const summon = page.getByRole("button", {
+    name: /(TRIỆU HỒI|Triệu hồi Bảng Hệ Thống)/iu,
+  });
+  await summon.click();
+
+  const status = page.getByRole("dialog", { name: "Hành giả vô danh" });
+  const close = status.getByRole("button", { name: "Thu hồi Bảng Hệ Thống" });
+  await expect(status).toBeVisible();
+  await expect(close).toBeFocused();
+  await expect(status.getByRole("heading", { name: "Nhiệm vụ hiện tại" })).toBeVisible();
+  await expect(status.getByRole("heading", { name: "Ma trận thuộc tính" })).toBeVisible();
+  await expect(status.getByText("0/4")).toBeVisible();
+
+  const bounds = await page.locator(".sys-holo-console").evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return { left: rect.left, right: rect.right, viewport: window.innerWidth };
+  });
+  expect(bounds.left).toBeGreaterThanOrEqual(0);
+  expect(bounds.right).toBeLessThanOrEqual(bounds.viewport);
+
+  await page.keyboard.press("Escape");
+  await expect(status).toHaveCount(0);
+  await expect(summon).toBeFocused();
+
+  await page.keyboard.press("Alt+s");
+  await expect(page.getByRole("dialog", { name: "Hành giả vô danh" })).toBeVisible();
+});
+
 test("exposes single-select state and supports arrow navigation", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", {

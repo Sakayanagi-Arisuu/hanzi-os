@@ -7,10 +7,10 @@ dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1-B6 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
+Nền local-first ổn định. B1-B7 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
 HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
-package handoff `.08.5` có lớp trải nghiệm Hệ Thống Thức Tỉnh mà không giả làm
-chứng nhận.
+package handoff `.08.5` có Bảng Hệ Thống hologram 3D và âm phản hồi sống mà
+không giả làm chứng nhận.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
@@ -141,6 +141,28 @@ không đổi.
   đạt performance 96, accessibility 100, best-practices 100, SEO 100, LCP
   2.000 ms, CLS 0 và TBT 154 ms;
 - Sites, production, commerce, CMS và human-review workflow vẫn nguyên trạng.
+
+### B7 — Bảng Hệ Thống hologram và âm thanh sống
+
+**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Người học có thể
+triệu hồi Bảng Hệ Thống ở mọi route bằng nút trên thanh lệnh hoặc `Alt + S`.
+Không gian full-screen dùng CSS perspective/preserve-3d thật, pointer tilt,
+nhiều mặt phẳng, orbital core, projection beam và scanline; mobile chuyển sang
+stacked hologram và reduced-motion làm phẳng hiệu ứng.
+
+- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible;
+- bảng trạng thái đọc nhiệm vụ kế tiếp, bài đã qua, XP tương tác, streak, FSRS
+  đến hạn, lỗi còn mở, danh hiệu và bảy tín hiệu kỹ năng từ learning store thật;
+- âm phản hồi được tổng hợp bằng Web Audio sau thao tác người dùng, có bật/tắt,
+  âm lượng và preview lưu local; giọng Việt browser TTS là tùy chọn explicit;
+- focus trap, `Escape`, trả focus, keyboard shortcut, mobile và reduced-motion
+  đã được targeted E2E và browser QA trực tiếp;
+- bundle ceiling 798,6 KiB dưới hard ceiling 800 KiB sau khi tối ưu hai hero
+  1693px; không thêm dependency;
+- Lighthouse ba cold-profile đạt median performance 95,
+  accessibility/best-practices/SEO 100, LCP 1.975 ms, CLS 0, TBT 196 ms;
+- XP/âm thanh/TTS không cấp mastery, không miễn prerequisite và không đổi
+  persistence/evidence. Sites, production, commerce, CMS, human review vẫn đóng.
 
 ## 6. Thước đo sẵn sàng toàn dự án
 

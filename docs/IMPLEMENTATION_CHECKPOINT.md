@@ -4,10 +4,10 @@ Cập nhật: 02/08/2026
 
 ## 1. Tình trạng một câu
 
-B6 đã hoàn tất lớp trải nghiệm “Hệ Thống Thức Tỉnh” trên package `.08.5`: toàn
-bộ 213 blueprint HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo chạy end-to-end,
-giao diện không gian/3D có chế độ giảm chuyển động và cold bootstrap đã được giữ
-nhẹ. Sites và production vẫn đóng.
+B7 đã nâng lớp trải nghiệm “Hệ Thống Thức Tỉnh” trên package `.08.5` thành Bảng
+Hệ Thống hologram có thể triệu hồi, dùng dữ liệu học thật, phối cảnh 3D tương
+tác và âm phản hồi tổng hợp tại chỗ. Toàn bộ 213 blueprint HSK1-4 vẫn học được
+trên rich UI, bốn Đại Khảo vẫn chạy end-to-end. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
@@ -37,7 +37,7 @@ mastery/production bị hoãn, không phải bài học hay lỗi tích hợp c�
 | HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
 | HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B4-B6 đã giao cho người học
+## 4. B4-B7 đã giao cho người học
 
 - Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
@@ -82,6 +82,27 @@ mục bridge/legacy còn consumer hợp lệ.
 - Cold onboarding không tải curriculum 213 bài chỉ để hiện tên Chức hệ. Tên hệ
   được tách thành bảng nhẹ; curriculum chỉ tải sau khi hồ sơ đã kích hoạt.
 
+### B7 — Bảng Hệ Thống hologram sống
+
+- Thanh lệnh ở mọi điện có nút **Triệu hồi** và phím tắt `Alt + S`. Bảng mở như
+  một không gian hologram toàn màn hình: thẻ thân phận ở lớp nổi trung tâm, hai
+  bảng nhiệm vụ/chỉ số xoay ở hai mặt phẳng, phía sau có vòng quỹ đạo, tia chiếu
+  và scanline. Pointer điều khiển tilt/translate theo chiều sâu; không dùng
+  Three.js hoặc dependency mới.
+- Bảng không diễn dữ liệu mẫu: nó đọc tên, Chức hệ, Cảnh giới hoạt động, danh
+  hiệu hành trình, XP tương tác, streak, bài đã thông qua, ký ức FSRS đến hạn,
+  Nghịch Cảnh còn mở, Thử Luyện kế tiếp và bảy tín hiệu kỹ năng từ store hiện
+  hành. XP/chỉ số vẫn có disclosure không phải mastery hay chứng nhận HSK.
+- Mobile đưa thẻ thân phận lên trước rồi xếp hai bảng còn lại trong luồng cuộn;
+  keyboard có focus trap, `Escape` thu hồi và trả focus về nút triệu hồi. Chế độ
+  Giảm chuyển động làm phẳng 3D và tắt scanline/chuyển động lặp lại.
+- Web Audio tạo cue ngắn cho triệu hồi, thu hồi, chọn, điều hướng, xác nhận,
+  cảnh báo và thăng cấp ngay trong trình duyệt. Không tải audio asset và không
+  autoplay trước thao tác người dùng. Bảng Thuộc Tính cho bật/tắt, chỉnh âm
+  lượng, thử liên kết và mở giọng Việt browser TTS theo yêu cầu rõ ràng.
+- Browser TTS vẫn là synthetic practice, `humanReviewed: false`; âm thanh và
+  hiệu ứng không được dùng làm evidence hay thay đổi prerequisite/persistence.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -101,7 +122,7 @@ Human/production review manifest vẫn pending và production gate tiếp tục
 fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 được mở trong batch này.
 
-## 6. Trạng thái kiểm tra B4-B6
+## 6. Trạng thái kiểm tra B4-B7
 
 - Validator trực tiếp xanh cho 78 bài, 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm
   vụ, 77 chủ đề, rich UI 78/78 và level check 72 câu.
@@ -153,6 +174,17 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 - Browser QA trực tiếp đã kiểm desktop, tablet và mobile; không còn overflow,
   lỗi console hay nghi lễ chặn deep-link. Chế độ Giảm chuyển động là authoritative
   và tắt route pulse/chuyển động nền lặp lại.
+- B7 targeted unit cho migration tùy chọn hiệu ứng/âm thanh và cảnh giới xanh;
+  typecheck, lint phần thay đổi và build đều xanh. Targeted E2E xác nhận Bảng
+  Hệ Thống dùng tín hiệu thật, không tràn mobile, giữ focus, đóng bằng `Escape`
+  và mở lại bằng `Alt + S`.
+- Browser QA B7 đã kiểm desktop 3-panel, mobile stacked flow, Profile audio,
+  bật/tắt âm và reduced-motion trực tiếp trên web local. Hero AVIF/WebP 1693px
+  được nén lại sau so sánh trực quan; client ceiling còn **798,6 KiB**, dưới
+  hard ceiling 800 KiB và không thêm dependency.
+- Lighthouse B7 chạy ba cold-profile: median performance **95**,
+  accessibility/best-practices/SEO đều **100**; LCP 1.975 ms, CLS 0 và TBT
+  196 ms.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -160,7 +192,7 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 
 - Workspace: `D:\Projects\hanzi-os`; branch: `codex/hsk4-graduation`.
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
-  hiện hành `foundation-2026.08.5`; B6 là batch giao diện hiện tại.
+  hiện hành `foundation-2026.08.5`; B7 là batch giao diện hiện tại.
 - Không commit staging, build output hoặc report thử.
 - Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
 

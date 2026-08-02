@@ -16,8 +16,27 @@ describe("system UI preference migration", () => {
     })).toEqual({
       version: 1,
       motionMode: "cinematic",
+      soundEnabled: true,
+      soundVolume: 0.28,
+      voiceEnabled: false,
       seenCeremonies: ["rank:500"],
       equippedTitle: "Tụ Từ Hành Giả",
     });
+  });
+
+  it("migrates, clamps and preserves system audio preferences", () => {
+    expect(parseSystemUiPreferences({
+      motionMode: "balanced",
+      soundEnabled: false,
+      soundVolume: 4,
+      voiceEnabled: true,
+      seenCeremonies: [],
+    })).toMatchObject({
+      soundEnabled: false,
+      soundVolume: 1,
+      voiceEnabled: true,
+    });
+
+    expect(parseSystemUiPreferences({ soundVolume: -2 })).toMatchObject({ soundVolume: 0 });
   });
 });

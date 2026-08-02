@@ -14,13 +14,14 @@ import {
   Search,
   Settings,
   ShieldCheck,
+  Sparkles,
   Swords,
   Target,
   X,
   Zap,
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { useLearning } from "../store/LearningStore";
 import { resolveSystemPageName } from "../system/systemLexicon";
 import {
@@ -31,6 +32,7 @@ import { useSystemUi } from "../system/systemUiPreferences";
 import { SystemAtmosphere } from "./system/SystemAtmosphere";
 import { SystemPromotionOverlay } from "./system/SystemPromotionOverlay";
 import { SystemRoutePulse } from "./system/SystemRoutePulse";
+import { SystemStatusHologram } from "./system/SystemStatusHologram";
 
 const navItems = [
   { to: "/", label: "Thức Tỉnh Điện", short: "Tâm", icon: Gauge },
@@ -46,12 +48,14 @@ const navItems = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { state, dueWordIds, level } = useLearning();
-  const { resolvedMotion } = useSystemUi();
+  const { resolvedMotion, playSystemSound } = useSystemUi();
   const rank = getInteractionRankProgress(state.xp);
   const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [statusOpen, setStatusOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
+  const statusButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuCloseRef = useRef<HTMLButtonElement>(null);
   const dailyTarget = state.profile.dailyMinutes * 6;
@@ -64,6 +68,31 @@ export function AppShell({ children }: { children: ReactNode }) {
     mainRef.current?.focus({ preventScroll: true });
     document.title = `${page.title} | HANZI.OS`;
   }, [location.pathname, page.title]);
+
+  useEffect(() => {
+    const handleSummonShortcut = (event: KeyboardEvent) => {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target instanceof HTMLSelectElement) return;
+      if (event.altKey && event.key.toLowerCase() === "s") {
+        event.preventDefault();
+        if (statusOpen) {
+          playSystemSound("dismiss");
+          setStatusOpen(false);
+        } else {
+          playSystemSound("summon");
+          setStatusOpen(true);
+        }
+      }
+    };
+    window.addEventListener("keydown", handleSummonShortcut);
+    return () => window.removeEventListener("keydown", handleSummonShortcut);
+  }, [playSystemSound, statusOpen]);
+
+  const summonStatus = () => {
+    playSystemSound("summon");
+    setStatusOpen(true);
+  };
+  const closeStatus = useCallback(() => setStatusOpen(false), []);
 
   useEffect(() => {
     if (!mobileMenuOpen) return;
@@ -157,6 +186,19 @@ export function AppShell({ children }: { children: ReactNode }) {
             <span><Flame size={15} /> {state.streak} ngày</span>
             <span><Zap size={15} /> {state.dailyXp}/{dailyTarget} XP</span>
           </div>
+          <button
+            ref={statusButtonRef}
+            className="sys-summon-trigger"
+            type="button"
+            onClick={summonStatus}
+            data-system-silent="true"
+            aria-haspopup="dialog"
+            aria-expanded={statusOpen}
+            title="Triệu hồi Bảng Hệ Thống · Alt + S"
+          >
+            <Sparkles size={17} />
+            <span><small>ALT + S</small><strong>TRIỆU HỒI</strong></span>
+          </button>
           <NavLink className="profile-chip" to="/profile" viewTransition>
             <span className="profile-avatar">{state.profile.name.slice(0, 1).toUpperCase()}</span>
             <span>
@@ -206,6 +248,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           </section>
         </div>
       )}
+      <SystemStatusHologram open={statusOpen} onClose={closeStatus} returnFocusRef={statusButtonRef} />
       <SystemPromotionOverlay />
     </div>
   );

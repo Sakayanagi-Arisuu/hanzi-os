@@ -12,6 +12,7 @@ export function SystemPromotionOverlay() {
     preferences,
     hydrated,
     markCeremoniesSeen,
+    playSystemSound,
     resolvedMotion,
   } = useSystemUi();
   const dialogRef = useRef<HTMLElement>(null);
@@ -27,6 +28,7 @@ export function SystemPromotionOverlay() {
   useEffect(() => {
     if (!onAwakeningHall || !hydrated || !ceremony) return;
     const previous = document.activeElement;
+    playSystemSound("promotion");
     skipRef.current?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -52,7 +54,7 @@ export function SystemPromotionOverlay() {
       window.removeEventListener("keydown", handleKeyDown);
       if (previous instanceof HTMLElement && previous.isConnected) previous.focus();
     };
-  }, [ceremonies, ceremony, hydrated, markCeremoniesSeen, onAwakeningHall]);
+  }, [ceremonies, ceremony, hydrated, markCeremoniesSeen, onAwakeningHall, playSystemSound]);
 
   if (!onAwakeningHall || !hydrated || !ceremony) return null;
 
