@@ -17,6 +17,7 @@ import { RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { emitSystemSignal } from "../system/systemSignals";
 
 const ratingOptions = [
   {
@@ -71,6 +72,16 @@ export function LocalReviewPage() {
   const grade = async (rating: Grade) => {
     if (!word) return;
     await actions.gradeReview(word.id, rating, reviewKey);
+    emitSystemSignal({
+      type: "review.recalled",
+      sourceId: `review:${word.id}`,
+      eventId: `${reviewKey}:recalled`,
+    });
+    if (index === queue.length - 1) emitSystemSignal({
+      type: "review.queue-cleared",
+      sourceId: "review:local-queue",
+      eventId: `${reviewKey}:queue-cleared`,
+    });
     setRatings((current) => ({
       ...current,
       [rating]: (current[rating] ?? 0) + 1,

@@ -12,7 +12,9 @@ import {
   Volume2,
   Waves,
 } from "lucide-react";
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useAudioEngine, type VoicePlaybackPhase } from "../audio/AudioEngineProvider";
+import { VoiceReactor } from "../components/system/VoiceReactor";
 import { CONTENT_VERSION, RELEASED_VOCABULARY } from "../data/curriculum";
 import { makeIdempotencyKey } from "../lib/evidence";
 import { createMandarinRecognition, speakMandarin } from "../lib/speech";
@@ -22,7 +24,10 @@ import {
   parseLocalVoiceConsentReceipt,
 } from "../lib/voiceConsent";
 import { useLearning } from "../store/LearningStore";
+import { emitSystemSignal } from "../system/systemSignals";
 import type { MandarinTone } from "../types";
+
+type CapturePhase = VoicePlaybackPhase | "armed" | "listening" | "processing" | "result" | "denied" | "unavailable";
 
 const toneData = [
   { id: 1, name: "Thanh 1", pinyin: "mā", sample: "妈", description: "Cao, ngang và ổn định", points: "8,28 50,28 92,28" },
@@ -64,14 +69,18 @@ const similarityScore = (heard: string, target: string, confidence: number) => {
 
 export function PronunciationPage() {
   const { actions } = useLearning();
+  const { cancelSpeech, playback } = useAudioEngine();
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [activeTone, setActiveTone] = useState<MandarinTone>(1);
   const [listening, setListening] = useState(false);
+  const [capturePhase, setCapturePhase] = useState<CapturePhase>("idle");
   const [transcript, setTranscript] = useState("");
   const [score, setScore] = useState<number | null>(null);
   const [error, setError] = useState("");
   const [voiceConsent, setVoiceConsent] = useState(readVoiceConsent);
   const attemptKeyRef = useRef("");
+  const recognitionRef = useRef<ReturnType<typeof createMandarinRecognition>>(null);
+  const resultTimerRef = useRef<number | null>(null);
   const phrase = practicePhrases[phraseIndex];
   const activeToneData = toneData.find((tone) => tone.id === activeTone) ?? toneData[0];
   const sampleWords = useMemo(
@@ -80,6 +89,15 @@ export function PronunciationPage() {
     ).slice(0, 5),
     [activeTone],
   );
+  const phraseVoiceSource = `pronunciation:phrase:${phraseIndex}`;
+  const reactorPhase = capturePhase !== "idle"
+    ? capturePhase
+    : playback.sourceId === phraseVoiceSource ? playback.phase : "idle";
+
+  useEffect(() => () => {
+    recognitionRef.current?.abort();
+    if (resultTimerRef.current !== null) window.clearTimeout(resultTimerRef.current);
+  }, []);
 
   const grantVoiceConsent = () => {
     const stored = writeLocalStorage(
@@ -99,60 +117,122 @@ export function PronunciationPage() {
       setError("Không thể cập nhật đồng ý trên thiết bị. Hãy kiểm tra quyền lưu trữ của trình duyệt.");
       return;
     }
+    recognitionRef.current?.abort();
+    recognitionRef.current = null;
+    setListening(false);
+    setCapturePhase("idle");
     setVoiceConsent(false);
     setError("Bạn đã rút đồng ý dùng nhận dạng giọng nói trên thiết bị này.");
   };
 
   const movePhrase = (direction: number) => {
+    recognitionRef.current?.abort();
+    recognitionRef.current = null;
+    if (resultTimerRef.current !== null) window.clearTimeout(resultTimerRef.current);
     setPhraseIndex((current) => (current + direction + practicePhrases.length) % practicePhrases.length);
     setTranscript("");
     setScore(null);
     setError("");
+    setListening(false);
+    setCapturePhase("idle");
+  };
+
+  const stopRecognition = () => {
+    recognitionRef.current?.stop();
+    setListening(false);
+    setCapturePhase("processing");
+    emitSystemSignal({ type: "voice.record-stopped", sourceId: phraseVoiceSource });
+    emitSystemSignal({ type: "voice.processing", sourceId: phraseVoiceSource });
   };
 
   const startRecognition = () => {
     if (!voiceConsent) {
       setError("Hãy đọc thông tin xử lý giọng nói và đồng ý trước khi mở microphone.");
+      setCapturePhase("denied");
+      emitSystemSignal({ type: "voice.permission-denied", sourceId: phraseVoiceSource });
       return;
     }
     const recognition = createMandarinRecognition();
     if (!recognition) {
       setError("Trình duyệt này chưa hỗ trợ nhận dạng giọng nói. Bạn vẫn có thể nghe mẫu và luyện nhại.");
+      setCapturePhase("unavailable");
+      emitSystemSignal({ type: "voice.error", sourceId: phraseVoiceSource });
       return;
     }
+    cancelSpeech();
     setError("");
     setScore(null);
     setTranscript("");
-    setListening(true);
+    setCapturePhase("armed");
+    emitSystemSignal({ type: "voice.record-armed", sourceId: phraseVoiceSource });
     attemptKeyRef.current = makeIdempotencyKey(`speech:${phraseIndex}`);
+    recognitionRef.current = recognition;
+    recognition.onaudiostart = () => {
+      setListening(true);
+      setCapturePhase("listening");
+      emitSystemSignal({ type: "voice.record-started", sourceId: phraseVoiceSource });
+    };
+    recognition.onspeechstart = () => setCapturePhase("listening");
+    recognition.onspeechend = () => {
+      setCapturePhase("processing");
+      emitSystemSignal({ type: "voice.processing", sourceId: phraseVoiceSource });
+    };
     recognition.onresult = (event) => {
       const result = event.results[0]?.[0];
       if (!result) return;
       const nextScore = similarityScore(result.transcript, phrase.chinese, result.confidence || 0.65);
-      setTranscript(result.transcript);
-      setScore(nextScore);
-      actions.recordPracticeEvidence({
-        idempotencyKey: attemptKeyRef.current,
-        activityVersion: `${CONTENT_VERSION}:browser-speech:1`,
-        source: "pronunciation",
-        method: "speech-transcript",
-        activityId: `speech:${phraseIndex}`,
-        skill: "speaking",
-        outcome: "unverified",
-        score: nextScore,
-        metadata: {
-          target: phrase.chinese,
-          transcript: result.transcript,
-          confidence: result.confidence || 0.65,
-          scoringMethod: "browser-transcript-overlap",
-        },
-      });
+      const resultTranscript = result.transcript;
+      setCapturePhase("processing");
+      emitSystemSignal({ type: "voice.processing", sourceId: phraseVoiceSource });
+      resultTimerRef.current = window.setTimeout(() => {
+        setTranscript(resultTranscript);
+        setScore(nextScore);
+        setCapturePhase("result");
+        emitSystemSignal({ type: "voice.result", sourceId: phraseVoiceSource });
+        actions.recordPracticeEvidence({
+          idempotencyKey: attemptKeyRef.current,
+          activityVersion: `${CONTENT_VERSION}:browser-speech:1`,
+          source: "pronunciation",
+          method: "speech-transcript",
+          activityId: `speech:${phraseIndex}`,
+          skill: "speaking",
+          outcome: "unverified",
+          score: nextScore,
+          metadata: {
+            target: phrase.chinese,
+            transcript: resultTranscript,
+            confidence: result.confidence || 0.65,
+            scoringMethod: "browser-transcript-overlap",
+          },
+        });
+      }, 380);
     };
     recognition.onerror = (event) => {
       setError(event.error === "not-allowed" ? "Bạn cần cấp quyền microphone để ghi âm." : `Không thể nhận dạng: ${event.error}.`);
+      setCapturePhase(event.error === "not-allowed" ? "denied" : event.error === "audio-capture" ? "unavailable" : "error");
+      setListening(false);
+      emitSystemSignal({
+        type: event.error === "not-allowed" ? "voice.permission-denied" : "voice.error",
+        sourceId: phraseVoiceSource,
+      });
     };
-    recognition.onend = () => setListening(false);
-    recognition.start();
+    recognition.onnomatch = () => {
+      setError("Hệ thống chưa giải mã được câu nói. Hãy thử lại gần microphone hơn.");
+      setCapturePhase("error");
+      emitSystemSignal({ type: "voice.error", sourceId: phraseVoiceSource });
+    };
+    recognition.onend = () => {
+      setListening(false);
+      recognitionRef.current = null;
+    };
+    try {
+      recognition.start();
+    } catch {
+      recognitionRef.current = null;
+      setCapturePhase("unavailable");
+      setError("Kênh microphone chưa thể khởi động. Hãy kiểm tra quyền truy cập của trình duyệt.");
+      emitSystemSignal({ type: "voice.error", sourceId: phraseVoiceSource });
+    }
   };
 
   return (
@@ -207,11 +287,11 @@ export function PronunciationPage() {
           <div className="tone-detail">
             <span className="tone-number">{activeTone ? `0${activeTone}` : "轻"}</span>
             <div><strong>{activeToneData.name} · {activeToneData.pinyin}</strong><p>{activeToneData.description}</p></div>
-            <button className="icon-button" type="button" onClick={() => speakMandarin(activeToneData.sample, 0.62)} aria-label="Nghe thanh mẫu"><Volume2 size={20} /></button>
+            <button className="icon-button" type="button" onClick={() => speakMandarin(activeToneData.sample, 0.62, `pronunciation:tone:${activeTone}`)} aria-label="Nghe thanh mẫu"><Volume2 size={20} /></button>
           </div>
           <div className="tone-examples">
             {sampleWords.length ? sampleWords.map((word) => (
-              <button key={word.id} type="button" onClick={() => speakMandarin(word.simplified)}>
+              <button key={word.id} type="button" onClick={() => speakMandarin(word.simplified, .82, `pronunciation:word:${word.id}`)}>
                 <strong>{word.simplified}</strong><span>{word.pinyin}</span><small>{word.meaning}</small>
               </button>
             )) : <p>Kho từ hiện tại chưa có ví dụ cho thanh này.</p>}
@@ -245,12 +325,13 @@ export function PronunciationPage() {
             )}
           </div>
           <div className="voice-actions">
-            <button className="secondary-button" type="button" onClick={() => speakMandarin(phrase.chinese, 0.68)}><Headphones size={18} /> Nghe chậm</button>
-            <button className={`record-button ${listening ? "recording" : ""}`} type="button" disabled={listening || !voiceConsent} onClick={startRecognition}>
+            <button className="secondary-button" type="button" onClick={() => speakMandarin(phrase.chinese, 0.68, phraseVoiceSource)}><Headphones size={18} /> Nghe chậm</button>
+            <button className={`record-button ${listening ? "recording" : ""}`} type="button" disabled={!voiceConsent || capturePhase === "processing"} onClick={listening ? stopRecognition : startRecognition}>
               {listening ? <AudioLines size={26} /> : <Mic2 size={26} />}
-              <span>{listening ? "Đang lắng nghe..." : "Ghi âm câu nói"}</span>
+              <span>{listening ? "Dừng và giải mã" : capturePhase === "armed" ? "Đang mở kênh..." : "Ghi âm câu nói"}</span>
             </button>
           </div>
+          <VoiceReactor phase={reactorPhase} label={capturePhase === "listening" ? "Đang thu và dò nhịp câu nói" : undefined} />
 
           {(score !== null || error) && (
             <div className={`voice-result ${error ? "error" : score !== null && score >= 70 ? "success" : "warning"}`} aria-live="polite">

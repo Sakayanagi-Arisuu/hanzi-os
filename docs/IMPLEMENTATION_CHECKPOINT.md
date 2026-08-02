@@ -4,10 +4,11 @@ Cập nhật: 02/08/2026
 
 ## 1. Tình trạng một câu
 
-B7 đã nâng lớp trải nghiệm “Hệ Thống Thức Tỉnh” trên package `.08.5` thành Bảng
-Hệ Thống hologram có thể triệu hồi, dùng dữ liệu học thật, phối cảnh 3D tương
-tác và âm phản hồi tổng hợp tại chỗ. Toàn bộ 213 blueprint HSK1-4 vẫn học được
-trên rich UI, bốn Đại Khảo vẫn chạy end-to-end. Sites và production vẫn đóng.
+B8 đã biến lớp trải nghiệm “Hệ Thống Thức Tỉnh” trên package `.08.5` thành một
+hologram sống và có tiếng nói: Bảng Hệ Thống sáng rõ hơn, Audio Engine phản ứng
+theo sự kiện học thật, giọng xướng lệnh tiếng Việt và Voice Reactor hiện trạng
+thái phát/thu/xử lý. Toàn bộ 213 blueprint HSK1-4 vẫn học được trên rich UI, bốn
+Đại Khảo vẫn chạy end-to-end. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
@@ -37,7 +38,7 @@ mastery/production bị hoãn, không phải bài học hay lỗi tích hợp c�
 | HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
 | HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B4-B7 đã giao cho người học
+## 4. B4-B8 đã giao cho người học
 
 - Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
@@ -103,6 +104,31 @@ mục bridge/legacy còn consumer hợp lệ.
 - Browser TTS vẫn là synthetic practice, `humanReviewed: false`; âm thanh và
   hiệu ứng không được dùng làm evidence hay thay đổi prerequisite/persistence.
 
+### B8 — Living Hologram, Voice Reactor và System Announcer
+
+- Hologram dùng bộ token sáng/chiều sâu thống nhất và tương phản cao hơn cho
+  Bảng Hệ Thống, thẻ nhiệm vụ, kết quả bài học, Ký Ức Trận, Nghịch Cảnh Lục và
+  Đại Khảo. Desktop giữ các lớp 3D/scan/quỹ đạo; mobile xếp luồng rõ; reduced
+  motion tắt chuyển động lặp nhưng không làm mất thông tin hay thao tác.
+- Một Audio Engine dùng duy nhất một Web Audio graph, master/effects gain và
+  compressor; catalog có 36 cue cho thức tỉnh, online, triệu hồi, nhiệm vụ,
+  đúng/sai, hoàn tất bài, mở khóa, ôn tập, hóa giải lỗi, Đại Khảo, đạt ngưỡng,
+  thăng cấp và vòng đời phát/thu giọng. Cue được cooldown/dedupe và giảm nền khi
+  TTS đang nói, tự nghỉ khi nhàn và chặn cue không thiết yếu lúc microphone mở;
+  Đại Khảo bỏ âm click trùng nhưng vẫn giữ cue đúng/sai/hoàn tất.
+- System Announcer chỉ hoạt động sau khi người học bật rõ ràng. Bảng Thuộc Tính
+  cho chỉnh master/effects/voice volume, ba phổ âm, ba nhân cách xướng lệnh,
+  mức thông báo và giọng Việt có sẵn trên thiết bị. Không có giọng Việt thì báo
+  thiếu thay vì tự rơi sang giọng Anh; khởi động đầu tiên có lời chào thức tỉnh.
+- Voice Reactor dùng chung cho browser TTS và Vạn Âm Điện: hiện chuẩn bị, đang
+  phát, kết thúc, hủy/lỗi; luồng nhận dạng hiện armed, listening, processing,
+  result, denied hoặc unavailable. Quyền microphone vẫn cần consent hiện hữu;
+  transcript/độ khớp chỉ là quan sát chưa xác minh, không phải speaking mastery.
+- Signal bus nối âm thanh/xướng lệnh vào nhiệm vụ, lesson local và authenticated,
+  review, mistake remediation, mở khóa, thăng cảnh giới và cả bốn level check.
+  Prerequisite, persistence, FSRS, evidence version và chính sách mastery không
+  đổi; không thêm dependency, Python, audio asset hay production workflow.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -122,7 +148,7 @@ Human/production review manifest vẫn pending và production gate tiếp tục
 fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 được mở trong batch này.
 
-## 6. Trạng thái kiểm tra B4-B7
+## 6. Trạng thái kiểm tra B4-B8
 
 - Validator trực tiếp xanh cho 78 bài, 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm
   vụ, 77 chủ đề, rich UI 78/78 và level check 72 câu.
@@ -185,6 +211,24 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 - Lighthouse B7 chạy ba cold-profile: median performance **95**,
   accessibility/best-practices/SEO đều **100**; LCP 1.975 ms, CLS 0 và TBT
   196 ms.
+- B8 targeted validator/unit/typecheck/build xanh; browser QA trực tiếp xác nhận
+  Bảng Hệ Thống, cấu hình Audio Engine v2 và hai Voice Reactor trên Vạn Âm Điện
+  hiển thị đúng ở viewport mobile, không có lỗi console. Không kích hoạt quyền
+  microphone trong QA tự động.
+- Full boundary B8 chạy một lượt: toàn bộ content/package/catalog/graph/database
+  restore/typecheck/lint xanh. Vitest đạt 1.844/1.847 trong lượt song song; ba
+  mục còn lại đều timeout 10 giây do tranh tài nguyên, không có assertion sai,
+  và targeted một worker xác nhận cả ba module xanh sau đó.
+- Full E2E B8 chạy một lượt đạt 25/29 ngay. Ba Đại Khảo dài chạm timeout vì cue
+  click chung bị lặp cùng cue đúng/sai; một onboarding chậm đồng bộ ngẫu nhiên.
+  Sau khi bỏ cue trùng trong riêng phòng Đại Khảo, targeted rerun xác nhận HSK1
+  50 câu, HSK2 60 câu, HSK3 54 câu và onboarding lịch sử đều xanh; HSK4 72 câu
+  đã hoàn tất ngay trong full run.
+- Build cuối giữ client ceiling **799,2 KiB** dưới hard ceiling 800 KiB. Lượt
+  Lighthouse đầu đạt performance 92 vì speech subsystem khởi tạo lúc tải; sau
+  khi trì hoãn inventory giọng và cue catalog đến tương tác đầu tiên, cold-profile
+  cuối đạt median performance **97**, accessibility/best-practices/SEO **100**;
+  LCP 2.115 ms, CLS 0 và TBT 148 ms.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -192,7 +236,7 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 
 - Workspace: `D:\Projects\hanzi-os`; branch: `codex/hsk4-graduation`.
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
-  hiện hành `foundation-2026.08.5`; B7 là batch giao diện hiện tại.
+  hiện hành `foundation-2026.08.5`; B8 là batch giao diện/âm thanh hiện tại.
 - Không commit staging, build output hoặc report thử.
 - Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
 

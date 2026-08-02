@@ -1,13 +1,21 @@
-type BrowserSpeechRecognition = {
+import { requestMandarinSpeech } from "../audio/audioBridge";
+
+export type BrowserSpeechRecognition = {
   lang: string;
   continuous: boolean;
   interimResults: boolean;
   maxAlternatives: number;
   start: () => void;
   stop: () => void;
+  abort: () => void;
   onresult: ((event: SpeechRecognitionResultEventLike) => void) | null;
   onerror: ((event: { error: string }) => void) | null;
   onend: (() => void) | null;
+  onaudiostart: (() => void) | null;
+  onaudioend: (() => void) | null;
+  onspeechstart: (() => void) | null;
+  onspeechend: (() => void) | null;
+  onnomatch: (() => void) | null;
 };
 
 type SpeechRecognitionResultEventLike = {
@@ -25,20 +33,8 @@ declare global {
   }
 }
 
-export const speakMandarin = (text: string, rate = 0.82) => {
-  if (!("speechSynthesis" in window)) return false;
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "zh-CN";
-  utterance.rate = rate;
-  utterance.pitch = 1;
-  const voice = window.speechSynthesis
-    .getVoices()
-    .find((candidate) => candidate.lang.toLowerCase().startsWith("zh"));
-  if (voice) utterance.voice = voice;
-  window.speechSynthesis.speak(utterance);
-  return true;
-};
+export const speakMandarin = (text: string, rate = 0.82, sourceId?: string) =>
+  requestMandarinSpeech(text, rate, sourceId);
 
 export const createMandarinRecognition = () => {
   const Recognition = window.SpeechRecognition ?? window.webkitSpeechRecognition;

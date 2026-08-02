@@ -39,6 +39,7 @@ import {
 } from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+import { emitSystemSignal } from "../system/systemSignals";
 import {
   deriveJourneyTitles,
   getInteractionRankProgress,
@@ -296,7 +297,17 @@ export function DashboardPage() {
                 <li><BrainCircuit size={14} /> Ưu tiên theo bằng chứng</li>
               </ul>
             </div>
-            <Link className="icon-command" to={primaryMission.to} viewTransition aria-label={`Bắt đầu ${primaryMission.title}`}>
+            <Link
+              className="icon-command"
+              to={primaryMission.to}
+              viewTransition
+              aria-label={`Bắt đầu ${primaryMission.title}`}
+              onClick={() => emitSystemSignal({
+                type: "quest.activated",
+                sourceId: `dashboard:${primaryMission.id}`,
+                message: `Nhiệm vụ ${primaryMission.title} đã kích hoạt.`,
+              })}
+            >
               <ArrowRight size={22} />
             </Link>
           </div>

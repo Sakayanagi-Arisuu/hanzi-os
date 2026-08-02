@@ -7,10 +7,10 @@ dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1-B7 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
+Nền local-first ổn định. B1-B8 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
 HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
-package handoff `.08.5` có Bảng Hệ Thống hologram 3D và âm phản hồi sống mà
-không giả làm chứng nhận.
+package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản ứng theo
+sự kiện học, Voice Reactor và giọng xướng lệnh mà không giả làm chứng nhận.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
@@ -163,6 +163,36 @@ stacked hologram và reduced-motion làm phẳng hiệu ứng.
   accessibility/best-practices/SEO 100, LCP 1.975 ms, CLS 0, TBT 196 ms;
 - XP/âm thanh/TTS không cấp mastery, không miễn prerequisite và không đổi
   persistence/evidence. Sites, production, commerce, CMS, human review vẫn đóng.
+
+### B8 — Living Hologram, Voice Reactor và System Announcer
+
+**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** B8 mở rộng B7 thành
+một hệ thống có phản ứng nghe/nhìn nhất quán mà không thay content package hay
+learning policy.
+
+- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; coverage
+  giữ 2.000 vocabulary, 1.096 character, 332 grammar, 84 task và 195 topic;
+- hologram sáng/rõ hơn và phủ các trạng thái nhiệm vụ, lesson result, review,
+  mistake remediation, Đại Khảo; 3D desktop, stacked mobile và reduced-motion
+  đều dùng chung token/primitive;
+- Audio Engine dùng một Web Audio graph với 36 semantic cue, ba phổ âm, volume
+  master/effects, cooldown, dedupe, ducking khi TTS phát và tự nghỉ khi nhàn;
+  cue không thiết yếu bị chặn khi microphone mở; không có asset/dependency mới;
+- System Announcer có ba nhân cách, mức thông báo, voice volume và chọn giọng
+  Việt trên thiết bị; không có giọng Việt thì fail rõ, không dùng fallback Anh;
+- Voice Reactor hiện vòng đời phát TTS toàn cục và vòng consent/armed/listening/
+  processing/result/denied/unavailable tại Vạn Âm Điện; browser TTS và nhận dạng
+  vẫn là synthetic/unverified practice, `humanReviewed: false`;
+- signal bus nối nhiệm vụ, bài học, review, lỗi, mở khóa, cảnh giới và HSK1-4
+  level check; prerequisite, progress, persistence, FSRS/evidence không đổi;
+- full gate chạy một lượt: validator/package/graph/database/typecheck/lint xanh;
+  ba Vitest timeout do tải máy đều xanh khi rerun targeted một worker;
+- full E2E đạt 25/29 ban đầu; sau khi bỏ cue click trùng ở Đại Khảo, targeted
+  rerun xác nhận bốn luồng timeout/chậm đều xanh, bao gồm HSK1-3 level check;
+- client ceiling 799,2 KiB dưới 800 KiB. Lighthouse sau khi trì hoãn inventory
+  giọng và cue catalog đến tương tác đầu tiên đạt performance 97,
+  accessibility/best-practices/SEO 100; LCP 2.115 ms, CLS 0, TBT 148 ms;
+- không mở Sites, production, commerce, CMS hay human-review workflow.
 
 ## 6. Thước đo sẵn sàng toàn dự án
 

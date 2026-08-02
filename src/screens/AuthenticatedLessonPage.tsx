@@ -63,6 +63,7 @@ import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
+import { emitSystemSignal } from "../system/systemSignals";
 import {
   enqueueLessonSessionAbandonmentCommand,
   enqueueLessonSessionCommand,
@@ -306,8 +307,13 @@ function AuthenticatedLessonPageScope() {
         return true;
       }
       if (terminal.kind === "lesson-session-submit") {
+        const receipt = terminal.receipt;
+        if (!receipt) {
+          stopSafely("Receipt nộp phiên bị thiếu.");
+          return true;
+        }
         if (!submissionReceiptMatchesSessionBinding(
-          terminal.receipt,
+          receipt,
           binding,
           terminal.commandId,
         )) {
@@ -315,8 +321,19 @@ function AuthenticatedLessonPageScope() {
           return true;
         }
         if (terminal.commandId !== dismissedTerminalId) {
-          setResult(terminal.receipt);
+          setResult(receipt);
           setPhase("result");
+          emitSystemSignal({
+            type: receipt.passed ? "lesson.completed" : "learning.retry",
+            sourceId: `lesson:${binding.lessonId}:result`,
+            eventId: `${terminal.commandId}:system-result`,
+            message: receipt.passed ? "Nhiệm vụ hoàn thành. Bằng chứng đã được máy chủ xác nhận." : undefined,
+          });
+          if (receipt.passed) emitSystemSignal({
+            type: "path.unlocked",
+            sourceId: `lesson:${binding.lessonId}:unlock`,
+            eventId: `${terminal.commandId}:system-unlock`,
+          });
         } else {
           setResult(null);
           setPhase("briefing");
@@ -666,8 +683,14 @@ function AuthenticatedLessonPageScope() {
   useEffect(() => {
     if (outcome === "correct" || outcome === "incorrect") {
       feedbackRef.current?.focus();
+      const activity = runtime?.activities[index];
+      if (activity) emitSystemSignal({
+        type: outcome === "correct" ? "learning.correct" : "learning.retry",
+        sourceId: `lesson:${runtime.lessonId}:activity:${activity.activityId}`,
+        eventId: `${runtime.sessionId}:feedback:${activity.activityId}`,
+      });
     }
-  }, [outcome]);
+  }, [index, outcome, runtime]);
 
   const exactEnvironment = useCallback(async () => {
     if (
@@ -745,6 +768,7 @@ function AuthenticatedLessonPageScope() {
         enqueuedAt: new Date().toISOString(),
       });
       await enqueueLessonSessionCommand(input);
+      emitSystemSignal({ type: "lesson.started", sourceId: `lesson:${lesson.id}` });
       refreshRecords();
       refreshProjection();
       void actions.syncNow().catch(() => undefined).finally(() => {

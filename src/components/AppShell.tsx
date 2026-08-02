@@ -24,6 +24,7 @@ import { NavLink, useLocation } from "react-router";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { useLearning } from "../store/LearningStore";
 import { resolveSystemPageName } from "../system/systemLexicon";
+import { emitSystemSignal } from "../system/systemSignals";
 import {
   getInteractionRankProgress,
   getSystemClass,
@@ -48,7 +49,7 @@ const navItems = [
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { state, dueWordIds, level } = useLearning();
-  const { resolvedMotion, playSystemSound } = useSystemUi();
+  const { resolvedMotion } = useSystemUi();
   const rank = getInteractionRankProgress(state.xp);
   const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
@@ -76,20 +77,20 @@ export function AppShell({ children }: { children: ReactNode }) {
       if (event.altKey && event.key.toLowerCase() === "s") {
         event.preventDefault();
         if (statusOpen) {
-          playSystemSound("dismiss");
+          emitSystemSignal({ type: "system.panel-closed", sourceId: "status:shortcut" });
           setStatusOpen(false);
         } else {
-          playSystemSound("summon");
+          emitSystemSignal({ type: "system.panel-opened", sourceId: "status:shortcut" });
           setStatusOpen(true);
         }
       }
     };
     window.addEventListener("keydown", handleSummonShortcut);
     return () => window.removeEventListener("keydown", handleSummonShortcut);
-  }, [playSystemSound, statusOpen]);
+  }, [statusOpen]);
 
   const summonStatus = () => {
-    playSystemSound("summon");
+    emitSystemSignal({ type: "system.panel-opened", sourceId: "status:command-bar" });
     setStatusOpen(true);
   };
   const closeStatus = useCallback(() => setStatusOpen(false), []);

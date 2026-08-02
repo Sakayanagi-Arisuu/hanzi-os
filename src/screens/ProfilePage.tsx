@@ -26,6 +26,8 @@ import {
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router";
+import { useAudioEngine } from "../audio/AudioEngineProvider";
+import { VoiceReactor } from "../components/system/VoiceReactor";
 import { ConfirmModal, useSystemFeedback } from "../components/SystemFeedback";
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
@@ -47,7 +49,10 @@ import {
 } from "../system/systemProgression";
 import {
   useSystemUi,
+  type SystemAnnouncementLevel,
   type SystemMotionMode,
+  type SystemSoundPreset,
+  type SystemVoiceProfile,
 } from "../system/systemUiPreferences";
 import type { LearningGoal, Profile } from "../types";
 
@@ -71,6 +76,21 @@ const motionModes: Array<{ id: SystemMotionMode; label: string; description: str
   { id: "cinematic", label: "Điện ảnh", description: "Nghi thức và không gian đầy đủ hơn." },
   { id: "reduced", label: "Giảm chuyển động", description: "Tắt tilt, parallax và chuyển động nền lặp lại." },
 ];
+const soundPresets: Array<{ id: SystemSoundPreset; label: string }> = [
+  { id: "quiet", label: "Ẩn hành" },
+  { id: "balanced", label: "Cân bằng" },
+  { id: "awakening", label: "Thức tỉnh" },
+];
+const voiceProfiles: Array<{ id: SystemVoiceProfile; label: string }> = [
+  { id: "oracle", label: "Thiên cơ · trầm tĩnh" },
+  { id: "executor", label: "Chấp hành · uy nghiêm" },
+  { id: "guide", label: "Dẫn lộ · sáng rõ" },
+];
+const announcementLevels: Array<{ id: SystemAnnouncementLevel; label: string }> = [
+  { id: "off", label: "Không tự thông báo" },
+  { id: "ceremonial", label: "Chỉ nghi thức lớn" },
+  { id: "full", label: "Phản ứng đầy đủ" },
+];
 const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
@@ -82,11 +102,17 @@ export function ProfilePage() {
     setMotionMode,
     setSoundEnabled,
     setSoundVolume,
+    setEffectsVolume,
+    setSoundPreset,
     setVoiceEnabled,
-    previewSystemSound,
-    speakSystemMessage,
+    setVoiceVolume,
+    setVoiceProfile,
+    setPreferredVoiceUri,
+    setAnnouncementLevel,
     replayCeremonies,
   } = useSystemUi();
+  const { announce, hasVietnameseVoice, playback, previewCue, voices } = useAudioEngine();
+  const vietnameseVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("vi"));
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -468,7 +494,7 @@ export function ProfilePage() {
                 onClick={() => {
                   const enabled = !preferences.soundEnabled;
                   setSoundEnabled(enabled);
-                  if (enabled) previewSystemSound("summon");
+                  if (enabled) previewCue("system.boot");
                 }}
               >
                 {preferences.soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
@@ -488,9 +514,29 @@ export function ProfilePage() {
                   value={preferences.soundVolume}
                   disabled={!preferences.soundEnabled}
                   onChange={(event) => setSoundVolume(Number(event.target.value))}
-                  onPointerUp={() => previewSystemSound("select")}
+                  onPointerUp={() => previewCue("ui.select")}
                   aria-label="Cường độ âm thanh hệ thống"
                 />
+              </label>
+              <label className={preferences.soundEnabled ? "" : "disabled"}>
+                <span><strong>Hiệu ứng phản ứng</strong><output>{Math.round(preferences.effectsVolume * 100)}%</output></span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={preferences.effectsVolume}
+                  disabled={!preferences.soundEnabled}
+                  onChange={(event) => setEffectsVolume(Number(event.target.value))}
+                  onPointerUp={() => previewCue("quest.activated")}
+                  aria-label="Cường độ hiệu ứng phản ứng"
+                />
+              </label>
+              <label>
+                <span><strong>Phổ âm</strong><output>{soundPresets.find((item) => item.id === preferences.soundPreset)?.label}</output></span>
+                <select value={preferences.soundPreset} onChange={(event) => setSoundPreset(event.target.value as SystemSoundPreset)}>
+                  {soundPresets.map((preset) => <option key={preset.id} value={preset.id}>{preset.label}</option>)}
+                </select>
               </label>
               <button
                 className={preferences.voiceEnabled ? "active voice" : "voice"}
@@ -501,22 +547,63 @@ export function ProfilePage() {
                 <AudioLines size={20} />
                 <span>
                   <strong>Giọng hệ thống · {preferences.voiceEnabled ? "Đã mở" : "Tùy chọn"}</strong>
-                  <small>Giọng Việt tổng hợp của trình duyệt, chỉ phát khi bạn chủ động yêu cầu.</small>
+                  <small>Giọng Việt tổng hợp báo thức tỉnh, nhiệm vụ, hoàn thành và thăng cấp.</small>
                 </span>
                 <i aria-hidden="true" />
               </button>
+              <label className={preferences.voiceEnabled ? "" : "disabled"}>
+                <span><strong>Âm lượng xướng lệnh</strong><output>{Math.round(preferences.voiceVolume * 100)}%</output></span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1"
+                  step="0.01"
+                  value={preferences.voiceVolume}
+                  disabled={!preferences.voiceEnabled}
+                  onChange={(event) => setVoiceVolume(Number(event.target.value))}
+                  aria-label="Âm lượng giọng hệ thống"
+                />
+              </label>
+              <label>
+                <span><strong>Nhân cách xướng lệnh</strong></span>
+                <select value={preferences.voiceProfile} onChange={(event) => setVoiceProfile(event.target.value as SystemVoiceProfile)}>
+                  {voiceProfiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.label}</option>)}
+                </select>
+              </label>
+              <label>
+                <span><strong>Cấp độ thông báo</strong></span>
+                <select value={preferences.announcementLevel} onChange={(event) => setAnnouncementLevel(event.target.value as SystemAnnouncementLevel)}>
+                  {announcementLevels.map((levelOption) => <option key={levelOption.id} value={levelOption.id}>{levelOption.label}</option>)}
+                </select>
+              </label>
+              <label className={hasVietnameseVoice ? "" : "disabled"}>
+                <span><strong>Giọng Việt trên thiết bị</strong></span>
+                <select
+                  value={preferences.preferredVoiceUri ?? ""}
+                  disabled={!hasVietnameseVoice}
+                  onChange={(event) => setPreferredVoiceUri(event.target.value || undefined)}
+                >
+                  <option value="">Tự chọn giọng phù hợp</option>
+                  {vietnameseVoices.map((voice) => <option key={voice.voiceURI} value={voice.voiceURI}>{voice.name}</option>)}
+                </select>
+              </label>
               <button
                 className="sys-audio-test"
                 type="button"
                 data-system-silent="true"
                 onClick={() => {
-                  previewSystemSound("summon");
-                  speakSystemMessage(`Hệ thống đã kết nối. Chào mừng ${state.profile.name}.`);
+                  previewCue("system.online");
+                  if (!announce(`Hệ thống đã kết nối. Chào mừng ${state.profile.name}. Nhiệm vụ mới đang chờ kích hoạt.`, {
+                    sourceId: "profile:voice-preview",
+                    force: true,
+                    priority: 3,
+                  })) notify("Thiết bị chưa có giọng Việt tổng hợp phù hợp; hiệu ứng âm vẫn hoạt động.", "info");
                 }}
               >
                 <Sparkles size={16} /> Thử liên kết âm thanh
               </button>
-              <small className="sys-audio-disclosure">Không có file thu giọng người thật: mọi âm báo do Web Audio tạo tại chỗ; giọng nói là browser TTS synthetic và không được tính là bằng chứng phát âm.</small>
+              <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
+              <small className="sys-audio-disclosure">Không có file thu giọng người thật: mọi âm báo do Web Audio tạo tại chỗ; giọng nói là browser TTS synthetic và không được tính là bằng chứng phát âm. Khi không có giọng Việt, hệ thống báo rõ thay vì dùng giọng Anh.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>

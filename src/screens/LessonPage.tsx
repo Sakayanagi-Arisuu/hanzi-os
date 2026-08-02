@@ -46,6 +46,7 @@ import { makeIdempotencyKey } from "../lib/evidence";
 import { removeLegacyLearningResumeStorage } from "../lib/storageKeys";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { emitSystemSignal } from "../system/systemSignals";
 import {
   deleteLessonResume,
   readLessonResume,
@@ -377,7 +378,10 @@ function LocalLessonPage() {
 
         <footer className="briefing-actions">
           <p><Lightbulb size={17} /> Phiên làm bài sẽ tự lưu sau mỗi lựa chọn và tiếp tục đúng vị trí khi tải lại trang.</p>
-          <button className="primary-button" type="button" onClick={() => setPhase("exercise")}>
+          <button className="primary-button" type="button" onClick={() => {
+            emitSystemSignal({ type: "lesson.started", sourceId: `lesson:${lesson.id}` });
+            setPhase("exercise");
+          }}>
             Bước vào Thử Luyện <Play size={17} />
           </button>
         </footer>
@@ -425,6 +429,11 @@ function LocalLessonPage() {
       requiredForPass: current.requiredForPass,
     }, provenance);
     if (disposition === "rejected" || disposition === "conflict") return;
+    emitSystemSignal({
+      type: isCorrect ? "learning.correct" : "learning.retry",
+      sourceId: `lesson:${lesson.id}:activity:${current.id}`,
+      eventId: `${sessionId}:feedback:${current.id}`,
+    });
     setChecked(true);
     setAnswers((currentAnswers) => [...currentAnswers, {
       exerciseId: current.id,
@@ -457,6 +466,17 @@ function LocalLessonPage() {
     if (disposition === "rejected" || disposition === "conflict") return;
     setEarnedXp(disposition === "inserted" ? reward : 0);
     setFinished(true);
+    emitSystemSignal({
+      type: gateScore >= 70 ? "lesson.completed" : "learning.retry",
+      sourceId: `lesson:${lesson.id}:result`,
+      eventId: `${sessionId}:result`,
+      message: gateScore >= 70 ? `Nhiệm vụ ${lesson.title} hoàn thành. Kinh nghiệm đã được ghi nhận.` : undefined,
+    });
+    if (firstMastery) emitSystemSignal({
+      type: "path.unlocked",
+      sourceId: `lesson:${lesson.id}:unlock`,
+      eventId: `${sessionId}:unlock`,
+    });
   };
 
   if (finished) {

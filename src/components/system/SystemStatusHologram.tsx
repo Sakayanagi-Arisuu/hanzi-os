@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useEffect, useId, useMemo, useRef, type CSSProperties, type RefObject } from "react";
 import { Link } from "react-router";
+import { useAudioEngine } from "../../audio/AudioEngineProvider";
 import {
   getNextLesson,
   getReleasedLessonProgress,
@@ -29,6 +30,7 @@ import {
   getSystemClass,
 } from "../../system/systemProgression";
 import { useSystemUi } from "../../system/systemUiPreferences";
+import { emitSystemSignal } from "../../system/systemSignals";
 import { useLearning } from "../../store/LearningStore";
 import type { Skill } from "../../types";
 
@@ -54,15 +56,13 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
     preferences,
     resolvedMotion,
     setSoundEnabled,
-    previewSystemSound,
-    playSystemSound,
-    speakSystemMessage,
   } = useSystemUi();
+  const { announce, playCue, previewCue } = useAudioEngine();
   const dialogRef = useRef<HTMLElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const sceneRef = useRef<HTMLDivElement>(null);
   const animationFrameRef = useRef<number | null>(null);
-  const playSoundRef = useRef(playSystemSound);
+  const closeSignalRef = useRef(() => emitSystemSignal({ type: "system.panel-closed", sourceId: "status:keyboard" }));
   const titleId = useId();
   const descriptionId = useId();
   const rank = getInteractionRankProgress(state.xp);
@@ -78,10 +78,6 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const skills = useMemo(() => Object.entries(state.skillMastery) as Array<[Skill, number]>, [state.skillMastery]);
 
   useEffect(() => {
-    playSoundRef.current = playSystemSound;
-  }, [playSystemSound]);
-
-  useEffect(() => {
     if (!open) return;
     const previousOverflow = document.body.style.overflow;
     const returnFocusElement = returnFocusRef.current;
@@ -90,7 +86,7 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         event.preventDefault();
-        playSoundRef.current("dismiss");
+        closeSignalRef.current();
         onClose();
         return;
       }
@@ -120,7 +116,7 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   if (!open) return null;
 
   const close = () => {
-    playSystemSound("dismiss");
+    emitSystemSignal({ type: "system.panel-closed", sourceId: "status:panel" });
     onClose();
   };
 
@@ -152,17 +148,18 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const toggleSound = () => {
     if (!preferences.soundEnabled) {
       setSoundEnabled(true);
-      previewSystemSound("summon");
+      previewCue("system.open");
     } else {
-      playSystemSound("dismiss");
+      playCue("system.close");
       setSoundEnabled(false);
     }
   };
 
   const announceStatus = () => {
-    playSystemSound("confirm");
-    speakSystemMessage(
+    playCue("ui.confirm");
+    announce(
       `Hệ thống đã kết nối. ${state.profile.name}, cảnh giới hoạt động ${rank.title}. ${progress.completedCount} trên ${progress.totalCount} thử luyện đã thông qua.`,
+      { sourceId: "status:announcer", priority: 2 },
     );
   };
 

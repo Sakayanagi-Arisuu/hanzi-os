@@ -35,6 +35,7 @@ import {
 import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { emitSystemSignal } from "../system/systemSignals";
 import {
   useNormalizedLearningProjection,
 } from "../store/NormalizedLearningProjectionStore";
@@ -526,6 +527,16 @@ function AuthenticatedReviewPageScope() {
         ownerGeneration: environment.ownerGeneration,
         expectedResetEpoch: environment.resetEpoch,
         command,
+      });
+      emitSystemSignal({
+        type: "review.recalled",
+        sourceId: `review:${current.wordId}`,
+        eventId: `${command.idempotencyKey}:recalled`,
+      });
+      if (availableCards.length === 1) emitSystemSignal({
+        type: "review.queue-cleared",
+        sourceId: "review:account-queue",
+        eventId: `${command.idempotencyKey}:queue-cleared`,
       });
       setRecords((existing) => {
         if (!existing) return [queued];

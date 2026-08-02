@@ -2,6 +2,7 @@ import { Award, ChevronRight, FastForward, Orbit } from "lucide-react";
 import { useEffect, useId, useMemo, useRef } from "react";
 import { useLocation } from "react-router";
 import { deriveSystemCeremonies } from "../../system/systemProgression";
+import { emitSystemSignal } from "../../system/systemSignals";
 import { useSystemUi } from "../../system/systemUiPreferences";
 import { useLearning } from "../../store/LearningStore";
 
@@ -12,7 +13,6 @@ export function SystemPromotionOverlay() {
     preferences,
     hydrated,
     markCeremoniesSeen,
-    playSystemSound,
     resolvedMotion,
   } = useSystemUi();
   const dialogRef = useRef<HTMLElement>(null);
@@ -28,7 +28,12 @@ export function SystemPromotionOverlay() {
   useEffect(() => {
     if (!onAwakeningHall || !hydrated || !ceremony) return;
     const previous = document.activeElement;
-    playSystemSound("promotion");
+    emitSystemSignal({
+      type: "journey.promoted",
+      sourceId: `ceremony:${ceremony.id}`,
+      eventId: `journey-promoted:${ceremony.id}`,
+      message: `Chúc mừng. ${ceremony.title}. ${ceremony.subtitle}`,
+    });
     skipRef.current?.focus();
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -54,7 +59,7 @@ export function SystemPromotionOverlay() {
       window.removeEventListener("keydown", handleKeyDown);
       if (previous instanceof HTMLElement && previous.isConnected) previous.focus();
     };
-  }, [ceremonies, ceremony, hydrated, markCeremoniesSeen, onAwakeningHall, playSystemSound]);
+  }, [ceremonies, ceremony, hydrated, markCeremoniesSeen, onAwakeningHall]);
 
   if (!onAwakeningHall || !hydrated || !ceremony) return null;
 

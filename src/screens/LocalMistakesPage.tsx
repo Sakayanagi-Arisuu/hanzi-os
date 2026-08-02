@@ -21,6 +21,7 @@ import {
   toggleRemediationHint,
 } from "../lib/remediation";
 import { useLearning } from "../store/LearningStore";
+import { emitSystemSignal } from "../system/systemSignals";
 import type { MistakeRecord } from "../types";
 
 const skillLabels: Record<MistakeRecord["skill"], string> = {
@@ -145,6 +146,11 @@ export function LocalMistakesPage() {
       attemptKey,
       hint.used,
     );
+    emitSystemSignal({
+      type: attempt.resolved ? "mistake.resolved" : isCorrect ? "learning.correct" : "learning.retry",
+      sourceId: `mistake:${mistake.id}`,
+      eventId: `${attemptKey}:system-feedback`,
+    });
     if (isCorrect) {
       notify(
         hint.used

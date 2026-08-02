@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { DEFAULT_SYSTEM_UI_PREFERENCES, parseSystemUiPreferences } from "./systemUiPreferences";
+import {
+  DEFAULT_SYSTEM_UI_PREFERENCES,
+  parseSystemUiPreferences,
+} from "./systemUiPreferences";
 
 describe("system UI preference migration", () => {
   it("fails safely to the versioned default", () => {
@@ -9,34 +12,51 @@ describe("system UI preference migration", () => {
 
   it("deduplicates ceremony ids and ignores malformed values", () => {
     expect(parseSystemUiPreferences({
-      version: 99,
       motionMode: "cinematic",
       seenCeremonies: ["rank:500", "rank:500", 12, null],
       equippedTitle: "Tụ Từ Hành Giả",
-    })).toEqual({
-      version: 1,
+    })).toMatchObject({
+      version: 2,
       motionMode: "cinematic",
-      soundEnabled: true,
-      soundVolume: 0.28,
-      voiceEnabled: false,
       seenCeremonies: ["rank:500"],
       equippedTitle: "Tụ Từ Hành Giả",
     });
   });
 
-  it("migrates, clamps and preserves system audio preferences", () => {
+  it("upgrades the quiet v1 default to the clearer awakening mix", () => {
     expect(parseSystemUiPreferences({
+      version: 1,
       motionMode: "balanced",
-      soundEnabled: false,
-      soundVolume: 4,
-      voiceEnabled: true,
-      seenCeremonies: [],
+      soundEnabled: true,
+      soundVolume: .28,
+      voiceEnabled: false,
+      seenCeremonies: ["rank:1"],
     })).toMatchObject({
-      soundEnabled: false,
-      soundVolume: 1,
-      voiceEnabled: true,
+      version: 2,
+      soundVolume: DEFAULT_SYSTEM_UI_PREFERENCES.soundVolume,
+      effectsVolume: .72,
+      soundPreset: "awakening",
+      voiceProfile: "oracle",
+      announcementLevel: "ceremonial",
     });
+  });
 
-    expect(parseSystemUiPreferences({ soundVolume: -2 })).toMatchObject({ soundVolume: 0 });
+  it("preserves deliberate custom volume and clamps malformed values", () => {
+    expect(parseSystemUiPreferences({
+      version: 2,
+      soundVolume: .64,
+      effectsVolume: 4,
+      voiceVolume: -2,
+      soundPreset: "balanced",
+      voiceProfile: "guide",
+      announcementLevel: "full",
+    })).toMatchObject({
+      soundVolume: .64,
+      effectsVolume: 1,
+      voiceVolume: 0,
+      soundPreset: "balanced",
+      voiceProfile: "guide",
+      announcementLevel: "full",
+    });
   });
 });
