@@ -120,24 +120,31 @@ test("summons a keyboard-safe status hologram backed by live learning signals", 
   await expect(page.getByRole("dialog", { name: "Hành giả vô danh" })).toBeVisible();
 });
 
-test("plays the built-in Cơ Linh voice pack without a device voice", async ({ page }) => {
+test("plays every built-in system voice without a device voice", async ({ page }) => {
   await finishOnboarding(page);
   await page.goto("/profile");
-  await expect(page.locator(".sys-voice-identity strong")).toHaveText("Cơ Linh · Mechanical Core");
   const persona = page.getByRole("combobox", { name: "Nhân cách xướng lệnh" });
   await expect(persona).toHaveValue("mechanical");
   await expect(persona.locator("option")).toHaveCount(4);
 
   await page.getByRole("button", { name: /Giọng hệ thống · Đang ngủ/u }).click();
-  const voiceResponse = page.waitForResponse((response) =>
-    response.url().endsWith("/assets/system-voice/mechanical-core-v1/profile-preview.mp3")
-  );
-  await page.getByRole("button", { name: "Nghe thử giọng đang chọn" }).click();
-
-  const response = await voiceResponse;
-  expect(response.status()).toBe(200);
-  expect(response.headers()["content-type"]).toContain("audio/mpeg");
-  await expect(page.locator('.voice-reactor[data-phase="playing"]').first()).toBeVisible();
+  for (const profile of [
+    { id: "mechanical", directory: "mechanical-core-v1", label: "Cơ Linh · Mechanical Core" },
+    { id: "oracle", directory: "oracle-v1", label: "Thiên cơ · trầm tĩnh" },
+    { id: "executor", directory: "executor-v1", label: "Chấp hành · uy nghiêm" },
+    { id: "guide", directory: "guide-v1", label: "Dẫn lộ · sáng rõ" },
+  ]) {
+    await persona.selectOption(profile.id);
+    await expect(page.locator(".sys-voice-identity strong")).toHaveText(profile.label);
+    const voiceResponse = page.waitForResponse((response) =>
+      response.url().endsWith(`/assets/system-voice/${profile.directory}/profile-preview.mp3`)
+    );
+    await page.getByRole("button", { name: "Nghe thử giọng đang chọn" }).click();
+    const response = await voiceResponse;
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("audio/mpeg");
+    await expect(page.locator('.voice-reactor[data-phase="playing"]').first()).toBeVisible();
+  }
 });
 
 test("exposes single-select state and supports arrow navigation", async ({ page }) => {

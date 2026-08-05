@@ -4,9 +4,10 @@ Cập nhật: 05/08/2026
 
 ## 1. Tình trạng một câu
 
-B8.1 đã thêm Cơ Linh Mechanical Core thành nhân cách thứ tư có thể chọn trong
-Bảng Thuộc Tính: 16 xướng lệnh robotic được đóng gói local, còn Thiên cơ, Chấp
-hành và Dẫn lộ tiếp tục dùng giọng Việt trên thiết bị. Toàn bộ 213 blueprint
+B8.1 đã hoàn tất bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
+Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
+64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
+Windows; browser TTS chỉ còn là dự phòng cho câu động. Toàn bộ 213 blueprint
 HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo vẫn chạy end-to-end. Sites và
 production vẫn đóng.
 
@@ -129,20 +130,22 @@ mục bridge/legacy còn consumer hợp lệ.
   Prerequisite, persistence, FSRS, evidence version và chính sách mastery không
   đổi; không thêm dependency runtime hay production workflow.
 
-### B8.1 — Cơ Linh Mechanical Core
+### B8.1 — Bộ bốn nhân cách xướng lệnh local
 
-- Bộ giọng local có 16 xướng lệnh cho khởi động, kích hoạt nhiệm vụ, hoàn tất bài,
+- Mỗi nhân cách có 16 xướng lệnh cho khởi động, kích hoạt nhiệm vụ, hoàn tất bài,
   mở Thiên Lộ, dọn hàng đợi ôn tập, hóa giải lỗi, bắt đầu/hoàn tất Đại Khảo, đạt
   ngưỡng, thăng chức, mất/khôi phục liên kết, cảnh báo, xem thử và tóm tắt trạng
-  thái. Các tín hiệu chính phát trực tiếp qua Audio Engine và làm Voice Reactor
-  chuyển `preparing → playing → idle`.
+  thái. Tổng 64 clip phát trực tiếp qua Audio Engine và làm Voice Reactor chuyển
+  `preparing → playing → idle`.
 - Dropdown **Nhân cách xướng lệnh** có đủ bốn lựa chọn: **Cơ Linh · Mechanical
   Core**, Thiên cơ, Chấp hành và Dẫn lộ. Nút **Nghe thử giọng đang chọn** phát
   đúng engine của lựa chọn hiện tại; thẻ nhận dạng cũng đổi theo lựa chọn.
-- Mechanical Core không cần giọng Việt của Windows. Ba nhân cách cũ tiếp tục
-  dùng browser TTS trên thiết bị và báo rõ khi thiết bị thiếu giọng Việt.
-- Nguồn carrier được tạo trong tài khoản ElevenLabs của người dùng, clone local
-  bằng VieNeu-TTS rồi xử lý Mechanical Core. Phạm vi là demo/tự học local,
+- Cả bốn nhân cách đều phát được khi Windows không có giọng Việt. Browser TTS
+  chỉ còn là dự phòng cho câu động không có clip định trước.
+- Mechanical Core dùng carrier tạo trong tài khoản ElevenLabs của người dùng,
+  clone local bằng VieNeu-TTS rồi xử lý robotic. Thiên cơ, Chấp hành và Dẫn lộ
+  dùng ba giọng VieNeu-TTS v3 riêng với xử lý âm phù hợp từng nhân cách; nguồn
+  VieNeu/pnnbao-ump áp dụng CC BY-NC 4.0. Phạm vi là demo/tự học local,
   synthetic, `humanReviewed: false`; không phải native audio, review phát âm,
   mastery hay chứng nhận HSK.
 - Không thay package nội dung, prerequisite, progress, persistence, FSRS hay
@@ -248,12 +251,12 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   khi trì hoãn inventory giọng và cue catalog đến tương tác đầu tiên, cold-profile
   cuối đạt median performance **97**, accessibility/best-practices/SEO **100**;
   LCP 2.115 ms, CLS 0 và TBT 148 ms.
-- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **799,9 KiB**
-  dưới hard ceiling 800 KiB. Targeted E2E xác nhận MP3 tích hợp trả đúng
-  `audio/mpeg`, dropdown có bốn lựa chọn và Mechanical Core phát được khi thiết
-  bị không có giọng Việt. Browser QA trực tiếp trên Chrome xác nhận chuyển
-  Chấp hành ↔ Mechanical Core rồi **Nghe thử giọng đang chọn** đưa Voice Reactor
-  từ `playing` về `idle`, không có lỗi tích hợp đã biết.
+- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **800,0 KiB**
+  bằng hard ceiling cho phép. Targeted E2E xác nhận đủ 64 MP3 local, đúng
+  `audio/mpeg`, và cả bốn lựa chọn phát được khi thiết bị không có giọng Việt.
+  Browser QA trực tiếp trên Chrome đã nghe thử Mechanical Core, Thiên cơ, Chấp
+  hành và Dẫn lộ: cả bốn đều đưa Voice Reactor vào `playing`, không hiện cảnh
+  báo thiếu giọng Việt và không còn lỗi tích hợp audio local đã biết.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 

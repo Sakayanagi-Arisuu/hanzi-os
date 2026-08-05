@@ -17,7 +17,6 @@ import type { SoundCueId } from "./cueCatalog";
 import {
   systemVoiceClipForSignal,
   systemVoiceClipUrl,
-  systemVoiceLineForSignal,
   type SystemVoiceClipId,
 } from "./systemVoicePack";
 
@@ -91,7 +90,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   const currentLanguageRef = useRef<"zh-CN" | "vi-VN" | null>(null);
   const currentPriorityRef = useRef<1 | 2 | 3>(1);
   const playbackRequestRef = useRef(0);
-  const clipBufferCacheRef = useRef(new Map<SystemVoiceClipId, Promise<AudioBuffer>>());
+  const clipBufferCacheRef = useRef(new Map<string, Promise<AudioBuffer>>());
   const cuePlayedAtRef = useRef(new Map<SoundCueId, number>());
   const announcementAtRef = useRef(new Map<string, number>());
   const bootedRef = useRef(false);
@@ -312,6 +311,8 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     if (prefs.voiceVolume <= 0 || prefs.soundVolume <= 0) return false;
     if (!prefs.voiceEnabled && !options?.force) return false;
     const requestedPriority = options?.priority ?? 1;
+    const voiceProfile = prefs.voiceProfile;
+    const cacheKey = `${voiceProfile}:${clipId}`;
     if (currentUtteranceRef.current && currentLanguageRef.current === "zh-CN") return false;
     if ((currentUtteranceRef.current || currentClipSourceRef.current)
       && requestedPriority < currentPriorityRef.current) return false;
@@ -319,7 +320,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     cancelSpeech();
     if (playbackTimerRef.current !== null) window.clearTimeout(playbackTimerRef.current);
     const requestId = playbackRequestRef.current;
-    const sourceId = options?.sourceId ?? `system-voice:${clipId}`;
+    const sourceId = options?.sourceId ?? `system-voice:${cacheKey}`;
     currentLanguageRef.current = "vi-VN";
     currentPriorityRef.current = requestedPriority;
     setPlayback({ phase: "preparing", sourceId, language: "vi-VN" });
@@ -328,19 +329,19 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       const context = await ensureGraph();
       const voiceGain = voiceGainRef.current;
       if (!context || !voiceGain) throw new Error("audio-context-unavailable");
-      let bufferPromise = clipBufferCacheRef.current.get(clipId);
+      let bufferPromise = clipBufferCacheRef.current.get(cacheKey);
       if (!bufferPromise) {
-        bufferPromise = fetch(systemVoiceClipUrl(clipId), { cache: "force-cache" }).then(async (response) => {
+        bufferPromise = fetch(systemVoiceClipUrl(voiceProfile, clipId), { cache: "force-cache" }).then(async (response) => {
           if (!response.ok) throw new Error(`system-voice-${response.status}`);
           return context.decodeAudioData(await response.arrayBuffer());
         });
-        clipBufferCacheRef.current.set(clipId, bufferPromise);
+        clipBufferCacheRef.current.set(cacheKey, bufferPromise);
       }
       let buffer: AudioBuffer;
       try {
         buffer = await bufferPromise;
       } catch (error) {
-        clipBufferCacheRef.current.delete(clipId);
+        clipBufferCacheRef.current.delete(cacheKey);
         throw error;
       }
       if (requestId !== playbackRequestRef.current) return false;
@@ -384,9 +385,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     speakWithBrowser(text, "zh-CN", { rate, sourceId, force: true, priority: 3 }), [speakWithBrowser]);
   const announce = useCallback((message: string, options?: SpeakOptions) => {
     const clipId = options?.clipId;
-    if (!clipId || preferencesRef.current.voiceProfile !== "mechanical") {
-      return speakWithBrowser(message, "vi-VN", options);
-    }
+    if (!clipId) return speakWithBrowser(message, "vi-VN", options);
     void playSystemClip(clipId, options);
     return true;
   }, [playSystemClip, speakWithBrowser]);
@@ -409,7 +408,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     if (!prefs.voiceEnabled || prefs.announcementLevel === "off") return;
     if (prefs.announcementLevel === "ceremonial" && !CEREMONIAL_SIGNALS.has(signal.type)) return;
     const clipId = systemVoiceClipForSignal(signal.type);
-    const message = signal.message ?? systemVoiceLineForSignal(signal.type);
+    const message = signal.message ?? clipId;
     if (!message) return;
     const dedupeKey = `${signal.type}:${message}`;
     const now = Date.now();

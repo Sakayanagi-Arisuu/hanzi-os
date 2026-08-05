@@ -122,7 +122,6 @@ export function ProfilePage() {
   const vietnameseVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("vi"));
   const selectedVoiceProfile = voiceProfiles.find((profile) => profile.id === preferences.voiceProfile)
     ?? voiceProfiles[0];
-  const mechanicalVoiceSelected = selectedVoiceProfile.id === "mechanical";
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -499,10 +498,10 @@ export function ProfilePage() {
               <div className="sys-voice-identity">
                 <span aria-hidden="true"><AudioLines size={22} /></span>
                 <div>
-                  <small>VOICE CHANNEL · {mechanicalVoiceSelected ? "LOCAL SYNTHETIC" : "DEVICE SYNTHETIC"}</small>
+                  <small>VOICE CHANNEL · LOCAL SYNTHETIC</small>
                   <strong>{selectedVoiceProfile.label}</strong>
                 </div>
-                <b>{mechanicalVoiceSelected ? "CORE V1" : "DEVICE"}</b>
+                <b>{selectedVoiceProfile.id.toUpperCase()} V1</b>
               </div>
               <button
                 className={preferences.soundEnabled ? "active" : ""}
@@ -583,7 +582,7 @@ export function ProfilePage() {
                 />
               </label>
               <label>
-                <span><strong>Nhân cách xướng lệnh</strong><output>{mechanicalVoiceSelected ? "Local" : "Thiết bị"}</output></span>
+                <span><strong>Nhân cách xướng lệnh</strong><output>Local</output></span>
                 <select aria-label="Nhân cách xướng lệnh" value={preferences.voiceProfile} onChange={(event) => setVoiceProfile(event.target.value as SystemVoiceProfile)}>
                   {voiceProfiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.label}</option>)}
                 </select>
@@ -594,11 +593,11 @@ export function ProfilePage() {
                   {announcementLevels.map((levelOption) => <option key={levelOption.id} value={levelOption.id}>{levelOption.label}</option>)}
                 </select>
               </label>
-              <label className={!mechanicalVoiceSelected && hasVietnameseDeviceVoice ? "" : "disabled"}>
-                <span><strong>Giọng Việt trên thiết bị</strong></span>
+              <label className={hasVietnameseDeviceVoice ? "" : "disabled"}>
+                <span><strong>TTS thiết bị cho câu động</strong></span>
                 <select
                   value={preferences.preferredVoiceUri ?? ""}
-                  disabled={mechanicalVoiceSelected || !hasVietnameseDeviceVoice}
+                  disabled={!hasVietnameseDeviceVoice}
                   onChange={(event) => setPreferredVoiceUri(event.target.value || undefined)}
                 >
                   <option value="">Tự chọn giọng dự phòng</option>
@@ -615,15 +614,15 @@ export function ProfilePage() {
                     sourceId: "profile:voice-preview",
                     force: true,
                     priority: 3,
-                    ...(mechanicalVoiceSelected ? { clipId: "profile.preview" as const } : {}),
+                    clipId: "profile.preview",
                   });
-                  if (!played) notify("Giọng này cần một giọng tiếng Việt có sẵn trên thiết bị.", "info");
+                  if (!played) notify("Kênh xướng lệnh hiện chưa thể phát.", "info");
                 }}
               >
                 <Sparkles size={16} /> Nghe thử giọng đang chọn
               </button>
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
-              <small className="sys-audio-disclosure">Mechanical Core là giọng AI synthetic local tạo bằng ElevenLabs + VieNeu-TTS v3; humanReviewed=false. Ba giọng còn lại dùng TTS trên thiết bị. Chỉ dùng cho demo/tự học, không phải audio bản ngữ hay bằng chứng phát âm.</small>
+              <small className="sys-audio-disclosure">Bốn voice pack đều là AI synthetic local, humanReviewed=false. Mechanical Core dùng ElevenLabs + VieNeu-TTS; ba pack còn lại dùng VieNeu-TTS v3 (CC BY-NC 4.0). Chỉ dùng demo/tự học, không phải audio bản ngữ hay bằng chứng phát âm.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>

@@ -10,8 +10,8 @@ dùng chủ động mở lại.
 Nền local-first ổn định. B1-B8.1 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
 HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
 package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản ứng theo
-sự kiện học, Voice Reactor và 16 xướng lệnh Cơ Linh Mechanical Core tích hợp sẵn
-mà không giả làm chứng nhận.
+sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
+hợp sẵn mà không giả làm chứng nhận.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
@@ -195,26 +195,29 @@ learning policy.
   accessibility/best-practices/SEO 100; LCP 2.115 ms, CLS 0, TBT 148 ms;
 - không mở Sites, production, commerce, CMS hay human-review workflow.
 
-### B8.1 — Cơ Linh Mechanical Core
+### B8.1 — Bộ bốn nhân cách xướng lệnh local
 
-**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Giọng 2 Mechanical
-Core là nhân cách robotic thứ tư trong bộ chọn giọng hệ thống, đồng thời là mặc
-định mới cho cấu hình cũ còn dùng Thiên cơ mặc định.
+**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Mechanical Core,
+Thiên cơ, Chấp hành và Dẫn lộ đều là voice pack local có thể chọn trong Bảng
+Thuộc Tính; Mechanical Core vẫn là mặc định mới cho cấu hình cũ còn dùng Thiên
+cơ mặc định.
 
-- 16 xướng lệnh local phủ khởi động, nhiệm vụ, hoàn tất/mở khóa, ôn tập, hóa giải
-  lỗi, Đại Khảo, đạt ngưỡng/thăng chức, trạng thái liên kết, cảnh báo, xem thử và
-  tóm tắt Bảng Hệ Thống;
+- mỗi nhân cách có 16 xướng lệnh local, tổng 64 clip phủ khởi động, nhiệm vụ,
+  hoàn tất/mở khóa, ôn tập, hóa giải lỗi, Đại Khảo, đạt ngưỡng/thăng chức, trạng
+  thái liên kết, cảnh báo, xem thử và tóm tắt Bảng Hệ Thống;
 - Audio Engine phát clip qua Web Audio graph hiện hành, ducking hiệu ứng và cập
   nhật Voice Reactor; các thông báo chính không phụ thuộc giọng Việt của Windows;
 - dropdown có đủ Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ; nút nghe thử và
-  thẻ nhận dạng phản ánh đúng lựa chọn. Ba nhân cách cũ tiếp tục dùng browser TTS
-  trên thiết bị; mọi âm thanh vẫn là synthetic practice, `humanReviewed: false`;
-- carrier được tạo trong tài khoản ElevenLabs của người dùng, clone local bằng
-  VieNeu-TTS và xử lý Mechanical Core; phạm vi sử dụng hiện tại là demo/tự học
-  local, không phải native audio, review phát âm, mastery hoặc chứng nhận HSK;
+  thẻ nhận dạng phản ánh đúng lựa chọn. Cả bốn voice pack phát local, browser TTS
+  chỉ còn dự phòng cho câu động; mọi âm thanh vẫn là synthetic practice,
+  `humanReviewed: false`;
+- Mechanical Core dùng carrier ElevenLabs của người dùng, VieNeu-TTS và xử lý
+  robotic. Ba pack còn lại dùng ba giọng VieNeu-TTS v3 riêng; nguồn
+  VieNeu/pnnbao-ump áp dụng CC BY-NC 4.0. Phạm vi hiện tại là demo/tự học local,
+  không phải native audio, review phát âm, mastery hoặc chứng nhận HSK;
 - targeted unit/typecheck/lint/build và E2E bộ chọn bốn giọng xanh; browser QA
-  trực tiếp xác nhận đổi Chấp hành ↔ Mechanical Core và `playing → idle`; client
-  ceiling 799,9/800 KiB;
+  trực tiếp xác nhận cả bốn vào `playing`, không còn cảnh báo thiếu giọng Việt;
+  client ceiling 800,0/800 KiB;
 - đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
   prerequisite, progress, persistence, FSRS và evidence không đổi;
 - không mở Sites, production, commerce, CMS hay human-review workflow.
