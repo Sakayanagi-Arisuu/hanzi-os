@@ -11,7 +11,8 @@ Nền local-first ổn định. B1-B8.1 đã hoàn tất phạm vi đồ án/t�
 HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
 package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản ứng theo
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
-hợp sẵn mà không giả làm chứng nhận.
+hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
+Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
@@ -212,12 +213,18 @@ cơ mặc định.
   chỉ còn dự phòng cho câu động; mọi âm thanh vẫn là synthetic practice,
   `humanReviewed: false`;
 - Mechanical Core dùng carrier ElevenLabs của người dùng, VieNeu-TTS và xử lý
-  robotic. Ba pack còn lại dùng ba giọng VieNeu-TTS v3 riêng; nguồn
-  VieNeu/pnnbao-ump áp dụng CC BY-NC 4.0. Phạm vi hiện tại là demo/tự học local,
+  robotic. Ba pack còn lại dùng ba giọng VieNeu-TTS v3 fallback riêng, không giả
+  là voice ElevenLabs tương ứng; bản v2 tổng hợp từng mệnh đề riêng và chèn
+  khoảng nghỉ 0,34–0,68 giây. Nguồn VieNeu/pnnbao-ump áp dụng CC BY-NC 4.0.
+  Phạm vi hiện tại là demo/tự học local,
   không phải native audio, review phát âm, mastery hoặc chứng nhận HSK;
 - targeted unit/typecheck/lint/build và E2E bộ chọn bốn giọng xanh; browser QA
   trực tiếp xác nhận cả bốn vào `playing`, không còn cảnh báo thiếu giọng Việt;
-  client ceiling 800,0/800 KiB;
+  client ceiling 799,9/800 KiB;
+- sau phản hồi cadence, ba fallback chuyển sang URL v2 để tránh cache; preview
+  Thiên Cơ/Chấp Hành/Dẫn Lộ dài khoảng 6,1/6,4/5,6 giây với hai khoảng nghỉ rõ.
+  ElevenLabs free tier đang chặn tạo mới theo IP dù còn credit, nên chưa claim
+  hai fallback là đúng voice Thiên Cơ/Chấp Hành đã lưu trong Voice Lab;
 - đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
   prerequisite, progress, persistence, FSRS và evidence không đổi;
 - không mở Sites, production, commerce, CMS hay human-review workflow.

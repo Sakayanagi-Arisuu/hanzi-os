@@ -501,7 +501,7 @@ export function ProfilePage() {
                   <small>VOICE CHANNEL · LOCAL SYNTHETIC</small>
                   <strong>{selectedVoiceProfile.label}</strong>
                 </div>
-                <b>{selectedVoiceProfile.id.toUpperCase()} V1</b>
+                <b>{selectedVoiceProfile.id === "mechanical" ? "ORIGINAL V1" : "FALLBACK V2"}</b>
               </div>
               <button
                 className={preferences.soundEnabled ? "active" : ""}
@@ -622,7 +622,7 @@ export function ProfilePage() {
                 <Sparkles size={16} /> Nghe thử giọng đang chọn
               </button>
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
-              <small className="sys-audio-disclosure">Bốn voice pack đều là AI synthetic local, humanReviewed=false. Mechanical Core dùng ElevenLabs + VieNeu-TTS; ba pack còn lại dùng VieNeu-TTS v3 (CC BY-NC 4.0). Chỉ dùng demo/tự học, không phải audio bản ngữ hay bằng chứng phát âm.</small>
+              <small className="sys-audio-disclosure">Cơ Linh bám voice ElevenLabs đã chọn. Thiên Cơ, Chấp Hành và Dẫn Lộ hiện là VieNeu local fallback có nhịp nghỉ, không phải voice ElevenLabs tương ứng. Tất cả synthetic, humanReviewed=false, chỉ dùng demo/tự học.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>

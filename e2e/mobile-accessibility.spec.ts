@@ -130,9 +130,9 @@ test("plays every built-in system voice without a device voice", async ({ page }
   await page.getByRole("button", { name: /Giọng hệ thống · Đang ngủ/u }).click();
   for (const profile of [
     { id: "mechanical", directory: "mechanical-core-v1", label: "Cơ Linh · Mechanical Core" },
-    { id: "oracle", directory: "oracle-v1", label: "Thiên cơ · trầm tĩnh" },
-    { id: "executor", directory: "executor-v1", label: "Chấp hành · uy nghiêm" },
-    { id: "guide", directory: "guide-v1", label: "Dẫn lộ · sáng rõ" },
+    { id: "oracle", directory: "oracle-v2", label: "Thiên cơ · trầm tĩnh" },
+    { id: "executor", directory: "executor-v2", label: "Chấp hành · uy nghiêm" },
+    { id: "guide", directory: "guide-v2", label: "Dẫn lộ · sáng rõ" },
   ]) {
     await persona.selectOption(profile.id);
     await expect(page.locator(".sys-voice-identity strong")).toHaveText(profile.label);

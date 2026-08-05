@@ -28,9 +28,9 @@ export type SystemVoiceClipId = (typeof SYSTEM_VOICE_CLIP_IDS)[number];
 type SystemVoiceSignalId = (typeof SYSTEM_VOICE_SIGNAL_IDS)[number];
 const SYSTEM_VOICE_PACK_DIRS: Record<SystemVoiceProfile, string> = {
   mechanical: "mechanical-core-v1",
-  oracle: "oracle-v1",
-  executor: "executor-v1",
-  guide: "guide-v1",
+  oracle: "oracle-v2",
+  executor: "executor-v2",
+  guide: "guide-v2",
 };
 
 const localPack = (id: string, directory: string) => ({
@@ -43,9 +43,9 @@ const localPack = (id: string, directory: string) => ({
 
 export const SYSTEM_VOICE_PACKS = {
   mechanical: localPack("co-linh-mechanical-core-v1", SYSTEM_VOICE_PACK_DIRS.mechanical),
-  oracle: localPack("thien-co-oracle-v1", SYSTEM_VOICE_PACK_DIRS.oracle),
-  executor: localPack("chap-hanh-executor-v1", SYSTEM_VOICE_PACK_DIRS.executor),
-  guide: localPack("dan-lo-guide-v1", SYSTEM_VOICE_PACK_DIRS.guide),
+  oracle: localPack("thien-co-oracle-v2", SYSTEM_VOICE_PACK_DIRS.oracle),
+  executor: localPack("chap-hanh-executor-v2", SYSTEM_VOICE_PACK_DIRS.executor),
+  guide: localPack("dan-lo-guide-v2", SYSTEM_VOICE_PACK_DIRS.guide),
 } as const;
 
 export const systemVoiceClipForSignal = (type: SystemSignalType): SystemVoiceSignalId | undefined =>

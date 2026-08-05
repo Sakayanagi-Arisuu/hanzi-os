@@ -7,7 +7,10 @@ Cập nhật: 05/08/2026
 B8.1 đã hoàn tất bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
-Windows; browser TTS chỉ còn là dự phòng cho câu động. Toàn bộ 213 blueprint
+Windows; browser TTS chỉ còn là dự phòng cho câu động. Cơ Linh dùng carrier từ
+voice ElevenLabs người dùng đã chọn; ba nhân cách còn lại là VieNeu local
+fallback v2 có khoảng nghỉ rõ, không được trình bày như voice ElevenLabs tương
+ứng. Toàn bộ 213 blueprint
 HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo vẫn chạy end-to-end. Sites và
 production vẫn đóng.
 
@@ -144,7 +147,9 @@ mục bridge/legacy còn consumer hợp lệ.
   chỉ còn là dự phòng cho câu động không có clip định trước.
 - Mechanical Core dùng carrier tạo trong tài khoản ElevenLabs của người dùng,
   clone local bằng VieNeu-TTS rồi xử lý robotic. Thiên cơ, Chấp hành và Dẫn lộ
-  dùng ba giọng VieNeu-TTS v3 riêng với xử lý âm phù hợp từng nhân cách; nguồn
+  hiện dùng ba giọng VieNeu-TTS v3 fallback riêng với xử lý âm phù hợp từng nhân
+  cách; chúng không phải ba voice ElevenLabs tương ứng. Bản v2 tổng hợp từng
+  mệnh đề riêng và chèn khoảng nghỉ 0,34–0,68 giây để không đọc dính câu. Nguồn
   VieNeu/pnnbao-ump áp dụng CC BY-NC 4.0. Phạm vi là demo/tự học local,
   synthetic, `humanReviewed: false`; không phải native audio, review phát âm,
   mastery hay chứng nhận HSK.
@@ -251,12 +256,17 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   khi trì hoãn inventory giọng và cue catalog đến tương tác đầu tiên, cold-profile
   cuối đạt median performance **97**, accessibility/best-practices/SEO **100**;
   LCP 2.115 ms, CLS 0 và TBT 148 ms.
-- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **800,0 KiB**
-  bằng hard ceiling cho phép. Targeted E2E xác nhận đủ 64 MP3 local, đúng
+- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **799,9 KiB**
+  dưới hard ceiling 800 KiB. Targeted E2E xác nhận đủ 64 MP3 local, đúng
   `audio/mpeg`, và cả bốn lựa chọn phát được khi thiết bị không có giọng Việt.
   Browser QA trực tiếp trên Chrome đã nghe thử Mechanical Core, Thiên cơ, Chấp
   hành và Dẫn lộ: cả bốn đều đưa Voice Reactor vào `playing`, không hiện cảnh
   báo thiếu giọng Việt và không còn lỗi tích hợp audio local đã biết.
+- Hiệu chỉnh cadence sau phản hồi người dùng giữ Cơ Linh ở pack gốc; ba fallback
+  đổi sang URL v2 để bỏ cache file cũ. Preview Thiên Cơ/Chấp Hành/Dẫn Lộ lần lượt
+  dài khoảng 6,1/6,4/5,6 giây với hai khoảng nghỉ đo được. ElevenLabs free tier
+  chặn tạo mới theo IP dù tài khoản còn credit, nên chưa tuyên bố hai fallback
+  Thiên Cơ và Chấp Hành là đúng voice đã lưu trong Voice Lab.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 

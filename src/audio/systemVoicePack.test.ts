@@ -14,7 +14,7 @@ describe("Cơ Linh Mechanical Core voice pack", () => {
     expect(systemVoiceClipForSignal("lesson.completed")).toBe("lesson.completed");
     expect(systemVoiceClipForSignal("journey.promoted")).toBe("journey.promoted");
     expect(systemVoiceClipUrl("oracle", "system.online")).toBe(
-      "/assets/system-voice/oracle-v1/system-online.mp3",
+      "/assets/system-voice/oracle-v2/system-online.mp3",
     );
   });
 
