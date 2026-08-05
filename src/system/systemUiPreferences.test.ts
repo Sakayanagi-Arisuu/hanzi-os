@@ -16,7 +16,7 @@ describe("system UI preference migration", () => {
       seenCeremonies: ["rank:500", "rank:500", 12, null],
       equippedTitle: "Tụ Từ Hành Giả",
     })).toMatchObject({
-      version: 2,
+      version: 3,
       motionMode: "cinematic",
       seenCeremonies: ["rank:500"],
       equippedTitle: "Tụ Từ Hành Giả",
@@ -32,11 +32,11 @@ describe("system UI preference migration", () => {
       voiceEnabled: false,
       seenCeremonies: ["rank:1"],
     })).toMatchObject({
-      version: 2,
+      version: 3,
       soundVolume: DEFAULT_SYSTEM_UI_PREFERENCES.soundVolume,
       effectsVolume: .72,
       soundPreset: "awakening",
-      voiceProfile: "oracle",
+      voiceProfile: "mechanical",
       announcementLevel: "ceremonial",
     });
   });
@@ -58,5 +58,20 @@ describe("system UI preference migration", () => {
       voiceProfile: "guide",
       announcementLevel: "full",
     });
+  });
+
+  it("adds Mechanical Core without overwriting a deliberate legacy persona", () => {
+    expect(parseSystemUiPreferences({
+      version: 2,
+      voiceProfile: "oracle",
+    }).voiceProfile).toBe("mechanical");
+    expect(parseSystemUiPreferences({
+      version: 2,
+      voiceProfile: "guide",
+    }).voiceProfile).toBe("guide");
+    expect(parseSystemUiPreferences({
+      version: 3,
+      voiceProfile: "mechanical",
+    }).voiceProfile).toBe("mechanical");
   });
 });

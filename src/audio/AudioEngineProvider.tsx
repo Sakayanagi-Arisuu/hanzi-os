@@ -17,6 +17,7 @@ import type { SoundCueId } from "./cueCatalog";
 import {
   systemVoiceClipForSignal,
   systemVoiceClipUrl,
+  systemVoiceLineForSignal,
   type SystemVoiceClipId,
 } from "./systemVoicePack";
 
@@ -44,9 +45,7 @@ type AudioEngineValue = {
   cancelSpeech: () => void;
   playback: VoicePlaybackState;
   voices: SpeechSynthesisVoice[];
-  hasVietnameseVoice: boolean;
   hasVietnameseDeviceVoice: boolean;
-  speechSupported: boolean;
 };
 
 const AudioEngineContext = createContext<AudioEngineValue | null>(null);
@@ -74,6 +73,7 @@ const SIGNAL_PRIORITY = (type: SystemSignalType): 1 | 2 | 3 =>
 
 const PRESET_GAIN = { quiet: .62, balanced: .86, awakening: 1 } as const;
 const VOICE_TUNING = {
+  mechanical: { rate: .82, pitch: .58 },
   oracle: { rate: .88, pitch: .82 },
   executor: { rate: .84, pitch: .72 },
   guide: { rate: .96, pitch: 1.02 },
@@ -384,7 +384,9 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     speakWithBrowser(text, "zh-CN", { rate, sourceId, force: true, priority: 3 }), [speakWithBrowser]);
   const announce = useCallback((message: string, options?: SpeakOptions) => {
     const clipId = options?.clipId;
-    if (!clipId) return speakWithBrowser(message, "vi-VN", options);
+    if (!clipId || preferencesRef.current.voiceProfile !== "mechanical") {
+      return speakWithBrowser(message, "vi-VN", options);
+    }
     void playSystemClip(clipId, options);
     return true;
   }, [playSystemClip, speakWithBrowser]);
@@ -407,7 +409,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     if (!prefs.voiceEnabled || prefs.announcementLevel === "off") return;
     if (prefs.announcementLevel === "ceremonial" && !CEREMONIAL_SIGNALS.has(signal.type)) return;
     const clipId = systemVoiceClipForSignal(signal.type);
-    const message = signal.message ?? clipId;
+    const message = signal.message ?? systemVoiceLineForSignal(signal.type);
     if (!message) return;
     const dedupeKey = `${signal.type}:${message}`;
     const now = Date.now();
@@ -430,7 +432,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       playCue("system.boot");
       const prefs = preferencesRef.current;
       if (prefs.voiceEnabled && prefs.announcementLevel !== "off") {
-        void announce("system.online", {
+        void announce("Hệ thống đã thức tỉnh. Kết nối cục bộ ổn định.", {
           sourceId: "system-awakening",
           priority: 2,
           clipId: "system.online",
@@ -485,9 +487,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     cancelSpeech,
     playback,
     voices,
-    hasVietnameseVoice: true,
     hasVietnameseDeviceVoice: voices.some((voice) => voice.lang.toLowerCase().startsWith("vi")),
-    speechSupported: typeof window !== "undefined" && ("AudioContext" in window || "speechSynthesis" in window),
   }), [announce, cancelSpeech, playCue, playback, speakMandarin, voices]);
 
   return <AudioEngineContext.Provider value={value}>{children}</AudioEngineContext.Provider>;

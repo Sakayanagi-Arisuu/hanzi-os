@@ -4,11 +4,11 @@ Cập nhật: 05/08/2026
 
 ## 1. Tình trạng một câu
 
-B8.1 đã trao cho lớp trải nghiệm “Hệ Thống Thức Tỉnh” một giọng Cơ Linh cố định:
-16 xướng lệnh Mechanical Core được đóng gói local, phản ứng theo sự kiện học thật
-và không còn phụ thuộc giọng Việt cài trong Windows ở các thông báo hệ thống
-chính. Toàn bộ 213 blueprint HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo vẫn
-chạy end-to-end. Sites và production vẫn đóng.
+B8.1 đã thêm Cơ Linh Mechanical Core thành nhân cách thứ tư có thể chọn trong
+Bảng Thuộc Tính: 16 xướng lệnh robotic được đóng gói local, còn Thiên cơ, Chấp
+hành và Dẫn lộ tiếp tục dùng giọng Việt trên thiết bị. Toàn bộ 213 blueprint
+HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo vẫn chạy end-to-end. Sites và
+production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
@@ -136,9 +136,11 @@ mục bridge/legacy còn consumer hợp lệ.
   ngưỡng, thăng chức, mất/khôi phục liên kết, cảnh báo, xem thử và tóm tắt trạng
   thái. Các tín hiệu chính phát trực tiếp qua Audio Engine và làm Voice Reactor
   chuyển `preparing → playing → idle`.
-- Bảng Thuộc Tính công bố rõ **Cơ Linh · Mechanical Core** và nút **Gọi thử Cơ
-  Linh**. Bộ xướng lệnh tĩnh không cần giọng Việt của Windows; browser TTS chỉ
-  còn là fallback cho câu động và luyện đọc tiếng Trung.
+- Dropdown **Nhân cách xướng lệnh** có đủ bốn lựa chọn: **Cơ Linh · Mechanical
+  Core**, Thiên cơ, Chấp hành và Dẫn lộ. Nút **Nghe thử giọng đang chọn** phát
+  đúng engine của lựa chọn hiện tại; thẻ nhận dạng cũng đổi theo lựa chọn.
+- Mechanical Core không cần giọng Việt của Windows. Ba nhân cách cũ tiếp tục
+  dùng browser TTS trên thiết bị và báo rõ khi thiết bị thiếu giọng Việt.
 - Nguồn carrier được tạo trong tài khoản ElevenLabs của người dùng, clone local
   bằng VieNeu-TTS rồi xử lý Mechanical Core. Phạm vi là demo/tự học local,
   synthetic, `humanReviewed: false`; không phải native audio, review phát âm,
@@ -246,11 +248,12 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   khi trì hoãn inventory giọng và cue catalog đến tương tác đầu tiên, cold-profile
   cuối đạt median performance **97**, accessibility/best-practices/SEO **100**;
   LCP 2.115 ms, CLS 0 và TBT 148 ms.
-- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **799,8 KiB**
+- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **799,9 KiB**
   dưới hard ceiling 800 KiB. Targeted E2E xác nhận MP3 tích hợp trả đúng
-  `audio/mpeg` và phát được khi thiết bị không có giọng Việt. Browser QA trực tiếp
-  trên Chrome xác nhận nút **Gọi thử Cơ Linh** đưa Voice Reactor từ `playing` về
-  `idle`, không có lỗi tích hợp đã biết.
+  `audio/mpeg`, dropdown có bốn lựa chọn và Mechanical Core phát được khi thiết
+  bị không có giọng Việt. Browser QA trực tiếp trên Chrome xác nhận chuyển
+  Chấp hành ↔ Mechanical Core rồi **Nghe thử giọng đang chọn** đưa Voice Reactor
+  từ `playing` về `idle`, không có lỗi tích hợp đã biết.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 

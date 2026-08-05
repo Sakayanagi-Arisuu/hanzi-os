@@ -198,20 +198,23 @@ learning policy.
 ### B8.1 — Cơ Linh Mechanical Core
 
 **Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Giọng 2 Mechanical
-Core là nhân dạng Cơ Linh mặc định cho các xướng lệnh hệ thống cố định.
+Core là nhân cách robotic thứ tư trong bộ chọn giọng hệ thống, đồng thời là mặc
+định mới cho cấu hình cũ còn dùng Thiên cơ mặc định.
 
 - 16 xướng lệnh local phủ khởi động, nhiệm vụ, hoàn tất/mở khóa, ôn tập, hóa giải
   lỗi, Đại Khảo, đạt ngưỡng/thăng chức, trạng thái liên kết, cảnh báo, xem thử và
   tóm tắt Bảng Hệ Thống;
 - Audio Engine phát clip qua Web Audio graph hiện hành, ducking hiệu ứng và cập
   nhật Voice Reactor; các thông báo chính không phụ thuộc giọng Việt của Windows;
-- browser TTS chỉ còn là fallback cho câu động và luyện đọc tiếng Trung; mọi âm
-  thanh vẫn là synthetic practice, `humanReviewed: false`;
+- dropdown có đủ Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ; nút nghe thử và
+  thẻ nhận dạng phản ánh đúng lựa chọn. Ba nhân cách cũ tiếp tục dùng browser TTS
+  trên thiết bị; mọi âm thanh vẫn là synthetic practice, `humanReviewed: false`;
 - carrier được tạo trong tài khoản ElevenLabs của người dùng, clone local bằng
   VieNeu-TTS và xử lý Mechanical Core; phạm vi sử dụng hiện tại là demo/tự học
   local, không phải native audio, review phát âm, mastery hoặc chứng nhận HSK;
-- targeted unit/typecheck/lint/build và E2E phát giọng không có device voice xanh;
-  browser QA trực tiếp xác nhận `playing → idle`; client ceiling 799,8/800 KiB;
+- targeted unit/typecheck/lint/build và E2E bộ chọn bốn giọng xanh; browser QA
+  trực tiếp xác nhận đổi Chấp hành ↔ Mechanical Core và `playing → idle`; client
+  ceiling 799,9/800 KiB;
 - đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
   prerequisite, progress, persistence, FSRS và evidence không đổi;
 - không mở Sites, production, commerce, CMS hay human-review workflow.

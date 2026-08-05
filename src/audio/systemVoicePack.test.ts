@@ -6,6 +6,7 @@ import {
   SYSTEM_VOICE_PACK,
   systemVoiceClipForSignal,
   systemVoiceClipUrl,
+  systemVoiceLineForSignal,
 } from "./systemVoicePack";
 
 describe("Cơ Linh Mechanical Core voice pack", () => {
@@ -13,6 +14,7 @@ describe("Cơ Linh Mechanical Core voice pack", () => {
     expect(SYSTEM_VOICE_CLIP_IDS).toHaveLength(16);
     expect(systemVoiceClipForSignal("lesson.completed")).toBe("lesson.completed");
     expect(systemVoiceClipForSignal("journey.promoted")).toBe("journey.promoted");
+    expect(systemVoiceLineForSignal("journey.promoted")).toContain("thăng cấp");
     expect(systemVoiceClipUrl("system.online")).toBe(
       "/assets/system-voice/mechanical-core-v1/system-online.mp3",
     );

@@ -82,6 +82,7 @@ const soundPresets: Array<{ id: SystemSoundPreset; label: string }> = [
   { id: "awakening", label: "Thức tỉnh" },
 ];
 const voiceProfiles: Array<{ id: SystemVoiceProfile; label: string }> = [
+  { id: "mechanical", label: "Cơ Linh · Mechanical Core" },
   { id: "oracle", label: "Thiên cơ · trầm tĩnh" },
   { id: "executor", label: "Chấp hành · uy nghiêm" },
   { id: "guide", label: "Dẫn lộ · sáng rõ" },
@@ -119,6 +120,9 @@ export function ProfilePage() {
     voices,
   } = useAudioEngine();
   const vietnameseVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("vi"));
+  const selectedVoiceProfile = voiceProfiles.find((profile) => profile.id === preferences.voiceProfile)
+    ?? voiceProfiles[0];
+  const mechanicalVoiceSelected = selectedVoiceProfile.id === "mechanical";
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
@@ -495,11 +499,10 @@ export function ProfilePage() {
               <div className="sys-voice-identity">
                 <span aria-hidden="true"><AudioLines size={22} /></span>
                 <div>
-                  <small>CORE VOICE · LOCAL SYNTHETIC</small>
-                  <strong>Cơ Linh · Mechanical Core</strong>
-                  <p>16 xướng lệnh cơ giới hóa cho thức tỉnh, nhiệm vụ, kiểm định và thăng cấp.</p>
+                  <small>VOICE CHANNEL · {mechanicalVoiceSelected ? "LOCAL SYNTHETIC" : "DEVICE SYNTHETIC"}</small>
+                  <strong>{selectedVoiceProfile.label}</strong>
                 </div>
-                <b>CORE V1</b>
+                <b>{mechanicalVoiceSelected ? "CORE V1" : "DEVICE"}</b>
               </div>
               <button
                 className={preferences.soundEnabled ? "active" : ""}
@@ -561,8 +564,8 @@ export function ProfilePage() {
               >
                 <AudioLines size={20} />
                 <span>
-                  <strong>Cơ Linh · {preferences.voiceEnabled ? "Đã thức tỉnh" : "Đang ngủ"}</strong>
-                  <small>Mechanical Core phát trực tiếp từ gói giọng cục bộ, không phụ thuộc giọng Windows.</small>
+                  <strong>Giọng hệ thống · {preferences.voiceEnabled ? "Đã thức tỉnh" : "Đang ngủ"}</strong>
+                  <small>{selectedVoiceProfile.label} đang giữ kênh xướng lệnh.</small>
                 </span>
                 <i aria-hidden="true" />
               </button>
@@ -580,8 +583,8 @@ export function ProfilePage() {
                 />
               </label>
               <label>
-                <span><strong>Ngữ điệu câu động dự phòng</strong></span>
-                <select value={preferences.voiceProfile} onChange={(event) => setVoiceProfile(event.target.value as SystemVoiceProfile)}>
+                <span><strong>Nhân cách xướng lệnh</strong><output>{mechanicalVoiceSelected ? "Local" : "Thiết bị"}</output></span>
+                <select aria-label="Nhân cách xướng lệnh" value={preferences.voiceProfile} onChange={(event) => setVoiceProfile(event.target.value as SystemVoiceProfile)}>
                   {voiceProfiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.label}</option>)}
                 </select>
               </label>
@@ -591,11 +594,11 @@ export function ProfilePage() {
                   {announcementLevels.map((levelOption) => <option key={levelOption.id} value={levelOption.id}>{levelOption.label}</option>)}
                 </select>
               </label>
-              <label className={hasVietnameseDeviceVoice ? "" : "disabled"}>
-                <span><strong>Giọng thiết bị cho câu động</strong></span>
+              <label className={!mechanicalVoiceSelected && hasVietnameseDeviceVoice ? "" : "disabled"}>
+                <span><strong>Giọng Việt trên thiết bị</strong></span>
                 <select
                   value={preferences.preferredVoiceUri ?? ""}
-                  disabled={!hasVietnameseDeviceVoice}
+                  disabled={mechanicalVoiceSelected || !hasVietnameseDeviceVoice}
                   onChange={(event) => setPreferredVoiceUri(event.target.value || undefined)}
                 >
                   <option value="">Tự chọn giọng dự phòng</option>
@@ -608,18 +611,19 @@ export function ProfilePage() {
                 data-system-silent="true"
                 onClick={() => {
                   previewCue("system.online");
-                  announce("Hệ thống đã kết nối. Kênh Cơ Linh sẵn sàng. Nhiệm vụ mới đang chờ kích hoạt.", {
+                  const played = announce("Hệ thống đã kết nối. Kênh xướng lệnh sẵn sàng.", {
                     sourceId: "profile:voice-preview",
                     force: true,
                     priority: 3,
-                    clipId: "profile.preview",
+                    ...(mechanicalVoiceSelected ? { clipId: "profile.preview" as const } : {}),
                   });
+                  if (!played) notify("Giọng này cần một giọng tiếng Việt có sẵn trên thiết bị.", "info");
                 }}
               >
-                <Sparkles size={16} /> Gọi thử Cơ Linh
+                <Sparkles size={16} /> Nghe thử giọng đang chọn
               </button>
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
-              <small className="sys-audio-disclosure">Cơ Linh là giọng AI synthetic: nền giọng tạo bằng ElevenLabs, clone và cơ giới hóa local bằng VieNeu-TTS v3; humanReviewed=false. Gói này chỉ phục vụ demo/tự học local, không phải audio bản ngữ hay bằng chứng phát âm. Browser TTS chỉ còn làm dự phòng cho câu động ngoài 16 xướng lệnh cài sẵn.</small>
+              <small className="sys-audio-disclosure">Mechanical Core là giọng AI synthetic local tạo bằng ElevenLabs + VieNeu-TTS v3; humanReviewed=false. Ba giọng còn lại dùng TTS trên thiết bị. Chỉ dùng cho demo/tự học, không phải audio bản ngữ hay bằng chứng phát âm.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>

@@ -14,11 +14,11 @@ export const SYSTEM_UI_STORAGE_KEY = "hanzi-os-system-ui-v1";
 
 export type SystemMotionMode = "auto" | "balanced" | "cinematic" | "reduced";
 export type SystemSoundPreset = "quiet" | "balanced" | "awakening";
-export type SystemVoiceProfile = "oracle" | "executor" | "guide";
+export type SystemVoiceProfile = "mechanical" | "oracle" | "executor" | "guide";
 export type SystemAnnouncementLevel = "off" | "ceremonial" | "full";
 
 export type SystemUiPreferences = {
-  version: 2;
+  version: 3;
   motionMode: SystemMotionMode;
   soundEnabled: boolean;
   soundVolume: number;
@@ -34,7 +34,7 @@ export type SystemUiPreferences = {
 };
 
 export const DEFAULT_SYSTEM_UI_PREFERENCES: SystemUiPreferences = {
-  version: 2,
+  version: 3,
   motionMode: "auto",
   soundEnabled: true,
   soundVolume: 0.44,
@@ -42,14 +42,14 @@ export const DEFAULT_SYSTEM_UI_PREFERENCES: SystemUiPreferences = {
   soundPreset: "awakening",
   voiceEnabled: false,
   voiceVolume: 0.82,
-  voiceProfile: "oracle",
+  voiceProfile: "mechanical",
   announcementLevel: "ceremonial",
   seenCeremonies: [],
 };
 
 const MOTION_MODES = new Set<SystemMotionMode>(["auto", "balanced", "cinematic", "reduced"]);
 const SOUND_PRESETS = new Set<SystemSoundPreset>(["quiet", "balanced", "awakening"]);
-const VOICE_PROFILES = new Set<SystemVoiceProfile>(["oracle", "executor", "guide"]);
+const VOICE_PROFILES = new Set<SystemVoiceProfile>(["mechanical", "oracle", "executor", "guide"]);
 const ANNOUNCEMENT_LEVELS = new Set<SystemAnnouncementLevel>(["off", "ceremonial", "full"]);
 const clampVolume = (value: unknown, fallback: number) => typeof value === "number" && Number.isFinite(value)
   ? Math.min(1, Math.max(0, value))
@@ -65,8 +65,14 @@ export const parseSystemUiPreferences = (value: unknown): SystemUiPreferences =>
     ? [...new Set(candidate.seenCeremonies.filter((item): item is string => typeof item === "string"))].slice(-64)
     : [];
 
+  const voiceProfile = candidate.version === 2 && candidate.voiceProfile === "oracle"
+    ? "mechanical"
+    : VOICE_PROFILES.has(candidate.voiceProfile as SystemVoiceProfile)
+      ? candidate.voiceProfile as SystemVoiceProfile
+      : DEFAULT_SYSTEM_UI_PREFERENCES.voiceProfile;
+
   return {
-    version: 2,
+    version: 3,
     motionMode: MOTION_MODES.has(candidate.motionMode as SystemMotionMode)
       ? candidate.motionMode as SystemMotionMode
       : "auto",
@@ -78,9 +84,7 @@ export const parseSystemUiPreferences = (value: unknown): SystemUiPreferences =>
       : DEFAULT_SYSTEM_UI_PREFERENCES.soundPreset,
     voiceEnabled: typeof candidate.voiceEnabled === "boolean" ? candidate.voiceEnabled : false,
     voiceVolume: clampVolume(candidate.voiceVolume, DEFAULT_SYSTEM_UI_PREFERENCES.voiceVolume),
-    voiceProfile: VOICE_PROFILES.has(candidate.voiceProfile as SystemVoiceProfile)
-      ? candidate.voiceProfile as SystemVoiceProfile
-      : DEFAULT_SYSTEM_UI_PREFERENCES.voiceProfile,
+    voiceProfile,
     ...(typeof candidate.preferredVoiceUri === "string" && candidate.preferredVoiceUri
       ? { preferredVoiceUri: candidate.preferredVoiceUri }
       : {}),
