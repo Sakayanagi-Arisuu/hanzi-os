@@ -38,11 +38,12 @@ export type AppliedSyncOperation = {
   cursor: number;
 };
 
-export const ACCOUNT_EXPORT_SCHEMA_VERSION = 5 as const;
+export const ACCOUNT_EXPORT_SCHEMA_VERSION = 6 as const;
 
 export const ACCOUNT_EXPORT_TABLES = [
   "users",
   "auth_identities",
+  "user_roles",
   "profiles",
   "devices",
   "mutation_rate_limits",
@@ -156,6 +157,7 @@ export class SyncRepository {
       .first<{ userId: string }>();
     if (existing) {
       await this.touchIdentity(existing.userId, identity, providerSubject);
+      await this.ensureLearnerRole(existing.userId);
       return existing.userId;
     }
 
@@ -182,6 +184,11 @@ export class SyncRepository {
             timestamp,
             timestamp,
           ),
+        this.database
+          .prepare(
+            "INSERT INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, 'learner', NULL, ?, ?)",
+          )
+          .bind(userId, timestamp, timestamp),
       ]);
       return userId;
     } catch {
@@ -193,6 +200,7 @@ export class SyncRepository {
         .first<{ userId: string }>();
       if (!winner) throw new Error("Unable to establish the authenticated user.");
       await this.touchIdentity(winner.userId, identity, providerSubject);
+      await this.ensureLearnerRole(winner.userId);
       return winner.userId;
     }
   }
@@ -600,6 +608,7 @@ export class SyncRepository {
       "mutation_rate_limits",
       "devices",
       "profiles",
+      "user_roles",
       "auth_identities",
     ] as const;
     const statements = childTables.map((table) =>
@@ -637,6 +646,16 @@ export class SyncRepository {
           providerSubject,
         ),
     ]);
+  }
+
+  private async ensureLearnerRole(userId: string) {
+    const timestamp = nowEpoch();
+    await this.database
+      .prepare(
+        "INSERT OR IGNORE INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, 'learner', NULL, ?, ?)",
+      )
+      .bind(userId, timestamp, timestamp)
+      .run();
   }
 
   private async getIdempotency(

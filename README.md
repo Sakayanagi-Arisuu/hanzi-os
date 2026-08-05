@@ -35,6 +35,31 @@ npm run start
 - PWA cài đặt được, có offline shell và cache dữ liệu nét chữ đã dùng.
 - Người dùng ẩn danh giữ dữ liệu cục bộ; mã nguồn closed-alpha cho người dùng đã xác thực có command/evidence chuẩn hóa qua D1, outbox offline và projection đa thiết bị. Đường này đã có kiểm tra cục bộ nhưng chưa được xác minh như một dịch vụ hosted.
 
+## Dữ liệu, đăng nhập và phân quyền
+
+- Chế độ không đăng nhập lưu trạng thái học trong `localStorage`; checkpoint,
+  outbox và hàng đợi phục hồi nằm trong `IndexedDB`.
+- Tài khoản/đồng bộ phía máy chủ dùng **Cloudflare D1**, tương thích SQLite,
+  với schema và migration do Drizzle quản lý. Binding runtime là `DB`.
+- Đăng nhập dùng danh tính **Sign in with ChatGPT** do hạ tầng chuyển tiếp; ứng
+  dụng không tự lưu mật khẩu. API luôn lấy danh tính từ header tin cậy phía máy
+  chủ, không nhận `userId` do trình duyệt tự khai.
+- Mọi tài khoản có vai trò `learner`. Vai trò `admin` mở Cổng Quản Trị để xem
+  danh tính/vai trò và cấp hoặc thu quyền quản trị; màn này không đọc tiến độ
+  học riêng của tài khoản khác. API kiểm tra quyền lại phía máy chủ và chặn
+  yêu cầu đổi quyền khác nguồn.
+- Danh sách quản trị viên khởi tạo được cấu hình bằng biến máy chủ
+  `HANZI_OS_ADMIN_EMAILS` (nhiều email cách nhau bằng dấu phẩy). Ví dụ local
+  PowerShell trước khi chạy dev:
+
+```powershell
+$env:HANZI_OS_ADMIN_EMAILS="you@example.com"
+npm run dev
+```
+
+Migration phân quyền hiện hành là `drizzle/0014_gigantic_diamondback.sql`.
+Không đưa biến quản trị vào mã client hoặc commit email thật vào repo.
+
 ## Tài liệu sản phẩm
 
 - [Nghiên cứu tính năng](docs/FEATURE_RESEARCH.md)
@@ -54,9 +79,9 @@ npm run start
 
 Đây là một vertical slice giàu tính năng cho trải nghiệm học cốt lõi. Mã nguồn
 Phase 1 đã bổ sung nền đăng nhập ChatGPT tùy chọn, D1 schema có version,
-local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v4
-và xóa tài khoản. Restore rehearsal cục bộ hiện áp dụng 13 migration
-`0000`–`0012` trên graph 26 bảng, gồm cả FSRS card/review log, Reader session
+local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v6,
+xóa tài khoản và RBAC learner/admin. Restore rehearsal cục bộ hiện áp dụng 15
+migration `0000`–`0014` trên graph 27 bảng, gồm cả FSRS card/review log, Reader session
 versioned và trigger khóa outbox vào đúng reset epoch. Những kiểm tra này không
 thay thế hosted
 provisioning, hosted backup/restore hoặc kiểm chứng đa thiết bị trên dịch vụ
@@ -65,8 +90,7 @@ bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần c
 production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
 đường D1.
 
-Package local hiện tại là `foundation-2026.08.1`. Sanitized runtime có 44 lesson
-eligible tổng cộng, gồm 4 bài cầu nối HSK0 và đủ 40/40 bài HSK1; cả 40 bài HSK1
-có hội thoại/ngữ pháp/guided self-check hoặc nhiệm vụ riêng trên Lesson UI. Đây là
-nội dung AI-assisted cho tự học local, không phải release production, human/native
-review hay chứng nhận độ phủ HSK hoàn chỉnh.
+Package local hiện tại là `foundation-2026.08.5`. Runtime giao 217 lesson: 4 bài
+cầu nối HSK0 và đủ 213/213 bài HSK1-4; cả 213 bài HSK1-4 dùng rich Lesson UI.
+Đây là nội dung AI-assisted cho tự học local, không phải release production,
+human/native review hay chứng nhận HSK chính thức.

@@ -54,6 +54,33 @@ export const authIdentities = sqliteTable(
   ],
 );
 
+export const userRoles = sqliteTable(
+  "user_roles",
+  {
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    role: text("role").notNull(),
+    grantedByUserId: text("granted_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    grantedAt: integer("granted_at").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [
+    primaryKey({
+      name: "user_roles_pk",
+      columns: [table.userId, table.role],
+    }),
+    index("user_roles_role_idx").on(table.role),
+    index("user_roles_granted_by_idx").on(table.grantedByUserId),
+    check(
+      "user_roles_role_check",
+      sql`${table.role} IN ('learner', 'admin')`,
+    ),
+  ],
+);
+
 export const profiles = sqliteTable(
   "profiles",
   {

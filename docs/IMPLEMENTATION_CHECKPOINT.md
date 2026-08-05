@@ -4,7 +4,11 @@ Cập nhật: 05/08/2026
 
 ## 1. Tình trạng một câu
 
-B8.1 đã hoàn tất bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
+B9 đã hoàn tất đăng nhập closed-alpha và phân quyền ứng dụng trên nền sẵn có:
+Sign in with ChatGPT tiếp tục là nhà cung cấp danh tính, D1/SQLite có vai trò
+`learner`/`admin`, API kiểm tra quyền phía máy chủ và Cổng Quản Trị cho phép cấp
+hoặc thu quyền mà không lộ tiến độ học của tài khoản khác. B8.1 vẫn giữ nguyên
+bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
 Windows; browser TTS chỉ còn là dự phòng cho câu động. Cơ Linh dùng carrier từ
@@ -42,7 +46,7 @@ mastery/production bị hoãn, không phải bài học hay lỗi tích hợp c�
 | HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
 | HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B4-B8.1 đã giao cho người học
+## 4. B4-B9 đã giao cho người học
 
 - Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
@@ -156,6 +160,29 @@ mục bridge/legacy còn consumer hợp lệ.
 - Không thay package nội dung, prerequisite, progress, persistence, FSRS hay
   evidence. Không mở Sites, production, commerce, CMS hoặc human-review workflow.
 
+### B9 — Đăng nhập và phân quyền ứng dụng
+
+- Dữ liệu học ẩn danh vẫn local-first: `localStorage` giữ projection học;
+  `IndexedDB` giữ checkpoint/outbox. Tài khoản, đồng bộ và RBAC phía máy chủ dùng
+  Cloudflare D1 theo SQLite dialect qua Drizzle; không thêm kho dữ liệu thứ ba.
+- Sign in with ChatGPT tiếp tục cung cấp email/tên qua header tin cậy phía máy
+  chủ. HANZI.OS không nhận hoặc lưu mật khẩu; API không tin `userId` do client
+  gửi lên.
+- Migration `0014_gigantic_diamondback.sql` thêm `user_roles`. Mọi tài khoản có
+  baseline `learner`; email trong biến máy chủ `HANZI_OS_ADMIN_EMAILS` được
+  bootstrap `admin`. Quản trị viên có thể cấp/thu admin cho tài khoản khác;
+  không thể tự thu quyền đang dùng.
+- `/admin` là trang server-rendered, dùng được không cần JavaScript và không làm
+  tăng bundle học. JSON API và form mutation đều kiểm tra xác thực, quyền phía
+  máy chủ, origin, kích thước/kiểu body và trạng thái đích. Cổng chỉ hiển thị
+  email, trạng thái, vai trò; không đọc dữ liệu học tenant khác.
+- Account export schema tăng lên v6 để gồm role của chính tài khoản; xóa tài
+  khoản dọn cả role graph. Các tài khoản cũ tự nhận baseline khi đăng nhập sau
+  migration.
+- Không thay package nội dung, prerequisite, progress, persistence, FSRS,
+  Reader, Review hay evidence. Không mở Sites, production, commerce, CMS hoặc
+  human-review workflow.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -175,7 +202,7 @@ Human/production review manifest vẫn pending và production gate tiếp tục
 fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
 được mở trong batch này.
 
-## 6. Trạng thái kiểm tra B4-B8
+## 6. Trạng thái kiểm tra B4-B9
 
 - Validator trực tiếp xanh cho 78 bài, 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm
   vụ, 77 chủ đề, rich UI 78/78 và level check 72 câu.
@@ -267,6 +294,17 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   dài khoảng 6,1/6,4/5,6 giây với hai khoảng nghỉ đo được. ElevenLabs free tier
   chặn tạo mới theo IP dù tài khoản còn credit, nên chưa tuyên bố hai fallback
   Thiên Cơ và Chấp Hành là đúng voice đã lưu trong Voice Lab.
+- B9 targeted RBAC/schema/session/sync/account-export checks, Drizzle check,
+  typecheck và lint xanh. Build giao `/admin`, form fallback và hai admin API;
+  client ceiling giữ **799,9/800 KiB**.
+- Full check chạy đúng một lượt: toàn bộ content/package/graph và Drizzle check
+  xanh, sau đó dừng tại rehearsal vì kỳ vọng cũ chỉ nhận 14 migration đến
+  `0013`. Rehearsal đã được nâng cho 15 migration/27 bảng, seed và xác minh cả
+  `learner`/`admin`; targeted rerun xanh. Không chạy lại toàn bộ cổng lần hai.
+- Full E2E chạy đúng một lượt và xanh **30/30**: HSK0→HSK4, bốn level check,
+  prerequisite, persistence, privacy quarantine, offline, mobile, keyboard,
+  reduced-motion và bốn voice pack đều giữ đúng. Build trong E2E giữ client
+  ceiling trong hard budget 800 KiB.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -276,7 +314,8 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
   hiện hành `foundation-2026.08.5`; B8.1 là batch giọng Cơ Linh hiện tại.
 - Không commit staging, build output hoặc report thử.
-- Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
+- Không thay nhà cung cấp danh tính, sync, FSRS, Reader, Review, CMS, hosting
+  hay Sites ngoài batch RBAC B9 đã được người dùng chủ động mở.
 
 **Không còn batch local nào mở.** HSK1-4, level check và handoff đồ án đã hoàn
 tất. Sites/deployment vẫn để người dùng thực hiện cuối cùng; production,

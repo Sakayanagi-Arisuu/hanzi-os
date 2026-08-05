@@ -145,6 +145,13 @@ export default function PrivacyPage() {
             tài khoản phải được giải quyết trước public beta.
           </p>
           <p style={styles.copy}>
+            Mỗi tài khoản có vai trò ứng dụng Người học hoặc Quản trị. Quản trị
+            viên được xem mã tài khoản, email, trạng thái và vai trò để cấp/thu
+            quyền; Cổng Quản Trị không hiển thị tiến độ, câu trả lời hay lịch ôn
+            của người học khác. Thay đổi quyền được kiểm tra lại phía máy chủ và
+            được lưu trong D1.
+          </p>
+          <p style={styles.copy}>
             Trong luồng học có đăng nhập, máy chủ lưu phiên bài học, câu đọc hiểu
             và khảo sát; phiên bản nội dung/schema; form đã cấp; lựa chọn hoặc câu
             trả lời của người học; thời điểm nhận; khóa idempotency và metadata

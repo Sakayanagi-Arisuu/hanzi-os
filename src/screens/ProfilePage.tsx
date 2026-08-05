@@ -622,7 +622,7 @@ export function ProfilePage() {
                 <Sparkles size={16} /> Nghe thử giọng đang chọn
               </button>
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
-              <small className="sys-audio-disclosure">Cơ Linh bám voice ElevenLabs đã chọn. Thiên Cơ, Chấp Hành và Dẫn Lộ hiện là VieNeu local fallback có nhịp nghỉ, không phải voice ElevenLabs tương ứng. Tất cả synthetic, humanReviewed=false, chỉ dùng demo/tự học.</small>
+              <small className="sys-audio-disclosure">Cơ Linh dùng voice ElevenLabs đã chọn; ba giọng còn lại là VieNeu local có nhịp nghỉ. Tất cả là synthetic, humanReviewed=false, chỉ dùng để demo/tự học.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>
@@ -643,6 +643,11 @@ export function ProfilePage() {
               <a href={chatGPTSignInPath("/profile")}><LogIn size={16} /> Đăng nhập</a>
             )}
           </div>
+          {sync.session?.authenticated && (
+            <a className="secondary-button full-button admin-gateway-link" href="/admin">
+              <ShieldCheck size={17} /> Kiểm tra Cổng Quản Trị
+            </a>
+          )}
           <div className="data-status">
             <ShieldCheck size={24} />
             <div>

@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 14
-    || !migrations[13]?.startsWith("0013_")
+    migrations.length !== 15
+    || !migrations[14]?.startsWith("0014_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 14 migrations through 0013; found ${
+      `Restore rehearsal requires 15 migrations through 0014; found ${
         migrations.length
       }`,
     );
@@ -875,6 +875,9 @@ try {
       "INSERT INTO auth_identities (id, user_id, provider, provider_subject, normalized_email, email_verified, created_at, updated_at) VALUES (?, ?, 'rehearsal', ?, ?, 1, ?, ?)",
     ).run("restore-identity", "restore-user", "restore@example.invalid", "restore@example.invalid", now, now);
     source.prepare(
+      "INSERT INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, 'learner', ?, ?, ?), (?, 'admin', ?, ?, ?)",
+    ).run("restore-user", "restore-user", now, now, "restore-user", "restore-user", now, now);
+    source.prepare(
       "INSERT INTO course_versions (id, course_id, schema_version, manifest_hash, release_state, linguistic_review_status, created_at) VALUES (?, 'restore-course', 1, 'restore-hash', 'beta', 'pending', ?)",
     ).run("restore-content-v1", now);
     source.prepare(
@@ -1191,9 +1194,9 @@ try {
   const tables = restored.prepare(
     "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' ORDER BY name",
   ).all();
-  if (tables.length !== 26) {
+  if (tables.length !== 27) {
     throw new Error(
-      `Restore rehearsal requires 26 application tables; found ${
+      `Restore rehearsal requires 27 application tables; found ${
         tables.length
       }`,
     );
@@ -1201,6 +1204,9 @@ try {
   const restoredDocument = restored.prepare(
     "SELECT revision, document_json AS documentJson FROM learning_documents WHERE user_id = ?",
   ).get("restore-user");
+  const restoredRoles = restored.prepare(
+    "SELECT role, granted_by_user_id AS grantedByUserId FROM user_roles WHERE user_id = ? ORDER BY role",
+  ).all("restore-user");
   const restoredSession = restored.prepare(
     "SELECT form_manifest_json AS formManifestJson, form_manifest_hash AS formManifestHash FROM lesson_sessions WHERE user_id = ? AND id = 'restore-session'",
   ).get("restore-user");
@@ -1303,6 +1309,12 @@ try {
     || digest(restoredDocument.documentJson) !== digest(documentJson)
   ) {
     throw new Error("Restored learning document does not match its source checksum");
+  }
+  if (JSON.stringify(restoredRoles) !== JSON.stringify([
+    { role: "admin", grantedByUserId: "restore-user" },
+    { role: "learner", grantedByUserId: "restore-user" },
+  ])) {
+    throw new Error("Restored account roles do not match their source graph");
   }
   if (
     restoredSession?.formManifestHash !== lessonFormHash
@@ -1677,6 +1689,7 @@ try {
   console.log(JSON.stringify({
     migrations: migrations.length,
     restoredTables: tables.length,
+    restoredRoles: restoredRoles.map((row) => row.role),
     revision: restoredDocument.revision,
     documentSha256: digest(documentJson),
     lessonFormSha256: digest(lessonFormJson),

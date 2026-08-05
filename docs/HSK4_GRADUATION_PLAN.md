@@ -7,7 +7,7 @@ dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1-B8.1 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
+Nền local-first ổn định. B1-B9 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
 HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
 package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản ứng theo
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
@@ -228,6 +228,29 @@ cơ mặc định.
 - đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
   prerequisite, progress, persistence, FSRS và evidence không đổi;
 - không mở Sites, production, commerce, CMS hay human-review workflow.
+
+### B9 — Đăng nhập và phân quyền ứng dụng
+
+**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Scope này được người
+dùng chủ động mở sau B8.1 và tái sử dụng toàn bộ Sign in with ChatGPT, D1, sync
+và account lifecycle hiện có.
+
+- localStorage/IndexedDB tiếp tục phục vụ học ẩn danh/offline; Cloudflare D1
+  (SQLite dialect qua Drizzle) tiếp tục là CSDL tài khoản và đồng bộ phía server;
+- migration `0014` thêm role graph `learner`/`admin`; mọi tài khoản có baseline
+  learner, admin đầu tiên lấy từ `HANZI_OS_ADMIN_EMAILS`, không lưu mật khẩu;
+- Cổng Quản Trị server-rendered và API fail-closed cho phép admin xem
+  email/trạng thái/vai trò, cấp/thu admin cho tài khoản khác và chặn tự khóa;
+  không hiển thị tiến độ học tenant khác;
+- account export schema v6 gồm role của chính người dùng; account deletion dọn
+  role graph; origin/body/target đều được kiểm tra phía máy chủ;
+- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
+  prerequisite, progress, persistence, FSRS và evidence không đổi;
+- targeted RBAC/schema/session/sync/export, typecheck, lint và build xanh; Cổng
+  Quản Trị không tăng client bundle, ceiling giữ 799,9/800 KiB;
+- full check một lượt chỉ lộ kỳ vọng restore cũ `14/0013`; targeted rehearsal
+  sau sửa xác nhận 15 migration, 27 bảng và role graph. Full E2E xanh 30/30;
+- không mở Sites, production, commerce, CMS hoặc human-review workflow.
 
 ## 6. Thước đo sẵn sàng toàn dự án
 
