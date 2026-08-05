@@ -1,16 +1,17 @@
 # Kế hoạch HANZI.OS — bản đồ án/tự học HSK0 đến HSK4
 
-Cập nhật: 02/08/2026
+Cập nhật: 05/08/2026
 
 Production thương mại, CMS và Sites nằm ngoài critical path cho đến khi người
 dùng chủ động mở lại.
 
 ## 1. Tóm tắt dễ đọc
 
-Nền local-first ổn định. B1-B8 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
+Nền local-first ổn định. B1-B8.1 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
 HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
 package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản ứng theo
-sự kiện học, Voice Reactor và giọng xướng lệnh mà không giả làm chứng nhận.
+sự kiện học, Voice Reactor và 16 xướng lệnh Cơ Linh Mechanical Core tích hợp sẵn
+mà không giả làm chứng nhận.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **HSK0:** 4 bridge, rich 0/4.
@@ -192,6 +193,27 @@ learning policy.
 - client ceiling 799,2 KiB dưới 800 KiB. Lighthouse sau khi trì hoãn inventory
   giọng và cue catalog đến tương tác đầu tiên đạt performance 97,
   accessibility/best-practices/SEO 100; LCP 2.115 ms, CLS 0, TBT 148 ms;
+- không mở Sites, production, commerce, CMS hay human-review workflow.
+
+### B8.1 — Cơ Linh Mechanical Core
+
+**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Giọng 2 Mechanical
+Core là nhân dạng Cơ Linh mặc định cho các xướng lệnh hệ thống cố định.
+
+- 16 xướng lệnh local phủ khởi động, nhiệm vụ, hoàn tất/mở khóa, ôn tập, hóa giải
+  lỗi, Đại Khảo, đạt ngưỡng/thăng chức, trạng thái liên kết, cảnh báo, xem thử và
+  tóm tắt Bảng Hệ Thống;
+- Audio Engine phát clip qua Web Audio graph hiện hành, ducking hiệu ứng và cập
+  nhật Voice Reactor; các thông báo chính không phụ thuộc giọng Việt của Windows;
+- browser TTS chỉ còn là fallback cho câu động và luyện đọc tiếng Trung; mọi âm
+  thanh vẫn là synthetic practice, `humanReviewed: false`;
+- carrier được tạo trong tài khoản ElevenLabs của người dùng, clone local bằng
+  VieNeu-TTS và xử lý Mechanical Core; phạm vi sử dụng hiện tại là demo/tự học
+  local, không phải native audio, review phát âm, mastery hoặc chứng nhận HSK;
+- targeted unit/typecheck/lint/build và E2E phát giọng không có device voice xanh;
+  browser QA trực tiếp xác nhận `playing → idle`; client ceiling 799,8/800 KiB;
+- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
+  prerequisite, progress, persistence, FSRS và evidence không đổi;
 - không mở Sites, production, commerce, CMS hay human-review workflow.
 
 ## 6. Thước đo sẵn sàng toàn dự án

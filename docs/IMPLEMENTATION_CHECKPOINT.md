@@ -1,14 +1,14 @@
 # HANZI.OS — checkpoint triển khai hiện tại
 
-Cập nhật: 02/08/2026
+Cập nhật: 05/08/2026
 
 ## 1. Tình trạng một câu
 
-B8 đã biến lớp trải nghiệm “Hệ Thống Thức Tỉnh” trên package `.08.5` thành một
-hologram sống và có tiếng nói: Bảng Hệ Thống sáng rõ hơn, Audio Engine phản ứng
-theo sự kiện học thật, giọng xướng lệnh tiếng Việt và Voice Reactor hiện trạng
-thái phát/thu/xử lý. Toàn bộ 213 blueprint HSK1-4 vẫn học được trên rich UI, bốn
-Đại Khảo vẫn chạy end-to-end. Sites và production vẫn đóng.
+B8.1 đã trao cho lớp trải nghiệm “Hệ Thống Thức Tỉnh” một giọng Cơ Linh cố định:
+16 xướng lệnh Mechanical Core được đóng gói local, phản ứng theo sự kiện học thật
+và không còn phụ thuộc giọng Việt cài trong Windows ở các thông báo hệ thống
+chính. Toàn bộ 213 blueprint HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo vẫn
+chạy end-to-end. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
@@ -38,7 +38,7 @@ mastery/production bị hoãn, không phải bài học hay lỗi tích hợp c�
 | HSK4 summary/argument | 24/24 | 24/24 | hoàn thành local |
 | HSK4 timed integration | 18/18 | 18/18 | hoàn thành local |
 
-## 4. B4-B8 đã giao cho người học
+## 4. B4-B8.1 đã giao cho người học
 
 - Materialize và AI self-review năm pass đủ 78 blueprint HSK4; không còn lỗi
   nội dung chưa giải quyết trong batch. Mọi bài giữ `humanReviewed: false`.
@@ -127,7 +127,24 @@ mục bridge/legacy còn consumer hợp lệ.
 - Signal bus nối âm thanh/xướng lệnh vào nhiệm vụ, lesson local và authenticated,
   review, mistake remediation, mở khóa, thăng cảnh giới và cả bốn level check.
   Prerequisite, persistence, FSRS, evidence version và chính sách mastery không
-  đổi; không thêm dependency, Python, audio asset hay production workflow.
+  đổi; không thêm dependency runtime hay production workflow.
+
+### B8.1 — Cơ Linh Mechanical Core
+
+- Bộ giọng local có 16 xướng lệnh cho khởi động, kích hoạt nhiệm vụ, hoàn tất bài,
+  mở Thiên Lộ, dọn hàng đợi ôn tập, hóa giải lỗi, bắt đầu/hoàn tất Đại Khảo, đạt
+  ngưỡng, thăng chức, mất/khôi phục liên kết, cảnh báo, xem thử và tóm tắt trạng
+  thái. Các tín hiệu chính phát trực tiếp qua Audio Engine và làm Voice Reactor
+  chuyển `preparing → playing → idle`.
+- Bảng Thuộc Tính công bố rõ **Cơ Linh · Mechanical Core** và nút **Gọi thử Cơ
+  Linh**. Bộ xướng lệnh tĩnh không cần giọng Việt của Windows; browser TTS chỉ
+  còn là fallback cho câu động và luyện đọc tiếng Trung.
+- Nguồn carrier được tạo trong tài khoản ElevenLabs của người dùng, clone local
+  bằng VieNeu-TTS rồi xử lý Mechanical Core. Phạm vi là demo/tự học local,
+  synthetic, `humanReviewed: false`; không phải native audio, review phát âm,
+  mastery hay chứng nhận HSK.
+- Không thay package nội dung, prerequisite, progress, persistence, FSRS hay
+  evidence. Không mở Sites, production, commerce, CMS hoặc human-review workflow.
 
 ## 5. Đường dữ liệu B4
 
@@ -229,6 +246,11 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   khi trì hoãn inventory giọng và cue catalog đến tương tác đầu tiên, cold-profile
   cuối đạt median performance **97**, accessibility/best-practices/SEO **100**;
   LCP 2.115 ms, CLS 0 và TBT 148 ms.
+- B8.1 targeted unit, typecheck, lint và build xanh; client ceiling **799,8 KiB**
+  dưới hard ceiling 800 KiB. Targeted E2E xác nhận MP3 tích hợp trả đúng
+  `audio/mpeg` và phát được khi thiết bị không có giọng Việt. Browser QA trực tiếp
+  trên Chrome xác nhận nút **Gọi thử Cơ Linh** đưa Voice Reactor từ `playing` về
+  `idle`, không có lỗi tích hợp đã biết.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -236,7 +258,7 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 
 - Workspace: `D:\Projects\hanzi-os`; branch: `codex/hsk4-graduation`.
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
-  hiện hành `foundation-2026.08.5`; B8 là batch giao diện/âm thanh hiện tại.
+  hiện hành `foundation-2026.08.5`; B8.1 là batch giọng Cơ Linh hiện tại.
 - Không commit staging, build output hoặc report thử.
 - Không thay auth, sync, FSRS, Reader, Review, CMS, hosting hay Sites.
 

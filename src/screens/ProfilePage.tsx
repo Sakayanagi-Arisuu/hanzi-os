@@ -111,7 +111,13 @@ export function ProfilePage() {
     setAnnouncementLevel,
     replayCeremonies,
   } = useSystemUi();
-  const { announce, hasVietnameseVoice, playback, previewCue, voices } = useAudioEngine();
+  const {
+    announce,
+    hasVietnameseDeviceVoice,
+    playback,
+    previewCue,
+    voices,
+  } = useAudioEngine();
   const vietnameseVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("vi"));
   const [draft, setDraft] = useState<Profile>(state.profile);
   const [saved, setSaved] = useState(false);
@@ -486,6 +492,15 @@ export function ProfilePage() {
           <fieldset className="profile-fieldset">
             <legend>Giao thức âm thanh hệ thống</legend>
             <div className="sys-audio-console">
+              <div className="sys-voice-identity">
+                <span aria-hidden="true"><AudioLines size={22} /></span>
+                <div>
+                  <small>CORE VOICE · LOCAL SYNTHETIC</small>
+                  <strong>Cơ Linh · Mechanical Core</strong>
+                  <p>16 xướng lệnh cơ giới hóa cho thức tỉnh, nhiệm vụ, kiểm định và thăng cấp.</p>
+                </div>
+                <b>CORE V1</b>
+              </div>
               <button
                 className={preferences.soundEnabled ? "active" : ""}
                 type="button"
@@ -546,8 +561,8 @@ export function ProfilePage() {
               >
                 <AudioLines size={20} />
                 <span>
-                  <strong>Giọng hệ thống · {preferences.voiceEnabled ? "Đã mở" : "Tùy chọn"}</strong>
-                  <small>Giọng Việt tổng hợp báo thức tỉnh, nhiệm vụ, hoàn thành và thăng cấp.</small>
+                  <strong>Cơ Linh · {preferences.voiceEnabled ? "Đã thức tỉnh" : "Đang ngủ"}</strong>
+                  <small>Mechanical Core phát trực tiếp từ gói giọng cục bộ, không phụ thuộc giọng Windows.</small>
                 </span>
                 <i aria-hidden="true" />
               </button>
@@ -565,7 +580,7 @@ export function ProfilePage() {
                 />
               </label>
               <label>
-                <span><strong>Nhân cách xướng lệnh</strong></span>
+                <span><strong>Ngữ điệu câu động dự phòng</strong></span>
                 <select value={preferences.voiceProfile} onChange={(event) => setVoiceProfile(event.target.value as SystemVoiceProfile)}>
                   {voiceProfiles.map((profile) => <option key={profile.id} value={profile.id}>{profile.label}</option>)}
                 </select>
@@ -576,14 +591,14 @@ export function ProfilePage() {
                   {announcementLevels.map((levelOption) => <option key={levelOption.id} value={levelOption.id}>{levelOption.label}</option>)}
                 </select>
               </label>
-              <label className={hasVietnameseVoice ? "" : "disabled"}>
-                <span><strong>Giọng Việt trên thiết bị</strong></span>
+              <label className={hasVietnameseDeviceVoice ? "" : "disabled"}>
+                <span><strong>Giọng thiết bị cho câu động</strong></span>
                 <select
                   value={preferences.preferredVoiceUri ?? ""}
-                  disabled={!hasVietnameseVoice}
+                  disabled={!hasVietnameseDeviceVoice}
                   onChange={(event) => setPreferredVoiceUri(event.target.value || undefined)}
                 >
-                  <option value="">Tự chọn giọng phù hợp</option>
+                  <option value="">Tự chọn giọng dự phòng</option>
                   {vietnameseVoices.map((voice) => <option key={voice.voiceURI} value={voice.voiceURI}>{voice.name}</option>)}
                 </select>
               </label>
@@ -593,17 +608,18 @@ export function ProfilePage() {
                 data-system-silent="true"
                 onClick={() => {
                   previewCue("system.online");
-                  if (!announce(`Hệ thống đã kết nối. Chào mừng ${state.profile.name}. Nhiệm vụ mới đang chờ kích hoạt.`, {
+                  announce("Hệ thống đã kết nối. Kênh Cơ Linh sẵn sàng. Nhiệm vụ mới đang chờ kích hoạt.", {
                     sourceId: "profile:voice-preview",
                     force: true,
                     priority: 3,
-                  })) notify("Thiết bị chưa có giọng Việt tổng hợp phù hợp; hiệu ứng âm vẫn hoạt động.", "info");
+                    clipId: "profile.preview",
+                  });
                 }}
               >
-                <Sparkles size={16} /> Thử liên kết âm thanh
+                <Sparkles size={16} /> Gọi thử Cơ Linh
               </button>
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
-              <small className="sys-audio-disclosure">Không có file thu giọng người thật: mọi âm báo do Web Audio tạo tại chỗ; giọng nói là browser TTS synthetic và không được tính là bằng chứng phát âm. Khi không có giọng Việt, hệ thống báo rõ thay vì dùng giọng Anh.</small>
+              <small className="sys-audio-disclosure">Cơ Linh là giọng AI synthetic: nền giọng tạo bằng ElevenLabs, clone và cơ giới hóa local bằng VieNeu-TTS v3; humanReviewed=false. Gói này chỉ phục vụ demo/tự học local, không phải audio bản ngữ hay bằng chứng phát âm. Browser TTS chỉ còn làm dự phòng cho câu động ngoài 16 xướng lệnh cài sẵn.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>

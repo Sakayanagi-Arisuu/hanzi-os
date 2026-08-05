@@ -5621,6 +5621,44 @@ a.lesson-node:hover::before { opacity: 1; }
 
 /* Local Web Audio controls live beside motion controls in the Attribute Board. */
 .sys-audio-console { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sys-voice-identity {
+  position: relative;
+  min-height: 86px;
+  grid-column: 1 / -1;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+  background:
+    linear-gradient(105deg, rgba(85, 217, 255, 0.1), transparent 38%),
+    rgba(3, 18, 17, 0.92);
+  border: 1px solid rgba(85, 217, 255, 0.34);
+  box-shadow: inset 0 0 32px rgba(85, 217, 255, 0.035);
+}
+.sys-voice-identity::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(85, 217, 255, 0.022) 5px 6px);
+}
+.sys-voice-identity > span {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  color: var(--cyan);
+  background: rgba(85, 217, 255, 0.08);
+  border: 1px solid rgba(85, 217, 255, 0.34);
+  box-shadow: 0 0 22px rgba(85, 217, 255, 0.08);
+}
+.sys-voice-identity > div { min-width: 0; display: flex; flex-direction: column; }
+.sys-voice-identity small { color: var(--cyan); font: 700 7px var(--mono); letter-spacing: 0.14em; }
+.sys-voice-identity strong { margin-top: 5px; color: #e8f7f3; font-size: 12px; }
+.sys-voice-identity p { margin: 5px 0 0; color: #78948c; font-size: 8px; line-height: 1.5; }
+.sys-voice-identity b { color: var(--gold); font: 700 8px var(--mono); letter-spacing: 0.1em; }
 .sys-audio-console > button:not(.sys-audio-test) {
   min-height: 76px;
   padding: 12px;
@@ -5661,6 +5699,8 @@ a.lesson-node:hover::before { opacity: 1; }
 
 @media (max-width: 520px) {
   .sys-audio-console { grid-template-columns: 1fr; }
+  .sys-voice-identity { grid-column: 1; grid-template-columns: 40px minmax(0, 1fr); }
+  .sys-voice-identity b { grid-column: 2; }
   .sys-audio-disclosure { grid-column: 1; }
 }
 

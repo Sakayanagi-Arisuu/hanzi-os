@@ -158,8 +158,8 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const announceStatus = () => {
     playCue("ui.confirm");
     announce(
-      `Hệ thống đã kết nối. ${state.profile.name}, cảnh giới hoạt động ${rank.title}. ${progress.completedCount} trên ${progress.totalCount} thử luyện đã thông qua.`,
-      { sourceId: "status:announcer", priority: 2 },
+      "Đồng bộ hồ sơ hoàn tất. Bảng trạng thái đã sẵn sàng.",
+      { sourceId: "status:announcer", priority: 2, clipId: "status.summary" },
     );
   };
 

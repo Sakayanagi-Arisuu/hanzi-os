@@ -14,6 +14,11 @@ import { subscribeSystemSignals, type SystemSignalType } from "../system/systemS
 import { useSystemUi } from "../system/systemUiPreferences";
 import { registerMandarinSpeaker } from "./audioBridge";
 import type { SoundCueId } from "./cueCatalog";
+import {
+  systemVoiceClipForSignal,
+  systemVoiceClipUrl,
+  type SystemVoiceClipId,
+} from "./systemVoicePack";
 
 export type VoicePlaybackPhase = "idle" | "preparing" | "playing" | "ended" | "cancelled" | "error";
 export type VoicePlaybackState = {
@@ -21,7 +26,6 @@ export type VoicePlaybackState = {
   sourceId?: string;
   language?: "zh-CN" | "vi-VN";
   boundaryIndex?: number;
-  message?: string;
 };
 
 type SpeakOptions = {
@@ -29,6 +33,7 @@ type SpeakOptions = {
   rate?: number;
   force?: boolean;
   priority?: 1 | 2 | 3;
+  clipId?: SystemVoiceClipId;
 };
 
 type AudioEngineValue = {
@@ -40,29 +45,13 @@ type AudioEngineValue = {
   playback: VoicePlaybackState;
   voices: SpeechSynthesisVoice[];
   hasVietnameseVoice: boolean;
+  hasVietnameseDeviceVoice: boolean;
   speechSupported: boolean;
 };
 
 const AudioEngineContext = createContext<AudioEngineValue | null>(null);
 let cueCatalogPromise: Promise<typeof import("./cueCatalog")> | null = null;
 const loadCueCatalog = () => cueCatalogPromise ??= import("./cueCatalog");
-
-const ANNOUNCEMENTS: Partial<Record<SystemSignalType, string>> = {
-  "system.online": "Hệ thống đã thức tỉnh. Kết nối cục bộ ổn định.",
-  "quest.activated": "Nhiệm vụ đã kích hoạt. Hãy bắt đầu thử luyện.",
-  "lesson.completed": "Nhiệm vụ hoàn thành. Kinh nghiệm đã được ghi nhận.",
-  "path.unlocked": "Ngưỡng đã đạt. Chặng thử luyện mới đã mở.",
-  "review.queue-cleared": "Thanh tẩy ký ức hoàn tất. Hàng đợi ôn tập đã về không.",
-  "mistake.resolved": "Nghịch cảnh đã hóa giải.",
-  "level-check.started": "Cổng kiểm định đã mở. Bắt đầu đánh giá cảnh giới.",
-  "level-check.completed": "Kiểm định hoàn tất. Kết quả đã được ghi nhận.",
-  "rank.threshold-reached": "Ngưỡng thăng chức đã đạt.",
-  "journey.promoted": "Chúc mừng. Cảnh giới hành trình đã thăng cấp.",
-  "state.offline": "Kết nối gián đoạn. Hệ thống chuyển sang chế độ cục bộ.",
-  "state.restored": "Kết nối đã phục hồi. Hệ thống đang đồng bộ trạng thái.",
-  "voice.permission-denied": "Không thể mở kênh âm thanh. Hãy kiểm tra quyền microphone.",
-  "state.warning": "Cảnh báo hệ thống. Hãy kiểm tra trạng thái hiện tại.",
-};
 
 const CEREMONIAL_SIGNALS = new Set<SystemSignalType>([
   "system.online",
@@ -96,9 +85,13 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   const audioContextRef = useRef<AudioContext | null>(null);
   const masterGainRef = useRef<GainNode | null>(null);
   const effectsGainRef = useRef<GainNode | null>(null);
+  const voiceGainRef = useRef<GainNode | null>(null);
   const currentUtteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+  const currentClipSourceRef = useRef<AudioBufferSourceNode | null>(null);
   const currentLanguageRef = useRef<"zh-CN" | "vi-VN" | null>(null);
   const currentPriorityRef = useRef<1 | 2 | 3>(1);
+  const playbackRequestRef = useRef(0);
+  const clipBufferCacheRef = useRef(new Map<SystemVoiceClipId, Promise<AudioBuffer>>());
   const cuePlayedAtRef = useRef(new Map<SoundCueId, number>());
   const announcementAtRef = useRef(new Map<string, number>());
   const bootedRef = useRef(false);
@@ -112,6 +105,11 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     preferencesRef.current = preferences;
     masterGainRef.current?.gain.setTargetAtTime(preferences.soundVolume, audioContextRef.current?.currentTime ?? 0, .02);
+    voiceGainRef.current?.gain.setTargetAtTime(
+      Math.min(1.5, preferences.voiceVolume * 1.45),
+      audioContextRef.current?.currentTime ?? 0,
+      .02,
+    );
   }, [preferences]);
 
   useEffect(() => {
@@ -139,18 +137,22 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     if (!context) {
       context = new window.AudioContext();
       const effects = context.createGain();
+      const voice = context.createGain();
       const compressor = context.createDynamicsCompressor();
       const master = context.createGain();
       master.gain.value = preferencesRef.current.soundVolume;
+      voice.gain.value = Math.min(1.5, preferencesRef.current.voiceVolume * 1.45);
       compressor.threshold.value = -18;
       compressor.knee.value = 18;
       compressor.ratio.value = 8;
       compressor.attack.value = .004;
       compressor.release.value = .16;
       effects.connect(compressor);
+      voice.connect(compressor);
       compressor.connect(master);
       master.connect(context.destination);
       effectsGainRef.current = effects;
+      voiceGainRef.current = voice;
       masterGainRef.current = master;
       audioContextRef.current = context;
     }
@@ -196,7 +198,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       });
       if (contextIdleTimerRef.current !== null) window.clearTimeout(contextIdleTimerRef.current);
       contextIdleTimerRef.current = window.setTimeout(() => {
-        if (!currentUtteranceRef.current && !recordingRef.current && context.state === "running") {
+        if (!currentUtteranceRef.current && !currentClipSourceRef.current && !recordingRef.current && context.state === "running") {
           void context.suspend();
         }
       }, Math.max(12_000, Math.ceil(definition.duration * 1000) + 2_000));
@@ -212,19 +214,31 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const cancelSpeech = useCallback(() => {
-    if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
-    if (currentUtteranceRef.current) {
+    if (typeof window === "undefined") return;
+    playbackRequestRef.current += 1;
+    if (currentUtteranceRef.current || currentClipSourceRef.current) {
       setPlayback((current) => ({ ...current, phase: "cancelled" }));
       currentUtteranceRef.current = null;
-      currentLanguageRef.current = null;
     }
-    window.speechSynthesis.cancel();
+    if (currentClipSourceRef.current) {
+      const source = currentClipSourceRef.current;
+      currentClipSourceRef.current = null;
+      source.onended = null;
+      try {
+        source.stop();
+      } catch {
+        // A source that already ended is safe to ignore.
+      }
+    }
+    currentLanguageRef.current = null;
+    currentPriorityRef.current = 1;
+    window.speechSynthesis?.cancel();
     setDucked(false);
     if (playbackTimerRef.current !== null) window.clearTimeout(playbackTimerRef.current);
     playbackTimerRef.current = window.setTimeout(() => setPlayback({ phase: "idle" }), 700);
   }, [setDucked]);
 
-  const speak = useCallback((message: string, language: "zh-CN" | "vi-VN", options?: SpeakOptions) => {
+  const speakWithBrowser = useCallback((message: string, language: "zh-CN" | "vi-VN", options?: SpeakOptions) => {
     if (!message.trim() || typeof window === "undefined" || !("speechSynthesis" in window)) return false;
     const prefs = preferencesRef.current;
     if (prefs.voiceVolume <= 0 || prefs.soundVolume <= 0) return false;
@@ -235,7 +249,8 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     if (language === "vi-VN" && !relevantVoices.length) return false;
     const requestedPriority = options?.priority ?? 1;
     if (currentUtteranceRef.current && currentLanguageRef.current === "zh-CN" && language === "vi-VN") return false;
-    if (currentUtteranceRef.current && requestedPriority < currentPriorityRef.current) return false;
+    if ((currentUtteranceRef.current || currentClipSourceRef.current)
+      && requestedPriority < currentPriorityRef.current) return false;
     cancelSpeech();
     if (playbackTimerRef.current !== null) window.clearTimeout(playbackTimerRef.current);
 
@@ -277,22 +292,102 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       playCue("voice.play-end");
       playbackTimerRef.current = window.setTimeout(() => setPlayback({ phase: "idle" }), 1300);
     };
-    utterance.onerror = (event) => {
+    utterance.onerror = () => {
       currentUtteranceRef.current = null;
       currentLanguageRef.current = null;
       currentPriorityRef.current = 1;
       setDucked(false);
-      setPlayback({ phase: "error", sourceId, language, message: event.error });
+      setPlayback({ phase: "error", sourceId, language });
       playbackTimerRef.current = window.setTimeout(() => setPlayback({ phase: "idle" }), 2400);
     };
     window.speechSynthesis.speak(utterance);
     return true;
   }, [cancelSpeech, playCue, setDucked]);
 
+  const playSystemClip = useCallback(async (
+    clipId: SystemVoiceClipId,
+    options?: SpeakOptions,
+  ) => {
+    const prefs = preferencesRef.current;
+    if (prefs.voiceVolume <= 0 || prefs.soundVolume <= 0) return false;
+    if (!prefs.voiceEnabled && !options?.force) return false;
+    const requestedPriority = options?.priority ?? 1;
+    if (currentUtteranceRef.current && currentLanguageRef.current === "zh-CN") return false;
+    if ((currentUtteranceRef.current || currentClipSourceRef.current)
+      && requestedPriority < currentPriorityRef.current) return false;
+
+    cancelSpeech();
+    if (playbackTimerRef.current !== null) window.clearTimeout(playbackTimerRef.current);
+    const requestId = playbackRequestRef.current;
+    const sourceId = options?.sourceId ?? `system-voice:${clipId}`;
+    currentLanguageRef.current = "vi-VN";
+    currentPriorityRef.current = requestedPriority;
+    setPlayback({ phase: "preparing", sourceId, language: "vi-VN" });
+
+    try {
+      const context = await ensureGraph();
+      const voiceGain = voiceGainRef.current;
+      if (!context || !voiceGain) throw new Error("audio-context-unavailable");
+      let bufferPromise = clipBufferCacheRef.current.get(clipId);
+      if (!bufferPromise) {
+        bufferPromise = fetch(systemVoiceClipUrl(clipId), { cache: "force-cache" }).then(async (response) => {
+          if (!response.ok) throw new Error(`system-voice-${response.status}`);
+          return context.decodeAudioData(await response.arrayBuffer());
+        });
+        clipBufferCacheRef.current.set(clipId, bufferPromise);
+      }
+      let buffer: AudioBuffer;
+      try {
+        buffer = await bufferPromise;
+      } catch (error) {
+        clipBufferCacheRef.current.delete(clipId);
+        throw error;
+      }
+      if (requestId !== playbackRequestRef.current) return false;
+
+      const source = context.createBufferSource();
+      source.buffer = buffer;
+      source.connect(voiceGain);
+      currentClipSourceRef.current = source;
+      setDucked(true);
+      setPlayback({ phase: "playing", sourceId, language: "vi-VN", boundaryIndex: 0 });
+      playCue("voice.play-start");
+      source.onended = () => {
+        if (currentClipSourceRef.current !== source) return;
+        currentClipSourceRef.current = null;
+        currentLanguageRef.current = null;
+        currentPriorityRef.current = 1;
+        setDucked(false);
+        setPlayback({ phase: "ended", sourceId, language: "vi-VN" });
+        playCue("voice.play-end");
+        playbackTimerRef.current = window.setTimeout(() => setPlayback({ phase: "idle" }), 1300);
+      };
+      source.start();
+      return true;
+    } catch {
+      if (requestId !== playbackRequestRef.current) return false;
+      currentClipSourceRef.current = null;
+      currentLanguageRef.current = null;
+      currentPriorityRef.current = 1;
+      setDucked(false);
+      setPlayback({
+        phase: "error",
+        sourceId,
+        language: "vi-VN",
+      });
+      playbackTimerRef.current = window.setTimeout(() => setPlayback({ phase: "idle" }), 2400);
+      return false;
+    }
+  }, [cancelSpeech, ensureGraph, playCue, setDucked]);
+
   const speakMandarin = useCallback((text: string, rate = .82, sourceId?: string) =>
-    speak(text, "zh-CN", { rate, sourceId, force: true, priority: 3 }), [speak]);
-  const announce = useCallback((message: string, options?: SpeakOptions) =>
-    speak(message, "vi-VN", options), [speak]);
+    speakWithBrowser(text, "zh-CN", { rate, sourceId, force: true, priority: 3 }), [speakWithBrowser]);
+  const announce = useCallback((message: string, options?: SpeakOptions) => {
+    const clipId = options?.clipId;
+    if (!clipId) return speakWithBrowser(message, "vi-VN", options);
+    void playSystemClip(clipId, options);
+    return true;
+  }, [playSystemClip, speakWithBrowser]);
 
   useEffect(() => {
     registerMandarinSpeaker(speakMandarin);
@@ -311,13 +406,18 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     const prefs = preferencesRef.current;
     if (!prefs.voiceEnabled || prefs.announcementLevel === "off") return;
     if (prefs.announcementLevel === "ceremonial" && !CEREMONIAL_SIGNALS.has(signal.type)) return;
-    const message = signal.message ?? ANNOUNCEMENTS[signal.type];
+    const clipId = systemVoiceClipForSignal(signal.type);
+    const message = signal.message ?? clipId;
     if (!message) return;
     const dedupeKey = `${signal.type}:${message}`;
     const now = Date.now();
     if (now - (announcementAtRef.current.get(dedupeKey) ?? 0) < 2500) return;
     announcementAtRef.current.set(dedupeKey, now);
-    announce(message, { sourceId: signal.sourceId, priority: SIGNAL_PRIORITY(signal.type) });
+    announce(message, {
+      sourceId: signal.sourceId,
+      priority: SIGNAL_PRIORITY(signal.type),
+      clipId,
+    });
   }), [announce, playCue]);
 
   useEffect(() => {
@@ -330,7 +430,11 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       playCue("system.boot");
       const prefs = preferencesRef.current;
       if (prefs.voiceEnabled && prefs.announcementLevel !== "off") {
-        void announce(ANNOUNCEMENTS["system.online"]!, { sourceId: "system-awakening", priority: 2 });
+        void announce("system.online", {
+          sourceId: "system-awakening",
+          priority: 2,
+          clipId: "system.online",
+        });
       }
       window.setTimeout(() => { suppressNextClickRef.current = false; }, 250);
     };
@@ -358,6 +462,15 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => () => {
     if (typeof window !== "undefined") window.speechSynthesis?.cancel();
+    if (currentClipSourceRef.current) {
+      currentClipSourceRef.current.onended = null;
+      try {
+        currentClipSourceRef.current.stop();
+      } catch {
+        // Already-ended clips need no cleanup.
+      }
+      currentClipSourceRef.current = null;
+    }
     const context = audioContextRef.current;
     if (playbackTimerRef.current !== null) window.clearTimeout(playbackTimerRef.current);
     if (contextIdleTimerRef.current !== null) window.clearTimeout(contextIdleTimerRef.current);
@@ -372,8 +485,9 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
     cancelSpeech,
     playback,
     voices,
-    hasVietnameseVoice: voices.some((voice) => voice.lang.toLowerCase().startsWith("vi")),
-    speechSupported: typeof window !== "undefined" && "speechSynthesis" in window,
+    hasVietnameseVoice: true,
+    hasVietnameseDeviceVoice: voices.some((voice) => voice.lang.toLowerCase().startsWith("vi")),
+    speechSupported: typeof window !== "undefined" && ("AudioContext" in window || "speechSynthesis" in window),
   }), [announce, cancelSpeech, playCue, playback, speakMandarin, voices]);
 
   return <AudioEngineContext.Provider value={value}>{children}</AudioEngineContext.Provider>;

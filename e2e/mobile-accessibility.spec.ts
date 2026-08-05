@@ -120,6 +120,23 @@ test("summons a keyboard-safe status hologram backed by live learning signals", 
   await expect(page.getByRole("dialog", { name: "Hành giả vô danh" })).toBeVisible();
 });
 
+test("plays the built-in Cơ Linh voice pack without a device voice", async ({ page }) => {
+  await finishOnboarding(page);
+  await page.goto("/profile");
+  await expect(page.getByText("Cơ Linh · Mechanical Core", { exact: true })).toBeVisible();
+
+  await page.getByRole("button", { name: /Cơ Linh · Đang ngủ/u }).click();
+  const voiceResponse = page.waitForResponse((response) =>
+    response.url().endsWith("/assets/system-voice/mechanical-core-v1/profile-preview.mp3")
+  );
+  await page.getByRole("button", { name: "Gọi thử Cơ Linh" }).click();
+
+  const response = await voiceResponse;
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toContain("audio/mpeg");
+  await expect(page.locator('.voice-reactor[data-phase="playing"]').first()).toBeVisible();
+});
+
 test("exposes single-select state and supports arrow navigation", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", {
