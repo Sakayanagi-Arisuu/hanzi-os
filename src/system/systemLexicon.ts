@@ -42,6 +42,7 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
   "/assessment/hsk2": { code: "TRIAL-HSK2", title: "Đại Khảo Cảnh Giới HSK2", plain: "Tự kiểm cuối chặng HSK2" },
   "/assessment/hsk3": { code: "TRIAL-HSK3", title: "Đại Khảo Cảnh Giới HSK3", plain: "Tự kiểm cuối chặng HSK3" },
   "/assessment/hsk4": { code: "TRIAL-HSK4", title: "Đại Khảo Cảnh Giới HSK4", plain: "Tự kiểm cuối chặng HSK4" },
+  "/exams": { code: "MOCK-01", title: "Mô Phỏng Đại Khảo", plain: "Luyện thi HSK1–4" },
   "/pronunciation": { code: "VOICE-06", title: "Vạn Âm Điện", plain: "Luyện âm và nhận dạng giọng nói" },
   "/characters": { code: "GLYPH-07", title: "Thần Văn Lô", plain: "Phân khu Hán tự" },
   "/reader": { code: "READ-08", title: "Vạn Quyển Các", plain: "Luyện đọc" },
@@ -51,6 +52,7 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
 };
 
 export const resolveSystemPageName = (pathname: string): SystemPageName => {
+  if (pathname.startsWith("/exams")) return SYSTEM_PAGE_NAMES["/exams"]!;
   if (pathname.startsWith("/lesson/")) {
     return { code: "TRIAL-LIVE", title: "Thử Luyện Đang Tiến Hành", plain: "Bài học hiện tại" };
   }

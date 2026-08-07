@@ -13,6 +13,7 @@ const DashboardPage = lazy(async () => ({ default: (await import("./screens/Dash
 const DictionaryPage = lazy(async () => ({ default: (await import("./screens/DictionaryPage")).DictionaryPage }));
 const LessonPage = lazy(async () => ({ default: (await import("./screens/LessonPage")).LessonPage }));
 const MistakesPage = lazy(async () => ({ default: (await import("./screens/MistakesPage")).MistakesPage }));
+const MockExamsPage = lazy(async () => ({ default: (await import("./screens/MockExamsPage")).MockExamsPage }));
 const PathPage = lazy(async () => ({ default: (await import("./screens/PathPage")).PathPage }));
 const ProfilePage = lazy(async () => ({ default: (await import("./screens/ProfilePage")).ProfilePage }));
 const PronunciationPage = lazy(async () => ({ default: (await import("./screens/PronunciationPage")).PronunciationPage }));
@@ -34,6 +35,9 @@ export default function App() {
           <Route path="/assessment/hsk2" element={<Hsk2LevelCheckPage />} />
           <Route path="/assessment/hsk3" element={<Hsk3LevelCheckPage />} />
           <Route path="/assessment/hsk4" element={<Hsk4LevelCheckPage />} />
+          <Route path="/exams" element={<MockExamsPage mode="catalog" />} />
+          <Route path="/exams/history" element={<MockExamsPage mode="history" />} />
+          <Route path="/exams/:level/:form" element={<MockExamsPage mode="runner" />} />
           <Route path="/pronunciation" element={<PronunciationPage />} />
           <Route path="/characters" element={<CharactersPage />} />
           <Route path="/reader" element={<ReaderPage />} />

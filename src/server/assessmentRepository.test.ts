@@ -34,6 +34,7 @@ import {
   AssessmentFormUnavailableError,
   AssessmentIdempotencyConflictError,
   AssessmentRepository,
+  AssessmentSessionTimedOutError,
   AssessmentSessionUnavailableError,
   AssessmentSubmissionIncompleteError,
 } from "./assessmentRepository";
@@ -504,6 +505,56 @@ describe("authenticated assessment repository", () => {
       ...incomplete,
       idempotencyKey: "assessment-submit-complete",
     })).toMatchObject({ duplicate: true, sessionId: opened.sessionId });
+  });
+
+  it("enforces a server deadline and scores recorded answers after timeout", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    const bank = approvedBank();
+    let now = fixtureTime;
+    const assessment = new AssessmentRepository(database, {
+      bank,
+      publicationPolicy: promotedPolicy,
+      randomSource: () => 0.5,
+      now: () => now,
+      sessionTimeLimitMs: 60_000,
+      allowIncompleteSubmissionAfterTimeout: true,
+    });
+    const opened = await assessment.openSession("user-a", openCommand());
+    const first = opened.form.items[0]!;
+    await assessment.recordAttempt("user-a", attemptCommand(opened, first, {
+      response: {
+        kind: "selection",
+        answer: answerFor(bank, first.itemVersion),
+      },
+    }));
+    now += 60_001;
+    await expect(assessment.recordAttempt(
+      "user-a",
+      attemptCommand(opened, opened.form.items[1]!),
+    )).rejects.toBeInstanceOf(AssessmentSessionTimedOutError);
+    const submitted = await assessment.submitSession("user-a", {
+      protocolVersion: 1,
+      idempotencyKey: "assessment-submit-timeout",
+      installationId: "user-a-installation",
+      deviceId: "user-a-device",
+      deviceSequence: 30,
+      resetEpoch: 0,
+      contentVersion: CONTENT_VERSION,
+      sessionId: opened.sessionId,
+      formHash: opened.formHash,
+    });
+    expect(submitted).toMatchObject({
+      status: "submitted",
+      overall: { correct: 1, n: 1 },
+      masteryEligible: false,
+    });
+    expect(database.database.prepare(
+      "SELECT status, terminal_at AS terminalAt FROM assessment_sessions WHERE id = ?",
+    ).get(opened.sessionId)).toEqual({
+      status: "submitted",
+      terminalAt: now,
+    });
   });
 
   it("re-scores persisted responses and fails closed on bank or row drift", async () => {

@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "hanzi-os-";
-const CACHE_VERSION = "v11";
+const CACHE_VERSION = "v12";
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const PAGE_CACHE = `${CACHE_PREFIX}pages-${CACHE_VERSION}`;
 const ASSET_CACHE = `${CACHE_PREFIX}assets-${CACHE_VERSION}`;
@@ -21,7 +21,7 @@ const AUTH_PATH_PREFIXES = [
   "/signout-with-chatgpt",
   "/callback",
 ];
-const PROTECTED_PATH_PREFIXES = ["/account", "/admin", "/studio"];
+const PROTECTED_PATH_PREFIXES = ["/account", "/admin", "/studio", "/exams"];
 
 function isPathAtOrBelow(pathname, prefix) {
   return pathname === prefix || pathname.startsWith(`${prefix}/`);

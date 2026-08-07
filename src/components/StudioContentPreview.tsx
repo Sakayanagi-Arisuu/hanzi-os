@@ -108,6 +108,26 @@ export function StudioContentPreview({
     );
   }
 
+  if (itemType === "exam_form") {
+    const keys = Array.isArray(content.itemStableKeys)
+      ? content.itemStableKeys.filter((entry): entry is string => typeof entry === "string")
+      : [];
+    return (
+      <section style={styles.card} aria-label="Bản xem trước hướng dẫn Mock Exam">
+        <span style={styles.label}>LEARNER UI PREVIEW · MOCK EXAM FORM</span>
+        <strong style={{ ...styles.hanzi, fontSize: 32 }}>
+          {text(content.examLevel).toUpperCase()} · FORM {text(content.formKey).toUpperCase()}
+        </strong>
+        <small style={styles.pinyin}>
+          {String(content.timeLimitMinutes ?? "—")} phút · {keys.length} câu
+        </small>
+        <em style={styles.meaning}>
+          Đáp án được giữ phía máy chủ; learner chỉ review sau khi phiên kết thúc.
+        </em>
+      </section>
+    );
+  }
+
   const options = Array.isArray(content.options)
     ? content.options.filter((entry): entry is string => typeof entry === "string")
     : [];

@@ -98,6 +98,10 @@ export class AssessmentSubmissionIncompleteError extends Error {
   readonly code = "ASSESSMENT_SUBMISSION_INCOMPLETE";
 }
 
+export class AssessmentSessionTimedOutError extends Error {
+  readonly code = "ASSESSMENT_SESSION_TIMED_OUT";
+}
+
 type AssessmentCommandDevice = {
   installationId: string;
   deviceId: string;
@@ -151,6 +155,8 @@ export type AssessmentRepositoryOptions = {
   blueprint?: AuthoritativeAssessmentBlueprint;
   randomSource?: AssessmentRandomSource;
   now?: () => number;
+  sessionTimeLimitMs?: number;
+  allowIncompleteSubmissionAfterTimeout?: boolean;
 };
 
 const secureRandom: AssessmentRandomSource = () => {
@@ -201,6 +207,8 @@ export class AssessmentRepository {
   private readonly blueprint: AuthoritativeAssessmentBlueprint;
   private readonly randomSource: AssessmentRandomSource;
   private readonly now: () => number;
+  private readonly sessionTimeLimitMs: number | null;
+  private readonly allowIncompleteSubmissionAfterTimeout: boolean;
 
   constructor(
     private readonly database: D1Database,
@@ -213,6 +221,17 @@ export class AssessmentRepository {
       options.blueprint ?? FOUNDATION_AUTHORITATIVE_ASSESSMENT_BLUEPRINT;
     this.randomSource = options.randomSource ?? secureRandom;
     this.now = options.now ?? Date.now;
+    this.sessionTimeLimitMs = options.sessionTimeLimitMs ?? null;
+    if (
+      this.sessionTimeLimitMs !== null
+      && (
+        !Number.isSafeInteger(this.sessionTimeLimitMs)
+        || this.sessionTimeLimitMs < 60_000
+        || this.sessionTimeLimitMs > 4 * 60 * 60 * 1000
+      )
+    ) throw new Error("Assessment session time limit is invalid.");
+    this.allowIncompleteSubmissionAfterTimeout =
+      options.allowIncompleteSubmissionAfterTimeout ?? false;
   }
 
   async openSession(
@@ -476,6 +495,11 @@ export class AssessmentRepository {
     }
     await this.requireReleasedContent();
     const session = await this.requireStartedSession(userId, command);
+    if (this.hasSessionTimedOut(session)) {
+      throw new AssessmentSessionTimedOutError(
+        "Assessment time limit has elapsed; submit the recorded responses.",
+      );
+    }
     const form = await this.validateStoredForm(session);
     const formItem = form.items.find((item) => item.itemId === command.itemId);
     if (
@@ -749,7 +773,10 @@ export class AssessmentRepository {
       );
     }
     const attempts = await this.readSessionAttempts(userId, session);
-    if (attempts.length !== form.items.length) {
+    const timedOut = this.hasSessionTimedOut(session);
+    const allowIncomplete = timedOut
+      && this.allowIncompleteSubmissionAfterTimeout;
+    if (attempts.length !== form.items.length && !allowIncomplete) {
       throw new AssessmentSubmissionIncompleteError(
         "Every issued assessment item requires one immutable response.",
       );
@@ -757,9 +784,15 @@ export class AssessmentRepository {
     const attemptsByPosition = new Map(
       attempts.map((attempt) => [attempt.position, attempt]),
     );
-    const observations = form.items.map((formItem) => {
+    const observations: Array<{
+      skill: AssessmentFormV1["items"][number]["skill"];
+      correct: boolean;
+      measurementEligible: boolean;
+    }> = [];
+    for (const formItem of form.items) {
       const attempt = attemptsByPosition.get(formItem.position);
       const bankItem = this.requireBankBinding(formItem.itemVersion, formItem);
+      if (!attempt && allowIncomplete) continue;
       if (
         !attempt
         || attempt.itemId !== formItem.itemId
@@ -797,12 +830,12 @@ export class AssessmentRepository {
           "Stored assessment score conflicts with the server answer key.",
         );
       }
-      return {
+      observations.push({
         skill: formItem.skill,
         correct,
         measurementEligible: bankItem.measurementEligible,
-      };
-    });
+      });
+    }
     const scored = scoreAssessmentObservations(observations);
     const deviceRecordId = await this.registerDevice(userId, command);
     await this.requireSequenceAvailable(
@@ -868,7 +901,10 @@ export class AssessmentRepository {
              AND course.manifest_hash = ?
              AND course.release_state IN ('beta', 'published')
              AND course.linguistic_review_status = 'approved'
-             AND (SELECT COUNT(*) FROM assessment_attempts attempt WHERE attempt.user_id = session.user_id AND attempt.session_id = session.id AND attempt.reset_epoch = session.reset_epoch) = session.expected_item_count
+             AND (
+               (SELECT COUNT(*) FROM assessment_attempts attempt WHERE attempt.user_id = session.user_id AND attempt.session_id = session.id AND attempt.reset_epoch = session.reset_epoch) = session.expected_item_count
+               OR (? = 1 AND ? >= session.started_at + ?)
+             )
              AND ${CURRENT_LEARNING_RESET_EPOCH_SQL}
          )`,
       ).bind(
@@ -890,6 +926,9 @@ export class AssessmentRepository {
         CONTENT_VERSION,
         command.formHash,
         CURRENT_CONTENT_MANIFEST_SHA256,
+        this.allowIncompleteSubmissionAfterTimeout ? 1 : 0,
+        timestamp,
+        this.sessionTimeLimitMs ?? 0,
         userId,
         command.resetEpoch,
       ),
@@ -1189,6 +1228,11 @@ export class AssessmentRepository {
       );
     }
     await ensureCurrentCourseVersion(this.database, this.publicationPolicy);
+  }
+
+  private hasSessionTimedOut(session: AssessmentSessionRow) {
+    return this.sessionTimeLimitMs !== null
+      && this.now() >= session.startedAt + this.sessionTimeLimitMs;
   }
 
   private async requireCurrentEnrollment(userId: string, enrollmentId: string) {

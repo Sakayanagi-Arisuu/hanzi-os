@@ -43,6 +43,7 @@ const navItems = [
   { to: "/pronunciation", label: "Vạn Âm Điện", short: "Âm", icon: Mic2 },
   { to: "/characters", label: "Thần Văn Lô", short: "Chữ", icon: PenTool },
   { to: "/reader", label: "Vạn Quyển Các", short: "Đọc", icon: BookOpenText },
+  { to: "/exams", label: "Mô Phỏng Đại Khảo", short: "Thi", icon: Target },
   { to: "/dictionary", label: "Tàng Tự Khố", short: "Từ", icon: Search },
   { to: "/analytics", label: "Thiên Cơ Kính", short: "Số", icon: BarChart3 },
 ];

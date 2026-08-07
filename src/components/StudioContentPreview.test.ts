@@ -1,6 +1,7 @@
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
+import { studioStarterContent, validateStudioContent } from "../content/studioContent";
 import { StudioContentPreview } from "./StudioContentPreview";
 
 describe("Content Studio learner UI preview", () => {
@@ -24,5 +25,34 @@ describe("Content Studio learner UI preview", () => {
     expect(html).toContain("A 是 B");
     expect(html).not.toContain("unlock");
     expect(html).not.toContain("mastery");
+  });
+
+  it("validates and previews a governed Mock Exam form draft", async () => {
+    const content = studioStarterContent("exam_form");
+    const reviewed = {
+      ...content,
+      review: {
+        humanReviewed: false,
+        aiSelfReview: {
+          accuracy: true,
+          levelFit: true,
+          pedagogy: true,
+          answerIntegrity: true,
+          originality: true,
+        },
+      },
+    };
+    await expect(validateStudioContent("exam_form", reviewed)).resolves.toMatchObject({
+      result: { valid: true, itemType: "exam_form" },
+    });
+    const html = renderToStaticMarkup(createElement(StudioContentPreview, {
+      revisionId: "revision-form-1",
+      itemType: "exam_form",
+      content: reviewed,
+    }));
+    expect(html).toContain("MOCK EXAM FORM");
+    expect(html).toContain("HSK1 · FORM A");
+    expect(html).toContain("18 phút · 12 câu");
+    expect(html).not.toMatch(/answerIndex|correctAnswer/u);
   });
 });

@@ -4,8 +4,8 @@ Cập nhật: 07/08/2026
 
 ## 1. Tình trạng một câu
 
-M1-M3 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên,
-kiểm soát vận hành và Content Studio local:
+M1-M4 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên,
+kiểm soát vận hành, Content Studio local và Mock Exam HSK1-4:
 người học tiếp tục dùng guest/local hoặc đăng nhập bằng Google, mã email một lần
 và passkey; Sign in with ChatGPT được giữ làm nhà cung cấp tương thích. Một
 `users.id` nội bộ có thể mang nhiều danh tính chỉ sau xác minh tường minh, không
@@ -18,7 +18,10 @@ D1 bảo vệ admin cuối cùng. Content Studio giao đủ workflow
 `draft → validated → submitted → approved → published → archived`, revision,
 validation năm pass, preview, diff và lịch sử. Quản Khố tạo/sửa/validate/submit;
 Điều Hành duyệt/phát hành; learner chỉ đọc projection đã published. Bản đã phát
-hành là bất biến và phải fork revision mới để sửa. B8.1 vẫn giữ nguyên
+hành là bất biến và phải fork revision mới để sửa. `/exams` hiện giao hai form
+A/B có version cho từng level HSK1-4, chấm điểm và giới hạn thời gian phía máy
+chủ, resume, lịch sử, breakdown bốn kỹ năng và gợi ý bài học thật. Đây là Mock
+Exam riêng, không lấy bốn Level Check hiện có để đếm thay. B8.1 vẫn giữ nguyên
 bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
@@ -26,15 +29,15 @@ Windows; browser TTS chỉ còn là dự phòng cho câu động. Cơ Linh dùng
 voice ElevenLabs người dùng đã chọn; ba nhân cách còn lại là VieNeu local
 fallback v2 có khoảng nghỉ rõ, không được trình bày như voice ElevenLabs tương
 ứng. Toàn bộ 213 blueprint
-HSK1-4 vẫn học được trên rich UI, bốn Đại Khảo vẫn chạy end-to-end. Sites và
-production vẫn đóng.
+HSK1-4 vẫn học được trên rich UI, bốn Level Check và tám form Mock Exam đều mở
+được theo đúng ranh giới xác thực. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
-- **Sẵn sàng phạm vi mở rộng M1-M5:** 89/100 (M1-M3 hoàn thành).
+- **Sẵn sàng phạm vi mở rộng M1-M5:** 94/100 (M1-M4 hoàn thành).
 - **Đếm phạm vi mở rộng:** login 4/4; roles 3/3; Content Studio workflow 6/6;
-  Mock Exam 0/4 level và 0/8 form; Content Release Worker 0/1.
+  Mock Exam 4/4 level và 8/8 form; Content Release Worker 0/1.
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK2 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -284,6 +287,40 @@ mục bridge/legacy còn consumer hợp lệ.
   worker 0/1. Readiness mở rộng đạt 89%, learning scope cũ vẫn 96%; HSK0 4/4,
   HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich HSK1-4 213/213.
 
+### M4 — HSK1-4 Mock Exam
+
+- `/exams` giao một batch duy nhất gồm HSK1, HSK2, HSK3 và HSK4; mỗi level có
+  form A/B có version, tổng **4/4 level và 8/8 form**. Mỗi form có 12 câu cân
+  bằng nghe, đọc, từ vựng và ngữ pháp, tương ứng 96 vị trí câu hỏi từ các bank
+  AI-reviewed hiện có; đây không phải 96 bài học mới và không làm tăng số bài
+  learner-visible.
+- Mock Exam tách khỏi Level Check cả route, form/session version và kết quả.
+  Client chỉ nhận manifest không đáp án; bank có đáp án nằm server-only và có
+  boundary test chặn import ngược vào bundle người học.
+- Luồng thi tái sử dụng assessment session/exposure/attempt/skill result/scoring
+  hiện hành. Máy chủ giữ deadline, chặn attempt đến muộn, cho nộp phần đã làm
+  khi hết giờ và giữ idempotency cho mở phiên, từng câu và submit; duplicate
+  submit trả đúng terminal receipt thay vì chấm hai lần.
+- Người học có hướng dẫn, đồng hồ, resume đúng form/version, kết quả theo bốn kỹ
+  năng, điểm yếu, review đáp án sau khi nộp và gợi ý tới lesson ID đang có thật.
+  Lịch sử giữ form/item/content version đã thi nên bản form mới không viết lại
+  kết quả cũ.
+- Mock Exam không phát XP/mastery, không mở prerequisite và không tạo learning
+  evidence. Phần nghe dùng browser TTS synthetic, `humanReviewed: false`; UI
+  nói rõ đây không phải đề chính thức hay chứng nhận HSK.
+- Content Studio thêm `exam_form` bên cạnh `exam_item`: Quản Khố có thể tạo,
+  validate và submit draft form; Điều Hành mới approve/publish qua workflow 6/6
+  đã có. M4 chưa thay runtime bằng bản Studio nên worker vẫn 0/1.
+- Targeted bank/repository/route/timeout/resume/duplicate/version/leakage/
+  recommendation/preview/service-worker đạt **41/41**; typecheck, lint và build
+  xanh, client ceiling **796,4/800 KiB**. Browser smoke trên production harness
+  xác nhận catalog đủ 8 form, không lộ đáp án, không tràn ngang và auth gate
+  đúng cho cả HSK1-4 trên desktop/mobile.
+- Không thêm migration: restore baseline giữ **19 migration/35 bảng**. Login
+  giữ 4/4; roles 3/3; workflow 6/6; Mock Exam đạt 4/4 level và 8/8 form; worker
+  0/1. Readiness mở rộng đạt 94%, readiness toàn dự án giữ 96%; HSK0 4/4,
+  HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich HSK1-4 213/213.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -424,6 +461,12 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   và build giao đủ Studio/API ở client ceiling 798,9/800 KiB. Browser smoke xác
   nhận `/studio` khóa fail-closed khi chưa đăng nhập và desktop không tràn ngang.
   Không chạy full check/E2E tại M3; hai cổng này giữ đúng ranh giới sau M1-M5.
+- M4 targeted bank/repository/route/assessment timeout/resume/duplicate submit/
+  version invariance/leakage/recommendation/Studio preview/service-worker xanh
+  41/41; typecheck, lint và build xanh ở client ceiling 796,4/800 KiB. Browser
+  smoke production harness xác nhận `/exams` có đủ 8 form và cả bốn level khóa
+  đúng ở auth gate trên desktop/mobile, không tràn ngang hay lỗi browser. Full
+  check/E2E vẫn giữ đúng ranh giới sau M1-M5.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -433,11 +476,11 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
   hiện hành `foundation-2026.08.5`; B8.1 là batch giọng Cơ Linh hiện tại.
 - Không commit staging, build output hoặc report thử.
-- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M3 chỉ
-  mở content governance local đã được người dùng chủ động yêu cầu.
+- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M4 chỉ
+  mở Mock Exam local đã được người dùng chủ động yêu cầu.
 
-**Batch lớn tiếp theo là M4 — HSK1-4 Mock Exam.** M4 sẽ giao hai form A/B cho
-mỗi level, tổng 4/4 level và 8/8 form, dùng nội dung gốc đúng cấp độ cùng resume,
-scoring và review giải thích; Level Check hiện có không được tính thay Mock Exam.
+**Batch lớn tiếp theo là M5 — Content Release Worker.** M5 sẽ giao đúng một
+worker idempotent đưa revision đã approved/published qua projection/runtime có
+version, audit và rollback an toàn; không mở thêm hạ tầng hay CMS thương mại.
 Sites, deployment production, commerce, CMS thương mại và human-review workflow
 vẫn đóng.

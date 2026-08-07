@@ -6,7 +6,11 @@ import {
   MutationRateLimitBackendError,
 } from "./mutationRateLimit";
 import { CourseVersionBindingError } from "./courseVersionRepository";
-import { getD1Database, SyncBackendUnavailableError } from "./d1";
+import {
+  getD1Database,
+  SyncBackendUnavailableError,
+  type D1Database,
+} from "./d1";
 import { readBoundedRequestText } from "./boundedRequestBody";
 import { LearningResetEpochConflictError } from "./learningResetEpoch";
 import {
@@ -17,8 +21,10 @@ import {
   AssessmentFormUnavailableError,
   AssessmentIdempotencyConflictError,
   AssessmentRepository,
+  AssessmentSessionTimedOutError,
   AssessmentSessionUnavailableError,
   AssessmentSubmissionIncompleteError,
+  type AssessmentRepositoryOptions,
 } from "./assessmentRepository";
 import { SyncRepository } from "./syncRepository";
 import { noStoreJsonHeaders, type SyncApiError } from "../sync/protocol";
@@ -62,7 +68,9 @@ export type AssessmentMutationRouteConfig<TCommand, TReceipt> = {
     repository: AssessmentRepository,
     userId: string,
     command: TCommand,
+    database: D1Database,
   ) => Promise<TReceipt & { duplicate: boolean }>;
+  repositoryOptions?: AssessmentRepositoryOptions;
 };
 
 const knownConflict = (error: unknown) =>
@@ -73,6 +81,7 @@ const knownConflict = (error: unknown) =>
   || error instanceof AssessmentFormUnavailableError
   || error instanceof AssessmentSessionUnavailableError
   || error instanceof AssessmentAttemptConflictError
+  || error instanceof AssessmentSessionTimedOutError
   || error instanceof AssessmentSubmissionIncompleteError;
 
 export const handleAssessmentMutation = async <TCommand, TReceipt>(
@@ -148,9 +157,10 @@ export const handleAssessmentMutation = async <TCommand, TReceipt>(
       return errorResponse(422, config.invalidCode, parsed.reason, requestId);
     }
     const receipt = await config.execute(
-      new AssessmentRepository(database),
+      new AssessmentRepository(database, config.repositoryOptions),
       userId,
       parsed.command,
+      database,
     );
     return json(receipt, receipt.duplicate ? 200 : 201, {
       "x-request-id": requestId,

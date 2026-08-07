@@ -32,6 +32,9 @@ npm run start
 - Luyện viết đúng nét bằng Hanzi Writer.
 - Graded reader có pinyin, dịch và tra từ tại chỗ.
 - Tàng Tự Khố, danh sách từ đã lưu và Thiên Cơ Kính phân tích bảy năng lực.
+- Mô Phỏng Đại Khảo tại `/exams` có 4/4 level HSK1-4, mỗi level hai form A/B
+  có version; máy chủ giữ đáp án, chấm điểm, timeout, resume và history. Kết quả
+  không phát mastery/XP, không mở prerequisite và không phải chứng nhận HSK.
 - PWA cài đặt được, có offline shell và cache dữ liệu nét chữ đã dùng.
 - Người dùng ẩn danh giữ dữ liệu cục bộ; mã nguồn closed-alpha cho người dùng đã xác thực có command/evidence chuẩn hóa qua D1, outbox offline và projection đa thiết bị. Đường này đã có kiểm tra cục bộ nhưng chưa được xác minh như một dịch vụ hosted.
 
@@ -54,8 +57,8 @@ npm run start
   khoản, phiên, cấu hình allowlist và audit. Cổng này không đọc tiến độ học riêng
   của tài khoản khác. API kiểm tra quyền phía máy chủ; mutation nhạy cảm còn yêu
   cầu xác minh lại bằng phiên Google/email/passkey trong 10 phút.
-- Content Studio tại `/studio` hỗ trợ vocabulary, character, grammar, lesson và
-  exam item qua sáu trạng thái draft/validated/submitted/approved/published/
+- Content Studio tại `/studio` hỗ trợ vocabulary, character, grammar, lesson,
+  exam item và exam form qua sáu trạng thái draft/validated/submitted/approved/published/
   archived. Editor tạo, sửa, validate và submit; admin approve/publish. Bản đã
   published là bất biến, sửa đổi phải fork revision; learner API chỉ nhận
   projection published và không nhận đáp án exam.

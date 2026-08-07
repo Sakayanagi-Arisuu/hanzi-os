@@ -15,13 +15,14 @@ package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
 hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
 Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
-M1-M3 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
+M1-M4 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
 không auto-match email, quản lý phiên/thiết bị, ba vai trò, step-up, cấu hình,
-audit append-only và Content Studio sáu trạng thái trong modular monolith.
+audit append-only, Content Studio sáu trạng thái và tám Mock Exam HSK1-4 có
+chấm điểm phía máy chủ trong modular monolith.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
-- **Sẵn sàng phạm vi mở rộng M1-M5: 89/100**.
-- **Login 4/4; roles 3/3; workflow 6/6; Mock Exam 0/4 level, 0/8 form;
+- **Sẵn sàng phạm vi mở rộng M1-M5: 94/100**.
+- **Login 4/4; roles 3/3; workflow 6/6; Mock Exam 4/4 level, 8/8 form;
   Content Release Worker 0/1.**
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
@@ -336,6 +337,37 @@ và account lifecycle hiện có.
 - learning scope giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
   HSK4 78/78 và rich HSK1-4 213/213 không đổi. M4 tiếp theo giao Mock Exam A/B.
 
+### M4 — HSK1-4 Mock Exam
+
+**Hoàn thành tại readiness phạm vi mở rộng 94%; không cộng điểm nội dung.**
+
+- `/exams` giao chung một batch 4/4 level, mỗi level có form A/B có version,
+  tổng 8/8 form. Mỗi form có 12 câu cân bằng nghe/đọc/từ vựng/ngữ pháp, tức 96
+  vị trí câu hỏi lấy từ bank AI-reviewed hiện có; chúng không phải 96 lesson mới;
+- Mock Exam là workflow riêng với Level Check: form/item version, session và
+  lịch sử riêng. Client nhận manifest không answer key; server-only bank giữ đáp
+  án, explanation và validator chặn form thiếu coverage;
+- assessment core hiện có giữ session, exposure, attempt, skill result và
+  scoring. Deadline do máy chủ quyết định; attempt muộn bị chặn, phần đã làm có
+  thể nộp khi timeout, còn open/attempt/submit đều có idempotency và duplicate
+  submit không chấm lại;
+- UI có catalog, hướng dẫn, timed runner, resume, kết quả và history. Kết quả
+  breakdown bốn kỹ năng, chỉ hiện answer review sau submit và gợi ý lesson ID
+  đang learner-visible; content/form/item version cũ vẫn bất biến trong history;
+- không phát XP/mastery, không mở prerequisite, không tạo learning evidence.
+  Listening dùng browser TTS synthetic; `humanReviewed: false`; không tuyên bố
+  đề chính thức, chứng nhận hay native audio;
+- Content Studio thêm `exam_form` cạnh `exam_item`: editor tạo/validate/submit,
+  admin approve/publish qua workflow 6/6. Worker vẫn 0/1 và là ranh giới M5;
+- targeted 41/41, typecheck/lint/build xanh; client ceiling 796,4/800 KiB.
+  Browser smoke production harness xác nhận catalog đủ 8 form, không lộ đáp án,
+  không overflow và auth gate đúng trên cả HSK1-4 ở desktop/mobile. Không thêm
+  migration nên restore baseline giữ 19 migration/35 bảng; full boundary gate
+  chờ sau M1-M5;
+- readiness toàn dự án giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
+  HSK4 78/78 và rich HSK1-4 213/213 không đổi. M5 tiếp theo giao đúng một
+  Content Release Worker.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -359,9 +391,9 @@ không tạo điểm.
 | Identity/account lifecycle | 10 | 10 | M1 hoàn thành, login 4/4 |
 | Role/admin/config/audit | 8 | 8 | M2 hoàn thành, roles 3/3 |
 | Content governance | 7 | 7 | M3 hoàn thành, workflow UI 6/6 |
-| HSK Mock Exam | 7 | 2 | 0/4 level, 0/8 form; Level Check không được tính |
-| Content Release Worker | 3 | 0 | 0/1, chỉ mở sau M1-M4 |
-| **Tổng** | **100** | **89** | **M1-M3 hoàn thành** |
+| HSK Mock Exam | 7 | 7 | M4 hoàn thành, 4/4 level và 8/8 form |
+| Content Release Worker | 3 | 0 | 0/1, batch M5 tiếp theo |
+| **Tổng** | **100** | **94** | **M1-M4 hoàn thành** |
 
 ## 7. Ranh giới nguồn và review
 

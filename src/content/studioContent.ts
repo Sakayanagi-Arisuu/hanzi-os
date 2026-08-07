@@ -4,6 +4,7 @@ export const STUDIO_ITEM_TYPES = [
   "grammar",
   "lesson",
   "exam_item",
+  "exam_form",
 ] as const;
 
 export const STUDIO_LEVELS = ["hsk0", "hsk1", "hsk2", "hsk3", "hsk4"] as const;
@@ -233,7 +234,7 @@ export async function validateStudioContent(
       );
     });
     addRequired(errors, answerIntegrity, "exercises", "Bài tập cần đáp án, ít nhất hai distractor và giải thích.");
-  } else {
+  } else if (itemType === "exam_item") {
     addRequired(errors, nonEmpty(content.promptVi), "promptVi", "Thiếu đề bài.");
     addRequired(errors, ["listening", "reading", "vocabulary", "grammar"].includes(String(content.skill)), "skill", "Kỹ năng thi không hợp lệ.");
     const options = Array.isArray(content.options) ? content.options : [];
@@ -246,6 +247,21 @@ export async function validateStudioContent(
     addRequired(errors, answerIntegrity, "options", "Câu thi cần ít nhất ba lựa chọn, answerIndex và giải thích hợp lệ.");
     contextualChinese = nonEmpty(content.hanzi, 2) || nonEmpty(content.passageHanzi, 2);
     addRequired(errors, contextualChinese, "hanzi", "Câu thi cần ngữ liệu tiếng Trung gốc.");
+  } else {
+    addRequired(errors, ["hsk1", "hsk2", "hsk3", "hsk4"].includes(String(content.examLevel)), "examLevel", "Form thi cần level HSK1–4.");
+    addRequired(errors, ["a", "b"].includes(String(content.formKey).toLowerCase()), "formKey", "Form thi cần version A hoặc B.");
+    addRequired(errors, Number.isInteger(content.timeLimitMinutes) && Number(content.timeLimitMinutes) >= 10 && Number(content.timeLimitMinutes) <= 180, "timeLimitMinutes", "Thời gian form phải từ 10 đến 180 phút.");
+    const itemStableKeys = Array.isArray(content.itemStableKeys) ? content.itemStableKeys : [];
+    contextualChinese = itemStableKeys.length >= 12
+      && itemStableKeys.every((key) => nonEmpty(key, 160))
+      && new Set(itemStableKeys).size === itemStableKeys.length;
+    addRequired(errors, contextualChinese, "itemStableKeys", "Form cần ít nhất 12 exam item không trùng.");
+    const coverage = asRecord(content.coverage);
+    answerIntegrity = Boolean(coverage)
+      && ["listening", "reading", "vocabulary", "grammar"].every((skill) =>
+        Number.isInteger(coverage?.[skill]) && Number(coverage?.[skill]) >= 3
+      );
+    addRequired(errors, answerIntegrity, "coverage", "Form cần tối thiểu ba câu cho nghe, đọc, từ vựng và ngữ pháp.");
   }
 
   if (content.audioSource === "browser-tts") {
@@ -305,13 +321,21 @@ export const studioStarterContent = (itemType: StudioItemType) => ({
       answer: "我是学生。",
       explanationVi: "我是学生 dùng 是 để giới thiệu danh tính.",
     }],
-  } : {
+  } : itemType === "exam_item" ? {
     skill: "reading",
     promptVi: "Chọn nghĩa đúng của câu.",
     hanzi: "我是学生。",
     options: ["Tôi là học sinh.", "Bạn là giáo viên.", "Tôi không đi học."],
     answerIndex: 0,
     explanationVi: "我 là tôi, 是 là, 学生 là học sinh.",
+  } : {
+    examLevel: "hsk1",
+    formKey: "a",
+    timeLimitMinutes: 18,
+    itemStableKeys: Array.from({ length: 12 }, (_value, index) =>
+      `hsk1-mock-item-${String(index + 1).padStart(2, "0")}`
+    ),
+    coverage: { listening: 3, reading: 3, vocabulary: 3, grammar: 3 },
   }),
   review: {
     humanReviewed: false,
