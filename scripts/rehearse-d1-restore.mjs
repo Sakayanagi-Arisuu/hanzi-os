@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 17
-    || !migrations[16]?.startsWith("0016_")
+    migrations.length !== 19
+    || !migrations[18]?.startsWith("0018_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 17 migrations through 0016; found ${
+      `Restore rehearsal requires 19 migrations through 0018; found ${
         migrations.length
       }`,
     );
@@ -1203,11 +1203,11 @@ try {
     "system_settings",
   ];
   if (
-    tables.length !== 32
+    tables.length !== 35
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 32 application tables including identity and audited control state; found ${
+      `Restore rehearsal requires 35 application tables including identity, audited controls, and governed content revisions; found ${
         tables.length
       }`,
     );

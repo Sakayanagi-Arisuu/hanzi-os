@@ -10,6 +10,7 @@ import {
   getRichLessonContent,
   RICH_LESSON_DISCLOSURE,
   type RichDialogueTurn,
+  type RichLessonContent,
 } from "../learning/richLessonContent";
 import { speakMandarin } from "../lib/speech";
 
@@ -34,8 +35,14 @@ const Dialogue = ({ turns }: { turns: RichDialogueTurn[] }) => (
   </div>
 );
 
-export function LessonDepthPanel({ lessonId }: { lessonId: string }) {
-  const content = getRichLessonContent(lessonId);
+export function LessonDepthPanel({
+  lessonId,
+  contentOverride,
+}: {
+  lessonId: string;
+  contentOverride?: RichLessonContent;
+}) {
+  const content = contentOverride ?? getRichLessonContent(lessonId);
   if (!content) return null;
   const headingId = `${lessonId}-depth-heading`;
 

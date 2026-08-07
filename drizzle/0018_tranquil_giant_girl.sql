@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX `content_revisions_one_published_uidx` ON `content_revisions` (`item_id`) WHERE "content_revisions"."workflow_state" = 'published';

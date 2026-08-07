@@ -54,6 +54,11 @@ npm run start
   khoản, phiên, cấu hình allowlist và audit. Cổng này không đọc tiến độ học riêng
   của tài khoản khác. API kiểm tra quyền phía máy chủ; mutation nhạy cảm còn yêu
   cầu xác minh lại bằng phiên Google/email/passkey trong 10 phút.
+- Content Studio tại `/studio` hỗ trợ vocabulary, character, grammar, lesson và
+  exam item qua sáu trạng thái draft/validated/submitted/approved/published/
+  archived. Editor tạo, sửa, validate và submit; admin approve/publish. Bản đã
+  published là bất biến, sửa đổi phải fork revision; learner API chỉ nhận
+  projection published và không nhận đáp án exam.
 - Danh sách quản trị viên khởi tạo được cấu hình bằng biến máy chủ
   `HANZI_OS_ADMIN_EMAILS` (nhiều email cách nhau bằng dấu phẩy). Ví dụ local
   PowerShell trước khi chạy dev:
@@ -77,6 +82,11 @@ Migration kiểm soát hiện hành là `drizzle/0016_yielding_rawhide_kid.sql`.
 bốn khóa không bí mật được phép vào `system_settings`; `audit_events` có trigger
 chặn sửa/xóa, còn trigger role/status bảo vệ quản trị viên hoạt động cuối cùng.
 
+Content governance dùng migration `drizzle/0017_brainy_proteus.sql` và
+`drizzle/0018_tranquil_giant_girl.sql`: revision giữ canonical JSON/SHA-256,
+validation artifact và workflow event append-only; trigger bảo vệ bản published
+khỏi sửa/xóa và unique index giữ đúng một published revision hoạt động mỗi item.
+
 ## Tài liệu sản phẩm
 
 - [Nghiên cứu tính năng](docs/FEATURE_RESEARCH.md)
@@ -97,12 +107,12 @@ chặn sửa/xóa, còn trigger role/status bảo vệ quản trị viên hoạt
 Đây là một vertical slice giàu tính năng cho trải nghiệm học cốt lõi. Mã nguồn
 Phase 1 đã bổ sung nền đăng nhập ChatGPT tùy chọn, D1 schema có version,
 local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v7,
-xóa tài khoản và RBAC ba vai trò. Restore rehearsal cục bộ hiện áp dụng 17
-migration `0000`–`0016` trên graph 32 bảng, gồm cả FSRS card/review log, Reader session
+xóa tài khoản và RBAC ba vai trò. Restore rehearsal cục bộ hiện áp dụng 19
+migration `0000`–`0018` trên graph 35 bảng, gồm cả FSRS card/review log, Reader session
 versioned và trigger khóa outbox vào đúng reset epoch. Những kiểm tra này không
 thay thế hosted
 provisioning, hosted backup/restore hoặc kiểm chứng đa thiết bị trên dịch vụ
-thật. Người dùng ẩn danh vẫn giữ hồ sơ cục bộ. Thanh toán, CMS biên tập, audio
+thật. Người dùng ẩn danh vẫn giữ hồ sơ cục bộ. Thanh toán, CMS thương mại, audio
 bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần các phase
 production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
 đường D1.

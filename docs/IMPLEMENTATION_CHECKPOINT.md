@@ -4,8 +4,8 @@ Cập nhật: 07/08/2026
 
 ## 1. Tình trạng một câu
 
-M1-M2 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên
-và kiểm soát vận hành local:
+M1-M3 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên,
+kiểm soát vận hành và Content Studio local:
 người học tiếp tục dùng guest/local hoặc đăng nhập bằng Google, mã email một lần
 và passkey; Sign in with ChatGPT được giữ làm nhà cung cấp tương thích. Một
 `users.id` nội bộ có thể mang nhiều danh tính chỉ sau xác minh tường minh, không
@@ -14,7 +14,11 @@ tự gộp chỉ vì email giống nhau. D1/SQLite lưu hash phiên/challenge, p
 ba vai trò `learner`/`content_editor`/`admin` có quyền máy chủ tách biệt; Cổng
 Quản Trị quản lý role, khóa tài khoản, phiên, cấu hình allowlist và audit
 append-only. Thao tác nhạy cảm bắt buộc step-up first-party mới xác minh; trigger
-D1 bảo vệ admin cuối cùng. B8.1 vẫn giữ nguyên
+D1 bảo vệ admin cuối cùng. Content Studio giao đủ workflow
+`draft → validated → submitted → approved → published → archived`, revision,
+validation năm pass, preview, diff và lịch sử. Quản Khố tạo/sửa/validate/submit;
+Điều Hành duyệt/phát hành; learner chỉ đọc projection đã published. Bản đã phát
+hành là bất biến và phải fork revision mới để sửa. B8.1 vẫn giữ nguyên
 bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
@@ -28,8 +32,8 @@ production vẫn đóng.
 ## 2. Dashboard tiến độ bắt buộc
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
-- **Sẵn sàng phạm vi mở rộng M1-M5:** 85/100 (M1-M2 hoàn thành).
-- **Đếm phạm vi mở rộng:** login 4/4; roles 3/3; Content Studio workflow 0/6;
+- **Sẵn sàng phạm vi mở rộng M1-M5:** 89/100 (M1-M3 hoàn thành).
+- **Đếm phạm vi mở rộng:** login 4/4; roles 3/3; Content Studio workflow 6/6;
   Mock Exam 0/4 level và 0/8 form; Content Release Worker 0/1.
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -245,6 +249,41 @@ mục bridge/legacy còn consumer hợp lệ.
 - Login giữ 4/4; roles đạt 3/3; workflow 0/6; Mock Exam 0/4 level, 0/8 form;
   worker 0/1. Phạm vi học tập cũ vẫn 96%, không cộng bài hoặc mastery.
 
+### M3 — CMS-lite Content Studio
+
+- `/studio` là workspace server-rendered riêng cho Quản Khố Nội Dung và Điều
+  Hành Hệ Thống, gồm danh sách/lọc, editor JSON có mẫu khởi tạo, validation,
+  preview, diff hai revision, approval queue và lịch sử workflow. Route không
+  bị nhét vào Cổng Quản Trị và service worker không cache dữ liệu Studio.
+- Năm loại item đã có chung vòng đời: vocabulary, character, grammar, lesson và
+  exam item. Workflow đạt 6/6 trạng thái `draft`, `validated`, `submitted`,
+  `approved`, `published`, `archived`; mỗi revision lưu canonical JSON, SHA-256,
+  validation artifact/digest, người tạo và chuỗi event append-only.
+- Validator yêu cầu trường tiếng Trung/Pinyin/nghĩa Việt theo ngữ cảnh, đáp án,
+  distractor và giải thích thích hợp; AI self-review công bố đủ năm pass
+  accuracy/level fit/pedagogy/answer integrity/originality và luôn giữ
+  `humanReviewed: false`. Browser TTS tiếp tục chỉ là synthetic practice.
+- Quyền máy chủ tách create/edit/validate/submit khỏi approve/publish. Origin,
+  body bound, idempotency key và optimistic concurrency đều fail-closed; stale
+  write và bước nhảy sai trạng thái bị từ chối.
+- Revision đã published/archived được D1 trigger bảo vệ khỏi sửa/xóa. Chỉnh nội
+  dung đã phát hành bắt buộc fork; phát hành revision thay thế tự archive bản cũ
+  và ghi audit publication/approval. Chỉ có một revision published đang hoạt
+  động cho mỗi stable item key.
+- API learner `/api/content/runtime` chỉ trả projection đã published cùng
+  manifest hash xác định; draft/validated/submitted/approved không bị expose,
+  recommend hoặc count. Exam projection loại đáp án, answer index và giải thích.
+  M3 chưa phát hành item Studio mới nên số bài learner-visible không đổi.
+- Targeted repository/route/preview/authorization/service-worker đạt 31/31;
+  Drizzle check, restore rehearsal **19 migration/35 bảng**, typecheck, lint và
+  build xanh, client ceiling **798,9/800 KiB**. Browser smoke xác nhận `/studio`
+  khóa đúng khi chưa đăng nhập, không tràn ngang; workflow
+  editor→admin→learner được kiểm tra qua integration regression và preview dùng
+  chính `LessonDepthPanel` hiện hành.
+- Login giữ 4/4; roles 3/3; workflow đạt 6/6; Mock Exam 0/4 level, 0/8 form;
+  worker 0/1. Readiness mở rộng đạt 89%, learning scope cũ vẫn 96%; HSK0 4/4,
+  HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich HSK1-4 213/213.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -380,6 +419,11 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   rehearsal 17 migration/32 bảng xanh. Typecheck, lint, build xanh với client
   ceiling 798,8/800 KiB. Browser smoke xác nhận Cổng Quản Trị khóa khi chưa đăng
   nhập và đường xác minh lại giữ `/admin` qua Google/email/passkey.
+- M3 targeted repository/route/preview/authorization/service-worker xanh 31/31;
+  Drizzle check và restore rehearsal 19 migration/35 bảng xanh. Typecheck, lint
+  và build giao đủ Studio/API ở client ceiling 798,9/800 KiB. Browser smoke xác
+  nhận `/studio` khóa fail-closed khi chưa đăng nhập và desktop không tràn ngang.
+  Không chạy full check/E2E tại M3; hai cổng này giữ đúng ranh giới sau M1-M5.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -389,11 +433,11 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
   hiện hành `foundation-2026.08.5`; B8.1 là batch giọng Cơ Linh hiện tại.
 - Không commit staging, build output hoặc report thử.
-- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M2 chỉ
-  mở control plane local đã được người dùng chủ động yêu cầu.
+- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M3 chỉ
+  mở content governance local đã được người dùng chủ động yêu cầu.
 
-**Batch lớn tiếp theo là M3 — CMS-lite Content Studio.** HSK1-4, level check và
-handoff đồ án vẫn hoàn tất. M3 sẽ reuse inventory/blueprint/generator/validator,
-package governance và Lesson UI hiện có để mở workflow 6 trạng thái ở route
-riêng cho Quản Khố/Điều Hành; learner chỉ đọc published. Sites, deployment
-production, commerce và human-review workflow vẫn đóng.
+**Batch lớn tiếp theo là M4 — HSK1-4 Mock Exam.** M4 sẽ giao hai form A/B cho
+mỗi level, tổng 4/4 level và 8/8 form, dùng nội dung gốc đúng cấp độ cùng resume,
+scoring và review giải thích; Level Check hiện có không được tính thay Mock Exam.
+Sites, deployment production, commerce, CMS thương mại và human-review workflow
+vẫn đóng.

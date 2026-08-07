@@ -15,13 +15,13 @@ package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
 hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
 Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
-M1-M2 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
-không auto-match email, quản lý phiên/thiết bị, ba vai trò, step-up, cấu hình
-allowlist và audit append-only trong modular monolith.
+M1-M3 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
+không auto-match email, quản lý phiên/thiết bị, ba vai trò, step-up, cấu hình,
+audit append-only và Content Studio sáu trạng thái trong modular monolith.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
-- **Sẵn sàng phạm vi mở rộng M1-M5: 85/100**.
-- **Login 4/4; roles 3/3; workflow 0/6; Mock Exam 0/4 level, 0/8 form;
+- **Sẵn sàng phạm vi mở rộng M1-M5: 89/100**.
+- **Login 4/4; roles 3/3; workflow 6/6; Mock Exam 0/4 level, 0/8 form;
   Content Release Worker 0/1.**
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
@@ -305,6 +305,37 @@ và account lifecycle hiện có.
 - learning scope giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
   HSK4 78/78 và rich HSK1-4 213/213 không đổi. Bước lớn kế tiếp là M3 Content Studio.
 
+### M3 — CMS-lite Content Studio
+
+**Hoàn thành tại readiness phạm vi mở rộng 89%; không cộng điểm nội dung.**
+
+- `/studio` giao workspace riêng cho Quản Khố Nội Dung và Điều Hành Hệ Thống:
+  danh sách/lọc, editor, validation, preview, diff, approval queue và history;
+  route được kiểm tra quyền phía server và bỏ qua service-worker cache;
+- vocabulary, character, grammar, lesson và exam item dùng chung workflow 6/6:
+  `draft → validated → submitted → approved → published → archived`; mỗi
+  revision lưu canonical JSON/hash, validation artifact/hash và workflow event
+  append-only;
+- validation áp dụng năm pass accuracy/level fit/pedagogy/answer integrity/
+  originality, yêu cầu dữ liệu Trung/Pinyin/Việt, đáp án/distractor/giải thích
+  phù hợp và công bố `humanReviewed: false`; browser TTS không thành mastery;
+- editor có create/edit/validate/submit; admin mới approve/publish. Idempotency,
+  optimistic concurrency và state machine chặn replay sai, stale write và bước
+  nhảy workflow không hợp lệ;
+- revision published/archived bất biến ở cả repository lẫn D1 trigger; mọi sửa
+  đổi phải fork revision. Mỗi item chỉ có một published revision hoạt động;
+  replacement tự archive bản cũ và ghi audit approval/publication;
+- `/api/content/runtime` chỉ giao projection published cùng manifest hash xác
+  định; exam answer, answer index và explanation không đi sang learner. M3 chưa
+  phát hành item Studio mới nên không tăng bài learner-visible;
+- targeted repository/route/preview/authorization/service-worker xanh 31/31;
+  Drizzle check, restore rehearsal 19 migration/35 bảng, typecheck/lint/build
+  xanh ở client ceiling 798,9/800 KiB. Browser smoke xác nhận auth gate
+  `/studio` fail-closed và không tràn ngang; full boundary gate chờ sau toàn bộ
+  M1-M5;
+- learning scope giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
+  HSK4 78/78 và rich HSK1-4 213/213 không đổi. M4 tiếp theo giao Mock Exam A/B.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -327,14 +358,14 @@ không tạo điểm.
 | Learning core + HSK0-4 | 65 | 62 | giữ nguyên learning scope 96% |
 | Identity/account lifecycle | 10 | 10 | M1 hoàn thành, login 4/4 |
 | Role/admin/config/audit | 8 | 8 | M2 hoàn thành, roles 3/3 |
-| Content governance | 7 | 3 | workflow UI 0/6 |
+| Content governance | 7 | 7 | M3 hoàn thành, workflow UI 6/6 |
 | HSK Mock Exam | 7 | 2 | 0/4 level, 0/8 form; Level Check không được tính |
 | Content Release Worker | 3 | 0 | 0/1, chỉ mở sau M1-M4 |
-| **Tổng** | **100** | **85** | **M1-M2 hoàn thành** |
+| **Tổng** | **100** | **89** | **M1-M3 hoàn thành** |
 
 ## 7. Ranh giới nguồn và review
 
 AI được phép viết nội dung gốc và self-review năm pass cho local. UI công bố
 `humanReviewed: false`; browser TTS không phải native audio/mastery; production
-gate tiếp tục fail-closed. Không mở Sites, commerce, CMS hoặc workflow human
-review trong các content batch.
+gate tiếp tục fail-closed. Không mở Sites, commerce, CMS thương mại hoặc workflow
+human review trong các content batch.

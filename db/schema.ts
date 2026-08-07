@@ -464,6 +464,204 @@ export const courseVersions = sqliteTable(
   ],
 );
 
+/**
+ * CMS-lite authoring records. These tables govern only revisions created in
+ * Content Studio; the checked-in package pipeline remains the source for the
+ * existing HSK0-4 release until a Studio revision is explicitly published.
+ */
+export const contentItems = sqliteTable(
+  "content_items",
+  {
+    id: text("id").primaryKey(),
+    stableKey: text("stable_key").notNull(),
+    itemType: text("item_type").notNull(),
+    createdByUserId: text("created_by_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "restrict" }),
+    createdAt: integer("created_at").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("content_items_stable_key_uidx").on(table.stableKey),
+    index("content_items_type_updated_idx").on(table.itemType, table.updatedAt),
+    check(
+      "content_items_type_check",
+      sql`${table.itemType} IN ('vocabulary', 'character', 'grammar', 'lesson', 'exam_item')`,
+    ),
+    check(
+      "content_items_stable_key_check",
+      sql`length(${table.stableKey}) BETWEEN 3 AND 160
+        AND ${table.stableKey} NOT GLOB '*[^a-z0-9._:-]*'`,
+    ),
+  ],
+);
+
+export const contentRevisions = sqliteTable(
+  "content_revisions",
+  {
+    id: text("id").primaryKey(),
+    itemId: text("item_id")
+      .notNull()
+      .references(() => contentItems.id, { onDelete: "cascade" }),
+    revision: integer("revision").notNull(),
+    schemaVersion: integer("schema_version").notNull().default(1),
+    workflowState: text("workflow_state").notNull().default("draft"),
+    title: text("title").notNull(),
+    level: text("level").notNull(),
+    contentJson: text("content_json").notNull(),
+    contentSha256: text("content_sha256").notNull(),
+    validationJson: text("validation_json"),
+    validationSha256: text("validation_sha256"),
+    basedOnRevisionId: text("based_on_revision_id"),
+    rowVersion: integer("row_version").notNull().default(1),
+    authorUserId: text("author_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "restrict" }),
+    createdAt: integer("created_at").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+    publishedAt: integer("published_at"),
+    archivedAt: integer("archived_at"),
+  },
+  (table) => [
+    uniqueIndex("content_revisions_item_revision_uidx").on(
+      table.itemId,
+      table.revision,
+    ),
+    uniqueIndex("content_revisions_one_published_uidx")
+      .on(table.itemId)
+      .where(sql`${table.workflowState} = 'published'`),
+    index("content_revisions_state_type_idx").on(
+      table.workflowState,
+      table.level,
+    ),
+    foreignKey({
+      name: "content_revisions_based_on_fk",
+      columns: [table.basedOnRevisionId],
+      foreignColumns: [table.id],
+    }).onDelete("restrict"),
+    check("content_revisions_revision_check", sql`${table.revision} >= 1`),
+    check("content_revisions_schema_check", sql`${table.schemaVersion} = 1`),
+    check("content_revisions_row_version_check", sql`${table.rowVersion} >= 1`),
+    check(
+      "content_revisions_state_check",
+      sql`${table.workflowState} IN ('draft', 'validated', 'submitted', 'approved', 'published', 'archived')`,
+    ),
+    check(
+      "content_revisions_level_check",
+      sql`${table.level} IN ('hsk0', 'hsk1', 'hsk2', 'hsk3', 'hsk4')`,
+    ),
+    check(
+      "content_revisions_title_check",
+      sql`length(${table.title}) BETWEEN 1 AND 240`,
+    ),
+    check(
+      "content_revisions_content_check",
+      sql`json_valid(${table.contentJson})
+        AND length(CAST(${table.contentJson} AS BLOB)) BETWEEN 2 AND 1048576`,
+    ),
+    check(
+      "content_revisions_content_digest_check",
+      sql`length(${table.contentSha256}) = 71
+        AND substr(${table.contentSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.contentSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "content_revisions_validation_check",
+      sql`(
+          ${table.validationJson} IS NULL
+          AND ${table.validationSha256} IS NULL
+        ) OR (
+          json_valid(${table.validationJson})
+          AND length(CAST(${table.validationJson} AS BLOB)) BETWEEN 2 AND 131072
+          AND length(${table.validationSha256}) = 71
+          AND substr(${table.validationSha256}, 1, 7) = 'sha256:'
+          AND substr(${table.validationSha256}, 8) NOT GLOB '*[^0-9a-f]*'
+        )`,
+    ),
+    check(
+      "content_revisions_validated_state_check",
+      sql`${table.workflowState} = 'draft' OR (
+        ${table.validationJson} IS NOT NULL
+        AND json_extract(${table.validationJson}, '$.valid') = 1
+      )`,
+    ),
+    check(
+      "content_revisions_publication_time_check",
+      sql`(
+          ${table.workflowState} IN ('published', 'archived')
+          AND ${table.publishedAt} IS NOT NULL
+        ) OR (
+          ${table.workflowState} NOT IN ('published', 'archived')
+          AND ${table.publishedAt} IS NULL
+        )`,
+    ),
+    check(
+      "content_revisions_archive_time_check",
+      sql`(${table.workflowState} = 'archived' AND ${table.archivedAt} IS NOT NULL)
+        OR (${table.workflowState} <> 'archived' AND ${table.archivedAt} IS NULL)`,
+    ),
+  ],
+);
+
+export const contentWorkflowEvents = sqliteTable(
+  "content_workflow_events",
+  {
+    id: text("id").primaryKey(),
+    itemId: text("item_id")
+      .notNull()
+      .references(() => contentItems.id, { onDelete: "restrict" }),
+    revisionId: text("revision_id")
+      .notNull()
+      .references(() => contentRevisions.id, { onDelete: "restrict" }),
+    sequence: integer("sequence").notNull(),
+    fromState: text("from_state"),
+    toState: text("to_state").notNull(),
+    actorUserId: text("actor_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "restrict" }),
+    actorSessionId: text("actor_session_id"),
+    idempotencyKey: text("idempotency_key").notNull(),
+    requestSha256: text("request_sha256").notNull(),
+    metadataJson: text("metadata_json").notNull().default("{}"),
+    occurredAt: integer("occurred_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("content_workflow_revision_sequence_uidx").on(
+      table.revisionId,
+      table.sequence,
+    ),
+    uniqueIndex("content_workflow_actor_idempotency_uidx").on(
+      table.actorUserId,
+      table.idempotencyKey,
+    ),
+    index("content_workflow_item_time_idx").on(table.itemId, table.occurredAt),
+    check(
+      "content_workflow_state_check",
+      sql`(${table.fromState} IS NULL OR ${table.fromState} IN (
+          'draft', 'validated', 'submitted', 'approved', 'published', 'archived'
+        )) AND ${table.toState} IN (
+          'draft', 'validated', 'submitted', 'approved', 'published', 'archived'
+        )`,
+    ),
+    check("content_workflow_sequence_check", sql`${table.sequence} >= 1`),
+    check(
+      "content_workflow_idempotency_check",
+      sql`length(${table.idempotencyKey}) BETWEEN 8 AND 160`,
+    ),
+    check(
+      "content_workflow_request_digest_check",
+      sql`length(${table.requestSha256}) = 71
+        AND substr(${table.requestSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.requestSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "content_workflow_metadata_check",
+      sql`json_valid(${table.metadataJson})
+        AND length(CAST(${table.metadataJson} AS BLOB)) <= 131072`,
+    ),
+  ],
+);
+
 export const enrollments = sqliteTable(
   "enrollments",
   {
