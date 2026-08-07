@@ -7,8 +7,11 @@ export const dynamic = "force-dynamic";
 const page: CSSProperties = { minHeight: "100vh", padding: "clamp(20px,5vw,64px)", color: "#dcebe7", background: "radial-gradient(circle at 20% 0,#123d32 0,transparent 32%),#020907", fontFamily: "Inter,system-ui,sans-serif" };
 const shell: CSSProperties = { width: "min(760px,100%)", margin: "0 auto" };
 
-export default async function SignInPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+export default async function SignInPage({ searchParams }: { searchParams: Promise<{ error?: string; returnTo?: string; stepUp?: string }> }) {
   const query = await searchParams;
+  const returnTo = query.returnTo?.startsWith("/") && !query.returnTo.startsWith("//")
+    ? query.returnTo.slice(0, 500)
+    : "/";
   return (
     <main style={page}>
       <div style={shell}>
@@ -19,7 +22,11 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
           <p style={{ maxWidth: 650, color: "#91aaa3", lineHeight: 1.7 }}>Học ẩn danh vẫn hoạt động đầy đủ trên thiết bị. Đăng nhập chỉ thêm phục hồi đa thiết bị và quản lý tài khoản.</p>
           {query.error && <p role="alert" style={{ padding: 12, border: "1px solid #75473e", color: "#ffb8aa", background: "#21100d" }}>Phiên xác minh chưa hoàn tất. Hãy thử lại phương thức bạn chọn.</p>}
         </header>
-        <AuthConsole mode="signin" chatGPTSignIn={chatGPTSignInPath("/")} />
+        <AuthConsole
+          mode="signin"
+          returnTo={returnTo}
+          chatGPTSignIn={query.stepUp === "1" ? undefined : chatGPTSignInPath(returnTo)}
+        />
       </div>
     </main>
   );

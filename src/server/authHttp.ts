@@ -125,6 +125,22 @@ export async function resolveCurrentAccount(
   };
 }
 
+export function recentFirstPartySession(identity: ChatGPTUser | null) {
+  if (
+    !identity?.userId
+    || !identity.sessionId
+    || identity.authenticatedAt === undefined
+    || !hasRecentAuthentication(identity as NativeSessionUser)
+  ) {
+    return null;
+  }
+  return {
+    userId: identity.userId,
+    sessionId: identity.sessionId,
+    authenticatedAt: identity.authenticatedAt,
+  };
+}
+
 export async function resolveRequestSession(
   request: Request,
   repository: AuthRepository,

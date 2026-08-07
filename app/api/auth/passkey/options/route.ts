@@ -1,5 +1,6 @@
 import {
   authError,
+  boundedReturnTo,
   loadAuthRuntime,
   relyingPartyConfig,
   resolveCurrentAccount,
@@ -20,6 +21,9 @@ export async function POST(request: Request) {
     const body: unknown = await request.json();
     const operation = body && typeof body === "object"
       ? (body as { operation?: unknown }).operation
+      : null;
+    const returnTo = body && typeof body === "object"
+      ? (body as { returnTo?: unknown }).returnTo
       : null;
     if (!new Set(["register", "signin", "unlink"]).has(String(operation))) {
       return authError(422, "PASSKEY_OPERATION_INVALID", "Thao tác passkey không hợp lệ.");
@@ -46,7 +50,14 @@ export async function POST(request: Request) {
           : "passkey_signin",
       provider: "passkey",
       userId: account?.userId,
-      payload: { origin: rp.origin, rpId: rp.rpId },
+      payload: {
+        origin: rp.origin,
+        rpId: rp.rpId,
+        returnTo: boundedReturnTo(
+          typeof returnTo === "string" ? returnTo : null,
+          operation === "signin" ? "/" : "/account/security",
+        ),
+      },
       ttlMs: 5 * 60_000,
     });
     const options = operation === "register" && account

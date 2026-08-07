@@ -16,6 +16,10 @@ export const users = sqliteTable(
   {
     id: text("id").primaryKey(),
     status: text("status").notNull().default("active"),
+    controlRevision: integer("control_revision").notNull().default(1),
+    lockedAt: integer("locked_at"),
+    lockedByUserId: text("locked_by_user_id"),
+    lockReason: text("lock_reason"),
     createdAt: integer("created_at").notNull(),
     updatedAt: integer("updated_at").notNull(),
     deletedAt: integer("deleted_at"),
@@ -23,7 +27,22 @@ export const users = sqliteTable(
   (table) => [
     check(
       "users_status_check",
-      sql`${table.status} IN ('active', 'deletion_pending', 'deleted')`,
+      sql`${table.status} IN ('active', 'locked', 'deletion_pending', 'deleted')`,
+    ),
+    check("users_control_revision_check", sql`${table.controlRevision} > 0`),
+    check(
+      "users_lock_state_check",
+      sql`(
+        ${table.status} = 'locked'
+        AND ${table.lockedAt} IS NOT NULL
+        AND ${table.lockedByUserId} IS NOT NULL
+        AND ${table.lockReason} IS NOT NULL
+      ) OR (
+        ${table.status} <> 'locked'
+        AND ${table.lockedAt} IS NULL
+        AND ${table.lockedByUserId} IS NULL
+        AND ${table.lockReason} IS NULL
+      )`,
     ),
     index("users_status_idx").on(table.status),
   ],
@@ -215,8 +234,86 @@ export const userRoles = sqliteTable(
     index("user_roles_granted_by_idx").on(table.grantedByUserId),
     check(
       "user_roles_role_check",
-      sql`${table.role} IN ('learner', 'admin')`,
+      sql`${table.role} IN ('learner', 'content_editor', 'admin')`,
     ),
+  ],
+);
+
+/** Runtime-safe operational settings. Secret-shaped keys are not allowlisted. */
+export const systemSettings = sqliteTable(
+  "system_settings",
+  {
+    key: text("key").primaryKey(),
+    valueJson: text("value_json").notNull(),
+    revision: integer("revision").notNull().default(1),
+    updatedByUserId: text("updated_by_user_id").references(() => users.id, {
+      onDelete: "set null",
+    }),
+    createdAt: integer("created_at").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [
+    check(
+      "system_settings_key_check",
+      sql`${table.key} IN (
+        'account_registration_mode',
+        'content_preview_enabled',
+        'default_daily_minutes',
+        'maintenance_banner'
+      )`,
+    ),
+    check("system_settings_value_json_check", sql`json_valid(${table.valueJson})`),
+    check("system_settings_revision_check", sql`${table.revision} > 0`),
+    check(
+      "system_settings_time_check",
+      sql`${table.createdAt} <= ${table.updatedAt}`,
+    ),
+  ],
+);
+
+/** Append-only security and governance trail; migration triggers reject mutation. */
+export const auditEvents = sqliteTable(
+  "audit_events",
+  {
+    id: text("id").primaryKey(),
+    category: text("category").notNull(),
+    action: text("action").notNull(),
+    outcome: text("outcome").notNull(),
+    actorUserId: text("actor_user_id"),
+    actorSessionId: text("actor_session_id"),
+    targetType: text("target_type").notNull(),
+    targetId: text("target_id"),
+    requestId: text("request_id").notNull(),
+    metadataJson: text("metadata_json").notNull().default("{}"),
+    createdAt: integer("created_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("audit_events_request_action_uidx").on(
+      table.requestId,
+      table.action,
+      table.targetType,
+      table.targetId,
+    ),
+    index("audit_events_created_idx").on(table.createdAt, table.id),
+    index("audit_events_actor_idx").on(table.actorUserId, table.createdAt),
+    index("audit_events_target_idx").on(
+      table.targetType,
+      table.targetId,
+      table.createdAt,
+    ),
+    check(
+      "audit_events_category_check",
+      sql`${table.category} IN (
+        'auth', 'account', 'role', 'config', 'approval', 'publication'
+      )`,
+    ),
+    check(
+      "audit_events_outcome_check",
+      sql`${table.outcome} IN ('success', 'denied', 'failed')`,
+    ),
+    check("audit_events_metadata_json_check", sql`json_valid(${table.metadataJson})`),
+    check("audit_events_action_check", sql`length(${table.action}) BETWEEN 3 AND 120`),
+    check("audit_events_target_type_check", sql`length(${table.targetType}) BETWEEN 2 AND 80`),
   ],
 );
 

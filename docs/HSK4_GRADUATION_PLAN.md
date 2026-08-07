@@ -15,12 +15,13 @@ package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
 hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
 Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
-M1 mở rộng cũng đã giao guest/local + Google + email OTP + passkey, liên kết
-không auto-match email, quản lý phiên/thiết bị và UI bảo mật tài khoản.
+M1-M2 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
+không auto-match email, quản lý phiên/thiết bị, ba vai trò, step-up, cấu hình
+allowlist và audit append-only trong modular monolith.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
-- **Sẵn sàng phạm vi mở rộng M1-M5: 79/100**.
-- **Login 4/4; roles 2/3; workflow 0/6; Mock Exam 0/4 level, 0/8 form;
+- **Sẵn sàng phạm vi mở rộng M1-M5: 85/100**.
+- **Login 4/4; roles 3/3; workflow 0/6; Mock Exam 0/4 level, 0/8 form;
   Content Release Worker 0/1.**
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
@@ -279,7 +280,30 @@ và account lifecycle hiện có.
 - đủ HSK0 4/4 và HSK1-4 213/213 rich tiếp tục learner-visible; package,
   prerequisite, FSRS/evidence và bốn Level Check không đổi;
 - Sites, production, commerce, classroom/B2B, multi-tenant và microservices vẫn
-  đóng. Bước lớn kế tiếp là M2 role/config/audit.
+  đóng. M2 tiếp tục trên chính modular monolith này.
+
+### M2 — Role, config và audit
+
+**Hoàn thành tại readiness phạm vi mở rộng 85%; không cộng điểm nội dung.**
+
+- roles đạt 3/3: Hành Giả, Quản Khố Nội Dung, Điều Hành Hệ Thống; Content Editor
+  có nền quyền draft/validate/submit nhưng Content Studio vẫn là route riêng M3;
+- mọi admin endpoint kiểm tra permission phía server. Đổi role, khóa/mở user,
+  revoke session và sửa setting yêu cầu exact origin cùng first-party step-up
+  trong 10 phút; phiên ChatGPT phụ không đủ cho mutation nhạy cảm;
+- control revision chặn stale write; ứng dụng chặn self-revoke/self-lock, còn
+  trigger D1 bảo vệ quản trị viên hoạt động cuối cùng trước race thu quyền, khóa
+  hoặc xóa. Locked user không thể đăng nhập để tự mở khóa;
+- `system_settings` chỉ nhận bốn key không bí mật, tuyệt đối không có OAuth
+  secret/encryption key. `audit_events` hỗ trợ auth/account/role/config/approval/
+  publication và trigger chặn UPDATE/DELETE;
+- `/admin` giao users/roles, sessions, config và audit mà không xem progress riêng;
+  `/signin` giữ return path cho step-up. Service worker bỏ qua toàn bộ admin route;
+- targeted permission/forbidden/step-up/concurrency/last-admin/audit xanh;
+  migration rehearsal 17 file/32 bảng, typecheck/lint/build và UI smoke xanh;
+  client ceiling giữ 798,8/800 KiB;
+- learning scope giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
+  HSK4 78/78 và rich HSK1-4 213/213 không đổi. Bước lớn kế tiếp là M3 Content Studio.
 
 ## 6. Thước đo sẵn sàng toàn dự án
 
@@ -302,11 +326,11 @@ không tạo điểm.
 | --- | ---: | ---: | --- |
 | Learning core + HSK0-4 | 65 | 62 | giữ nguyên learning scope 96% |
 | Identity/account lifecycle | 10 | 10 | M1 hoàn thành, login 4/4 |
-| Role/admin/config/audit | 8 | 2 | M2 kế tiếp, roles 2/3 |
+| Role/admin/config/audit | 8 | 8 | M2 hoàn thành, roles 3/3 |
 | Content governance | 7 | 3 | workflow UI 0/6 |
 | HSK Mock Exam | 7 | 2 | 0/4 level, 0/8 form; Level Check không được tính |
 | Content Release Worker | 3 | 0 | 0/1, chỉ mở sau M1-M4 |
-| **Tổng** | **100** | **79** | **M1 hoàn thành** |
+| **Tổng** | **100** | **85** | **M1-M2 hoàn thành** |
 
 ## 7. Ranh giới nguồn và review
 

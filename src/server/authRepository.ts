@@ -4,6 +4,8 @@ import {
   sha256Base64Url,
 } from "../auth/authCrypto";
 import type { D1Database } from "./d1";
+import { assertAccountCanAuthenticate } from "./accountStatus";
+import { isNewAccountRegistrationOpen } from "./systemSettingsRepository";
 
 export const SESSION_COOKIE_NAME = "__Host-hanzi_session";
 export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
@@ -135,6 +137,7 @@ export class AuthRepository {
           "This identity already belongs to another account.",
         );
       }
+      await assertAccountCanAuthenticate(this.database, existing.userId);
       await this.touchIdentity(existing.id, existing.userId, identity);
       return { userId: existing.userId, identityId: existing.id, created: false };
     }
@@ -182,6 +185,9 @@ export class AuthRepository {
 
     // Email equality is deliberately absent from this lookup and insert path.
     // Linking two providers is an explicit, re-authenticated operation only.
+    if (!await isNewAccountRegistrationOpen(this.database)) {
+      throw new Error("New account registration is closed.");
+    }
     const userId = crypto.randomUUID();
     try {
       await this.database.batch([
@@ -219,6 +225,7 @@ export class AuthRepository {
         .bind(identity.provider, providerSubject)
         .first<{ id: string; userId: string }>();
       if (!winner) throw new Error("Unable to establish the authenticated user.");
+      await assertAccountCanAuthenticate(this.database, winner.userId);
       await this.touchIdentity(winner.id, winner.userId, identity);
       return { userId: winner.userId, identityId: winner.id, created: false };
     }
@@ -231,6 +238,7 @@ export class AuthRepository {
     userAgent?: string | null;
     deviceLabel?: string | null;
   }): Promise<{ token: string; sessionId: string; expiresAt: number }> {
+    await assertAccountCanAuthenticate(this.database, input.userId);
     const token = randomBase64Url(32);
     const tokenHash = await sha256Base64Url(token);
     const timestamp = Date.now();
@@ -497,7 +505,12 @@ export class AuthRepository {
   } | null> {
     const row = await this.database
       .prepare(
-        "SELECT id, user_id AS userId, identity_id AS identityId, public_key_jwk_json AS publicKeyJwkJson, algorithm, sign_count AS signCount, transports_json AS transportsJson FROM passkey_credentials WHERE id = ? LIMIT 1",
+        `SELECT pc.id, pc.user_id AS userId, pc.identity_id AS identityId,
+                pc.public_key_jwk_json AS publicKeyJwkJson, pc.algorithm,
+                pc.sign_count AS signCount, pc.transports_json AS transportsJson
+           FROM passkey_credentials pc
+           JOIN users u ON u.id = pc.user_id AND u.status = 'active'
+          WHERE pc.id = ? LIMIT 1`,
       )
       .bind(credentialId)
       .first<{
@@ -568,7 +581,7 @@ export class AuthRepository {
     await this.database.batch([
       this.database
         .prepare(
-          "UPDATE users SET status = 'active', updated_at = ?, deleted_at = NULL WHERE id = ?",
+          "UPDATE users SET status = 'active', updated_at = ?, deleted_at = NULL WHERE id = ? AND status IN ('active', 'deletion_pending')",
         )
         .bind(timestamp, userId),
       this.database

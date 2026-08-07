@@ -9,7 +9,9 @@ import type {
 } from "./d1";
 import {
   AdminRoleSelfRevocationError,
+  AuthorizationConcurrencyError,
   AuthorizationRepository,
+  LastAdminProtectionError,
 } from "./authorizationRepository";
 import { SyncRepository } from "./syncRepository";
 
@@ -142,5 +144,90 @@ describe("authorization repository", () => {
     await expect(roles.setAdminRole(adminId, adminId, false)).rejects.toBeInstanceOf(
       AdminRoleSelfRevocationError,
     );
+  });
+
+  it("grants the content editor role with optimistic concurrency and append-only audit", async () => {
+    const database = new SQLiteD1();
+    const sync = new SyncRepository(database);
+    const roles = new AuthorizationRepository(database);
+    const adminId = await sync.resolveUser(identity("admin@example.com"));
+    const learnerId = await sync.resolveUser(identity("editor@example.com"));
+    await roles.ensureBaselineRoles(adminId, true);
+
+    await expect(roles.setRole({
+      actorUserId: adminId,
+      actorSessionId: "session-admin",
+      targetUserId: learnerId,
+      role: "content_editor",
+      enabled: true,
+      expectedRevision: 1,
+      requestId: "request-role-editor-1",
+    })).resolves.toMatchObject({
+      authorization: { roles: ["learner", "content_editor"] },
+      controlRevision: 2,
+    });
+
+    await expect(roles.setRole({
+      actorUserId: adminId,
+      actorSessionId: "session-admin",
+      targetUserId: learnerId,
+      role: "admin",
+      enabled: true,
+      expectedRevision: 1,
+      requestId: "request-stale-admin-1",
+    })).rejects.toBeInstanceOf(AuthorizationConcurrencyError);
+
+    expect(database.database.prepare(
+      "SELECT COUNT(*) AS count FROM audit_events WHERE action = 'role.granted'",
+    ).get()).toEqual({ count: 1 });
+    expect(() => database.database.prepare(
+      "UPDATE audit_events SET outcome = 'failed'",
+    ).run()).toThrow(/append-only/u);
+    expect(() => database.database.prepare("DELETE FROM audit_events").run())
+      .toThrow(/append-only/u);
+  });
+
+  it("protects the last active administrator at the database boundary", async () => {
+    const database = new SQLiteD1();
+    const sync = new SyncRepository(database);
+    const roles = new AuthorizationRepository(database);
+    const adminId = await sync.resolveUser(identity("admin@example.com"));
+    const operatorId = await sync.resolveUser(identity("operator@example.com"));
+    await roles.ensureBaselineRoles(adminId, true);
+
+    await expect(roles.setRole({
+      actorUserId: operatorId,
+      actorSessionId: "session-operator",
+      targetUserId: adminId,
+      role: "admin",
+      enabled: false,
+      expectedRevision: 1,
+      requestId: "request-last-admin-1",
+    })).rejects.toBeInstanceOf(LastAdminProtectionError);
+  });
+
+  it("locks an account, revokes authentication, and does not let login unlock it", async () => {
+    const database = new SQLiteD1();
+    const sync = new SyncRepository(database);
+    const roles = new AuthorizationRepository(database);
+    const adminId = await sync.resolveUser(identity("admin@example.com"));
+    const learnerIdentity = identity("learner@example.com");
+    const learnerId = await sync.resolveUser(learnerIdentity);
+    await roles.ensureBaselineRoles(adminId, true);
+
+    await expect(roles.setAccountLocked({
+      actorUserId: adminId,
+      actorSessionId: "session-admin",
+      targetUserId: learnerId,
+      locked: true,
+      reason: "Kiểm tra khóa an toàn",
+      expectedRevision: 1,
+      requestId: "request-lock-user-1",
+    })).resolves.toEqual({ status: "locked", controlRevision: 2 });
+
+    await expect(sync.resolveUser(learnerIdentity)).rejects.toThrow(/locked/u);
+    expect(database.database.prepare(
+      "SELECT status, control_revision AS revision FROM users WHERE id = ?",
+    ).get(learnerId)).toEqual({ status: "locked", revision: 2 });
   });
 });

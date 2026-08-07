@@ -4,6 +4,7 @@ import {
   sessionResponseHeaders,
 } from "../../../../src/server/authHttp";
 import { exchangeGoogleAuthorizationCode } from "../../../../src/server/googleIdentity";
+import { AuditRepository, requestCorrelationId } from "../../../../src/server/auditRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -20,7 +21,7 @@ export async function GET(request: Request) {
     return failure(request, "google_cancelled");
   }
   try {
-    const { environment, repository } = await loadAuthRuntime();
+    const { database, environment, repository } = await loadAuthRuntime();
     const config = googleConfig(environment, request);
     let challenge = null;
     for (const kind of [
@@ -59,6 +60,17 @@ export async function GET(request: Request) {
         provider: "google",
         providerSubject: google.providerSubject,
       });
+      await new AuditRepository(database).appendBestEffort({
+        category: "auth",
+        action: "auth.google.unlinked",
+        outcome: "success",
+        actorUserId: challenge.userId,
+        actorSessionId: null,
+        targetType: "user",
+        targetId: challenge.userId,
+        requestId: requestCorrelationId(request),
+        metadata: { provider: "google" },
+      });
       return Response.redirect(
         new URL(`${returnTo}${returnTo.includes("?") ? "&" : "?"}updated=unlinked`, url.origin),
         303,
@@ -75,6 +87,19 @@ export async function GET(request: Request) {
       authMethod: "google",
       userAgent: request.headers.get("user-agent"),
       deviceLabel: request.headers.get("sec-ch-ua-platform") ?? "Trình duyệt Google",
+    });
+    await new AuditRepository(database).appendBestEffort({
+      category: "auth",
+      action: challenge.kind === "google_link"
+        ? "auth.google.linked"
+        : "auth.google.signed_in",
+      outcome: "success",
+      actorUserId: linked.userId,
+      actorSessionId: session.sessionId,
+      targetType: "user",
+      targetId: linked.userId,
+      requestId: requestCorrelationId(request),
+      metadata: { provider: "google" },
     });
     return new Response(null, {
       status: 303,

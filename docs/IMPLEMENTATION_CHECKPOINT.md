@@ -4,13 +4,17 @@ Cập nhật: 07/08/2026
 
 ## 1. Tình trạng một câu
 
-M1 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức và vòng đời phiên:
+M1-M2 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên
+và kiểm soát vận hành local:
 người học tiếp tục dùng guest/local hoặc đăng nhập bằng Google, mã email một lần
 và passkey; Sign in with ChatGPT được giữ làm nhà cung cấp tương thích. Một
 `users.id` nội bộ có thể mang nhiều danh tính chỉ sau xác minh tường minh, không
 tự gộp chỉ vì email giống nhau. D1/SQLite lưu hash phiên/challenge, phiên có thể
 được xem và thu hồi trên UI; bearer token không đi vào localStorage. Vai trò
-`learner`/`admin` và Cổng Quản Trị B9 tiếp tục giữ nguyên. B8.1 vẫn giữ nguyên
+ba vai trò `learner`/`content_editor`/`admin` có quyền máy chủ tách biệt; Cổng
+Quản Trị quản lý role, khóa tài khoản, phiên, cấu hình allowlist và audit
+append-only. Thao tác nhạy cảm bắt buộc step-up first-party mới xác minh; trigger
+D1 bảo vệ admin cuối cùng. B8.1 vẫn giữ nguyên
 bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
@@ -24,8 +28,8 @@ production vẫn đóng.
 ## 2. Dashboard tiến độ bắt buộc
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
-- **Sẵn sàng phạm vi mở rộng M1-M5:** 79/100 (M1 hoàn thành).
-- **Đếm phạm vi mở rộng:** login 4/4; roles 2/3; Content Studio workflow 0/6;
+- **Sẵn sàng phạm vi mở rộng M1-M5:** 85/100 (M1-M2 hoàn thành).
+- **Đếm phạm vi mở rộng:** login 4/4; roles 3/3; Content Studio workflow 0/6;
   Mock Exam 0/4 level và 0/8 form; Content Release Worker 0/1.
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -213,6 +217,34 @@ mục bridge/legacy còn consumer hợp lệ.
 - Không mở Sites, production, commerce, classroom/B2B, multi-tenant hoặc
   microservices. Hai báo cáo Word trong `docs/reports/` giữ nguyên ngoài commit.
 
+### M2 — Role, config và audit
+
+- Ba vai trò đã hoạt động đúng tên và đúng quyền: Hành Giả chỉ học/tự quản lý;
+  Quản Khố Nội Dung có nền quyền draft/validate/submit nhưng chưa có Studio ở
+  M2; Điều Hành Hệ Thống có control plane riêng và không đọc tiến độ học riêng.
+- Role change, khóa/mở tài khoản, revoke phiên và ghi cấu hình đều kiểm tra quyền
+  phía server, origin chính xác và step-up bằng phiên Google/email/passkey trong
+  10 phút. Phiên ChatGPT tương thích một mình không đủ cho mutation nhạy cảm.
+- Revision trên user/setting chặn stale write. Ứng dụng chặn tự thu admin/tự khóa;
+  trigger D1 chặn thu, khóa hoặc xóa quản trị viên hoạt động cuối cùng ngay cả
+  khi có hai phiên thao tác đồng thời. Tài khoản locked không thể đăng nhập để tự
+  đổi ngược về active và toàn bộ phiên của tài khoản bị thu hồi.
+- `system_settings` chỉ nhận bốn key không bí mật: registration mode, preview
+  flag dành cho M3, nhịp học mặc định và maintenance banner; OAuth secret,
+  encryption key hay key lạ bị cả repository và CHECK constraint từ chối.
+- `audit_events` nhận category auth/account/role/config/approval/publication;
+  auth, role, account và config hiện đã ghi event. Trigger append-only chặn
+  UPDATE/DELETE; approval/publication sẽ được M3 dùng khi workflow thật mở.
+- UI `/admin` giao bốn vùng users/roles, sessions, config và audit; Content Studio
+  không bị nhét vào Cổng Quản Trị. `/signin?returnTo=/admin&stepUp=1` giữ đúng
+  return path và ẩn provider ChatGPT không đủ step-up.
+- Migration rehearsal xanh **17 migration/32 bảng**, targeted permission,
+  forbidden, last-admin, lock, audit immutability và concurrency xanh;
+  typecheck/lint/build xanh, client ceiling **798,8/800 KiB**. Browser smoke xác
+  nhận `/admin` fail-closed và luồng step-up render đúng, không lỗi tích hợp đã biết.
+- Login giữ 4/4; roles đạt 3/3; workflow 0/6; Mock Exam 0/4 level, 0/8 form;
+  worker 0/1. Phạm vi học tập cũ vẫn 96%, không cộng bài hoặc mastery.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -343,6 +375,11 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   smoke xác nhận `/signin` ở desktop/mobile và
   `/account/security` fail-closed khi chưa đăng nhập. Full boundary gate được để
   đúng ranh giới sau M1-M5 theo yêu cầu mở rộng.
+- M2 targeted role/permission/forbidden/step-up/last-admin/account-lock/session,
+  setting allowlist/audit immutability/concurrency xanh; Drizzle check và restore
+  rehearsal 17 migration/32 bảng xanh. Typecheck, lint, build xanh với client
+  ceiling 798,8/800 KiB. Browser smoke xác nhận Cổng Quản Trị khóa khi chưa đăng
+  nhập và đường xác minh lại giữ `/admin` qua Google/email/passkey.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -352,10 +389,11 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
   hiện hành `foundation-2026.08.5`; B8.1 là batch giọng Cơ Linh hiện tại.
 - Không commit staging, build output hoặc report thử.
-- Không thay nhà cung cấp danh tính, sync, FSRS, Reader, Review, CMS, hosting
-  hay Sites ngoài batch RBAC B9 đã được người dùng chủ động mở.
+- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M2 chỉ
+  mở control plane local đã được người dùng chủ động yêu cầu.
 
-**Batch lớn tiếp theo là M2 — Role, config và audit.** HSK1-4, level check và
-handoff đồ án vẫn hoàn tất. M2 sẽ thêm `content_editor`, step-up cho thao tác nhạy
-cảm, cấu hình allowlist và audit append-only trong modular monolith. Sites,
-deployment production, commerce và human-review workflow vẫn đóng.
+**Batch lớn tiếp theo là M3 — CMS-lite Content Studio.** HSK1-4, level check và
+handoff đồ án vẫn hoàn tất. M3 sẽ reuse inventory/blueprint/generator/validator,
+package governance và Lesson UI hiện có để mở workflow 6 trạng thái ở route
+riêng cho Quản Khố/Điều Hành; learner chỉ đọc published. Sites, deployment
+production, commerce và human-review workflow vẫn đóng.

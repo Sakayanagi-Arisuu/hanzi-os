@@ -1,38 +1,35 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => {
-  class AdminRoleSelfRevocationError extends Error {
-    readonly code = "ADMIN_SELF_REVOCATION_BLOCKED";
-  }
-  class AuthorizationTargetNotFoundError extends Error {
-    readonly code = "AUTHORIZATION_TARGET_NOT_FOUND";
-  }
+  class AdminRoleSelfRevocationError extends Error { readonly code = "ADMIN_SELF_REVOCATION_BLOCKED"; }
+  class AuthorizationTargetNotFoundError extends Error { readonly code = "AUTHORIZATION_TARGET_NOT_FOUND"; }
+  class AuthorizationConcurrencyError extends Error { readonly code = "AUTHORIZATION_REVISION_CONFLICT"; }
+  class LastAdminProtectionError extends Error { readonly code = "LAST_ADMIN_PROTECTED"; }
   return {
-    getChatGPTUser: vi.fn(),
-    getD1Database: vi.fn(),
-    resolveAuthorizedAccount: vi.fn(),
+    authorizeAdmin: vi.fn(),
     listUsers: vi.fn(),
-    setAdminRole: vi.fn(),
+    setRole: vi.fn(),
     AdminRoleSelfRevocationError,
     AuthorizationTargetNotFoundError,
+    AuthorizationConcurrencyError,
+    LastAdminProtectionError,
   };
 });
 
-vi.mock("../../app/chatgpt-auth", () => ({
-  getChatGPTUser: mocks.getChatGPTUser,
-}));
-vi.mock("./d1", () => ({
-  getD1Database: mocks.getD1Database,
-  SyncBackendUnavailableError: class extends Error {
-    readonly code = "SYNC_BACKEND_UNAVAILABLE";
-  },
+vi.mock("./adminHttp", () => ({
+  authorizeAdmin: mocks.authorizeAdmin,
+  adminError: (status: number, code: string, message: string) => Response.json(
+    { error: { code, message } },
+    { status, headers: { "cache-control": "private, no-store" } },
+  ),
 }));
 vi.mock("./authorizationRepository", () => ({
-  resolveAuthorizedAccount: mocks.resolveAuthorizedAccount,
   AdminRoleSelfRevocationError: mocks.AdminRoleSelfRevocationError,
   AuthorizationTargetNotFoundError: mocks.AuthorizationTargetNotFoundError,
+  AuthorizationConcurrencyError: mocks.AuthorizationConcurrencyError,
+  LastAdminProtectionError: mocks.LastAdminProtectionError,
   AuthorizationRepository: function AuthorizationRepository() {
-    return { listUsers: mocks.listUsers, setAdminRole: mocks.setAdminRole };
+    return { listUsers: mocks.listUsers, setRole: mocks.setRole };
   },
 }));
 
@@ -40,124 +37,124 @@ import { GET } from "../../app/api/admin/users/route";
 import { PUT } from "../../app/api/admin/users/[userId]/roles/route";
 import { POST } from "../../app/admin/roles/route";
 
-const identity = {
-  displayName: "Admin",
-  email: "admin@example.com",
-  fullName: null,
-};
-const learnerAuthorization = {
-  roles: ["learner"],
-  permissions: ["learning:use", "account:self:manage"],
-};
-const adminAuthorization = {
-  roles: ["learner", "admin"],
-  permissions: [
-    "learning:use",
-    "account:self:manage",
-    "admin:users:read",
-    "admin:roles:write",
-  ],
+const adminContext = {
+  database: {},
+  identity: {
+    displayName: "Admin",
+    email: "admin@example.com",
+    fullName: null,
+    userId: "admin-user",
+    sessionId: "session-admin",
+    authenticatedAt: Date.now(),
+  },
+  account: {
+    userId: "admin-user",
+    authorization: { roles: ["learner", "admin"], permissions: [] },
+  },
+  sessionId: "session-admin",
 };
 
 beforeEach(() => {
-  mocks.getChatGPTUser.mockReset();
-  mocks.getChatGPTUser.mockResolvedValue(identity);
-  mocks.getD1Database.mockReset();
-  mocks.getD1Database.mockResolvedValue({});
-  mocks.resolveAuthorizedAccount.mockReset();
-  mocks.resolveAuthorizedAccount.mockResolvedValue({
-    userId: "admin-user",
-    authorization: adminAuthorization,
-  });
+  mocks.authorizeAdmin.mockReset();
+  mocks.authorizeAdmin.mockResolvedValue({ ok: true, context: adminContext });
   mocks.listUsers.mockReset();
   mocks.listUsers.mockResolvedValue([]);
-  mocks.setAdminRole.mockReset();
-  mocks.setAdminRole.mockResolvedValue(adminAuthorization);
+  mocks.setRole.mockReset();
+  mocks.setRole.mockResolvedValue({
+    authorization: { roles: ["learner", "content_editor"], permissions: [] },
+    controlRevision: 2,
+  });
 });
 
 describe("admin authorization routes", () => {
-  it("requires authentication and server-side admin permission to list users", async () => {
-    mocks.getChatGPTUser.mockResolvedValueOnce(null);
-    expect((await GET()).status).toBe(401);
-
-    mocks.resolveAuthorizedAccount.mockResolvedValueOnce({
-      userId: "learner-user",
-      authorization: learnerAuthorization,
+  it("returns the fail-closed authorization response before listing users", async () => {
+    mocks.authorizeAdmin.mockResolvedValueOnce({
+      ok: false,
+      response: Response.json({ error: { code: "AUTH_REQUIRED" } }, { status: 401 }),
     });
-    expect((await GET()).status).toBe(403);
+    expect((await GET()).status).toBe(401);
     expect(mocks.listUsers).not.toHaveBeenCalled();
   });
 
-  it("returns the account directory to an administrator without caching it", async () => {
-    mocks.listUsers.mockResolvedValueOnce([
-      {
-        userId: "learner-user",
-        email: "learner@example.com",
-        status: "active",
-        roles: ["learner"],
-        createdAt: 1,
-        updatedAt: 1,
-      },
-    ]);
-
+  it("returns the account directory without caching it", async () => {
+    mocks.listUsers.mockResolvedValueOnce([{ email: "learner@example.com", roles: ["learner"] }]);
     const response = await GET();
-
     expect(response.status).toBe(200);
     expect(response.headers.get("cache-control")).toContain("no-store");
     await expect(response.json()).resolves.toMatchObject({
       requestedBy: "admin-user",
-      users: [{ email: "learner@example.com", roles: ["learner"] }],
+      users: [{ email: "learner@example.com" }],
     });
   });
 
-  it("blocks cross-origin role changes before identity access", async () => {
-    const response = await PUT(
-      new Request("https://hanzi.test/api/admin/users/user-2/roles", {
+  it("blocks cross-origin role changes before authorization", async () => {
+    const response = await PUT(new Request(
+      "https://hanzi.test/api/admin/users/user-2/roles",
+      {
         method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          origin: "https://attacker.test",
-        },
-        body: JSON.stringify({ admin: true }),
-      }),
-      { params: Promise.resolve({ userId: "user-2" }) },
-    );
-
+        headers: { "content-type": "application/json", origin: "https://attacker.test" },
+        body: JSON.stringify({ role: "content_editor", enabled: true, expectedRevision: 1 }),
+      },
+    ), { params: Promise.resolve({ userId: "user-2" }) });
     expect(response.status).toBe(403);
-    expect(mocks.getChatGPTUser).not.toHaveBeenCalled();
+    expect(mocks.authorizeAdmin).not.toHaveBeenCalled();
   });
 
-  it("updates a target role only after admin authorization", async () => {
-    const response = await PUT(
-      new Request("https://hanzi.test/api/admin/users/user-2/roles", {
+  it("requires step-up and updates a target role with its expected revision", async () => {
+    const response = await PUT(new Request(
+      "https://hanzi.test/api/admin/users/user-2/roles",
+      {
         method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          origin: "https://hanzi.test",
-        },
-        body: JSON.stringify({ admin: true }),
-      }),
-      { params: Promise.resolve({ userId: "user-2" }) },
-    );
-
+        headers: { "content-type": "application/json", origin: "https://hanzi.test" },
+        body: JSON.stringify({ role: "content_editor", enabled: true, expectedRevision: 1 }),
+      },
+    ), { params: Promise.resolve({ userId: "user-2" }) });
     expect(response.status).toBe(200);
-    expect(mocks.setAdminRole).toHaveBeenCalledWith("admin-user", "user-2", true);
+    expect(mocks.authorizeAdmin).toHaveBeenCalledWith("admin:roles:write", { stepUp: true });
+    expect(mocks.setRole).toHaveBeenCalledWith(expect.objectContaining({
+      actorUserId: "admin-user",
+      actorSessionId: "session-admin",
+      targetUserId: "user-2",
+      role: "content_editor",
+      enabled: true,
+      expectedRevision: 1,
+    }));
   });
 
-  it("supports the no-JavaScript admin form with the same server authorization", async () => {
-    const response = await POST(
-      new Request("https://hanzi.test/admin/roles", {
-        method: "POST",
-        headers: {
-          "content-type": "application/x-www-form-urlencoded",
-          origin: "https://hanzi.test",
-        },
-        body: new URLSearchParams({ userId: "user-2", admin: "false" }),
+  it("supports the no-JavaScript role form with the same step-up boundary", async () => {
+    const response = await POST(new Request("https://hanzi.test/admin/roles", {
+      method: "POST",
+      headers: {
+        "content-type": "application/x-www-form-urlencoded",
+        origin: "https://hanzi.test",
+      },
+      body: new URLSearchParams({
+        userId: "user-2",
+        role: "admin",
+        enabled: "true",
+        expectedRevision: "4",
       }),
-    );
-
+    }));
     expect(response.status).toBe(303);
     expect(response.headers.get("location")).toContain("/admin?updated=user-2");
-    expect(mocks.setAdminRole).toHaveBeenCalledWith("admin-user", "user-2", false);
+    expect(mocks.setRole).toHaveBeenCalledWith(expect.objectContaining({
+      targetUserId: "user-2",
+      role: "admin",
+      expectedRevision: 4,
+    }));
+  });
+
+  it("reports final-admin protection as a conflict", async () => {
+    mocks.setRole.mockRejectedValueOnce(new mocks.LastAdminProtectionError());
+    const response = await PUT(new Request(
+      "https://hanzi.test/api/admin/users/user-2/roles",
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json", origin: "https://hanzi.test" },
+        body: JSON.stringify({ role: "admin", enabled: false, expectedRevision: 2 }),
+      },
+    ), { params: Promise.resolve({ userId: "user-2" }) });
+    expect(response.status).toBe(409);
+    await expect(response.json()).resolves.toMatchObject({ error: { code: "LAST_ADMIN_PROTECTED" } });
   });
 });

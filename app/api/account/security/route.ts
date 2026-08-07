@@ -7,6 +7,7 @@ import {
   resolveRequestSession,
   sameOriginMutation,
 } from "../../../../src/server/authHttp";
+import { AuditRepository, requestCorrelationId } from "../../../../src/server/auditRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -49,6 +50,18 @@ export async function DELETE(request: Request) {
     if (!account) return authError(401, "AUTH_REQUIRED", "Hãy đăng nhập lại.");
     const currentSession = await resolveRequestSession(request, repository);
     const revoked = await repository.revokeSession(account.userId, sessionId);
+    if (revoked) {
+      await new AuditRepository(database).appendBestEffort({
+        category: "auth",
+        action: "auth.session.revoked",
+        outcome: "success",
+        actorUserId: account.userId,
+        actorSessionId: currentSession?.sessionId ?? null,
+        targetType: "session",
+        targetId: sessionId,
+        requestId: requestCorrelationId(request),
+      });
+    }
     return Response.json({ revoked }, {
       headers: currentSession?.sessionId === sessionId
         ? clearedSessionResponseHeaders()

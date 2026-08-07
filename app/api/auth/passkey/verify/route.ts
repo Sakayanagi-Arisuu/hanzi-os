@@ -12,6 +12,7 @@ import {
   type PasskeyAuthenticationResponse,
   type PasskeyRegistrationResponse,
 } from "../../../../../src/server/webauthn";
+import { AuditRepository, requestCorrelationId } from "../../../../../src/server/auditRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -37,7 +38,7 @@ export async function POST(request: Request) {
     ) {
       return authError(422, "PASSKEY_INVALID", "Phản hồi passkey không hợp lệ.");
     }
-    const { environment, repository } = await loadAuthRuntime();
+    const { database, environment, repository } = await loadAuthRuntime();
     const rp = relyingPartyConfig(environment, request);
     const kind = operation === "register"
       ? "passkey_register"
@@ -75,8 +76,25 @@ export async function POST(request: Request) {
         userAgent: request.headers.get("user-agent"),
         deviceLabel: request.headers.get("sec-ch-ua-platform") ?? "Thiết bị passkey",
       });
+      await new AuditRepository(database).appendBestEffort({
+        category: "auth",
+        action: "auth.passkey.linked",
+        outcome: "success",
+        actorUserId: storedChallenge.userId,
+        actorSessionId: session.sessionId,
+        targetType: "user",
+        targetId: storedChallenge.userId,
+        requestId: requestCorrelationId(request),
+        metadata: { provider: "passkey" },
+      });
       return Response.json(
-        { authenticated: true, registered: true, returnTo: "/account/security" },
+        {
+          authenticated: true,
+          registered: true,
+          returnTo: typeof storedChallenge.payload.returnTo === "string"
+            ? storedChallenge.payload.returnTo
+            : "/account/security",
+        },
         { headers: sessionResponseHeaders(session.token) },
       );
     }
@@ -111,8 +129,25 @@ export async function POST(request: Request) {
         provider: "passkey",
         providerSubject: storedCredential.id,
       });
+      await new AuditRepository(database).appendBestEffort({
+        category: "auth",
+        action: "auth.passkey.unlinked",
+        outcome: "success",
+        actorUserId: storedCredential.userId,
+        actorSessionId: null,
+        targetType: "user",
+        targetId: storedCredential.userId,
+        requestId: requestCorrelationId(request),
+        metadata: { provider: "passkey" },
+      });
       return Response.json(
-        { authenticated: true, unlinked: true, returnTo: "/account/security" },
+        {
+          authenticated: true,
+          unlinked: true,
+          returnTo: typeof storedChallenge.payload.returnTo === "string"
+            ? storedChallenge.payload.returnTo
+            : "/account/security",
+        },
         { headers: AUTH_JSON_HEADERS },
       );
     }
@@ -124,8 +159,24 @@ export async function POST(request: Request) {
       userAgent: request.headers.get("user-agent"),
       deviceLabel: request.headers.get("sec-ch-ua-platform") ?? "Thiết bị passkey",
     });
+    await new AuditRepository(database).appendBestEffort({
+      category: "auth",
+      action: "auth.passkey.signed_in",
+      outcome: "success",
+      actorUserId: storedCredential.userId,
+      actorSessionId: session.sessionId,
+      targetType: "user",
+      targetId: storedCredential.userId,
+      requestId: requestCorrelationId(request),
+      metadata: { provider: "passkey" },
+    });
     return Response.json(
-      { authenticated: true, returnTo: "/" },
+      {
+        authenticated: true,
+        returnTo: typeof storedChallenge.payload.returnTo === "string"
+          ? storedChallenge.payload.returnTo
+          : "/",
+      },
       { headers: sessionResponseHeaders(session.token) },
     );
   } catch {

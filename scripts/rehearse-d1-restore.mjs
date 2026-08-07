@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 16
-    || !migrations[15]?.startsWith("0015_")
+    migrations.length !== 17
+    || !migrations[16]?.startsWith("0016_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 16 migrations through 0015; found ${
+      `Restore rehearsal requires 17 migrations through 0016; found ${
         migrations.length
       }`,
     );
@@ -1196,19 +1196,35 @@ try {
   ).all();
   const tableNames = new Set(tables.map((table) => table.name));
   const requiredIdentityTables = [
+    "audit_events",
     "auth_challenges",
     "auth_sessions",
     "passkey_credentials",
+    "system_settings",
   ];
   if (
-    tables.length !== 30
+    tables.length !== 32
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 30 application tables including first-party identity state; found ${
+      `Restore rehearsal requires 32 application tables including identity and audited control state; found ${
         tables.length
       }`,
     );
+  }
+  const controlTriggers = new Set(restored.prepare(
+    `SELECT name FROM sqlite_master
+      WHERE type = 'trigger'
+        AND name IN (
+          'audit_events_no_update',
+          'audit_events_no_delete',
+          'user_roles_protect_last_admin_delete',
+          'users_protect_last_admin_status',
+          'users_protect_last_admin_delete'
+        )`,
+  ).all().map((trigger) => trigger.name));
+  if (controlTriggers.size !== 5) {
+    throw new Error("Restore rehearsal is missing append-only audit or last-admin triggers");
   }
   const restoredDocument = restored.prepare(
     "SELECT revision, document_json AS documentJson FROM learning_documents WHERE user_id = ?",

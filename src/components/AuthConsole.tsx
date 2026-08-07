@@ -77,9 +77,11 @@ async function parseError(response: Response, fallback: string) {
 export function AuthConsole({
   mode,
   chatGPTSignIn,
+  returnTo = "/",
 }: {
   mode: "signin" | "security";
   chatGPTSignIn?: string;
+  returnTo?: string;
 }) {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -111,7 +113,7 @@ export function AuthConsole({
       const response = await fetch("/api/auth/email/request", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ email, mode: nextMode, returnTo: mode === "signin" ? "/" : "/account/security" }),
+        body: JSON.stringify({ email, mode: nextMode, returnTo: mode === "signin" ? returnTo : "/account/security" }),
       });
       if (!response.ok) throw new Error(await parseError(response, "Không thể gửi mã."));
       const body = await response.json() as { challenge: string; developmentCode?: string };
@@ -136,7 +138,7 @@ export function AuthConsole({
       });
       if (!response.ok) throw new Error(await parseError(response, "Mã không hợp lệ."));
       const body = await response.json() as { returnTo?: string };
-      window.location.assign(body.returnTo ?? (mode === "signin" ? "/" : "/account/security"));
+      window.location.assign(body.returnTo ?? (mode === "signin" ? returnTo : "/account/security"));
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "Mã không hợp lệ.");
       setBusy(false);
@@ -154,7 +156,7 @@ export function AuthConsole({
       const optionsResponse = await fetch("/api/auth/passkey/options", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ operation }),
+        body: JSON.stringify({ operation, returnTo: mode === "signin" ? returnTo : "/account/security" }),
       });
       if (!optionsResponse.ok) {
         throw new Error(await parseError(optionsResponse, "Không thể bắt đầu passkey."));
@@ -192,7 +194,7 @@ export function AuthConsole({
       });
       if (!verifyResponse.ok) throw new Error(await parseError(verifyResponse, "Passkey không hợp lệ."));
       const verified = await verifyResponse.json() as { returnTo?: string };
-      window.location.assign(verified.returnTo ?? (mode === "signin" ? "/" : "/account/security"));
+      window.location.assign(verified.returnTo ?? (mode === "signin" ? returnTo : "/account/security"));
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "Passkey không hoàn tất.");
       setBusy(false);
@@ -224,7 +226,7 @@ export function AuthConsole({
           <h2 className="auth-title">Tiếp tục bằng tài khoản</h2>
           <p className="auth-copy">Chọn Google, mã email hoặc passkey. Tiến độ ẩn danh trên thiết bị sẽ được hòa giải qua hàng đợi local-first sau khi đăng nhập.</p>
           <div className="auth-row">
-            <a className="auth-link" href="/auth/google/start?mode=signin&returnTo=%2F">Google</a>
+            <a className="auth-link" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}>Google</a>
             <button className="auth-secondary" type="button" disabled={busy} onClick={() => runPasskey("signin")}>Dùng passkey</button>
             {chatGPTSignIn && <a className="auth-link" href={chatGPTSignIn}>ChatGPT (tương thích)</a>}
           </div>

@@ -67,6 +67,8 @@ describe("service worker privacy policy", () => {
     "/callback",
     "/account",
     "/account/devices",
+    "/admin",
+    "/admin/audit",
   ])("bypasses identity-aware path %s", (pathname) => {
     expect(serviceWorker.shouldBypassServiceWorker(pathname)).toBe(true);
 
@@ -154,9 +156,9 @@ describe("service worker privacy policy", () => {
     await expect(installWork).rejects.toThrow("Unable to cache /offline.html");
     expect(deleteCache).toHaveBeenCalledTimes(3);
     expect(deleteCache.mock.calls.flat()).toEqual(expect.arrayContaining([
-      "hanzi-os-shell-v9",
-      "hanzi-os-pages-v9",
-      "hanzi-os-assets-v9",
+      "hanzi-os-shell-v10",
+      "hanzi-os-pages-v10",
+      "hanzi-os-assets-v10",
     ]));
     expect(cleanupObservedFinishedAppDocument).toEqual([true, true, true]);
   });

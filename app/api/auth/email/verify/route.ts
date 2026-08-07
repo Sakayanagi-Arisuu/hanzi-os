@@ -5,6 +5,7 @@ import {
   sameOriginMutation,
   sessionResponseHeaders,
 } from "../../../../../src/server/authHttp";
+import { AuditRepository, requestCorrelationId } from "../../../../../src/server/auditRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -28,7 +29,7 @@ export async function POST(request: Request) {
     ) {
       return authError(422, "OTP_INVALID", "Mã xác minh không hợp lệ.");
     }
-    const { repository } = await loadAuthRuntime();
+    const { database, repository } = await loadAuthRuntime();
     let challenge = null;
     for (const kind of ["email_signin", "email_link", "email_unlink"] as const) {
       try {
@@ -53,6 +54,17 @@ export async function POST(request: Request) {
         provider: "email_otp",
         providerSubject: email,
       });
+      await new AuditRepository(database).appendBestEffort({
+        category: "auth",
+        action: "auth.email.unlinked",
+        outcome: "success",
+        actorUserId: challenge.userId,
+        actorSessionId: null,
+        targetType: "user",
+        targetId: challenge.userId,
+        requestId: requestCorrelationId(request),
+        metadata: { provider: "email_otp" },
+      });
       return Response.json(
         { authenticated: true, unlinked: true, returnTo },
         { headers: AUTH_JSON_HEADERS },
@@ -71,6 +83,19 @@ export async function POST(request: Request) {
       authMethod: "email_otp",
       userAgent: request.headers.get("user-agent"),
       deviceLabel: request.headers.get("sec-ch-ua-platform") ?? "Trình duyệt email",
+    });
+    await new AuditRepository(database).appendBestEffort({
+      category: "auth",
+      action: challenge.kind === "email_link"
+        ? "auth.email.linked"
+        : "auth.email.signed_in",
+      outcome: "success",
+      actorUserId: linked.userId,
+      actorSessionId: session.sessionId,
+      targetType: "user",
+      targetId: linked.userId,
+      requestId: requestCorrelationId(request),
+      metadata: { provider: "email_otp" },
     });
     return Response.json(
       { authenticated: true, linked: challenge.kind === "email_link", returnTo },

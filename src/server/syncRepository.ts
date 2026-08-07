@@ -1,4 +1,6 @@
 import type { ChatGPTUser } from "../../app/chatgpt-auth";
+import { assertAccountCanAuthenticate } from "./accountStatus";
+import { isNewAccountRegistrationOpen } from "./systemSettingsRepository";
 import { CONTENT_VERSION } from "../data/curriculum";
 import { canonicalStringify, sha256Hex } from "../sync/document";
 import type { CloudSyncDocumentV1 } from "../sync/types";
@@ -169,11 +171,15 @@ export class SyncRepository {
       .bind(IDENTITY_PROVIDER, providerSubject)
       .first<{ userId: string }>();
     if (existing) {
+      await assertAccountCanAuthenticate(this.database, existing.userId);
       await this.touchIdentity(existing.userId, identity, providerSubject);
       await this.ensureLearnerRole(existing.userId);
       return existing.userId;
     }
 
+    if (!await isNewAccountRegistrationOpen(this.database)) {
+      throw new Error("New account registration is closed.");
+    }
     const userId = crypto.randomUUID();
     const identityId = crypto.randomUUID();
     const timestamp = nowEpoch();
@@ -212,6 +218,7 @@ export class SyncRepository {
         .bind(IDENTITY_PROVIDER, providerSubject)
         .first<{ userId: string }>();
       if (!winner) throw new Error("Unable to establish the authenticated user.");
+      await assertAccountCanAuthenticate(this.database, winner.userId);
       await this.touchIdentity(winner.userId, identity, providerSubject);
       await this.ensureLearnerRole(winner.userId);
       return winner.userId;
@@ -648,7 +655,7 @@ export class SyncRepository {
     const timestamp = nowEpoch();
     await this.database.batch([
       this.database
-        .prepare("UPDATE users SET status = 'active', updated_at = ?, deleted_at = NULL WHERE id = ?")
+        .prepare("UPDATE users SET status = 'active', updated_at = ?, deleted_at = NULL WHERE id = ? AND status IN ('active', 'deletion_pending')")
         .bind(timestamp, userId),
       this.database
         .prepare(

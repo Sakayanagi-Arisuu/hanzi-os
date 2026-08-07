@@ -48,10 +48,12 @@ npm run start
 - Phiên first-party dùng cookie `__Host-` HttpOnly/Secure/SameSite và D1 chỉ lưu
   digest. Link/unlink provider cần phiên mới xác minh cùng ceremony của provider
   đích; `/account/security` cho xem và thu hồi phiên/thiết bị.
-- Mọi tài khoản có vai trò `learner`. Vai trò `admin` mở Cổng Quản Trị để xem
-  danh tính/vai trò và cấp hoặc thu quyền quản trị; màn này không đọc tiến độ
-  học riêng của tài khoản khác. API kiểm tra quyền lại phía máy chủ và chặn
-  yêu cầu đổi quyền khác nguồn.
+- Mọi tài khoản có vai trò nền `learner` (Hành Giả). `content_editor` (Quản Khố
+  Nội Dung) có quyền draft/validate/submit dành cho Content Studio riêng;
+  `admin` (Điều Hành Hệ Thống) mở Cổng Quản Trị để quản lý vai trò, khóa tài
+  khoản, phiên, cấu hình allowlist và audit. Cổng này không đọc tiến độ học riêng
+  của tài khoản khác. API kiểm tra quyền phía máy chủ; mutation nhạy cảm còn yêu
+  cầu xác minh lại bằng phiên Google/email/passkey trong 10 phút.
 - Danh sách quản trị viên khởi tạo được cấu hình bằng biến máy chủ
   `HANZI_OS_ADMIN_EMAILS` (nhiều email cách nhau bằng dấu phẩy). Ví dụ local
   PowerShell trước khi chạy dev:
@@ -61,7 +63,7 @@ $env:HANZI_OS_ADMIN_EMAILS="you@example.com"
 npm run dev
 ```
 
-Migration phân quyền hiện hành là `drizzle/0014_gigantic_diamondback.sql`.
+Migration phân quyền nền B9 là `drizzle/0014_gigantic_diamondback.sql`.
 Không đưa biến quản trị vào mã client hoặc commit email thật vào repo.
 
 Migration auth hiện hành là `drizzle/0015_good_green_goblin.sql`. Local email
@@ -70,6 +72,10 @@ OTP có thể bật riêng trên `localhost` bằng `AUTH_DEV_EMAIL_OTP=1`; mã 
 trong `GOOGLE_REDIRECT_URI` và, với confidential client, `GOOGLE_CLIENT_SECRET`.
 Passkey mặc định lấy origin/hostname hiện tại; có thể khóa tường minh bằng
 `AUTH_ALLOWED_ORIGIN` và `AUTH_RP_ID`. Không commit các secret này.
+
+Migration kiểm soát hiện hành là `drizzle/0016_yielding_rawhide_kid.sql`. Chỉ
+bốn khóa không bí mật được phép vào `system_settings`; `audit_events` có trigger
+chặn sửa/xóa, còn trigger role/status bảo vệ quản trị viên hoạt động cuối cùng.
 
 ## Tài liệu sản phẩm
 
@@ -91,8 +97,8 @@ Passkey mặc định lấy origin/hostname hiện tại; có thể khóa tườ
 Đây là một vertical slice giàu tính năng cho trải nghiệm học cốt lõi. Mã nguồn
 Phase 1 đã bổ sung nền đăng nhập ChatGPT tùy chọn, D1 schema có version,
 local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v7,
-xóa tài khoản và RBAC learner/admin. Restore rehearsal cục bộ hiện áp dụng 16
-migration `0000`–`0015` trên graph 30 bảng, gồm cả FSRS card/review log, Reader session
+xóa tài khoản và RBAC ba vai trò. Restore rehearsal cục bộ hiện áp dụng 17
+migration `0000`–`0016` trên graph 32 bảng, gồm cả FSRS card/review log, Reader session
 versioned và trigger khóa outbox vào đúng reset epoch. Những kiểm tra này không
 thay thế hosted
 provisioning, hosted backup/restore hoặc kiểm chứng đa thiết bị trên dịch vụ

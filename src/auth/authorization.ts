@@ -1,12 +1,24 @@
-export const APP_ROLES = ["learner", "admin"] as const;
+export const APP_ROLES = ["learner", "content_editor", "admin"] as const;
 
 export type AppRole = typeof APP_ROLES[number];
 
 export const APP_PERMISSIONS = [
   "learning:use",
   "account:self:manage",
+  "content:workspace:read",
+  "content:drafts:write",
+  "content:validation:run",
+  "content:submit",
+  "content:approve",
+  "content:publish",
   "admin:users:read",
   "admin:roles:write",
+  "admin:users:lock",
+  "admin:sessions:read",
+  "admin:sessions:revoke",
+  "admin:settings:read",
+  "admin:settings:write",
+  "admin:audit:read",
 ] as const;
 
 export type AppPermission = typeof APP_PERMISSIONS[number];
@@ -18,7 +30,25 @@ export type AppAuthorization = {
 
 const ROLE_PERMISSIONS: Record<AppRole, readonly AppPermission[]> = {
   learner: ["learning:use", "account:self:manage"],
-  admin: ["admin:users:read", "admin:roles:write"],
+  content_editor: [
+    "content:workspace:read",
+    "content:drafts:write",
+    "content:validation:run",
+    "content:submit",
+  ],
+  admin: [
+    "content:workspace:read",
+    "content:approve",
+    "content:publish",
+    "admin:users:read",
+    "admin:roles:write",
+    "admin:users:lock",
+    "admin:sessions:read",
+    "admin:sessions:revoke",
+    "admin:settings:read",
+    "admin:settings:write",
+    "admin:audit:read",
+  ],
 };
 
 export const isAppRole = (value: unknown): value is AppRole =>
@@ -48,5 +78,7 @@ export const hasPermission = (
 
 export const authorizationLabel = (authorization: AppAuthorization) =>
   authorization.roles.includes("admin")
-    ? "Quản Trị Hệ Thống"
-    : "Hành Giả · Người học";
+    ? "Điều Hành Hệ Thống"
+    : authorization.roles.includes("content_editor")
+      ? "Quản Khố Nội Dung"
+      : "Hành Giả";
