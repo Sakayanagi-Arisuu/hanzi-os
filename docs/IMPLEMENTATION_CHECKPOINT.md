@@ -1,13 +1,16 @@
 # HANZI.OS — checkpoint triển khai hiện tại
 
-Cập nhật: 05/08/2026
+Cập nhật: 07/08/2026
 
 ## 1. Tình trạng một câu
 
-B9 đã hoàn tất đăng nhập closed-alpha và phân quyền ứng dụng trên nền sẵn có:
-Sign in with ChatGPT tiếp tục là nhà cung cấp danh tính, D1/SQLite có vai trò
-`learner`/`admin`, API kiểm tra quyền phía máy chủ và Cổng Quản Trị cho phép cấp
-hoặc thu quyền mà không lộ tiến độ học của tài khoản khác. B8.1 vẫn giữ nguyên
+M1 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức và vòng đời phiên:
+người học tiếp tục dùng guest/local hoặc đăng nhập bằng Google, mã email một lần
+và passkey; Sign in with ChatGPT được giữ làm nhà cung cấp tương thích. Một
+`users.id` nội bộ có thể mang nhiều danh tính chỉ sau xác minh tường minh, không
+tự gộp chỉ vì email giống nhau. D1/SQLite lưu hash phiên/challenge, phiên có thể
+được xem và thu hồi trên UI; bearer token không đi vào localStorage. Vai trò
+`learner`/`admin` và Cổng Quản Trị B9 tiếp tục giữ nguyên. B8.1 vẫn giữ nguyên
 bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
@@ -21,6 +24,9 @@ production vẫn đóng.
 ## 2. Dashboard tiến độ bắt buộc
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
+- **Sẵn sàng phạm vi mở rộng M1-M5:** 79/100 (M1 hoàn thành).
+- **Đếm phạm vi mở rộng:** login 4/4; roles 2/3; Content Studio workflow 0/6;
+  Mock Exam 0/4 level và 0/8 form; Content Release Worker 0/1.
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK2 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -183,6 +189,30 @@ mục bridge/legacy còn consumer hợp lệ.
   Reader, Review hay evidence. Không mở Sites, production, commerce, CMS hoặc
   human-review workflow.
 
+### M1 — Danh tính đa phương thức và vòng đời tài khoản
+
+- Guest/local tiếp tục học đầy đủ; đăng nhập first-party có Google Authorization
+  Code + PKCE, `state`/`nonce` và callback URI khớp tuyệt đối; email dùng mã một
+  lần hết hạn 10 phút; passkey yêu cầu user verification và RP/origin chính xác.
+- `users.id` tiếp tục là khóa nội bộ ổn định. `auth_identities` nhận nhiều provider
+  nhưng không truy email để auto-link. Link/unlink cần phiên hiện tại mới xác
+  minh và ceremony của chính provider; không thể gỡ danh tính cuối cùng.
+- Cookie phiên dùng tiền tố `__Host-`, `HttpOnly`, `Secure`, `SameSite=Lax` và D1
+  chỉ lưu SHA-256 digest. UI `/account/security` liệt kê phương thức, thiết bị và
+  cho thu hồi phiên; `/signin` tách rõ Google, email, passkey, ChatGPT và học ẩn
+  danh.
+- Tiến độ guest được đưa vào cùng `local-import`/idempotency của sync hiện có sau
+  đăng nhập; không thêm kho dữ liệu, không thay learning evidence hoặc suy XP
+  thành mastery.
+- Login đạt 4/4 (guest/local, Google, email OTP, passkey); vai trò giữ 2/3;
+  workflow 0/6; Mock Exam 0/4 level và 0/8 form; worker 0/1.
+- Targeted identity/session/duplicate-email/CSRF/cookie/passkey/OAuth/sync/export,
+  migration 16 file/30 bảng, typecheck, lint và build xanh. UI smoke desktop và
+  mobile 390 px không tràn ngang, không có lỗi console. Hero 1693 px được nén
+  lại sau so sánh trực quan để client ceiling giữ **798,7/800 KiB**.
+- Không mở Sites, production, commerce, classroom/B2B, multi-tenant hoặc
+  microservices. Hai báo cáo Word trong `docs/reports/` giữ nguyên ngoài commit.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -305,6 +335,14 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   prerequisite, persistence, privacy quarantine, offline, mobile, keyboard,
   reduced-motion và bốn voice pack đều giữ đúng. Build trong E2E giữ client
   ceiling trong hard budget 800 KiB.
+- M1 targeted identity/session/duplicate-email/CSRF/cookie/passkey/OAuth/sync,
+  export, Drizzle check, restore rehearsal 16 migration/30 bảng, typecheck, lint
+  và build xanh ở client ceiling 798,7/800 KiB. Snapshot provenance tạm chuyển
+  khỏi `.vite` do Vinext sở hữu
+  sang vùng Wrangler đã ignore để pha kết thúc seal được build local. Browser
+  smoke xác nhận `/signin` ở desktop/mobile và
+  `/account/security` fail-closed khi chưa đăng nhập. Full boundary gate được để
+  đúng ranh giới sau M1-M5 theo yêu cầu mở rộng.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -317,6 +355,7 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 - Không thay nhà cung cấp danh tính, sync, FSRS, Reader, Review, CMS, hosting
   hay Sites ngoài batch RBAC B9 đã được người dùng chủ động mở.
 
-**Không còn batch local nào mở.** HSK1-4, level check và handoff đồ án đã hoàn
-tất. Sites/deployment vẫn để người dùng thực hiện cuối cùng; production,
-commerce, CMS và human-review workflow chỉ mở bằng yêu cầu riêng.
+**Batch lớn tiếp theo là M2 — Role, config và audit.** HSK1-4, level check và
+handoff đồ án vẫn hoàn tất. M2 sẽ thêm `content_editor`, step-up cho thao tác nhạy
+cảm, cấu hình allowlist và audit append-only trong modular monolith. Sites,
+deployment production, commerce và human-review workflow vẫn đóng.

@@ -1,9 +1,11 @@
 # Kế hoạch HANZI.OS — bản đồ án/tự học HSK0 đến HSK4
 
-Cập nhật: 05/08/2026
+Cập nhật: 07/08/2026
 
-Production thương mại, CMS và Sites nằm ngoài critical path cho đến khi người
-dùng chủ động mở lại.
+Production thương mại và Sites vẫn ngoài critical path. Người dùng đã chủ động
+mở phạm vi mở rộng local M1-M5: identity, role/admin, CMS-lite Content Studio,
+Mock Exam và đúng một Content Release Worker; đây không phải CMS thương mại hay
+production deployment.
 
 ## 1. Tóm tắt dễ đọc
 
@@ -13,8 +15,13 @@ package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
 hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
 Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
+M1 mở rộng cũng đã giao guest/local + Google + email OTP + passkey, liên kết
+không auto-match email, quản lý phiên/thiết bị và UI bảo mật tài khoản.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
+- **Sẵn sàng phạm vi mở rộng M1-M5: 79/100**.
+- **Login 4/4; roles 2/3; workflow 0/6; Mock Exam 0/4 level, 0/8 form;
+  Content Release Worker 0/1.**
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
 - **HSK2:** 40/40 learner-visible, rich 40/40.
@@ -252,6 +259,28 @@ và account lifecycle hiện có.
   sau sửa xác nhận 15 migration, 27 bảng và role graph. Full E2E xanh 30/30;
 - không mở Sites, production, commerce, CMS hoặc human-review workflow.
 
+### M1 — Multi-method identity và account lifecycle
+
+**Hoàn thành tại readiness phạm vi mở rộng 79%; không cộng điểm nội dung.**
+
+- guest/local, Google, email one-time code và passkey đạt 4/4; ChatGPT tiếp tục
+  là provider phụ tương thích ngược;
+- một `users.id` nội bộ giữ nhiều `auth_identities`; email giống nhau không tự
+  nối, còn link/unlink bắt buộc xác minh phiên hiện tại lẫn provider đích;
+- cookie phiên `__Host-` là HttpOnly/Secure/SameSite, D1 chỉ giữ digest; Google
+  dùng Authorization Code + PKCE/state/nonce/callback exact; passkey kiểm tra
+  challenge, origin, RP ID, user verification, chữ ký và sign counter;
+- `/signin` và `/account/security` giao đăng nhập, phương thức, thiết bị và revoke;
+  dữ liệu guest đi qua local-import/idempotency sẵn có, không mất progress;
+- targeted checks, migration rehearsal 16 file/30 bảng, typecheck/lint/build và
+  UI smoke desktop/mobile xanh; hero 1693 px được tối ưu sau so sánh trực quan,
+  giữ client ceiling 798,7/800 KiB; snapshot provenance sống qua Vinext build
+  bằng vùng tạm Wrangler đã ignore; full boundary gate chờ sau toàn bộ M1-M5;
+- đủ HSK0 4/4 và HSK1-4 213/213 rich tiếp tục learner-visible; package,
+  prerequisite, FSRS/evidence và bốn Level Check không đổi;
+- Sites, production, commerce, classroom/B2B, multi-tenant và microservices vẫn
+  đóng. Bước lớn kế tiếp là M2 role/config/audit.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -266,6 +295,18 @@ và account lifecycle hiện có.
 
 Trụ cột D chỉ tăng khi bài mới lên UI. Generated content, test count và số dòng
 không tạo điểm.
+
+### Thước đo phạm vi mở rộng M1-M5
+
+| Trụ cột mở rộng | Tối đa | Hiện tại | Trạng thái |
+| --- | ---: | ---: | --- |
+| Learning core + HSK0-4 | 65 | 62 | giữ nguyên learning scope 96% |
+| Identity/account lifecycle | 10 | 10 | M1 hoàn thành, login 4/4 |
+| Role/admin/config/audit | 8 | 2 | M2 kế tiếp, roles 2/3 |
+| Content governance | 7 | 3 | workflow UI 0/6 |
+| HSK Mock Exam | 7 | 2 | 0/4 level, 0/8 form; Level Check không được tính |
+| Content Release Worker | 3 | 0 | 0/1, chỉ mở sau M1-M4 |
+| **Tổng** | **100** | **79** | **M1 hoàn thành** |
 
 ## 7. Ranh giới nguồn và review
 

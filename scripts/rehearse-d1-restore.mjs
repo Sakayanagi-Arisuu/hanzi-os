@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 15
-    || !migrations[14]?.startsWith("0014_")
+    migrations.length !== 16
+    || !migrations[15]?.startsWith("0015_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 15 migrations through 0014; found ${
+      `Restore rehearsal requires 16 migrations through 0015; found ${
         migrations.length
       }`,
     );
@@ -1194,9 +1194,18 @@ try {
   const tables = restored.prepare(
     "SELECT name FROM sqlite_master WHERE type = 'table' AND name NOT LIKE 'sqlite_%' ORDER BY name",
   ).all();
-  if (tables.length !== 27) {
+  const tableNames = new Set(tables.map((table) => table.name));
+  const requiredIdentityTables = [
+    "auth_challenges",
+    "auth_sessions",
+    "passkey_credentials",
+  ];
+  if (
+    tables.length !== 30
+    || requiredIdentityTables.some((table) => !tableNames.has(table))
+  ) {
     throw new Error(
-      `Restore rehearsal requires 27 application tables; found ${
+      `Restore rehearsal requires 30 application tables including first-party identity state; found ${
         tables.length
       }`,
     );

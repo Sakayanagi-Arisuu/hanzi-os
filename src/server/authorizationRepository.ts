@@ -9,8 +9,6 @@ import type { D1Database } from "./d1";
 import { getBootstrapAdminEmails } from "./runtimeAuthorizationConfig";
 import { SyncRepository } from "./syncRepository";
 
-const IDENTITY_PROVIDER = "chatgpt";
-
 export type AuthorizedAccount = {
   userId: string;
   authorization: AppAuthorization;
@@ -79,20 +77,29 @@ export class AuthorizationRepository {
     const result = await this.database
       .prepare(
         `SELECT u.id AS userId,
-                COALESCE(ai.normalized_email, '') AS email,
+                COALESCE((
+                  SELECT ai.normalized_email
+                    FROM auth_identities ai
+                   WHERE ai.user_id = u.id
+                     AND ai.email_verified = 1
+                     AND ai.normalized_email IS NOT NULL
+                   ORDER BY CASE ai.provider
+                     WHEN 'chatgpt' THEN 0 WHEN 'google' THEN 1
+                     WHEN 'email_otp' THEN 2 ELSE 3 END,
+                     ai.created_at
+                   LIMIT 1
+                ), '') AS email,
                 u.status AS status,
                 u.created_at AS createdAt,
                 u.updated_at AS updatedAt,
                 COALESCE(GROUP_CONCAT(ur.role), '') AS roles
            FROM users u
-           LEFT JOIN auth_identities ai
-             ON ai.user_id = u.id AND ai.provider = ?
            LEFT JOIN user_roles ur ON ur.user_id = u.id
-          GROUP BY u.id, ai.normalized_email, u.status, u.created_at, u.updated_at
+          GROUP BY u.id, u.status, u.created_at, u.updated_at
           ORDER BY u.created_at DESC, u.id
           LIMIT ?`,
       )
-      .bind(IDENTITY_PROVIDER, boundedLimit)
+      .bind(boundedLimit)
       .all<{
         userId: string;
         email: string;

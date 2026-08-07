@@ -29,7 +29,7 @@ export async function GET() {
       source: "cloud-account",
       exportedAt,
       account: {
-        provider: "chatgpt",
+        provider: identity.provider ?? "chatgpt",
         email: identity.email,
         displayName: identity.displayName,
       },

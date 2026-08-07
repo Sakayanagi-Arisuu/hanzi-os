@@ -28,15 +28,21 @@ export class SyncBackendUnavailableError extends Error {
   readonly code = "SYNC_BACKEND_UNAVAILABLE";
 }
 
-export async function getD1Database(): Promise<D1Database> {
-  let runtimeEnv: Record<string, unknown>;
+export async function getRuntimeEnvironment<
+  T extends Record<string, unknown> = Record<string, unknown>,
+>(): Promise<T> {
   try {
-    ({ env: runtimeEnv } = await import("cloudflare:workers"));
+    const runtime = await import("cloudflare:workers");
+    return runtime.env as T;
   } catch {
     throw new SyncBackendUnavailableError(
-      "Cloud sync is not available in this runtime.",
+      "Cloud runtime bindings are not available in this runtime.",
     );
   }
+}
+
+export async function getD1Database(): Promise<D1Database> {
+  const runtimeEnv = await getRuntimeEnvironment();
   const database = (runtimeEnv as { DB?: D1Database }).DB;
   if (!database) {
     throw new SyncBackendUnavailableError(

@@ -1,5 +1,5 @@
 const CACHE_PREFIX = "hanzi-os-";
-const CACHE_VERSION = "v8";
+const CACHE_VERSION = "v9";
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const PAGE_CACHE = `${CACHE_PREFIX}pages-${CACHE_VERSION}`;
 const ASSET_CACHE = `${CACHE_PREFIX}assets-${CACHE_VERSION}`;
@@ -15,6 +15,8 @@ const PAGE_CACHE_LIMIT = 12;
 const ASSET_CACHE_LIMIT = 80;
 
 const AUTH_PATH_PREFIXES = [
+  "/auth",
+  "/signin",
   "/signin-with-chatgpt",
   "/signout-with-chatgpt",
   "/callback",

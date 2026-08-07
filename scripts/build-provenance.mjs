@@ -18,7 +18,10 @@ export const BUILD_PROVENANCE_FILE = "build-provenance.json";
 export const BUILD_PROVENANCE_PROTOCOL = "clean-git-snapshot-v1";
 export const BUILD_PROVENANCE_SCHEMA_VERSION = 1;
 
-const BUILD_STATE_RELATIVE_PATH = ".vite/hanzi-os-build-provenance.json";
+// Vinext owns and recreates `.vite` during its build. Keep the short-lived
+// source snapshot in the already-ignored Wrangler state directory so the
+// finish phase can seal it after Vinext completes.
+const BUILD_STATE_RELATIVE_PATH = ".wrangler/hanzi-os-build-provenance.json";
 const GIT_OBJECT_PATTERN = /^(?:[0-9a-f]{40}|[0-9a-f]{64})$/u;
 const SHA256_PATTERN = /^[0-9a-f]{64}$/u;
 

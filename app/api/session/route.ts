@@ -8,6 +8,7 @@ const SESSION_RESPONSE_HEADERS = {
   expires: "0",
   pragma: "no-cache",
   vary: [
+    "cookie",
     "oai-authenticated-user-email",
     "oai-authenticated-user-full-name",
     "oai-authenticated-user-full-name-encoding",
@@ -28,8 +29,12 @@ export async function GET() {
   return Response.json(
     {
       authenticated: true,
-      user,
-      accountKey: await deriveAccountKey(user.email),
+      user: {
+        displayName: user.displayName,
+        email: user.email,
+        fullName: user.fullName,
+      },
+      accountKey: await deriveAccountKey(user.email || user.userId || ""),
     },
     { headers: SESSION_RESPONSE_HEADERS },
   );

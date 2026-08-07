@@ -60,6 +60,8 @@ describe("service worker privacy policy", () => {
   it.each([
     "/api/session",
     "/api/sync/attempts",
+    "/auth/google/start",
+    "/signin",
     "/signin-with-chatgpt",
     "/signout-with-chatgpt",
     "/callback",
@@ -152,9 +154,9 @@ describe("service worker privacy policy", () => {
     await expect(installWork).rejects.toThrow("Unable to cache /offline.html");
     expect(deleteCache).toHaveBeenCalledTimes(3);
     expect(deleteCache.mock.calls.flat()).toEqual(expect.arrayContaining([
-      "hanzi-os-shell-v8",
-      "hanzi-os-pages-v8",
-      "hanzi-os-assets-v8",
+      "hanzi-os-shell-v9",
+      "hanzi-os-pages-v9",
+      "hanzi-os-assets-v9",
     ]));
     expect(cleanupObservedFinishedAppDocument).toEqual([true, true, true]);
   });

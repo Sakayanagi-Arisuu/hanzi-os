@@ -54,6 +54,145 @@ export const authIdentities = sqliteTable(
   ],
 );
 
+/**
+ * First-party application sessions. Only a SHA-256 digest of the opaque cookie
+ * is persisted; the bearer value itself is never stored in D1 or browser
+ * storage. ChatGPT-hosted identity headers remain a compatibility provider and
+ * do not need a row here until the user links another sign-in method.
+ */
+export const authSessions = sqliteTable(
+  "auth_sessions",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    identityId: text("identity_id").references(() => authIdentities.id, {
+      onDelete: "set null",
+    }),
+    tokenHash: text("token_hash").notNull(),
+    authMethod: text("auth_method").notNull(),
+    deviceLabel: text("device_label"),
+    userAgentHash: text("user_agent_hash"),
+    authenticatedAt: integer("authenticated_at").notNull(),
+    createdAt: integer("created_at").notNull(),
+    lastSeenAt: integer("last_seen_at").notNull(),
+    expiresAt: integer("expires_at").notNull(),
+    revokedAt: integer("revoked_at"),
+  },
+  (table) => [
+    uniqueIndex("auth_sessions_token_hash_uidx").on(table.tokenHash),
+    uniqueIndex("auth_sessions_user_id_uidx").on(table.userId, table.id),
+    index("auth_sessions_user_last_seen_idx").on(table.userId, table.lastSeenAt),
+    index("auth_sessions_expiry_idx").on(table.expiresAt),
+    check(
+      "auth_sessions_method_check",
+      sql`${table.authMethod} IN ('google', 'email_otp', 'passkey')`,
+    ),
+    check(
+      "auth_sessions_time_check",
+      sql`${table.authenticatedAt} <= ${table.createdAt}
+        AND ${table.createdAt} <= ${table.lastSeenAt}
+        AND ${table.lastSeenAt} <= ${table.expiresAt}
+        AND (${table.revokedAt} IS NULL OR ${table.revokedAt} >= ${table.createdAt})`,
+    ),
+  ],
+);
+
+/** Short-lived, single-use state for OAuth, email OTP and WebAuthn ceremonies. */
+export const authChallenges = sqliteTable(
+  "auth_challenges",
+  {
+    id: text("id").primaryKey(),
+    kind: text("kind").notNull(),
+    provider: text("provider").notNull(),
+    userId: text("user_id").references(() => users.id, {
+      onDelete: "cascade",
+    }),
+    challengeHash: text("challenge_hash").notNull(),
+    secretHash: text("secret_hash"),
+    payloadJson: text("payload_json").notNull().default("{}"),
+    attempts: integer("attempts").notNull().default(0),
+    createdAt: integer("created_at").notNull(),
+    expiresAt: integer("expires_at").notNull(),
+    consumedAt: integer("consumed_at"),
+  },
+  (table) => [
+    uniqueIndex("auth_challenges_challenge_hash_uidx").on(table.challengeHash),
+    index("auth_challenges_expiry_idx").on(table.expiresAt),
+    index("auth_challenges_user_idx").on(table.userId, table.createdAt),
+    check(
+      "auth_challenges_kind_check",
+      sql`${table.kind} IN (
+        'google_signin', 'google_link', 'google_unlink',
+        'email_signin', 'email_link', 'email_unlink',
+        'passkey_register', 'passkey_signin', 'passkey_unlink'
+      )`,
+    ),
+    check(
+      "auth_challenges_provider_check",
+      sql`${table.provider} IN ('google', 'email_otp', 'passkey')`,
+    ),
+    check(
+      "auth_challenges_attempts_check",
+      sql`${table.attempts} BETWEEN 0 AND 5`,
+    ),
+    check(
+      "auth_challenges_json_check",
+      sql`json_valid(${table.payloadJson})`,
+    ),
+    check(
+      "auth_challenges_time_check",
+      sql`${table.createdAt} < ${table.expiresAt}
+        AND (${table.consumedAt} IS NULL OR ${table.consumedAt} >= ${table.createdAt})`,
+    ),
+  ],
+);
+
+/** Public-key material and counters for passkeys. Private keys stay on device. */
+export const passkeyCredentials = sqliteTable(
+  "passkey_credentials",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    identityId: text("identity_id")
+      .notNull()
+      .references(() => authIdentities.id, { onDelete: "cascade" }),
+    publicKeyJwkJson: text("public_key_jwk_json").notNull(),
+    algorithm: integer("algorithm").notNull(),
+    signCount: integer("sign_count").notNull().default(0),
+    transportsJson: text("transports_json").notNull().default("[]"),
+    label: text("label"),
+    backupEligible: integer("backup_eligible", { mode: "boolean" })
+      .notNull()
+      .default(false),
+    backupState: integer("backup_state", { mode: "boolean" })
+      .notNull()
+      .default(false),
+    createdAt: integer("created_at").notNull(),
+    lastUsedAt: integer("last_used_at"),
+  },
+  (table) => [
+    uniqueIndex("passkey_credentials_identity_uidx").on(table.identityId),
+    uniqueIndex("passkey_credentials_user_id_uidx").on(table.userId, table.id),
+    index("passkey_credentials_user_idx").on(table.userId, table.createdAt),
+    check(
+      "passkey_credentials_algorithm_check",
+      sql`${table.algorithm} IN (-7, -257)`,
+    ),
+    check(
+      "passkey_credentials_sign_count_check",
+      sql`${table.signCount} BETWEEN 0 AND 4294967295`,
+    ),
+    check(
+      "passkey_credentials_json_check",
+      sql`json_valid(${table.publicKeyJwkJson}) AND json_valid(${table.transportsJson})`,
+    ),
+  ],
+);
+
 export const userRoles = sqliteTable(
   "user_roles",
   {

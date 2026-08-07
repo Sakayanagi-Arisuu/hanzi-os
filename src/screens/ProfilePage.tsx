@@ -32,7 +32,7 @@ import { ConfirmModal, useSystemFeedback } from "../components/SystemFeedback";
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
 import { getReleasedLessonProgress } from "../lib/adaptive";
-import { chatGPTSignInPath, chatGPTSignOutPath } from "../lib/chatgptAuthPaths";
+import { chatGPTSignOutPath } from "../lib/chatgptAuthPaths";
 import {
   createLearningRecoveryBundle,
   getAccountDeletionReadiness,
@@ -247,6 +247,7 @@ export function ProfilePage() {
   const signOut = async () => {
     try {
       await actions.prepareSignOut();
+      await fetch("/api/auth/signout", { method: "POST" });
       window.location.assign(chatGPTSignOutPath("/"));
     } catch (error) {
       notify(
@@ -640,9 +641,14 @@ export function ProfilePage() {
             {sync.session?.authenticated ? (
               <button type="button" onClick={signOut}><LogOut size={16} /> Đăng xuất</button>
             ) : (
-              <a href={chatGPTSignInPath("/profile")}><LogIn size={16} /> Đăng nhập</a>
+              <a href="/signin"><LogIn size={16} /> Đăng nhập</a>
             )}
           </div>
+          {sync.session?.authenticated && (
+            <a className="secondary-button full-button admin-gateway-link" href="/account/security">
+              <ShieldCheck size={17} /> Bảo mật tài khoản và phiên
+            </a>
+          )}
           {sync.session?.authenticated && (
             <a className="secondary-button full-button admin-gateway-link" href="/admin">
               <ShieldCheck size={17} /> Kiểm tra Cổng Quản Trị

@@ -315,7 +315,7 @@ describe("release evidence provenance and hashing", () => {
         stdio: ["ignore", "pipe", "pipe"],
         windowsHide: true,
       });
-    await writeFile(join(root, ".gitignore"), ".vite/\ndist/\n");
+    await writeFile(join(root, ".gitignore"), ".vite/\n.wrangler/\ndist/\n");
     await writeFile(join(root, "package-lock.json"), "{}\n");
     await writeFile(join(root, "source.txt"), "committed source\n");
     runGit(["init", "--quiet"]);

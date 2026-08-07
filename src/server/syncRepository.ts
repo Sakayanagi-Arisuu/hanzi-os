@@ -38,11 +38,13 @@ export type AppliedSyncOperation = {
   cursor: number;
 };
 
-export const ACCOUNT_EXPORT_SCHEMA_VERSION = 6 as const;
+export const ACCOUNT_EXPORT_SCHEMA_VERSION = 7 as const;
 
 export const ACCOUNT_EXPORT_TABLES = [
   "users",
   "auth_identities",
+  "auth_sessions",
+  "passkey_credentials",
   "user_roles",
   "profiles",
   "devices",
@@ -80,6 +82,7 @@ const EXPORT_OMITTED_COLUMNS: Partial<Record<
   ReadonlySet<string>
 >> = {
   auth_identities: new Set(["provider_subject"]),
+  auth_sessions: new Set(["token_hash", "user_agent_hash"]),
   idempotency_records: new Set([
     "request_hash",
     "lease_token",
@@ -98,6 +101,7 @@ const EXPORT_JSON_COLUMNS: Partial<Record<
   AccountExportTableName,
   ReadonlySet<string>
 >> = {
+  passkey_credentials: new Set(["public_key_jwk_json", "transports_json"]),
   learning_documents: new Set(["document_json"]),
   lesson_sessions: new Set(["form_manifest_json"]),
   reader_sessions: new Set(["form_manifest_json"]),
@@ -148,6 +152,15 @@ export class SyncRepository {
   constructor(private readonly database: D1Database) {}
 
   async resolveUser(identity: ChatGPTUser): Promise<string> {
+    if (identity.userId) {
+      const existing = await this.database
+        .prepare("SELECT id FROM users WHERE id = ? AND status = 'active' LIMIT 1")
+        .bind(identity.userId)
+        .first<{ id: string }>();
+      if (!existing) throw new Error("Authenticated account is unavailable.");
+      await this.ensureLearnerRole(identity.userId);
+      return identity.userId;
+    }
     const providerSubject = identity.email.trim().toLowerCase();
     const existing = await this.database
       .prepare(
@@ -609,6 +622,9 @@ export class SyncRepository {
       "devices",
       "profiles",
       "user_roles",
+      "auth_sessions",
+      "passkey_credentials",
+      "auth_challenges",
       "auth_identities",
     ] as const;
     const statements = childTables.map((table) =>
