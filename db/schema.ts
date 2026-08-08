@@ -486,7 +486,7 @@ export const contentItems = sqliteTable(
     index("content_items_type_updated_idx").on(table.itemType, table.updatedAt),
     check(
       "content_items_type_check",
-      sql`${table.itemType} IN ('vocabulary', 'character', 'grammar', 'lesson', 'exam_item')`,
+      sql`${table.itemType} IN ('vocabulary', 'character', 'grammar', 'lesson', 'exam_item', 'exam_form')`,
     ),
     check(
       "content_items_stable_key_check",
@@ -659,6 +659,188 @@ export const contentWorkflowEvents = sqliteTable(
       sql`json_valid(${table.metadataJson})
         AND length(CAST(${table.metadataJson} AS BLOB)) <= 131072`,
     ),
+  ],
+);
+
+/**
+ * Dedicated transactional outbox for the single Content Release Worker.
+ * Learning outbox rows remain user/reset-epoch scoped and must not be reused
+ * for authoring publication, whose lifecycle survives learner resets.
+ */
+export const contentReleaseOutboxEvents = sqliteTable(
+  "content_release_outbox_events",
+  {
+    id: text("id").primaryKey(),
+    eventType: text("event_type").notNull(),
+    schemaVersion: integer("schema_version").notNull().default(1),
+    itemId: text("item_id")
+      .notNull()
+      .references(() => contentItems.id, { onDelete: "restrict" }),
+    revisionId: text("revision_id")
+      .notNull()
+      .references(() => contentRevisions.id, { onDelete: "restrict" }),
+    correlationId: text("correlation_id").notNull(),
+    causationId: text("causation_id"),
+    actorUserId: text("actor_user_id")
+      .references(() => users.id, { onDelete: "restrict" }),
+    actorSessionId: text("actor_session_id"),
+    payloadJson: text("payload_json").notNull(),
+    payloadSha256: text("payload_sha256").notNull(),
+    status: text("status").notNull().default("pending"),
+    attempts: integer("attempts").notNull().default(0),
+    availableAt: integer("available_at").notNull(),
+    leaseToken: text("lease_token"),
+    leaseExpiresAt: integer("lease_expires_at"),
+    lastErrorCode: text("last_error_code"),
+    createdAt: integer("created_at").notNull(),
+    publishedAt: integer("published_at"),
+    deadAt: integer("dead_at"),
+  },
+  (table) => [
+    index("content_release_outbox_status_available_idx").on(
+      table.status,
+      table.availableAt,
+      table.createdAt,
+    ),
+    index("content_release_outbox_correlation_idx").on(
+      table.correlationId,
+      table.createdAt,
+    ),
+    index("content_release_outbox_revision_idx").on(
+      table.revisionId,
+      table.createdAt,
+    ),
+    uniqueIndex("content_release_completed_causation_uidx")
+      .on(table.causationId)
+      .where(sql`${table.eventType} = 'content.release.completed'`),
+    foreignKey({
+      name: "content_release_outbox_causation_fk",
+      columns: [table.causationId],
+      foreignColumns: [table.id],
+    }).onDelete("restrict"),
+    check(
+      "content_release_outbox_event_type_check",
+      sql`${table.eventType} IN (
+        'content.validation.requested',
+        'content.release.requested',
+        'content.release.completed',
+        'content.release.failed'
+      )`,
+    ),
+    check(
+      "content_release_outbox_schema_check",
+      sql`${table.schemaVersion} = 1`,
+    ),
+    check(
+      "content_release_outbox_status_check",
+      sql`${table.status} IN ('pending', 'processing', 'published', 'dead')`,
+    ),
+    check(
+      "content_release_outbox_attempts_check",
+      sql`${table.attempts} >= 0`,
+    ),
+    check(
+      "content_release_outbox_correlation_check",
+      sql`length(${table.correlationId}) BETWEEN 8 AND 160`,
+    ),
+    check(
+      "content_release_outbox_payload_check",
+      sql`json_valid(${table.payloadJson})
+        AND length(CAST(${table.payloadJson} AS BLOB)) BETWEEN 2 AND 65536`,
+    ),
+    check(
+      "content_release_outbox_payload_digest_check",
+      sql`length(${table.payloadSha256}) = 71
+        AND substr(${table.payloadSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.payloadSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "content_release_outbox_lease_check",
+      sql`(${table.status} = 'processing'
+          AND ${table.leaseToken} IS NOT NULL
+          AND ${table.leaseExpiresAt} IS NOT NULL)
+        OR (${table.status} <> 'processing'
+          AND ${table.leaseToken} IS NULL
+          AND ${table.leaseExpiresAt} IS NULL)`,
+    ),
+    check(
+      "content_release_outbox_terminal_check",
+      sql`(${table.status} = 'published'
+          AND ${table.publishedAt} IS NOT NULL
+          AND ${table.deadAt} IS NULL)
+        OR (${table.status} = 'dead'
+          AND ${table.deadAt} IS NOT NULL
+          AND ${table.publishedAt} IS NULL)
+        OR (${table.status} IN ('pending', 'processing')
+          AND ${table.publishedAt} IS NULL
+          AND ${table.deadAt} IS NULL)`,
+    ),
+  ],
+);
+
+/** Immutable worker output. A mutable head below selects the active package. */
+export const contentReleasePackages = sqliteTable(
+  "content_release_packages",
+  {
+    id: text("id").primaryKey(),
+    itemId: text("item_id")
+      .notNull()
+      .references(() => contentItems.id, { onDelete: "restrict" }),
+    revisionId: text("revision_id")
+      .notNull()
+      .references(() => contentRevisions.id, { onDelete: "restrict" }),
+    correlationId: text("correlation_id").notNull(),
+    packageJson: text("package_json").notNull(),
+    packageSha256: text("package_sha256").notNull(),
+    manifestJson: text("manifest_json").notNull(),
+    manifestSha256: text("manifest_sha256").notNull(),
+    releasedAt: integer("released_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("content_release_packages_revision_uidx").on(table.revisionId),
+    index("content_release_packages_item_time_idx").on(table.itemId, table.releasedAt),
+    check(
+      "content_release_packages_correlation_check",
+      sql`length(${table.correlationId}) BETWEEN 8 AND 160`,
+    ),
+    check(
+      "content_release_packages_json_check",
+      sql`json_valid(${table.packageJson})
+        AND json_valid(${table.manifestJson})
+        AND length(CAST(${table.packageJson} AS BLOB)) BETWEEN 2 AND 1048576
+        AND length(CAST(${table.manifestJson} AS BLOB)) BETWEEN 2 AND 131072`,
+    ),
+    check(
+      "content_release_packages_digest_check",
+      sql`length(${table.packageSha256}) = 71
+        AND substr(${table.packageSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.packageSha256}, 8) NOT GLOB '*[^0-9a-f]*'
+        AND length(${table.manifestSha256}) = 71
+        AND substr(${table.manifestSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.manifestSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+  ],
+);
+
+export const contentReleaseHeads = sqliteTable(
+  "content_release_heads",
+  {
+    itemId: text("item_id")
+      .primaryKey()
+      .references(() => contentItems.id, { onDelete: "restrict" }),
+    packageId: text("package_id")
+      .notNull()
+      .references(() => contentReleasePackages.id, { onDelete: "restrict" }),
+    revisionId: text("revision_id")
+      .notNull()
+      .references(() => contentRevisions.id, { onDelete: "restrict" }),
+    rowVersion: integer("row_version").notNull().default(1),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("content_release_heads_package_uidx").on(table.packageId),
+    uniqueIndex("content_release_heads_revision_uidx").on(table.revisionId),
+    check("content_release_heads_version_check", sql`${table.rowVersion} >= 1`),
   ],
 );
 

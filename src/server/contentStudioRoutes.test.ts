@@ -5,16 +5,22 @@ const mocks = vi.hoisted(() => {
   class ContentStudioIdempotencyError extends Error { readonly code = "CONTENT_IDEMPOTENCY_CONFLICT"; }
   class ContentStudioNotFoundError extends Error { readonly code = "CONTENT_REVISION_NOT_FOUND"; }
   class ContentStudioTransitionError extends Error { readonly code = "CONTENT_TRANSITION_REJECTED"; }
+  class ContentReleaseFenceError extends Error {
+    readonly retryable = false;
+    constructor(readonly failureCode: string, message: string) { super(message); }
+  }
   return {
     authorizeAdmin: vi.fn(),
     createDraft: vi.fn(),
     validateRevision: vi.fn(),
     transition: vi.fn(),
     publishedRuntime: vi.fn(),
+    replayDeadRelease: vi.fn(),
     ContentStudioConcurrencyError,
     ContentStudioIdempotencyError,
     ContentStudioNotFoundError,
     ContentStudioTransitionError,
+    ContentReleaseFenceError,
   };
 });
 
@@ -39,11 +45,18 @@ vi.mock("./contentStudioRepository", () => ({
     };
   },
 }));
+vi.mock("./contentReleaseWorker", () => ({
+  ContentReleaseFenceError: mocks.ContentReleaseFenceError,
+  ContentReleaseWorkerRepository: function ContentReleaseWorkerRepository() {
+    return { replayDeadRelease: mocks.replayDeadRelease };
+  },
+}));
 
 import { POST as createItem } from "../../app/api/studio/items/route";
 import { POST as validateRevision } from "../../app/api/studio/revisions/[revisionId]/validate/route";
 import { POST as transitionRevision } from "../../app/api/studio/revisions/[revisionId]/transition/route";
 import { GET as readRuntime } from "../../app/api/content/runtime/route";
+import { POST as replayRelease } from "../../app/api/studio/releases/[eventId]/replay/route";
 
 const context = {
   database: {},
@@ -78,6 +91,8 @@ beforeEach(() => {
     manifestSha256: `sha256:${"a".repeat(64)}`,
     items: [],
   });
+  mocks.replayDeadRelease.mockReset();
+  mocks.replayDeadRelease.mockResolvedValue("release-replay-event");
 });
 
 describe("Content Studio permission boundaries", () => {
@@ -135,5 +150,29 @@ describe("Content Studio permission boundaries", () => {
     expect(await response.json()).toMatchObject({ policy: "published-only", items: [] });
     expect(mocks.authorizeAdmin).not.toHaveBeenCalled();
     expect(mocks.publishedRuntime).toHaveBeenCalledOnce();
+  });
+
+  it("keeps controlled replay behind admin publication authorization", async () => {
+    const params = { params: Promise.resolve({ eventId: "dead-release-event" }) };
+    const response = await replayRelease(new Request(
+      "https://hanzi.test/api/studio/releases/dead-release-event/replay",
+      {
+        method: "POST",
+        headers: { origin: "https://hanzi.test", "x-request-id": "request:replay-1" },
+      },
+    ), params);
+    expect(response.status).toBe(202);
+    expect(mocks.authorizeAdmin).toHaveBeenLastCalledWith("content:publish");
+    expect(mocks.replayDeadRelease).toHaveBeenCalledWith(expect.objectContaining({
+      eventId: "dead-release-event",
+      actorUserId: "editor",
+      correlationId: "request:replay-1",
+    }));
+
+    const blocked = await replayRelease(new Request(
+      "https://hanzi.test/api/studio/releases/dead-release-event/replay",
+      { method: "POST", headers: { origin: "https://evil.test" } },
+    ), params);
+    expect(blocked.status).toBe(403);
   });
 });

@@ -311,10 +311,7 @@ test("keeps anonymous study public while cloud APIs require identity", async ({ 
   await page.goto("/profile");
   const signIn = page.getByRole("link", { name: "Đăng nhập" });
   await expect(signIn).toBeVisible();
-  await expect(signIn).toHaveAttribute(
-    "href",
-    "/signin-with-chatgpt?return_to=%2Fprofile",
-  );
+  await expect(signIn).toHaveAttribute("href", "/signin");
 
   const session = await page.request.get("/api/session");
   expect(session.status()).toBe(200);

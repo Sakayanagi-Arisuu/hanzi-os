@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 19
-    || !migrations[18]?.startsWith("0018_")
+    migrations.length !== 20
+    || !migrations[19]?.startsWith("0019_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 19 migrations through 0018; found ${
+      `Restore rehearsal requires 20 migrations through 0019; found ${
         migrations.length
       }`,
     );
@@ -1199,15 +1199,18 @@ try {
     "audit_events",
     "auth_challenges",
     "auth_sessions",
+    "content_release_heads",
+    "content_release_outbox_events",
+    "content_release_packages",
     "passkey_credentials",
     "system_settings",
   ];
   if (
-    tables.length !== 35
+    tables.length !== 38
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 35 application tables including identity, audited controls, and governed content revisions; found ${
+      `Restore rehearsal requires 38 application tables including identity, audited controls, governed content revisions, and content release worker state; found ${
         tables.length
       }`,
     );
@@ -1225,6 +1228,21 @@ try {
   ).all().map((trigger) => trigger.name));
   if (controlTriggers.size !== 5) {
     throw new Error("Restore rehearsal is missing append-only audit or last-admin triggers");
+  }
+  const contentReleaseTriggers = new Set(restored.prepare(
+    `SELECT name FROM sqlite_master
+      WHERE type = 'trigger'
+        AND name IN (
+          'content_release_heads_package_fence_insert',
+          'content_release_heads_package_fence_update',
+          'content_release_outbox_identity_immutable',
+          'content_release_outbox_no_delete',
+          'content_release_packages_no_delete',
+          'content_release_packages_no_update'
+        )`,
+  ).all().map((trigger) => trigger.name));
+  if (contentReleaseTriggers.size !== 6) {
+    throw new Error("Restore rehearsal is missing immutable content release or runtime-head fence triggers");
   }
   const restoredDocument = restored.prepare(
     "SELECT revision, document_json AS documentJson FROM learning_documents WHERE user_id = ?",
@@ -1725,6 +1743,7 @@ try {
     readerResponseSha256: digest(readerResponseJson),
     readerGraph: restoredReaderFixture.graph,
     outboxLeaseMigration: "ok",
+    contentReleaseTriggers: contentReleaseTriggers.size,
     outboxEpochTriggers: restoredOutboxEpochTriggers.length,
     outboxLeaseTriggers: restoredOutboxLeaseTriggers.length,
     assessmentTerminalTriggers: restoredAssessmentTerminalTriggers.length,

@@ -11,6 +11,9 @@ import {
   type StudioWorkflowState,
 } from "../content/studioContent";
 import { AuditRepository } from "./auditRepository";
+import { encodeContentReleaseEvent } from "./contentReleaseEventContract";
+import type { EncodedContentReleaseEvent } from "./contentReleaseEventContract";
+import { contentReleaseEventInsertStatement } from "./contentReleaseWorker";
 import type { D1Database, D1PreparedStatement } from "./d1";
 
 export class ContentStudioConcurrencyError extends Error {
@@ -185,20 +188,6 @@ const eventStatement = (
   input.requiredRowVersion,
   input.toState,
 );
-
-const sanitizedRuntimeContent = (
-  itemType: StudioItemType,
-  content: Record<string, unknown>,
-) => {
-  if (itemType !== "exam_item") return content;
-  const {
-    answerIndex: _answerIndex,
-    answer: _answer,
-    explanationVi: _explanation,
-    ...safe
-  } = content;
-  return safe;
-};
 
 export class ContentStudioRepository {
   constructor(private readonly database: D1Database) {}
@@ -455,6 +444,7 @@ export class ContentStudioRepository {
     revisionId: string;
     expectedRowVersion: number;
     idempotencyKey: string;
+    requestId?: string;
   }): Promise<StudioRevision> {
     assertMutationIdentity(input);
     const current = await this.getRevision(input.revisionId);
@@ -486,6 +476,26 @@ export class ContentStudioRepository {
     }
     const timestamp = Date.now();
     const sequence = await nextEventSequence(this.database, current.id);
+    const validationRequested = await encodeContentReleaseEvent({
+      id: crypto.randomUUID(),
+      eventType: "content.validation.requested",
+      itemId: current.itemId,
+      revisionId: current.id,
+      correlationId: input.requestId ?? crypto.randomUUID(),
+      causationId: null,
+      actorUserId: input.actorUserId,
+      actorSessionId: input.actorSessionId,
+      createdAt: timestamp,
+      payload: {
+        revisionId: current.id,
+        itemId: current.itemId,
+        stableKey: current.stableKey,
+        itemType: current.itemType,
+        contentSha256: current.contentSha256,
+        validationSha256,
+        requestedAt: timestamp,
+      },
+    });
     const result = await this.database.batch([
       this.database.prepare(
         `UPDATE content_revisions
@@ -519,8 +529,16 @@ export class ContentStudioRepository {
         occurredAt: timestamp,
         requiredRowVersion: input.expectedRowVersion + 1,
       }),
+      contentReleaseEventInsertStatement(this.database, validationRequested, {
+        requiredWorkflowState: nextState,
+        requiredRowVersion: input.expectedRowVersion + 1,
+      }),
     ]);
-    if ((result[0]?.meta?.changes ?? 0) !== 1 || (result[1]?.meta?.changes ?? 0) !== 1) {
+    if (
+      (result[0]?.meta?.changes ?? 0) !== 1
+      || (result[1]?.meta?.changes ?? 0) !== 1
+      || (result[2]?.meta?.changes ?? 0) !== 1
+    ) {
       throw new ContentStudioConcurrencyError("Draft changed before validation.");
     }
     return this.getRevision(current.id);
@@ -581,6 +599,7 @@ export class ContentStudioRepository {
     const timestamp = Date.now();
     const sequence = await nextEventSequence(this.database, current.id);
     const statements: D1PreparedStatement[] = [];
+    let releaseRequested: EncodedContentReleaseEvent<"content.release.requested"> | null = null;
     let autoArchived: StudioRevision | null = null;
     if (input.toState === "published") {
       const existing = await this.database.prepare(
@@ -627,6 +646,7 @@ export class ContentStudioRepository {
         );
       }
     }
+    const targetUpdateIndex = statements.length;
     statements.push(
       this.database.prepare(
         `UPDATE content_revisions
@@ -662,11 +682,39 @@ export class ContentStudioRepository {
         requiredRowVersion: input.expectedRowVersion + 1,
       }),
     );
+    if (input.toState === "published" || input.toState === "archived") {
+      releaseRequested = await encodeContentReleaseEvent({
+        id: crypto.randomUUID(),
+        eventType: "content.release.requested",
+        itemId: current.itemId,
+        revisionId: current.id,
+        correlationId: input.requestId,
+        causationId: null,
+        actorUserId: input.actorUserId,
+        actorSessionId: input.actorSessionId,
+        createdAt: timestamp,
+        payload: {
+          revisionId: current.id,
+          itemId: current.itemId,
+          stableKey: current.stableKey,
+          itemType: current.itemType,
+          contentSha256: current.contentSha256,
+          validationSha256: current.validationSha256,
+          requestedAt: timestamp,
+          action: input.toState === "published" ? "publish" : "archive",
+          revision: current.revision,
+        },
+      });
+      statements.push(contentReleaseEventInsertStatement(this.database, releaseRequested, {
+        requiredWorkflowState: input.toState,
+        requiredRowVersion: input.expectedRowVersion + 1,
+      }));
+    }
     const results = await this.database.batch(statements);
-    const targetUpdateIndex = statements.length - 2;
     if (
       (results[targetUpdateIndex]?.meta?.changes ?? 0) !== 1
       || (results[targetUpdateIndex + 1]?.meta?.changes ?? 0) !== 1
+      || (releaseRequested && (results[targetUpdateIndex + 2]?.meta?.changes ?? 0) !== 1)
       || (autoArchived && (
         (results[0]?.meta?.changes ?? 0) !== 1
         || (results[1]?.meta?.changes ?? 0) !== 1
@@ -780,29 +828,67 @@ export class ContentStudioRepository {
     itemType?: StudioItemType | null;
     level?: StudioLevel | null;
   } = {}) {
-    const revisions = await this.list({
-      state: "published",
-      itemType: input.itemType,
-      level: input.level,
-      limit: 200,
-    });
-    const items = revisions
-      .sort((left, right) => left.stableKey.localeCompare(right.stableKey))
-      .map((revision) => ({
-        stableKey: revision.stableKey,
-        itemType: revision.itemType,
-        level: revision.level,
-        title: revision.title,
-        revision: revision.revision,
-        revisionId: revision.id,
-        schemaVersion: revision.schemaVersion,
-        contentSha256: revision.contentSha256,
-        publishedAt: revision.publishedAt,
-        content: sanitizedRuntimeContent(revision.itemType, revision.content),
-      }));
+    const clauses: string[] = [];
+    const values: unknown[] = [];
+    if (input.itemType) {
+      clauses.push("json_extract(package.package_json, '$.itemType') = ?");
+      values.push(input.itemType);
+    }
+    if (input.level) {
+      clauses.push("json_extract(package.package_json, '$.level') = ?");
+      values.push(input.level);
+    }
+    const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
+    const result = await this.database.prepare(
+      `SELECT package.package_json AS packageJson,
+              package.package_sha256 AS packageSha256,
+              package.manifest_json AS manifestJson,
+              package.manifest_sha256 AS manifestSha256
+         FROM content_release_heads head
+         INNER JOIN content_release_packages package ON package.id = head.package_id
+         ${where}
+        ORDER BY json_extract(package.package_json, '$.stableKey')`,
+    ).bind(...values).all<{
+      packageJson: string;
+      packageSha256: string;
+      manifestJson: string;
+      manifestSha256: string;
+    }>();
+    if (!result.success) throw new Error("Unable to read released content packages.");
+    const packages = await Promise.all((result.results ?? []).map(async (row) => {
+      if (
+        await studioSha256(canonicalStudioJson(JSON.parse(row.packageJson))) !== row.packageSha256
+        || await studioSha256(canonicalStudioJson(JSON.parse(row.manifestJson))) !== row.manifestSha256
+      ) {
+        throw new Error("Released content package failed its immutable digest fence.");
+      }
+      return {
+        item: JSON.parse(row.packageJson) as {
+          stableKey: string;
+          itemType: StudioItemType;
+          level: StudioLevel;
+          title: string;
+          revision: number;
+          revisionId: string;
+          schemaVersion: 1;
+          contentSha256: string;
+          publishedAt: number;
+          content: Record<string, unknown>;
+        },
+        packageSha256: row.packageSha256,
+        manifestSha256: row.manifestSha256,
+      };
+    }));
+    const items = packages.map((entry) => entry.item);
     const manifest = {
       schemaVersion: 1 as const,
       policy: "published-only" as const,
+      releaseBoundary: "content-release-worker-v1" as const,
+      packages: packages.map(({ item, packageSha256, manifestSha256 }) => ({
+        revisionId: item.revisionId,
+        packageSha256,
+        manifestSha256,
+      })),
       items,
     };
     return {

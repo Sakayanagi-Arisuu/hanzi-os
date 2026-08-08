@@ -60,8 +60,11 @@ npm run start
 - Content Studio tại `/studio` hỗ trợ vocabulary, character, grammar, lesson,
   exam item và exam form qua sáu trạng thái draft/validated/submitted/approved/published/
   archived. Editor tạo, sửa, validate và submit; admin approve/publish. Bản đã
-  published là bất biến, sửa đổi phải fork revision; learner API chỉ nhận
-  projection published và không nhận đáp án exam.
+  published là bất biến, sửa đổi phải fork revision. Content Release Worker xử
+  lý transactional outbox theo cơ chế at-least-once, tạo package/manifest có
+  SHA-256 bất biến rồi mới đổi runtime head; learner API chỉ nhận projection đã
+  hoàn tất worker và không nhận đáp án exam. Sự cố đi qua retry/backoff, dead
+  letter và replay có quyền; hệ thống không tuyên bố exactly-once.
 - Danh sách quản trị viên khởi tạo được cấu hình bằng biến máy chủ
   `HANZI_OS_ADMIN_EMAILS` (nhiều email cách nhau bằng dấu phẩy). Ví dụ local
   PowerShell trước khi chạy dev:
@@ -89,6 +92,10 @@ Content governance dùng migration `drizzle/0017_brainy_proteus.sql` và
 `drizzle/0018_tranquil_giant_girl.sql`: revision giữ canonical JSON/SHA-256,
 validation artifact và workflow event append-only; trigger bảo vệ bản published
 khỏi sửa/xóa và unique index giữ đúng một published revision hoạt động mỗi item.
+Migration `drizzle/0019_ordinary_guardian.sql` thêm transactional release outbox,
+package/manifest bất biến, runtime head có fence và D1 support thực tế cho
+`exam_form`. Deploy boundary duy nhất của M5 nằm tại `workers/content-release/`;
+config vẫn dùng D1 placeholder và chưa được deploy lên production hoặc Sites.
 
 ## Tài liệu sản phẩm
 
@@ -110,8 +117,8 @@ khỏi sửa/xóa và unique index giữ đúng một published revision hoạt 
 Đây là một vertical slice giàu tính năng cho trải nghiệm học cốt lõi. Mã nguồn
 Phase 1 đã bổ sung nền đăng nhập ChatGPT tùy chọn, D1 schema có version,
 local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v7,
-xóa tài khoản và RBAC ba vai trò. Restore rehearsal cục bộ hiện áp dụng 19
-migration `0000`–`0018` trên graph 35 bảng, gồm cả FSRS card/review log, Reader session
+xóa tài khoản và RBAC ba vai trò. Restore rehearsal cục bộ hiện áp dụng 20
+migration `0000`–`0019` trên graph 38 bảng, gồm cả FSRS card/review log, Reader session
 versioned và trigger khóa outbox vào đúng reset epoch. Những kiểm tra này không
 thay thế hosted
 provisioning, hosted backup/restore hoặc kiểm chứng đa thiết bị trên dịch vụ

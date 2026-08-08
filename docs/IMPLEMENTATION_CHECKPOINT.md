@@ -1,10 +1,10 @@
 # HANZI.OS — checkpoint triển khai hiện tại
 
-Cập nhật: 07/08/2026
+Cập nhật: 08/08/2026
 
 ## 1. Tình trạng một câu
 
-M1-M4 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên,
+M1-M5 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên,
 kiểm soát vận hành, Content Studio local và Mock Exam HSK1-4:
 người học tiếp tục dùng guest/local hoặc đăng nhập bằng Google, mã email một lần
 và passkey; Sign in with ChatGPT được giữ làm nhà cung cấp tương thích. Một
@@ -30,14 +30,17 @@ voice ElevenLabs người dùng đã chọn; ba nhân cách còn lại là VieNe
 fallback v2 có khoảng nghỉ rõ, không được trình bày như voice ElevenLabs tương
 ứng. Toàn bộ 213 blueprint
 HSK1-4 vẫn học được trên rich UI, bốn Level Check và tám form Mock Exam đều mở
-được theo đúng ranh giới xác thực. Sites và production vẫn đóng.
+được theo đúng ranh giới xác thực. Content Release Worker duy nhất nhận
+transactional outbox, tạo package/manifest bất biến rồi mới đổi runtime head;
+retry/backoff, dead letter và replay có quyền giữ phát hành an toàn theo
+at-least-once mà không tuyên bố exactly-once. Sites và production vẫn đóng.
 
 ## 2. Dashboard tiến độ bắt buộc
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
-- **Sẵn sàng phạm vi mở rộng M1-M5:** 94/100 (M1-M4 hoàn thành).
+- **Sẵn sàng phạm vi mở rộng M1-M5:** 97/100 (M1-M5 hoàn thành).
 - **Đếm phạm vi mở rộng:** login 4/4; roles 3/3; Content Studio workflow 6/6;
-  Mock Exam 4/4 level và 8/8 form; Content Release Worker 0/1.
+  Mock Exam 4/4 level và 8/8 form; Content Release Worker 1/1.
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK2 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -321,6 +324,48 @@ mục bridge/legacy còn consumer hợp lệ.
   0/1. Readiness mở rộng đạt 94%, readiness toàn dự án giữ 96%; HSK0 4/4,
   HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich HSK1-4 213/213.
 
+### M5 — Content Release Worker
+
+- Giao đúng **một Content Release Worker** sau M1-M4, vẫn dùng cùng D1 của
+  modular monolith. Core ghi thay đổi revision và transactional outbox trong
+  cùng transaction; trigger-injected regression xác nhận nếu outbox lỗi thì
+  publish rollback về `approved`, không có trạng thái nửa vời.
+- Contract v1 khóa đúng bốn event `content.validation.requested`,
+  `content.release.requested`, `content.release.completed` và
+  `content.release.failed`; mọi payload giữ schema version, SHA-256,
+  correlation/causation ID và audit publication.
+- Delivery là **at-least-once + kết quả idempotent**: lease hết hạn được thu hồi,
+  retry dùng exponential backoff, poison/stale/package-conflict đi dead letter,
+  còn replay yêu cầu quyền `content:publish`, có audit và dedupe theo nguồn.
+  Không có tuyên bố exactly-once.
+- Worker chỉ đổi runtime head sau khi package JSON và manifest đã hoàn tất, khớp
+  content/validation/package hash. Package bất biến theo revision; bản runtime
+  cũ tiếp tục phục vụ nếu replacement lỗi và được thay nguyên tử khi bản mới
+  hoàn tất. Archive không thể xóa nhầm head của revision mới hơn.
+- Learner runtime không còn đọc trực tiếp revision mang nhãn `published`; chỉ
+  đọc package đang được head chọn và xác minh lại digest. Answer/explanation của
+  `exam_item` vẫn bị loại khỏi projection người học.
+- Migration `0019_ordinary_guardian.sql` đưa baseline lên **20 migration/38
+  bảng**, thêm 6 trigger bất biến/fence và sửa D1 check để `exam_form` đi qua
+  repository thật. Restore rehearsal, Drizzle check và post-restore write xanh.
+- Deploy boundary duy nhất nằm tại `workers/content-release/`: cron drain cùng
+  D1, health endpoint và manual drain fail-closed bằng bearer secret. Config cố
+  ý giữ database ID placeholder; worker, Sites và production **chưa deploy**.
+- Targeted contract/repository/route/atomicity/duplicate/crash-retry/poison/
+  stale/archive/replay đạt **18/18**; typecheck và lint xanh. Full `npm run check`
+  xanh **260 file/1.921 test**, build giữ **796,4/800 KiB**. E2E chạy một lượt
+  có 29/30 xanh và phát hiện đúng một expectation đăng nhập cũ; sửa expectation
+  về cổng `/signin` đa phương thức rồi targeted rerun 1/1 xanh, nên đủ 30 hành
+  trình đã xác nhận mà không lặp toàn suite.
+- Lighthouse cold-profile median mobile đạt **Performance 97, Accessibility
+  100, Best Practices 100, SEO 100**, LCP 2.044 ms, CLS 0, TBT 118 ms. Audit
+  production ban đầu bắt `nanoid` 3.3.16; lockfile được nâng hẹp lên 3.3.18,
+  audit cuối **0 lỗ hổng**, supply-chain policy và build lại đều xanh.
+- Login giữ 4/4; roles 3/3; workflow 6/6; Mock Exam 4/4 level và 8/8 form;
+  worker đạt 1/1. Readiness mở rộng đạt **97%**, readiness toàn dự án giữ 96%;
+  HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich HSK1-4
+  213/213 không đổi.
+
 ## 5. Đường dữ liệu B4
 
 1. Tái sử dụng toàn bộ inventory, blueprint và draft HSK4 hiện có; không xây lại
@@ -467,6 +512,10 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   smoke production harness xác nhận `/exams` có đủ 8 form và cả bốn level khóa
   đúng ở auth gate trên desktop/mobile, không tràn ngang hay lỗi browser. Full
   check/E2E vẫn giữ đúng ranh giới sau M1-M5.
+- M5 targeted worker và integration xanh 18/18; full check xanh 260 file/1.921
+  test. E2E tổng xanh 29/30 trước khi expectation provider cũ được sửa, targeted
+  ca còn lại xanh 1/1; Lighthouse median 97/100/100/100 và audit production cuối
+  0 lỗ hổng sau bản vá lockfile hẹp. Không chạy `verify:production`.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 
@@ -476,11 +525,10 @@ Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm 
 - B1 commit `5ad93ae`; B3 commit `c295191`; B4 commit `13fa277`; package handoff
   hiện hành `foundation-2026.08.5`; B8.1 là batch giọng Cơ Linh hiện tại.
 - Không commit staging, build output hoặc report thử.
-- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M4 chỉ
-  mở Mock Exam local đã được người dùng chủ động yêu cầu.
+- Không thay learning evidence, FSRS, Reader, Review, hosting hay Sites; M5 chỉ
+  đóng đường phát hành local đã được người dùng chủ động yêu cầu.
 
-**Batch lớn tiếp theo là M5 — Content Release Worker.** M5 sẽ giao đúng một
-worker idempotent đưa revision đã approved/published qua projection/runtime có
-version, audit và rollback an toàn; không mở thêm hạ tầng hay CMS thương mại.
-Sites, deployment production, commerce, CMS thương mại và human-review workflow
-vẫn đóng.
+**M1-M5 đã hoàn thành.** Bước kế tiếp nhìn thấy được là handoff/demo local trên
+commit M5 và chỉ mở batch sản phẩm mới khi người dùng chọn phạm vi. Không tự mở
+thêm microservice, CMS thương mại, Sites hay deployment production; commerce và
+human-review workflow vẫn đóng.

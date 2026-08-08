@@ -6,6 +6,7 @@ import {
   studioError,
   studioMutationError,
 } from "../../../../../../src/server/contentStudioHttp";
+import { requestCorrelationId } from "../../../../../../src/server/auditRepository";
 import { ContentStudioRepository } from "../../../../../../src/server/contentStudioRepository";
 import { noStoreJsonHeaders } from "../../../../../../src/sync/protocol";
 
@@ -44,6 +45,7 @@ export async function POST(
       revisionId,
       expectedRowVersion: body.expectedRowVersion,
       idempotencyKey: readIdempotencyKey(request, body.idempotencyKey),
+      requestId: requestCorrelationId(request),
     });
     return Response.json({ revision }, { headers: noStoreJsonHeaders });
   } catch (error) {

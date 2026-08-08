@@ -1,6 +1,6 @@
 # Kế hoạch HANZI.OS — bản đồ án/tự học HSK0 đến HSK4
 
-Cập nhật: 07/08/2026
+Cập nhật: 08/08/2026
 
 Production thương mại và Sites vẫn ngoài critical path. Người dùng đã chủ động
 mở phạm vi mở rộng local M1-M5: identity, role/admin, CMS-lite Content Studio,
@@ -15,15 +15,16 @@ package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
 hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
 Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
-M1-M4 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
+M1-M5 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
 không auto-match email, quản lý phiên/thiết bị, ba vai trò, step-up, cấu hình,
-audit append-only, Content Studio sáu trạng thái và tám Mock Exam HSK1-4 có
-chấm điểm phía máy chủ trong modular monolith.
+audit append-only, Content Studio sáu trạng thái, tám Mock Exam HSK1-4 có
+chấm điểm phía máy chủ và một Content Release Worker bền vững trong modular
+monolith.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
-- **Sẵn sàng phạm vi mở rộng M1-M5: 94/100**.
+- **Sẵn sàng phạm vi mở rộng M1-M5: 97/100**.
 - **Login 4/4; roles 3/3; workflow 6/6; Mock Exam 4/4 level, 8/8 form;
-  Content Release Worker 0/1.**
+  Content Release Worker 1/1.**
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
 - **HSK2:** 40/40 learner-visible, rich 40/40.
@@ -368,6 +369,38 @@ và account lifecycle hiện có.
   HSK4 78/78 và rich HSK1-4 213/213 không đổi. M5 tiếp theo giao đúng một
   Content Release Worker.
 
+### M5 — Content Release Worker
+
+**Hoàn thành tại readiness phạm vi mở rộng 97%; không cộng điểm nội dung.**
+
+- giao đúng một worker boundary dùng chung D1 của modular monolith, không tách
+  microservice. Publish/validate ghi domain change và outbox cùng transaction;
+  regression trigger lỗi xác nhận publish rollback nguyên tử;
+- khóa contract v1 cho bốn event validation requested, release requested,
+  release completed và release failed, kèm payload digest, correlation,
+  causation và audit;
+- worker dùng lease recovery, exponential backoff, dead letter và replay có
+  quyền `content:publish`. Delivery là at-least-once, còn package/head/completion
+  idempotent; không tuyên bố exactly-once;
+- package và manifest bất biến theo revision, giữ content/validation/package
+  hash. Runtime chỉ đổi head sau complete, tiếp tục dùng package cũ khi
+  replacement lỗi và không đọc trực tiếp revision chỉ vì có nhãn `published`;
+- worker sanitize answer/explanation của `exam_item`, fence stale/deleted/archive
+  và package conflict. Replay có audit, causation chain và dedupe theo nguồn;
+- migration `0019_ordinary_guardian.sql` đưa D1 lên 20 migration/38 bảng với 6
+  trigger bất biến/fence, đồng thời cho `exam_form` qua constraint thật;
+- deploy boundary duy nhất ở `workers/content-release/` có cron, health và
+  manual drain fail-closed. Database ID vẫn là placeholder; không deploy worker,
+  Sites hay production;
+- targeted 18/18, full check 260 file/1.921 test, build 796,4/800 KiB. E2E tổng
+  xanh 29/30 trước khi sửa một expectation Sign in with ChatGPT cũ; ca đó rerun
+  targeted 1/1 xanh, không lặp full suite. Lighthouse median mobile đạt
+  97/100/100/100; audit production cuối 0 lỗ hổng sau khi nâng hẹp `nanoid`
+  3.3.16 → 3.3.18. Không chạy `verify:production`;
+- login 4/4, roles 3/3, workflow 6/6, Mock Exam 4/4 level và 8/8 form, worker
+  1/1. HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich
+  HSK1-4 213/213 không đổi.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -392,8 +425,8 @@ không tạo điểm.
 | Role/admin/config/audit | 8 | 8 | M2 hoàn thành, roles 3/3 |
 | Content governance | 7 | 7 | M3 hoàn thành, workflow UI 6/6 |
 | HSK Mock Exam | 7 | 7 | M4 hoàn thành, 4/4 level và 8/8 form |
-| Content Release Worker | 3 | 0 | 0/1, batch M5 tiếp theo |
-| **Tổng** | **100** | **94** | **M1-M4 hoàn thành** |
+| Content Release Worker | 3 | 3 | M5 hoàn thành, worker 1/1 |
+| **Tổng** | **100** | **97** | **M1-M5 hoàn thành** |
 
 ## 7. Ranh giới nguồn và review
 

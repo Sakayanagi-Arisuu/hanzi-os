@@ -1,12 +1,17 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
+import { studioStarterContent } from "../content/studioContent";
 import type { D1Database, D1PreparedStatement, D1RunResult } from "./d1";
 import {
   ContentStudioConcurrencyError,
   ContentStudioRepository,
   ContentStudioTransitionError,
 } from "./contentStudioRepository";
+import {
+  ContentReleaseWorker,
+  ContentReleaseWorkerRepository,
+} from "./contentReleaseWorker";
 
 const migrationDirectory = new URL("../../drizzle/", import.meta.url);
 const migrations = readdirSync(migrationDirectory)
@@ -100,7 +105,31 @@ const createDraft = (repository: ContentStudioRepository) => repository.createDr
   idempotencyKey: "create:greeting-01",
 });
 
+const drainReleases = (database: SQLiteD1) => new ContentReleaseWorker(
+  new ContentReleaseWorkerRepository(database),
+).drain();
+
 describe("governed Content Studio revisions", () => {
+  it("persists exam forms through the D1 item-type boundary", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    await expect(repository.createDraft({
+      actorUserId: "editor",
+      actorSessionId: "editor-session",
+      itemType: "exam_form",
+      stableKey: "hsk1.mock.form-a",
+      title: "HSK1 mock form A",
+      level: "hsk1",
+      content: studioStarterContent("exam_form"),
+      idempotencyKey: "create:hsk1-mock-form-a",
+    })).resolves.toMatchObject({
+      itemType: "exam_form",
+      stableKey: "hsk1.mock.form-a",
+      workflowState: "draft",
+    });
+  });
+
   it("keeps a failed five-pass or answer check in draft", async () => {
     const database = new SQLiteD1();
     addUsers(database);
@@ -192,6 +221,8 @@ describe("governed Content Studio revisions", () => {
       requestId: "request-publish-greeting",
     });
     expect(published.workflowState).toBe("published");
+    await expect(repository.publishedRuntime()).resolves.toMatchObject({ items: [] });
+    await drainReleases(database);
     await expect(repository.publishedRuntime()).resolves.toMatchObject({
       policy: "published-only",
       manifestSha256: expect.stringMatching(/^sha256:[a-f0-9]{64}$/u),
@@ -270,6 +301,7 @@ describe("governed Content Studio revisions", () => {
       expectedRowVersion: approved.rowVersion, toState: "published",
       idempotencyKey: "publish:greeting-immutable", requestId: "request-publish-immutable",
     });
+    await drainReleases(database);
 
     expect(() => database.sqlite.prepare(
       "UPDATE content_revisions SET title = 'tampered' WHERE id = ?",
