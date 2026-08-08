@@ -163,7 +163,7 @@ const openReceiptToSession = (
 function MockExamResultView({ result }: { result: MockResult }) {
   return (
     <div className="mock-exam-result">
-      <span className="system-kicker">SERVER-SCORED · UNCALIBRATED</span>
+      <span className="system-kicker">KẾT QUẢ MÔ PHỎNG ĐẠI KHẢO</span>
       <h1>{result.definition.title}</h1>
       <div className="assessment-score">
         <strong>{result.score.percent}%</strong>
@@ -171,8 +171,8 @@ function MockExamResultView({ result }: { result: MockResult }) {
       </div>
       <p>
         {result.timedOut ? "Phiên đã được chốt khi hết giờ. " : ""}
-        Điểm chỉ mô tả form này; không mở prerequisite, không tạo speaking
-        mastery và không phải chứng nhận HSK.
+        Điểm phản ánh lần làm đề này và giúp chọn bài nên ôn lại; đây không phải
+        điểm thi hay chứng chỉ HSK chính thức.
       </p>
       <div className="mock-skill-grid">
         {result.skills.map((skill) => (
@@ -184,7 +184,7 @@ function MockExamResultView({ result }: { result: MockResult }) {
       </div>
       {result.recommendations.length > 0 && (
         <section className="mock-recommendations">
-          <h2>Bài thật nên học lại</h2>
+          <h2>Bài nên ôn lại</h2>
           {result.recommendations.map((item) => (
             <Link key={item.lessonId} to={item.href}>
               {item.lessonId} · liên quan {item.wrongCount} câu sai
@@ -194,7 +194,7 @@ function MockExamResultView({ result }: { result: MockResult }) {
         </section>
       )}
       <section className="mock-review-list">
-        <h2>Review đáp án sau khi đã nộp</h2>
+        <h2>Xem lại đáp án</h2>
         {result.review.map((item) => (
           <details key={item.itemVersion}>
             <summary>
@@ -235,11 +235,11 @@ function MockExamCatalog() {
       <header className="mock-exam-hero">
         <Target size={42} />
         <span className="system-kicker">MÔ PHỎNG ĐẠI KHẢO · HSK1–4</span>
-        <h1>Tám form luyện thi có chấm điểm phía máy chủ</h1>
+        <h1>Tám đề mô phỏng HSK1–4</h1>
         <p>
-          Mỗi level có form A/B riêng, có giới hạn thời gian, resume và lịch sử.
-          Đây là nội dung AI-assisted, humanReviewed=false; không phải đề chính
-          thức hay chứng nhận HSK.
+          Mỗi cấp có đề A/B riêng, giới hạn thời gian, tiếp tục phiên đang dở và
+          lưu lịch sử. Đây là bài luyện tập của HANZI.OS, không phải đề thi chính
+          thức hay chứng chỉ HSK.
         </p>
         <div className="assessment-actions">
           {sync.session?.authenticated ? (
@@ -285,7 +285,7 @@ function MockExamHistory() {
   }
   return (
     <div className="mock-exam-page">
-      <header className="mock-exam-hero"><History size={40} /><span className="system-kicker">VERSIONED HISTORY</span><h1>Lịch sử Mock Exam</h1><p>Kết quả cũ giữ nguyên content/form/item version và không thay đổi khi form mới được phát hành.</p></header>
+      <header className="mock-exam-hero"><History size={40} /><span className="system-kicker">HÀNH TRÌNH ĐẠI KHẢO</span><h1>Lịch sử làm đề</h1><p>Xem lại điểm, đáp án và bài ôn gợi ý của những lần làm trước.</p></header>
       {error && <p role="alert">{error}</p>}
       {history === null ? <p>Đang tải lịch sử...</p> : history.length === 0 ? <p>Chưa có Mock Exam đã nộp.</p> : history.map((result) => <MockExamResultView key={result.sessionId} result={result} />)}
     </div>
@@ -372,7 +372,7 @@ function MockExamRunner() {
     setError(null);
     try {
       const environment = await commandEnvironment();
-      if (!environment) throw new Error("Projection tài khoản chưa sẵn sàng.");
+      if (!environment) throw new Error("Tài khoản đang được chuẩn bị. Hãy thử lại sau giây lát.");
       const response = await postJson<{ result: MockResult }>(`${endpoint}/submit`, {
         protocolVersion: 1,
         idempotencyKey: stableBrowserCommandKey(
@@ -408,7 +408,7 @@ function MockExamRunner() {
     setError(null);
     try {
       const environment = await commandEnvironment();
-      if (!environment) throw new Error("Đang chờ enrollment và owner scope chính xác.");
+      if (!environment) throw new Error("Tài khoản đang được chuẩn bị. Hãy thử lại sau giây lát.");
       const storageKey = `hanzi.mock.open.${level}.${form}`;
       const idempotencyKey = stableBrowserCommandKey(
         storageKey,
@@ -444,7 +444,7 @@ function MockExamRunner() {
     setError(null);
     try {
       const environment = await commandEnvironment();
-      if (!environment) throw new Error("Owner scope đã thay đổi.");
+      if (!environment) throw new Error("Phiên tài khoản vừa thay đổi. Hãy tải lại trang.");
       await postJson(`${endpoint}/attempts`, {
         protocolVersion: 1,
         idempotencyKey: stableBrowserCommandKey(
@@ -486,15 +486,15 @@ function MockExamRunner() {
   };
 
   if (!sync.session?.authenticated) {
-    return <div className="lesson-state-screen"><ShieldCheck size={44} /><span>SERVER-AUTHORITATIVE</span><h1>Mock Exam cần đăng nhập</h1><p>Đáp án nằm phía máy chủ nên form không có chế độ chấm local.</p><Link className="primary-button" to={`/signin?returnTo=${encodeURIComponent(`/exams/${level}/${form}`)}`}>Đăng nhập để tiếp tục</Link></div>;
+    return <div className="lesson-state-screen"><ShieldCheck size={44} /><span>LƯU BÀI VÀ TIẾP TỤC SAU</span><h1>Đăng nhập để làm đề</h1><p>Tài khoản giúp lưu thời gian, câu trả lời, kết quả và lịch sử làm đề.</p><Link className="primary-button" to={`/signin?returnTo=${encodeURIComponent(`/exams/${level}/${form}`)}`}>Mở cổng đăng nhập</Link></div>;
   }
   if (result) return <MockExamResultView result={result} />;
   if (!definition) return <div className="lesson-state-screen"><Target size={42} /><h1>Đang kiểm tra form...</h1>{error && <p role="alert">{error}</p>}</div>;
   if (!session) {
-    return <div className="assessment-intro"><Target size={42} /><span className="system-kicker">{definition.title}</span><h1>Hướng dẫn trước khi bắt đầu</h1><p>{definition.itemCount} câu trong {definition.timeLimitMinutes} phút. Mỗi lựa chọn được ghi bất biến phía máy chủ; đóng trang vẫn có thể resume. TTS là giọng tổng hợp, humanReviewed=false.</p><div className="assessment-facts"><span><Clock3 size={18} /><strong>{definition.timeLimitMinutes} phút</strong><small>server timeout</small></span><span><ShieldCheck size={18} /><strong>Không lộ đáp án</strong><small>chỉ review sau nộp</small></span><span><History size={18} /><strong>Có resume</strong><small>giữ form version</small></span></div>{error && <p role="alert">{error}</p>}<div className="assessment-actions"><Link className="secondary-button" to="/exams"><ArrowLeft size={16} /> Quay lại</Link><button className="primary-button" type="button" disabled={busy} onClick={() => void start()}>Bắt đầu <ArrowRight size={16} /></button></div></div>;
+    return <div className="assessment-intro"><Target size={42} /><span className="system-kicker">{definition.title}</span><h1>Hướng dẫn trước khi bắt đầu</h1><p>{definition.itemCount} câu trong {definition.timeLimitMinutes} phút. Đóng trang vẫn có thể quay lại làm tiếp. Câu nghe dùng giọng máy tổng hợp.</p><div className="assessment-facts"><span><Clock3 size={18} /><strong>{definition.timeLimitMinutes} phút</strong><small>đồng hồ tự chạy</small></span><span><ShieldCheck size={18} /><strong>Không lộ đáp án</strong><small>xem lại sau khi nộp</small></span><span><History size={18} /><strong>Tiếp tục được</strong><small>giữ phiên đang dở</small></span></div>{error && <p role="alert">{error}</p>}<div className="assessment-actions"><Link className="secondary-button" to="/exams"><ArrowLeft size={16} /> Quay lại</Link><button className="primary-button" type="button" disabled={busy} onClick={() => void start()}>Bắt đầu <ArrowRight size={16} /></button></div></div>;
   }
   if (!currentItem) {
-    return <div className="lesson-state-screen"><ShieldCheck size={42} /><h1>Đã ghi đủ {session.recorded.length} câu</h1>{error && <p role="alert">{error}</p>}<button className="primary-button" disabled={busy} type="button" onClick={() => void submit()}>Nộp bài để chấm phía máy chủ</button></div>;
+    return <div className="lesson-state-screen"><ShieldCheck size={42} /><h1>Đã trả lời đủ {session.recorded.length} câu</h1>{error && <p role="alert">{error}</p>}<button className="primary-button" disabled={busy} type="button" onClick={() => void submit()}>Nộp bài và xem kết quả</button></div>;
   }
   const seconds = Math.ceil(remainingMs / 1_000);
   return (
@@ -503,10 +503,10 @@ function MockExamRunner() {
       <section className="assessment-question">
         <span className="system-kicker">{currentItem.modality === "synthetic-tts-selection" ? <Headphones size={15} /> : <Target size={15} />} {currentItem.meta}</span>
         <h1>{currentItem.prompt}</h1>
-        {currentItem.modality === "synthetic-tts-selection" && currentItem.stimulusText && <><button className="sound-orb" type="button" onClick={() => speakMandarin(currentItem.stimulusText!)}><Volume2 size={36} /><span /></button><p>TTS tổng hợp chỉ phục vụ luyện nghe, không phải native audio hay speaking mastery.</p></>}
+        {currentItem.modality === "synthetic-tts-selection" && currentItem.stimulusText && <><button className="sound-orb" type="button" onClick={() => speakMandarin(currentItem.stimulusText!)}><Volume2 size={36} /><span /></button><p>Giọng máy tổng hợp dùng để luyện nghe trên thiết bị.</p></>}
         <div className="assessment-options" role="radiogroup" aria-label={`Lựa chọn câu ${currentItem.position + 1}`}>{currentItem.options.map((option, index) => <button key={option} className={selected === option ? "selected" : ""} role="radio" aria-checked={selected === option} type="button" disabled={busy} onClick={() => setSelected(option)}><span>{String.fromCharCode(65 + index)}</span><strong>{option}</strong></button>)}</div>
       </section>
-      <footer><div role="status">{error ? <p>{error}</p> : <p>Máy chủ chỉ xác nhận đã lưu; chưa trả đúng/sai khi đang làm bài.</p>}</div><button className="primary-button" disabled={!selected || busy} type="button" onClick={() => void record()}>Ghi câu trả lời <ArrowRight size={16} /></button></footer>
+      <footer><div role="status">{error ? <p>{error}</p> : <p>Câu trả lời được lưu; đáp án sẽ hiện sau khi bạn nộp bài.</p>}</div><button className="primary-button" disabled={!selected || busy} type="button" onClick={() => void record()}>Lưu và sang câu tiếp <ArrowRight size={16} /></button></footer>
     </div>
   );
 }

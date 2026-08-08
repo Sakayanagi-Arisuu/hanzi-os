@@ -9,15 +9,15 @@ const messageForReason = (
   reason: NormalizedLearningProjectionRuntimeReason | null,
 ) => {
   if (reason === "content-unavailable" || reason === "no-released-enrollment") {
-    return "Gói học hiện tại chưa có enrollment gắn với nội dung đã được duyệt và phát hành. Dữ liệu cục bộ không được dùng để mở bài thay thế.";
+    return "Kho bài học đang được chuẩn bị cho tài khoản này. Tiến độ trên máy vẫn được giữ nguyên.";
   }
   if (reason === "authentication-required" || reason === "owner-scope-mismatch") {
     return "Quyền sở hữu kho học đã thay đổi. Hãy chờ hệ thống xác nhận đúng tài khoản trước khi tiếp tục.";
   }
   if (reason === "reset-mismatch") {
-    return "Mốc đặt lại tiến độ vừa thay đổi. Cache cũ đã bị loại và không thể dùng để mở bài.";
+    return "Tiến độ vừa được làm mới. Hãy tải lại để tiếp tục với trạng thái mới nhất.";
   }
-  return "Chưa thể xác nhận projection học tập có thẩm quyền. Tiến độ, XP hoặc completion do trình duyệt giữ sẽ không được dùng để mở khóa.";
+  return "Chưa thể tải trạng thái học mới nhất. Hãy thử lại; tiến độ trên máy vẫn được bảo toàn.";
 };
 
 export function NormalizedLearningAuthorityGate({
@@ -33,9 +33,9 @@ export function NormalizedLearningAuthorityGate({
   return (
     <div className="lesson-state-screen" role="status" aria-live="polite">
       {loading ? <BrainCircuit size={44} /> : <ShieldAlert size={44} />}
-      <h1>{loading ? "Đang xác nhận tiến độ máy chủ" : "Chưa thể cấp quyền học có thẩm quyền"}</h1>
+      <h1>{loading ? "Đang khôi phục hành trình" : "Chưa thể mở kho học"}</h1>
       <p>{loading
-        ? "Hệ thống đang đối chiếu tài khoản, owner generation và mốc đặt lại trước khi hiển thị lộ trình."
+        ? "Hệ thống đang nối tài khoản với tiến độ mới nhất."
         : messageForReason(reason)}</p>
       {!loading && (
         <button className="primary-button" type="button" onClick={refresh}>

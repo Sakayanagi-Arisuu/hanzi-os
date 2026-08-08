@@ -7,8 +7,10 @@ import { CONTENT_VERSION } from "../../data/curriculum";
 import type { LearningEvidence } from "../../types";
 import {
   estimateObservedAccuracyFromCounts,
+  formatLearnerEvidence,
   formatObservedEstimateCompact,
   estimateObservedAccuracy,
+  learnerEvidenceDepthPercent,
   summarizeAssessmentEvidence,
   wilson95Interval,
 } from "./skillEstimate";
@@ -86,6 +88,16 @@ describe("observed assessment confidence", () => {
     ]))).toBe("1/2 · CI 95% 9–91%");
     expect(formatObservedEstimateCompact(estimateObservedAccuracy([])))
       .toBe("chưa đo · n=0");
+  });
+
+  it("keeps learner bars shallow when a perfect result has little evidence", () => {
+    const twoCorrect = estimateObservedAccuracy([
+      { id: "a", correct: true },
+      { id: "b", correct: true },
+    ]);
+    expect(learnerEvidenceDepthPercent(twoCorrect)).toBe(20);
+    expect(formatLearnerEvidence(twoCorrect)).toBe("2/2 đúng · cần thêm");
+    expect(formatLearnerEvidence(estimateObservedAccuracy([]))).toBe("Chưa có lượt");
   });
 
   it("deduplicates exposure groups and ignores prior exposure", () => {

@@ -77,7 +77,10 @@ export function LessonDepthPanel({
                   <strong>{point.label}</strong>
                 </summary>
                 <div className="rich-grammar-body">
-                  <p>{point.explanationVi}</p>
+                  <p>{point.explanationVi.replace(
+                    /;\s*hoạt động tự kiểm không cấp mastery\./giu,
+                    ".",
+                  )}</p>
                   <button
                     type="button"
                     onClick={() => speakMandarin(point.modelExample.hanzi)}

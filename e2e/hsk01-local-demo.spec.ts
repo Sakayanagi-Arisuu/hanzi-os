@@ -283,7 +283,7 @@ const answerCurrentExercise = async (
   if (!exercise) throw new Error(`Lesson ${lessonId} form is incomplete`);
 
   await selectExerciseAnswer(page, exercise, correct);
-  await page.getByRole("button", { name: "Xác nhận" }).click();
+  await page.getByRole("button", { name: "Xác nhận", exact: true }).click();
   const nextButtonName = before.index === before.exercises.length - 1
     ? "Hoàn tất thử luyện"
     : "Câu tiếp theo";
@@ -409,9 +409,10 @@ test("walks the real local UI from the HSK0 bridge into rich HSK1 study", async 
 
   await page.goto("/path");
   await expect(page.getByText(
-    "Tự khai cấp độ không tự miễn prerequisite.",
+    "Cấp độ bạn tự chọn giúp cá nhân hóa lộ trình",
     { exact: false },
   )).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("prerequisite");
   const allVisibleLessonIds = [
     ...demo.scenario.bridgeLessonIds,
     demo.scenario.boundaryUnlockLessonId,
@@ -776,7 +777,7 @@ test("walks the real local UI from the HSK0 bridge into rich HSK1 study", async 
     name: "Ngữ pháp trong ngữ cảnh",
   })).toBeVisible();
   await expect(page.getByText(
-    /Codex rà soát bằng AI cho mục đích tự học/i,
+    /AI hỗ trợ biên soạn và rà soát/i,
   )).toBeVisible();
 
 });

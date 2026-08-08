@@ -56,8 +56,8 @@ export function LocalReaderPage() {
     return (
       <div className="lesson-state-screen">
         <BookOpenText size={44} />
-        <h1>Chưa có bài đọc practice local</h1>
-        <p>Bài đọc sẽ xuất hiện sau khi hoàn tất cổng biên tập nội dung.</p>
+        <h1>Chưa có bài đọc phù hợp</h1>
+        <p>Bài đọc mới sẽ xuất hiện khi sẵn sàng cho cấp độ của bạn.</p>
       </div>
     );
   }
@@ -112,14 +112,14 @@ export function LocalReaderPage() {
           </span>
           <h1>Vạn Quyển Các</h1>
           <p>
-            Bản local dùng nội dung đã nằm trong bundle để luyện tập. Kết quả
-            được lưu để xem lại nhưng không được tính là mastery đã xác thực.
+            Nội dung được lưu sẵn trên thiết bị để bạn có thể luyện cả khi mất
+            mạng. Kết quả được giữ lại để xem và ôn thêm khi cần.
           </p>
         </div>
         <div className="reader-hero-stats">
           <span>
             <strong>{RELEASED_STORIES.length}</strong>
-            <small>truyện practice local</small>
+              <small>truyện luyện đọc</small>
           </span>
           <span>
             <strong>{knownWords.length}</strong>

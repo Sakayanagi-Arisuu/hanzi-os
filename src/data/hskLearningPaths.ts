@@ -56,7 +56,7 @@ export const HSK_LEARNING_PATHS = [
       "Pinyin, khẩu hình, nghe-phân biệt, thanh điệu và những lượt thoại đầu tiên.",
     availability: "foundation",
     availabilityNote:
-      "Foundation hiện có một phần bootcamp; coverage HSK0 đầy đủ đang được mở rộng.",
+      "Bốn bài nhập môn hiện đã sẵn sàng để bắt đầu từ số 0.",
     skillWeights: {
       pronunciation: 0.28,
       listening: 0.24,
@@ -90,7 +90,7 @@ export const HSK_LEARNING_PATHS = [
       "Từ và câu tần suất cao, hỏi đáp cá nhân, thời gian, số lượng và đọc câu.",
     availability: "foundation",
     availabilityNote:
-      "40 bài local đã phủ inventory HSK1; level check vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
+      "40 bài HSK1 và bài tự kiểm tra cuối chặng đã sẵn sàng.",
     skillWeights: {
       pronunciation: 0.14,
       listening: 0.2,
@@ -124,7 +124,7 @@ export const HSK_LEARNING_PATHS = [
       "Hội thoại tình huống, aspect và bổ ngữ nền, sentence building và dictation ngắn.",
     availability: "foundation",
     availabilityNote:
-      "40 bài local đã phủ inventory HSK2; level check 60 câu vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
+      "40 bài HSK2 và bài tự kiểm tra cuối chặng đã sẵn sàng.",
     skillWeights: {
       pronunciation: 0.08,
       listening: 0.19,
@@ -159,7 +159,7 @@ export const HSK_LEARNING_PATHS = [
       "Đọc/nghe đoạn, kể lại, dictation, grammar production và viết đoạn có hướng dẫn.",
     availability: "foundation",
     availabilityNote:
-      "55 bài local đã phủ inventory HSK3; level check 54 câu vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
+      "55 bài HSK3 và bài tự kiểm tra cuối chặng đã sẵn sàng.",
     skillWeights: {
       pronunciation: 0.05,
       listening: 0.2,
@@ -194,7 +194,7 @@ export const HSK_LEARNING_PATHS = [
       "Văn bản dài hơn, chủ đề xã hội, paraphrase, tóm tắt, viết/nói có cấu trúc và timed mock.",
     availability: "foundation",
     availabilityNote:
-      "78 bài local đã phủ inventory HSK4; level check 72 câu vẫn là tự kiểm tra chưa hiệu chuẩn, không phải chứng nhận HSK.",
+      "78 bài HSK4 và bài tự kiểm tra cuối chặng đã sẵn sàng.",
     skillWeights: {
       pronunciation: 0.04,
       listening: 0.2,

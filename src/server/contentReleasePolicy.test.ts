@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
+  contentReleasePolicyForEnvironment,
   isPromotedContentReleasePolicy,
   promotedCourseReleaseState,
   type ContentReleasePolicy,
@@ -17,6 +18,17 @@ const alphaPolicy: ContentReleasePolicy = {
 };
 
 describe("runtime content release policy", () => {
+  it("opens only an exact closed-alpha preview in local development", () => {
+    const local = contentReleasePolicyForEnvironment("development");
+    expect(isPromotedContentReleasePolicy(local)).toBe(true);
+    expect(promotedCourseReleaseState(local)).toBe("beta");
+    expect(local.productionEligible).toBe(false);
+
+    const production = contentReleasePolicyForEnvironment("production");
+    expect(isPromotedContentReleasePolicy(production)).toBe(false);
+    expect(promotedCourseReleaseState(production)).toBeNull();
+  });
+
   it("accepts an exact-hash closed-alpha promotion without calling it production", () => {
     expect(isPromotedContentReleasePolicy(alphaPolicy)).toBe(true);
     expect(promotedCourseReleaseState(alphaPolicy)).toBe("beta");

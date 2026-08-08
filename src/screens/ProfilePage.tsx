@@ -326,7 +326,7 @@ export function ProfilePage() {
           <div className="sys-profile-identity" aria-label="Danh hiệu nội bộ HANZI.OS">
             <Award size={22} />
             <span><small>CHỨC HỆ ĐỊNH HƯỚNG</small><strong>{systemClass.title}</strong><em>{systemClass.plain}</em></span>
-            <span><small>DANH HIỆU HÀNH TRÌNH</small><strong>{journeyTitle}</strong><em>Không phải chứng nhận HSK hoặc xác nhận mastery.</em></span>
+            <span><small>DANH HIỆU HÀNH TRÌNH</small><strong>{journeyTitle}</strong><em>Danh hiệu động lực trong HANZI.OS.</em></span>
           </div>
           <label className="field-label">
             <span>Tên hiển thị</span>
@@ -623,7 +623,7 @@ export function ProfilePage() {
                 <Sparkles size={16} /> Nghe thử giọng đang chọn
               </button>
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
-              <small className="sys-audio-disclosure">Cơ Linh dùng voice ElevenLabs đã chọn; ba giọng còn lại là VieNeu local có nhịp nghỉ. Tất cả là synthetic, humanReviewed=false, chỉ dùng để demo/tự học.</small>
+              <small className="sys-audio-disclosure">Các nhân cách dùng giọng máy tổng hợp để xướng lệnh và hỗ trợ tự học trên thiết bị.</small>
             </div>
           </fieldset>
           <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>

@@ -40,6 +40,18 @@ export type AuthRuntimeEnvironment = {
   };
 };
 
+const LOOPBACK_HOSTNAMES = new Set(["localhost", "127.0.0.1", "::1"]);
+
+export function isLocalDevelopmentAuth(
+  requestUrl: string,
+  configuredValue: string | undefined,
+  nodeEnvironment = process.env.NODE_ENV,
+) {
+  const hostname = new URL(requestUrl).hostname;
+  return LOOPBACK_HOSTNAMES.has(hostname)
+    && (configuredValue === "1" || nodeEnvironment === "development");
+}
+
 export const authError = (
   status: number,
   code: string,

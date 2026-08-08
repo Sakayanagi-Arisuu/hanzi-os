@@ -793,6 +793,21 @@ describe("normalized learning projection repository", () => {
     expect(legacy).not.toHaveProperty("latestAssessmentResult");
   });
 
+  it("ignores mock-exam sessions outside the learning assessment blueprint", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    await seedAssessmentProjection(database, "user-a");
+    database.database.prepare(
+      "UPDATE assessment_sessions SET blueprint_id = 'hsk-mock-hsk1-a-v1' WHERE user_id = ?",
+    ).run("user-a");
+
+    await expect(assessmentProjectionRepository(database).readV2("user-a"))
+      .resolves.toMatchObject({
+        activeAssessmentSession: null,
+        latestAssessmentResult: null,
+      });
+  });
+
   it("fails closed when submitted assessment counts do not match the immutable form", async () => {
     const database = new SQLiteD1();
     seedUser(database, "user-a");

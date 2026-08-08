@@ -8,7 +8,7 @@
     "node": ">=22.22.0"
   },
   "scripts": {
-    "dev": "vinext dev",
+    "dev": "npm run db:local:setup && vinext dev",
     "build": "npm run sync:hanzi-data && node scripts/clean-sites-build.mjs && node scripts/build-provenance.mjs start && vinext build && node scripts/build-provenance.mjs finish && node scripts/check-bundle-budget.mjs",
     "start": "vinext start",
     "typecheck": "tsc --noEmit --pretty false",
@@ -262,6 +262,7 @@
     "serve:e2e": "node scripts/serve-production-e2e.mjs",
     "db:generate": "drizzle-kit generate",
     "db:check": "drizzle-kit check",
+    "db:local:setup": "wrangler d1 migrations apply DB --local --config wrangler.local.jsonc --persist-to .wrangler/state",
     "test:restore": "node scripts/rehearse-d1-restore.mjs",
     "sync:hanzi-data": "node scripts/sync-hanzi-data.mjs",
     "verify:lockfile": "node scripts/verify-lockfile-policy.mjs",

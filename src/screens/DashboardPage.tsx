@@ -33,8 +33,8 @@ import {
   type DailyMission,
 } from "../lib/adaptive";
 import {
-  formatObservedEstimate,
-  formatObservedEstimateCompact,
+  formatLearnerEvidence,
+  learnerEvidenceDepthPercent,
   summarizeMasteryEligibleEvidence,
 } from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
@@ -130,12 +130,14 @@ export function DashboardPage() {
     return {
       skill,
       count: estimate.n,
-      accuracy: estimate.observedAccuracy,
       estimate,
     };
   });
   const skillsWithEvidence = skillEvidence.filter((item) => item.count > 0).length;
-  const evidenceCoverage = Math.round((skillsWithEvidence / skillEvidence.length) * 100);
+  const evidenceCoverage = Math.round(
+    skillEvidence.reduce((total, item) => total + learnerEvidenceDepthPercent(item.estimate), 0)
+      / skillEvidence.length,
+  );
   const dailyTarget = state.profile.dailyMinutes * 6;
   const dailyProgress = Math.min(100, Math.round((state.dailyXp / dailyTarget) * 100));
   const authoritativeGoal = normalized.projection?.enrollment?.goal;
@@ -169,7 +171,7 @@ export function DashboardPage() {
           id: "goal-focus",
           code: "PRACTICE-02",
           title: goal.practiceLabel,
-          description: `Luyện bổ trợ cho “${goal.label}”; chưa tự tạo mastery hoặc mở prerequisite.`,
+          description: `Luyện bổ trợ cho “${goal.label}” và củng cố vùng còn yếu trước khi sang bài mới.`,
           to: goal.practicePath,
           minutes: Math.max(4, state.profile.dailyMinutes),
           reward: "Practice-only",
@@ -249,7 +251,7 @@ export function DashboardPage() {
           <span className="metric-icon cyan"><BrainCircuit size={18} /></span>
           <span className="status-copy"><small>Ký ức đến hạn</small><strong>{authenticated ? "—" : dueWordIds.length} mục</strong></span>
           {authenticated
-            ? <p className="status-detail">Lịch server chưa được kích hoạt</p>
+              ? <p className="status-detail">Chưa có lượt ôn đến hạn</p>
             : <Link className="status-detail" to="/review">Ôn ngay <ChevronRight size={14} /></Link>}
         </div>
         <div className="status-cell">
@@ -266,7 +268,7 @@ export function DashboardPage() {
           <p>{goal.destination}</p>
         </div>
         <div className="destiny-readiness" style={{ "--readiness": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
-          <span><strong>{skillsWithEvidence}/7</strong><small>EVIDENCE</small></span>
+              <span><strong>{skillsWithEvidence}/7</strong><small>CÓ DỮ LIỆU</small></span>
         </div>
         <div className="destiny-actions">
           <span><ShieldCheck size={16} /> Hệ thống đang thu thêm bằng chứng cho: <strong>{skillLabels[priorityEvidence.skill]}</strong></span>
@@ -333,22 +335,23 @@ export function DashboardPage() {
           </header>
           <div className="mastery-orbit">
             <div className="mastery-dial" style={{ "--progress": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
-              <span><strong>{eligibleEvidenceCount}</strong><small>VALID EVIDENCE</small></span>
+              <span><strong>{eligibleEvidenceCount}</strong><small>LƯỢT ĐÃ QUAN SÁT</small></span>
             </div>
-            <p>Phiên kế tiếp ưu tiên <strong>{skillLabels[priorityEvidence.skill]}</strong> vì {priorityEvidence.count === 0 ? "kỹ năng này chưa được đo" : `khoảng quan sát hiện tại là ${formatObservedEstimate(priorityEvidence.estimate)}`}.</p>
+            <p>Phiên kế tiếp ưu tiên <strong>{skillLabels[priorityEvidence.skill]}</strong> vì {priorityEvidence.count === 0 ? "kỹ năng này chưa có lượt quan sát" : `mới có ${priorityEvidence.count} lượt đủ điều kiện`}.</p>
           </div>
           <div className="skill-bars">
-            {skillEvidence.map(({ skill, accuracy, estimate }) => {
+            {skillEvidence.map(({ skill, estimate }) => {
               const Icon = skillIcons[skill] ?? Target;
               return (
                 <div key={skill}>
                   <span><Icon size={15} /> {skillLabels[skill]}</span>
-                  <div><i style={{ width: `${accuracy ?? 0}%` }} /></div>
-                  <strong>{formatObservedEstimateCompact(estimate)}</strong>
+                  <div aria-label={`${skillLabels[skill]}: ${formatLearnerEvidence(estimate)}`}><i style={{ width: `${learnerEvidenceDepthPercent(estimate)}%` }} /></div>
+                  <strong>{formatLearnerEvidence(estimate)}</strong>
                 </div>
               );
             })}
           </div>
+          <p className="evidence-method-note">Thanh dài theo số lượt học hợp lệ, không phải phần trăm thành thạo. Tỉ lệ đúng chỉ hiện khi có ít nhất 10 lượt độc lập.</p>
         </section>
       </div>
 

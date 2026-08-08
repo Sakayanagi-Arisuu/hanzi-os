@@ -604,7 +604,7 @@ function AuthenticatedReviewPageScope() {
     return (
       <div className="lesson-state-screen" role="alert">
         <AlertTriangle size={44} />
-        <span>REVIEW COMMAND · QUARANTINED</span>
+          <span>LƯỢT ÔN · CẦN KIỂM TRA</span>
         <h1>Một đánh giá cần được xử lý</h1>
         <p>
           Lệnh thuộc mốc đặt lại hiện tại được giữ lại để không gửi trùng hoặc
@@ -625,8 +625,8 @@ function AuthenticatedReviewPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <BrainCircuit size={44} />
-        <h1>Đang xác minh hàng đợi ôn tập</h1>
-        <p>Hệ thống đang đối chiếu tài khoản, owner generation, reset epoch và gói nội dung hiện tại.</p>
+          <h1>Đang xác minh hàng đợi ôn tập</h1>
+          <p>Hệ thống đang khôi phục đúng thẻ ôn và tiến độ mới nhất của bạn.</p>
       </div>
     );
   }
@@ -636,7 +636,7 @@ function AuthenticatedReviewPageScope() {
       <div className="lesson-state-screen" role="status" aria-live="polite">
         {online ? <Cloud size={44} /> : <CloudOff size={44} />}
         <h1>Chưa thể xác minh lượt ôn</h1>
-        <p>{queueNotice ?? "Hàng đợi chưa sẵn sàng."}{formatRetry(retryAfterMs)}</p>
+        <p>{online ? "Chưa thể tải lượt ôn lúc này." : "Thiết bị đang ngoại tuyến."}{formatRetry(retryAfterMs)}</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
           <RefreshCw size={17} /> Thử lại
         </button>
@@ -651,8 +651,8 @@ function AuthenticatedReviewPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <ShieldAlert size={44} />
-        <h1>Hàng đợi server chưa khả dụng</h1>
-        <p>{queueNotice ?? "Chưa thể cấp hàng đợi ôn tập cho enrollment hiện tại."}</p>
+          <h1>Chưa thể tải thẻ ôn</h1>
+        <p>Chưa có lượt ôn phù hợp với tiến độ hiện tại. Hãy thử tải lại hoặc kiểm tra tài khoản.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
           <RefreshCw size={17} /> Xác minh lại
         </button>
@@ -667,13 +667,9 @@ function AuthenticatedReviewPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <CloudOff size={44} />
-        <span>OWNER-SCOPED CACHE · PREVIEW ONLY</span>
-        <h1>Đang chờ xác minh offer</h1>
-        <p>
-          Cache đúng owner/reset đã được nạp, nhưng đánh giá chỉ được mở sau khi
-          máy chủ xác nhận lại card, từ và phiên bản nội dung.
-          {queueNotice ? ` ${queueNotice}` : ""}
-        </p>
+          <span>ĐANG KHÔI PHỤC THẺ ÔN</span>
+          <h1>Đang kiểm tra lượt ôn</h1>
+        <p>Thẻ ôn đã được khôi phục trên thiết bị. Hệ thống đang xác nhận lại dữ liệu trước khi cho phép đánh giá.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
           <RefreshCw size={17} /> Xác minh qua mạng
         </button>
@@ -691,13 +687,13 @@ function AuthenticatedReviewPageScope() {
           <BrainCircuit size={42} />
           <span />
         </div>
-        <span className="system-kicker">SERVER QUEUE · STANDBY</span>
-        <h1>Chưa có thẻ đến hạn</h1>
-        <p>Máy chủ không phát hành offer ôn tập nào ở mốc reset và gói nội dung hiện tại.</p>
+          <span className="system-kicker">KÝ ỨC TRẬN · SẴN SÀNG</span>
+          <h1>Chưa có thẻ đến hạn</h1>
+          <p>Hiện chưa có từ nào cần ôn. Hãy quay lại sau một phiên học mới.</p>
         <div className="review-summary-grid">
-          <div><small>Offer đến hạn</small><strong>0</strong></div>
+              <div><small>Thẻ đến hạn</small><strong>0</strong></div>
           <div><small>Đang chờ gửi</small><strong>{allPendingRecords.length}</strong></div>
-          <div><small>Bằng chứng mastery</small><strong>0</strong></div>
+              <div><small>Lượt đã ghi nhận</small><strong>0</strong></div>
         </div>
         <button className="secondary-button" type="button" onClick={retryEverything}>
           <RefreshCw size={17} /> Kiểm tra lại
@@ -718,21 +714,21 @@ function AuthenticatedReviewPageScope() {
           <span />
         </div>
         <span className="system-kicker">
-          REVIEW OUTBOX · {pending ? "PENDING" : "ACKNOWLEDGED"}
+          KÝ ỨC TRẬN · {pending ? "ĐANG ĐỒNG BỘ" : "ĐÃ LƯU"}
         </span>
-        <h1>{pending ? "Đánh giá đã được lưu bền vững" : "Lượt ôn đã được gửi"}</h1>
+        <h1>{pending ? "Lượt ôn đã được giữ an toàn" : "Lượt ôn đã được lưu"}</h1>
         <p>
           {pending
             ? online
-              ? "Không còn offer chưa xử lý trên thiết bị này. Đang chờ máy chủ trả receipt và lịch mới."
-              : "Không còn offer chưa xử lý. Các lệnh sẽ được gửi nguyên vẹn khi kết nối trở lại."
-            : "Máy chủ đã xác nhận đánh giá; hàng đợi đang được làm mới theo revision mới nhất."}
+              ? "Các đánh giá đang được đồng bộ để cập nhật lịch ôn mới."
+              : "Bạn có thể đóng trang; các đánh giá sẽ tự gửi khi có mạng trở lại."
+            : "Đánh giá đã được xác nhận và lịch ôn đang được làm mới."}
         </p>
         <div className="review-summary-grid">
           <div><small>Đã xử lý</small><strong>{relevantRecords.length}</strong></div>
           <div><small>Đang chờ gửi</small><strong>{allPendingRecords.length}</strong></div>
           <div><small>Đã xác nhận</small><strong>{allAcknowledgedRecords.length}</strong></div>
-          <div><small>Bằng chứng mastery</small><strong>0</strong></div>
+              <div><small>Lượt đã ghi nhận</small><strong>0</strong></div>
         </div>
         <button className="primary-button" type="button" onClick={syncAndRefresh}>
           <RefreshCw size={17} /> Đồng bộ và làm mới
@@ -748,8 +744,8 @@ function AuthenticatedReviewPageScope() {
     return (
       <div className="lesson-state-screen" role="alert">
         <ShieldAlert size={44} />
-        <h1>Offer không khớp nội dung phát hành</h1>
-        <p>Hệ thống đã dừng trước khi hiển thị hoặc ghi đánh giá cho một từ không hợp lệ.</p>
+          <h1>Thẻ ôn không còn phù hợp</h1>
+          <p>Thẻ này đã được bỏ qua để tránh ghi sai tiến độ. Hãy tải lại hàng ôn.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
           <RefreshCw size={17} /> Tải lại hàng đợi
         </button>
@@ -768,18 +764,18 @@ function AuthenticatedReviewPageScope() {
       <header className="page-hero review-hero">
         <div>
           <span className="system-kicker">
-            <BrainCircuit size={15} /> SERVER FSRS · SELF-RATING
+            <BrainCircuit size={15} /> ÔN TẬP THÔNG MINH · TỰ ĐÁNH GIÁ
           </span>
           <h1>Ký Ức Trận</h1>
           <p>
-            Tự gọi lại cách đọc và ý nghĩa trước khi lật thẻ. Đây là tự đánh
-            giá để máy chủ xếp lịch; không phải bằng chứng mastery.
+            Tự gọi lại cách đọc và ý nghĩa trước khi lật thẻ. Đánh giá của bạn
+            chỉ dùng để sắp lịch ôn tiếp theo.
           </p>
         </div>
         <div className="review-live-stats">
-          <span><strong>{availableCards.length}</strong><small>offer còn lại</small></span>
-          <span><strong>{allPendingRecords.length}</strong><small>đang chờ receipt</small></span>
-          <span><strong>0</strong><small>mastery từ tự đánh giá</small></span>
+              <span><strong>{availableCards.length}</strong><small>thẻ còn lại</small></span>
+              <span><strong>{allPendingRecords.length}</strong><small>đang chờ lưu</small></span>
+              <span><strong>0</strong><small>mức thành thạo từ tự chấm</small></span>
         </div>
       </header>
 
@@ -788,8 +784,10 @@ function AuthenticatedReviewPageScope() {
           <span>
             {online ? <Cloud size={15} /> : <CloudOff size={15} />}
             {actionError
-              ?? queueNotice
-              ?? "Đang ngoại tuyến; offer đã xác minh vẫn có thể được ghi bền vững."}
+              ? "Chưa thể lưu đánh giá lúc này. Hãy kiểm tra kết nối rồi thử lại."
+              : queueNotice
+                ? "Lịch ôn vừa thay đổi và đang được làm mới."
+                : "Đang ngoại tuyến; lượt ôn vẫn được giữ trên thiết bị."}
           </span>
         </div>
       )}
@@ -802,7 +800,7 @@ function AuthenticatedReviewPageScope() {
         aria-valuemax={queue.cards.length}
         aria-valuenow={handledCount}
       >
-        <span>SERVER OFFER {String(handledCount + 1).padStart(2, "0")}</span>
+        <span>THẺ ÔN {String(handledCount + 1).padStart(2, "0")}</span>
         <div><i style={{ width: `${progress}%` }} /></div>
         <strong>{handledCount + 1}/{queue.cards.length}</strong>
       </div>
@@ -814,7 +812,7 @@ function AuthenticatedReviewPageScope() {
         <div className="memory-grid" aria-hidden="true" />
         <div className="memory-card-head">
           <span>
-            <Sparkles size={15} /> {word.partOfSpeech} · nội dung đã phát hành
+            <Sparkles size={15} /> {word.partOfSpeech} · từ vựng trong lộ trình
           </span>
           <button
             className="icon-button"
@@ -871,7 +869,7 @@ function AuthenticatedReviewPageScope() {
             <Gauge size={19} />
             <span>
               <strong id="review-rating-title">Bạn gọi lại tốt đến đâu?</strong>
-              <small>Tự đánh giá không tạo đúng/sai, XP hay bằng chứng mastery.</small>
+              <small>Tự đánh giá chỉ sắp lịch ôn tiếp theo, không tính đúng/sai hay XP.</small>
             </span>
           </div>
           <div className="rating-buttons">
@@ -898,15 +896,15 @@ function AuthenticatedReviewPageScope() {
       <footer className="fsrs-status-line">
         <span>
           <CalendarClock size={15} />
-          Offer đến hạn: {new Date(current.dueAt).toLocaleString("vi-VN")}
+          Lịch ôn: {new Date(current.dueAt).toLocaleString("vi-VN")}
         </span>
         <span>
           <ShieldAlert size={15} />
-          masteryEligible: false
+          Tự đánh giá dùng để xếp lịch ôn
         </span>
         <span>
           <CircleCheck size={15} />
-          Lịch chỉ đổi sau receipt máy chủ
+          Lịch mới xuất hiện sau khi lưu
         </span>
         <span aria-live="polite">
           Tự đánh giá phiên này: {(ratings[1] ?? 0) + (ratings[2] ?? 0)

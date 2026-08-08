@@ -26,8 +26,8 @@ import {
   isMistakeFromActivePathContent,
 } from "../lib/adaptive";
 import {
-  formatObservedEstimate,
-  formatObservedEstimateCompact,
+  formatLearnerEvidence,
+  learnerEvidenceDepthPercent,
   summarizeMasteryEligibleEvidence,
 } from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
@@ -113,12 +113,14 @@ export function AnalyticsPage() {
     return {
       skill,
       count: estimate.n,
-      accuracy: estimate.observedAccuracy,
       estimate,
     };
   });
-  const evidenceAccuracy = observedEvidence.overall.observedAccuracy;
-  const skillsWithEvidence = skillEvidence.filter((item) => item.count > 0).length;
+  const skillsWithEnoughEvidence = skillEvidence.filter((item) => item.count >= 10).length;
+  const evidencePortfolioDepth = Math.round(
+    skillEvidence.reduce((total, item) => total + learnerEvidenceDepthPercent(item.estimate), 0)
+      / skillEvidence.length,
+  );
   const weakest = [...skillEvidence]
     .filter((item) => item.count > 0)
     .sort((a, b) =>
@@ -126,9 +128,6 @@ export function AnalyticsPage() {
       || a.count - b.count
     )
     .slice(0, 3);
-  const strongest = [...skillEvidence]
-    .filter((item) => item.count > 0)
-    .sort((a, b) => (b.accuracy ?? 0) - (a.accuracy ?? 0) || b.count - a.count)[0];
   const goal = GOAL_CONFIG[
     normalized.projection?.enrollment?.goal ?? state.profile.goal
   ];
@@ -146,7 +145,7 @@ export function AnalyticsPage() {
         <div>
           <span className="system-kicker"><BarChart3 size={15} /> THẤT TRỤ · TÍN HIỆU QUAN SÁT</span>
           <h1>Thất Trụ Học Tập</h1>
-          <p>Hiển thị số bằng chứng cùng khoảng Wilson 95% theo từng kỹ năng cho Thiên Mệnh “{goal.label}”. Đây là mô tả quan sát, chưa phải độ tinh thông đã hiệu chuẩn hay chứng nhận trình độ.</p>
+          <p>Theo dõi lượng bài làm hợp lệ ở bảy kỹ năng cho Thiên Mệnh “{goal.label}”. Thanh dài theo số lượt đã học; kết quả ít mẫu không được hiển thị như đã thành thạo.</p>
         </div>
         <div className="analytics-rank">
           <span>RANK</span><strong>{String(level).padStart(2, "0")}</strong><small>{state.xp} XP tương tác cục bộ</small>
@@ -154,9 +153,9 @@ export function AnalyticsPage() {
       </header>
 
       <section className="analytics-metrics">
-        <div><span className="metric-icon jade"><CircleGauge size={19} /></span><small>Bằng chứng đủ chuẩn</small><strong>{eligibleEvidenceCount}</strong><p><TrendingUp size={14} /> {strongest ? skillMeta[strongest.skill].label : "Đang khởi tạo"} · {skillsWithEvidence}/7 kỹ năng có dữ liệu</p></div>
+        <div><span className="metric-icon jade"><CircleGauge size={19} /></span><small>Lượt học được ghi nhận</small><strong>{eligibleEvidenceCount}</strong><p><TrendingUp size={14} /> {skillsWithEnoughEvidence}/7 kỹ năng đã có ít nhất 10 lượt</p></div>
         <div><span className="metric-icon gold"><Flame size={19} /></span><small>Chuỗi hiện tại</small><strong>{state.streak} ngày</strong><p><Clock3 size={14} /> mục tiêu {state.profile.dailyMinutes} phút/ngày</p></div>
-        <div><span className="metric-icon cyan"><BrainCircuit size={19} /></span><small>Lượt truy hồi</small><strong>{authenticated ? "—" : state.reviewCount}</strong><p><Zap size={14} /> {authenticated ? "Lịch server chưa kích hoạt" : `${dueWordIds.length} thẻ đến hạn`}</p></div>
+          <div><span className="metric-icon cyan"><BrainCircuit size={19} /></span><small>Lượt truy hồi</small><strong>{authenticated ? "—" : state.reviewCount}</strong><p><Zap size={14} /> {authenticated ? "Chưa có lượt ôn đến hạn" : `${dueWordIds.length} thẻ đến hạn`}</p></div>
         <div><span className="metric-icon vermilion"><CheckCircle2 size={19} /></span><small>{authenticated ? "Lỗi practice cục bộ" : "Nghịch cảnh mở"}</small><strong>{unresolved}</strong><p><Target size={14} /> Thiên Lộ {completionRate}% · {completedCount}/{totalCount}</p></div>
       </section>
 
@@ -187,21 +186,22 @@ export function AnalyticsPage() {
             <CircleGauge size={21} />
           </header>
           <div className="mastery-map">
-            <div className="mastery-core" style={{ "--progress": `${(evidenceAccuracy ?? 0) * 3.6}deg` } as React.CSSProperties}><span><strong>{evidenceAccuracy === null ? "—" : `${evidenceAccuracy}%`}</strong><small>{formatObservedEstimate(observedEvidence.overall)}</small></span></div>
+            <div className="mastery-core" style={{ "--progress": `${evidencePortfolioDepth * 3.6}deg` } as React.CSSProperties}><span><strong>{eligibleEvidenceCount}</strong><small>LƯỢT ĐÃ QUAN SÁT</small></span></div>
             <div className="mastery-skill-list">
-              {skillEvidence.map(({ skill, accuracy, estimate }) => {
+              {skillEvidence.map(({ skill, estimate }) => {
                 const meta = skillMeta[skill];
                 const Icon = meta.icon;
                 return (
                   <div className={meta.color} key={skill}>
                     <span><Icon size={15} /> {meta.label}</span>
-                    <div><i style={{ width: `${accuracy ?? 0}%` }} /></div>
-                    <strong>{formatObservedEstimateCompact(estimate)}</strong>
+                    <div aria-label={`${meta.label}: ${formatLearnerEvidence(estimate)}`}><i style={{ width: `${learnerEvidenceDepthPercent(estimate)}%` }} /></div>
+                    <strong>{formatLearnerEvidence(estimate)}</strong>
                   </div>
                 );
               })}
             </div>
           </div>
+          <p className="evidence-method-note">Mỗi thanh đầy dần đến 10 lượt độc lập. 2/2 đúng chỉ là hai lượt đúng, không phải 100% trình độ.</p>
         </section>
       </div>
 
@@ -222,7 +222,7 @@ export function AnalyticsPage() {
               <Link to={links[skill] ?? "/path"} key={skill}>
                 <span className="priority-index">0{index + 1}</span>
                 <span className={`priority-icon ${meta.color}`}><Icon size={20} /></span>
-                <span><strong>{meta.label}</strong><small>{formatObservedEstimate(estimate)} · ưu tiên quan sát {index === 0 ? "cao" : "bổ trợ"}</small></span>
+                <span><strong>{meta.label}</strong><small>{formatLearnerEvidence(estimate)} · ưu tiên quan sát {index === 0 ? "cao" : "bổ trợ"}</small></span>
                 <ArrowUpRight size={19} />
               </Link>
             );

@@ -77,9 +77,11 @@ npm run dev
 Migration phân quyền nền B9 là `drizzle/0014_gigantic_diamondback.sql`.
 Không đưa biến quản trị vào mã client hoặc commit email thật vào repo.
 
-Migration auth hiện hành là `drizzle/0015_good_green_goblin.sql`. Local email
-OTP có thể bật riêng trên `localhost` bằng `AUTH_DEV_EMAIL_OTP=1`; mã thử chỉ
-được trả về trong chế độ đó. Google cần `GOOGLE_CLIENT_ID`, callback chính xác
+Migration auth hiện hành là `drizzle/0015_good_green_goblin.sql`. `npm run dev`
+tự áp dụng các migration còn thiếu vào D1 local; email OTP thử nghiệm tự bật
+trên loopback trong development và mã chỉ được trả về ở đó. Bản chạy production
+local vẫn phải bật tường minh `AUTH_DEV_EMAIL_OTP=1`. Google cần
+`GOOGLE_CLIENT_ID`, callback chính xác
 trong `GOOGLE_REDIRECT_URI` và, với confidential client, `GOOGLE_CLIENT_SECRET`.
 Passkey mặc định lấy origin/hostname hiện tại; có thể khóa tường minh bằng
 `AUTH_ALLOWED_ORIGIN` và `AUTH_RP_ID`. Không commit các secret này.

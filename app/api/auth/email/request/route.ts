@@ -3,6 +3,7 @@ import {
   AUTH_JSON_HEADERS,
   authError,
   boundedReturnTo,
+  isLocalDevelopmentAuth,
   loadAuthRuntime,
   resolveCurrentAccount,
   sameOriginMutation,
@@ -64,8 +65,10 @@ export async function POST(request: Request) {
         deliveryNonce: randomBase64Url(12),
       },
     });
-    const localDevelopment = new URL(request.url).hostname === "localhost"
-      && environment.AUTH_DEV_EMAIL_OTP === "1";
+    const localDevelopment = isLocalDevelopmentAuth(
+      request.url,
+      environment.AUTH_DEV_EMAIL_OTP,
+    );
     if (environment.AUTH_EMAIL_SENDER) {
       await environment.AUTH_EMAIL_SENDER.send({
         to: normalizedEmail,
@@ -81,7 +84,13 @@ export async function POST(request: Request) {
       expiresInSeconds: 600,
       ...(localDevelopment ? { developmentCode: code } : {}),
     }, { headers: AUTH_JSON_HEADERS });
-  } catch {
+  } catch (error) {
+    if (
+      process.env.NODE_ENV === "development"
+      && new Set(["localhost", "127.0.0.1", "::1"]).has(new URL(request.url).hostname)
+    ) {
+      console.error("[auth.email.request]", error);
+    }
     return authError(503, "EMAIL_AUTH_UNAVAILABLE", "Chưa thể gửi mã đăng nhập lúc này.");
   }
 }

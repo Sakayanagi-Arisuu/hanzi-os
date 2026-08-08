@@ -1,3 +1,10 @@
+-- D1 wraps each migration in a transaction, so its foreign_keys pragma cannot
+-- change until commit. These temporary parent keys keep the epoch rebuild
+-- valid in D1 as well as in direct SQLite migration runners. Each index is
+-- dropped automatically with its old table before the final index is created.
+CREATE UNIQUE INDEX IF NOT EXISTS `idempotency_records_user_id_epoch_uidx` ON `idempotency_records` (`user_id`,`id`,`reset_epoch`);--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS `lesson_sessions_user_id_epoch_uidx` ON `lesson_sessions` (`user_id`,`id`,`reset_epoch`);--> statement-breakpoint
+CREATE UNIQUE INDEX IF NOT EXISTS `fsrs_cards_user_id_epoch_uidx` ON `fsrs_cards` (`user_id`,`id`,`reset_epoch`);--> statement-breakpoint
 PRAGMA foreign_keys=OFF;--> statement-breakpoint
 CREATE TABLE `__learning_epoch_migration_guard` (
 	`violations` integer NOT NULL,

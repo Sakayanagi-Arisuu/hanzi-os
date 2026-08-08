@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { POST as requestEmailCode } from "../../app/api/auth/email/request/route";
-import { recentFirstPartySession } from "./authHttp";
+import { isLocalDevelopmentAuth, recentFirstPartySession } from "./authHttp";
 
 describe("authentication HTTP boundary", () => {
   it("rejects cross-origin email mutations before reading runtime bindings", async () => {
@@ -43,5 +43,16 @@ describe("authentication HTTP boundary", () => {
       sessionId: "recent-session",
       authenticatedAt: Date.now(),
     })).toMatchObject({ userId: "admin", sessionId: "recent-session" });
+  });
+
+  it("enables visible email OTP only for a loopback development origin", () => {
+    expect(isLocalDevelopmentAuth("http://localhost:3000/signin", undefined, "development"))
+      .toBe(true);
+    expect(isLocalDevelopmentAuth("http://127.0.0.1:3000/signin", "1", "production"))
+      .toBe(true);
+    expect(isLocalDevelopmentAuth("https://hanzi.example/signin", "1", "development"))
+      .toBe(false);
+    expect(isLocalDevelopmentAuth("http://localhost:3000/signin", undefined, "production"))
+      .toBe(false);
   });
 });

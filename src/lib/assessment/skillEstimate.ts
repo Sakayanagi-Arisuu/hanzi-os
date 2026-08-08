@@ -8,6 +8,7 @@ import type { LearningEvidence, Skill } from "../../types";
 
 export const ASSESSMENT_CONFIDENCE_LEVEL = 0.95;
 export const ASSESSMENT_MIN_OBSERVED_EVIDENCE = 2;
+export const LEARNER_EVIDENCE_TARGET = 10;
 
 const SKILLS: readonly Skill[] = [
   "pronunciation",
@@ -220,4 +221,26 @@ export const formatObservedEstimateCompact = (
     ? `${estimate.confidence95.lower}–${estimate.confidence95.upper}%`
     : "chưa có";
   return `${estimate.correct}/${estimate.n} · CI 95% ${interval}`;
+};
+
+/**
+ * Learner-facing bars show observation depth, not correctness or mastery.
+ * Ten independent eligible observations is a presentation target only; it is
+ * not a mastery threshold and does not change learning authorization.
+ */
+export const learnerEvidenceDepthPercent = (
+  estimate: ObservedAccuracyEstimate,
+  target = LEARNER_EVIDENCE_TARGET,
+) => {
+  if (!Number.isFinite(target) || target <= 0) return 0;
+  return Math.min(100, Math.round((estimate.n / target) * 100));
+};
+
+export const formatLearnerEvidence = (
+  estimate: ObservedAccuracyEstimate,
+  target = LEARNER_EVIDENCE_TARGET,
+) => {
+  if (estimate.n === 0) return "Chưa có lượt";
+  if (estimate.n < target) return `${estimate.correct}/${estimate.n} đúng · cần thêm`;
+  return `${estimate.observedAccuracy}% đúng · ${estimate.n} lượt`;
 };

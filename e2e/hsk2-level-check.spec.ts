@@ -98,7 +98,7 @@ test("opens the first HSK2 lesson with the shared rich Lesson UI", async ({
   }).first()).toBeVisible();
   await expect(page.getByText("外貌、穿着、生日等", { exact: true }))
     .toBeVisible();
-  await expect(page.getByText(/humanReviewed=false/u)).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("humanReviewed=false");
 });
 
 test("opens, resumes and completes the 60-item HSK2 local level check without mastery", async ({
@@ -141,7 +141,8 @@ test("opens, resumes and completes the 60-item HSK2 local level check without ma
 
   await expect(page.getByTestId("hsk2-level-check-result")).toBeVisible();
   await expect(page.getByText(/\/60 câu đúng quan sát/u)).toBeVisible();
-  await expect(page.getByText(/không cấp mastery/u)).toBeVisible();
+  await expect(page.getByText(/không phải điểm thi HSK chính thức/u)).toBeVisible();
+  await expect(page.locator("body")).not.toContainText("mastery");
 
   await expect.poll(() => page.evaluate(() => {
     const state = JSON.parse(

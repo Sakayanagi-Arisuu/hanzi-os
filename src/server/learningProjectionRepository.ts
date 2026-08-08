@@ -796,6 +796,7 @@ export class LearningProjectionRepository {
            AND session.reset_epoch = ?
            AND session.status = 'started'
            AND session.content_version = ?
+           AND session.blueprint_id = ?
            AND ${eligibleEnrollmentSql}
          ORDER BY session.started_at DESC, session.id ASC
          LIMIT ?`,
@@ -803,6 +804,7 @@ export class LearningProjectionRepository {
         userId,
         resetEpoch,
         CONTENT_VERSION,
+        this.assessmentBlueprint.id,
         ...enrollmentBindings,
         MAX_ACTIVE_ASSESSMENT_SESSIONS + 1,
       ),
@@ -829,6 +831,7 @@ export class LearningProjectionRepository {
            AND attempt.content_version = ?
            AND session.status = 'started'
            AND session.content_version = attempt.content_version
+           AND session.blueprint_id = ?
            AND ${eligibleEnrollmentSql}
          ORDER BY session.started_at DESC, attempt.position ASC, attempt.id ASC
          LIMIT ?`,
@@ -836,6 +839,7 @@ export class LearningProjectionRepository {
         userId,
         resetEpoch,
         CONTENT_VERSION,
+        this.assessmentBlueprint.id,
         ...enrollmentBindings,
         MAX_ACTIVE_ASSESSMENT_ATTEMPTS + 1,
       ),
@@ -866,6 +870,7 @@ export class LearningProjectionRepository {
            AND session.reset_epoch = ?
            AND session.status = 'submitted'
            AND session.content_version = ?
+           AND session.blueprint_id = ?
            AND ${eligibleEnrollmentSql}
          ORDER BY session.terminal_at DESC, session.id DESC
          LIMIT 1`,
@@ -873,6 +878,7 @@ export class LearningProjectionRepository {
         userId,
         resetEpoch,
         CONTENT_VERSION,
+        this.assessmentBlueprint.id,
         ...enrollmentBindings,
       ),
       this.database.prepare(
@@ -899,11 +905,12 @@ export class LearningProjectionRepository {
                ON enrollment.user_id = session.user_id
               AND enrollment.id = session.enrollment_id
              INNER JOIN course_versions course ON course.id = enrollment.course_version_id
-             WHERE session.user_id = ?
-               AND session.reset_epoch = ?
-               AND session.status = 'submitted'
-               AND session.content_version = ?
-               AND ${eligibleEnrollmentSql}
+              WHERE session.user_id = ?
+                AND session.reset_epoch = ?
+                AND session.status = 'submitted'
+                AND session.content_version = ?
+                AND session.blueprint_id = ?
+                AND ${eligibleEnrollmentSql}
              ORDER BY session.terminal_at DESC, session.id DESC
              LIMIT 1
            )
@@ -925,6 +932,7 @@ export class LearningProjectionRepository {
         userId,
         resetEpoch,
         CONTENT_VERSION,
+        this.assessmentBlueprint.id,
         ...enrollmentBindings,
       ),
       ] : []),

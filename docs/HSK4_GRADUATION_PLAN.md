@@ -401,6 +401,33 @@ và account lifecycle hiện có.
   1/1. HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich
   HSK1-4 213/213 không đổi.
 
+### M5.1 — Local identity và UX correctness
+
+**Hoàn thành tại readiness toàn dự án 96% và phạm vi mở rộng 97%; không cộng
+điểm nội dung.**
+
+- đăng nhập mã email một lần chạy hoàn toàn ở localhost với D1 local tự migrate;
+  người học không cần hosting để tạo phiên, học bài hoặc làm Mock Exam;
+- Cổng Danh Tính được thiết kế lại theo hệ hologram, giữ email/passkey/khách và
+  chỉ hiện provider ngoài khi thật sự khả dụng;
+- development loopback dùng closed-alpha preview đã check-in; production/test
+  tiếp tục fail-closed. Mock Exam và level check được cô lập bằng blueprint nên
+  không còn nhiễm projection lẫn nhau;
+- Thiên Lộ không còn che/mờ tên Khai Âm Nhập Môn. Thất Trụ đo số lượt hợp lệ
+  trên mục tiêu 10 lượt; 2/2 hiển thị 20% độ sâu, không phải 100% thành thạo, và
+  CI chỉ còn ở nội bộ;
+- giao diện learner đã bỏ thuật ngữ receipt/projection/enrollment/form hash,
+  `humanReviewed=false`, mastery/prerequisite khỏi thông báo bình thường. Policy
+  vẫn giữ `humanReviewed: false`; UI công bố bằng câu dễ hiểu rằng nội dung được
+  AI hỗ trợ và chưa qua thẩm định của giáo viên/người bản ngữ;
+- targeted correctness 36/36, typecheck/build xanh, bundle 798,8/800 KiB. Full
+  check có 1.919/1.925 test xanh và sáu timeout 10 giây do tải máy; mọi ca được
+  chạy lại riêng đều xanh. E2E xác nhận đủ 30/30 qua full 29/30 + targeted 1/1;
+  Lighthouse cold-profile cuối đạt 95/100/100/100, LCP 2.048 ms, CLS 0, TBT
+  209 ms;
+- không thêm bài mới: HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4
+  78/78; rich HSK1-4 giữ 213/213. Không mở Sites hay production deployment.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -430,7 +457,9 @@ không tạo điểm.
 
 ## 7. Ranh giới nguồn và review
 
-AI được phép viết nội dung gốc và self-review năm pass cho local. UI công bố
-`humanReviewed: false`; browser TTS không phải native audio/mastery; production
-gate tiếp tục fail-closed. Không mở Sites, commerce, CMS thương mại hoặc workflow
-human review trong các content batch.
+AI được phép viết nội dung gốc và self-review năm pass cho local. Runtime/policy
+giữ `humanReviewed: false`; UI diễn đạt bằng câu learner-friendly rằng nội dung
+được AI hỗ trợ và chưa qua thẩm định của giáo viên/người bản ngữ. Browser TTS
+không phải native audio/mastery; production gate tiếp tục fail-closed. Không mở
+Sites, commerce, CMS thương mại hoặc workflow human review trong các content
+batch.

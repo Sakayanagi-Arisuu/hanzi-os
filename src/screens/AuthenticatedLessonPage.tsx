@@ -181,7 +181,7 @@ function AuthenticatedLessonPageScope() {
   const [selected, setSelected] = useState<string | null>(null);
   const [outcome, setOutcome] = useState<AttemptOutcome>("idle");
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
   const [result, setResult] =
     useState<SubmitLessonSessionReceiptV1 | null>(null);
   const [sessionBinding, setSessionBinding] =
@@ -296,8 +296,7 @@ function AuthenticatedLessonPageScope() {
       const terminal = terminalForSession(records, dependency);
       if (!terminal) return false;
       if (terminal.status === "quarantined") {
-        stopSafely(terminal.quarantineReason
-          ?? "Lệnh kết thúc phiên bị máy chủ từ chối vĩnh viễn.");
+        stopSafely("Phiên học này không thể tiếp tục. Hãy quay lại Thiên Lộ và mở lại bài.");
         return true;
       }
       if (terminal.status === "pending") {
@@ -309,7 +308,7 @@ function AuthenticatedLessonPageScope() {
       if (terminal.kind === "lesson-session-submit") {
         const receipt = terminal.receipt;
         if (!receipt) {
-          stopSafely("Receipt nộp phiên bị thiếu.");
+          stopSafely("Chưa thể đọc kết quả của phiên học này.");
           return true;
         }
         if (!submissionReceiptMatchesSessionBinding(
@@ -317,7 +316,7 @@ function AuthenticatedLessonPageScope() {
           binding,
           terminal.commandId,
         )) {
-          stopSafely("Receipt nộp phiên thiếu hoặc không còn khớp form server.");
+          stopSafely("Kết quả không còn khớp với phiên học hiện tại.");
           return true;
         }
         if (terminal.commandId !== dismissedTerminalId) {
@@ -327,7 +326,7 @@ function AuthenticatedLessonPageScope() {
             type: receipt.passed ? "lesson.completed" : "learning.retry",
             sourceId: `lesson:${binding.lessonId}:result`,
             eventId: `${terminal.commandId}:system-result`,
-            message: receipt.passed ? "Nhiệm vụ hoàn thành. Bằng chứng đã được máy chủ xác nhận." : undefined,
+            message: receipt.passed ? "Nhiệm vụ hoàn thành. Tiến độ đã được ghi nhận." : undefined,
           });
           if (receipt.passed) emitSystemSignal({
             type: "path.unlocked",
@@ -345,7 +344,7 @@ function AuthenticatedLessonPageScope() {
         binding,
         terminal.commandId,
       )) {
-        stopSafely("Receipt hủy phiên thiếu hoặc không còn khớp form server.");
+        stopSafely("Chưa thể xác nhận việc dừng phiên học này.");
         return true;
       }
       setResult(null);
@@ -380,11 +379,11 @@ function AuthenticatedLessonPageScope() {
       void materializedPromise.then(async (materialized) => {
         if (!active) return;
         if (!materialized.ok) {
-          stopSafely(`Phiên server không thể dựng an toàn (${materialized.code}).`);
+          stopSafely("Phiên học không còn phù hợp với nội dung hiện tại.");
           return;
         }
         if (!runtimeMatchesSessionBinding(materialized.runtime, binding)) {
-          stopSafely("Runtime trình bày không còn khớp binding của phiên server.");
+          stopSafely("Nội dung hiển thị không còn khớp với phiên học hiện tại.");
           return;
         }
         const ids = await deriveStableNormalizedLessonCommandIds(
@@ -396,7 +395,7 @@ function AuthenticatedLessonPageScope() {
           ids.sessionAlias !== dependency.sessionAlias
           || ids.commandSeed !== dependency.commandId
         ) {
-          stopSafely("Dependency cục bộ không còn khớp định danh phiên server.");
+          stopSafely("Tiến độ trên máy không còn khớp với phiên học hiện tại.");
           return;
         }
         const projected = projectedAttemptsForSession(dependency);
@@ -433,7 +432,7 @@ function AuthenticatedLessonPageScope() {
         setPhase("exercise");
       }).catch(() => {
         if (!active) return;
-        stopSafely("Không thể kiểm chứng form bài học do máy chủ đóng băng.");
+        stopSafely("Chưa thể mở phần luyện tập của bài này.");
       });
     };
 
@@ -466,7 +465,7 @@ function AuthenticatedLessonPageScope() {
       && session.contentVersion === progress.contentVersion
     );
     if (activeSessions.length > 1) {
-      setError("Máy chủ trả về nhiều phiên đang mở cho cùng một bài.");
+      setError("Có nhiều phiên đang mở cho cùng một bài. Hãy dừng phiên cũ rồi thử lại.");
       setPhase("error");
       return () => {
         active = false;
@@ -490,13 +489,13 @@ function AuthenticatedLessonPageScope() {
         return !binding
           || !activeProjectionMatchesSessionBinding(projection, binding);
       })) {
-        stopSafely("Binding cục bộ không còn khớp phiên đang hoạt động trong projection.");
+        stopSafely("Tiến độ trên máy không còn khớp với phiên đang hoạt động.");
         return () => {
           active = false;
         };
       }
       if (candidates.length > 1) {
-        stopSafely("Một phiên server đang bị gắn với nhiều dependency cục bộ.");
+        stopSafely("Phiên học đang có dữ liệu trùng lặp. Hãy quay lại và mở bài một lần nữa.");
         return () => {
           active = false;
         };
@@ -565,8 +564,7 @@ function AuthenticatedLessonPageScope() {
       };
     }
     if (latestDependency.status === "quarantined") {
-      stopSafely(latestDependency.quarantineReason
-        ?? "Yêu cầu mở phiên bị máy chủ từ chối vĩnh viễn.");
+      stopSafely("Chưa thể mở lại phiên học này. Hãy quay lại Thiên Lộ và thử lại.");
       return () => {
         active = false;
       };
@@ -574,7 +572,7 @@ function AuthenticatedLessonPageScope() {
 
     const binding = authorityBindingForSession(latestDependency);
     if (!binding) {
-      stopSafely("Receipt mở phiên đã xác nhận bị thiếu hoặc hỏng.");
+      stopSafely("Thông tin phiên học bị thiếu hoặc không còn hợp lệ.");
       return () => {
         active = false;
       };
@@ -591,7 +589,7 @@ function AuthenticatedLessonPageScope() {
       };
     }
     stopSafely(
-      "Receipt cục bộ không còn xuất hiện trong projection mạng; hãy tải lại authority trước khi tiếp tục.",
+      "Phiên học đã thay đổi trên thiết bị khác. Hãy tải lại trước khi tiếp tục.",
     );
     return () => {
       active = false;
@@ -916,7 +914,7 @@ function AuthenticatedLessonPageScope() {
         <h1>{unavailableLesson
           ? "Nội dung này chưa được phát hành"
           : "Không tìm thấy thử luyện"}</h1>
-        <p>Dữ liệu local không được dùng để mở một bài chưa phát hành.</p>
+            <p>Bài này đang được chuẩn bị. Tiến độ trên máy của bạn vẫn được giữ nguyên.</p>
         <Link className="primary-button" to="/path">
           <ArrowLeft size={17} /> Trở về Thiên Lộ
         </Link>
@@ -938,9 +936,9 @@ function AuthenticatedLessonPageScope() {
     return (
       <div className="lesson-state-screen locked-screen">
         <LockKeyhole size={44} />
-        <span>ACCESS DENIED · SERVER PREREQUISITE REQUIRED</span>
-        <h1>Cảnh giới này chưa mở</h1>
-        <p>Chỉ session đã được máy chủ chấm và xác nhận đạt mới mở prerequisite.</p>
+          <span>CẢNH GIỚI CHƯA KHAI MỞ</span>
+          <h1>Cảnh giới này chưa mở</h1>
+          <p>Hãy hoàn thành bài tiên quyết trên Thiên Lộ trước khi tiếp tục.</p>
         <Link className="primary-button" to="/path">
           <ArrowLeft size={17} /> Trở về Thiên Lộ
         </Link>
@@ -952,18 +950,18 @@ function AuthenticatedLessonPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <BrainCircuit size={44} />
-        <h1>Đang kiểm chứng phiên học</h1>
-        <p>Hệ thống đang đối chiếu form server với owner và reset epoch hiện tại.</p>
+          <h1>Đang kiểm chứng phiên học</h1>
+          <p>Hệ thống đang khôi phục đúng câu hỏi và tiến độ của phiên này.</p>
       </div>
     );
   }
 
   if (phase === "opening" || phase === "submitting" || phase === "abandoning") {
     const copy = phase === "opening"
-      ? ["Đang mở phiên có thẩm quyền", "Form và thứ tự câu hỏi phải do máy chủ đóng băng trước khi hiển thị."]
+      ? ["Đang chuẩn bị bài học", "Hệ thống đang khôi phục đúng câu hỏi và vị trí của bạn."]
       : phase === "submitting"
-        ? ["Đang nộp bằng chứng", "Máy chủ đang kiểm tra đủ attempt, activity version và form hash."]
-        : ["Đang hủy phiên", "Phiên chỉ biến mất sau khi máy chủ xác nhận lệnh hủy."];
+        ? ["Đang lưu kết quả", "Hệ thống đang kiểm tra và lưu toàn bộ câu trả lời."]
+        : ["Đang dừng phiên học", "Những câu đã hoàn thành vẫn được giữ lại an toàn."];
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <BrainCircuit size={44} />
@@ -978,8 +976,8 @@ function AuthenticatedLessonPageScope() {
     return (
       <div className="lesson-state-screen">
         <AlertTriangle size={44} />
-        <h1>Phiên đang mở trên thiết bị khác</h1>
-        <p>Thiết bị này có thể gắn một dependency cục bộ trực tiếp với form thật trong projection. Các câu máy chủ đã ghi nhận sẽ không được gửi lại.</p>
+          <h1>Phiên đang mở trên thiết bị khác</h1>
+          <p>Hãy tiếp tục trên thiết bị đã mở phiên, hoặc dừng phiên đó trước khi học tại đây. Các câu đã lưu sẽ không bị gửi lặp.</p>
         <button
           className="primary-button"
           disabled={busy}
@@ -998,14 +996,14 @@ function AuthenticatedLessonPageScope() {
       <div className="lesson-state-screen" role="alert">
         <CircleX size={44} />
         <h1>Phiên học đã dừng an toàn</h1>
-        <p>{error ?? "Một ràng buộc authority không còn khớp."}</p>
+        <p>Hệ thống chưa thể tiếp tục phiên này. Tiến độ đã ghi nhận vẫn được giữ an toàn.</p>
         <button className="primary-button" type="button" onClick={() => {
           setError(null);
           refreshRecords();
           refreshProjection();
           setPhase("loading");
         }}>
-          <RefreshCw size={17} /> Kiểm tra lại authority
+          <RefreshCw size={17} /> Thử lại
         </button>
         <Link className="secondary-button" to="/path">Trở về Thiên Lộ</Link>
       </div>
@@ -1019,17 +1017,17 @@ function AuthenticatedLessonPageScope() {
           {result.passed ? <CircleCheck size={38} /> : <RotateCcw size={38} />}
           <span />
         </div>
-        <span className="system-kicker">SERVER-OBJECTIVE · RECEIPT VERIFIED</span>
+          <span className="system-kicker">THỬ LUYỆN · ĐÃ HOÀN THÀNH</span>
         <h1>{result.passed
           ? "Cảnh giới đã khai mở"
-          : "Phiên chưa vượt cổng mastery"}</h1>
+          : "Chưa đạt ngưỡng khai mở"}</h1>
         <p>{result.passed
-          ? "Máy chủ đã tái chấm đủ form và xác nhận prerequisite cho nút kế tiếp."
-          : "Kết quả được giữ làm bằng chứng mô tả; bài tiếp theo chưa được mở."}</p>
+          ? "Kết quả đã được xác nhận và bài tiếp theo đã sẵn sàng."
+          : "Kết quả đã được lưu; hãy ôn lại các câu chưa đúng rồi thử lần nữa."}</p>
         <div className="result-metrics">
-          <div><small>Điểm thô server</small><strong>{result.rawScore}%</strong></div>
+              <div><small>Tỉ lệ đúng</small><strong>{result.rawScore}%</strong></div>
           <div><small>Điểm mở nút</small><strong>{result.gateScore}%</strong></div>
-          <div><small>Bằng chứng</small><strong>{result.evidenceCount}</strong></div>
+          <div><small>Số câu đã làm</small><strong>{result.evidenceCount}</strong></div>
         </div>
         <div className="mastery-threshold">
           <span style={{ width: `${result.gateScore}%` }} />
@@ -1058,7 +1056,7 @@ function AuthenticatedLessonPageScope() {
           <Link className="icon-button" to="/path" aria-label="Trở về Thiên Lộ">
             <ArrowLeft size={20} />
           </Link>
-          <span>SERVER FORM · 01/02</span>
+          <span>THỬ LUYỆN · 01/02</span>
           <strong>{lesson.minutes} phút · XP chỉ là tương tác</strong>
         </header>
         <section className="briefing-hero">
@@ -1066,13 +1064,16 @@ function AuthenticatedLessonPageScope() {
             <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
             <h1>{lesson.title}</h1>
             <p className="briefing-chinese">{lesson.chineseTitle}</p>
-            <p>{lesson.objective}</p>
+            <p>{lesson.objective.replace(
+              /;\s*chưa chấm mastery trước review\./giu,
+              ".",
+            )}</p>
           </div>
           <div className="mastery-gate">
             <Target size={26} />
             <span>Ngưỡng khai mở</span>
             <strong>70%</strong>
-            <small>Chỉ receipt server đủ form mới được dùng để mở nút.</small>
+                <small>Hoàn thành đầy đủ lượt thử để mở bài tiếp theo.</small>
           </div>
         </section>
         <div className="briefing-grid">
@@ -1120,9 +1121,9 @@ function AuthenticatedLessonPageScope() {
           Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
         </p>
         <footer className="briefing-actions">
-          <p><Lightbulb size={17} /> Form chỉ xuất hiện sau khi server xác nhận enrollment và prerequisite.</p>
+              <p><Lightbulb size={17} /> Phần luyện tập xuất hiện khi bạn đã hoàn thành bài tiên quyết.</p>
           <button className="primary-button" disabled={busy} type="button" onClick={() => void startSession()}>
-            Mở phiên server <Play size={17} />
+            Bắt đầu luyện tập <Play size={17} />
           </button>
         </footer>
       </div>
@@ -1134,7 +1135,7 @@ function AuthenticatedLessonPageScope() {
     return (
       <div className="lesson-state-screen">
         <CircleX size={44} />
-        <h1>Form server không còn khả dụng</h1>
+          <h1>Phần luyện tập không còn khả dụng</h1>
         <button className="primary-button" type="button" onClick={refreshRecords}>
           <RefreshCw size={17} /> Kiểm tra lại
         </button>
@@ -1174,7 +1175,7 @@ function AuthenticatedLessonPageScope() {
       </header>
       <div className="lesson-context">
         <span><ExerciseIcon size={16} /> {current.instruction}</span>
-        <strong>{lesson.title} · bằng chứng {current.skill}</strong>
+        <strong>{lesson.title} · kỹ năng {current.skill}</strong>
       </div>
       <section className="exercise-stage">
         <div className={`exercise-prompt kind-${current.kind}`}>
@@ -1218,7 +1219,7 @@ function AuthenticatedLessonPageScope() {
                 }
               }}
             />
-            <small>Đáp án không được gửi lại trong projection hoặc runtime trình bày.</small>
+                  <small>Đáp án sẽ chỉ hiện sau khi câu trả lời được ghi nhận.</small>
           </div>
         ) : (
           <div className="answer-grid" role="radiogroup" aria-label={current.instruction}>
@@ -1253,19 +1254,19 @@ function AuthenticatedLessonPageScope() {
         aria-busy={outcome === "pending"}
       >
         {outcome === "pending" ? (
-          <p><BrainCircuit size={17} /> Đang chờ receipt chấm điểm từ máy chủ; lựa chọn không thể đổi.</p>
+              <p><BrainCircuit size={17} /> Đang ghi nhận câu trả lời; lựa chọn tạm thời không thể đổi.</p>
         ) : checked ? (
           <div className="answer-explanation">
             {isCorrect ? <CircleCheck size={23} /> : <Lightbulb size={23} />}
             <div>
               <strong>{isCorrect
-                ? "Máy chủ xác nhận chính xác"
-                : "Máy chủ xác nhận chưa chính xác"}</strong>
-              <p>Outcome này gắn với đúng activity version và form hash; answer key không được trả về client.</p>
+                ? "Chính xác"
+                : "Chưa chính xác"}</strong>
+              <p>Đáp án được mở sau khi câu trả lời của bạn đã được ghi nhận.</p>
             </div>
           </div>
         ) : (
-          <p><Lightbulb size={17} /> Câu trả lời sẽ được server tái chấm từ activity version đã phát hành.</p>
+            <p><Lightbulb size={17} /> Chọn hoặc nhập câu trả lời rồi gửi để kiểm tra.</p>
         )}
         <button
           className="primary-button"
@@ -1292,7 +1293,7 @@ function AuthenticatedLessonPageScope() {
         >
           {checked
             ? index === runtime.activities.length - 1
-              ? "Nộp phiên cho máy chủ"
+              ? "Hoàn thành bài"
               : "Câu tiếp theo"
             : "Gửi để chấm"}
           <ArrowRight size={17} />
@@ -1303,10 +1304,10 @@ function AuthenticatedLessonPageScope() {
       <ConfirmModal
         open={abandonModalOpen}
         title="Dừng phiên bài học?"
-        description="Các câu máy chủ đã chấm vẫn được giữ cho audit. Phiên sẽ được đánh dấu đã dừng và không thể nộp để hoàn tất bài."
-        eyebrow="SESSION CONTROL"
+        description="Các câu đã hoàn thành vẫn được giữ lại. Bạn có thể bắt đầu một lượt mới sau khi dừng."
+        eyebrow="DỪNG LUYỆN TẬP"
         cancelLabel="Tiếp tục bài học"
-        confirmLabel="Dừng đúng phiên này"
+        confirmLabel="Dừng phiên học"
         busy={busy}
         onCancel={() => setAbandonModalOpen(false)}
         onConfirm={() => void abandonSession()}

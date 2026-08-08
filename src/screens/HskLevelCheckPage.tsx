@@ -227,9 +227,9 @@ export function HskLevelCheckPage({ config }: { config: HskLevelCheckConfig }) {
       <div className="assessment-facts">
         <span><Gauge size={18} /><strong>{config.duration}</strong><small>thời lượng gợi ý</small></span>
         <span><BrainCircuit size={18} /><strong>{config.items.length} câu</strong><small>{config.distribution}</small></span>
-        <span><ShieldCheck size={18} /><strong>Ấn Minh Bạch Nội Dung</strong><small>AI tự rà 5 pass · humanReviewed=false</small></span>
+        <span><ShieldCheck size={18} /><strong>Bài tự luyện</strong><small>có giải thích sau mỗi câu</small></span>
       </div>
-      <p>{config.disclosure.listeningVi} {config.disclosure.resultVi}</p>
+      <p>Phần nghe dùng giọng máy tổng hợp. Kết quả giúp bạn chọn vùng nên ôn tiếp và không thay thế bài thi HSK chính thức.</p>
       <div className="assessment-actions">
         <Link className="secondary-button" to="/path">Quay lại lộ trình</Link>
         <button className="primary-button" type="button" onClick={start}>Bắt đầu tự kiểm tra <ArrowRight size={18} /></button>
@@ -249,7 +249,7 @@ export function HskLevelCheckPage({ config }: { config: HskLevelCheckConfig }) {
         <span className="system-kicker">ĐẠI KHẢO HSK{config.level} · TỰ KIỂM HOÀN TẤT</span>
         <h1>Bản Đồ Bù Khuyết HSK{config.level}</h1>
         <div className="assessment-score"><strong>{totalCorrect}/{config.items.length}</strong><span> câu đúng quan sát</span></div>
-        <p>{config.disclosure.resultVi}</p>
+        <p>Kết quả này giúp bạn chọn vùng nên ôn tiếp; nó không phải điểm thi HSK chính thức.</p>
         <div className="mastery-skill-list">
           {(Object.entries(skillResults) as Array<[HskLevelCheckSkill, { correct: number; total: number }]>).map(([skill, result]) => (
             <div key={skill}><span>{skillLabels[skill]}</span><strong>{result.correct}/{result.total}</strong></div>
@@ -283,7 +283,7 @@ export function HskLevelCheckPage({ config }: { config: HskLevelCheckConfig }) {
         <p>{current.promptVi}</p>
         {current.syntheticTtsText ? <>
           <button className="sound-orb" type="button" onClick={() => speakMandarin(current.syntheticTtsText!, .82, `level-check:${levelCode}:item:${current.id}`)} aria-label="Nghe câu bằng TTS tổng hợp"><Volume2 size={37} /><span /></button>
-          <p>TTS tổng hợp · chỉ dùng luyện tập · không đo mastery nghe</p>
+          <p>Giọng máy tổng hợp dùng để luyện nghe trên thiết bị.</p>
         </> : <h1>{current.stimulusText}</h1>}
         <div className="assessment-options" role="radiogroup" aria-label={`Các lựa chọn cho câu ${index + 1}`}>
           {current.options.map((option, optionIndex) => {

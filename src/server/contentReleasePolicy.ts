@@ -14,7 +14,7 @@ export type ContentReleasePolicy = {
   promotionManifestSha256: string | null;
 };
 
-export const CURRENT_CONTENT_RELEASE_POLICY: ContentReleasePolicy = {
+const checkedInContentReleasePolicy: ContentReleasePolicy = {
   manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
   audience: CURRENT_CONTENT_PACKAGE.audience,
   lifecycle: CURRENT_CONTENT_PACKAGE.lifecycle,
@@ -24,6 +24,29 @@ export const CURRENT_CONTENT_RELEASE_POLICY: ContentReleasePolicy = {
   promotionManifestSha256:
     CURRENT_CONTENT_PACKAGE.promotion?.packageManifestSha256 ?? null,
 };
+
+/**
+ * The checked-in package remains fail-closed for builds and production. During
+ * local development only, the exact same immutable package is exposed as a
+ * closed-alpha preview so authenticated local flows can be exercised end to
+ * end without pretending the package has passed production publication.
+ */
+export const contentReleasePolicyForEnvironment = (
+  nodeEnvironment: string | undefined,
+): ContentReleasePolicy => nodeEnvironment === "development"
+  ? {
+      ...checkedInContentReleasePolicy,
+      audience: "closed-alpha",
+      lifecycle: "published",
+      closedAlphaEligible: true,
+      productionEligible: false,
+      promotionChannel: "closed-alpha",
+      promotionManifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
+    }
+  : checkedInContentReleasePolicy;
+
+export const CURRENT_CONTENT_RELEASE_POLICY =
+  contentReleasePolicyForEnvironment(process.env.NODE_ENV);
 
 export const isPromotedContentReleasePolicy = (
   policy: ContentReleasePolicy,

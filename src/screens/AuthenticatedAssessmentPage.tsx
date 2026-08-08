@@ -214,7 +214,7 @@ function AuthenticatedAssessmentPageScope() {
   const [awaitingPosition, setAwaitingPosition] = useState<number | null>(null);
   const [attemptStartedAt, setAttemptStartedAt] = useState(() => Date.now());
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [, setError] = useState<string | null>(null);
   const [abandonModalOpen, setAbandonModalOpen] = useState(false);
   const openCommandIdRef = useRef(makeIdempotencyKey(
     "assessment-session-open",
@@ -1057,13 +1057,9 @@ function AuthenticatedAssessmentPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <ShieldCheck size={44} />
-        <span>SERVER SCREENING · RELEASE FENCE ACTIVE</span>
-        <h1>Khảo sát server chưa thể phát hành</h1>
-        <p>
-          Gói nội dung hiện tại chưa đạt cổng closed-alpha và kho item vẫn chờ
-          linguistic review. HANZI.OS không mở phiên, không dùng form local thay
-          thế, và không biến điểm trò chơi thành bằng chứng năng lực.
-        </p>
+          <span>KHẢO SÁT NỀN TẢNG · CHƯA SẴN SÀNG</span>
+          <h1>Khảo sát chưa thể bắt đầu</h1>
+        <p>Bộ câu hỏi hiện tại chưa sẵn sàng. Bạn vẫn có thể tiếp tục các bài học đang mở trong lộ trình.</p>
         <Link className="primary-button" to="/path">
           <BrainCircuit size={17} /> Tiếp tục lộ trình đã mở
         </Link>
@@ -1085,11 +1081,8 @@ function AuthenticatedAssessmentPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <RefreshCw className="spin" size={44} />
-        <h1>Đang kiểm chứng phiên khảo sát</h1>
-        <p>
-          Hệ thống đang đối chiếu owner, reset epoch, enrollment và projection
-          V2 trước khi hiển thị form.
-        </p>
+        <h1>Đang chuẩn bị khảo sát</h1>
+        <p>Hệ thống đang khôi phục đúng câu hỏi và vị trí của bạn.</p>
       </div>
     );
   }
@@ -1102,29 +1095,28 @@ function AuthenticatedAssessmentPageScope() {
           <span />
         </div>
         <span className="system-kicker">
-          SERVER-AUTHORITATIVE · UNCALIBRATED
+          KHẢO SÁT NỀN TẢNG · TỰ KIỂM
         </span>
         <h1>Khảo sát năng lực nền tảng</h1>
         <p>
-          Máy chủ phát một form không kèm đáp án, ghi nhận từng lựa chọn và chỉ
-          trả về thống kê tổng hợp. Kết quả không mở khóa prerequisite, không
-          thay đổi lộ trình và không được tính là mastery.
+          Trả lời theo hiểu biết hiện tại của bạn. Kết quả chỉ giúp nhìn lại
+          vùng mạnh và vùng cần ôn, không phải điểm thi hay chứng nhận HSK.
         </p>
         <div className="assessment-facts">
           <span>
             <Gauge size={18} />
-            <strong>Form đóng băng</strong>
-            <small>hash kiểm chứng</small>
+              <strong>Câu hỏi cố định</strong>
+              <small>không đổi giữa phiên</small>
           </span>
           <span>
             <ShieldCheck size={18} />
-            <strong>Server ghi nhận</strong>
-            <small>không chấm trên client</small>
+              <strong>Kết quả được lưu</strong>
+              <small>không lộ đáp án sớm</small>
           </span>
           <span>
             <Sparkles size={18} />
-            <strong>Uncalibrated</strong>
-            <small>chỉ số quan sát</small>
+              <strong>Đang quan sát</strong>
+              <small>chưa kết luận trình độ</small>
           </span>
         </div>
         <div className="assessment-actions">
@@ -1149,10 +1141,7 @@ function AuthenticatedAssessmentPageScope() {
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <ShieldCheck size={44} />
         <h1>Có một phiên đang mở trên thiết bị khác</h1>
-        <p>
-          Chỉ projection V2 đã cache cho đúng owner/reset mới có thể được nhận
-          vào thiết bị này. Thao tác này không mở lại phiên và không tải đáp án.
-        </p>
+        <p>Bạn có thể tiếp tục tại thiết bị kia, hoặc chuyển phiên sang thiết bị này mà không mất câu đã lưu.</p>
         <div className="assessment-actions">
           <Link className="secondary-button" to="/path">
             Để phiên tiếp tục ở thiết bị kia
@@ -1177,20 +1166,17 @@ function AuthenticatedAssessmentPageScope() {
   ) {
     const copy = phase === "opening"
       ? {
-          title: "Đang chờ máy chủ phát form",
-          description:
-            "Không có câu hỏi local nào được dùng trong lúc chờ receipt.",
+          title: "Đang chuẩn bị câu hỏi",
+          description: "Hệ thống đang khôi phục đúng thứ tự của phiên này.",
         }
       : phase === "submitting"
         ? {
-            title: "Đang nộp thống kê phiên",
-            description:
-              "Máy chủ đang kiểm tra coverage đầy đủ trước khi trả kết quả tổng hợp.",
+            title: "Đang tổng hợp kết quả",
+            description: "Hệ thống đang kiểm tra và lưu toàn bộ câu trả lời.",
           }
         : {
             title: "Đang dừng phiên khảo sát",
-            description:
-              "Hệ thống đang chờ receipt dừng đúng session và form hash.",
+            description: "Các câu đã hoàn thành vẫn được giữ lại an toàn.",
           };
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
@@ -1206,10 +1192,7 @@ function AuthenticatedAssessmentPageScope() {
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <ShieldCheck size={44} />
         <h1>Phiên khảo sát đã dừng</h1>
-        <p>
-          Máy chủ đã xác nhận dừng phiên. Không có kết quả, mastery hay thay đổi
-          lộ trình nào được tạo từ phần trả lời chưa hoàn tất.
-        </p>
+        <p>Phiên đã dừng. Phần trả lời chưa hoàn tất không tạo kết quả và không thay đổi lộ trình.</p>
         <Link className="primary-button" to="/path">
           <ArrowLeft size={17} /> Trở lại lộ trình
         </Link>
@@ -1222,9 +1205,7 @@ function AuthenticatedAssessmentPageScope() {
       <div className="lesson-state-screen" role="alert">
         <AlertTriangle size={44} />
         <h1>Phiên khảo sát đã dừng an toàn</h1>
-        <p>
-          {error ?? "Authority của phiên không còn khớp dữ liệu hiện tại."}
-        </p>
+        <p>Hệ thống chưa thể tiếp tục phiên này. Những câu đã ghi nhận vẫn được giữ an toàn.</p>
         <div className="assessment-actions">
           <Link className="secondary-button" to="/path">
             Trở lại lộ trình
@@ -1254,7 +1235,7 @@ function AuthenticatedAssessmentPageScope() {
           <span />
         </div>
         <span className="system-kicker">
-          SERVER OBSERVATION · UNCALIBRATED
+          KẾT QUẢ TỰ KIỂM · THAM KHẢO
         </span>
         <h1>Thống kê mô tả của form này</h1>
         <div className="assessment-score">
@@ -1284,9 +1265,8 @@ function AuthenticatedAssessmentPageScope() {
           ))}
         </div>
         <p>
-          Khoảng bất định dùng mức 95%. Calibration vẫn đang chờ pilot; kết
-          quả này không khuyến nghị bài học, không thay đổi mastery và không
-          thay thế prerequisite.
+          Hãy dùng kết quả này để chọn vùng cần ôn tiếp. Kết quả không phải
+          điểm thi hay chứng nhận HSK chính thức.
         </p>
         <div className="assessment-actions">
           <Link className="primary-button" to="/path">
@@ -1335,7 +1315,7 @@ function AuthenticatedAssessmentPageScope() {
           </button>
           <div
             role="progressbar"
-            aria-label="Tiến độ câu trả lời đã được máy chủ ghi nhận"
+            aria-label="Tiến độ câu trả lời đã được ghi nhận"
             aria-valuemin={0}
             aria-valuemax={runtime.items.length}
             aria-valuenow={coveredCount}
@@ -1402,13 +1382,12 @@ function AuthenticatedAssessmentPageScope() {
               <>
                 <strong>Đã ghi nhận</strong>
                 <p>
-                  Receipt chỉ xác nhận vị trí này đã được lưu; máy chủ không trả
-                  về kết quả từng câu.
+                  Câu trả lời đã được lưu. Kết quả từng câu không hiển thị trong khảo sát này.
                 </p>
               </>
             ) : attemptState === "pending" ? (
               <>
-                <strong>Đang chờ receipt</strong>
+              <strong>Đang chờ lưu</strong>
                 <p>
                   Lựa chọn đang được đồng bộ. Giao diện không tự chấm trong lúc
                   chờ.
@@ -1435,7 +1414,7 @@ function AuthenticatedAssessmentPageScope() {
           >
             {attemptState === "recorded"
               ? allAttemptsRecorded
-                ? "Nộp thống kê"
+                ? "Xem kết quả"
                 : "Câu tiếp theo"
               : attemptState === "pending"
                 ? "Đang ghi nhận"
@@ -1448,10 +1427,10 @@ function AuthenticatedAssessmentPageScope() {
       <ConfirmModal
         open={abandonModalOpen}
         title="Dừng phiên khảo sát?"
-        description="Máy chủ sẽ đánh dấu phiên này là đã dừng. Phần trả lời chưa hoàn tất không tạo kết quả tổng hợp."
-        eyebrow="SESSION CONTROL"
+        description="Phần trả lời chưa hoàn tất sẽ không tạo kết quả. Những câu đã lưu vẫn được giữ an toàn."
+        eyebrow="DỪNG KHẢO SÁT"
         cancelLabel="Tiếp tục khảo sát"
-        confirmLabel="Dừng đúng phiên này"
+        confirmLabel="Dừng khảo sát"
         busy={busy}
         onCancel={() => setAbandonModalOpen(false)}
         onConfirm={() => void abandonAssessment()}

@@ -95,9 +95,9 @@ export function PathPage() {
         <aside className="path-footer-note">
           <LockKeyhole size={18} />
           <p>
-            <strong>Tự khai cấp độ không tự miễn prerequisite.</strong>{" "}
-            Hãy hoàn thành bridge foundation; diagnostic hiện tại chỉ mô tả
-            kết quả và chưa đủ chuẩn để cấp waiver hay mastery.
+            <strong>Hãy hoàn thành chặng nền trước.</strong>{" "}
+            Cấp độ bạn tự chọn giúp cá nhân hóa lộ trình, nhưng không tự bỏ qua
+            những bài nền cần thiết.
           </p>
         </aside>
       )}
@@ -106,9 +106,8 @@ export function PathPage() {
         <aside className="path-footer-note">
           <Orbit size={18} />
           <p>
-            <strong>{selectedPath.label} đã có graph riêng nhưng chưa có lesson được phát hành.</strong>{" "}
-            Hệ thống không thay bằng lộ trình cấp thấp hơn và không tính
-            inventory như nội dung đã học. {selectedPath.availabilityNote}
+            <strong>Chặng {selectedPath.label} chưa thể bắt đầu lúc này.</strong>{" "}
+            HANZI.OS sẽ không tự thay bằng bài của cấp độ khác. {selectedPath.availabilityNote}
           </p>
         </aside>
       )}
@@ -120,8 +119,8 @@ export function PathPage() {
           ).length;
           return (
             <section className={`course-realm realm-${unit.color}`} key={unit.id} data-realm-status={completedInUnit === unit.lessons.length ? "cleared" : "active"}>
+              <div className="realm-number"><span>{String(unitIndex + 1).padStart(2, "0")}</span></div>
               <header className="realm-header">
-                <div className="realm-number"><span>{String(unitIndex + 1).padStart(2, "0")}</span></div>
                 <div>
                   <span>{unit.code} · {unit.stage}</span>
                   <h2>{unit.title} <small>{unit.chineseTitle}</small></h2>
@@ -177,7 +176,7 @@ export function PathPage() {
             <h2>Đại Khảo Cảnh Giới HSK1</h2>
             <p>
               50 câu phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ gợi ý vùng
-              ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
+              ôn tập tiếp theo; đây không phải bài thi HSK chính thức.
             </p>
           </div>
           <Link className="primary-button" to="/assessment/hsk1" viewTransition>
@@ -194,7 +193,7 @@ export function PathPage() {
             <h2>Đại Khảo Cảnh Giới HSK2</h2>
             <p>
               60 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
-              gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
+              gợi ý vùng ôn tập tiếp theo; đây không phải bài thi HSK chính thức.
             </p>
           </div>
           <Link className="primary-button" to="/assessment/hsk2" viewTransition>
@@ -211,7 +210,7 @@ export function PathPage() {
             <h2>Đại Khảo Cảnh Giới HSK3</h2>
             <p>
               54 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
-              gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
+              gợi ý vùng ôn tập tiếp theo; đây không phải bài thi HSK chính thức.
             </p>
           </div>
           <Link className="primary-button" to="/assessment/hsk3" viewTransition>
@@ -228,7 +227,7 @@ export function PathPage() {
             <h2>Đại Khảo Cảnh Giới HSK4</h2>
             <p>
               72 câu form A phủ nghe, đọc, từ vựng và ngữ pháp. Kết quả chỉ
-              gợi ý vùng ôn tập; không mở khóa bài, cấp mastery hay chứng nhận HSK.
+              gợi ý vùng ôn tập tiếp theo; đây không phải bài thi HSK chính thức.
             </p>
           </div>
           <Link className="primary-button" to="/assessment/hsk4" viewTransition>

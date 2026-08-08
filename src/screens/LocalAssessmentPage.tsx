@@ -299,7 +299,7 @@ export function LocalAssessmentPage() {
         <span className="system-kicker">KHẢO NGHIỆM HOÀN TẤT · CHƯA HIỆU CHỈNH</span>
         <h1>Bản Đồ Bù Khuyết đã sẵn sàng</h1>
         <div className="assessment-score"><strong>{summary.overall.correct}/{summary.overall.n}</strong><span>mục đo được</span></div>
-        <p>{formatObservedEstimate(summary.overall)}. Đây là Khoảng Quan Sát, không phải mastery đã hiệu chỉnh hay chứng nhận HSK.</p>
+        <p>{formatObservedEstimate(summary.overall)}. Đây là kết quả tự kiểm trên thiết bị, không phải điểm thi hay chứng nhận HSK.</p>
         <div className="mastery-skill-list">
           {(Object.entries(summary.skills) as Array<[
             keyof typeof screeningSkillLabels,
@@ -311,7 +311,7 @@ export function LocalAssessmentPage() {
             </div>
           ))}
         </div>
-        <p>Vùng kiến thức gợi ý: <strong>{result.realm}</strong>. Nói, viết và stimulus nghe tổng hợp chưa được đo đủ chuẩn; kết quả không thay thế prerequisite.</p>
+        <p>Vùng kiến thức nên ôn tiếp: <strong>{result.realm}</strong>. Phần nói, viết và nghe bằng giọng máy cần thêm nhiều lượt luyện trước khi kết luận.</p>
         <div className="assessment-destination">
           <small>SUGGESTED KNOWLEDGE AREA</small>
           <strong>{lesson?.title ?? result.title}</strong>

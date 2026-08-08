@@ -106,7 +106,7 @@ const lessonById = new Map(
 export const RICH_LESSON_DISCLOSURE = {
   ...hsk1LevelRichLessonContentJson.disclosure,
   reviewVi:
-    "Nội dung được Codex rà soát bằng AI cho mục đích tự học local; humanReviewed=false.",
+    "Bài tự học này được AI hỗ trợ biên soạn và rà soát; chưa qua thẩm định của giáo viên hoặc người bản ngữ.",
 };
 
 export const getRichLessonContent = (

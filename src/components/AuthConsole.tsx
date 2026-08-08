@@ -1,5 +1,13 @@
 "use client";
 
+import {
+  ArrowRight,
+  Chrome,
+  KeyRound,
+  Mail,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 
 type PasskeyOperation = "register" | "signin" | "unlink";
@@ -78,10 +86,14 @@ export function AuthConsole({
   mode,
   chatGPTSignIn,
   returnTo = "/",
+  localDevelopment = false,
+  googleAvailable = true,
 }: {
   mode: "signin" | "security";
   chatGPTSignIn?: string;
   returnTo?: string;
+  localDevelopment?: boolean;
+  googleAvailable?: boolean;
 }) {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -118,8 +130,12 @@ export function AuthConsole({
       if (!response.ok) throw new Error(await parseError(response, "Không thể gửi mã."));
       const body = await response.json() as { challenge: string; developmentCode?: string };
       setChallenge(body.challenge);
-      if (body.developmentCode) setCode(body.developmentCode);
-      setStatus("Mã sáu số đã được gửi và chỉ dùng được một lần trong 10 phút.");
+      if (body.developmentCode) {
+        setCode(body.developmentCode);
+        setStatus("Mã thử đã được điền sẵn. Chọn Xác minh để bước vào hệ thống.");
+      } else {
+        setStatus("Mã sáu số đã được gửi và chỉ dùng được một lần trong 10 phút.");
+      }
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "Không thể gửi mã.");
     } finally {
@@ -221,27 +237,60 @@ export function AuthConsole({
 
   if (mode === "signin") {
     return (
-      <div className="auth-stack">
-        <section className="auth-card">
-          <h2 className="auth-title">Tiếp tục bằng tài khoản</h2>
-          <p className="auth-copy">Chọn Google, mã email hoặc passkey. Tiến độ ẩn danh trên thiết bị sẽ được hòa giải qua hàng đợi local-first sau khi đăng nhập.</p>
-          <div className="auth-row">
-            <a className="auth-link" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}>Google</a>
-            <button className="auth-secondary" type="button" disabled={busy} onClick={() => runPasskey("signin")}>Dùng passkey</button>
-            {chatGPTSignIn && <a className="auth-link" href={chatGPTSignIn}>ChatGPT (tương thích)</a>}
+      <div className="auth-stack auth-signin-stack">
+        <section className="auth-card auth-email-card">
+          <div className="auth-card-heading">
+            <span className="auth-method-icon"><Mail size={21} /></span>
+            <div>
+              <span className="auth-method-state"><i /> {localDevelopment ? "SẴN SÀNG TRÊN MÁY NÀY" : "KHÔNG CẦN MẬT KHẨU"}</span>
+              <h3 className="auth-title">Mã một lần qua email</h3>
+            </div>
           </div>
-        </section>
-        <section className="auth-card">
-          <h2 className="auth-title">Mã một lần qua email</h2>
-          <p className="auth-copy">Không cần mật khẩu. Mã chỉ dùng một lần và hết hạn sau 10 phút.</p>
-          <div className="auth-row">
+          <p className="auth-copy">Nhập email, nhận mã sáu số rồi xác minh. Mã hết hạn sau 10 phút.</p>
+          <label className="auth-field">
+            <span>Email</span>
             <input className="auth-input" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="ban@example.com" />
-            <button className="auth-button" type="button" disabled={busy} onClick={() => requestEmailCode("signin")}>Gửi mã</button>
-          </div>
-          {challenge && <div className="auth-row auth-row-spaced"><input className="auth-input" inputMode="numeric" autoComplete="one-time-code" value={code} onChange={(event) => setCode(event.target.value.replace(/\D/gu, "").slice(0, 6))} placeholder="000000" /><button className="auth-button" type="button" disabled={busy || code.length !== 6} onClick={verifyEmailCode}>Xác minh</button></div>}
+          </label>
+          <button className="auth-button auth-wide-button" type="button" disabled={busy || !email.trim()} onClick={() => requestEmailCode("signin")}>
+            {busy && !challenge ? "Đang tạo mã..." : "Nhận mã thức tỉnh"} <ArrowRight size={17} />
+          </button>
+          {challenge && (
+            <div className="auth-verification-step">
+              <label className="auth-field">
+                <span>Mã xác minh</span>
+                <input className="auth-input auth-code-input" aria-label="Mã xác minh" inputMode="numeric" autoComplete="one-time-code" value={code} onChange={(event) => setCode(event.target.value.replace(/\D/gu, "").slice(0, 6))} placeholder="000000" />
+              </label>
+              <button className="auth-button auth-wide-button" type="button" disabled={busy || code.length !== 6} onClick={verifyEmailCode}>
+                <Sparkles size={17} /> Xác minh và tiếp tục
+              </button>
+            </div>
+          )}
+          {status && <div role="status" className="auth-status"><ShieldCheck size={16} /> {status}</div>}
         </section>
-        {status && <div role="status" className="auth-status">{status}</div>}
-        <a className="auth-link" href="/">Tiếp tục học ẩn danh trên thiết bị</a>
+
+        {(googleAvailable || chatGPTSignIn) && (
+          <div className="auth-divider"><span>hoặc</span></div>
+        )}
+
+        {(googleAvailable || chatGPTSignIn) && (
+          <section className="auth-provider-grid" aria-label="Các phương thức đăng nhập khác">
+            {googleAvailable && (
+              <a className="auth-provider" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}>
+                <Chrome size={19} /><span><strong>Google</strong><small>Tiếp tục qua tài khoản Google</small></span><ArrowRight size={16} />
+              </a>
+            )}
+            {chatGPTSignIn && (
+              <a className="auth-provider" href={chatGPTSignIn}>
+                <Sparkles size={19} /><span><strong>ChatGPT</strong><small>Dùng trên bản HANZI.OS được hỗ trợ</small></span><ArrowRight size={16} />
+              </a>
+            )}
+          </section>
+        )}
+
+        <button className="auth-passkey" type="button" disabled={busy} onClick={() => runPasskey("signin")}>
+          <KeyRound size={18} /><span><strong>Đã có passkey?</strong><small>Đăng nhập nhanh trên thiết bị đã liên kết</small></span><ArrowRight size={16} />
+        </button>
+        <a className="auth-guest-link" href="/">Tiếp tục học trên thiết bị này <ArrowRight size={16} /></a>
       </div>
     );
   }

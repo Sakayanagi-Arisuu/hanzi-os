@@ -490,7 +490,7 @@ function LocalLessonPage() {
         </div>
         <span className="system-kicker">THỬ LUYỆN TRÊN THIẾT BỊ · TỰ KIỂM</span>
         <h1>{passed ? "Thử Luyện đã thông qua" : "Phiên Thử Luyện đã được lưu trên thiết bị"}</h1>
-        <p>{passed ? "Kết quả đã vượt ngưỡng 70% và chỉ khai mở bước tiếp theo trong chuỗi học trên thiết bị; tài khoản không dùng kết quả này để suy mastery." : requiredPassed ? "Các câu sai được giữ trong Nghịch Cảnh Lục để luyện lại; chúng chưa phải Tín Hiệu Học Tập đã xác nhận." : "Checkpoint thanh điệu chưa đạt 70%. Hãy ôn phần cốt lõi rồi thử lại; không có Điều Kiện Khai Mở tài khoản nào bị thay đổi."}</p>
+        <p>{passed ? "Bạn đã đạt ngưỡng 70% và mở bước tiếp theo trong lộ trình trên thiết bị." : requiredPassed ? "Các câu sai đã được giữ trong Nghịch Cảnh Lục để bạn luyện lại." : "Phần thanh điệu chưa đạt 70%. Hãy ôn phần cốt lõi rồi thử lại."}</p>
         <div className="result-metrics">
           <div><small>Điểm Thông Qua Tự Kiểm</small><strong>{gateScore}%</strong></div>
           <div><small>Tốt nhất trên máy này</small><strong>{bestScore}%</strong></div>

@@ -35,6 +35,13 @@ transactional outbox, tạo package/manifest bất biến rồi mới đổi run
 retry/backoff, dead letter và replay có quyền giữ phát hành an toàn theo
 at-least-once mà không tuyên bố exactly-once. Sites và production vẫn đóng.
 
+Lô sửa UX ngày 08/08 đã làm đăng nhập local hoạt động thật bằng mã email một
+lần mà không cần hosting, nâng Cổng Danh Tính thành giao diện hologram, sửa thẻ
+Khai Âm bị che/mờ, đổi Thất Trụ sang độ sâu số lượt thay vì phần trăm gây hiểu
+nhầm, tách phiên Mock Exam khỏi level check và đưa các thuật ngữ nghiệp vụ về
+nội bộ. Chính sách production vẫn fail-closed; chỉ môi trường development trên
+loopback được dùng closed-alpha preview để học và thử app local.
+
 ## 2. Dashboard tiến độ bắt buộc
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
@@ -516,6 +523,37 @@ fail-closed. Sites, deployment, CMS, commerce và human-review workflow không
   test. E2E tổng xanh 29/30 trước khi expectation provider cũ được sửa, targeted
   ca còn lại xanh 1/1; Lighthouse median 97/100/100/100 và audit production cuối
   0 lỗ hổng sau bản vá lockfile hẹp. Không chạy `verify:production`.
+- Lô UX correctness sau M5 giao đăng nhập email OTP local tự cấu hình D1 qua
+  migration khi chạy `npm run dev`; mã development chỉ hiện trên loopback. Cổng
+  Danh Tính dùng bố cục hologram hai lớp, email là đường chính, Google/ChatGPT
+  chỉ hiện khi provider thật có cấu hình, passkey và chế độ khách vẫn rõ ràng.
+- Development loopback nhận đúng package closed-alpha đã check-in để projection,
+  lesson và Mock Exam chạy end-to-end; production/test vẫn fail-closed. Các truy
+  vấn level-check lọc chính xác `blueprint_id`, nên phiên Mock Exam không còn bị
+  đọc nhầm như khảo sát nền hoặc làm hỏng projection học tập.
+- Thiên Lộ đặt số cảnh giới ngoài header 3D: browser đo không còn giao nhau,
+  heading opacity 1, filter `none` và không tràn ngang. Thất Trụ dùng độ sâu tối
+  đa 10 lượt hợp lệ; 2/2 chỉ lấp 20%, chưa hiện phần trăm đúng trước 10 lượt và
+  không đưa khoảng tin cậy CI ra UI.
+- Copy learner-facing đã bỏ `humanReviewed=false`, CI, receipt, projection,
+  enrollment, form hash, mastery/prerequisite và các nhãn vận hành khỏi luồng
+  bình thường. Disclosure vẫn trung thực bằng câu “AI hỗ trợ biên soạn và rà
+  soát; chưa qua thẩm định của giáo viên hoặc người bản ngữ”, trong khi cờ
+  `humanReviewed: false` vẫn giữ nguyên trong policy/runtime.
+- Browser smoke trực tiếp đã đi trọn mã email local → `/exams`, mở HSK1 form A
+  và bắt đầu runner 12 câu/18 phút; đồng thời xác nhận Thiên Lộ không overlap và
+  Dashboard không còn CI hay “100% từ vựng” sau vài lượt.
+- Targeted unit/repository/auth/policy/estimate xanh **36/36**, typecheck và build
+  xanh; client ceiling **798,8/800 KiB**. Full `npm run check` đi qua toàn bộ
+  validator, typecheck, lint và database restore; Vitest đạt 1.919/1.925 trong
+  lượt song song, sáu ca còn lại đều timeout 10 giây do tải máy. Targeted rerun
+  xác nhận toàn bộ assertion đó xanh, gồm HSK1 5/5 và HSK2 4/4 với timeout 30 s.
+- E2E trên build cuối đạt 29/30 trong full run; ca HSK0→HSK1 còn lại chỉ vướng
+  selector “Xác nhận” trùng nghĩa từ vựng và expectation disclosure cũ, sau sửa
+  targeted 1/1 xanh, tương đương đủ 30 hành trình đã xác nhận. Lighthouse lượt
+  xác nhận ba cold-profile đạt **95/100/100/100**, LCP 2.048 ms, CLS 0 và TBT
+  209 ms; lượt chạy ngay sau E2E từng đạt 92 do tải máy. Không chạy
+  `verify:production` và không mở Sites/deployment.
 
 Không còn lỗi nội dung hoặc tích hợp thật đã biết trong phạm vi local.
 

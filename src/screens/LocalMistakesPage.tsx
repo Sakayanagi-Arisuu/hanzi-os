@@ -181,8 +181,8 @@ export function LocalMistakesPage() {
         <span className="system-kicker">NGHỊCH CẢNH · ĐÃ THANH LỌC</span>
         <h1>Không còn Nghịch Cảnh đang mở</h1>
         <p>
-          Trạng thái này chỉ được lưu trên thiết bị và không phải mastery hoặc
-          authority của tài khoản.
+          Trạng thái này được lưu trên thiết bị để bạn tiếp tục luyện đúng lỗi
+          còn vướng.
         </p>
         <div>
           <Link className="secondary-button" to="/review">
@@ -210,8 +210,8 @@ export function LocalMistakesPage() {
           </span>
           <h1>Nghịch Cảnh Lục</h1>
           <p>
-            Đây là luyện tập lưu trên thiết bị. Kết quả, XP tương tác và trạng
-            thái phá giải không phải mastery hoặc tiến độ tài khoản đã xác nhận.
+            Đây là phần luyện tập lưu trên thiết bị. Trạng thái phá giải giúp
+            bạn theo dõi những lỗi đã ôn lại.
           </p>
         </div>
         <div className="mistake-hero-stats">
