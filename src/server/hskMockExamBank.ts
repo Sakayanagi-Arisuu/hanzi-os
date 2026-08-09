@@ -96,10 +96,10 @@ const timeLimitByLevel: Record<HskMockExamLevel, number> = {
 };
 
 const titleByLevel: Record<HskMockExamLevel, string> = {
-  hsk1: "Mock Exam HSK1",
-  hsk2: "Mock Exam HSK2",
-  hsk3: "Mock Exam HSK3",
-  hsk4: "Mock Exam HSK4",
+  hsk1: "Luyện nhanh HSK1",
+  hsk2: "Luyện nhanh HSK2",
+  hsk3: "Luyện nhanh HSK3",
+  hsk4: "Luyện nhanh HSK4",
 };
 
 const levelNumber = (level: HskMockExamLevel) => level.slice(-1);

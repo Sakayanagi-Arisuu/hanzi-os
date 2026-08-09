@@ -81,13 +81,13 @@ describe("observed assessment confidence", () => {
     });
   });
 
-  it("formats a compact interval without calling it mastery", () => {
+  it("keeps statistical intervals internal on learner-facing copy", () => {
     expect(formatObservedEstimateCompact(estimateObservedAccuracy([
       { id: "a", correct: true },
       { id: "b", correct: false },
-    ]))).toBe("1/2 · CI 95% 9–91%");
+    ]))).toBe("2 lượt · cần thêm dữ liệu");
     expect(formatObservedEstimateCompact(estimateObservedAccuracy([])))
-      .toBe("chưa đo · n=0");
+      .toBe("chưa có lượt");
   });
 
   it("keeps learner bars shallow when a perfect result has little evidence", () => {

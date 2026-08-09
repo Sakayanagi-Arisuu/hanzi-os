@@ -7,23 +7,28 @@ import {
   LEARNING_PROJECTION_PROTOCOL_VERSION,
   LEARNING_PROJECTION_V2_MEDIA_TYPE,
   LEARNING_PROJECTION_V3_MEDIA_TYPE,
+  LEARNING_PROJECTION_V4_MEDIA_TYPE,
   LEARNING_PROJECTION_VERSION_HEADER,
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
 } from "../learning/projectionProtocol";
 import {
   fetchNormalizedLearningProjection,
   fetchNormalizedLearningProjectionV2,
   fetchNormalizedLearningProjectionV3,
+  fetchNormalizedLearningProjectionV4,
   LEARNING_PROJECTION_CURSOR_HEADER,
   LEARNING_PROJECTION_RESET_EPOCH_HEADER,
   NORMALIZED_LEARNING_PROJECTION_CACHE_KEY,
   NORMALIZED_LEARNING_PROJECTION_V2_CACHE_KEY,
   NORMALIZED_LEARNING_PROJECTION_V3_CACHE_KEY,
+  NORMALIZED_LEARNING_PROJECTION_V4_CACHE_KEY,
   readValidCachedNormalizedLearningProjection,
   readValidCachedNormalizedLearningProjectionV2,
   readValidCachedNormalizedLearningProjectionV3,
+  readValidCachedNormalizedLearningProjectionV4,
 } from "./learningProjectionClient";
 import {
   ACTIVE_OWNER_GENERATION_KEY,
@@ -79,10 +84,27 @@ const projectionV3 = (
   ...overrides,
 });
 
+const projectionV4 = (
+  overrides: Partial<NormalizedLearningProjectionV4> = {},
+): NormalizedLearningProjectionV4 => ({
+  ...projectionV3(),
+  protocolVersion: 4,
+  gateEligibleCorrectActivityCounts: {
+    pronunciation: 0,
+    listening: 0,
+    speaking: 0,
+    reading: 0,
+    writing: 0,
+    vocabulary: 0,
+    grammar: 0,
+  },
+  ...overrides,
+});
+
 const projectionHeaders = (
   resetEpoch: number,
   cursor: number,
-  version?: 1 | 2 | 3,
+  version?: 1 | 2 | 3 | 4,
 ) => ({
   [LEARNING_PROJECTION_RESET_EPOCH_HEADER]: String(resetEpoch),
   [LEARNING_PROJECTION_CURSOR_HEADER]: String(cursor),
@@ -96,7 +118,7 @@ const projectionResponse = (
   value: unknown,
   resetEpoch: number,
   cursor: number,
-  version?: 1 | 2 | 3,
+  version?: 1 | 2 | 3 | 4,
 ) => new Response(JSON.stringify(value), {
   status: 200,
   headers: projectionHeaders(resetEpoch, cursor, version),
@@ -717,6 +739,59 @@ describe("normalized learning projection client", () => {
       value: next,
       updatedAt: NOW.toISOString(),
     });
+  });
+
+  it("requests V4 while preserving exact backward-compatible V1/V2/V3 caches", async () => {
+    const owner = (await readOrInitializeOwnerGeneration("account:v4"))
+      .ownerGeneration;
+    const next = projectionV4({ cursor: 29 });
+    const fetchMock = vi.fn(async (
+      _request: RequestInfo | URL,
+      _init?: RequestInit,
+    ) => projectionResponse(
+      next,
+      next.resetEpoch,
+      next.cursor,
+      4,
+    ));
+
+    await expect(fetchNormalizedLearningProjectionV4(input(
+      owner,
+      fetchMock as typeof fetch,
+    ))).resolves.toEqual({ state: "updated", projection: next });
+    expect(fetchMock.mock.calls[0]![1]).toMatchObject({
+      headers: { Accept: LEARNING_PROJECTION_V4_MEDIA_TYPE },
+    });
+    await expect(readValidCachedNormalizedLearningProjectionV4(owner, 0))
+      .resolves.toMatchObject({ value: next });
+    await expect(readValidCachedNormalizedLearningProjectionV3(owner, 0))
+      .resolves.toMatchObject({
+        value: {
+          protocolVersion: 3,
+          cursor: next.cursor,
+        },
+      });
+    await expect(readValidCachedNormalizedLearningProjection(owner, 0))
+      .resolves.toMatchObject({
+        value: {
+          protocolVersion: 1,
+          cursor: next.cursor,
+        },
+      });
+    const legacy = await readLearningProjection<unknown>(cacheScope(
+      owner,
+      0,
+      NORMALIZED_LEARNING_PROJECTION_CACHE_KEY,
+    ));
+    expect(legacy?.value).not.toHaveProperty(
+      "gateEligibleCorrectActivityCounts",
+    );
+    const v4 = await readLearningProjection<unknown>(cacheScope(
+      owner,
+      0,
+      NORMALIZED_LEARNING_PROJECTION_V4_CACHE_KEY,
+    ));
+    expect(v4?.value).toHaveProperty("gateEligibleCorrectActivityCounts");
   });
 
   it("accepts V3 304 only against the exact owner/reset V3 cache and version", async () => {

@@ -512,6 +512,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         idempotencyKey: `${runtime.sessionId}:answer:${exercise.id}`,
         activityVersion: activity.activityVersion,
         requiredForPass: exercise.requiredForPass,
+        usedHint: submittedEvidence.usedHint === true,
       };
 
       let disposition: LocalLearningMutationDisposition = "rejected";
@@ -542,6 +543,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
             selectedAnswer: evidence.selectedAnswer,
             correctAnswer: evidence.correctAnswer,
             requiredForPass: evidence.requiredForPass ?? false,
+            usedHint: evidence.usedHint === true,
             priorExposure,
           },
         }, now);

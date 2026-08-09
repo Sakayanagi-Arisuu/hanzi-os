@@ -181,6 +181,30 @@ beforeEach(() => {
 });
 
 describe("authenticated sync route", () => {
+  it("binds a native account to its stable user id even before email verification", async () => {
+    mocks.getChatGPTUser.mockResolvedValueOnce({
+      email: "",
+      displayName: "Native learner",
+      fullName: "Native learner",
+      userId: "native-user-1",
+      sessionId: "native-session-1",
+      identityId: "native-identity-1",
+      provider: "hanzi",
+      authenticatedAt: Date.now(),
+    });
+    const { deriveAccountKey } = await import("../lib/accountKey");
+    const operation = await operationFor(baseState(), {
+      ownerKey: await deriveAccountKey("native-user-1"),
+    });
+
+    const response = await POST(requestFor(operation));
+
+    expect(response.status).toBe(200);
+    expect(mocks.resolveUser).toHaveBeenCalledWith(expect.objectContaining({
+      userId: "native-user-1",
+    }));
+  });
+
   it("removes aggregate-only mastery before the atomic commit", async () => {
     const state = baseState();
     state.completedLessons["boot-1"] = {

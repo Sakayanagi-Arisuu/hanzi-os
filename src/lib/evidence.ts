@@ -118,18 +118,25 @@ export const scoreLessonSession = (
     return null;
   }
   const correctCount = answers.filter((item) => item.outcome === "correct").length;
+  const gateEligible = (item: LearningEvidence) =>
+    item.metadata?.usedHint !== true
+    && item.metadata?.priorExposure !== true;
+  const gateCorrectCount = answers.filter((item) =>
+    item.outcome === "correct" && gateEligible(item)
+  ).length;
   const requiredAnswers = answers.filter((item) =>
     item.metadata?.requiredForPass === true
   );
   const requiredCorrect = requiredAnswers.filter((item) =>
-    item.outcome === "correct"
+    item.outcome === "correct" && gateEligible(item)
   ).length;
   const requiredPassed = requiredAnswers.length === 0
     || requiredCorrect / requiredAnswers.length >= 0.7;
   const rawScore = Math.round((correctCount / answers.length) * 100);
+  const ungatedScore = Math.round((gateCorrectCount / answers.length) * 100);
   return {
     rawScore,
-    gateScore: requiredPassed ? rawScore : Math.min(rawScore, 69),
+    gateScore: requiredPassed ? ungatedScore : Math.min(ungatedScore, 69),
     requiredPassed,
     requiredEvidenceCount: requiredAnswers.length,
     requiredCorrect,

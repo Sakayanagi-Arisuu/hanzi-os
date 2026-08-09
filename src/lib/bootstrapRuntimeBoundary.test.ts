@@ -17,6 +17,20 @@ const staticSpecifiers = (source: string) => [
 ].map((match) => match[1]!);
 
 describe("cold bootstrap runtime boundary", () => {
+  it("keeps the full application stylesheet behind route-specific boundaries", () => {
+    const rootLayout = readSource("app/layout.tsx");
+    const onboardedRuntime = readSource("src/OnboardedLearningRuntime.tsx");
+
+    expect(rootLayout).toContain('import "../src/critical.css"');
+    expect(rootLayout).not.toContain('import "../src/styles.css"');
+    expect(onboardedRuntime).toContain(
+      'import { FullStyleBoundary } from "./components/FullStyleBoundary"',
+    );
+    expect(readSource("src/components/FullStyleBoundary.tsx")).toContain(
+      'import "../styles.css"',
+    );
+  });
+
   it("keeps onboarded routing and projection code behind a dynamic boundary", () => {
     const clientRuntime = readSource("app/client-runtime.tsx");
     const imports = staticSpecifiers(clientRuntime);

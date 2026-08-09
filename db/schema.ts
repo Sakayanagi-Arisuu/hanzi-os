@@ -106,7 +106,7 @@ export const authSessions = sqliteTable(
     index("auth_sessions_expiry_idx").on(table.expiresAt),
     check(
       "auth_sessions_method_check",
-      sql`${table.authMethod} IN ('google', 'email_otp', 'passkey')`,
+      sql`${table.authMethod} IN ('google', 'facebook', 'hanzi', 'email_otp', 'passkey')`,
     ),
     check(
       "auth_sessions_time_check",
@@ -144,13 +144,14 @@ export const authChallenges = sqliteTable(
       "auth_challenges_kind_check",
       sql`${table.kind} IN (
         'google_signin', 'google_link', 'google_unlink',
+        'facebook_signin', 'facebook_link', 'facebook_unlink',
         'email_signin', 'email_link', 'email_unlink',
         'passkey_register', 'passkey_signin', 'passkey_unlink'
       )`,
     ),
     check(
       "auth_challenges_provider_check",
-      sql`${table.provider} IN ('google', 'email_otp', 'passkey')`,
+      sql`${table.provider} IN ('google', 'facebook', 'hanzi', 'email_otp', 'passkey')`,
     ),
     check(
       "auth_challenges_attempts_check",
@@ -164,6 +165,79 @@ export const authChallenges = sqliteTable(
       "auth_challenges_time_check",
       sql`${table.createdAt} < ${table.expiresAt}
         AND (${table.consumedAt} IS NULL OR ${table.consumedAt} >= ${table.createdAt})`,
+    ),
+  ],
+);
+
+/**
+ * Password material for native HANZI.OS accounts. Each credential owns a
+ * random salt and a versioned PBKDF2 work factor; plaintext passwords never
+ * enter D1. Username and email uniqueness are intentionally scoped to this
+ * native provider instead of implicitly linking unrelated OAuth identities.
+ */
+export const hanziPasswordCredentials = sqliteTable(
+  "hanzi_password_credentials",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "cascade" }),
+    identityId: text("identity_id")
+      .notNull()
+      .references(() => authIdentities.id, { onDelete: "cascade" }),
+    normalizedUsername: text("normalized_username").notNull(),
+    normalizedEmail: text("normalized_email").notNull(),
+    passwordAlgorithm: text("password_algorithm")
+      .notNull()
+      .default("PBKDF2-SHA256"),
+    passwordIterations: integer("password_iterations").notNull(),
+    passwordSalt: text("password_salt").notNull(),
+    passwordHash: text("password_hash").notNull(),
+    failedAttempts: integer("failed_attempts").notNull().default(0),
+    lockedUntil: integer("locked_until"),
+    createdAt: integer("created_at").notNull(),
+    updatedAt: integer("updated_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("hanzi_password_credentials_user_uidx").on(table.userId),
+    uniqueIndex("hanzi_password_credentials_identity_uidx").on(table.identityId),
+    uniqueIndex("hanzi_password_credentials_username_uidx").on(
+      table.normalizedUsername,
+    ),
+    uniqueIndex("hanzi_password_credentials_email_uidx").on(
+      table.normalizedEmail,
+    ),
+    check(
+      "hanzi_password_credentials_username_check",
+      sql`length(${table.normalizedUsername}) BETWEEN 3 AND 32
+        AND ${table.normalizedUsername} NOT GLOB '*[^a-z0-9._-]*'
+        AND substr(${table.normalizedUsername}, 1, 1) GLOB '[a-z0-9]'`,
+    ),
+    check(
+      "hanzi_password_credentials_email_check",
+      sql`length(${table.normalizedEmail}) BETWEEN 3 AND 254
+        AND instr(${table.normalizedEmail}, '@') BETWEEN 2 AND length(${table.normalizedEmail}) - 1`,
+    ),
+    check(
+      "hanzi_password_credentials_algorithm_check",
+      sql`${table.passwordAlgorithm} = 'PBKDF2-SHA256'
+        AND ${table.passwordIterations} BETWEEN 100000 AND 1000000`,
+    ),
+    check(
+      "hanzi_password_credentials_digest_check",
+      sql`length(${table.passwordSalt}) = 22
+        AND ${table.passwordSalt} NOT GLOB '*[^A-Za-z0-9_-]*'
+        AND length(${table.passwordHash}) = 43
+        AND ${table.passwordHash} NOT GLOB '*[^A-Za-z0-9_-]*'`,
+    ),
+    check(
+      "hanzi_password_credentials_attempt_check",
+      sql`${table.failedAttempts} BETWEEN 0 AND 1000
+        AND (${table.lockedUntil} IS NULL OR ${table.lockedUntil} BETWEEN 0 AND 8640000000000000)`,
+    ),
+    check(
+      "hanzi_password_credentials_time_check",
+      sql`${table.createdAt} <= ${table.updatedAt}`,
     ),
   ],
 );

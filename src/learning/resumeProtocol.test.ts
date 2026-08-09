@@ -31,6 +31,7 @@ const lessonResume = (): LessonResumeV5 => {
     exercises: buildLessonResumeExercises(lesson, "simplified", sessionId),
     index: 0,
     selected: null,
+    selectedUsedHint: false,
     checked: false,
     answers: [],
     finished: false,
@@ -153,7 +154,41 @@ describe("lesson resume codec", () => {
     expect(summarizeLessonResumeAnswers(
       restored!.exercises,
       restored!.answers,
-    )).toEqual({ correctCount: 0, requiredCorrectCount: 0 });
+    )).toEqual({
+      correctCount: 0,
+      requiredCorrectCount: 0,
+      gateCorrectCount: 0,
+    });
+  });
+
+  it("keeps assisted recall correct in raw score but outside the gate score", () => {
+    const snapshot = lessonResume();
+    const exercise = snapshot.exercises[0];
+    snapshot.index = 1;
+    snapshot.answers = [{
+      exerciseId: exercise.id,
+      selectedAnswer: exercise.correct,
+      usedHint: true,
+    }];
+
+    const restored = parseLessonResume(snapshot, lesson, "simplified");
+    expect(restored).not.toBeNull();
+    expect(summarizeLessonResumeAnswers(
+      restored!.exercises,
+      restored!.answers,
+    )).toEqual({
+      correctCount: 1,
+      requiredCorrectCount: 0,
+      gateCorrectCount: 0,
+    });
+  });
+
+  it("accepts a pre-helper version 5 snapshot without selectedUsedHint", () => {
+    const snapshot = lessonResume();
+    delete snapshot.selectedUsedHint;
+
+    expect(parseLessonResume(snapshot, lesson, "simplified")?.selectedUsedHint)
+      .toBe(false);
   });
 });
 

@@ -26,13 +26,17 @@ import {
 } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router";
+import {
+  authorizationLabel,
+  hasPermission,
+} from "../auth/authorization";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
 import { VoiceReactor } from "../components/system/VoiceReactor";
 import { ConfirmModal, useSystemFeedback } from "../components/SystemFeedback";
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
 import { getReleasedLessonProgress } from "../lib/adaptive";
-import { chatGPTSignOutPath } from "../lib/chatgptAuthPaths";
+import { signedOutDestination } from "../lib/authNavigation";
 import {
   createLearningRecoveryBundle,
   getAccountDeletionReadiness,
@@ -96,6 +100,11 @@ const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
   const { state, actions, level, sync } = useLearning();
+  const authorization = sync.session?.authenticated
+    ? sync.session.authorization
+    : undefined;
+  const canUseStudio = hasPermission(authorization, "content:workspace:read");
+  const canUseAdmin = hasPermission(authorization, "admin:users:read");
   const normalized = useNormalizedLearningProjection();
   const { notify } = useSystemFeedback();
   const {
@@ -245,10 +254,13 @@ export function ProfilePage() {
   };
 
   const signOut = async () => {
+    const provider = sync.session?.authenticated
+      ? sync.session.user.provider
+      : undefined;
     try {
       await actions.prepareSignOut();
       await fetch("/api/auth/signout", { method: "POST" });
-      window.location.assign(chatGPTSignOutPath("/"));
+      window.location.assign(signedOutDestination(provider));
     } catch (error) {
       notify(
         error instanceof Error ? error.message : "Không thể đăng xuất an toàn lúc này.",
@@ -263,10 +275,13 @@ export function ProfilePage() {
       notify(deletionReadinessLabel, "warning");
       return;
     }
+    const provider = sync.session?.authenticated
+      ? sync.session.user.provider
+      : undefined;
     try {
       await actions.deleteAccount();
       notify("Tài khoản cloud và dữ liệu máy chủ đã được xóa.", "warning");
-      window.location.assign(chatGPTSignOutPath("/"));
+      window.location.assign(signedOutDestination(provider));
     } catch (error) {
       notify(
         error instanceof Error ? error.message : "Không thể xóa tài khoản lúc này.",
@@ -636,7 +651,7 @@ export function ProfilePage() {
             <div>
               <strong>{sync.session?.authenticated ? sync.session.user.displayName : "Chưa kết nối tài khoản"}</strong>
               <p>{sync.session?.authenticated ? sync.session.user.email : "Tiến độ vẫn hoạt động ngoại tuyến trên thiết bị này."}</p>
-              <small>{syncLabel}{syncQueueLabel ? ` · ${syncQueueLabel}` : ""}</small>
+              <small>{authorization ? `${authorizationLabel(authorization)} · ` : ""}{syncLabel}{syncQueueLabel ? ` · ${syncQueueLabel}` : ""}</small>
             </div>
             {sync.session?.authenticated ? (
               <button type="button" onClick={signOut}><LogOut size={16} /> Đăng xuất</button>
@@ -649,9 +664,14 @@ export function ProfilePage() {
               <ShieldCheck size={17} /> Bảo mật tài khoản và phiên
             </a>
           )}
-          {sync.session?.authenticated && (
+          {canUseStudio && (
+            <a className="secondary-button full-button admin-gateway-link" href="/studio">
+              <BriefcaseBusiness size={17} /> Mở Xưởng Nội Dung
+            </a>
+          )}
+          {canUseAdmin && (
             <a className="secondary-button full-button admin-gateway-link" href="/admin">
-              <ShieldCheck size={17} /> Kiểm tra Cổng Quản Trị
+              <ShieldCheck size={17} /> Mở Cổng Quản Trị
             </a>
           )}
           <div className="data-status">

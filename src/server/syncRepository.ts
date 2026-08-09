@@ -40,12 +40,13 @@ export type AppliedSyncOperation = {
   cursor: number;
 };
 
-export const ACCOUNT_EXPORT_SCHEMA_VERSION = 7 as const;
+export const ACCOUNT_EXPORT_SCHEMA_VERSION = 8 as const;
 
 export const ACCOUNT_EXPORT_TABLES = [
   "users",
   "auth_identities",
   "auth_sessions",
+  "hanzi_password_credentials",
   "passkey_credentials",
   "user_roles",
   "profiles",
@@ -85,6 +86,7 @@ const EXPORT_OMITTED_COLUMNS: Partial<Record<
 >> = {
   auth_identities: new Set(["provider_subject"]),
   auth_sessions: new Set(["token_hash", "user_agent_hash"]),
+  hanzi_password_credentials: new Set(["password_salt", "password_hash"]),
   idempotency_records: new Set([
     "request_hash",
     "lease_token",

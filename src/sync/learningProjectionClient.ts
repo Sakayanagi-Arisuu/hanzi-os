@@ -5,15 +5,20 @@ import {
   LEARNING_PROJECTION_V2_PROTOCOL_VERSION,
   LEARNING_PROJECTION_V3_MEDIA_TYPE,
   LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
+  LEARNING_PROJECTION_V4_MEDIA_TYPE,
+  LEARNING_PROJECTION_V4_PROTOCOL_VERSION,
   LEARNING_PROJECTION_VERSION_HEADER,
   parseNormalizedLearningProjection,
   parseNormalizedLearningProjectionV2,
   parseNormalizedLearningProjectionV3,
+  parseNormalizedLearningProjectionV4,
   toNormalizedLearningProjectionV1,
   toNormalizedLearningProjectionV2,
+  toNormalizedLearningProjectionV3,
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
 } from "../learning/projectionProtocol";
 import { isValidLearningResetEpoch } from "../learning/resetEpoch";
 import {
@@ -31,6 +36,8 @@ export const NORMALIZED_LEARNING_PROJECTION_V2_CACHE_KEY =
   "normalized-learning-projection-v2" as const;
 export const NORMALIZED_LEARNING_PROJECTION_V3_CACHE_KEY =
   "normalized-learning-projection-v3" as const;
+export const NORMALIZED_LEARNING_PROJECTION_V4_CACHE_KEY =
+  "normalized-learning-projection-v4" as const;
 export const LEARNING_PROJECTION_CURSOR_HEADER =
   "x-learning-projection-cursor" as const;
 export const LEARNING_PROJECTION_RESET_EPOCH_HEADER =
@@ -104,6 +111,20 @@ export type FetchNormalizedLearningProjectionV3Result =
       { state: "reset-mismatch" | "permanent-unavailable" | "retryable" }
     >;
 
+export type FetchNormalizedLearningProjectionV4Result =
+  | {
+      state: "updated";
+      projection: NormalizedLearningProjectionV4;
+    }
+  | {
+      state: "not-modified";
+      projection: NormalizedLearningProjectionV4;
+    }
+  | Extract<
+      FetchNormalizedLearningProjectionResult,
+      { state: "reset-mismatch" | "permanent-unavailable" | "retryable" }
+    >;
+
 export type ValidCachedNormalizedLearningProjection = OwnerScopedCacheRecord<
   NormalizedLearningProjectionV1
 >;
@@ -114,6 +135,10 @@ export type ValidCachedNormalizedLearningProjectionV2 = OwnerScopedCacheRecord<
 
 export type ValidCachedNormalizedLearningProjectionV3 = OwnerScopedCacheRecord<
   NormalizedLearningProjectionV3
+>;
+
+export type ValidCachedNormalizedLearningProjectionV4 = OwnerScopedCacheRecord<
+  NormalizedLearningProjectionV4
 >;
 
 const safeNonNegativeInteger = (value: string | null) => {
@@ -186,6 +211,20 @@ const validExactProjectionV3 = (
   return parsed.projection;
 };
 
+const validExactProjectionV4 = (
+  value: unknown,
+  expectedResetEpoch: number,
+) => {
+  const parsed = parseNormalizedLearningProjectionV4(value);
+  if (
+    !parsed.ok
+    || parsed.projection.resetEpoch !== expectedResetEpoch
+    || parsed.projection.contentVersion !== CONTENT_VERSION
+    || parsed.projection.manifestSha256 !== CURRENT_CONTENT_MANIFEST_SHA256
+  ) return null;
+  return parsed.projection;
+};
+
 const validCachedProjectionCursor = (
   entryKey: string,
   value: unknown,
@@ -197,6 +236,8 @@ const validCachedProjectionCursor = (
       ? validExactProjectionV2(value, expectedResetEpoch)
       : entryKey === NORMALIZED_LEARNING_PROJECTION_V3_CACHE_KEY
         ? validExactProjectionV3(value, expectedResetEpoch)
+      : entryKey === NORMALIZED_LEARNING_PROJECTION_V4_CACHE_KEY
+        ? validExactProjectionV4(value, expectedResetEpoch)
       : null;
   return projection?.cursor ?? null;
 };
@@ -248,6 +289,26 @@ export const readValidCachedNormalizedLearningProjectionV3 = async (
   ));
   if (!record) return null;
   const projection = validExactProjectionV3(
+    record.value,
+    expectedResetEpoch,
+  );
+  return projection ? { ...record, value: projection } : null;
+};
+
+export const readValidCachedNormalizedLearningProjectionV4 = async (
+  expectedOwnerGeneration: OwnerGeneration,
+  expectedResetEpoch: number,
+): Promise<ValidCachedNormalizedLearningProjectionV4 | null> => {
+  if (!isValidLearningResetEpoch(expectedResetEpoch)) {
+    throw new Error("Expected learning reset epoch is invalid.");
+  }
+  const record = await readLearningProjection<unknown>(projectionScope(
+    expectedOwnerGeneration,
+    expectedResetEpoch,
+    NORMALIZED_LEARNING_PROJECTION_V4_CACHE_KEY,
+  ));
+  if (!record) return null;
+  const projection = validExactProjectionV4(
     record.value,
     expectedResetEpoch,
   );
@@ -864,5 +925,220 @@ export async function fetchNormalizedLearningProjectionV3(
     NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
     { mode: "exclusive" },
     () => fetchNormalizedLearningProjectionV3Unlocked(input),
+  );
+}
+
+const retryableV4 = (
+  status: number | null,
+  reason: Extract<
+    FetchNormalizedLearningProjectionV4Result,
+    { state: "retryable" }
+  >["reason"],
+  delay = 0,
+): FetchNormalizedLearningProjectionV4Result => ({
+  state: "retryable",
+  status,
+  reason,
+  retryAfterMs: delay,
+});
+
+async function fetchNormalizedLearningProjectionV4Unlocked(
+  input: FetchNormalizedLearningProjectionInput,
+): Promise<FetchNormalizedLearningProjectionV4Result> {
+  if (!isValidLearningResetEpoch(input.expectedResetEpoch)) {
+    throw new Error("Expected learning reset epoch is invalid.");
+  }
+  const now = input.now ?? (() => new Date());
+  const requestStartedAt = now().getTime();
+  if (Number.isNaN(requestStartedAt)) {
+    throw new Error("Learning projection client clock is invalid.");
+  }
+  // Only an exact V4 cache may authorize a V4 304. Older cache generations
+  // remain readable as learning authority but cannot stand in for breadth.
+  const cached = await readValidCachedNormalizedLearningProjectionV4(
+    input.expectedOwnerGeneration,
+    input.expectedResetEpoch,
+  );
+  const currentOrigin = input.origin
+    ?? (typeof location === "undefined" ? null : location.origin);
+  if (!currentOrigin) {
+    throw new Error("Current origin is required for learning projection fetch.");
+  }
+  const origin = new URL(currentOrigin).origin;
+  const endpoint = new URL(NORMALIZED_LEARNING_PROJECTION_ENDPOINT, origin);
+  if (
+    endpoint.origin !== origin
+    || endpoint.pathname !== NORMALIZED_LEARNING_PROJECTION_ENDPOINT
+    || endpoint.username
+    || endpoint.password
+  ) {
+    throw new Error("Learning projection endpoint must remain same-origin.");
+  }
+  if (cached) endpoint.searchParams.set(
+    "afterCursor",
+    String(cached.value.cursor),
+  );
+
+  let response: Response;
+  try {
+    response = await (input.fetch ?? fetch)(
+      `${endpoint.pathname}${endpoint.search}`,
+      {
+        method: "GET",
+        credentials: "same-origin",
+        redirect: "error",
+        cache: "no-store",
+        headers: { Accept: LEARNING_PROJECTION_V4_MEDIA_TYPE },
+      },
+    );
+  } catch {
+    return retryableV4(null, "network-unavailable");
+  }
+
+  if (response.status === 401 || response.status === 409) {
+    return {
+      state: "permanent-unavailable",
+      status: response.status,
+      reason: response.status === 401
+        ? "authentication-required"
+        : "content-unavailable",
+    };
+  }
+  if (response.status === 429) {
+    return retryableV4(
+      response.status,
+      "rate-limited",
+      retryAfterMs(response.headers.get("Retry-After"), requestStartedAt),
+    );
+  }
+  if (response.status >= 500 && response.status <= 599) {
+    return retryableV4(response.status, "server-unavailable");
+  }
+
+  const headers = responseEpochAndCursor(response);
+  const responseVersion = safeNonNegativeInteger(
+    response.headers.get(LEARNING_PROJECTION_VERSION_HEADER),
+  );
+  if (response.status === 304) {
+    if (
+      headers.resetEpoch !== null
+      && headers.resetEpoch !== input.expectedResetEpoch
+    ) {
+      return {
+        state: "reset-mismatch",
+        expectedResetEpoch: input.expectedResetEpoch,
+        serverResetEpoch: headers.resetEpoch,
+      };
+    }
+    if (
+      !cached
+      || responseVersion !== LEARNING_PROJECTION_V4_PROTOCOL_VERSION
+      || headers.resetEpoch !== input.expectedResetEpoch
+      || headers.cursor !== cached.value.cursor
+    ) {
+      return retryableV4(response.status, "invalid-response");
+    }
+    const currentCached = await readValidCachedNormalizedLearningProjectionV4(
+      input.expectedOwnerGeneration,
+      input.expectedResetEpoch,
+    );
+    if (!currentCached || currentCached.value.cursor !== headers.cursor) {
+      return retryableV4(response.status, "invalid-response");
+    }
+    return { state: "not-modified", projection: currentCached.value };
+  }
+
+  if (response.status !== 200) {
+    return response.status >= 400 && response.status <= 499
+      ? {
+          state: "permanent-unavailable",
+          status: response.status,
+          reason: "request-rejected",
+        }
+      : retryableV4(response.status, "invalid-response");
+  }
+
+  let body: unknown;
+  try {
+    body = await response.json() as unknown;
+  } catch {
+    return retryableV4(response.status, "invalid-response");
+  }
+  const parsed = parseNormalizedLearningProjectionV4(body);
+  if (!parsed.ok) return retryableV4(response.status, "invalid-response");
+  const projection = parsed.projection;
+  if (projection.resetEpoch !== input.expectedResetEpoch) {
+    return {
+      state: "reset-mismatch",
+      expectedResetEpoch: input.expectedResetEpoch,
+      serverResetEpoch: projection.resetEpoch,
+    };
+  }
+  if (
+    responseVersion !== LEARNING_PROJECTION_V4_PROTOCOL_VERSION
+    || projection.contentVersion !== CONTENT_VERSION
+    || projection.manifestSha256 !== CURRENT_CONTENT_MANIFEST_SHA256
+    || headers.resetEpoch !== projection.resetEpoch
+    || headers.cursor !== projection.cursor
+    || (cached !== null && projection.cursor < cached.value.cursor)
+  ) {
+    return retryableV4(response.status, "invalid-response");
+  }
+
+  const v3Projection = toNormalizedLearningProjectionV3(projection);
+  const v2Projection = toNormalizedLearningProjectionV2(projection);
+  const cacheWrite = await writeLearningProjectionBatchWithMonotonicCursor<
+    | NormalizedLearningProjectionV1
+    | NormalizedLearningProjectionV2
+    | NormalizedLearningProjectionV3
+    | NormalizedLearningProjectionV4
+  >(
+    {
+      expectedOwnerGeneration: input.expectedOwnerGeneration,
+      resetEpoch: input.expectedResetEpoch,
+      entries: [{
+        entryKey: NORMALIZED_LEARNING_PROJECTION_CACHE_KEY,
+        value: toNormalizedLearningProjectionV1(projection),
+      }, {
+        entryKey: NORMALIZED_LEARNING_PROJECTION_V2_CACHE_KEY,
+        value: v2Projection,
+      }, {
+        entryKey: NORMALIZED_LEARNING_PROJECTION_V3_CACHE_KEY,
+        value: v3Projection,
+      }, {
+        entryKey: NORMALIZED_LEARNING_PROJECTION_V4_CACHE_KEY,
+        value: projection,
+      }],
+      updatedAt: new Date(requestStartedAt).toISOString(),
+    },
+    (entryKey, value) => validCachedProjectionCursor(
+      entryKey,
+      value,
+      input.expectedResetEpoch,
+    ),
+  );
+  if (!cacheWrite.written) {
+    const current = await readValidCachedNormalizedLearningProjectionV4(
+      input.expectedOwnerGeneration,
+      input.expectedResetEpoch,
+    );
+    return current && current.value.cursor >= projection.cursor
+      ? { state: "not-modified", projection: current.value }
+      : retryableV4(response.status, "invalid-response");
+  }
+  return { state: "updated", projection };
+}
+
+export async function fetchNormalizedLearningProjectionV4(
+  input: FetchNormalizedLearningProjectionInput,
+): Promise<FetchNormalizedLearningProjectionV4Result> {
+  const lockManager = typeof navigator === "undefined"
+    ? null
+    : navigator.locks;
+  if (!lockManager) return fetchNormalizedLearningProjectionV4Unlocked(input);
+  return lockManager.request(
+    NORMALIZED_LEARNING_PROJECTION_LOCK_NAME,
+    { mode: "exclusive" },
+    () => fetchNormalizedLearningProjectionV4Unlocked(input),
   );
 }

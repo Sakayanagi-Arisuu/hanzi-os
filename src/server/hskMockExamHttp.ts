@@ -21,7 +21,7 @@ export const authorizeMockExamLearner = async () => {
         response: mockExamError(
           401,
           "AUTH_REQUIRED",
-          "Đăng nhập để mở Mock Exam chấm điểm phía máy chủ.",
+          "Đăng nhập để mở bài luyện đề chấm điểm phía máy chủ.",
         ),
       };
     }
@@ -35,7 +35,7 @@ export const authorizeMockExamLearner = async () => {
       response: mockExamError(
         unavailable ? 503 : 500,
         unavailable ? error.code : "MOCK_EXAM_AUTH_FAILED",
-        unavailable ? error.message : "Không thể xác minh phiên Mock Exam.",
+        unavailable ? error.message : "Không thể xác minh phiên luyện đề.",
       ),
     };
   }

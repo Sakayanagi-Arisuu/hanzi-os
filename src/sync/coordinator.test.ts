@@ -11,6 +11,7 @@ import {
 import type { LearningEvidence, LearningState, StudyEvent } from "../types";
 import { createInitialSyncDocument } from "./document";
 import {
+  isCloudSession,
   LearningSyncCoordinator,
   mergeServerAuthoritativeDocument,
   type LearningSyncStatus,
@@ -33,6 +34,46 @@ import {
   transitionOwnerCheckpoint,
   writeOwnerCheckpoint,
 } from "./indexedDb";
+
+describe("cloud session authorization parser", () => {
+  it("accepts role metadata and keeps anonymous authorization optional", () => {
+    expect(isCloudSession({
+      authenticated: true,
+      accountKey: "account:admin",
+      user: {
+        displayName: "Admin",
+        email: "admin@hanzi.local",
+        fullName: null,
+        provider: "hanzi",
+      },
+      authorization: {
+        roles: ["learner", "admin"],
+        permissions: ["learning:use", "admin:users:read"],
+      },
+    })).toBe(true);
+    expect(isCloudSession({
+      authenticated: false,
+      accountKey: null,
+      user: null,
+    })).toBe(true);
+    expect(isCloudSession({
+      authenticated: true,
+      accountKey: "account:forged",
+      user: { displayName: "X", email: "x@example.com", fullName: null },
+      authorization: { roles: ["superadmin"], permissions: [] },
+    })).toBe(false);
+    expect(isCloudSession({
+      authenticated: true,
+      accountKey: "account:forged-provider",
+      user: {
+        displayName: "X",
+        email: "x@example.com",
+        fullName: null,
+        provider: "chatgpt",
+      },
+    })).toBe(false);
+  });
+});
 
 const NOW = "2026-07-20T04:00:00.000Z";
 

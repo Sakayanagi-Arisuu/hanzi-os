@@ -28,6 +28,7 @@ describe("optional SIWC session endpoint", () => {
       authenticated: false,
       user: null,
       accountKey: null,
+      authorization: null,
     });
   });
 
@@ -50,6 +51,10 @@ describe("optional SIWC session endpoint", () => {
         fullName: "Nguyễn An",
       },
       accountKey: await deriveAccountKey("Learner@Example.com"),
+      authorization: {
+        roles: ["learner"],
+        permissions: ["learning:use", "account:self:manage"],
+      },
     });
   });
 });

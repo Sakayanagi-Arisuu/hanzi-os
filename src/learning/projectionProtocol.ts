@@ -28,10 +28,13 @@ import {
 export const LEARNING_PROJECTION_PROTOCOL_VERSION = 1 as const;
 export const LEARNING_PROJECTION_V2_PROTOCOL_VERSION = 2 as const;
 export const LEARNING_PROJECTION_V3_PROTOCOL_VERSION = 3 as const;
+export const LEARNING_PROJECTION_V4_PROTOCOL_VERSION = 4 as const;
 export const LEARNING_PROJECTION_V2_MEDIA_TYPE =
   "application/vnd.hanzi-os.learning-projection.v2+json" as const;
 export const LEARNING_PROJECTION_V3_MEDIA_TYPE =
   "application/vnd.hanzi-os.learning-projection.v3+json" as const;
+export const LEARNING_PROJECTION_V4_MEDIA_TYPE =
+  "application/vnd.hanzi-os.learning-projection.v4+json" as const;
 export const LEARNING_PROJECTION_VERSION_HEADER =
   "x-learning-projection-version" as const;
 
@@ -174,10 +177,24 @@ export type NormalizedLearningProjectionV3 = Omit<
   activeReaderSession: ActiveReaderSessionProjectionV3 | null;
 };
 
+/**
+ * V4 adds descriptive breadth counts as a separate, versioned aggregate. The
+ * V1-V3 objective evidence shape remains byte-for-byte compatible with older
+ * caches and clients.
+ */
+export type NormalizedLearningProjectionV4 = Omit<
+  NormalizedLearningProjectionV3,
+  "protocolVersion"
+> & {
+  protocolVersion: 4;
+  gateEligibleCorrectActivityCounts: Record<Skill, number>;
+};
+
 export type NormalizedLearningProjection =
   | NormalizedLearningProjectionV1
   | NormalizedLearningProjectionV2
-  | NormalizedLearningProjectionV3;
+  | NormalizedLearningProjectionV3
+  | NormalizedLearningProjectionV4;
 
 export type LearningProjectionParseResult =
   | { ok: true; projection: NormalizedLearningProjectionV1 }
@@ -189,6 +206,10 @@ export type LearningProjectionV2ParseResult =
 
 export type LearningProjectionV3ParseResult =
   | { ok: true; projection: NormalizedLearningProjectionV3 }
+  | { ok: false; reason: string };
+
+export type LearningProjectionV4ParseResult =
+  | { ok: true; projection: NormalizedLearningProjectionV4 }
   | { ok: false; reason: string };
 
 export type AnyLearningProjectionParseResult =
@@ -957,7 +978,8 @@ const validActiveReaderSession = (
 export const toNormalizedLearningProjectionV1 = (
   projection:
     | NormalizedLearningProjectionV2
-    | NormalizedLearningProjectionV3,
+    | NormalizedLearningProjectionV3
+    | NormalizedLearningProjectionV4,
 ): NormalizedLearningProjectionV1 => ({
   protocolVersion: LEARNING_PROJECTION_PROTOCOL_VERSION,
   resetEpoch: projection.resetEpoch,
@@ -971,7 +993,7 @@ export const toNormalizedLearningProjectionV1 = (
 });
 
 export const toNormalizedLearningProjectionV2 = (
-  projection: NormalizedLearningProjectionV3,
+  projection: NormalizedLearningProjectionV3 | NormalizedLearningProjectionV4,
 ): NormalizedLearningProjectionV2 => ({
   protocolVersion: LEARNING_PROJECTION_V2_PROTOCOL_VERSION,
   resetEpoch: projection.resetEpoch,
@@ -984,6 +1006,23 @@ export const toNormalizedLearningProjectionV2 = (
   objectiveEvidence: projection.objectiveEvidence,
   activeAssessmentSession: projection.activeAssessmentSession,
   latestAssessmentResult: projection.latestAssessmentResult,
+});
+
+export const toNormalizedLearningProjectionV3 = (
+  projection: NormalizedLearningProjectionV4,
+): NormalizedLearningProjectionV3 => ({
+  protocolVersion: LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
+  resetEpoch: projection.resetEpoch,
+  cursor: projection.cursor,
+  contentVersion: projection.contentVersion,
+  manifestSha256: projection.manifestSha256,
+  enrollment: projection.enrollment,
+  activeLessonSessions: projection.activeLessonSessions,
+  submittedLessons: projection.submittedLessons,
+  objectiveEvidence: projection.objectiveEvidence,
+  activeAssessmentSession: projection.activeAssessmentSession,
+  latestAssessmentResult: projection.latestAssessmentResult,
+  activeReaderSession: projection.activeReaderSession,
 });
 
 /**
@@ -1136,9 +1175,78 @@ export const parseNormalizedLearningProjectionV3 = (
   return { ok: true, projection };
 };
 
+/**
+ * V4 carries one strict per-skill breadth aggregate. It is intentionally a new
+ * contract instead of changing V1-V3 in place, so old clients keep receiving
+ * and accepting the exact representation they requested.
+ */
+export const parseNormalizedLearningProjectionV4 = (
+  value: unknown,
+): LearningProjectionV4ParseResult => {
+  if (
+    !isRecord(value)
+    || !exactKeys(value, [
+      "protocolVersion",
+      "resetEpoch",
+      "cursor",
+      "contentVersion",
+      "manifestSha256",
+      "enrollment",
+      "activeLessonSessions",
+      "submittedLessons",
+      "objectiveEvidence",
+      "activeAssessmentSession",
+      "latestAssessmentResult",
+      "activeReaderSession",
+      "gateEligibleCorrectActivityCounts",
+    ])
+    || value.protocolVersion !== LEARNING_PROJECTION_V4_PROTOCOL_VERSION
+    || !isRecord(value.gateEligibleCorrectActivityCounts)
+    || !exactKeys(value.gateEligibleCorrectActivityCounts, [...SKILLS])
+  ) {
+    return { ok: false, reason: "Learning projection V4 contract is invalid." };
+  }
+
+  const v3 = parseNormalizedLearningProjectionV3({
+    protocolVersion: LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
+    resetEpoch: value.resetEpoch,
+    cursor: value.cursor,
+    contentVersion: value.contentVersion,
+    manifestSha256: value.manifestSha256,
+    enrollment: value.enrollment,
+    activeLessonSessions: value.activeLessonSessions,
+    submittedLessons: value.submittedLessons,
+    objectiveEvidence: value.objectiveEvidence,
+    activeAssessmentSession: value.activeAssessmentSession,
+    latestAssessmentResult: value.latestAssessmentResult,
+    activeReaderSession: value.activeReaderSession,
+  });
+  if (!v3.ok) return { ok: false, reason: v3.reason };
+
+  for (const skill of SKILLS) {
+    const count = value.gateEligibleCorrectActivityCounts[skill];
+    if (
+      !isNonNegativeSafeInteger(count)
+      || count > v3.projection.objectiveEvidence[skill].correctCount
+    ) {
+      return {
+        ok: false,
+        reason: "Learning projection V4 breadth aggregate is invalid.",
+      };
+    }
+  }
+  return {
+    ok: true,
+    projection: value as NormalizedLearningProjectionV4,
+  };
+};
+
 export const parseAnyNormalizedLearningProjection = (
   value: unknown,
 ): AnyLearningProjectionParseResult => {
+  if (isRecord(value) && value.protocolVersion === 4) {
+    return parseNormalizedLearningProjectionV4(value);
+  }
   if (isRecord(value) && value.protocolVersion === 3) {
     return parseNormalizedLearningProjectionV3(value);
   }

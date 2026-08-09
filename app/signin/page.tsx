@@ -1,6 +1,5 @@
 import { headers } from "next/headers";
 import { AuthConsole } from "../../src/components/AuthConsole";
-import { chatGPTSignInPath } from "../../src/lib/chatgptAuthPaths";
 import {
   type AuthRuntimeEnvironment,
   isLocalDevelopmentAuth,
@@ -26,13 +25,20 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
   }
   const localDevelopment = isLocalDevelopmentAuth(
     `${origin}/signin`,
-    environment.AUTH_DEV_EMAIL_OTP,
+    environment.AUTH_DEV_HANZI_DEMOS,
   );
   const googleAvailable = Boolean(
     environment.GOOGLE_CLIENT_ID?.trim()
     && environment.GOOGLE_REDIRECT_URI?.trim() === `${origin}/auth/google/callback`,
   );
-  const chatGPTAvailable = new URL(origin).hostname.endsWith(".chatgpt.site");
+  const facebookGraphVersion = environment.FACEBOOK_GRAPH_VERSION?.trim() ?? "";
+  const facebookAvailable = Boolean(
+    environment.FACEBOOK_CLIENT_ID?.trim()
+    && environment.FACEBOOK_CLIENT_SECRET?.trim()
+    && /^v\d{1,3}\.\d{1,2}$/u.test(facebookGraphVersion)
+    && environment.FACEBOOK_REDIRECT_URI?.trim()
+      === `${origin}/auth/facebook/callback`,
+  );
   const returnTo = query.returnTo?.startsWith("/") && !query.returnTo.startsWith("//")
     ? query.returnTo.slice(0, 500)
     : "/";
@@ -47,28 +53,28 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
       <div className="signin-shell">
         <section className="signin-intro">
           <div className="signin-orbit" aria-hidden="true"><i /><b /><span>觉</span></div>
-          <span className="signin-kicker">CỔNG ĐỒNG BỘ HÀNH TRÌNH</span>
+          <span className="signin-kicker">CỔNG DANH TÍNH · BA PHƯƠNG THỨC</span>
           <h1>Đánh thức<br /><em>danh tính học tập.</em></h1>
-          <p>Đăng nhập để giữ tiến độ khi đổi thiết bị và mở Đại Khảo. Bạn vẫn có thể học trên máy này mà không cần tài khoản.</p>
+          <p>Tạo tài khoản HANZI.OS hoặc tiếp tục bằng Google/Facebook khi bản public được cấu hình. Tiến độ local trên máy này vẫn được giữ nguyên.</p>
           <div className="signin-trust-list">
-            <span><strong>01</strong> Không cần hosting để thử đăng nhập local</span>
-            <span><strong>02</strong> Không dùng mật khẩu</span>
-            <span><strong>03</strong> Tiến độ trên máy được giữ nguyên</span>
+            <span><strong>01</strong> HANZI.OS dùng được ngay trên localhost</span>
+            <span><strong>02</strong> Mật khẩu chỉ lưu dưới dạng băm có salt</span>
+            <span><strong>03</strong> Ba vai trò có tài khoản thử riêng</span>
           </div>
         </section>
         <section className="signin-console">
           <header>
             <span>AWAKENING PROTOCOL</span>
             <h2>Xác nhận danh tính</h2>
-            <p>{localDevelopment ? "Mã thử sẽ được điền sẵn trên localhost." : "Chọn một cổng đang khả dụng để tiếp tục."}</p>
+            <p>{localDevelopment ? "Chọn nhanh Hành Giả, Quản Khố hoặc Điều Hành ở cuối bảng." : "Đăng nhập hoặc tạo một danh tính HANZI.OS mới."}</p>
           </header>
-          {query.error && <p className="signin-alert" role="alert">Cổng vừa chọn chưa sẵn sàng. Hãy dùng mã email hoặc thử lại sau.</p>}
+          {query.error && <p className="signin-alert" role="alert">Cổng vừa chọn chưa sẵn sàng. Hãy dùng tài khoản HANZI.OS hoặc thử lại sau.</p>}
           <AuthConsole
             mode="signin"
             returnTo={returnTo}
             localDevelopment={localDevelopment}
             googleAvailable={googleAvailable}
-            chatGPTSignIn={query.stepUp === "1" || !chatGPTAvailable ? undefined : chatGPTSignInPath(returnTo)}
+            facebookAvailable={facebookAvailable}
           />
         </section>
       </div>

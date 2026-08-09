@@ -6,6 +6,7 @@ export type LessonResumePhase = "briefing" | "exercise";
 export type LessonResumeAnswer = {
   exerciseId: string;
   selectedAnswer: string;
+  usedHint?: boolean;
 };
 
 export type LessonResumeV5 = {
@@ -18,6 +19,7 @@ export type LessonResumeV5 = {
   exercises: Exercise[];
   index: number;
   selected: string | null;
+  selectedUsedHint?: boolean;
   checked: boolean;
   answers: LessonResumeAnswer[];
   finished: boolean;
@@ -40,7 +42,9 @@ const LESSON_RESUME_KEYS = [
   "earnedXp",
 ] as const;
 
+const LESSON_RESUME_OPTIONAL_KEYS = ["selectedUsedHint"] as const;
 const LESSON_RESUME_ANSWER_KEYS = ["exerciseId", "selectedAnswer"] as const;
+const LESSON_RESUME_ANSWER_OPTIONAL_KEYS = ["usedHint"] as const;
 
 const EXERCISE_REQUIRED_KEYS = [
   "id",
@@ -153,15 +157,20 @@ export const summarizeLessonResumeAnswers = (
   answers: readonly LessonResumeAnswer[],
 ) => answers.reduce((summary, answer, index) => {
   const exercise = exercises[index];
-  if (!exercise || !answersMatch(answer.selectedAnswer, exercise.correct)) {
+  if (
+    !exercise
+    || !answersMatch(answer.selectedAnswer, exercise.correct)
+  ) {
     return summary;
   }
+  const gateEligible = answer.usedHint !== true;
   return {
     correctCount: summary.correctCount + 1,
     requiredCorrectCount: summary.requiredCorrectCount
-      + (exercise.requiredForPass ? 1 : 0),
+      + (gateEligible && exercise.requiredForPass ? 1 : 0),
+    gateCorrectCount: summary.gateCorrectCount + (gateEligible ? 1 : 0),
   };
-}, { correctCount: 0, requiredCorrectCount: 0 });
+}, { correctCount: 0, requiredCorrectCount: 0, gateCorrectCount: 0 });
 
 const expectedActivityVersion = (lesson: Lesson, exercise: Exercise) =>
   exercise.kind === "tone-pair"
@@ -250,7 +259,7 @@ export const parseLessonResume = (
 ): LessonResumeV5 | null => {
   if (
     !isRecord(value)
-    || !hasExactKeys(value, LESSON_RESUME_KEYS)
+    || !hasExactKeys(value, LESSON_RESUME_KEYS, LESSON_RESUME_OPTIONAL_KEYS)
     || value.version !== 5
     || value.contentVersion !== lesson.contentVersion
     || value.lessonId !== lesson.id
@@ -262,6 +271,7 @@ export const parseLessonResume = (
     || value.exercises.length > 20
     || !isSafeCount(value.index, value.exercises.length - 1)
     || !isNullableBoundedString(value.selected, 1_000)
+    || (value.selectedUsedHint !== undefined && typeof value.selectedUsedHint !== "boolean")
     || typeof value.checked !== "boolean"
     || !Array.isArray(value.answers)
     || value.answers.length > value.exercises.length
@@ -296,18 +306,28 @@ export const parseLessonResume = (
     const exercise = resolvedExercises[answerIndex];
     if (
       !isRecord(answer)
-      || !hasExactKeys(answer, LESSON_RESUME_ANSWER_KEYS)
+      || !hasExactKeys(
+        answer,
+        LESSON_RESUME_ANSWER_KEYS,
+        LESSON_RESUME_ANSWER_OPTIONAL_KEYS,
+      )
       || answer.exerciseId !== exercise.id
       || !isBoundedString(answer.selectedAnswer, 1_000)
+      || (answer.usedHint !== undefined && typeof answer.usedHint !== "boolean")
       || (
         exercise.kind !== "recall"
         && !exercise.options.includes(answer.selectedAnswer)
       )
     ) return null;
-    answers.push(answer as LessonResumeAnswer);
+    answers.push({
+      exerciseId: String(answer.exerciseId),
+      selectedAnswer: String(answer.selectedAnswer),
+      usedHint: answer.usedHint === true,
+    });
   }
 
   const selected = value.selected as string | null;
+  const selectedUsedHint = value.selectedUsedHint === true;
   const current = resolvedExercises[Number(value.index)];
   if (
     (value.checked && !selected?.trim())
@@ -326,6 +346,7 @@ export const parseLessonResume = (
     (value.phase === "briefing" && (
       Number(value.index) !== 0
       || selected !== null
+      || selectedUsedHint
       || value.checked
       || answers.length !== 0
       || value.finished
@@ -343,6 +364,8 @@ export const parseLessonResume = (
 
   return {
     ...(value as Omit<LessonResumeV5, "exercises" | "answers">),
+    selected,
+    selectedUsedHint,
     exercises: resolvedExercises,
     answers,
   };

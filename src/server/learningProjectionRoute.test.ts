@@ -5,10 +5,12 @@ import {
   emptyObjectiveEvidenceProjection,
   LEARNING_PROJECTION_V2_MEDIA_TYPE,
   LEARNING_PROJECTION_V3_MEDIA_TYPE,
+  LEARNING_PROJECTION_V4_MEDIA_TYPE,
   LEARNING_PROJECTION_VERSION_HEADER,
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
 } from "../learning/projectionProtocol";
 import {
   LearningProjectionContentUnavailableError,
@@ -29,6 +31,7 @@ const {
     read: vi.fn(),
     readV2: vi.fn(),
     readV3: vi.fn(),
+    readV4: vi.fn(),
   },
 }));
 
@@ -88,6 +91,20 @@ const projectionV3: NormalizedLearningProjectionV3 = {
   activeReaderSession: null,
 };
 
+const projectionV4: NormalizedLearningProjectionV4 = {
+  ...projectionV3,
+  protocolVersion: 4,
+  gateEligibleCorrectActivityCounts: {
+    pronunciation: 0,
+    listening: 0,
+    speaking: 0,
+    reading: 0,
+    writing: 0,
+    vocabulary: 0,
+    grammar: 0,
+  },
+};
+
 const request = (query = "", headers: HeadersInit = {}) => new Request(
   `https://hanzi.test/api/learning/projection${query}`,
   { headers: { "x-request-id": "projection-request", ...headers } },
@@ -100,6 +117,7 @@ beforeEach(() => {
   learningProjectionRepository.read.mockReset();
   learningProjectionRepository.readV2.mockReset();
   learningProjectionRepository.readV3.mockReset();
+  learningProjectionRepository.readV4.mockReset();
   getChatGPTUser.mockResolvedValue({
     email: "learner@example.com",
     displayName: "Learner",
@@ -109,6 +127,7 @@ beforeEach(() => {
   learningProjectionRepository.read.mockResolvedValue(projection);
   learningProjectionRepository.readV2.mockResolvedValue(projectionV2);
   learningProjectionRepository.readV3.mockResolvedValue(projectionV3);
+  learningProjectionRepository.readV4.mockResolvedValue(projectionV4);
 });
 
 describe("GET /api/learning/projection", () => {
@@ -156,6 +175,19 @@ describe("GET /api/learning/projection", () => {
     expect(learningProjectionRepository.readV3).toHaveBeenCalledWith("user-a");
     expect(learningProjectionRepository.readV2).not.toHaveBeenCalled();
     expect(learningProjectionRepository.read).not.toHaveBeenCalled();
+  });
+
+  it("negotiates V4 without mutating the legacy V1-V3 representations", async () => {
+    const response = await GET(request("", {
+      Accept: `${LEARNING_PROJECTION_V3_MEDIA_TYPE}, ${LEARNING_PROJECTION_V4_MEDIA_TYPE}`,
+    }));
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get("etag")).toBe('"hanzi-learning-v4-2-42"');
+    expect(response.headers.get(LEARNING_PROJECTION_VERSION_HEADER)).toBe("4");
+    expect(await response.json()).toEqual(projectionV4);
+    expect(learningProjectionRepository.readV4).toHaveBeenCalledWith("user-a");
+    expect(learningProjectionRepository.readV3).not.toHaveBeenCalled();
   });
 
   it("returns 304 only after reading the authoritative matching cursor", async () => {

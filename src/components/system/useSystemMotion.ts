@@ -24,7 +24,7 @@ export function useSystemMotion() {
     resolvedMotion,
     reduced: resolvedMotion === "reduced",
     cinematic: resolvedMotion === "cinematic",
-    pointerDepth: finePointer && visible && resolvedMotion !== "reduced",
+    pointerDepth: finePointer && visible && resolvedMotion === "cinematic",
     visible,
   };
 }

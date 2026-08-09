@@ -5,6 +5,16 @@ import {
   sha256Hex,
 } from "./document";
 import type { CloudSyncDocumentV1 } from "./types";
+import type { AppAuthorization } from "../auth/authorization";
+import type { FirstPartyAuthProvider } from "../server/authRepository";
+
+export const CLOUD_FIRST_PARTY_AUTH_PROVIDERS = [
+  "google",
+  "facebook",
+  "hanzi",
+  "email_otp",
+  "passkey",
+] as const satisfies readonly FirstPartyAuthProvider[];
 
 export const SYNC_PROTOCOL_VERSION = 1 as const;
 
@@ -52,6 +62,7 @@ export type CloudSession =
       authenticated: false;
       user: null;
       accountKey: null;
+      authorization?: null;
     }
   | {
       authenticated: true;
@@ -59,8 +70,10 @@ export type CloudSession =
         displayName: string;
         email: string;
         fullName: string | null;
+        provider?: FirstPartyAuthProvider;
       };
       accountKey: string;
+      authorization?: AppAuthorization;
     };
 
 export type SyncApiError = {

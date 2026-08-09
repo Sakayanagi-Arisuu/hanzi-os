@@ -2,16 +2,21 @@ import { describe, expect, it } from "vitest";
 import {
   LEARNING_PROJECTION_V3_MEDIA_TYPE,
   LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
+  LEARNING_PROJECTION_V4_MEDIA_TYPE,
+  LEARNING_PROJECTION_V4_PROTOCOL_VERSION,
   emptyObjectiveEvidenceProjection,
   parseAnyNormalizedLearningProjection,
   parseNormalizedLearningProjection,
   parseNormalizedLearningProjectionV2,
   parseNormalizedLearningProjectionV3,
+  parseNormalizedLearningProjectionV4,
   toNormalizedLearningProjectionV1,
   toNormalizedLearningProjectionV2,
+  toNormalizedLearningProjectionV3,
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
 } from "./projectionProtocol";
 import { estimateObservedAccuracyFromCounts } from "../lib/assessment/skillEstimate";
 import type { Skill } from "../types";
@@ -252,6 +257,14 @@ const projectionV3 = (): NormalizedLearningProjectionV3 => ({
   },
 });
 
+const projectionV4 = (): NormalizedLearningProjectionV4 => ({
+  ...projectionV3(),
+  protocolVersion: 4,
+  gateEligibleCorrectActivityCounts: Object.fromEntries(
+    skills.map((skill) => [skill, skill === "vocabulary" ? 1 : 0]),
+  ) as Record<Skill, number>,
+});
+
 describe("normalized learning projection protocol", () => {
   it("accepts an exact answer-free projection", () => {
     expect(parseNormalizedLearningProjection(projection())).toEqual({
@@ -409,16 +422,26 @@ describe("normalized learning projection protocol", () => {
     );
   });
 
-  it("keeps V1/V2 exact while the any-parser dispatches all three versions", () => {
+  it("keeps V1-V3 exact while V4 adds backward-compatible breadth", () => {
     const v1 = projection();
     const v2 = projectionV2();
     const v3 = projectionV3();
+    const v4 = projectionV4();
 
     expect(parseNormalizedLearningProjection(v1).ok).toBe(true);
     expect(parseNormalizedLearningProjectionV2(v2).ok).toBe(true);
     expect(parseNormalizedLearningProjectionV3(v3).ok).toBe(true);
+    expect(LEARNING_PROJECTION_V4_PROTOCOL_VERSION).toBe(4);
+    expect(LEARNING_PROJECTION_V4_MEDIA_TYPE).toBe(
+      "application/vnd.hanzi-os.learning-projection.v4+json",
+    );
+    expect(parseNormalizedLearningProjectionV4(v4)).toEqual({
+      ok: true,
+      projection: v4,
+    });
     expect(parseNormalizedLearningProjection(v2).ok).toBe(false);
     expect(parseNormalizedLearningProjectionV2(v3).ok).toBe(false);
+    expect(parseNormalizedLearningProjectionV3(v4).ok).toBe(false);
 
     expect(parseAnyNormalizedLearningProjection(v1)).toEqual({
       ok: true,
@@ -431,6 +454,10 @@ describe("normalized learning projection protocol", () => {
     expect(parseAnyNormalizedLearningProjection(v3)).toEqual({
       ok: true,
       projection: v3,
+    });
+    expect(parseAnyNormalizedLearningProjection(v4)).toEqual({
+      ok: true,
+      projection: v4,
     });
 
     const downgraded = toNormalizedLearningProjectionV1(v3);
@@ -446,6 +473,23 @@ describe("normalized learning projection protocol", () => {
       v3.activeAssessmentSession,
     );
     expect(assessmentProjection).not.toHaveProperty("activeReaderSession");
+
+    const readerProjection = toNormalizedLearningProjectionV3(v4);
+    expect(parseNormalizedLearningProjectionV3(readerProjection).ok).toBe(true);
+    expect(readerProjection).not.toHaveProperty(
+      "gateEligibleCorrectActivityCounts",
+    );
+  });
+
+  it("rejects impossible V4 breadth without invalidating older caches", () => {
+    const invalid = projectionV4();
+    invalid.gateEligibleCorrectActivityCounts.vocabulary = 2;
+    expect(parseNormalizedLearningProjectionV4(invalid)).toMatchObject({
+      ok: false,
+      reason: "Learning projection V4 breadth aggregate is invalid.",
+    });
+    expect(parseNormalizedLearningProjection(projection()).ok).toBe(true);
+    expect(parseNormalizedLearningProjectionV3(projectionV3()).ok).toBe(true);
   });
 
   it("rejects answer, explanation, selected-option and response leaks in V3", () => {

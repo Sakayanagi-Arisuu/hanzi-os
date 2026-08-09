@@ -18,7 +18,7 @@ vi.mock("./d1", () => ({
   SyncBackendUnavailableError: class extends Error {},
 }));
 vi.mock("./syncRepository", () => ({
-  ACCOUNT_EXPORT_SCHEMA_VERSION: 7,
+  ACCOUNT_EXPORT_SCHEMA_VERSION: 8,
   SyncRepository: function SyncRepository() {
     return repository;
   },
@@ -117,7 +117,7 @@ describe("account export route", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("content-disposition")).toContain("hanzi-os-account-");
     await expect(response.json()).resolves.toMatchObject({
-      exportSchemaVersion: 7,
+      exportSchemaVersion: 8,
       product: "HANZI.OS",
       source: "cloud-account",
       learning: {

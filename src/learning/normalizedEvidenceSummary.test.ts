@@ -4,12 +4,13 @@ import { CONTENT_VERSION } from "../data/curriculum";
 import { CURRENT_AUTHORITATIVE_COURSE_ID } from "./authoritativeProgress";
 import {
   emptyObjectiveEvidenceProjection,
-  type NormalizedLearningProjectionV1,
+  LEARNING_PROJECTION_SKILLS,
+  type NormalizedLearningProjectionV4,
 } from "./projectionProtocol";
 import { summarizeNormalizedObjectiveEvidence } from "./normalizedEvidenceSummary";
 
-const projection = (): NormalizedLearningProjectionV1 => ({
-  protocolVersion: 1,
+const projection = (): NormalizedLearningProjectionV4 => ({
+  protocolVersion: 4,
   resetEpoch: 0,
   cursor: 4,
   contentVersion: CONTENT_VERSION,
@@ -25,6 +26,12 @@ const projection = (): NormalizedLearningProjectionV1 => ({
   activeLessonSessions: [],
   submittedLessons: [],
   objectiveEvidence: emptyObjectiveEvidenceProjection(),
+  activeAssessmentSession: null,
+  latestAssessmentResult: null,
+  activeReaderSession: null,
+  gateEligibleCorrectActivityCounts: Object.fromEntries(
+    LEARNING_PROJECTION_SKILLS.map((skill) => [skill, 0]),
+  ) as Record<(typeof LEARNING_PROJECTION_SKILLS)[number], number>,
 });
 
 describe("normalized objective evidence summary", () => {
@@ -44,10 +51,15 @@ describe("normalized objective evidence summary", () => {
       masteryEligibleCount: 0,
       masteryEligibleCorrectCount: 0,
     };
+    input.gateEligibleCorrectActivityCounts.reading = 1;
 
     expect(summarizeNormalizedObjectiveEvidence(input)).toMatchObject({
       verifiedAttemptCount: 5,
       masteryEligibleCount: 2,
+      gateEligibleCorrectActivityCounts: {
+        reading: 1,
+        listening: 0,
+      },
       overall: { correct: 1, n: 2, observedAccuracy: 50 },
       skills: {
         reading: { correct: 1, n: 2, observedAccuracy: 50 },

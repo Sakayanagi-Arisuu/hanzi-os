@@ -22,6 +22,7 @@ import {
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router";
 import { LessonDepthPanel } from "../components/LessonDepthPanel";
+import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
 import {
@@ -112,6 +113,7 @@ function LocalLessonPage() {
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
+  const [selectedUsedHint, setSelectedUsedHint] = useState(false);
   const [checked, setChecked] = useState(false);
   const [answers, setAnswers] = useState<LessonResumeAnswer[]>([]);
   const [finished, setFinished] = useState(false);
@@ -131,7 +133,7 @@ function LocalLessonPage() {
     );
     return result.ok ? result.runtime : null;
   }, [lesson, sessionId, state.profile.script]);
-  const { correctCount, requiredCorrectCount } = useMemo(
+  const { correctCount, gateCorrectCount, requiredCorrectCount } = useMemo(
     () => summarizeLessonResumeAnswers(exercises, answers),
     [answers, exercises],
   );
@@ -177,6 +179,7 @@ function LocalLessonPage() {
       );
       setIndex(restored?.index ?? 0);
       setSelected(restored?.selected ?? null);
+      setSelectedUsedHint(restored?.selectedUsedHint === true);
       setChecked(restored?.checked ?? false);
       setAnswers(restored?.answers ?? []);
       setFinished(restored?.finished ?? false);
@@ -232,6 +235,7 @@ function LocalLessonPage() {
       exercises,
       index,
       selected,
+      selectedUsedHint,
       checked,
       answers,
       finished,
@@ -241,7 +245,7 @@ function LocalLessonPage() {
       ...resumeScope,
       value: snapshot,
     }).catch(reportLearningResumeStorageError);
-  }, [answers, checked, earnedXp, exercises, finished, index, lesson, lessonUnlocked, phase, resumeEntryKey, resumeScope, resumeStatus, selected, sessionId, state.profile.script, sync.ownerKey]);
+  }, [answers, checked, earnedXp, exercises, finished, index, lesson, lessonUnlocked, phase, resumeEntryKey, resumeScope, resumeStatus, selected, selectedUsedHint, sessionId, state.profile.script, sync.ownerKey]);
 
   if (!lesson) {
     return (
@@ -295,6 +299,7 @@ function LocalLessonPage() {
       : []);
     setIndex(0);
     setSelected(null);
+    setSelectedUsedHint(false);
     setChecked(false);
     setAnswers([]);
     setFinished(false);
@@ -401,10 +406,13 @@ function LocalLessonPage() {
   }
 
   const score = Math.round((correctCount / Math.max(1, exercises.length)) * 100);
+  const ungatedScore = Math.round(
+    (gateCorrectCount / Math.max(1, exercises.length)) * 100,
+  );
   const requiredTotal = exercises.filter((exercise) => exercise.requiredForPass).length;
   const requiredPassed = requiredTotal === 0
     || requiredCorrectCount / requiredTotal >= 0.7;
-  const gateScore = requiredPassed ? score : Math.min(score, 69);
+  const gateScore = requiredPassed ? ungatedScore : Math.min(ungatedScore, 69);
   const isCorrect = answersMatch(selected, current.correct);
 
   const checkAnswer = async () => {
@@ -427,6 +435,7 @@ function LocalLessonPage() {
       idempotencyKey: `${sessionId}:answer:${current.id}`,
       activityVersion: current.activityVersion,
       requiredForPass: current.requiredForPass,
+      usedHint: selectedUsedHint,
     }, provenance);
     if (disposition === "rejected" || disposition === "conflict") return;
     emitSystemSignal({
@@ -438,6 +447,7 @@ function LocalLessonPage() {
     setAnswers((currentAnswers) => [...currentAnswers, {
       exerciseId: current.id,
       selectedAnswer: selected,
+      usedHint: selectedUsedHint,
     }]);
   };
 
@@ -445,6 +455,7 @@ function LocalLessonPage() {
     if (index < exercises.length - 1) {
       setIndex((currentIndex) => currentIndex + 1);
       setSelected(null);
+      setSelectedUsedHint(false);
       setChecked(false);
       return;
     }
@@ -555,20 +566,17 @@ function LocalLessonPage() {
         {current.kind === "recall" ? (
           <div className={`recall-answer ${checked ? (isCorrect ? "correct" : "wrong") : ""}`}>
             <label htmlFor="recall-input">Hán tự bạn tự gọi lại</label>
-            <input
-              id="recall-input"
+            <HanziPinyinInput
+              key={current.id}
+              inputId="recall-input"
               value={selected ?? ""}
               disabled={checked}
-              autoComplete="off"
-              autoFocus
-              inputMode="text"
-              placeholder="Nhập chữ Hán..."
-              onChange={(event) => setSelected(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" && selected?.trim()) checkAnswer();
-              }}
+              script={state.profile.script}
+              onChange={setSelected}
+              onAssistanceUsed={() => setSelectedUsedHint(true)}
+              onSubmit={checkAnswer}
             />
-            <small>Không chấp nhận pinyin: mục tiêu là tự tái tạo chữ từ trí nhớ.</small>
+            <small>Gõ trực tiếp để được tính vào ngưỡng. Bàn phím pinyin nội bộ là hỗ trợ nhập và câu đúng có hỗ trợ không mở khóa bài.</small>
           </div>
         ) : (
           <div className="answer-grid">
@@ -600,7 +608,11 @@ function LocalLessonPage() {
           <div className="answer-explanation">
             {isCorrect ? <CircleCheck size={23} /> : <Lightbulb size={23} />}
             <div>
-              <strong>{isCorrect ? "Phán định chính xác" : `Đáp án đúng: ${current.correct}`}</strong>
+              <strong>{isCorrect
+                ? selectedUsedHint
+                  ? "Đúng với hỗ trợ · không tính vào ngưỡng"
+                  : "Phán định chính xác"
+                : `Đáp án đúng: ${current.correct}`}</strong>
               <p>{current.explanation}</p>
             </div>
           </div>

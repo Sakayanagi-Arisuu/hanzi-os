@@ -163,10 +163,10 @@ const resultStatusLabel = (
 const formatObservedAccuracy = (
   result: DisplayedAssessmentResult["overall"],
 ) => {
-  if (result.observedAccuracy === null || !result.confidence95) {
-    return `${result.correct}/${result.n} mục đo được`;
+  if (result.observedAccuracy === null || result.n < 10) {
+    return `${result.n} lượt quan sát · chưa đủ để kết luận`;
   }
-  return `${result.correct}/${result.n} · ${result.observedAccuracy}% · khoảng 95% ${result.confidence95.lower}–${result.confidence95.upper}%`;
+  return `${result.correct}/${result.n} câu đúng · ${result.observedAccuracy}% trên các lượt đã đo`;
 };
 
 export function AuthenticatedAssessmentPage() {

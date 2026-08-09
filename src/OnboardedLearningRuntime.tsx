@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { BrowserRouter, useLocation } from "react-router";
 import App from "./App";
 import { AudioEngineProvider, useAudioEngine } from "./audio/AudioEngineProvider";
+import { FullStyleBoundary } from "./components/FullStyleBoundary";
 import { SystemVoiceBeacon } from "./components/system/VoiceReactor";
 import {
   NormalizedLearningProjectionProvider,
@@ -22,16 +23,19 @@ function AudioRouteReset() {
 
 export function OnboardedLearningRuntime() {
   return (
-    <SystemUiProvider>
-      <AudioEngineProvider>
-        <NormalizedLearningProjectionProvider>
-          <BrowserRouter>
-            <AudioRouteReset />
-            <App />
-            <SystemVoiceBeacon />
-          </BrowserRouter>
-        </NormalizedLearningProjectionProvider>
-      </AudioEngineProvider>
-    </SystemUiProvider>
+    <>
+      <FullStyleBoundary />
+      <SystemUiProvider>
+        <AudioEngineProvider>
+          <NormalizedLearningProjectionProvider>
+            <BrowserRouter>
+              <AudioRouteReset />
+              <App />
+              <SystemVoiceBeacon />
+            </BrowserRouter>
+          </NormalizedLearningProjectionProvider>
+        </AudioEngineProvider>
+      </SystemUiProvider>
+    </>
   );
 }

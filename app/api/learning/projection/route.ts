@@ -19,6 +19,8 @@ import {
   LEARNING_PROJECTION_V2_PROTOCOL_VERSION,
   LEARNING_PROJECTION_V3_MEDIA_TYPE,
   LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
+  LEARNING_PROJECTION_V4_MEDIA_TYPE,
+  LEARNING_PROJECTION_V4_PROTOCOL_VERSION,
   LEARNING_PROJECTION_VERSION_HEADER,
 } from "../../../../src/learning/projectionProtocol";
 
@@ -60,7 +62,7 @@ const parseAfterCursor = (url: URL) => {
 };
 
 const projectionHeaders = (
-  protocolVersion: 1 | 2 | 3,
+  protocolVersion: 1 | 2 | 3 | 4,
   resetEpoch: number,
   cursor: number,
   requestId: string,
@@ -74,10 +76,13 @@ const projectionHeaders = (
   "x-request-id": requestId,
 });
 
-const requestedProjectionVersion = (request: Request): 1 | 2 | 3 => {
+const requestedProjectionVersion = (request: Request): 1 | 2 | 3 | 4 => {
   const mediaTypes = (request.headers.get("accept") ?? "")
     .split(",")
     .map((value) => value.trim().split(";", 1)[0]?.toLowerCase());
+  if (mediaTypes.includes(LEARNING_PROJECTION_V4_MEDIA_TYPE)) {
+    return LEARNING_PROJECTION_V4_PROTOCOL_VERSION;
+  }
   if (mediaTypes.includes(LEARNING_PROJECTION_V3_MEDIA_TYPE)) {
     return LEARNING_PROJECTION_V3_PROTOCOL_VERSION;
   }
@@ -112,8 +117,10 @@ export async function GET(request: Request) {
     const database = await getD1Database();
     const userId = await new SyncRepository(database).resolveUser(identity);
     const repository = new LearningProjectionRepository(database);
-    const projection = protocolVersion === LEARNING_PROJECTION_V3_PROTOCOL_VERSION
-      ? await repository.readV3(userId)
+    const projection = protocolVersion === LEARNING_PROJECTION_V4_PROTOCOL_VERSION
+      ? await repository.readV4(userId)
+      : protocolVersion === LEARNING_PROJECTION_V3_PROTOCOL_VERSION
+        ? await repository.readV3(userId)
       : protocolVersion === LEARNING_PROJECTION_V2_PROTOCOL_VERSION
         ? await repository.readV2(userId)
         : await repository.read(userId);

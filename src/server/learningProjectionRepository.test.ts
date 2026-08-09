@@ -377,12 +377,14 @@ const insertActiveAttempt = (
     sessionId: string;
     activity: Awaited<ReturnType<LessonSessionRepository["open"]>>["form"]["activities"][number];
     sequence: number;
+    fixtureSuffix?: string;
   },
 ) => {
   const now = Date.parse("2026-07-22T06:10:00.000Z");
-  const idempotencyId = `${input.userId}-attempt-idempotency`;
-  const attemptId = `${input.userId}-attempt`;
-  const evidenceId = `${input.userId}-evidence`;
+  const fixtureSuffix = input.fixtureSuffix ?? "primary";
+  const idempotencyId = `${input.userId}-attempt-idempotency-${fixtureSuffix}`;
+  const attemptId = `${input.userId}-attempt-${fixtureSuffix}`;
+  const evidenceId = `${input.userId}-evidence-${fixtureSuffix}`;
   const deviceId = database.database.prepare(
     "SELECT device_id AS deviceId FROM lesson_sessions WHERE id = ?",
   ).get(input.sessionId) as { deviceId: string };
@@ -398,7 +400,7 @@ const insertActiveAttempt = (
     input.userId,
     deviceId.deviceId,
     input.sequence,
-    `${input.userId}:attempt`,
+    `${input.userId}:attempt:${fixtureSuffix}`,
     now,
     now,
     now,
@@ -892,10 +894,12 @@ describe("normalized learning projection repository", () => {
       sequence: 3,
     });
 
-    const projection = await new LearningProjectionRepository(
+    const repository = new LearningProjectionRepository(
       database,
       promotedPolicy,
-    ).read("user-a");
+    );
+    const projection = await repository.read("user-a");
+    const projectionV4 = await repository.readV4("user-a");
 
     expect(projection.enrollment).toMatchObject({
       enrollmentId: "user-a-enrollment",
@@ -932,6 +936,11 @@ describe("normalized learning projection repository", () => {
         ? 1
         : 0,
     });
+    expect(projection.objectiveEvidence[activity.skill]).not.toHaveProperty(
+      "gateEligibleCorrectActivityCount",
+    );
+    expect(projectionV4.gateEligibleCorrectActivityCounts[activity.skill])
+      .toBe(1);
     expect(projection.cursor).toBeGreaterThan(0);
     expect(serializedActive).not.toContain("user-b");
   });

@@ -6,6 +6,15 @@ import {
 import type { D1Database } from "./d1";
 import { assertAccountCanAuthenticate } from "./accountStatus";
 import { isNewAccountRegistrationOpen } from "./systemSettingsRepository";
+import {
+  HANZI_PASSWORD_ALGORITHM,
+  HANZI_PASSWORD_ITERATIONS,
+  hashHanziPassword,
+  normalizeHanziIdentifier,
+  validateHanziRegistration,
+  verifyHanziPassword,
+  type HanziRegistrationInput,
+} from "./hanziPassword";
 
 export const SESSION_COOKIE_NAME = "__Host-hanzi_session";
 export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
@@ -13,6 +22,8 @@ export const RECENT_AUTH_WINDOW_MS = 10 * 60_000;
 
 export const FIRST_PARTY_AUTH_PROVIDERS = [
   "google",
+  "facebook",
+  "hanzi",
   "email_otp",
   "passkey",
 ] as const;
@@ -24,6 +35,9 @@ export type AuthChallengeKind =
   | "google_signin"
   | "google_link"
   | "google_unlink"
+  | "facebook_signin"
+  | "facebook_link"
+  | "facebook_unlink"
   | "email_signin"
   | "email_link"
   | "email_unlink"
@@ -86,6 +100,21 @@ export type AuthChallenge = Omit<StoredChallenge, "payloadJson"> & {
   payload: Record<string, unknown>;
 };
 
+type StoredHanziCredential = {
+  id: string;
+  userId: string;
+  identityId: string;
+  username: string;
+  email: string;
+  displayName: string | null;
+  passwordAlgorithm: string;
+  passwordIterations: number;
+  passwordSalt: string;
+  passwordHash: string;
+  failedAttempts: number;
+  lockedUntil: number | null;
+};
+
 export class AuthChallengeInvalidError extends Error {
   readonly code = "AUTH_CHALLENGE_INVALID";
 }
@@ -102,6 +131,58 @@ export class LastIdentityRemovalError extends Error {
   readonly code = "LAST_IDENTITY_REMOVAL_BLOCKED";
 }
 
+export class HanziAccountConflictError extends Error {
+  readonly code = "HANZI_ACCOUNT_CONFLICT";
+}
+
+export class InvalidHanziCredentialsError extends Error {
+  readonly code = "HANZI_CREDENTIALS_INVALID";
+}
+
+export type HanziAccount = {
+  userId: string;
+  identityId: string;
+  username: string;
+  email: string;
+  displayName: string;
+};
+
+export type LocalHanziDemoAccount = {
+  username: string;
+  email: string;
+  password: string;
+  displayName: string;
+  roles: readonly ("learner" | "content_editor" | "admin")[];
+  landingPath: "/" | "/studio" | "/admin";
+};
+
+export const LOCAL_HANZI_DEMO_ACCOUNTS: readonly LocalHanziDemoAccount[] = [
+  {
+    username: "learner.demo",
+    email: "learner@hanzi.local",
+    password: "Hanzi.Learner#2026",
+    displayName: "Hành Giả Demo",
+    roles: ["learner"],
+    landingPath: "/",
+  },
+  {
+    username: "editor.demo",
+    email: "editor@hanzi.local",
+    password: "Hanzi.Editor#2026",
+    displayName: "Biên Tập Viên Demo",
+    roles: ["learner", "content_editor"],
+    landingPath: "/studio",
+  },
+  {
+    username: "admin.demo",
+    email: "admin@hanzi.local",
+    password: "Hanzi.Admin#2026",
+    displayName: "Điều Hành Viên Demo",
+    roles: ["learner", "admin"],
+    landingPath: "/admin",
+  },
+] as const;
+
 const normalizeEmail = (email: string | null) => {
   const normalized = email?.trim().toLowerCase() ?? "";
   return normalized.length > 0 ? normalized : null;
@@ -116,6 +197,223 @@ const parsePayload = (value: string): Record<string, unknown> => {
 
 export class AuthRepository {
   constructor(private readonly database: D1Database) {}
+
+  async registerHanziAccount(
+    input: HanziRegistrationInput,
+  ): Promise<HanziAccount> {
+    const normalized = validateHanziRegistration(input);
+    if (!await isNewAccountRegistrationOpen(this.database)) {
+      throw new Error("New account registration is closed.");
+    }
+    const digest = await hashHanziPassword(normalized.password);
+    const timestamp = Date.now();
+    const userId = crypto.randomUUID();
+    const identityId = crypto.randomUUID();
+    const credentialId = crypto.randomUUID();
+    try {
+      await this.database.batch([
+        this.database
+          .prepare(
+            "INSERT INTO users (id, status, created_at, updated_at) VALUES (?, 'active', ?, ?)",
+          )
+          .bind(userId, timestamp, timestamp),
+        this.database
+          .prepare(
+            "INSERT INTO auth_identities (id, user_id, provider, provider_subject, normalized_email, email_verified, created_at, updated_at) VALUES (?, ?, 'hanzi', ?, ?, 0, ?, ?)",
+          )
+          .bind(
+            identityId,
+            userId,
+            normalized.username,
+            normalized.email,
+            timestamp,
+            timestamp,
+          ),
+        this.database
+          .prepare(
+            `INSERT INTO hanzi_password_credentials (
+              id, user_id, identity_id, normalized_username, normalized_email,
+              password_algorithm, password_iterations, password_salt,
+              password_hash, failed_attempts, locked_until, created_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, NULL, ?, ?)`,
+          )
+          .bind(
+            credentialId,
+            userId,
+            identityId,
+            normalized.username,
+            normalized.email,
+            digest.algorithm,
+            digest.iterations,
+            digest.salt,
+            digest.hash,
+            timestamp,
+            timestamp,
+          ),
+        this.database
+          .prepare(
+            `INSERT INTO profiles (
+              user_id, display_name, goal, daily_minutes, script,
+              starting_level, onboarded, revision, created_at, updated_at
+            ) VALUES (?, ?, 'conversation', 20, 'simplified', 'zero', 0, 1, ?, ?)`,
+          )
+          .bind(userId, normalized.displayName, timestamp, timestamp),
+        this.database
+          .prepare(
+            "INSERT INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, 'learner', NULL, ?, ?)",
+          )
+          .bind(userId, timestamp, timestamp),
+      ]);
+    } catch (error) {
+      const collision = await this.database
+        .prepare(
+          "SELECT id FROM hanzi_password_credentials WHERE normalized_username = ? OR normalized_email = ? LIMIT 1",
+        )
+        .bind(normalized.username, normalized.email)
+        .first<{ id: string }>();
+      if (collision) {
+        throw new HanziAccountConflictError(
+          "Tên tài khoản hoặc email đã được sử dụng.",
+        );
+      }
+      throw error;
+    }
+    return {
+      userId,
+      identityId,
+      username: normalized.username,
+      email: normalized.email,
+      displayName: normalized.displayName,
+    };
+  }
+
+  async authenticateHanziAccount(
+    identifier: string,
+    password: string,
+    now = Date.now(),
+  ): Promise<HanziAccount> {
+    const normalizedIdentifier = normalizeHanziIdentifier(identifier);
+    const identifierIsBounded = normalizedIdentifier.value.length >= 3
+      && normalizedIdentifier.value.length <= 254;
+    const passwordLength = [...password].length;
+    const passwordIsBounded = passwordLength >= 1
+      && passwordLength <= 128
+      && new TextEncoder().encode(password).byteLength <= 256;
+    const stored = identifierIsBounded
+      ? await this.database
+          .prepare(
+            `SELECT credential.id,
+                    credential.user_id AS userId,
+                    credential.identity_id AS identityId,
+                    credential.normalized_username AS username,
+                    credential.normalized_email AS email,
+                    profile.display_name AS displayName,
+                    credential.password_algorithm AS passwordAlgorithm,
+                    credential.password_iterations AS passwordIterations,
+                    credential.password_salt AS passwordSalt,
+                    credential.password_hash AS passwordHash,
+                    credential.failed_attempts AS failedAttempts,
+                    credential.locked_until AS lockedUntil
+               FROM hanzi_password_credentials credential
+               JOIN auth_identities identity
+                 ON identity.id = credential.identity_id
+                AND identity.user_id = credential.user_id
+                AND identity.provider = 'hanzi'
+               JOIN users user ON user.id = credential.user_id
+               LEFT JOIN profiles profile ON profile.user_id = credential.user_id
+              WHERE ${normalizedIdentifier.kind === "email"
+                ? "credential.normalized_email"
+                : "credential.normalized_username"} = ?
+              LIMIT 1`,
+          )
+          .bind(normalizedIdentifier.value)
+          .first<StoredHanziCredential>()
+      : null;
+    const digest = stored && passwordIsBounded
+      ? {
+          algorithm: stored.passwordAlgorithm as typeof HANZI_PASSWORD_ALGORITHM,
+          iterations: Number(stored.passwordIterations),
+          salt: stored.passwordSalt,
+          hash: stored.passwordHash,
+        }
+      : null;
+    const passwordMatches = await verifyHanziPassword(
+      passwordIsBounded ? password : "invalid-password-placeholder-0",
+      digest,
+    );
+    const stillLocked = stored?.lockedUntil !== null
+      && stored?.lockedUntil !== undefined
+      && Number(stored.lockedUntil) > now;
+    if (!stored || !passwordMatches || stillLocked) {
+      if (stored && !stillLocked) {
+        const failedAttempts = Math.min(1_000, Number(stored.failedAttempts) + 1);
+        const delay = failedAttempts >= 5
+          ? Math.min(15 * 60_000, 30_000 * (2 ** Math.min(5, failedAttempts - 5)))
+          : 0;
+        await this.database
+          .prepare(
+            "UPDATE hanzi_password_credentials SET failed_attempts = ?, locked_until = ?, updated_at = ? WHERE id = ?",
+          )
+          .bind(
+            failedAttempts,
+            delay > 0 ? now + delay : null,
+            now,
+            stored.id,
+          )
+          .run();
+      }
+      throw new InvalidHanziCredentialsError(
+        "Tên tài khoản, email hoặc mật khẩu không đúng.",
+      );
+    }
+    await assertAccountCanAuthenticate(this.database, stored.userId);
+    if (stored.passwordIterations < HANZI_PASSWORD_ITERATIONS) {
+      const upgraded = await hashHanziPassword(password);
+      await this.database
+        .prepare(
+          `UPDATE hanzi_password_credentials
+              SET password_algorithm = ?, password_iterations = ?,
+                  password_salt = ?, password_hash = ?, failed_attempts = 0,
+                  locked_until = NULL, updated_at = ?
+            WHERE id = ?`,
+        )
+        .bind(
+          upgraded.algorithm,
+          upgraded.iterations,
+          upgraded.salt,
+          upgraded.hash,
+          now,
+          stored.id,
+        )
+        .run();
+    } else {
+      await this.database
+        .prepare(
+          "UPDATE hanzi_password_credentials SET failed_attempts = 0, locked_until = NULL, updated_at = ? WHERE id = ?",
+        )
+        .bind(now, stored.id)
+        .run();
+    }
+    return {
+      userId: stored.userId,
+      identityId: stored.identityId,
+      username: stored.username,
+      email: stored.email,
+      displayName: stored.displayName ?? stored.username,
+    };
+  }
+
+  async seedLocalDemoAccounts(
+    localDevelopmentConfirmed: boolean,
+  ): Promise<readonly LocalHanziDemoAccount[]> {
+    if (!localDevelopmentConfirmed) {
+      throw new Error("Local demo accounts cannot be seeded outside loopback development.");
+    }
+    for (const [index, account] of LOCAL_HANZI_DEMO_ACCOUNTS.entries()) {
+      await this.upsertLocalDemoAccount(index, account);
+    }
+    return LOCAL_HANZI_DEMO_ACCOUNTS;
+  }
 
   async resolveOrCreateIdentity(
     identity: FederatedIdentity,
@@ -570,6 +868,185 @@ export class AuthRepository {
       )
       .bind(Math.max(previousSignCount, nextSignCount), Date.now(), credentialId)
       .run();
+  }
+
+  private async upsertLocalDemoAccount(
+    index: number,
+    account: LocalHanziDemoAccount,
+  ): Promise<void> {
+    const userId = `local-demo-user-${index + 1}`;
+    const identityId = `local-demo-hanzi-identity-${index + 1}`;
+    const credentialId = `local-demo-hanzi-credential-${index + 1}`;
+    const existing = await this.database
+      .prepare(
+        "SELECT id, user_id AS userId FROM auth_identities WHERE provider = 'hanzi' AND provider_subject = ? LIMIT 1",
+      )
+      .bind(account.username)
+      .first<{ id: string; userId: string }>();
+    if (existing && (existing.id !== identityId || existing.userId !== userId)) {
+      throw new HanziAccountConflictError(
+        `Tài khoản local ${account.username} đã thuộc về một hồ sơ khác.`,
+      );
+    }
+    const existingCredential = await this.database
+      .prepare(
+        `SELECT user_id AS userId, identity_id AS identityId,
+                normalized_username AS username, normalized_email AS email,
+                password_algorithm AS algorithm,
+                password_iterations AS iterations,
+                failed_attempts AS failedAttempts,
+                locked_until AS lockedUntil
+           FROM hanzi_password_credentials WHERE id = ? LIMIT 1`,
+      )
+      .bind(credentialId)
+      .first<{
+        userId: string;
+        identityId: string;
+        username: string;
+        email: string;
+        algorithm: string;
+        iterations: number;
+        failedAttempts: number;
+        lockedUntil: number | null;
+      }>();
+    if (existingCredential && (
+      existingCredential.userId !== userId
+      || existingCredential.identityId !== identityId
+      || existingCredential.username !== account.username
+      || existingCredential.email !== account.email
+    )) {
+      throw new HanziAccountConflictError(
+        `Credential local ${account.username} không còn đúng định danh cố định.`,
+      );
+    }
+    const currentDigestCanBeRetained = existingCredential?.algorithm
+      === HANZI_PASSWORD_ALGORITHM
+      && Number(existingCredential.iterations) === HANZI_PASSWORD_ITERATIONS;
+    if (existing && existingCredential && currentDigestCanBeRetained) {
+      const [profile, storedRoles] = await Promise.all([
+        this.database
+          .prepare(
+            `SELECT user.status, profile.display_name AS displayName,
+                    profile.onboarded
+               FROM users user
+               LEFT JOIN profiles profile ON profile.user_id = user.id
+              WHERE user.id = ? LIMIT 1`,
+          )
+          .bind(userId)
+          .first<{ status: string; displayName: string | null; onboarded: number | boolean | null }>(),
+        this.database
+          .prepare("SELECT role FROM user_roles WHERE user_id = ?")
+          .bind(userId)
+          .all<{ role: string }>(),
+      ]);
+      const roles = new Set((storedRoles.results ?? []).map(({ role }) => role));
+      if (
+        profile?.status === "active"
+        && profile.displayName === account.displayName
+        && Boolean(profile.onboarded)
+        && Number(existingCredential.failedAttempts) === 0
+        && existingCredential.lockedUntil === null
+        && account.roles.every((role) => roles.has(role))
+      ) {
+        return;
+      }
+    }
+    const digest = currentDigestCanBeRetained
+      ? null
+      : await hashHanziPassword(account.password);
+    const timestamp = Date.now();
+    const statements = [
+      this.database
+        .prepare(
+          `INSERT INTO users (id, status, created_at, updated_at)
+           VALUES (?, 'active', ?, ?)
+           ON CONFLICT(id) DO UPDATE SET
+             status = 'active', updated_at = excluded.updated_at,
+             deleted_at = NULL, locked_at = NULL,
+             locked_by_user_id = NULL, lock_reason = NULL`,
+        )
+        .bind(userId, timestamp, timestamp),
+      this.database
+        .prepare(
+          `INSERT INTO auth_identities (
+             id, user_id, provider, provider_subject, normalized_email,
+             email_verified, created_at, updated_at
+           ) VALUES (?, ?, 'hanzi', ?, ?, 1, ?, ?)
+           ON CONFLICT(id) DO UPDATE SET
+             normalized_email = excluded.normalized_email,
+             email_verified = 1, updated_at = excluded.updated_at`,
+        )
+        .bind(
+          identityId,
+          userId,
+          account.username,
+          account.email,
+          timestamp,
+          timestamp,
+        ),
+      digest
+        ? this.database
+            .prepare(
+              `INSERT INTO hanzi_password_credentials (
+                 id, user_id, identity_id, normalized_username, normalized_email,
+                 password_algorithm, password_iterations, password_salt,
+                 password_hash, failed_attempts, locked_until, created_at, updated_at
+               ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, NULL, ?, ?)
+               ON CONFLICT(id) DO UPDATE SET
+                 normalized_username = excluded.normalized_username,
+                 normalized_email = excluded.normalized_email,
+                 password_algorithm = excluded.password_algorithm,
+                 password_iterations = excluded.password_iterations,
+                 password_salt = excluded.password_salt,
+                 password_hash = excluded.password_hash,
+                 failed_attempts = 0, locked_until = NULL,
+                 updated_at = excluded.updated_at`,
+            )
+            .bind(
+              credentialId,
+              userId,
+              identityId,
+              account.username,
+              account.email,
+              digest.algorithm,
+              digest.iterations,
+              digest.salt,
+              digest.hash,
+              timestamp,
+              timestamp,
+            )
+        : this.database
+            .prepare(
+              `UPDATE hanzi_password_credentials
+                  SET failed_attempts = 0, locked_until = NULL, updated_at = ?
+                WHERE id = ? AND user_id = ? AND identity_id = ?`,
+            )
+            .bind(timestamp, credentialId, userId, identityId),
+      this.database
+        .prepare(
+          `INSERT INTO profiles (
+             user_id, display_name, goal, daily_minutes, script,
+             starting_level, onboarded, revision, created_at, updated_at
+           ) VALUES (?, ?, 'hsk', 20, 'simplified', 'hsk1', 1, 1, ?, ?)
+           ON CONFLICT(user_id) DO UPDATE SET
+             display_name = excluded.display_name,
+             onboarded = 1, updated_at = excluded.updated_at,
+             revision = profiles.revision + 1`,
+        )
+        .bind(userId, account.displayName, timestamp, timestamp),
+    ];
+    for (const role of account.roles) {
+      statements.push(
+        this.database
+          .prepare(
+            `INSERT OR IGNORE INTO user_roles (
+               user_id, role, granted_by_user_id, granted_at, updated_at
+             ) VALUES (?, ?, NULL, ?, ?)`,
+          )
+          .bind(userId, role, timestamp, timestamp),
+      );
+    }
+    await this.database.batch(statements);
   }
 
   private async touchIdentity(

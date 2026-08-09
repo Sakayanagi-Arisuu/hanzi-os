@@ -1,15 +1,30 @@
 # HANZI.OS — checkpoint triển khai hiện tại
 
-Cập nhật: 08/08/2026
+Cập nhật: 10/08/2026
+
+## Trạng thái mới nhất — M5.2 (10/08/2026)
+
+Lô M5.2 là nguồn sự thật hiện hành cho danh tính, Phòng Luyện Đề, Thất Trụ và
+Thần Văn Lô; các mô tả M1/M4/M5.1 cũ ở dưới được giữ lại như lịch sử triển khai.
+Cổng đăng nhập hiện có đúng ba phương thức HANZI.OS, Google và Facebook. Tài
+khoản HANZI.OS đã đăng ký/đăng nhập được hoàn toàn ở localhost; Google và
+Facebook fail-closed cho đến khi có cấu hình OAuth cùng callback public. Phòng
+Luyện Đề tách tài liệu/cấu trúc chính thức của CTI khỏi bài luyện nhanh 12 câu
+do HANZI.OS biên soạn và nói rõ hiện chưa có kho đề thật theo năm gần đây từ
+nguồn CTI chính thức. UI cũng đã giữ projection hợp lệ khi làm mới nền để không
+chớp màn hình “khôi phục hành trình”, thêm trợ lý Pinyin→Hanzi, mở Thần Văn Lô
+theo hướng nhận dạng chữ trong ngữ cảnh và thay Thất Trụ bằng độ phủ hoạt động
+khách quan duy nhất. Chi tiết và ranh giới bằng chứng nằm tại mục M5.2.
 
 ## 1. Tình trạng một câu
 
 M1-M5 của phạm vi mở rộng đã hoàn tất danh tính đa phương thức, vòng đời phiên,
-kiểm soát vận hành, Content Studio local và Mock Exam HSK1-4:
-người học tiếp tục dùng guest/local hoặc đăng nhập bằng Google, mã email một lần
-và passkey; Sign in with ChatGPT được giữ làm nhà cung cấp tương thích. Một
-`users.id` nội bộ có thể mang nhiều danh tính chỉ sau xác minh tường minh, không
-tự gộp chỉ vì email giống nhau. D1/SQLite lưu hash phiên/challenge, phiên có thể
+kiểm soát vận hành, Content Studio local và Phòng Luyện Đề HSK1-4:
+người học tiếp tục dùng guest/local hoặc đăng ký, đăng nhập bằng HANZI.OS ngay
+trên localhost; Google và Facebook có luồng OAuth sẵn nhưng fail-closed cho đến
+khi có cấu hình app cùng callback public. Một `users.id` nội bộ có thể mang
+nhiều danh tính chỉ sau xác minh tường minh, không tự gộp chỉ vì email giống
+nhau. D1/SQLite lưu hash phiên/challenge, phiên có thể
 được xem và thu hồi trên UI; bearer token không đi vào localStorage. Vai trò
 ba vai trò `learner`/`content_editor`/`admin` có quyền máy chủ tách biệt; Cổng
 Quản Trị quản lý role, khóa tài khoản, phiên, cấu hình allowlist và audit
@@ -18,10 +33,12 @@ D1 bảo vệ admin cuối cùng. Content Studio giao đủ workflow
 `draft → validated → submitted → approved → published → archived`, revision,
 validation năm pass, preview, diff và lịch sử. Quản Khố tạo/sửa/validate/submit;
 Điều Hành duyệt/phát hành; learner chỉ đọc projection đã published. Bản đã phát
-hành là bất biến và phải fork revision mới để sửa. `/exams` hiện giao hai form
-A/B có version cho từng level HSK1-4, chấm điểm và giới hạn thời gian phía máy
-chủ, resume, lịch sử, breakdown bốn kỹ năng và gợi ý bài học thật. Đây là Mock
-Exam riêng, không lấy bốn Level Check hiện có để đếm thay. B8.1 vẫn giữ nguyên
+hành là bất biến và phải fork revision mới để sửa. `/exams` hiện đưa tài liệu và
+cấu trúc tham khảo chính thức CTI lên trước, đồng thời giao hai form luyện nhanh
+A/B gồm 12 câu có version cho từng level HSK1-4, chấm điểm và giới hạn thời gian
+phía máy chủ, resume, lịch sử, breakdown bốn kỹ năng và gợi ý bài học thật. Bài
+thi toàn phần trong app vẫn khóa cho đến khi có bank đạt cấu trúc thật; tám form
+này không lấy bốn Level Check hiện có để đếm thay. B8.1 vẫn giữ nguyên
 bộ bốn nhân cách xướng lệnh local trong Bảng Thuộc Tính:
 Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ đều có 16 xướng lệnh riêng, tổng
 64 clip synthetic. Các lệnh hệ thống chính không còn phụ thuộc giọng Việt của
@@ -46,8 +63,9 @@ loopback được dùng closed-alpha preview để học và thử app local.
 
 - **Sẵn sàng toàn dự án:** 96/100 (96%).
 - **Sẵn sàng phạm vi mở rộng M1-M5:** 97/100 (M1-M5 hoàn thành).
-- **Đếm phạm vi mở rộng:** login 4/4; roles 3/3; Content Studio workflow 6/6;
-  Mock Exam 4/4 level và 8/8 form; Content Release Worker 1/1.
+- **Đếm phạm vi mở rộng hiện hành:** login 3/3 (HANZI.OS/Google/Facebook);
+  roles 3/3; Content Studio workflow 6/6; Phòng Luyện Đề có cấu trúc/tài liệu
+  CTI cho 4/4 level và 8/8 form luyện nhanh HANZI.OS; Content Release Worker 1/1.
 - **HSK0 learner-visible:** 4 bài bridge; rich UI 0/4.
 - **HSK1 learner-visible:** 40/40; rich Lesson UI 40/40.
 - **HSK2 learner-visible:** 40/40; rich Lesson UI 40/40.
@@ -372,6 +390,68 @@ mục bridge/legacy còn consumer hợp lệ.
   worker đạt 1/1. Readiness mở rộng đạt **97%**, readiness toàn dự án giữ 96%;
   HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich HSK1-4
   213/213 không đổi.
+
+### M5.2 — Cổng danh tính, Phòng Luyện Đề và độ phủ học tập trung thực
+
+**Hoàn thành chức năng tại readiness toàn dự án 96% và phạm vi mở rộng M1-M5
+97%; không cộng điểm nội dung.** Mục này thay thế mô tả vận hành hiện hành của
+M1, M4 và M5.1; các mục cũ chỉ còn giá trị lịch sử.
+
+- Cổng Danh Tính có đúng ba lựa chọn người dùng yêu cầu: **HANZI.OS, Google và
+  Facebook**. HANZI.OS hỗ trợ đăng ký và đăng nhập local end-to-end; Google và
+  Facebook đã có luồng/callback nhưng fail-closed khi chưa khai báo OAuth app,
+  secret và callback public. Local không phụ thuộc hosting hay tài khoản
+  ChatGPT Plus. Production, Sites và cấu hình OAuth public vẫn tạm hoãn;
+- development loopback seed ba tài khoản test theo vai trò:
+  `learner.demo` mở giao diện Hành Giả tại `/`, `editor.demo` mở Content Studio
+  tại `/studio`, và `admin.demo` mở Cổng Quản Trị tại `/admin`. Quyền vẫn được
+  kiểm tra phía máy chủ, không chỉ đổi giao diện;
+- Phòng Luyện Đề dẫn tới cấu trúc và tài liệu mẫu chính thức của Chinese Test
+  International cho HSK1-4. Tám form 12 câu, thời lượng 18-35 phút theo level,
+  được đổi tên thành **luyện nhanh HANZI.OS**, không còn được trình bày như đề
+  HSK thật.
+  Chưa tìm thấy kho CTI chính thức công bố đầy đủ đề đã thi theo từng năm gần
+  đây, nên khoảng trống đó được nói thẳng trên UI và chưa mở bài thi toàn phần
+  trong app khi chưa có bank hợp lệ;
+- projection hợp lệ cùng chủ tài khoản được giữ lại trong lúc làm mới nền;
+  màn “Đang khôi phục hành trình” chỉ còn dùng khi thật sự chưa có snapshot.
+  Chuyển động lặp/route pulse/materialize bị tắt ngoài chế độ Điện ảnh và tiếp
+  tục tôn trọng reduced-motion, nhờ đó không còn chớp trang khi học. Projection
+  V4 thêm số activity đủ điều kiện bằng trường mới, còn V1-V3 và cache cũ giữ
+  nguyên schema để resume/offline không mất thẩm quyền sau nâng cấp;
+- ô nhập chữ có trợ lý **Pinyin→Hanzi** lấy ứng viên từ toàn bộ **2.016 từ vựng
+  runtime**. Chọn gợi ý ghi `usedHint: true`; câu đúng vẫn có thể hiện kết quả
+  luyện tập thô nhưng bị loại khỏi gate/unlock, giống evidence đã xem trước;
+- Thần Văn Lô giao catalog **1.096 chữ** theo nhận dạng trong từ/ngữ cảnh đang
+  có thật. UI nói rõ “chữ X trong từ Y”, phát từ ngữ cảnh thay vì gán Pinyin hay
+  nghĩa độc lập sai cho glyph. Chưa mở luyện nét vì dữ liệu thứ tự nét chưa đủ,
+  nên không có tuyên bố luyện viết nét;
+- Thất Trụ đo số **hoạt động chấm khách quan duy nhất** đã làm đúng, không suy
+  thành mastery. Catalog có **30.351** hoạt động: Âm/Pinyin 21.083, Nghe 434,
+  Nói 0, Đọc 250, Viết 434, Từ vựng 7.966 và Ngữ pháp 184. Lặp lại cùng activity,
+  dùng gợi ý, xem trước hoặc làm sai không tăng độ phủ. Nói hiện có target 0 và
+  được ghi rõ là **chưa được hỗ trợ**, không bị lấy tín hiệu kỹ năng khác để suy.
+  Runtime dùng target đã khóa bằng validator và chỉ lập index cho lesson thật sự
+  có evidence, thay vì materialize 30.351 activity khi mở Dashboard/Phân tích;
+- lệnh mở phiên, ghi đáp án và nộp bài luyện được lưu nguyên vẹn trước khi gửi,
+  nên retry sau khi mất phản hồi tái dùng đúng payload/idempotency key thay vì
+  xung đột hoặc phát lại kết quả của lượt cũ;
+- CSS khởi tạo được tách khỏi stylesheet toàn ứng dụng: root chỉ tải **16.085 B**
+  raw, còn Auth/Thần Văn Lô/Phòng Luyện Đề/Pinyin và runtime đầy đủ tải theo
+  route. Hero 1693 px giữ nguyên kích thước sau nén; ceiling cuối **799,1/800
+  KiB**, không nâng ngân sách;
+- không thêm bài mới: readiness toàn dự án giữ **96/100**, phạm vi mở rộng giữ
+  **97/100**; HSK0 **4/4** learner-visible (rich **0/4**), HSK1 **40/40**,
+  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78** và rich HSK1-4 giữ
+  **213/213**;
+- cổng cuối đã chạy bằng kết quả thật: graduation/content/Drizzle xanh; restore
+  **21 migration/39 bảng** xanh; Vitest **269 file/1.973 test** xanh. Lượt full
+  `npm run check` đầu tiên chỉ dừng ở asset ceiling **810,4/800 KiB** sau khi mọi
+  cổng trước và build đã xanh; lỗi này được sửa rồi xác nhận bằng production
+  build cuối **799,1/800 KiB**. E2E cuối xanh **30/30**; Lighthouse cold-profile
+  median **95/100/100/100**, LCP **1.877 ms**, CLS **0,000**, TBT **226 ms**;
+  `npm audit --omit=dev` có **0 lỗ hổng**. Không chạy `verify:production`, không
+  mở Sites/deployment.
 
 ## 5. Đường dữ liệu B4
 

@@ -27,6 +27,7 @@ import {
 } from "react";
 import { Link, useParams } from "react-router";
 import { LessonDepthPanel } from "../components/LessonDepthPanel";
+import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ConfirmModal } from "../components/SystemFeedback";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
@@ -179,6 +180,7 @@ function AuthenticatedLessonPageScope() {
     useState<StableNormalizedLessonCommandIds | null>(null);
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
+  const [selectedUsedHint, setSelectedUsedHint] = useState(false);
   const [outcome, setOutcome] = useState<AttemptOutcome>("idle");
   const [busy, setBusy] = useState(false);
   const [, setError] = useState<string | null>(null);
@@ -674,6 +676,7 @@ function AuthenticatedLessonPageScope() {
 
   useEffect(() => {
     setSelected(null);
+    setSelectedUsedHint(false);
     setAttemptStartedAt(Date.now());
     advanceLockRef.current = false;
   }, [index, runtime?.sessionId]);
@@ -795,7 +798,7 @@ function AuthenticatedLessonPageScope() {
         {
           position: index,
           selectedAnswer: selected,
-          usedHint: false,
+          usedHint: selectedUsedHint,
           durationMs: Math.min(600_000, Math.max(0, Date.now() - attemptStartedAt)),
           occurredAt: new Date().toISOString(),
         },
@@ -1145,6 +1148,16 @@ function AuthenticatedLessonPageScope() {
 
   const checked = outcome === "correct" || outcome === "incorrect";
   const isCorrect = outcome === "correct";
+  const currentCommandId = commandIds.attemptCommandIds[index];
+  const currentUsedHint = selectedUsedHint
+    || projectedAttempts.some((attempt) =>
+      attempt.activityId === current.activityId && attempt.usedHint
+    )
+    || Boolean(records?.some((record) =>
+      record.kind === "objective-attempt"
+      && record.commandId === currentCommandId
+      && record.command.response.usedHint
+    ));
   const ExerciseIcon = exerciseIcon(current.kind);
   const completion = Math.round(((index + 1) / runtime.activities.length) * 100);
 
@@ -1204,22 +1217,17 @@ function AuthenticatedLessonPageScope() {
         {current.kind === "recall" ? (
           <div className={`recall-answer ${checked ? (isCorrect ? "correct" : "wrong") : ""}`}>
             <label htmlFor="normalized-recall-input">Hán tự bạn tự gọi lại</label>
-            <input
-              id="normalized-recall-input"
+            <HanziPinyinInput
+              key={current.activityId}
+              inputId="normalized-recall-input"
               value={selected ?? ""}
               disabled={outcome !== "idle" || busy}
-              autoComplete="off"
-              autoFocus
-              inputMode="text"
-              placeholder="Nhập chữ Hán..."
-              onChange={(event) => setSelected(event.target.value)}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" && selected?.trim()) {
-                  void submitAnswer();
-                }
-              }}
+              script={state.profile.script}
+              onChange={setSelected}
+              onAssistanceUsed={() => setSelectedUsedHint(true)}
+              onSubmit={() => void submitAnswer()}
             />
-                  <small>Đáp án sẽ chỉ hiện sau khi câu trả lời được ghi nhận.</small>
+            <small>Gõ trực tiếp để được tính vào ngưỡng. Bàn phím pinyin nội bộ là hỗ trợ nhập; câu đúng có hỗ trợ vẫn được lưu nhưng không mở khóa bài.</small>
           </div>
         ) : (
           <div className="answer-grid" role="radiogroup" aria-label={current.instruction}>
@@ -1260,7 +1268,9 @@ function AuthenticatedLessonPageScope() {
             {isCorrect ? <CircleCheck size={23} /> : <Lightbulb size={23} />}
             <div>
               <strong>{isCorrect
-                ? "Chính xác"
+                ? currentUsedHint
+                  ? "Đúng với hỗ trợ · không tính vào ngưỡng"
+                  : "Chính xác"
                 : "Chưa chính xác"}</strong>
               <p>Đáp án được mở sau khi câu trả lời của bạn đã được ghi nhận.</p>
             </div>
@@ -1281,6 +1291,7 @@ function AuthenticatedLessonPageScope() {
               if (index < runtime.activities.length - 1) {
                 setOutcome("idle");
                 setSelected(null);
+                setSelectedUsedHint(false);
                 setAttemptStartedAt(Date.now());
                 setIndex((currentIndex) => currentIndex + 1);
               } else {

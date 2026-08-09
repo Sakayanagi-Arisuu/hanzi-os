@@ -84,7 +84,7 @@ async function authorize(): Promise<AuthorizedContext | null> {
     database,
     repository,
     userId,
-    accountKey: await deriveAccountKey(identity.email),
+    accountKey: await deriveAccountKey(identity.userId || identity.email),
   };
 }
 

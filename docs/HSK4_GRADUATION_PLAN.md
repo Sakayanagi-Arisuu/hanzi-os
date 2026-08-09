@@ -1,6 +1,6 @@
 # Kế hoạch HANZI.OS — bản đồ án/tự học HSK0 đến HSK4
 
-Cập nhật: 08/08/2026
+Cập nhật: 10/08/2026
 
 Production thương mại và Sites vẫn ngoài critical path. Người dùng đã chủ động
 mở phạm vi mở rộng local M1-M5: identity, role/admin, CMS-lite Content Studio,
@@ -15,15 +15,19 @@ package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản
 sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
 hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
 Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
-M1-M5 mở rộng đã giao guest/local + Google + email OTP + passkey, liên kết
-không auto-match email, quản lý phiên/thiết bị, ba vai trò, step-up, cấu hình,
-audit append-only, Content Studio sáu trạng thái, tám Mock Exam HSK1-4 có
-chấm điểm phía máy chủ và một Content Release Worker bền vững trong modular
-monolith.
+M1-M5 mở rộng đã giao vòng đời tài khoản, ba vai trò, step-up, cấu hình, audit
+append-only, Content Studio sáu trạng thái và một Content Release Worker bền
+vững trong modular monolith. Lô M5.2 ngày 10/08 là nguồn sự thật mới nhất cho
+bề mặt người dùng: đăng nhập có đúng HANZI.OS/Google/Facebook; HANZI.OS chạy
+local, hai social provider fail-closed chờ OAuth public. Phòng Luyện Đề tách
+tài liệu/cấu trúc CTI chính thức khỏi tám form luyện nhanh 12 câu của HANZI.OS;
+M1, M4 và M5.1 bên dưới được giữ như lịch sử triển khai, không còn là mô tả UI
+hiện hành nếu mâu thuẫn với M5.2.
 
 - **Sẵn sàng toàn dự án: 96/100 (96%)**.
 - **Sẵn sàng phạm vi mở rộng M1-M5: 97/100**.
-- **Login 4/4; roles 3/3; workflow 6/6; Mock Exam 4/4 level, 8/8 form;
+- **Login hiện hành 3/3 (HANZI.OS/Google/Facebook); roles 3/3; workflow 6/6;
+  Phòng Luyện Đề có CTI reference cho 4/4 level và 8/8 form luyện nhanh;
   Content Release Worker 1/1.**
 - **HSK0:** 4 bridge, rich 0/4.
 - **HSK1:** 40/40 learner-visible, rich 40/40.
@@ -428,6 +432,59 @@ và account lifecycle hiện có.
 - không thêm bài mới: HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4
   78/78; rich HSK1-4 giữ 213/213. Không mở Sites hay production deployment.
 
+### M5.2 — Cổng danh tính, Phòng Luyện Đề và độ phủ học tập trung thực
+
+**Hoàn thành chức năng tại readiness toàn dự án 96/100 và phạm vi mở rộng
+M1-M5 97/100; không cộng điểm nội dung.** Mục này là trạng thái mới nhất và
+thay thế mọi mô tả M1/M4/M5.1 cũ nếu có mâu thuẫn.
+
+- Cổng Danh Tính có đúng **3/3** phương thức: HANZI.OS, Google và Facebook.
+  HANZI.OS đăng ký/đăng nhập end-to-end ở localhost; Google/Facebook có sẵn
+  callback nhưng fail-closed đến khi cấu hình OAuth app, secret và callback
+  public. Học local không phụ thuộc hosting hay tài khoản ChatGPT Plus;
+- ba persona development được seed để kiểm tra cả quyền và giao diện:
+  `learner.demo` → Hành Giả `/`, `editor.demo` → Content Studio `/studio`,
+  `admin.demo` → Cổng Quản Trị `/admin`; authorization tiếp tục nằm phía máy chủ;
+- Phòng Luyện Đề đưa cấu trúc và tài liệu mẫu chính thức CTI của HSK1-4 lên
+  trước. Tám form 12 câu, thời lượng 18-35 phút theo level, được định danh
+  trung thực là **luyện nhanh HANZI.OS**, không phải đề HSK thực tế. Vì chưa có
+  kho CTI chính thức công bố
+  đầy đủ đề đã thi theo từng năm gần đây, UI công khai khoảng trống này và chưa
+  mở bài thi toàn phần trong app khi bank chưa đạt cấu trúc thật;
+- projection đã xác thực của đúng chủ tài khoản được giữ trong refresh nền để
+  không chớp màn “Đang khôi phục hành trình”. Hiệu ứng route/materialize lặp
+  được giới hạn ở chế độ Điện ảnh và reduced-motion vẫn có quyền ưu tiên.
+  Projection V4 bổ sung activity đủ điều kiện mà không đổi exact schema V1-V3,
+  nên bundle/cache cũ vẫn resume và authorize offline đúng ranh giới;
+- trợ lý **Pinyin→Hanzi** dùng toàn bộ **2.016 vocabulary ID** đang phát hành.
+  Chọn ứng viên đánh dấu evidence đã hỗ trợ; câu đó không được tính vào gate hay
+  unlock dù câu trả lời đúng;
+- Thần Văn Lô mở catalog nhận dạng-trong-ngữ-cảnh cho đủ **1.096 chữ** inventory.
+  UI gắn chữ với từ ngữ cảnh và phát cả từ; không gán Pinyin/nghĩa độc lập chưa
+  được chứng minh và không tuyên bố luyện nét khi dữ liệu thứ tự nét chưa đủ;
+- Thất Trụ dùng độ phủ hoạt động chấm khách quan duy nhất, tổng **30.351** mục:
+  Âm/Pinyin **21.083**, Nghe **434**, Nói **0**, Đọc **250**, Viết **434**,
+  Từ vựng **7.966**, Ngữ pháp **184**. Làm lặp cùng activity, dùng gợi ý, xem
+  trước hoặc trả lời sai không tăng tử số. Nói có target 0 và hiển thị **chưa
+  được hỗ trợ**, không suy evidence từ kỹ năng khác và không gọi coverage là
+  mastery. Dashboard dùng target đã khóa bằng validator và chỉ lập index cho
+  lesson có evidence, không dựng 30.351 activity khi khởi động;
+- retry mở phiên, ghi đáp án và nộp bài luyện giữ nguyên toàn bộ command đã lưu;
+  mất phản hồi không tạo payload mới và hoàn tất một lượt không phát lại receipt
+  của lượt trước;
+- CSS bootstrap được tách khỏi full runtime và CSS Auth/Characters/Mock/Pinyin
+  tải theo route; root còn **16.085 B raw**. Hero giữ 1693 px, client ceiling cuối
+  **799,1/800 KiB** mà không đổi hard budget;
+- số bài không đổi: HSK0 **4/4** learner-visible, rich **0/4**; HSK1 **40/40**,
+  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1-4 **213/213**;
+- targeted checks M5.2 xanh; graduation/content/Drizzle xanh, restore **21
+  migration/39 bảng**, Vitest **269 file/1.973 test**. Full check đầu tiên chỉ
+  dừng ở asset budget 810,4/800 KiB sau build; fix hiệu năng được xác nhận bằng
+  build cuối **799,1/800 KiB**. E2E cuối **30/30**; Lighthouse median
+  **95/100/100/100** với LCP **1.877 ms**, CLS **0,000**, TBT **226 ms**; audit
+  production dependency **0 lỗ hổng**. Production, Sites, commerce và
+  `verify:production` tiếp tục ngoài critical path.
+
 ## 6. Thước đo sẵn sàng toàn dự án
 
 | Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
@@ -448,7 +505,7 @@ không tạo điểm.
 | Trụ cột mở rộng | Tối đa | Hiện tại | Trạng thái |
 | --- | ---: | ---: | --- |
 | Learning core + HSK0-4 | 65 | 62 | giữ nguyên learning scope 96% |
-| Identity/account lifecycle | 10 | 10 | M1 hoàn thành, login 4/4 |
+| Identity/account lifecycle | 10 | 10 | M5.2 hiện hành, login 3/3 |
 | Role/admin/config/audit | 8 | 8 | M2 hoàn thành, roles 3/3 |
 | Content governance | 7 | 7 | M3 hoàn thành, workflow UI 6/6 |
 | HSK Mock Exam | 7 | 7 | M4 hoàn thành, 4/4 level và 8/8 form |

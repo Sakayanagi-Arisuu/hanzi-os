@@ -15,6 +15,7 @@ import {
 } from "./d1";
 import { SyncRepository } from "./syncRepository";
 import type { GoogleOAuthConfig } from "./googleIdentity";
+import type { FacebookOAuthConfig } from "./facebookIdentity";
 
 export const AUTH_JSON_HEADERS = {
   "cache-control": "private, no-store, max-age=0",
@@ -30,6 +31,11 @@ export type AuthRuntimeEnvironment = {
   GOOGLE_CLIENT_ID?: string;
   GOOGLE_CLIENT_SECRET?: string;
   GOOGLE_REDIRECT_URI?: string;
+  FACEBOOK_CLIENT_ID?: string;
+  FACEBOOK_CLIENT_SECRET?: string;
+  FACEBOOK_REDIRECT_URI?: string;
+  FACEBOOK_GRAPH_VERSION?: string;
+  AUTH_DEV_HANZI_DEMOS?: string;
   AUTH_DEV_EMAIL_OTP?: string;
   AUTH_EMAIL_SENDER?: {
     send(message: {
@@ -79,6 +85,17 @@ export function boundedReturnTo(value: string | null, fallback = "/") {
   }
 }
 
+export function roleAwareHanziReturnTo(
+  value: string | null,
+  roles: readonly string[],
+) {
+  const returnTo = boundedReturnTo(value, "/");
+  if (returnTo !== "/") return returnTo;
+  if (roles.includes("admin")) return "/admin";
+  if (roles.includes("content_editor")) return "/studio";
+  return "/";
+}
+
 export async function loadAuthRuntime() {
   const [database, environment] = await Promise.all([
     getD1Database(),
@@ -101,6 +118,35 @@ export function googleConfig(
     clientId,
     clientSecret: environment.GOOGLE_CLIENT_SECRET?.trim() || null,
     redirectUri: configuredRedirect,
+  };
+}
+
+export function facebookConfig(
+  environment: AuthRuntimeEnvironment,
+  request: Request,
+): FacebookOAuthConfig {
+  const clientId = environment.FACEBOOK_CLIENT_ID?.trim();
+  const clientSecret = environment.FACEBOOK_CLIENT_SECRET?.trim();
+  const configuredRedirect = environment.FACEBOOK_REDIRECT_URI?.trim();
+  const graphVersion = environment.FACEBOOK_GRAPH_VERSION?.trim();
+  const exactCallback = `${new URL(request.url).origin}/auth/facebook/callback`;
+  if (
+    !clientId
+    || !clientSecret
+    || !configuredRedirect
+    || configuredRedirect !== exactCallback
+    || !graphVersion
+    || !/^v\d{1,3}\.\d{1,2}$/u.test(graphVersion)
+  ) {
+    throw new Error(
+      "Facebook sign-in requires an exact callback and an explicit Graph API version.",
+    );
+  }
+  return {
+    clientId,
+    clientSecret,
+    redirectUri: configuredRedirect,
+    graphVersion: graphVersion as `v${number}.${number}`,
   };
 }
 

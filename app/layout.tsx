@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "../src/styles.css";
+import "../src/critical.css";
 
 const siteUrl =
   "https://hanzi-os-awakening.sopping-oboists-13ts.chatgpt.site";

@@ -7,6 +7,7 @@ import {
   LEARNING_PROJECTION_PROTOCOL_VERSION,
   LEARNING_PROJECTION_V2_PROTOCOL_VERSION,
   LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
+  LEARNING_PROJECTION_V4_PROTOCOL_VERSION,
   type ActiveAssessmentAttemptProjectionV2,
   type ActiveAssessmentSessionProjectionV2,
   type ActiveLessonAttemptProjectionV1,
@@ -18,6 +19,7 @@ import {
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
   type SubmittedLessonProjectionV1,
 } from "../learning/projectionProtocol";
 import type { Skill } from "../types";
@@ -118,6 +120,12 @@ const SKILLS = new Set<Skill>([
   "grammar",
 ]);
 
+const emptyGateEligibleCorrectActivityCounts = (): Record<Skill, number> =>
+  Object.fromEntries([...SKILLS].map((skill) => [skill, 0])) as Record<
+    Skill,
+    number
+  >;
+
 export class LearningProjectionContentUnavailableError extends Error {
   readonly code = "LEARNING_PROJECTION_CONTENT_UNAVAILABLE";
 
@@ -214,6 +222,7 @@ type EvidenceSummaryRow = {
   incorrectCount: number;
   masteryEligibleCount: number;
   masteryEligibleCorrectCount: number;
+  gateEligibleCorrectActivityCount: number;
 };
 
 type ActiveAssessmentSessionRow = {
@@ -523,6 +532,14 @@ export class LearningProjectionRepository {
     );
   }
 
+  async readV4(userId: string): Promise<NormalizedLearningProjectionV4> {
+    return this.readConsistently(
+      userId,
+      (resetEpoch, releaseState) =>
+        this.readAtEpoch(userId, resetEpoch, releaseState, 4),
+    );
+  }
+
   private async readConsistently<T>(
     userId: string,
     readAtEpoch: (
@@ -575,14 +592,22 @@ export class LearningProjectionRepository {
     userId: string,
     resetEpoch: number,
     releaseState: "beta" | "published",
-    protocolVersion: 1 | 2 | 3,
+    protocolVersion: 4,
+  ): Promise<NormalizedLearningProjectionV4>;
+  private async readAtEpoch(
+    userId: string,
+    resetEpoch: number,
+    releaseState: "beta" | "published",
+    protocolVersion: 1 | 2 | 3 | 4,
   ): Promise<
     | NormalizedLearningProjectionV1
     | NormalizedLearningProjectionV2
     | NormalizedLearningProjectionV3
+    | NormalizedLearningProjectionV4
   > {
     const includeAssessment = protocolVersion >= 2;
     const includeReader = protocolVersion >= 3;
+    const includeBreadth = protocolVersion >= 4;
     const enrollmentBindings = eligibleEnrollmentBindings(userId, releaseState);
     const results = await this.database.batch([
       this.database.prepare(
@@ -733,7 +758,14 @@ export class LearningProjectionRepository {
                 SUM(CASE WHEN evidence.outcome = 'correct' THEN 1 ELSE 0 END) AS correctCount,
                 SUM(CASE WHEN evidence.outcome = 'incorrect' THEN 1 ELSE 0 END) AS incorrectCount,
                 SUM(CASE WHEN evidence.mastery_eligible = 1 THEN 1 ELSE 0 END) AS masteryEligibleCount,
-                SUM(CASE WHEN evidence.mastery_eligible = 1 AND evidence.outcome = 'correct' THEN 1 ELSE 0 END) AS masteryEligibleCorrectCount
+                SUM(CASE WHEN evidence.mastery_eligible = 1 AND evidence.outcome = 'correct' THEN 1 ELSE 0 END) AS masteryEligibleCorrectCount,
+                COUNT(DISTINCT CASE
+                  WHEN evidence.source = 'lesson'
+                   AND evidence.outcome = 'correct'
+                   AND attempt.used_hint = 0
+                   AND attempt.prior_exposure = 0
+                  THEN evidence.activity_id
+                END) AS gateEligibleCorrectActivityCount
          FROM learning_evidence evidence
          INNER JOIN learning_attempts attempt
            ON attempt.user_id = evidence.user_id
@@ -1202,11 +1234,18 @@ export class LearningProjectionRepository {
         latestAssessmentResult: null,
       } satisfies NormalizedLearningProjectionV2;
       if (!includeReader) return emptyV2;
-      return {
+      const emptyV3 = {
         ...emptyV2,
         protocolVersion: LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
         activeReaderSession: null,
-      };
+      } satisfies NormalizedLearningProjectionV3;
+      if (!includeBreadth) return emptyV3;
+      return {
+        ...emptyV3,
+        protocolVersion: LEARNING_PROJECTION_V4_PROTOCOL_VERSION,
+        gateEligibleCorrectActivityCounts:
+          emptyGateEligibleCorrectActivityCounts(),
+      } satisfies NormalizedLearningProjectionV4;
     }
 
     const activeLessonSessions = await this.projectActiveSessions(
@@ -1218,6 +1257,8 @@ export class LearningProjectionRepository {
       this.projectSubmittedLesson(row, enrollment)
     );
     const objectiveEvidence = emptyObjectiveEvidenceProjection();
+    const gateEligibleCorrectActivityCounts =
+      emptyGateEligibleCorrectActivityCounts();
     for (const row of evidenceRows) {
       if (
         !SKILLS.has(row.skill as Skill)
@@ -1226,10 +1267,12 @@ export class LearningProjectionRepository {
         || !safeInteger(row.incorrectCount)
         || !safeInteger(row.masteryEligibleCount)
         || !safeInteger(row.masteryEligibleCorrectCount)
+        || !safeInteger(row.gateEligibleCorrectActivityCount)
         || row.correctCount + row.incorrectCount !== row.attemptCount
         || row.masteryEligibleCount > row.attemptCount
         || row.masteryEligibleCorrectCount > row.masteryEligibleCount
         || row.masteryEligibleCorrectCount > row.correctCount
+        || row.gateEligibleCorrectActivityCount > row.correctCount
       ) {
         throw new LearningProjectionIntegrityError(
           "Objective evidence aggregate is invalid.",
@@ -1242,6 +1285,8 @@ export class LearningProjectionRepository {
         masteryEligibleCount: row.masteryEligibleCount,
         masteryEligibleCorrectCount: row.masteryEligibleCorrectCount,
       };
+      gateEligibleCorrectActivityCounts[row.skill as Skill] =
+        row.gateEligibleCorrectActivityCount;
     }
 
     const legacyProjection = {
@@ -1285,11 +1330,17 @@ export class LearningProjectionRepository {
       enrollment,
       resetEpoch,
     );
-    return {
+    const v3Projection = {
       ...v2Projection,
       protocolVersion: LEARNING_PROJECTION_V3_PROTOCOL_VERSION,
       activeReaderSession,
-    };
+    } satisfies NormalizedLearningProjectionV3;
+    if (!includeBreadth) return v3Projection;
+    return {
+      ...v3Projection,
+      protocolVersion: LEARNING_PROJECTION_V4_PROTOCOL_VERSION,
+      gateEligibleCorrectActivityCounts,
+    } satisfies NormalizedLearningProjectionV4;
   }
 
   private async validateStoredReaderForm(

@@ -469,4 +469,29 @@ describe("lesson session gate", () => {
       requiredCorrect: 3,
     });
   });
+
+  it("keeps hint-assisted and repeated correct answers out of the gate", () => {
+    const assisted = materializeEvidence(evidenceInput({
+      idempotencyKey: "lesson-answer:assisted",
+      activityId: "lesson:question-assisted",
+      outcome: "correct",
+      score: 100,
+      metadata: { requiredForPass: true, usedHint: true },
+    }), FIXED_TIME);
+    const repeated = materializeEvidence(evidenceInput({
+      idempotencyKey: "lesson-answer:repeated",
+      activityId: "lesson:question-repeated",
+      outcome: "correct",
+      score: 100,
+      metadata: { requiredForPass: false, priorExposure: true },
+    }), FIXED_TIME);
+
+    expect(scoreLessonSession([assisted, repeated], 2)).toEqual({
+      rawScore: 100,
+      gateScore: 0,
+      requiredPassed: false,
+      requiredEvidenceCount: 1,
+      requiredCorrect: 0,
+    });
+  });
 });

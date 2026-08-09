@@ -80,11 +80,14 @@ type RichLessonArtifact = {
 };
 
 const artifacts = [
-  hsk1LevelRichLessonContentJson,
-  hsk2LevelRichLessonContentJson,
-  hsk3LevelRichLessonContentJson,
-  hsk4LevelRichLessonContentJson,
-] as unknown as RichLessonArtifact[];
+  { level: "hsk1", artifact: hsk1LevelRichLessonContentJson },
+  { level: "hsk2", artifact: hsk2LevelRichLessonContentJson },
+  { level: "hsk3", artifact: hsk3LevelRichLessonContentJson },
+  { level: "hsk4", artifact: hsk4LevelRichLessonContentJson },
+] as unknown as Array<{
+  level: "hsk1" | "hsk2" | "hsk3" | "hsk4";
+  artifact: RichLessonArtifact;
+}>;
 
 const isLocallyAuthorized = (artifact: RichLessonArtifact) =>
   artifact.schemaVersion === 1
@@ -98,9 +101,36 @@ const isLocallyAuthorized = (artifact: RichLessonArtifact) =>
   && artifact.policy.sitesAuthorized === false;
 
 const lessonById = new Map(
-  artifacts.flatMap((artifact) => isLocallyAuthorized(artifact)
+  artifacts.flatMap(({ artifact }) => isLocallyAuthorized(artifact)
     ? artifact.lessons.map((lesson) => [lesson.lessonId, lesson] as const)
     : []),
+);
+
+export type ReleasedCharacterPracticeEntry = RichLessonCharacter & {
+  level: "hsk1" | "hsk2" | "hsk3" | "hsk4";
+  lessonId: string;
+};
+
+/**
+ * Recognition metadata already authorized for the learner-facing rich lesson
+ * runtime. It deliberately carries no stroke paths and produces no mastery
+ * evidence; stroke data remains behind its own provenance/release gate.
+ */
+export const RELEASED_CHARACTER_PRACTICE = artifacts.flatMap(({
+  level,
+  artifact,
+}) => isLocallyAuthorized(artifact)
+  ? artifact.lessons.flatMap((lesson) => lesson.characters.map((character) => ({
+      ...character,
+      level,
+      lessonId: lesson.lessonId,
+    })))
+  : []);
+
+export const RELEASED_RICH_LESSONS = artifacts.flatMap(({ level, artifact }) =>
+  isLocallyAuthorized(artifact)
+    ? artifact.lessons.map((lesson) => ({ ...lesson, level }))
+    : []
 );
 
 export const RICH_LESSON_DISCLOSURE = {

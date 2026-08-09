@@ -259,11 +259,11 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 20
-    || !migrations[19]?.startsWith("0019_")
+    migrations.length !== 21
+    || !migrations[20]?.startsWith("0020_")
   ) {
     throw new Error(
-      `Restore rehearsal requires 20 migrations through 0019; found ${
+      `Restore rehearsal requires 21 migrations through 0020; found ${
         migrations.length
       }`,
     );
@@ -566,6 +566,46 @@ try {
   ).run();
 
   const now = Date.now();
+  const hanziCredentialSalt = "A".repeat(22);
+  const hanziCredentialHash = "B".repeat(43);
+  const expectedHanziCredential = {
+    id: "restore-hanzi-credential",
+    userId: "restore-user",
+    identityId: "restore-identity",
+    username: "restore.user",
+    email: "restore@example.invalid",
+    algorithm: "PBKDF2-SHA256",
+    iterations: 210_000,
+    failedAttempts: 2,
+    lockedUntil: null,
+    secretMaterialSha256: digest(
+      `${hanziCredentialSalt}\0${hanziCredentialHash}`,
+    ),
+  };
+  const readHanziCredential = (database) => {
+    const row = database.prepare(
+      `SELECT
+        id,
+        user_id AS userId,
+        identity_id AS identityId,
+        normalized_username AS username,
+        normalized_email AS email,
+        password_algorithm AS algorithm,
+        password_iterations AS iterations,
+        password_salt AS passwordSalt,
+        password_hash AS passwordHash,
+        failed_attempts AS failedAttempts,
+        locked_until AS lockedUntil
+       FROM hanzi_password_credentials
+       WHERE id = 'restore-hanzi-credential'`,
+    ).get();
+    if (!row) return null;
+    const { passwordSalt, passwordHash, ...publicFields } = row;
+    return {
+      ...publicFields,
+      secretMaterialSha256: digest(`${passwordSalt}\0${passwordHash}`),
+    };
+  };
   const documentJson = JSON.stringify({
     schemaVersion: 1,
     reset: { epoch: 0 },
@@ -872,8 +912,28 @@ try {
       "INSERT INTO users (id, status, created_at, updated_at) VALUES (?, 'active', ?, ?)",
     ).run("restore-user", now, now);
     source.prepare(
-      "INSERT INTO auth_identities (id, user_id, provider, provider_subject, normalized_email, email_verified, created_at, updated_at) VALUES (?, ?, 'rehearsal', ?, ?, 1, ?, ?)",
-    ).run("restore-identity", "restore-user", "restore@example.invalid", "restore@example.invalid", now, now);
+      "INSERT INTO auth_identities (id, user_id, provider, provider_subject, normalized_email, email_verified, created_at, updated_at) VALUES (?, ?, 'hanzi', ?, ?, 1, ?, ?)",
+    ).run("restore-identity", "restore-user", "restore.user", "restore@example.invalid", now, now);
+    source.prepare(
+      `INSERT INTO hanzi_password_credentials (
+        id, user_id, identity_id, normalized_username, normalized_email,
+        password_algorithm, password_iterations, password_salt, password_hash,
+        failed_attempts, locked_until, created_at, updated_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?)`,
+    ).run(
+      expectedHanziCredential.id,
+      expectedHanziCredential.userId,
+      expectedHanziCredential.identityId,
+      expectedHanziCredential.username,
+      expectedHanziCredential.email,
+      expectedHanziCredential.algorithm,
+      expectedHanziCredential.iterations,
+      hanziCredentialSalt,
+      hanziCredentialHash,
+      expectedHanziCredential.failedAttempts,
+      now,
+      now,
+    );
     source.prepare(
       "INSERT INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, 'learner', ?, ?, ?), (?, 'admin', ?, ?, ?)",
     ).run("restore-user", "restore-user", now, now, "restore-user", "restore-user", now, now);
@@ -1141,6 +1201,15 @@ try {
     throw error;
   }
   const sourceReaderFixture = readReaderFixture(source);
+  const sourceHanziCredential = readHanziCredential(source);
+  if (
+    JSON.stringify(sourceHanziCredential)
+      !== JSON.stringify(expectedHanziCredential)
+  ) {
+    throw new Error(
+      "Source HANZI.OS credential does not match the migration 0020 schema",
+    );
+  }
   assertReaderFixture(sourceReaderFixture, {
     stage: "Source",
     formJson: readerFormJson,
@@ -1202,17 +1271,36 @@ try {
     "content_release_heads",
     "content_release_outbox_events",
     "content_release_packages",
+    "hanzi_password_credentials",
     "passkey_credentials",
     "system_settings",
   ];
   if (
-    tables.length !== 38
+    tables.length !== 39
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 38 application tables including identity, audited controls, governed content revisions, and content release worker state; found ${
+      `Restore rehearsal requires 39 application tables including identity, HANZI.OS credentials, audited controls, governed content revisions, and content release worker state; found ${
         tables.length
       }`,
+    );
+  }
+  const restoredHanziCredentialIndexes = restored.prepare(
+    "PRAGMA index_list('hanzi_password_credentials')",
+  ).all().filter((index) => index.origin === "c" && index.unique === 1)
+    .map((index) => index.name).sort();
+  const expectedHanziCredentialIndexes = [
+    "hanzi_password_credentials_email_uidx",
+    "hanzi_password_credentials_identity_uidx",
+    "hanzi_password_credentials_user_uidx",
+    "hanzi_password_credentials_username_uidx",
+  ];
+  if (
+    JSON.stringify(restoredHanziCredentialIndexes)
+      !== JSON.stringify(expectedHanziCredentialIndexes)
+  ) {
+    throw new Error(
+      "Restore rehearsal is missing a HANZI.OS credential uniqueness boundary",
     );
   }
   const controlTriggers = new Set(restored.prepare(
@@ -1250,6 +1338,7 @@ try {
   const restoredRoles = restored.prepare(
     "SELECT role, granted_by_user_id AS grantedByUserId FROM user_roles WHERE user_id = ? ORDER BY role",
   ).all("restore-user");
+  const restoredHanziCredential = readHanziCredential(restored);
   const restoredSession = restored.prepare(
     "SELECT form_manifest_json AS formManifestJson, form_manifest_hash AS formManifestHash FROM lesson_sessions WHERE user_id = ? AND id = 'restore-session'",
   ).get("restore-user");
@@ -1358,6 +1447,14 @@ try {
     { role: "learner", grantedByUserId: "restore-user" },
   ])) {
     throw new Error("Restored account roles do not match their source graph");
+  }
+  if (
+    JSON.stringify(restoredHanziCredential)
+      !== JSON.stringify(expectedHanziCredential)
+  ) {
+    throw new Error(
+      "Restored HANZI.OS credential does not match its source fingerprint",
+    );
   }
   if (
     restoredSession?.formManifestHash !== lessonFormHash
@@ -1547,6 +1644,20 @@ try {
       "Rejected editorial assignment mutations changed the restored stream",
     );
   }
+  expectCheckConstraint(() => restored.prepare(
+    "UPDATE hanzi_password_credentials SET password_iterations = 99999 WHERE id = 'restore-hanzi-credential'",
+  ).run(), "hanzi_password_credentials_algorithm_check");
+  expectCheckConstraint(() => restored.prepare(
+    "UPDATE hanzi_password_credentials SET password_hash = 'invalid' WHERE id = 'restore-hanzi-credential'",
+  ).run(), "hanzi_password_credentials_digest_check");
+  if (
+    JSON.stringify(readHanziCredential(restored))
+      !== JSON.stringify(expectedHanziCredential)
+  ) {
+    throw new Error(
+      "Rejected HANZI.OS credential mutations changed the restored credential",
+    );
+  }
   const postRestoreEnvelopeValue = {
     ...editorialEnvelopeOneValue,
     assignmentId: "restore-editorial-assignment-4",
@@ -1733,6 +1844,7 @@ try {
     migrations: migrations.length,
     restoredTables: tables.length,
     restoredRoles: restoredRoles.map((row) => row.role),
+    hanziCredentialRestore: "fingerprint-and-constraints-ok",
     revision: restoredDocument.revision,
     documentSha256: digest(documentJson),
     lessonFormSha256: digest(lessonFormJson),

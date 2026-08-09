@@ -25,6 +25,11 @@ import { ResponsiveHeroBackdrop } from "../components/ResponsiveHeroBackdrop";
 import { COURSE_UNITS, RELEASED_LESSONS } from "../data/curriculum";
 import { getHskCurriculumView } from "../data/hskCurriculumGraph";
 import { resolveLearningPathAuthority } from "../learning/learningAuthority";
+import {
+  deriveLocalLearnerActivityCoverage,
+  deriveProjectedLearnerActivityCoverage,
+  formatLearnerActivityCoverage,
+} from "../learning/learningCoverage";
 import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
   buildDailyMissions,
@@ -32,11 +37,6 @@ import {
   isLessonReleased,
   type DailyMission,
 } from "../lib/adaptive";
-import {
-  formatLearnerEvidence,
-  learnerEvidenceDepthPercent,
-  summarizeMasteryEligibleEvidence,
-} from "../lib/assessment/skillEstimate";
 import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { emitSystemSignal } from "../system/systemSignals";
@@ -48,11 +48,11 @@ import {
 import type { Skill } from "../types";
 
 const skillLabels: Record<Skill, string> = {
-  pronunciation: "Phát âm",
-  listening: "Nghe",
-  speaking: "Nói",
-  reading: "Đọc",
-  writing: "Viết",
+  pronunciation: "Âm / Pinyin",
+  listening: "Hội thoại nghe",
+  speaking: "Nhiệm vụ nói",
+  reading: "Hội thoại đọc",
+  writing: "Hán tự",
   vocabulary: "Từ vựng",
   grammar: "Ngữ pháp",
 };
@@ -108,7 +108,9 @@ export function DashboardPage() {
     progress: courseProgress,
   } = pathView;
   const normalizedEvidence = authenticated
-    ? summarizeNormalizedObjectiveEvidence(normalized.projection)
+    ? summarizeNormalizedObjectiveEvidence(
+        normalized.coverageProjection ?? normalized.projection,
+      )
     : null;
   if (authenticated && !normalizedEvidence) {
     return (
@@ -119,25 +121,34 @@ export function DashboardPage() {
       />
     );
   }
-  const localEligibleEvidence = state.evidence.filter((item) => item.masteryEligible);
-  const observedEvidence = authenticated
-    ? normalizedEvidence!
-    : summarizeMasteryEligibleEvidence(state.evidence);
-  const eligibleEvidenceCount = normalizedEvidence?.masteryEligibleCount
-    ?? localEligibleEvidence.length;
+  const contentCoverage = authenticated
+    ? deriveProjectedLearnerActivityCoverage(
+        normalizedEvidence!.gateEligibleCorrectActivityCounts,
+      )
+    : deriveLocalLearnerActivityCoverage(state.evidence);
   const skillEvidence = (Object.keys(skillLabels) as Skill[]).map((skill) => {
-    const estimate = observedEvidence.skills[skill];
+    const breadth = contentCoverage[skill];
     return {
       skill,
-      count: estimate.n,
-      estimate,
+      count: breadth.covered,
+      target: breadth.target,
+      coverage: breadth.percent,
     };
   });
-  const skillsWithEvidence = skillEvidence.filter((item) => item.count > 0).length;
-  const evidenceCoverage = Math.round(
-    skillEvidence.reduce((total, item) => total + learnerEvidenceDepthPercent(item.estimate), 0)
-      / skillEvidence.length,
+  const supportedSkillEvidence = skillEvidence.filter((item) => item.target > 0);
+  const skillsWithCoverage = supportedSkillEvidence.filter(
+    (item) => item.count > 0,
+  ).length;
+  const coveredActivityCount = supportedSkillEvidence.reduce(
+    (total, item) => total + item.count,
+    0,
   );
+  const contentCoveragePercent = Math.round(
+    (supportedSkillEvidence.reduce(
+      (total, item) => total + (item.coverage ?? 0),
+      0,
+    ) / supportedSkillEvidence.length) * 10,
+  ) / 10;
   const dailyTarget = state.profile.dailyMinutes * 6;
   const dailyProgress = Math.min(100, Math.round((state.dailyXp / dailyTarget) * 100));
   const authoritativeGoal = normalized.projection?.enrollment?.goal;
@@ -184,14 +195,14 @@ export function DashboardPage() {
   const primarySigil = primaryMission.kind === "correction"
     ? "解"
     : primaryLesson?.chineseTitle.slice(0, 1) ?? "命";
-  const coverageGap = skillEvidence.find((item) => item.count === 0);
-  const lowestObserved = [...skillEvidence]
+  const coverageGap = supportedSkillEvidence.find((item) => item.count === 0);
+  const lowestObserved = [...supportedSkillEvidence]
     .filter((item) => item.count > 0)
     .sort((a, b) =>
-      (a.estimate.confidence95?.lower ?? -1) - (b.estimate.confidence95?.lower ?? -1)
-      || a.count - b.count
+      (a.coverage ?? 0) - (b.coverage ?? 0) || a.count - b.count
     )[0];
-  const priorityEvidence = coverageGap ?? lowestObserved ?? skillEvidence[0];
+  const priorityEvidence = coverageGap ?? lowestObserved
+    ?? supportedSkillEvidence[0]!;
 
   return (
     <div className="dashboard-page">
@@ -200,7 +211,7 @@ export function DashboardPage() {
         <div className="hero-scan" aria-hidden="true" />
         <div className="hero-coordinates" aria-hidden="true">
           <span>NODE 31.2304° N</span>
-          <span>EVIDENCE {eligibleEvidenceCount} · SKILLS {skillsWithEvidence}/7</span>
+          <span>HOẠT ĐỘNG ĐÚNG {coveredActivityCount} · NHÓM {skillsWithCoverage}/{supportedSkillEvidence.length}</span>
         </div>
         <div className="hero-copy">
           <div className="system-kicker"><Orbit size={15} /> CHỈ THỊ NGÀY · {channelLabel}</div>
@@ -256,8 +267,8 @@ export function DashboardPage() {
         </div>
         <div className="status-cell">
           <span className="metric-icon vermilion"><CircleGauge size={18} /></span>
-          <span className="status-copy"><small>Kỹ năng có bằng chứng</small><strong>{skillsWithEvidence} / 7</strong></span>
-          <p className="status-detail">{eligibleEvidenceCount} lượt đủ chuẩn · {completedCount}/{totalCount} nút đạt ngưỡng</p>
+          <span className="status-copy"><small>Nhóm có hoạt động đúng</small><strong>{skillsWithCoverage} / {supportedSkillEvidence.length}</strong></span>
+          <p className="status-detail">{coveredActivityCount} hoạt động đúng duy nhất · {completedCount}/{totalCount} nút đạt ngưỡng</p>
         </div>
       </section>
 
@@ -267,11 +278,11 @@ export function DashboardPage() {
           <h2>{goal.label}</h2>
           <p>{goal.destination}</p>
         </div>
-        <div className="destiny-readiness" style={{ "--readiness": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
-              <span><strong>{skillsWithEvidence}/7</strong><small>CÓ DỮ LIỆU</small></span>
+        <div className="destiny-readiness" style={{ "--readiness": `${contentCoveragePercent * 3.6}deg` } as React.CSSProperties}>
+              <span><strong>{skillsWithCoverage}/{supportedSkillEvidence.length}</strong><small>CÓ LƯỢT ĐÚNG</small></span>
         </div>
         <div className="destiny-actions">
-          <span><ShieldCheck size={16} /> Hệ thống đang thu thêm bằng chứng cho: <strong>{skillLabels[priorityEvidence.skill]}</strong></span>
+          <span><ShieldCheck size={16} /> Vùng nội dung nên mở rộng tiếp: <strong>{skillLabels[priorityEvidence.skill]}</strong></span>
           <Link to={authenticated || state.diagnostic.completed ? "/analytics" : "/assessment"} viewTransition>
             {authenticated || state.diagnostic.completed ? "Xem phân tích đích đến" : "Khảo nghiệm căn cơ"} <ChevronRight size={16} />
           </Link>
@@ -330,28 +341,28 @@ export function DashboardPage() {
 
         <section className="skill-matrix">
           <header className="section-heading">
-            <div><span>TÍN HIỆU QUAN SÁT · 7 KỸ NĂNG</span><h2>Thất Trụ Học Tập</h2></div>
+            <div><span>HOẠT ĐỘNG ĐÚNG DUY NHẤT · 7 NHÓM</span><h2>Thất Trụ Học Tập</h2></div>
             <Link to="/analytics" viewTransition>Phân tích <ChevronRight size={15} /></Link>
           </header>
           <div className="mastery-orbit">
-            <div className="mastery-dial" style={{ "--progress": `${evidenceCoverage * 3.6}deg` } as React.CSSProperties}>
-              <span><strong>{eligibleEvidenceCount}</strong><small>LƯỢT ĐÃ QUAN SÁT</small></span>
+            <div className="mastery-dial" style={{ "--progress": `${contentCoveragePercent * 3.6}deg` } as React.CSSProperties}>
+              <span><strong>{contentCoveragePercent}%</strong><small>HOẠT ĐỘNG ĐÚNG</small></span>
             </div>
-            <p>Phiên kế tiếp ưu tiên <strong>{skillLabels[priorityEvidence.skill]}</strong> vì {priorityEvidence.count === 0 ? "kỹ năng này chưa có lượt quan sát" : `mới có ${priorityEvidence.count} lượt đủ điều kiện`}.</p>
+            <p>Phiên kế tiếp ưu tiên <strong>{skillLabels[priorityEvidence.skill]}</strong> vì {priorityEvidence.count === 0 ? "chưa có hoạt động đúng đủ điều kiện" : `mới đúng ${priorityEvidence.count}/${priorityEvidence.target} hoạt động`}.</p>
           </div>
           <div className="skill-bars">
-            {skillEvidence.map(({ skill, estimate }) => {
+            {skillEvidence.map(({ skill, count, target, coverage }) => {
               const Icon = skillIcons[skill] ?? Target;
               return (
                 <div key={skill}>
                   <span><Icon size={15} /> {skillLabels[skill]}</span>
-                  <div aria-label={`${skillLabels[skill]}: ${formatLearnerEvidence(estimate)}`}><i style={{ width: `${learnerEvidenceDepthPercent(estimate)}%` }} /></div>
-                  <strong>{formatLearnerEvidence(estimate)}</strong>
+                  <div aria-label={`${skillLabels[skill]}: ${formatLearnerActivityCoverage(count, target)}`}><i style={{ width: `${coverage ?? 0}%` }} /></div>
+                  <strong>{formatLearnerActivityCoverage(count, target)}</strong>
                 </div>
               );
             })}
           </div>
-          <p className="evidence-method-note">Thanh dài theo số lượt học hợp lệ, không phải phần trăm thành thạo. Tỉ lệ đúng chỉ hiện khi có ít nhất 10 lượt độc lập.</p>
+          <p className="evidence-method-note">Thanh chỉ tăng khi một hoạt động bài học được trả lời đúng ngay ở lượt đủ điều kiện, không dùng hỗ trợ; làm lại cùng hoạt động không tăng số đếm. Nhóm chưa có phép đo phù hợp được ghi rõ “Chưa có hoạt động hỗ trợ”. Đây không phải điểm thành thạo hay điểm phát âm.</p>
         </section>
       </div>
 

@@ -40,6 +40,7 @@ import {
 } from "./indexedDb";
 import {
   hashSyncPushOperation,
+  CLOUD_FIRST_PARTY_AUTH_PROVIDERS,
   noStoreJsonHeaders,
   SYNC_PROTOCOL_VERSION,
   type CloudSession,
@@ -48,6 +49,7 @@ import {
   type SyncPushOperationV1,
   type SyncPushResponseV1,
 } from "./protocol";
+import { APP_PERMISSIONS, isAppRole } from "../auth/authorization";
 import {
   LEARNING_COMMAND_QUEUE_CHANGED_EVENT,
   summarizeLearningCommandQueue,
@@ -112,15 +114,37 @@ const hasPersistedOwnerBinding = (
     && /^siwc_[0-9a-f]{64}$/.test(persistedOwner)
   );
 
-const isCloudSession = (value: unknown): value is CloudSession => {
+export const isCloudSession = (value: unknown): value is CloudSession => {
   if (!value || typeof value !== "object") return false;
   const session = value as Partial<CloudSession>;
   if (session.authenticated === false) {
-    return session.user === null && session.accountKey === null;
+    return session.user === null
+      && session.accountKey === null
+      && (session.authorization === undefined || session.authorization === null);
   }
+  const authorization = session.authorization;
+  const authorizationIsValid = authorization === undefined || (
+    authorization !== null
+    && typeof authorization === "object"
+    && Array.isArray(authorization.roles)
+    && authorization.roles.every(isAppRole)
+    && Array.isArray(authorization.permissions)
+    && authorization.permissions.every((permission) =>
+      typeof permission === "string"
+      && APP_PERMISSIONS.includes(permission as typeof APP_PERMISSIONS[number])
+    )
+  );
   return session.authenticated === true
     && typeof session.accountKey === "string"
-    && Boolean(session.user && typeof session.user.email === "string");
+    && Boolean(
+      session.user
+      && typeof session.user.email === "string"
+      && (
+        session.user.provider === undefined
+        || CLOUD_FIRST_PARTY_AUTH_PROVIDERS.includes(session.user.provider)
+      ),
+    )
+    && authorizationIsValid;
 };
 
 const preserveLocalOnlyEvidence = (

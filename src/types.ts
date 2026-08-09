@@ -188,6 +188,7 @@ export type AnswerEvidence = {
   idempotencyKey?: string;
   activityVersion?: string;
   requiredForPass?: boolean;
+  usedHint?: boolean;
 };
 
 export type EvidenceSource =

@@ -17,9 +17,11 @@ import { CONTENT_VERSION } from "../data/curriculum";
 import {
   toNormalizedLearningProjectionV1,
   toNormalizedLearningProjectionV2,
+  toNormalizedLearningProjectionV3,
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
 } from "../learning/projectionProtocol";
 import { activateCurrentEnrollment } from "../sync/currentEnrollmentClient";
 import {
@@ -28,10 +30,11 @@ import {
   type OwnerGeneration,
 } from "../sync/indexedDb";
 import {
-  fetchNormalizedLearningProjectionV3,
+  fetchNormalizedLearningProjectionV4,
   readValidCachedNormalizedLearningProjection,
   readValidCachedNormalizedLearningProjectionV2,
   readValidCachedNormalizedLearningProjectionV3,
+  readValidCachedNormalizedLearningProjectionV4,
 } from "../sync/learningProjectionClient";
 import {
   LEARNING_COMMAND_QUEUE_CHANGED_EVENT,
@@ -78,6 +81,8 @@ export type NormalizedLearningProjectionRuntimeSnapshot = {
    * V1/V2 fallbacks never synthesize Reader authority.
    */
   readerProjection: NormalizedLearningProjectionV3 | null;
+  /** Exact V4 aggregate used only for descriptive unique-activity breadth. */
+  coverageProjection: NormalizedLearningProjectionV4 | null;
   authoritativeProgress: AuthoritativeReleasedLessonProgressV1 | null;
   ownerGeneration: OwnerGeneration | null;
   resetEpoch: number | null;
@@ -95,6 +100,7 @@ export type ExactProjectionAuthority = {
   projection: NormalizedLearningProjectionV1;
   assessmentProjection: NormalizedLearningProjectionV2 | null;
   readerProjection: NormalizedLearningProjectionV3 | null;
+  coverageProjection: NormalizedLearningProjectionV4 | null;
   authoritativeProgress: AuthoritativeReleasedLessonProgressV1;
   source: NormalizedLearningProjectionSource;
 };
@@ -109,6 +115,7 @@ const loadingSnapshot = (
   projection: null,
   assessmentProjection: null,
   readerProjection: null,
+  coverageProjection: null,
   authoritativeProgress: null,
   ownerGeneration: null,
   resetEpoch: null,
@@ -122,6 +129,7 @@ const anonymousSnapshot = (): NormalizedLearningProjectionRuntimeSnapshot => ({
   projection: null,
   assessmentProjection: null,
   readerProjection: null,
+  coverageProjection: null,
   authoritativeProgress: null,
   ownerGeneration: null,
   resetEpoch: null,
@@ -193,13 +201,22 @@ export const bindExactProjectionAuthority = (
   projection:
     | NormalizedLearningProjectionV1
     | NormalizedLearningProjectionV2
-    | NormalizedLearningProjectionV3,
+    | NormalizedLearningProjectionV3
+    | NormalizedLearningProjectionV4,
   source: NormalizedLearningProjectionSource,
 ): ExactProjectionAuthority | null => {
-  const readerProjection = projection.protocolVersion === 3
+  const coverageProjection = projection.protocolVersion === 4
     ? projection
     : null;
-  const assessmentProjection = projection.protocolVersion === 3
+  const readerProjection = projection.protocolVersion === 4
+    ? toNormalizedLearningProjectionV3(projection)
+    : projection.protocolVersion === 3
+      ? projection
+      : null;
+  const assessmentProjection = (
+    projection.protocolVersion === 4
+    || projection.protocolVersion === 3
+  )
     ? toNormalizedLearningProjectionV2(projection)
     : projection.protocolVersion === 2
       ? projection
@@ -214,6 +231,7 @@ export const bindExactProjectionAuthority = (
         projection: v1Projection,
         assessmentProjection,
         readerProjection,
+        coverageProjection,
         authoritativeProgress,
         source,
       }
@@ -229,6 +247,7 @@ export const selectExactCachedProjectionAuthority = (
   legacyProjection: NormalizedLearningProjectionV1 | null,
   assessmentProjection: NormalizedLearningProjectionV2 | null,
   readerProjection: NormalizedLearningProjectionV3 | null = null,
+  coverageProjection: NormalizedLearningProjectionV4 | null = null,
 ): ExactProjectionAuthority | null => {
   const legacyAuthority = legacyProjection
     ? bindExactProjectionAuthority(legacyProjection, "cache")
@@ -239,8 +258,15 @@ export const selectExactCachedProjectionAuthority = (
   const readerAuthority = readerProjection
     ? bindExactProjectionAuthority(readerProjection, "cache")
     : null;
+  const coverageAuthority = coverageProjection
+    ? bindExactProjectionAuthority(coverageProjection, "cache")
+    : null;
   let selected = legacyAuthority;
-  for (const candidate of [assessmentAuthority, readerAuthority]) {
+  for (const candidate of [
+    assessmentAuthority,
+    readerAuthority,
+    coverageAuthority,
+  ]) {
     if (
       candidate
       && (
@@ -263,6 +289,7 @@ const authoritySnapshot = (
   projection: authority?.projection ?? null,
   assessmentProjection: authority?.assessmentProjection ?? null,
   readerProjection: authority?.readerProjection ?? null,
+  coverageProjection: authority?.coverageProjection ?? null,
   authoritativeProgress: authority?.authoritativeProgress ?? null,
   ownerGeneration: scope.ownerGeneration,
   resetEpoch: scope.resetEpoch,
@@ -279,6 +306,7 @@ const unavailableSnapshot = (
   projection: null,
   assessmentProjection: null,
   readerProjection: null,
+  coverageProjection: null,
   authoritativeProgress: null,
   ownerGeneration: scope?.ownerGeneration ?? null,
   resetEpoch: scope?.resetEpoch ?? null,
@@ -297,6 +325,7 @@ const retryableWithoutAuthoritySnapshot = (
   projection: null,
   assessmentProjection: null,
   readerProjection: null,
+  coverageProjection: null,
   authoritativeProgress: null,
   ownerGeneration: null,
   resetEpoch: null,
@@ -304,6 +333,18 @@ const retryableWithoutAuthoritySnapshot = (
   reason,
   retryAfterMs: 0,
 });
+
+/**
+ * Background projection refreshes must not replace an already-authorized view
+ * with a full-screen loader. Authority is retained only for the exact same
+ * account; identity switches still clear synchronously and fail closed.
+ */
+export const canRetainProjectionDuringRefresh = (
+  current: NormalizedLearningProjectionRuntimeSnapshot,
+  accountKey: string,
+) => current.ownerGeneration?.ownerKey === accountKey
+  && current.projection !== null
+  && current.authoritativeProgress !== null;
 
 const NormalizedLearningProjectionContext = createContext<
   NormalizedLearningProjectionRuntimeValue | null
@@ -377,11 +418,12 @@ export function NormalizedLearningProjectionProvider({
       };
     }
 
-    // Clear any previous owner's authority synchronously with the identity
-    // effect. Exact cache data may be restored after the IndexedDB CAS fence.
-    setSnapshot(loadingSnapshot());
-
     const accountKey = authenticatedAccountKey;
+    // Keep a validated same-owner view visible while the network refreshes in
+    // the background. A different owner is still cleared synchronously.
+    setSnapshot((current) => canRetainProjectionDuringRefresh(current, accountKey)
+      ? current
+      : loadingSnapshot());
     const profileSynced = state.profile.onboarded
       && sync.lastSyncedAt !== null
       && sync.pendingCount === 0;
@@ -437,7 +479,7 @@ export function NormalizedLearningProjectionProvider({
         }
         const requestedScope = scope;
 
-        const [cached, cachedV2, cachedV3] = await Promise.all([
+        const [cached, cachedV2, cachedV3, cachedV4] = await Promise.all([
           readValidCachedNormalizedLearningProjection(
             requestedScope.ownerGeneration,
             requestedScope.resetEpoch,
@@ -450,12 +492,17 @@ export function NormalizedLearningProjectionProvider({
             requestedScope.ownerGeneration,
             requestedScope.resetEpoch,
           ),
+          readValidCachedNormalizedLearningProjectionV4(
+            requestedScope.ownerGeneration,
+            requestedScope.resetEpoch,
+          ),
         ]);
         if (!requestIsCurrent()) return;
         cachedAuthority = selectExactCachedProjectionAuthority(
           cached?.value ?? null,
           cachedV2?.value ?? null,
           cachedV3?.value ?? null,
+          cachedV4?.value ?? null,
         );
         if (cachedAuthority) {
           await publishIfCurrent(
@@ -472,7 +519,7 @@ export function NormalizedLearningProjectionProvider({
 
         const handleProjectionResult = async (
           result: Awaited<ReturnType<
-            typeof fetchNormalizedLearningProjectionV3
+            typeof fetchNormalizedLearningProjectionV4
           >>,
           allowEnrollmentBootstrap: boolean,
           retryAuthority: ExactProjectionAuthority | null,
@@ -636,7 +683,7 @@ export function NormalizedLearningProjectionProvider({
               }
               return;
             }
-            const refreshed = await fetchNormalizedLearningProjectionV3({
+            const refreshed = await fetchNormalizedLearningProjectionV4({
               expectedOwnerGeneration: requestedScope.ownerGeneration,
               expectedResetEpoch: requestedScope.resetEpoch,
             });
@@ -675,7 +722,7 @@ export function NormalizedLearningProjectionProvider({
           );
         };
 
-        const result = await fetchNormalizedLearningProjectionV3({
+        const result = await fetchNormalizedLearningProjectionV4({
           expectedOwnerGeneration: requestedScope.ownerGeneration,
           expectedResetEpoch: requestedScope.resetEpoch,
         });

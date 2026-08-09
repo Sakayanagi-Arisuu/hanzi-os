@@ -8,7 +8,9 @@ import type {
 } from "./d1";
 import {
   AuthRepository,
+  HanziAccountConflictError,
   IdentityAlreadyLinkedError,
+  InvalidHanziCredentialsError,
   SESSION_COOKIE_NAME,
   serializeSessionCookie,
 } from "./authRepository";
@@ -101,12 +103,90 @@ describe("multi-method identity repository", () => {
     expect(tables).toEqual(expect.arrayContaining([
       "auth_challenges",
       "auth_sessions",
+      "hanzi_password_credentials",
       "passkey_credentials",
     ]));
     expect(() => d1.database.prepare(
       "INSERT INTO auth_sessions (id, user_id, token_hash, auth_method, authenticated_at, created_at, last_seen_at, expires_at) VALUES ('invalid', 'missing', 'hash', 'password', 1, 1, 1, 2)",
     ).run()).toThrow();
   });
+
+  it("registers and authenticates a native HANZI.OS account without storing plaintext", async () => {
+    const d1 = new SQLiteD1();
+    const repository = new AuthRepository(d1);
+    const account = await repository.registerHanziAccount({
+      username: "Learner.One",
+      email: "Learner@One.Example",
+      password: "Correct-Hanzi-2026",
+      displayName: "Học viên Một",
+    });
+    expect(account).toMatchObject({
+      username: "learner.one",
+      email: "learner@one.example",
+      displayName: "Học viên Một",
+    });
+    const stored = d1.database.prepare(
+      `SELECT password_hash AS passwordHash, password_salt AS passwordSalt,
+              password_iterations AS passwordIterations
+         FROM hanzi_password_credentials WHERE user_id = ?`,
+    ).get(account.userId) as {
+      passwordHash: string;
+      passwordSalt: string;
+      passwordIterations: number;
+    };
+    expect(stored.passwordHash).not.toContain("Correct-Hanzi-2026");
+    expect(stored.passwordHash).toHaveLength(43);
+    expect(stored.passwordSalt).toHaveLength(22);
+    expect(stored.passwordIterations).toBe(600_000);
+
+    await expect(repository.authenticateHanziAccount(
+      "learner.one",
+      "wrong-password-0",
+    )).rejects.toBeInstanceOf(InvalidHanziCredentialsError);
+    await expect(repository.authenticateHanziAccount(
+      "LEARNER@ONE.EXAMPLE",
+      "Correct-Hanzi-2026",
+    )).resolves.toMatchObject({ userId: account.userId });
+    await expect(repository.registerHanziAccount({
+      username: "learner.two",
+      email: "learner@one.example",
+      password: "Another-Hanzi-2026",
+      displayName: "Học viên Hai",
+    })).rejects.toBeInstanceOf(HanziAccountConflictError);
+  }, 20_000);
+
+  it("seeds exactly three loopback demo identities idempotently with role boundaries", async () => {
+    const d1 = new SQLiteD1();
+    const repository = new AuthRepository(d1);
+    await expect(repository.seedLocalDemoAccounts(false)).rejects.toThrow(
+      "outside loopback development",
+    );
+    const first = await repository.seedLocalDemoAccounts(true);
+    const second = await repository.seedLocalDemoAccounts(true);
+    expect(first).toHaveLength(3);
+    expect(second).toEqual(first);
+    const credentials = d1.database.prepare(
+      "SELECT normalized_username AS username FROM hanzi_password_credentials ORDER BY normalized_username",
+    ).all();
+    expect(credentials).toHaveLength(3);
+    const roles = d1.database.prepare(
+      `SELECT credential.normalized_username AS username,
+              GROUP_CONCAT(role.role) AS roles
+         FROM hanzi_password_credentials credential
+         JOIN user_roles role ON role.user_id = credential.user_id
+        GROUP BY credential.normalized_username
+        ORDER BY credential.normalized_username`,
+    ).all() as Array<{ username: string; roles: string }>;
+    expect(roles).toEqual([
+      { username: "admin.demo", roles: expect.stringContaining("admin") },
+      { username: "editor.demo", roles: expect.stringContaining("content_editor") },
+      { username: "learner.demo", roles: "learner" },
+    ]);
+    await expect(repository.authenticateHanziAccount(
+      "admin.demo",
+      "Hanzi.Admin#2026",
+    )).resolves.toMatchObject({ username: "admin.demo" });
+  }, 30_000);
 
   it("never auto-links providers solely because verified emails match", async () => {
     const repository = new AuthRepository(new SQLiteD1());

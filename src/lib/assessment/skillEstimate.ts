@@ -206,21 +206,19 @@ export const summarizeAssessmentEvidence = (
 };
 
 export const formatObservedEstimate = (estimate: ObservedAccuracyEstimate) => {
-  if (estimate.status === "unassessed") return "chưa được đo · n=0";
-  const interval = estimate.confidence95
-    ? `CI 95% ${estimate.confidence95.lower}–${estimate.confidence95.upper}%`
-    : "CI chưa có";
-  return `${estimate.correct}/${estimate.n} · ${estimate.observedAccuracy}% · ${interval}`;
+  if (estimate.status === "unassessed") return "chưa có lượt quan sát";
+  if (estimate.n < LEARNER_EVIDENCE_TARGET) {
+    return `${estimate.n} lượt quan sát · chưa đủ để kết luận`;
+  }
+  return `${estimate.correct}/${estimate.n} câu đúng · ${estimate.observedAccuracy}% trên các lượt đã đo`;
 };
 
 export const formatObservedEstimateCompact = (
   estimate: ObservedAccuracyEstimate,
 ) => {
-  if (estimate.status === "unassessed") return "chưa đo · n=0";
-  const interval = estimate.confidence95
-    ? `${estimate.confidence95.lower}–${estimate.confidence95.upper}%`
-    : "chưa có";
-  return `${estimate.correct}/${estimate.n} · CI 95% ${interval}`;
+  if (estimate.status === "unassessed") return "chưa có lượt";
+  if (estimate.n < LEARNER_EVIDENCE_TARGET) return `${estimate.n} lượt · cần thêm dữ liệu`;
+  return `${estimate.observedAccuracy}% trên ${estimate.n} lượt`;
 };
 
 /**

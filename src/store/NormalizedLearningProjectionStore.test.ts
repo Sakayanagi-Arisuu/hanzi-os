@@ -7,10 +7,12 @@ import {
   type NormalizedLearningProjectionV1,
   type NormalizedLearningProjectionV2,
   type NormalizedLearningProjectionV3,
+  type NormalizedLearningProjectionV4,
 } from "../learning/projectionProtocol";
 import type { ActiveOwnerLearningScope } from "../sync/indexedDb";
 import {
   bindExactProjectionAuthority,
+  canRetainProjectionDuringRefresh,
   ownerLearningScopesMatch,
   resolveCurrentEnrollmentBootstrapDecision,
   selectExactCachedProjectionAuthority,
@@ -57,6 +59,23 @@ const projectionV3 = (
   ...overrides,
 });
 
+const projectionV4 = (
+  overrides: Partial<NormalizedLearningProjectionV4> = {},
+): NormalizedLearningProjectionV4 => ({
+  ...projectionV3(),
+  protocolVersion: 4,
+  gateEligibleCorrectActivityCounts: {
+    pronunciation: 0,
+    listening: 0,
+    speaking: 0,
+    reading: 0,
+    writing: 0,
+    vocabulary: 0,
+    grammar: 0,
+  },
+  ...overrides,
+});
+
 const scope = (
   ownerKey: string,
   generation = 1,
@@ -67,6 +86,28 @@ const scope = (
 });
 
 describe("normalized learning projection runtime authority", () => {
+  it("retains exact same-owner authority during a background refresh", () => {
+    const authority = bindExactProjectionAuthority(projection(), "network")!;
+    const snapshot = {
+      phase: "ready" as const,
+      projection: authority.projection,
+      assessmentProjection: authority.assessmentProjection,
+      readerProjection: authority.readerProjection,
+      coverageProjection: authority.coverageProjection,
+      authoritativeProgress: authority.authoritativeProgress,
+      ownerGeneration: { ownerKey: "account:a", generation: 1 },
+      resetEpoch: 2,
+      source: "network" as const,
+      reason: null,
+      retryAfterMs: null,
+    };
+
+    expect(canRetainProjectionDuringRefresh(snapshot, "account:a")).toBe(true);
+    expect(canRetainProjectionDuringRefresh(snapshot, "account:b")).toBe(false);
+    expect(canRetainProjectionDuringRefresh({ ...snapshot, projection: null }, "account:a"))
+      .toBe(false);
+  });
+
   it("binds an exact released enrollment to authoritative progress", () => {
     const current = projection();
 
@@ -131,6 +172,24 @@ describe("normalized learning projection runtime authority", () => {
     expect(authority?.projection).not.toHaveProperty(
       "activeReaderSession",
     );
+  });
+
+  it("binds V4 breadth without changing the exact V1/V2/V3 authority views", () => {
+    const current = projectionV4();
+    const authority = bindExactProjectionAuthority(current, "network");
+
+    expect(authority).toMatchObject({
+      projection: { protocolVersion: 1 },
+      assessmentProjection: { protocolVersion: 2 },
+      readerProjection: { protocolVersion: 3 },
+      coverageProjection: current,
+    });
+    expect(selectExactCachedProjectionAuthority(
+      projection({ cursor: 31 }),
+      projectionV2({ cursor: 31 }),
+      projectionV3({ cursor: 31 }),
+      current,
+    )?.coverageProjection).toBe(current);
   });
 
   it("never combines a stale assessment cache with newer V1 progress", () => {
