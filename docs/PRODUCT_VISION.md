@@ -16,6 +16,19 @@ tạo hoặc có quyền sử dụng.
 thú vị hơn nhưng không được che nghĩa, làm rối điều hướng, gây chớp/giật hoặc
 biến thuật ngữ nghiệp vụ thành nội dung người học phải hiểu.
 
+### Hợp đồng sản phẩm canonical
+
+- **North-star:** Học tiếng Trung rõ đường, nhớ lâu, dùng được.
+- **Người học:** Người Việt tự học từ số 0 đến HSK4.
+- **Ngôn ngữ:** Mandarin Trung Quốc đại lục, chữ giản thể và Pinyin.
+- **Nền tảng:** Web/PWA local-first; lõi học HSK0–HSK4 dùng ẩn danh đầy đủ và
+  giữ tiến độ trên thiết bị; tài khoản và AI ngoài chỉ là tùy chọn.
+- **Trạng thái:** Đây là hợp đồng đích Reforge đang được triển khai, không phải tuyên bố mọi chức năng đã hoàn tất.
+- **Năm khu vực duy nhất:** **Học**, **Ôn**, **Nói**, **Luyện**, **Hồ sơ**.
+- **Vòng học chính:** Học/Hôm nay → bài ngắn → Ôn → Nói hoặc Luyện → kết phiên.
+- **Ranh giới:** ChineseSkill chỉ là benchmark chức năng và ngưỡng chất lượng;
+  HANZI.OS dùng trải nghiệm, nội dung và tài sản nguyên bản hoặc có quyền sử dụng.
+
 ## 2. “Tương đương ChineseSkill” nghĩa là gì
 
 Mục tiêu là **parity về công năng và phương pháp học**, không phải bản sao:

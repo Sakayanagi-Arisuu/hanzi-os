@@ -4,8 +4,8 @@
 
 **Baseline Git:** `52cce0c` (`feat: hoàn thiện cổng danh tính và phòng luyện HSK`)
 
-**Trạng thái Reforge:** đã đóng băng hướng phát triển cũ; chưa có task Reforge nào
-được nghiệm thu.
+**Trạng thái Reforge:** T001 đã được nghiệm thu; hợp đồng sản phẩm canonical và
+trang giới thiệu Reforge đã khóa persona, phạm vi, năm khu vực và vòng học chính.
 
 Tài liệu này chỉ ghi **sự thật ở commit hiện tại**. Lịch sử chi tiết nằm trong
 Git, không tiếp tục nối nhật ký theo phiên vào đây.
@@ -16,7 +16,7 @@ Git, không tiếp tục nối nhật ký theo phiên vào đây.
 | --- | ---: | --- |
 | Legacy local milestone | **96/100** | Mức hoàn thiện theo roadmap cũ của bản local-first; không phải điểm UX, chất lượng sư phạm hay mức tương đương ChineseSkill |
 | Legacy M1-M5 | **97/100** | Mức hoàn thiện phạm vi identity, role, Studio, mock và release worker cũ |
-| Reforge parity | **0/100 task được nghiệm thu** | Thước đo duy nhất cho quá trình tái cấu trúc mới; code cũ không tự động được tính |
+| Reforge parity | **1/100 task được nghiệm thu** | T001 đã `ACCEPTED`; code cũ không tự động được tính |
 
 Mốc 96/100 được giữ làm số liệu lịch sử có thể kiểm chứng. Từ đây về sau, không
 dùng nó để nói sản phẩm “gần hoàn thiện”. Chỉ task đáp ứng đầy đủ acceptance
@@ -121,7 +121,38 @@ chất lượng để HANZI.OS tự thiết kế.
 - Không expose, unlock, recommend hoặc tính tiến độ từ nội dung chưa đạt
   `UI-INTEGRATED` theo `CONTENT_DELIVERY_PLAYBOOK.md`.
 
-## 7. Nguồn sự thật từ checkpoint này
+## 7. Sổ nghiệm thu Reforge
+
+### T001 — Hợp đồng sản phẩm Reforge — `DONE / ACCEPTED` (10/08/2026)
+
+- **Đã thêm cho người học:** trang `/reforge`, mở được từ onboarding qua liên
+  kết “HANZI.OS dành cho ai?”, trình bày một north-star, đúng năm khu vực
+  **Học / Ôn / Nói / Luyện / Hồ sơ**, vòng Học/Hôm nay → bài ngắn → Ôn → Nói
+  hoặc Luyện → kết phiên và một CTA “Vào HANZI.OS”. Trang ghi rõ đây là đích
+  đang triển khai, không giả định Reforge đã hoàn tất.
+- **Hợp đồng dùng chung:** `src/product/reforgeProductContract.ts` là nguồn
+  canonical được trang giới thiệu tiêu thụ; `docs/PRODUCT_VISION.md` dùng cùng
+  persona, scope Mainland Mandarin giản thể/Pinyin HSK0–HSK4, local-first và
+  ranh giới không sao chép ChineseSkill.
+- **Review độc lập:** ba reviewer không tham gia triển khai cuối đều mô tả đúng
+  người học, năm khu vực, vòng học và giới hạn benchmark. Góp ý chung về nguy cơ
+  hiểu nhầm “đã hoàn tất” và AI/account bắt buộc đã được sửa bằng disclosure
+  trạng thái, lõi guest local đầy đủ và provider ngoài chỉ là tùy chọn. Usability
+  với người thật vẫn thuộc T011, không được suy ra từ review này.
+- **Evidence runtime:** production build xanh; contract Vitest 3/3; Playwright
+  `/reforge` 2/2 ở desktop và mobile 360 px với keyboard/reduced-motion; smoke
+  in-app browser ở 1280×720 và 360×800 xác nhận đúng 5 vùng, một CTA, không tràn
+  ngang, CTA cao 48 px và không có console warning/error. Bundle ceiling vẫn
+  trong gate ở **800.0 KiB**.
+- **Rủi ro dữ liệu/migration:** không đổi store, stable ID, progress, FSRS,
+  account hay content package; không cần migration/rollback dữ liệu.
+- **Nội dung UI không đổi:** HSK0 **4/4** (rich **0/4**), HSK1 **40/40**,
+  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1–4 **213/213**.
+- **Hai mốc:** legacy local milestone **96/100** (snapshot lịch sử); Reforge
+  **1/100 task accepted**. Task tích hợp tiếp theo: T002, ma trận benchmark có
+  nguồn và truy ngược được đến task/acceptance.
+
+## 8. Nguồn sự thật từ checkpoint này
 
 Đọc theo thứ tự sau trước mỗi milestone Reforge:
 
@@ -137,7 +168,7 @@ Nếu tài liệu cũ hoặc comment code mâu thuẫn, bộ nguồn trên và a
 nhất được ưu tiên. `PRODUCTION_UPGRADE_PLAN.md` chỉ đọc khi người dùng chủ động
 mở lại production.
 
-## 8. Cách cập nhật checkpoint
+## 9. Cách cập nhật checkpoint
 
 Mỗi milestone/commit Reforge phải ghi ngắn gọn:
 

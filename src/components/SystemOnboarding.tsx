@@ -82,6 +82,9 @@ export function SystemOnboarding() {
           Thiên Lộ từ mục tiêu và Căn Cơ Tự Khai; Tín Hiệu Học Tập phát sinh
           sau đó sẽ giúp ưu tiên hoạt động phù hợp hơn.
         </p>
+        <a className="onboarding-contract-link" href="/reforge">
+          HANZI.OS dành cho ai? <span aria-hidden="true">→</span>
+        </a>
         <div className="boot-status">
           <span><ShieldCheck size={15} /> FSRS memory core</span>
           <span><CircleGauge size={15} /> Thất Trụ Học Tập</span>

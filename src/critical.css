@@ -329,6 +329,22 @@ button:disabled {
   line-height: 1.75;
 }
 
+.onboarding-contract-link {
+  width: max-content;
+  min-height: 44px;
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.onboarding-contract-link:hover {
+  color: var(--jade);
+}
+
 .boot-status {
   margin-top: 30px;
   display: flex;
