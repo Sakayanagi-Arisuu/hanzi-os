@@ -1,522 +1,138 @@
-# Kế hoạch HANZI.OS — bản đồ án/tự học HSK0 đến HSK4
-
-Cập nhật: 10/08/2026
-
-Production thương mại và Sites vẫn ngoài critical path. Người dùng đã chủ động
-mở phạm vi mở rộng local M1-M5: identity, role/admin, CMS-lite Content Studio,
-Mock Exam và đúng một Content Release Worker; đây không phải CMS thương mại hay
-production deployment.
-
-## 1. Tóm tắt dễ đọc
-
-Nền local-first ổn định. B1-B9 đã hoàn tất phạm vi đồ án/tự học local: toàn bộ
-HSK1-4 có trên Thiên Lộ và shared rich Lesson UI, bốn Đại Khảo chạy end-to-end,
-package handoff `.08.5` có Bảng Hệ Thống hologram 3D, Audio Engine phản ứng theo
-sự kiện học, Voice Reactor và 64 xướng lệnh chia cho bốn nhân cách local tích
-hợp sẵn mà không giả làm chứng nhận. Cơ Linh bám carrier ElevenLabs đã chọn;
-Thiên Cơ, Chấp Hành và Dẫn Lộ được công bố đúng là VieNeu local fallback.
-M1-M5 mở rộng đã giao vòng đời tài khoản, ba vai trò, step-up, cấu hình, audit
-append-only, Content Studio sáu trạng thái và một Content Release Worker bền
-vững trong modular monolith. Lô M5.2 ngày 10/08 là nguồn sự thật mới nhất cho
-bề mặt người dùng: đăng nhập có đúng HANZI.OS/Google/Facebook; HANZI.OS chạy
-local, hai social provider fail-closed chờ OAuth public. Phòng Luyện Đề tách
-tài liệu/cấu trúc CTI chính thức khỏi tám form luyện nhanh 12 câu của HANZI.OS;
-M1, M4 và M5.1 bên dưới được giữ như lịch sử triển khai, không còn là mô tả UI
-hiện hành nếu mâu thuẫn với M5.2.
-
-- **Sẵn sàng toàn dự án: 96/100 (96%)**.
-- **Sẵn sàng phạm vi mở rộng M1-M5: 97/100**.
-- **Login hiện hành 3/3 (HANZI.OS/Google/Facebook); roles 3/3; workflow 6/6;
-  Phòng Luyện Đề có CTI reference cho 4/4 level và 8/8 form luyện nhanh;
-  Content Release Worker 1/1.**
-- **HSK0:** 4 bridge, rich 0/4.
-- **HSK1:** 40/40 learner-visible, rich 40/40.
-- **HSK2:** 40/40 learner-visible, rich 40/40.
-- **HSK3:** 55/55 learner-visible, rich 55/55.
-- **HSK4:** 78/78 learner-visible, rich 78/78.
-- **Toàn HSK1-4 learner-visible:** 213/213 (100%).
-
-96% là readiness toàn dự án; riêng roadmap local và kho bài HSK1-4 đã hoàn tất
-100%. Bốn điểm không tuyên bố thuộc các bằng chứng mastery/production bị hoãn,
-không phải nội dung hoặc lỗi tích hợp còn thiếu.
-
-## 2. Phạm vi inventory
-
-| Level | Blueprint | Vocabulary tăng thêm | Character | Grammar | Task | Topic |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| HSK1 | 40 | 300 | 246 | 66 | 15 | 30 |
-| HSK2 | 40 | 200 | 125 | 75 | 17 | 34 |
-| HSK3 | 55 | 500 | 284 | 96 | 22 | 54 |
-| HSK4 | 78 | 1.000 | 441 | 95 | 30 | 77 |
-| **Tổng** | **213** | **2.000** | **1.096** | **332** | **84** | **195** |
-
-Inventory/draft chỉ là nguồn đích; chỉ bài `UI-INTEGRATED` hoặc `COMMITTED`
-mới được tính learner-visible.
-
-## 3. Trạng thái người học nhìn thấy
-
-| Level | Learner-visible | Rich Lesson UI | Level check | Kết luận |
-| --- | ---: | ---: | --- | --- |
-| HSK0 | 4 bridge | 0/4 | diagnostic nền | lát cầu nối dùng được |
-| HSK1 | **40/40** | **40/40** | 50 câu local E2E | hoàn thành B1 local |
-| HSK2 | **40/40** | **40/40** | 60 câu local E2E | hoàn thành B2 local |
-| HSK3 | **55/55** | **55/55** | 54 câu local E2E | hoàn thành B3 local |
-| HSK4 | **78/78** | **78/78** | 72 câu local E2E | hoàn thành B4 local |
-
-HSK4 local phủ đủ 1.000 từ, 441 chữ, 95 ngữ pháp, 30 nhiệm vụ và 77 chủ đề.
-78 bài rich gồm 36 deep comprehension, 24 summary/argument và 18 timed
-integration; package hiện hành là `foundation-2026.08.5`. Browser TTS chỉ là
-synthetic practice và toàn bộ HSK1-4 giữ `humanReviewed: false`.
-
-“Hoàn thành HSK1/2/3/4” ở đây chỉ có nghĩa hoàn thành level tự học local theo
-inventory đã pin. Nó không phải production release, native review hay chứng
-nhận tương đương kỳ thi HSK chính thức.
-
-## 4. Định nghĩa hoàn thành level
-
-Một level chỉ hoàn thành khi toàn bộ blueprint học được trên UI; coverage đạt
-100%; nội dung có độ sâu đúng cấp; prerequisite/progress/persistence đúng;
-level check chạy end-to-end theo evidence policy; targeted checks, full boundary
-gate và E2E đã xác nhận; checkpoint + roadmap được cập nhật và commit cùng batch.
-
-## 5. Kế hoạch batch-first
-
-### B0 — daily-life và dọn tài liệu
-
-**Hoàn thành.** Package `foundation-2026.07.8` giữ immutable.
-
-### B1 — toàn bộ HSK1
-
-**Hoàn thành tại readiness 88%.** 40/40 bài learner-visible và rich; phủ
-300/246/66/15/30; level check 50 câu không cấp mastery/waiver.
-
-### B2 — toàn bộ HSK2
-
-**Hoàn thành tại readiness 91%.** 40/40 bài learner-visible và rich; phủ
-200/125/75/17/34; level check 60 câu end-to-end; prerequisite HSK1→HSK2,
-progress và persistence giữ đúng.
-
-### B3 — toàn bộ HSK3
-
-**Hoàn thành tại readiness 93%.**
-
-- 55/55 bài learner-visible và rich;
-- 25 paragraph input, 15 narration, 15 guided production;
-- phủ 500 vocabulary, 284 character, 96 grammar, 22 task, 54 topic;
-- 400 dòng paragraph, 90 dòng narration, 92 đơn vị prompt nguồn và 410 lượt
-  văn bản/hội thoại trên rich UI;
-- prerequisite HSK2→HSK3, progress và persistence giữ đúng;
-- level check 54 câu end-to-end, không cấp mastery/waiver;
-- full boundary gate và E2E chạy đúng một lượt; fixture/timing drift được sửa
-  và xác nhận lại bằng targeted rerun;
-- Sites, production, commerce, CMS và human-review workflow giữ nguyên trạng.
-
-### B4 — toàn bộ HSK4
-
-**Hoàn thành tại readiness 95%.**
-
-- 78/78 bài learner-visible và rich;
-- 36 deep comprehension, 24 summary/argument, 18 timed integration;
-- phủ 1.000 vocabulary, 441 character, 95 grammar, 30 task, 77 topic;
-- 216 đoạn dài, 106 đơn vị prompt và 234 lượt văn bản/hội thoại trên rich UI;
-- prerequisite HSK3→HSK4, progress và persistence giữ đúng;
-- level check 72 câu end-to-end, không cấp mastery/waiver;
-- full boundary gate và E2E chạy đúng một lượt; generated, expectation và
-  fixture drift được sửa rồi xác nhận bằng targeted rerun;
-- Sites, production, commerce, CMS và human-review workflow giữ nguyên trạng.
-
-### B5 — đóng gói đồ án local
-
-**Hoàn thành tại readiness 96%.** Package `.08.5` giữ nguyên 217 bài nhưng tách
-curriculum nặng khỏi bootstrap người mới và dùng level-check projection HSK2
-compact. Bundle ceiling đạt 787,6 KiB; Lighthouse cold-profile median đạt
-performance 97, accessibility 100, best-practices 100 và SEO 100; dependency
-audit có 0 lỗ hổng. Contract handoff local hợp lệ, production tiếp tục
-fail-closed. Full check/E2E/mobile/keyboard/reduced-motion/restore dùng evidence
-ranh giới B4 và chỉ các luồng B5 bị tác động được targeted smoke lại. Không còn
-batch local nào mở; Sites/deployment vẫn do người dùng thực hiện cuối cùng.
-
-### B6 — Hệ Thống Thức Tỉnh
-
-**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Toàn bộ app dùng art
-direction Huyền Ngọc Thức Tỉnh: không gian nhiều lớp, chuyển cảnh, nghi lễ, tinh
-đồ và bảng chỉ số. Tên chức năng được chuyển sang ngôn ngữ “hệ thống” nhưng luôn
-giữ nghĩa học tập đi kèm; prerequisite, persistence, evidence và mastery policy
-không đổi.
-
-- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible;
-- Cảnh giới hoạt động, Chức hệ theo Thiên Mệnh và danh hiệu hành trình không suy
-  XP thành mastery hoặc chứng nhận;
-- nghi lễ một lần chỉ mở tại Thức Tỉnh Điện, có thể replay trong Bảng Thuộc Tính;
-- bốn mức hiệu ứng Tự động/Cân bằng/Điện ảnh/Giảm chuyển động được lưu local;
-- desktop, tablet, mobile, keyboard, focus trap và reduced-motion đã smoke;
-- full E2E ban đầu lộ lỗi overlay/thuật ngữ cũ; targeted rerun sau sửa xác nhận
-  toàn bộ 28/28 hành trình xanh;
-- bundle ceiling 797,9 KiB dưới hard ceiling 800 KiB, không thêm dependency;
-- cold onboarding được tách khỏi curriculum nặng; targeted Lighthouse sau sửa
-  đạt performance 96, accessibility 100, best-practices 100, SEO 100, LCP
-  2.000 ms, CLS 0 và TBT 154 ms;
-- Sites, production, commerce, CMS và human-review workflow vẫn nguyên trạng.
-
-### B7 — Bảng Hệ Thống hologram và âm thanh sống
-
-**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Người học có thể
-triệu hồi Bảng Hệ Thống ở mọi route bằng nút trên thanh lệnh hoặc `Alt + S`.
-Không gian full-screen dùng CSS perspective/preserve-3d thật, pointer tilt,
-nhiều mặt phẳng, orbital core, projection beam và scanline; mobile chuyển sang
-stacked hologram và reduced-motion làm phẳng hiệu ứng.
-
-- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible;
-- bảng trạng thái đọc nhiệm vụ kế tiếp, bài đã qua, XP tương tác, streak, FSRS
-  đến hạn, lỗi còn mở, danh hiệu và bảy tín hiệu kỹ năng từ learning store thật;
-- âm phản hồi được tổng hợp bằng Web Audio sau thao tác người dùng, có bật/tắt,
-  âm lượng và preview lưu local; giọng Việt browser TTS là tùy chọn explicit;
-- focus trap, `Escape`, trả focus, keyboard shortcut, mobile và reduced-motion
-  đã được targeted E2E và browser QA trực tiếp;
-- bundle ceiling 798,6 KiB dưới hard ceiling 800 KiB sau khi tối ưu hai hero
-  1693px; không thêm dependency;
-- Lighthouse ba cold-profile đạt median performance 95,
-  accessibility/best-practices/SEO 100, LCP 1.975 ms, CLS 0, TBT 196 ms;
-- XP/âm thanh/TTS không cấp mastery, không miễn prerequisite và không đổi
-  persistence/evidence. Sites, production, commerce, CMS, human review vẫn đóng.
-
-### B8 — Living Hologram, Voice Reactor và System Announcer
-
-**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** B8 mở rộng B7 thành
-một hệ thống có phản ứng nghe/nhìn nhất quán mà không thay content package hay
-learning policy.
-
-- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; coverage
-  giữ 2.000 vocabulary, 1.096 character, 332 grammar, 84 task và 195 topic;
-- hologram sáng/rõ hơn và phủ các trạng thái nhiệm vụ, lesson result, review,
-  mistake remediation, Đại Khảo; 3D desktop, stacked mobile và reduced-motion
-  đều dùng chung token/primitive;
-- Audio Engine dùng một Web Audio graph với 36 semantic cue, ba phổ âm, volume
-  master/effects, cooldown, dedupe, ducking khi TTS phát và tự nghỉ khi nhàn;
-  cue không thiết yếu bị chặn khi microphone mở; không có asset/dependency mới;
-- System Announcer có ba nhân cách, mức thông báo, voice volume và chọn giọng
-  Việt trên thiết bị; không có giọng Việt thì fail rõ, không dùng fallback Anh;
-- Voice Reactor hiện vòng đời phát TTS toàn cục và vòng consent/armed/listening/
-  processing/result/denied/unavailable tại Vạn Âm Điện; browser TTS và nhận dạng
-  vẫn là synthetic/unverified practice, `humanReviewed: false`;
-- signal bus nối nhiệm vụ, bài học, review, lỗi, mở khóa, cảnh giới và HSK1-4
-  level check; prerequisite, progress, persistence, FSRS/evidence không đổi;
-- full gate chạy một lượt: validator/package/graph/database/typecheck/lint xanh;
-  ba Vitest timeout do tải máy đều xanh khi rerun targeted một worker;
-- full E2E đạt 25/29 ban đầu; sau khi bỏ cue click trùng ở Đại Khảo, targeted
-  rerun xác nhận bốn luồng timeout/chậm đều xanh, bao gồm HSK1-3 level check;
-- client ceiling 799,2 KiB dưới 800 KiB. Lighthouse sau khi trì hoãn inventory
-  giọng và cue catalog đến tương tác đầu tiên đạt performance 97,
-  accessibility/best-practices/SEO 100; LCP 2.115 ms, CLS 0, TBT 148 ms;
-- không mở Sites, production, commerce, CMS hay human-review workflow.
-
-### B8.1 — Bộ bốn nhân cách xướng lệnh local
-
-**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Mechanical Core,
-Thiên cơ, Chấp hành và Dẫn lộ đều là voice pack local có thể chọn trong Bảng
-Thuộc Tính; Mechanical Core vẫn là mặc định mới cho cấu hình cũ còn dùng Thiên
-cơ mặc định.
-
-- mỗi nhân cách có 16 xướng lệnh local, tổng 64 clip phủ khởi động, nhiệm vụ,
-  hoàn tất/mở khóa, ôn tập, hóa giải lỗi, Đại Khảo, đạt ngưỡng/thăng chức, trạng
-  thái liên kết, cảnh báo, xem thử và tóm tắt Bảng Hệ Thống;
-- Audio Engine phát clip qua Web Audio graph hiện hành, ducking hiệu ứng và cập
-  nhật Voice Reactor; các thông báo chính không phụ thuộc giọng Việt của Windows;
-- dropdown có đủ Mechanical Core, Thiên cơ, Chấp hành và Dẫn lộ; nút nghe thử và
-  thẻ nhận dạng phản ánh đúng lựa chọn. Cả bốn voice pack phát local, browser TTS
-  chỉ còn dự phòng cho câu động; mọi âm thanh vẫn là synthetic practice,
-  `humanReviewed: false`;
-- Mechanical Core dùng carrier ElevenLabs của người dùng, VieNeu-TTS và xử lý
-  robotic. Ba pack còn lại dùng ba giọng VieNeu-TTS v3 fallback riêng, không giả
-  là voice ElevenLabs tương ứng; bản v2 tổng hợp từng mệnh đề riêng và chèn
-  khoảng nghỉ 0,34–0,68 giây. Nguồn VieNeu/pnnbao-ump áp dụng CC BY-NC 4.0.
-  Phạm vi hiện tại là demo/tự học local,
-  không phải native audio, review phát âm, mastery hoặc chứng nhận HSK;
-- targeted unit/typecheck/lint/build và E2E bộ chọn bốn giọng xanh; browser QA
-  trực tiếp xác nhận cả bốn vào `playing`, không còn cảnh báo thiếu giọng Việt;
-  client ceiling 799,9/800 KiB;
-- sau phản hồi cadence, ba fallback chuyển sang URL v2 để tránh cache; preview
-  Thiên Cơ/Chấp Hành/Dẫn Lộ dài khoảng 6,1/6,4/5,6 giây với hai khoảng nghỉ rõ.
-  ElevenLabs free tier đang chặn tạo mới theo IP dù còn credit, nên chưa claim
-  hai fallback là đúng voice Thiên Cơ/Chấp Hành đã lưu trong Voice Lab;
-- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
-  prerequisite, progress, persistence, FSRS và evidence không đổi;
-- không mở Sites, production, commerce, CMS hay human-review workflow.
-
-### B9 — Đăng nhập và phân quyền ứng dụng
-
-**Hoàn thành tại readiness 96%; không cộng điểm nội dung.** Scope này được người
-dùng chủ động mở sau B8.1 và tái sử dụng toàn bộ Sign in with ChatGPT, D1, sync
-và account lifecycle hiện có.
-
-- localStorage/IndexedDB tiếp tục phục vụ học ẩn danh/offline; Cloudflare D1
-  (SQLite dialect qua Drizzle) tiếp tục là CSDL tài khoản và đồng bộ phía server;
-- migration `0014` thêm role graph `learner`/`admin`; mọi tài khoản có baseline
-  learner, admin đầu tiên lấy từ `HANZI_OS_ADMIN_EMAILS`, không lưu mật khẩu;
-- Cổng Quản Trị server-rendered và API fail-closed cho phép admin xem
-  email/trạng thái/vai trò, cấp/thu admin cho tài khoản khác và chặn tự khóa;
-  không hiển thị tiến độ học tenant khác;
-- account export schema v6 gồm role của chính người dùng; account deletion dọn
-  role graph; origin/body/target đều được kiểm tra phía máy chủ;
-- đủ 4/4 HSK0 bridge và 213/213 bài HSK1-4 tiếp tục learner-visible; package,
-  prerequisite, progress, persistence, FSRS và evidence không đổi;
-- targeted RBAC/schema/session/sync/export, typecheck, lint và build xanh; Cổng
-  Quản Trị không tăng client bundle, ceiling giữ 799,9/800 KiB;
-- full check một lượt chỉ lộ kỳ vọng restore cũ `14/0013`; targeted rehearsal
-  sau sửa xác nhận 15 migration, 27 bảng và role graph. Full E2E xanh 30/30;
-- không mở Sites, production, commerce, CMS hoặc human-review workflow.
-
-### M1 — Multi-method identity và account lifecycle
-
-**Hoàn thành tại readiness phạm vi mở rộng 79%; không cộng điểm nội dung.**
-
-- guest/local, Google, email one-time code và passkey đạt 4/4; ChatGPT tiếp tục
-  là provider phụ tương thích ngược;
-- một `users.id` nội bộ giữ nhiều `auth_identities`; email giống nhau không tự
-  nối, còn link/unlink bắt buộc xác minh phiên hiện tại lẫn provider đích;
-- cookie phiên `__Host-` là HttpOnly/Secure/SameSite, D1 chỉ giữ digest; Google
-  dùng Authorization Code + PKCE/state/nonce/callback exact; passkey kiểm tra
-  challenge, origin, RP ID, user verification, chữ ký và sign counter;
-- `/signin` và `/account/security` giao đăng nhập, phương thức, thiết bị và revoke;
-  dữ liệu guest đi qua local-import/idempotency sẵn có, không mất progress;
-- targeted checks, migration rehearsal 16 file/30 bảng, typecheck/lint/build và
-  UI smoke desktop/mobile xanh; hero 1693 px được tối ưu sau so sánh trực quan,
-  giữ client ceiling 798,7/800 KiB; snapshot provenance sống qua Vinext build
-  bằng vùng tạm Wrangler đã ignore; full boundary gate chờ sau toàn bộ M1-M5;
-- đủ HSK0 4/4 và HSK1-4 213/213 rich tiếp tục learner-visible; package,
-  prerequisite, FSRS/evidence và bốn Level Check không đổi;
-- Sites, production, commerce, classroom/B2B, multi-tenant và microservices vẫn
-  đóng. M2 tiếp tục trên chính modular monolith này.
-
-### M2 — Role, config và audit
-
-**Hoàn thành tại readiness phạm vi mở rộng 85%; không cộng điểm nội dung.**
-
-- roles đạt 3/3: Hành Giả, Quản Khố Nội Dung, Điều Hành Hệ Thống; Content Editor
-  có nền quyền draft/validate/submit nhưng Content Studio vẫn là route riêng M3;
-- mọi admin endpoint kiểm tra permission phía server. Đổi role, khóa/mở user,
-  revoke session và sửa setting yêu cầu exact origin cùng first-party step-up
-  trong 10 phút; phiên ChatGPT phụ không đủ cho mutation nhạy cảm;
-- control revision chặn stale write; ứng dụng chặn self-revoke/self-lock, còn
-  trigger D1 bảo vệ quản trị viên hoạt động cuối cùng trước race thu quyền, khóa
-  hoặc xóa. Locked user không thể đăng nhập để tự mở khóa;
-- `system_settings` chỉ nhận bốn key không bí mật, tuyệt đối không có OAuth
-  secret/encryption key. `audit_events` hỗ trợ auth/account/role/config/approval/
-  publication và trigger chặn UPDATE/DELETE;
-- `/admin` giao users/roles, sessions, config và audit mà không xem progress riêng;
-  `/signin` giữ return path cho step-up. Service worker bỏ qua toàn bộ admin route;
-- targeted permission/forbidden/step-up/concurrency/last-admin/audit xanh;
-  migration rehearsal 17 file/32 bảng, typecheck/lint/build và UI smoke xanh;
-  client ceiling giữ 798,8/800 KiB;
-- learning scope giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
-  HSK4 78/78 và rich HSK1-4 213/213 không đổi. Bước lớn kế tiếp là M3 Content Studio.
-
-### M3 — CMS-lite Content Studio
-
-**Hoàn thành tại readiness phạm vi mở rộng 89%; không cộng điểm nội dung.**
-
-- `/studio` giao workspace riêng cho Quản Khố Nội Dung và Điều Hành Hệ Thống:
-  danh sách/lọc, editor, validation, preview, diff, approval queue và history;
-  route được kiểm tra quyền phía server và bỏ qua service-worker cache;
-- vocabulary, character, grammar, lesson và exam item dùng chung workflow 6/6:
-  `draft → validated → submitted → approved → published → archived`; mỗi
-  revision lưu canonical JSON/hash, validation artifact/hash và workflow event
-  append-only;
-- validation áp dụng năm pass accuracy/level fit/pedagogy/answer integrity/
-  originality, yêu cầu dữ liệu Trung/Pinyin/Việt, đáp án/distractor/giải thích
-  phù hợp và công bố `humanReviewed: false`; browser TTS không thành mastery;
-- editor có create/edit/validate/submit; admin mới approve/publish. Idempotency,
-  optimistic concurrency và state machine chặn replay sai, stale write và bước
-  nhảy workflow không hợp lệ;
-- revision published/archived bất biến ở cả repository lẫn D1 trigger; mọi sửa
-  đổi phải fork revision. Mỗi item chỉ có một published revision hoạt động;
-  replacement tự archive bản cũ và ghi audit approval/publication;
-- `/api/content/runtime` chỉ giao projection published cùng manifest hash xác
-  định; exam answer, answer index và explanation không đi sang learner. M3 chưa
-  phát hành item Studio mới nên không tăng bài learner-visible;
-- targeted repository/route/preview/authorization/service-worker xanh 31/31;
-  Drizzle check, restore rehearsal 19 migration/35 bảng, typecheck/lint/build
-  xanh ở client ceiling 798,9/800 KiB. Browser smoke xác nhận auth gate
-  `/studio` fail-closed và không tràn ngang; full boundary gate chờ sau toàn bộ
-  M1-M5;
-- learning scope giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
-  HSK4 78/78 và rich HSK1-4 213/213 không đổi. M4 tiếp theo giao Mock Exam A/B.
-
-### M4 — HSK1-4 Mock Exam
-
-**Hoàn thành tại readiness phạm vi mở rộng 94%; không cộng điểm nội dung.**
-
-- `/exams` giao chung một batch 4/4 level, mỗi level có form A/B có version,
-  tổng 8/8 form. Mỗi form có 12 câu cân bằng nghe/đọc/từ vựng/ngữ pháp, tức 96
-  vị trí câu hỏi lấy từ bank AI-reviewed hiện có; chúng không phải 96 lesson mới;
-- Mock Exam là workflow riêng với Level Check: form/item version, session và
-  lịch sử riêng. Client nhận manifest không answer key; server-only bank giữ đáp
-  án, explanation và validator chặn form thiếu coverage;
-- assessment core hiện có giữ session, exposure, attempt, skill result và
-  scoring. Deadline do máy chủ quyết định; attempt muộn bị chặn, phần đã làm có
-  thể nộp khi timeout, còn open/attempt/submit đều có idempotency và duplicate
-  submit không chấm lại;
-- UI có catalog, hướng dẫn, timed runner, resume, kết quả và history. Kết quả
-  breakdown bốn kỹ năng, chỉ hiện answer review sau submit và gợi ý lesson ID
-  đang learner-visible; content/form/item version cũ vẫn bất biến trong history;
-- không phát XP/mastery, không mở prerequisite, không tạo learning evidence.
-  Listening dùng browser TTS synthetic; `humanReviewed: false`; không tuyên bố
-  đề chính thức, chứng nhận hay native audio;
-- Content Studio thêm `exam_form` cạnh `exam_item`: editor tạo/validate/submit,
-  admin approve/publish qua workflow 6/6. Worker vẫn 0/1 và là ranh giới M5;
-- targeted 41/41, typecheck/lint/build xanh; client ceiling 796,4/800 KiB.
-  Browser smoke production harness xác nhận catalog đủ 8 form, không lộ đáp án,
-  không overflow và auth gate đúng trên cả HSK1-4 ở desktop/mobile. Không thêm
-  migration nên restore baseline giữ 19 migration/35 bảng; full boundary gate
-  chờ sau M1-M5;
-- readiness toàn dự án giữ 96%; HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55,
-  HSK4 78/78 và rich HSK1-4 213/213 không đổi. M5 tiếp theo giao đúng một
-  Content Release Worker.
-
-### M5 — Content Release Worker
-
-**Hoàn thành tại readiness phạm vi mở rộng 97%; không cộng điểm nội dung.**
-
-- giao đúng một worker boundary dùng chung D1 của modular monolith, không tách
-  microservice. Publish/validate ghi domain change và outbox cùng transaction;
-  regression trigger lỗi xác nhận publish rollback nguyên tử;
-- khóa contract v1 cho bốn event validation requested, release requested,
-  release completed và release failed, kèm payload digest, correlation,
-  causation và audit;
-- worker dùng lease recovery, exponential backoff, dead letter và replay có
-  quyền `content:publish`. Delivery là at-least-once, còn package/head/completion
-  idempotent; không tuyên bố exactly-once;
-- package và manifest bất biến theo revision, giữ content/validation/package
-  hash. Runtime chỉ đổi head sau complete, tiếp tục dùng package cũ khi
-  replacement lỗi và không đọc trực tiếp revision chỉ vì có nhãn `published`;
-- worker sanitize answer/explanation của `exam_item`, fence stale/deleted/archive
-  và package conflict. Replay có audit, causation chain và dedupe theo nguồn;
-- migration `0019_ordinary_guardian.sql` đưa D1 lên 20 migration/38 bảng với 6
-  trigger bất biến/fence, đồng thời cho `exam_form` qua constraint thật;
-- deploy boundary duy nhất ở `workers/content-release/` có cron, health và
-  manual drain fail-closed. Database ID vẫn là placeholder; không deploy worker,
-  Sites hay production;
-- targeted 18/18, full check 260 file/1.921 test, build 796,4/800 KiB. E2E tổng
-  xanh 29/30 trước khi sửa một expectation Sign in with ChatGPT cũ; ca đó rerun
-  targeted 1/1 xanh, không lặp full suite. Lighthouse median mobile đạt
-  97/100/100/100; audit production cuối 0 lỗ hổng sau khi nâng hẹp `nanoid`
-  3.3.16 → 3.3.18. Không chạy `verify:production`;
-- login 4/4, roles 3/3, workflow 6/6, Mock Exam 4/4 level và 8/8 form, worker
-  1/1. HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4 78/78 và rich
-  HSK1-4 213/213 không đổi.
-
-### M5.1 — Local identity và UX correctness
-
-**Hoàn thành tại readiness toàn dự án 96% và phạm vi mở rộng 97%; không cộng
-điểm nội dung.**
-
-- đăng nhập mã email một lần chạy hoàn toàn ở localhost với D1 local tự migrate;
-  người học không cần hosting để tạo phiên, học bài hoặc làm Mock Exam;
-- Cổng Danh Tính được thiết kế lại theo hệ hologram, giữ email/passkey/khách và
-  chỉ hiện provider ngoài khi thật sự khả dụng;
-- development loopback dùng closed-alpha preview đã check-in; production/test
-  tiếp tục fail-closed. Mock Exam và level check được cô lập bằng blueprint nên
-  không còn nhiễm projection lẫn nhau;
-- Thiên Lộ không còn che/mờ tên Khai Âm Nhập Môn. Thất Trụ đo số lượt hợp lệ
-  trên mục tiêu 10 lượt; 2/2 hiển thị 20% độ sâu, không phải 100% thành thạo, và
-  CI chỉ còn ở nội bộ;
-- giao diện learner đã bỏ thuật ngữ receipt/projection/enrollment/form hash,
-  `humanReviewed=false`, mastery/prerequisite khỏi thông báo bình thường. Policy
-  vẫn giữ `humanReviewed: false`; UI công bố bằng câu dễ hiểu rằng nội dung được
-  AI hỗ trợ và chưa qua thẩm định của giáo viên/người bản ngữ;
-- targeted correctness 36/36, typecheck/build xanh, bundle 798,8/800 KiB. Full
-  check có 1.919/1.925 test xanh và sáu timeout 10 giây do tải máy; mọi ca được
-  chạy lại riêng đều xanh. E2E xác nhận đủ 30/30 qua full 29/30 + targeted 1/1;
-  Lighthouse cold-profile cuối đạt 95/100/100/100, LCP 2.048 ms, CLS 0, TBT
-  209 ms;
-- không thêm bài mới: HSK0 4/4, HSK1 40/40, HSK2 40/40, HSK3 55/55, HSK4
-  78/78; rich HSK1-4 giữ 213/213. Không mở Sites hay production deployment.
-
-### M5.2 — Cổng danh tính, Phòng Luyện Đề và độ phủ học tập trung thực
-
-**Hoàn thành chức năng tại readiness toàn dự án 96/100 và phạm vi mở rộng
-M1-M5 97/100; không cộng điểm nội dung.** Mục này là trạng thái mới nhất và
-thay thế mọi mô tả M1/M4/M5.1 cũ nếu có mâu thuẫn.
-
-- Cổng Danh Tính có đúng **3/3** phương thức: HANZI.OS, Google và Facebook.
-  HANZI.OS đăng ký/đăng nhập end-to-end ở localhost; Google/Facebook có sẵn
-  callback nhưng fail-closed đến khi cấu hình OAuth app, secret và callback
-  public. Học local không phụ thuộc hosting hay tài khoản ChatGPT Plus;
-- ba persona development được seed để kiểm tra cả quyền và giao diện:
-  `learner.demo` → Hành Giả `/`, `editor.demo` → Content Studio `/studio`,
-  `admin.demo` → Cổng Quản Trị `/admin`; authorization tiếp tục nằm phía máy chủ;
-- Phòng Luyện Đề đưa cấu trúc và tài liệu mẫu chính thức CTI của HSK1-4 lên
-  trước. Tám form 12 câu, thời lượng 18-35 phút theo level, được định danh
-  trung thực là **luyện nhanh HANZI.OS**, không phải đề HSK thực tế. Vì chưa có
-  kho CTI chính thức công bố
-  đầy đủ đề đã thi theo từng năm gần đây, UI công khai khoảng trống này và chưa
-  mở bài thi toàn phần trong app khi bank chưa đạt cấu trúc thật;
-- projection đã xác thực của đúng chủ tài khoản được giữ trong refresh nền để
-  không chớp màn “Đang khôi phục hành trình”. Hiệu ứng route/materialize lặp
-  được giới hạn ở chế độ Điện ảnh và reduced-motion vẫn có quyền ưu tiên.
-  Projection V4 bổ sung activity đủ điều kiện mà không đổi exact schema V1-V3,
-  nên bundle/cache cũ vẫn resume và authorize offline đúng ranh giới;
-- trợ lý **Pinyin→Hanzi** dùng toàn bộ **2.016 vocabulary ID** đang phát hành.
-  Chọn ứng viên đánh dấu evidence đã hỗ trợ; câu đó không được tính vào gate hay
-  unlock dù câu trả lời đúng;
-- Thần Văn Lô mở catalog nhận dạng-trong-ngữ-cảnh cho đủ **1.096 chữ** inventory.
-  UI gắn chữ với từ ngữ cảnh và phát cả từ; không gán Pinyin/nghĩa độc lập chưa
-  được chứng minh và không tuyên bố luyện nét khi dữ liệu thứ tự nét chưa đủ;
-- Thất Trụ dùng độ phủ hoạt động chấm khách quan duy nhất, tổng **30.351** mục:
-  Âm/Pinyin **21.083**, Nghe **434**, Nói **0**, Đọc **250**, Viết **434**,
-  Từ vựng **7.966**, Ngữ pháp **184**. Làm lặp cùng activity, dùng gợi ý, xem
-  trước hoặc trả lời sai không tăng tử số. Nói có target 0 và hiển thị **chưa
-  được hỗ trợ**, không suy evidence từ kỹ năng khác và không gọi coverage là
-  mastery. Dashboard dùng target đã khóa bằng validator và chỉ lập index cho
-  lesson có evidence, không dựng 30.351 activity khi khởi động;
-- retry mở phiên, ghi đáp án và nộp bài luyện giữ nguyên toàn bộ command đã lưu;
-  mất phản hồi không tạo payload mới và hoàn tất một lượt không phát lại receipt
-  của lượt trước;
-- CSS bootstrap được tách khỏi full runtime và CSS Auth/Characters/Mock/Pinyin
-  tải theo route; root còn **16.085 B raw**. Hero giữ 1693 px, client ceiling cuối
-  **799,1/800 KiB** mà không đổi hard budget;
-- số bài không đổi: HSK0 **4/4** learner-visible, rich **0/4**; HSK1 **40/40**,
-  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1-4 **213/213**;
-- targeted checks M5.2 xanh; graduation/content/Drizzle xanh, restore **21
-  migration/39 bảng**, Vitest **269 file/1.973 test**. Full check đầu tiên chỉ
-  dừng ở asset budget 810,4/800 KiB sau build; fix hiệu năng được xác nhận bằng
-  build cuối **799,1/800 KiB**. E2E cuối **30/30**; Lighthouse median
-  **95/100/100/100** với LCP **1.877 ms**, CLS **0,000**, TBT **226 ms**; audit
-  production dependency **0 lỗ hổng**. Production, Sites, commerce và
-  `verify:production` tiếp tục ngoài critical path.
-
-## 6. Thước đo sẵn sàng toàn dự án
-
-| Trụ cột | Tối đa | Hiện tại | Ý nghĩa |
-| --- | ---: | ---: | --- |
-| A. Ứng dụng/offline learning loop | 20 | 19 | lesson/reader/review, persistence, offline, UX |
-| B. Mastery/evidence/remediation | 15 | 12 | FSRS, evidence theo skill, sửa lỗi |
-| C. Lộ trình HSK0-4 khác biệt | 15 | 15 | 5 path, 18 unit, blueprint/prerequisite |
-| D. Nội dung học được trong runtime | 30 | 30 | HSK0 bridge + toàn bộ HSK1-4 rich |
-| E. Assessment/mock | 10 | 10 | HSK1-4 level check E2E |
-| F. Đồ án/QA/local release | 10 | 10 | package `.08.5`, Hệ Thống Thức Tỉnh, handoff/QA local |
-| **Tổng** | **100** | **96** | **Sẵn sàng toàn dự án: 96%** |
-
-Trụ cột D chỉ tăng khi bài mới lên UI. Generated content, test count và số dòng
-không tạo điểm.
-
-### Thước đo phạm vi mở rộng M1-M5
-
-| Trụ cột mở rộng | Tối đa | Hiện tại | Trạng thái |
-| --- | ---: | ---: | --- |
-| Learning core + HSK0-4 | 65 | 62 | giữ nguyên learning scope 96% |
-| Identity/account lifecycle | 10 | 10 | M5.2 hiện hành, login 3/3 |
-| Role/admin/config/audit | 8 | 8 | M2 hoàn thành, roles 3/3 |
-| Content governance | 7 | 7 | M3 hoàn thành, workflow UI 6/6 |
-| HSK Mock Exam | 7 | 7 | M4 hoàn thành, 4/4 level và 8/8 form |
-| Content Release Worker | 3 | 3 | M5 hoàn thành, worker 1/1 |
-| **Tổng** | **100** | **97** | **M1-M5 hoàn thành** |
-
-## 7. Ranh giới nguồn và review
-
-AI được phép viết nội dung gốc và self-review năm pass cho local. Runtime/policy
-giữ `humanReviewed: false`; UI diễn đạt bằng câu learner-friendly rằng nội dung
-được AI hỗ trợ và chưa qua thẩm định của giáo viên/người bản ngữ. Browser TTS
-không phải native audio/mastery; production gate tiếp tục fail-closed. Không mở
-Sites, commerce, CMS thương mại hoặc workflow human review trong các content
-batch.
+# HANZI.OS — inventory HSK0-HSK4 và hợp đồng migration
+
+**Trạng thái:** roadmap legacy đã chốt tại commit `52cce0c`; tài liệu này được
+giữ vì `AGENTS.md` yêu cầu và là contract bảo toàn nội dung trong Reforge.
+
+**Roadmap sản phẩm hiện hành:** `docs/RESTRUCTURE_MASTER_PLAN.md`.
+
+Tài liệu này **không còn là danh sách việc phát triển tiếp theo** và không phải
+tuyên bố HANZI.OS đã đạt chất lượng sư phạm, UX hay độ sâu của ChineseSkill.
+Lịch sử batch B0-B9/M1-M5 nằm trong Git.
+
+## 1. Mốc legacy phải giữ đúng nghĩa
+
+- **Sẵn sàng theo roadmap local cũ:** 96/100.
+- **Sẵn sàng phạm vi mở rộng M1-M5 cũ:** 97/100.
+- **Reforge parity:** 0/100 task được nghiệm thu tại thời điểm lập baseline.
+
+96/100 và 97/100 là hai snapshot của phạm vi implementation cũ. Chúng không
+được cộng vào tiến độ Reforge và không được diễn giải là “sản phẩm hoàn thiện
+96%”. Từ đây, tiến độ sản phẩm được tính bằng task `DONE` đã đủ evidence trong
+master plan; `DONE` ở đây đồng nghĩa đã được nghiệm thu (`ACCEPTED`).
+
+## 2. Inventory nguồn chính thức đang dùng
+
+Nguồn syllabus được materialize tại
+`content/sources/hsk-syllabus-2026/inventory.json`.
+
+| Cấp | Từ vựng | Chữ nhận dạng | Ngữ pháp | Nhiệm vụ | Chủ đề |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| HSK1 | 300 | 246 | 66 | 15 | 30 |
+| HSK2 | 200 | 125 | 75 | 17 | 34 |
+| HSK3 | 500 | 284 | 96 | 22 | 54 |
+| HSK4 | 1.000 | 441 | 95 | 30 | 77 |
+| Tổng HSK1-4 | **2.000** | **1.096** | **332** | **84** | **195** |
+
+Runtime có thêm 16 vocabulary ID demo/bridge, nên tổng runtime là **2.016**.
+Số inventory không chứng minh từng mục đã có đủ ví dụ, lượt luyện, audio, nét
+viết, recall, review interval hoặc human/native review.
+
+## 3. Bài đang giao cho người học
+
+| Cấp | Blueprint dự kiến cũ | Learner-visible | Rich Lesson UI |
+| --- | ---: | ---: | ---: |
+| HSK0 | 4 | **4/4** | **0/4** |
+| HSK1 | 40 | **40/40** | **40/40** |
+| HSK2 | 40 | **40/40** | **40/40** |
+| HSK3 | 55 | **55/55** | **55/55** |
+| HSK4 | 78 | **78/78** | **78/78** |
+| HSK1-4 | 213 | **213/213** | **213/213** |
+
+Package hiện hành là `foundation-2026.08.5`, tổng cộng 217 lesson runtime. Các
+trạng thái HSK1-4 ở đây có nghĩa bài đã được adapter giao và mở được theo
+prerequisite của roadmap cũ. Chúng không tự động đạt acceptance của lesson
+engine, content density hoặc usability trong Reforge.
+
+## 4. Assessment legacy
+
+- Level check local hiện có: HSK1 50 câu, HSK2 60 câu, HSK3 54 câu và HSK4 72
+  câu, với attempt/evidence versioned.
+- Mock practice hiện có hai form A/B cho mỗi HSK1-HSK4, mỗi form 12 câu và thời
+  lượng 18-35 phút tùy level.
+- Các mock 12 câu là prototype luyện tập nguyên bản, **không phải đề HSK đã thi,
+  không phải cấu trúc đầy đủ của kỳ thi và không được quảng bá như đề thật**.
+- Khi Reforge assessment, chỉ dùng blueprint/mẫu công khai hợp lệ làm chuẩn cấu
+  trúc; câu hỏi, distractor, giải thích và media phải là nội dung nguyên bản hoặc
+  có giấy phép rõ ràng.
+
+## 5. Hợp đồng bảo toàn khi Reforge
+
+Mọi vertical slice thay thế UI/runtime cũ phải giữ các invariant sau:
+
+1. Stable content/lesson/item ID không đổi nếu semantics không đổi. Nếu buộc
+   đổi, phải có bảng migration deterministic và regression test.
+2. Attempt giữ content version, schema version, idempotency key, timestamp và
+   skill evidence; replay không được cộng progress hai lần.
+3. Local projection, IndexedDB/localStorage, review schedule và enrollment hiện
+   hữu phải đọc được sau nâng cấp; fail-closed khi dữ liệu/version không hợp lệ.
+4. Local-to-account/cloud migration phải backward compatible và không chiếm
+   nhầm dữ liệu của guest hoặc account khác.
+5. Prerequisite/unlock không được mở nội dung chưa `UI-INTEGRATED`; lesson cũ
+   vẫn truy cập được cho đến khi slice thay thế đạt acceptance.
+6. Không suy mastery kỹ năng A từ evidence kỹ năng B. XP, streak, số câu đúng,
+   exposure và mastery phải là các khái niệm riêng.
+7. Browser TTS không phải evidence nói/phát âm. Hanzi recognition không phải
+   evidence viết nét. Metric UI phải nói đúng loại bằng chứng đã thu.
+8. FSRS/review schedule chỉ thay đổi sau migration test và so sánh cohort mẫu;
+   không reset lịch ôn để đơn giản hóa UI.
+9. Disclosure `humanReviewed: false` được giữ cho đến khi có review thật, có
+   danh tính người review và provenance đủ kiểm chứng.
+10. Không xóa generator/artifact đang có runtime consumer. Dùng `rg` xác nhận,
+    migrate consumer, chạy validator rồi mới dọn.
+
+## 6. Cổng nghiệm thu lại nội dung trong Reforge
+
+Một bài legacy chỉ được tính “đã chuyển sang Reforge” khi đồng thời:
+
+- mục tiêu, prerequisite, level mapping và thời lượng kỳ vọng rõ;
+- vocabulary/Hanzi/Pinyin/nghĩa Việt/ví dụ đúng ngữ cảnh;
+- có input dễ hiểu, knowledge card, thực hành có giàn đỡ và recall;
+- exercise types phù hợp cấp, đáp án/distractor/giải thích hợp lệ;
+- audio/pronunciation/handwriting nói đúng capability thực sự có;
+- review evidence nối đúng skill và không làm progress tăng phi thực tế;
+- hoạt động tốt bằng keyboard, touch/mobile và reduced motion;
+- runtime/package/local authorization hợp lệ, deep-link và restore không chớp;
+- targeted validator/test xanh và có UI smoke trên viewport mục tiêu;
+- checkpoint, master plan và tài liệu này cập nhật cùng commit.
+
+Các trạng thái vẫn dùng đúng nghĩa:
+
+`DRAFT -> VALIDATED -> AI-REVIEWED -> RUNTIME-WIRED -> UI-INTEGRATED -> COMMITTED`
+
+Chỉ `UI-INTEGRATED` và `COMMITTED` được tính vào số bài người học nhận được.
+Task Reforge chỉ `DONE`/được nghiệm thu khi đạt thêm acceptance của task tương ứng.
+
+## 7. Phạm vi parity có kiểm soát
+
+- Critical path: Mainland Mandarin, giao diện tiếng Việt, HSK0-HSK4,
+  local-first web/PWA.
+- Functional parity nghĩa là tương đương về hành trình, loại hoạt động, review,
+  assessment, accessibility và độ sâu được đo; không phải clone pixel hay copy
+  curriculum/asset của ChineseSkill.
+- Taiwan Mandarin, Cantonese, native iOS/Android, commerce và hosted production
+  nằm ngoài 100 task trừ khi master plan hoặc người dùng chủ động mở rộng.
+- Không tuyên bố “đủ HSKx” hoặc “parity hoàn tất” nếu coverage chỉ là inventory,
+  còn task external/human/native/device chưa có evidence.
+
+## 8. Cách báo sau mỗi milestone
+
+Luôn ghi cả hai trục:
+
+- **Legacy:** 96/100; HSK0 4/4 (rich 0/4), HSK1 40/40, HSK2 40/40,
+  HSK3 55/55, HSK4 78/78; rich HSK1-4 213/213, trừ khi migration thật sự làm
+  thay đổi số liệu.
+- **Reforge:** X/100 task `DONE`/được nghiệm thu, kèm ID task và bằng chứng người học nhìn
+  thấy/làm được.
+
+Nếu content count giảm do lỗi hoặc migration, phải báo thẳng, sửa regression và
+không giữ số cũ để làm đẹp tiến độ.

@@ -1,135 +1,71 @@
-# HANZI.OS
+# HANZI.OS Reforge
 
-HANZI.OS là nền tảng học tiếng Trung theo phong cách "Thức tỉnh hệ thống", được thiết kế như nền móng cho một sản phẩm thương mại thay vì một trang tĩnh.
+HANZI.OS là ứng dụng tự học Mainland Mandarin cho người Việt từ HSK0 đến HSK4,
+chạy local-first trên web/PWA. Dự án đang được tái cấu trúc theo một lộ trình
+100 task để biến foundation giàu dữ liệu hiện tại thành trải nghiệm học ngắn,
+rõ và có chiều sâu. ChineseSkill chỉ là benchmark về công năng và phương pháp;
+toàn bộ nội dung, mã nguồn, media và nhận diện của HANZI.OS phải là nguyên bản
+hoặc có quyền sử dụng.
 
-## Chạy dự án
+Chủ đề “hệ thống thức tỉnh hologram” là lớp thẩm mỹ tiết chế. Nhãn chức năng,
+phản hồi và luồng học vẫn dùng tiếng Việt trực tiếp, dễ hiểu, không flicker hoặc
+đưa thông báo kỹ thuật ra cho người học.
 
-```bash
+## Trạng thái hiện tại
+
+- Baseline learner-visible: 4 bài HSK0 và 213 bài HSK1–HSK4.
+- Inventory cần bảo toàn khi migration: 2.016 mục từ, 1.096 chữ và 332 điểm
+  ngữ pháp.
+- Mốc foundation cũ `96/100` là lịch sử, không phải mức hoàn thiện theo benchmark
+  mới.
+- Tiến độ Reforge bắt đầu từ `0/100 task ACCEPTED`; tiêu chí thật nằm trong
+  [master plan](docs/RESTRUCTURE_MASTER_PLAN.md).
+- Native audio/video, human review, chấm phát âm, AI provider và hosted sync được
+  theo dõi như dependency riêng; repo không giả vờ đã có các tài sản đó.
+
+## Chạy local
+
+Yêu cầu Node.js **24.16.0** (xem `.node-version`; `package.json` cho phép từ 22.22.0) và
+npm đi kèm.
+
+```powershell
 npm install
 npm run dev
 ```
 
-Tạo và chạy build ở chế độ production (không phải bằng chứng đã deploy):
+Sau đó mở URL localhost được terminal in ra. Lệnh `npm run dev` tự chuẩn bị D1
+local cần thiết. Build cục bộ:
 
-```bash
+```powershell
 npm run build
 npm run start
 ```
 
-## Những gì sản phẩm hiện có
+Build thành công không phải bằng chứng dự án đã deploy hoặc production-ready.
 
-- Onboarding chọn mục tiêu, căn cơ, nhịp học và hệ chữ.
-- Khảo nghiệm đầu vào cho kết quả sàng lọc mô tả chưa hiệu chỉnh; không tự định tuyến, mở prerequisite hay suy ra HSK/mastery.
-- Dashboard thích nghi theo mục tiêu, lỗi mở, lịch FSRS và năng lực yếu nhất.
-- Khung lộ trình có release gate; giao diện chỉ hiện nội dung beta/published, không tuyên bố độ phủ HSK vượt phần đã duyệt.
-- Lesson engine có bản lĩnh hội trước bài, câu nghe, nghĩa, pinyin, thanh điệu, đọc ngữ cảnh và tự nhập Hán tự.
-- Tự lưu từng đáp án và khôi phục đúng câu sau khi tải lại.
-- Nghịch Cảnh Lục giữ lỗi cho đến khi tự gọi đúng hai lần liên tiếp.
-- Ôn cách quãng bằng FSRS, chỉ kích hoạt từ đã học hoặc chủ động lưu; đường
-  authenticated lấy queue và chấm rating phía server, giữ lịch bằng durable
-  outbox và không phát XP.
-- Speech synthesis và speech recognition có graceful fallback.
-- Luyện viết đúng nét bằng Hanzi Writer.
-- Graded reader có pinyin, dịch và tra từ tại chỗ.
-- Tàng Tự Khố, danh sách từ đã lưu và Thiên Cơ Kính phân tích bảy năng lực.
-- Mô Phỏng Đại Khảo tại `/exams` có 4/4 level HSK1-4, mỗi level hai form A/B
-  có version; máy chủ giữ đáp án, chấm điểm, timeout, resume và history. Kết quả
-  không phát mastery/XP, không mở prerequisite và không phải chứng nhận HSK.
-- PWA cài đặt được, có offline shell và cache dữ liệu nét chữ đã dùng.
-- Người dùng ẩn danh giữ dữ liệu cục bộ; mã nguồn closed-alpha cho người dùng đã xác thực có command/evidence chuẩn hóa qua D1, outbox offline và projection đa thiết bị. Đường này đã có kiểm tra cục bộ nhưng chưa được xác minh như một dịch vụ hosted.
+## Bắt đầu làm việc
 
-## Dữ liệu, đăng nhập và phân quyền
+Đọc [bản đồ tài liệu](docs/README.md) và [AGENTS.md](AGENTS.md) trước khi sửa repo.
+Nguồn sự thật hiện hành theo thứ tự:
 
-- Chế độ không đăng nhập lưu trạng thái học trong `localStorage`; checkpoint,
-  outbox và hàng đợi phục hồi nằm trong `IndexedDB`.
-- Tài khoản/đồng bộ phía máy chủ dùng **Cloudflare D1**, tương thích SQLite,
-  với schema và migration do Drizzle quản lý. Binding runtime là `DB`.
-- Người học có thể tiếp tục ở chế độ guest/local hoặc đăng nhập bằng Google,
-  mã email một lần hay passkey; **Sign in with ChatGPT** vẫn là provider phụ
-  tương thích. Một `users.id` nội bộ có thể giữ nhiều `auth_identities`, nhưng
-  ứng dụng không tự nối tài khoản chỉ vì email giống nhau.
-- Phiên first-party dùng cookie `__Host-` HttpOnly/Secure/SameSite và D1 chỉ lưu
-  digest. Link/unlink provider cần phiên mới xác minh cùng ceremony của provider
-  đích; `/account/security` cho xem và thu hồi phiên/thiết bị.
-- Mọi tài khoản có vai trò nền `learner` (Hành Giả). `content_editor` (Quản Khố
-  Nội Dung) có quyền draft/validate/submit dành cho Content Studio riêng;
-  `admin` (Điều Hành Hệ Thống) mở Cổng Quản Trị để quản lý vai trò, khóa tài
-  khoản, phiên, cấu hình allowlist và audit. Cổng này không đọc tiến độ học riêng
-  của tài khoản khác. API kiểm tra quyền phía máy chủ; mutation nhạy cảm còn yêu
-  cầu xác minh lại bằng phiên Google/email/passkey trong 10 phút.
-- Content Studio tại `/studio` hỗ trợ vocabulary, character, grammar, lesson,
-  exam item và exam form qua sáu trạng thái draft/validated/submitted/approved/published/
-  archived. Editor tạo, sửa, validate và submit; admin approve/publish. Bản đã
-  published là bất biến, sửa đổi phải fork revision. Content Release Worker xử
-  lý transactional outbox theo cơ chế at-least-once, tạo package/manifest có
-  SHA-256 bất biến rồi mới đổi runtime head; learner API chỉ nhận projection đã
-  hoàn tất worker và không nhận đáp án exam. Sự cố đi qua retry/backoff, dead
-  letter và replay có quyền; hệ thống không tuyên bố exactly-once.
-- Danh sách quản trị viên khởi tạo được cấu hình bằng biến máy chủ
-  `HANZI_OS_ADMIN_EMAILS` (nhiều email cách nhau bằng dấu phẩy). Ví dụ local
-  PowerShell trước khi chạy dev:
+1. [Implementation checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md)
+2. [Product vision](docs/PRODUCT_VISION.md)
+3. [ChineseSkill benchmark](docs/CHINESESKILL_BENCHMARK.md)
+4. [100-task restructure plan](docs/RESTRUCTURE_MASTER_PLAN.md)
+5. [Content preservation plan](docs/HSK4_GRADUATION_PLAN.md)
+6. [Prompt chạy Goal ở lượt kế](docs/NEXT_GOAL_PROMPT.md)
 
-```powershell
-$env:HANZI_OS_ADMIN_EMAILS="you@example.com"
-npm run dev
-```
+Không lấy draft, generated JSON, số test hoặc số dòng code làm tiến độ. Một task
+chỉ được tính khi acceptance learner-facing, migration/evidence và kiểm tra liên
+quan đều đạt.
 
-Migration phân quyền nền B9 là `drizzle/0014_gigantic_diamondback.sql`.
-Không đưa biến quản trị vào mã client hoặc commit email thật vào repo.
+## Ranh giới an toàn
 
-Migration auth hiện hành là `drizzle/0015_good_green_goblin.sql`. `npm run dev`
-tự áp dụng các migration còn thiếu vào D1 local; email OTP thử nghiệm tự bật
-trên loopback trong development và mã chỉ được trả về ở đó. Bản chạy production
-local vẫn phải bật tường minh `AUTH_DEV_EMAIL_OTP=1`. Google cần
-`GOOGLE_CLIENT_ID`, callback chính xác
-trong `GOOGLE_REDIRECT_URI` và, với confidential client, `GOOGLE_CLIENT_SECRET`.
-Passkey mặc định lấy origin/hostname hiện tại; có thể khóa tường minh bằng
-`AUTH_ALLOWED_ORIGIN` và `AUTH_RP_ID`. Không commit các secret này.
-
-Migration kiểm soát hiện hành là `drizzle/0016_yielding_rawhide_kid.sql`. Chỉ
-bốn khóa không bí mật được phép vào `system_settings`; `audit_events` có trigger
-chặn sửa/xóa, còn trigger role/status bảo vệ quản trị viên hoạt động cuối cùng.
-
-Content governance dùng migration `drizzle/0017_brainy_proteus.sql` và
-`drizzle/0018_tranquil_giant_girl.sql`: revision giữ canonical JSON/SHA-256,
-validation artifact và workflow event append-only; trigger bảo vệ bản published
-khỏi sửa/xóa và unique index giữ đúng một published revision hoạt động mỗi item.
-Migration `drizzle/0019_ordinary_guardian.sql` thêm transactional release outbox,
-package/manifest bất biến, runtime head có fence và D1 support thực tế cho
-`exam_form`. Deploy boundary duy nhất của M5 nằm tại `workers/content-release/`;
-config vẫn dùng D1 placeholder và chưa được deploy lên production hoặc Sites.
-
-## Tài liệu sản phẩm
-
-- [Nghiên cứu tính năng](docs/FEATURE_RESEARCH.md)
-- [Đặc tả sản phẩm](docs/PRODUCT_REQUIREMENTS.md)
-- [Kiến trúc kỹ thuật](docs/ARCHITECTURE.md)
-- [Hệ thống nội dung](docs/CONTENT_SYSTEM.md)
-- [Mô hình làm chủ và thích ứng](docs/MASTERY_SYSTEM.md)
-- [Kế hoạch đồ án HSK0-4 đang hoạt động](docs/HSK4_GRADUATION_PLAN.md)
-- [Checkpoint triển khai hiện tại](docs/IMPLEMENTATION_CHECKPOINT.md)
-- [Playbook đưa nội dung lên giao diện](docs/CONTENT_DELIVERY_PLAYBOOK.md)
-- [Prompt chuyển sang phiên Codex mới](docs/NEXT_SESSION_PROMPT.md)
-- [Walkthrough demo local HSK0 → HSK1](docs/HSK01_LOCAL_DEMO.md)
-- [Đóng gói và kiểm chứng local release candidate](docs/LOCAL_RELEASE_CANDIDATE.md)
-- [Kế hoạch nâng cấp production đang tạm hoãn](docs/PRODUCTION_UPGRADE_PLAN.md)
-
-## Ranh giới của bản foundation
-
-Đây là một vertical slice giàu tính năng cho trải nghiệm học cốt lõi. Mã nguồn
-Phase 1 đã bổ sung nền đăng nhập ChatGPT tùy chọn, D1 schema có version,
-local-first outbox, idempotency, hòa giải đa thiết bị, account export schema v7,
-xóa tài khoản và RBAC ba vai trò. Restore rehearsal cục bộ hiện áp dụng 20
-migration `0000`–`0019` trên graph 38 bảng, gồm cả FSRS card/review log, Reader session
-versioned và trigger khóa outbox vào đúng reset epoch. Những kiểm tra này không
-thay thế hosted
-provisioning, hosted backup/restore hoặc kiểm chứng đa thiết bị trên dịch vụ
-thật. Người dùng ẩn danh vẫn giữ hồ sơ cục bộ. Thanh toán, CMS thương mại, audio
-bản quyền, AI tutor server và chấm phát âm theo cao độ vẫn cần các phase
-production tiếp theo. Transcript giọng nói luôn local-only và không đi vào
-đường D1.
-
-Package local hiện tại là `foundation-2026.08.5`. Runtime giao 217 lesson: 4 bài
-cầu nối HSK0 và đủ 213/213 bài HSK1-4; cả 213 bài HSK1-4 dùng rich Lesson UI.
-Đây là nội dung AI-assisted cho tự học local, không phải release production,
-human/native review hay chứng nhận HSK chính thức.
+- Guest/local phải học đầy đủ; đăng nhập chỉ phục vụ phục hồi và đồng bộ.
+- Không sao chép lesson, media, screenshot, mascot, trade dress hoặc thuật toán
+  độc quyền từ sản phẩm benchmark.
+- Không gọi browser TTS là audio bản ngữ; không suy mastery nói từ transcript;
+  không mở luyện nét khi thiếu dữ liệu stroke có provenance.
+- Không stage/commit `docs/reports/`, `output/`, build output hoặc secret.
+- `.openai/hosting.json`, production, commerce và deploy chỉ được mở lại khi có
+  yêu cầu rõ ràng.
