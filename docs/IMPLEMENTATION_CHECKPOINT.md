@@ -2,10 +2,10 @@
 
 **Ngày chốt:** 10/08/2026
 
-**Baseline Git:** `52cce0c` (`feat: hoàn thiện cổng danh tính và phòng luyện HSK`)
+**Baseline legacy Git:** `52cce0c` (`feat: hoàn thiện cổng danh tính và phòng luyện HSK`)
 
-**Trạng thái Reforge:** T001 đã được nghiệm thu; hợp đồng sản phẩm canonical và
-trang giới thiệu Reforge đã khóa persona, phạm vi, năm khu vực và vòng học chính.
+**Trạng thái Reforge:** T001–T002 đã được nghiệm thu; T003 đang chụp baseline
+repo, dữ liệu và hành trình thật trước khi thay kiến trúc runtime.
 
 Tài liệu này chỉ ghi **sự thật ở commit hiện tại**. Lịch sử chi tiết nằm trong
 Git, không tiếp tục nối nhật ký theo phiên vào đây.
@@ -16,7 +16,7 @@ Git, không tiếp tục nối nhật ký theo phiên vào đây.
 | --- | ---: | --- |
 | Legacy local milestone | **96/100** | Mức hoàn thiện theo roadmap cũ của bản local-first; không phải điểm UX, chất lượng sư phạm hay mức tương đương ChineseSkill |
 | Legacy M1-M5 | **97/100** | Mức hoàn thiện phạm vi identity, role, Studio, mock và release worker cũ |
-| Reforge parity | **1/100 task được nghiệm thu** | T001 đã `ACCEPTED`; code cũ không tự động được tính |
+| Reforge parity | **2/100 task được nghiệm thu** | T001–T002 đã `ACCEPTED`; code cũ không tự động được tính |
 
 Mốc 96/100 được giữ làm số liệu lịch sử có thể kiểm chứng. Từ đây về sau, không
 dùng nó để nói sản phẩm “gần hoàn thiện”. Chỉ task đáp ứng đầy đủ acceptance
@@ -148,9 +148,35 @@ chất lượng để HANZI.OS tự thiết kế.
   account hay content package; không cần migration/rollback dữ liệu.
 - **Nội dung UI không đổi:** HSK0 **4/4** (rich **0/4**), HSK1 **40/40**,
   HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1–4 **213/213**.
+- **Mốc tại nghiệm thu T001:** legacy local milestone **96/100** (snapshot lịch
+  sử); Reforge **1/100 task accepted**. T002 được ghi riêng ngay dưới đây.
+
+### T002 — Ma trận benchmark có nguồn — `DONE / ACCEPTED` (10/08/2026)
+
+- **Đã thêm cho người học:** chưa thêm màn học mới. Roadmap nay chỉ được phép
+  xây năng lực có nguồn, ranh giới và tiêu chí quan sát được; không còn dùng cảm
+  giác “giống app đối chiếu” để thêm menu, nội dung hoặc lời hứa không kiểm chứng.
+- **Bằng chứng nghiên cứu:** sổ 13 nguồn có ID ổn định và ngày/giới hạn sử dụng.
+  Chỉ public web map được gắn `OBSERVED` sau khi đếm trực tiếp **75 topic node,
+  11 TestOut và Finish**; website/store/support được giữ ở `OFFICIAL_CLAIM`,
+  thuật toán/accuracy/coverage chưa đo ở `UNVERIFIED`, còn native app, course
+  ngoài Mainland và commerce/social được ghi `OUT_OF_SCOPE`.
+- **Traceability:** 18 capability canonical và 36 gap HANZI.OS đều nối ngược về
+  source/capability, task T001–T100 và acceptance cụ thể. Các mâu thuẫn về lộ
+  đáp án trước submit, handwriting không chấm, onboarding guest, role local so
+  với production, retention, custom deck và owner của quality threshold đã được
+  sửa ngay trong master plan thay vì để implementation tự diễn giải.
+- **Evidence contract:** Vitest 5/5 kiểm header/ID duy nhất, source kind phù hợp
+  classification, tham chiếu source/capability/task tồn tại, quality threshold
+  có owner T010 và cấm placeholder/claim “giống hệt”; typecheck và ESLint xanh.
+  Ba reviewer độc lập re-audit bản cuối đều `ACCEPTED`, không còn P0/P1.
+- **Rủi ro dữ liệu/migration:** không đổi runtime, store, content ID, progress,
+  FSRS hay account; không cần migration/rollback dữ liệu.
+- **Nội dung UI không đổi:** HSK0 **4/4** (rich **0/4**), HSK1 **40/40**,
+  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1–4 **213/213**.
 - **Hai mốc:** legacy local milestone **96/100** (snapshot lịch sử); Reforge
-  **1/100 task accepted**. Task tích hợp tiếp theo: T002, ma trận benchmark có
-  nguồn và truy ngược được đến task/acceptance.
+  **2/100 task accepted**. Task tích hợp đang làm: T003, baseline route,
+  component, package, store, API, role, consumer và hành trình học/ôn/khôi phục.
 
 ## 8. Nguồn sự thật từ checkpoint này
 
