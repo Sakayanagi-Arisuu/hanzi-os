@@ -32,7 +32,6 @@ import {
 import { useSystemUi } from "../system/systemUiPreferences";
 import { SystemAtmosphere } from "./system/SystemAtmosphere";
 import { SystemPromotionOverlay } from "./system/SystemPromotionOverlay";
-import { SystemRoutePulse } from "./system/SystemRoutePulse";
 import { SystemStatusHologram } from "./system/SystemStatusHologram";
 
 const navItems = [
@@ -174,7 +173,6 @@ export function AppShell({ children }: { children: ReactNode }) {
       </aside>
 
       <div className="app-stage">
-        <SystemRoutePulse />
         <header className="command-bar">
           <div className="command-title">
             <Orbit size={20} />

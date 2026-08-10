@@ -82,7 +82,7 @@ describe("supply-chain lockfile policy", () => {
 
     expect(result.status, result.stderr).toBe(0);
     expect(result.stdout).toMatch(
-      /686 registry packages; 6 approved install-script packages/u,
+      /685 registry packages; 6 approved install-script packages/u,
     );
   });
 

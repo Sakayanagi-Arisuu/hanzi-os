@@ -1,71 +1,73 @@
-# HANZI.OS Reforge
+# HANZI.OS
 
-HANZI.OS là ứng dụng tự học Mainland Mandarin cho người Việt từ HSK0 đến HSK4,
-chạy local-first trên web/PWA. Dự án đang được tái cấu trúc theo một lộ trình
-100 task để biến foundation giàu dữ liệu hiện tại thành trải nghiệm học ngắn,
-rõ và có chiều sâu. ChineseSkill chỉ là benchmark về công năng và phương pháp;
-toàn bộ nội dung, mã nguồn, media và nhận diện của HANZI.OS phải là nguyên bản
-hoặc có quyền sử dụng.
+HANZI.OS là ứng dụng tự học Mainland Mandarin dành cho người Việt, từ HSK0 đến
+HSK4, chạy local-first trên web/PWA. Chủ đề “hệ thống thức tỉnh hologram” là lớp
+thẩm mỹ; tên chức năng và luồng học vẫn phải trực tiếp, dễ hiểu.
 
-Chủ đề “hệ thống thức tỉnh hologram” là lớp thẩm mỹ tiết chế. Nhãn chức năng,
-phản hồi và luồng học vẫn dùng tiếng Việt trực tiếp, dễ hiểu, không flicker hoặc
-đưa thông báo kỹ thuật ra cho người học.
+Dự án hiện được cải tiến **từng module**. Sau mỗi module, web được bật để người
+dùng test và duyệt trước khi chuyển sang phần tiếp theo; không còn chạy backlog
+100 task tự động.
 
-## Trạng thái hiện tại
+## Chạy trên máy
 
-- Baseline learner-visible: 4 bài HSK0 và 213 bài HSK1–HSK4.
-- Inventory cần bảo toàn khi migration: 2.016 mục từ, 1.096 chữ và 332 điểm
-  ngữ pháp.
-- Mốc foundation cũ `96/100` là lịch sử, không phải mức hoàn thiện theo benchmark
-  mới.
-- Tiến độ Reforge bắt đầu từ `0/100 task ACCEPTED`; tiêu chí thật nằm trong
-  [master plan](docs/RESTRUCTURE_MASTER_PLAN.md).
-- Native audio/video, human review, chấm phát âm, AI provider và hosted sync được
-  theo dõi như dependency riêng; repo không giả vờ đã có các tài sản đó.
-
-## Chạy local
-
-Yêu cầu Node.js **24.16.0** (xem `.node-version`; `package.json` cho phép từ 22.22.0) và
-npm đi kèm.
+Yêu cầu Node.js 24.16.0 (xem `.node-version`) và npm.
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Sau đó mở URL localhost được terminal in ra. Lệnh `npm run dev` tự chuẩn bị D1
-local cần thiết. Build cục bộ:
+Mở [http://localhost:3000](http://localhost:3000). Lệnh `dev` tự áp migration D1
+local. Không xóa `.wrangler/`: thư mục đó có thể chứa tài khoản, role và dữ liệu
+server local.
+
+Một số lệnh thường dùng:
 
 ```powershell
+npm run clean:local   # chỉ xóa cache/build có thể tạo lại
+npm run typecheck
+npm run check
+npm run test:e2e
 npm run build
-npm run start
 ```
 
-Build thành công không phải bằng chứng dự án đã deploy hoặc production-ready.
+## Bản đồ repo
 
-## Bắt đầu làm việc
+| Thư mục | Trách nhiệm |
+|---|---|
+| `app/` | Route, API route và metadata của ứng dụng web |
+| `src/` | UI, luồng học, state, auth, sync và logic sản phẩm |
+| `content/` | Package nội dung bất biến, runtime projection, draft và provenance |
+| `public/` | Ảnh, audio, PWA/service worker và asset trình duyệt phục vụ trực tiếp |
+| `drizzle/`, `db/` | Migration và schema D1; không xóa lịch sử migration |
+| `scripts/` | Validator, generator, restore và công cụ vận hành repo |
+| `e2e/` | Hành trình Playwright qua giao diện thật |
+| `config/` | Contract/release policy và cấu hình fail-closed |
+| `docs/` | Tài liệu còn sống; Git history giữ tài liệu đã loại bỏ |
+| `worker/`, `workers/` | Worker runtime và pipeline phát hành nội dung |
 
-Đọc [bản đồ tài liệu](docs/README.md) và [AGENTS.md](AGENTS.md) trước khi sửa repo.
-Nguồn sự thật hiện hành theo thứ tự:
+Xem chi tiết tại [Kiến trúc](docs/ARCHITECTURE.md) và [Bản đồ tài liệu](docs/README.md).
 
-1. [Implementation checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md)
-2. [Product vision](docs/PRODUCT_VISION.md)
-3. [ChineseSkill benchmark](docs/CHINESESKILL_BENCHMARK.md)
-4. [100-task restructure plan](docs/RESTRUCTURE_MASTER_PLAN.md)
-5. [Content preservation plan](docs/HSK4_GRADUATION_PLAN.md)
-6. [Prompt chạy Goal ở lượt kế](docs/NEXT_GOAL_PROMPT.md)
+## Trạng thái và dữ liệu phải giữ
 
-Không lấy draft, generated JSON, số test hoặc số dòng code làm tiến độ. Một task
-chỉ được tính khi acceptance learner-facing, migration/evidence và kiểm tra liên
-quan đều đạt.
+- HSK0: 4/4 bài (rich 0/4).
+- HSK1: 40/40, HSK2: 40/40, HSK3: 55/55, HSK4: 78/78 bài rich.
+- Tổng HSK1–4: 213/213 bài rich.
+- Browser guest progress nằm trong localStorage/IndexedDB; dữ liệu account local
+  nằm trong D1 `.wrangler/`.
 
-## Ranh giới an toàn
+Trạng thái module và sự cố/migration hiện tại nằm ở
+[Implementation checkpoint](docs/IMPLEMENTATION_CHECKPOINT.md).
 
-- Guest/local phải học đầy đủ; đăng nhập chỉ phục vụ phục hồi và đồng bộ.
-- Không sao chép lesson, media, screenshot, mascot, trade dress hoặc thuật toán
-  độc quyền từ sản phẩm benchmark.
-- Không gọi browser TTS là audio bản ngữ; không suy mastery nói từ transcript;
-  không mở luyện nét khi thiếu dữ liệu stroke có provenance.
+## Ranh giới sản phẩm
+
+- ChineseSkill chỉ là benchmark capability/learning flow; không sao chép code,
+  layout, nội dung, media, dữ liệu đóng hoặc thương hiệu.
+- Browser TTS là synthetic fallback, không phải audio native hay bằng chứng nói.
+- Handwriting chỉ mở khi stroke data có provenance hợp lệ.
+- Production, payment, CMS, public hosting và deploy không nằm trong luồng local
+  hiện tại nếu người dùng chưa yêu cầu mở lại.
 - Không stage/commit `docs/reports/`, `output/`, build output hoặc secret.
-- `.openai/hosting.json`, production, commerce và deploy chỉ được mở lại khi có
-  yêu cầu rõ ràng.
+
+Trước khi sửa repo, đọc [AGENTS.md](AGENTS.md), sau đó chỉ nạp tài liệu của module
+đang làm theo [docs/README.md](docs/README.md).

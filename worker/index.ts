@@ -50,10 +50,6 @@ const STATIC_HEADER_OVERRIDES: Record<string, Record<string, string>> = {
     "content-type": "text/plain; charset=utf-8",
     "cache-control": "public, max-age=3600",
   },
-  "/sitemap.xml": {
-    "content-type": "application/xml; charset=utf-8",
-    "cache-control": "public, max-age=3600",
-  },
   "/offline.html": {
     "content-type": "text/html; charset=utf-8",
     "cache-control": "no-cache",

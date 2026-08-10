@@ -2,69 +2,42 @@
 
 Cập nhật: **10/08/2026**.
 
-Repo đang ở giai đoạn **Reforge 2026**. Bộ tài liệu cũ ghi lại một foundation giàu
-hạ tầng và 217 bài learner-visible, nhưng không còn được dùng để suy ra rằng trải
-nghiệm đã gần hoàn thiện. Hãy dùng bảng dưới đây để tránh lấy nhầm lịch sử làm
-spec hiện hành.
+Tài liệu hiện hành được giữ ngắn để mỗi phiên làm việc bắt đầu từ cùng một trạng
+thái. Git history là nơi tra cứu kế hoạch và runbook cũ; không tạo thêm backlog
+song song trong `docs/`.
 
-## Nguồn sự thật đang hoạt động
+## Đọc trước khi sửa
 
-Đọc theo thứ tự:
+1. [`IMPLEMENTATION_CHECKPOINT.md`](IMPLEMENTATION_CHECKPOINT.md) — module đang
+   được người dùng kiểm thử, điều đã xác nhận và blocker thật.
+2. [`PRODUCT_VISION.md`](PRODUCT_VISION.md) — phạm vi, UX đích và cổng hoàn thành.
+3. [`ARCHITECTURE.md`](ARCHITECTURE.md) — trách nhiệm của thư mục, module và lớp
+   lưu trữ hiện tại.
+4. [`TESTING.md`](TESTING.md) — cách chạy local và nghiệm thu từng module.
 
-1. [`IMPLEMENTATION_CHECKPOINT.md`](IMPLEMENTATION_CHECKPOINT.md) — trạng thái
-   thật, số liệu baseline, freeze và việc đang làm.
-2. [`PRODUCT_VISION.md`](PRODUCT_VISION.md) — phạm vi sản phẩm, trải nghiệm đích
-   và definition of done.
-3. [`CHINESESKILL_BENCHMARK.md`](CHINESESKILL_BENCHMARK.md) — nghiên cứu có nguồn,
-   mức tin cậy, gap và ranh giới sở hữu trí tuệ.
-4. [`RESTRUCTURE_MASTER_PLAN.md`](RESTRUCTURE_MASTER_PLAN.md) — 100 task,
-   dependency, milestone và acceptance.
-5. [`HSK4_GRADUATION_PLAN.md`](HSK4_GRADUATION_PLAN.md) — inventory nội dung
-   legacy phải bảo toàn trong migration.
-6. [`NEXT_GOAL_PROMPT.md`](NEXT_GOAL_PROMPT.md) — prompt bàn giao để bắt đầu Goal
-   tự động ở lượt kế tiếp.
+## Tài liệu chuyên môn còn sống
 
-`AGENTS.md` ở root quy định cách mọi agent đọc và cập nhật các nguồn trên.
+| Tài liệu | Dùng khi nào |
+| --- | --- |
+| [`CHINESESKILL_BENCHMARK.md`](CHINESESKILL_BENCHMARK.md) | So capability và ngưỡng chất lượng; không dùng để sao chép sản phẩm. |
+| [`HSK4_GRADUATION_PLAN.md`](HSK4_GRADUATION_PLAN.md) | Kiểm inventory, số lesson và invariant migration HSK0–HSK4. |
+| [`CONTENT_DELIVERY_PLAYBOOK.md`](CONTENT_DELIVERY_PLAYBOOK.md) | Soạn, kiểm và phát hành nội dung. |
+| [`MASTERY_SYSTEM.md`](MASTERY_SYSTEM.md) | Thay đổi evidence, FSRS, coverage, XP hoặc báo tiến độ học. |
+| [`THREAT_MODEL.md`](THREAT_MODEL.md) | Thay đổi auth, API, D1, import/export, sync hoặc quyền. |
+| [`adr/0001-d1-closed-alpha.md`](adr/0001-d1-closed-alpha.md) | Bối cảnh quyết định D1 closed-alpha; là ADR lịch sử, không phải roadmap. |
 
-## Tài liệu hỗ trợ còn dùng
+## Quy ước tiến độ
 
-| Tài liệu | Vai trò hiện tại |
-|---|---|
-| [`CONTENT_DELIVERY_PLAYBOOK.md`](CONTENT_DELIVERY_PLAYBOOK.md) | Quy tắc authoring/validation legacy; sẽ được nâng cấp trong master plan. |
-| [`ARCHITECTURE.md`](ARCHITECTURE.md) | Bản đồ implementation hiện hữu, không phải target architecture cuối. |
-| [`CONTENT_SYSTEM.md`](CONTENT_SYSTEM.md) | Tham chiếu pipeline/package hiện hữu để migration an toàn. |
-| [`MASTERY_SYSTEM.md`](MASTERY_SYSTEM.md) | Tham chiếu evidence/FSRS hiện hữu; không phải công thức parity mới. |
-| [`CONTENT_AUTHORING.md`](CONTENT_AUTHORING.md) | Hướng dẫn thao tác authoring hiện hữu. |
-| [`THREAT_MODEL.md`](THREAT_MODEL.md) | Ràng buộc bảo mật cần giữ khi giản lược runtime. |
+- Làm và nghiệm thu **một module người học nhìn thấy tại một thời điểm**.
+- Người dùng test module đang mở trước khi chuyển sang module kế tiếp.
+- Không dùng số task, số test, số file hoặc snapshot `96/100` cũ làm phần trăm
+  hoàn thiện sản phẩm.
+- Luôn báo riêng số nội dung còn mở được: HSK0 `4/4` (rich `0/4`), HSK1
+  `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`; rich HSK1–4
+  `213/213`, trừ khi audit/migration có bằng chứng làm số đó thay đổi.
 
-## Tài liệu lịch sử hoặc tạm hoãn
+## Tài sản không phải tài liệu sản phẩm
 
-Các file dưới đây được giữ để tra cứu hoặc vì script/release evidence còn tham
-chiếu. Chúng **không** được dùng để mở workstream mới nếu master plan không yêu
-cầu:
-
-- `FEATURE_RESEARCH.md`, `PRODUCT_REQUIREMENTS.md`: nghiên cứu/PRD trước Reforge;
-- `HSK01_LOCAL_DEMO.md`, các file `HSK1_*`: lát cắt demo/review cũ;
-- `PHASE1_OPERATIONS.md`, `PHASE2_EVIDENCE_OPERATIONS.md`, `WS9_ABUSE_CONTROLS.md`:
-  vận hành foundation;
-- `LOCAL_RELEASE_CANDIDATE.md`: quy trình/evidence release cũ đang có drift;
-- `PRODUCTION_UPGRADE_PLAN.md`: production/commercial bị hoãn;
-- `NEXT_SESSION_PROMPT.md`: con trỏ tương thích từ prompt cũ sang
-  `NEXT_GOAL_PROMPT.md`;
-- `adr/0001-d1-closed-alpha.md`: quyết định closed-alpha lịch sử.
-
-Chỉ archive/xóa các file này ở task cleanup tương ứng sau khi `rg` xác nhận không
-còn consumer và rollback/migration đã được kiểm chứng. Git history là nơi giữ
-nhật ký chi tiết; các source of truth phía trên phải luôn ngắn, hiện hành và không
-append log theo phiên.
-
-## Cách hiểu tiến độ
-
-- **Reforge parity:** số task `ACCEPTED` trên 100 trong master plan.
-- **Content preservation:** số lesson learner-visible HSK0–4 còn mở được sau từng
-  migration.
-- **External readiness:** native review/audio/video, ASR, AI provider hoặc hosted
-  sync được báo riêng; không được suy ra từ số task code.
-
-Mốc foundation `96/100` chỉ là số lịch sử của roadmap cũ và không phải phần trăm
-tương đương ChineseSkill.
+`docs/reports/` và `output/` là artifact do người dùng sở hữu. Không sửa, di
+chuyển, xóa, stage hoặc commit chúng. Build output, report thử và cache cũng
+không được đưa vào Git.

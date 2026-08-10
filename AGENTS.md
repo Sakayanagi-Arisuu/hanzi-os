@@ -1,175 +1,110 @@
 # HANZI.OS — hướng dẫn bắt buộc cho mọi agent
 
-## 1. Mục tiêu đang hoạt động: Reforge 2026
+## 1. Cách làm đang hoạt động
 
-Tái cấu trúc HANZI.OS thành ứng dụng tự học **Mainland Mandarin HSK0–HSK4**
-local-first, dễ dùng và có chiều sâu chức năng/sư phạm tương đương kiến trúc học
-của ChineseSkill. Đây là benchmark năng lực, không phải yêu cầu sao chép sản phẩm.
+HANZI.OS được cải tiến **từng module, có người dùng test giữa các module**. Không
+chạy lại backlog 100 task và không tự suy ra phần trăm hoàn thiện.
 
-- Phải dùng code, nội dung, audio, hình ảnh, wording và thương hiệu nguyên bản.
-- Không sao chép lesson, distractor, media, mascot, screenshot, trade dress hoặc
-  reverse-engineer thuật toán/dữ liệu độc quyền của ChineseSkill.
-- Chủ đề “hệ thống thức tỉnh hologram” là lớp thẩm mỹ và lore. Nhãn điều hướng,
-  trạng thái và hành động chính phải dùng tiếng Việt trực tiếp, dễ hiểu.
-- Production thương mại, payment, Sites và CMS không nằm trên critical path,
-  trừ khi một task được duyệt nêu rõ phụ thuộc hosted/provider.
+Quy trình cho mỗi lượt:
 
-Mốc cũ `96/100` chỉ mô tả roadmap foundation tự định nghĩa trước Reforge. Không
-được dùng nó để nói sản phẩm đã hoàn thiện 96% theo benchmark mới.
+1. đọc `docs/IMPLEMENTATION_CHECKPOINT.md` và module người dùng vừa chọn;
+2. audit hành trình thật, dữ liệu và consumer của module đó;
+3. sửa trọn một vertical slice nhỏ, không vá lan sang module khác;
+4. chạy gate đúng rủi ro và bật web cho người dùng test;
+5. chỉ ghi `USER-ACCEPTED` sau khi người dùng xác nhận.
 
-## 2. Thứ tự đọc trước khi làm
+ChineseSkill chỉ là benchmark về taxonomy chức năng, luồng học và ngưỡng chất
+lượng. Cấm sao chép code, layout, lesson, câu hỏi, media, dữ liệu đóng, thương
+hiệu hoặc thuật toán độc quyền. UX, nội dung và asset HANZI.OS phải nguyên bản
+hoặc có provenance/license rõ.
 
-1. `docs/IMPLEMENTATION_CHECKPOINT.md` — trạng thái thật và freeze policy.
-2. `docs/PRODUCT_VISION.md` — north star, phạm vi và definition of done.
-3. `docs/CHINESESKILL_BENCHMARK.md` — bằng chứng, giới hạn và ma trận gap.
-4. `docs/RESTRUCTURE_MASTER_PLAN.md` — 100 task và dependency đang hoạt động.
-5. `docs/HSK4_GRADUATION_PLAN.md` — inventory nội dung legacy cần bảo toàn.
-6. `docs/CONTENT_DELIVERY_PLAYBOOK.md` — chỉ đọc khi chuyển đổi/soạn nội dung.
-7. `docs/ARCHITECTURE.md` — chỉ là bản đồ implementation hiện tại cho tới khi
-   task kiến trúc tương ứng được nghiệm thu.
+## 2. Nguồn sự thật
 
-Chỉ đọc `docs/PRODUCTION_UPGRADE_PLAN.md` khi người dùng chủ động mở lại
-production. Không lấy tài liệu lịch sử làm source of truth nếu mâu thuẫn với sáu
-tài liệu đầu tiên.
+Đọc theo nhu cầu, không nạp toàn bộ repo vào ngữ cảnh:
 
-## 3. Cách thực thi master plan
+1. `docs/IMPLEMENTATION_CHECKPOINT.md` — sổ module và trạng thái thật;
+2. `docs/ARCHITECTURE.md` — bản đồ thư mục, runtime và dữ liệu;
+3. `docs/TESTING.md` — cách chạy/test local;
+4. `docs/PRODUCT_VISION.md` — phạm vi và nguyên tắc sản phẩm;
+5. `docs/CHINESESKILL_BENCHMARK.md` — tài liệu tham chiếu, không phải backlog;
+6. `docs/HSK4_GRADUATION_PLAN.md` — inventory nội dung cần bảo toàn;
+7. `docs/CONTENT_DELIVERY_PLAYBOOK.md` — chỉ đọc khi đổi/soạn nội dung.
 
-- Làm theo ID `T001`–`T100`, dependency và milestone trong master plan.
-- Một task chỉ được đánh dấu `ACCEPTED` khi kết quả learner-visible, dữ liệu,
-  migration (nếu có), kiểm thử và tài liệu đều đạt acceptance của task.
-- Tạo JSON, protocol, API, test, số dòng code hoặc mock UI chưa nối runtime
-  không phải là task hoàn thành.
-- Không mở task downstream khi dependency chưa được nghiệm thu.
-- Mỗi thời điểm chỉ có một milestone chính đang thực thi; có thể song song các
-  subtask độc lập trong milestone bằng sub-agent.
-- Bug correctness/data-loss/a11y nghiêm trọng được sửa ngay và phải có
-  regression test; yêu cầu thẩm mỹ nhỏ được map vào task phù hợp thay vì tiếp tục
-  vá chồng lên UI legacy.
-- Không viết lại từ số 0. Ưu tiên adapter/migration quanh lõi tốt, rồi xóa legacy
-  chỉ sau khi consumer mới và rollback đã được kiểm chứng.
+`docs/README.md` phân loại toàn bộ tài liệu còn sống. Git history là nơi tra tài
+liệu đã xóa; không tạo thư mục archive mới trong source tree.
 
-## 4. Nguyên tắc trải nghiệm bắt buộc
+## 3. Phạm vi và trải nghiệm
 
-- Information architecture đích có tối đa năm vùng người học: **Học, Ôn, Nói,
-  Luyện, Hồ sơ**.
-- Mỗi màn hình có một hành động chính rõ; thông tin nâng cao dùng progressive
-  disclosure.
-- Main Course là đường học chính. Reader, kho từ/chữ, phrasebook, drill, game và
-  đề luyện nằm trong vùng Luyện, không cạnh tranh với đường học.
-- Mobile-first; touch target tối thiểu 44×44 px; keyboard/focus rõ; semantic HTML;
-  contrast đạt WCAG AA; hỗ trợ `prefers-reduced-motion`.
-- Không dùng animation trang trí liên tục, flicker, route overlay, thông báo
-  nghiệp vụ, ID/protocol/hash/receipt hay jargon backend trong UI người học.
-- Không dùng tên fantasy làm nhãn chức năng duy nhất. Có thể giữ làm subtitle,
-  tên chương hoặc lore không cản trở thao tác.
-- Hệ thống phải có escape hatch cho mic, IME và handwriting: chọn token, nhập
-  Pinyin, bỏ qua có disclosure hoặc chuyển modality tương đương.
+- Mainland Mandarin, chữ giản thể + Pinyin, UI tiếng Việt, HSK0–HSK4,
+  local-first web/PWA.
+- Tối đa năm vùng người học: **Học, Ôn, Nói, Luyện, Hồ sơ**.
+- Một màn hình có một hành động chính; thông tin nâng cao dùng progressive
+  disclosure; nhãn chức năng phải rõ, lore hologram chỉ là lớp thẩm mỹ.
+- Mobile-first, touch target tối thiểu 44×44 px, keyboard/focus rõ, WCAG AA và
+  `prefers-reduced-motion`.
+- Không route overlay/flicker, animation trang trí liên tục, jargon backend,
+  receipt/hash/ID hoặc thông báo nghiệp vụ trong UI người học.
+- Có escape hatch cho microphone, IME và handwriting.
 
-## 5. Tính đúng đắn học tập
+Production thương mại, payment, CMS, Sites và public hosting ngoài phạm vi trừ
+khi người dùng chủ động mở lại.
 
-- XP, streak, số câu làm và coverage không phải mastery.
-- Mastery phải dựa trên evidence đúng kỹ năng, đủ mẫu, item duy nhất và phân tán
-  theo thời gian; lặp cùng item không làm tăng độ phủ.
-- Hint, prior exposure, reveal hoặc IME trợ giúp phải được ghi nhận và không được
-  dùng để vượt gate recall độc lập.
-- Browser TTS chỉ là fallback nghe/đọc, không được gọi là audio native hoặc bằng
-  chứng nói/phát âm.
-- Speech-to-text transcript không đủ để tuyên bố chấm phát âm/thanh điệu. Chỉ mở
-  claim khi có rubric, provider/corpus, consent và validation tương ứng.
-- Handwriting chỉ được mở cho chữ có dữ liệu stroke provenance hợp lệ.
-- Nội dung AI-assisted phải giữ `humanReviewed: false`; không tuyên bố tương
-  đương giáo viên/native review cho tới khi review thật hoàn tất.
-- Không tuyên bố “đủ HSKx” chỉ từ lesson count. Phải có inventory coverage,
-  activity coverage, UI journey và checkpoint/assessment end-to-end.
+## 4. Tính đúng đắn học tập
 
-## 6. Dữ liệu và migration
+- XP, streak, số câu và coverage không phải mastery.
+- Mastery cần evidence đúng kỹ năng, đủ mẫu, item duy nhất và phân tán theo thời
+  gian; lặp cùng item không tăng độ phủ.
+- Hint, reveal, prior exposure và IME trợ giúp phải được ghi nhận và không vượt
+  gate recall độc lập.
+- Browser TTS chỉ là synthetic fallback, không phải audio native hay evidence
+  nói/phát âm. Transcript speech-to-text không tự thành điểm phát âm/thanh điệu.
+- Handwriting chỉ mở với stroke data có provenance. Nội dung AI-assisted giữ
+  `humanReviewed: false` tới khi có review thật.
+- Không tuyên bố đủ HSK chỉ từ lesson count.
 
-- Bảo toàn stable lesson/vocabulary/character IDs hoặc cung cấp alias map có test.
-- Không làm mất completion, streak, saved items, FSRS, mistakes, reset epoch,
-  owner scope, session dở dang hoặc IndexedDB outbox.
-- Legacy evidence có thể giữ làm lịch sử nhưng không tự nâng thành mastery ở mô
-  hình mới.
-- Một learner UI duy nhất phải phục vụ guest và account; repository/sync là
-  adapter bên dưới, không tạo hai trải nghiệm khác nhau.
-- Không dual-write lâu dài. Mọi cutover phải có fence, rollback và fixture cho
-  guest, learner, editor, admin.
-- Không xóa package/snapshot/code legacy trước khi `rg` xác nhận hết consumer và
-  task cleanup tương ứng đã có rollback artifact.
+## 5. Dữ liệu không được làm mất
 
-## 7. Hai nhóm số tiến độ bắt buộc phải báo
+- Giữ stable lesson/vocabulary/character IDs hoặc migration alias có test.
+- Không mất completion, streak, saved item, FSRS, mistakes, owner/reset scope,
+  session dở dang hoặc outbox.
+- Guest và account dùng một learner UI; repository/sync chỉ là adapter.
+- Không xóa package, snapshot, migration hay code legacy trước khi `rg` chứng
+  minh hết consumer và có regression/rollback phù hợp.
+- **Không xóa `.wrangler/` trong cleanup:** đây là D1 local, có thể chứa tài
+  khoản, role và dữ liệu server local. Browser progress nằm trong localStorage /
+  IndexedDB của browser và cũng phải được bảo toàn khi test.
+- Không sửa/xóa/stage/commit `docs/reports/` hoặc `output/` của người dùng.
 
-Mỗi checkpoint/commit phải nêu cả:
+Inventory learner-visible cần giữ, trừ khi audit/migration có evidence mới:
 
-1. **Reforge parity:** `X/100 task ACCEPTED`, milestone hiện tại và blocker thật.
-2. **Nội dung learner-visible legacy được bảo toàn:**
-   - HSK0 `4/4` (rich `0/4`);
-   - HSK1 `40/40` rich;
-   - HSK2 `40/40` rich;
-   - HSK3 `55/55` rich;
-   - HSK4 `78/78` rich;
-   - tổng HSK1–4 `213/213` rich.
+- HSK0 `4/4` (rich `0/4`);
+- HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78` rich;
+- tổng HSK1–4 `213/213` rich.
 
-Nếu số thay đổi, phải nêu nguồn/validator. Báo riêng external dependency chưa đạt
-(native review/audio/video, ASR, AI provider, hosted sync...) để không tạo cảm giác
-“100 task = tự động có mọi tài sản bên ngoài”.
+## 6. Kiểm thử và công cụ
 
-## 8. Kiểm thử theo rủi ro
+- Trước sửa: `git status --short`, xác định file user-owned và consumer.
+- Trong module: targeted validator/Vitest/Playwright; chạy `npm run typecheck`
+  khi đổi TypeScript/runtime/UI.
+- Ở ranh giới module lớn: `npm run check` và hành trình browser thật; chạy E2E,
+  Lighthouse/audit khi loại thay đổi yêu cầu.
+- `verify:production` phải fail-closed khi production chưa được mở.
+- Dùng skill theo đúng trigger và đọc trọn `SKILL.md`: browser smoke/research dùng
+  `browser:control-in-app-browser`; Windows/device dùng `computer-use`; UX/a11y
+  dùng `ui-ux-pro-max`; UI/token dùng `ui-styling`/`design-system`.
+- Không cài package hệ thống, plugin hoặc thay tài khoản bên ngoài nếu người dùng
+  chưa cho phép cụ thể.
 
-Trong task:
+## 7. Báo cáo và commit
 
-- Chạy validator/test trực tiếp của schema, adapter, activity hoặc screen vừa đổi.
-- Chạy `npm run typecheck` khi đổi TypeScript/runtime/UI.
-- Mỗi bug correctness/data-loss phải có regression test.
+Mỗi checkpoint chỉ cần:
 
-Tại ranh giới milestone:
+- **Module:** tên + `NOT-REVIEWED | IN-REVIEW | USER-ACCEPTED | BLOCKED`;
+- **Người học thấy gì:** hành vi đã thay đổi;
+- **Đã kiểm:** hành trình/gate có ý nghĩa;
+- **Dữ liệu giữ được:** inventory ở trên và sự cố/migration nếu có;
+- **Tiếp theo:** chờ người dùng test hoặc đúng một module được chọn.
 
-```powershell
-npm run check
-npm run test:e2e
-```
-
-Chạy `npm run test:lighthouse` khi đổi shared UI/performance hoặc đóng release
-candidate. Chạy `npm audit --omit=dev` khi dependency đổi hoặc ở release boundary.
-`npm run verify:production` phải tiếp tục fail-closed trừ khi production được mở
-lại rõ ràng. Không dùng force flag để bỏ qua gate lỗi.
-
-## 9. Skill routing
-
-- Research/UX benchmark/web smoke: `browser:control-in-app-browser`.
-- Windows/device/manual journey: `computer-use:computer-use` khi thật sự cần.
-- IA, heuristic, accessibility: `ui-ux-pro-max`.
-- Component/UI implementation: `ui-styling`; token/spec: `design-system`.
-- Hologram brand/art direction: `brand`/`design`; bitmap gốc: `imagegen`.
-- Chỉ dùng skill khi task khớp trigger và phải đọc đầy đủ `SKILL.md` trước khi
-  hành động.
-
-Máy đã có **CPython 3.13.14** và **pip 26.1.2**, được quản lý qua `uv`; lệnh
-`python` dùng được trong terminal mới. Script tra cứu của `ui-ux-pro-max` đã chạy
-được. Không cài thêm package hệ thống hoặc thay runtime mặc định nếu task không
-cần và người dùng chưa cho phép.
-
-## 10. Dọn repo và tài liệu
-
-- Không commit `docs/reports/`, `output/`, build output, staging, export hoặc report
-  thử.
-- `docs/README.md` phân loại source of truth và tài liệu lịch sử.
-- Mỗi commit cập nhật đồng thời `docs/IMPLEMENTATION_CHECKPOINT.md` và
-  `docs/RESTRUCTURE_MASTER_PLAN.md`; nếu đổi content inventory thì cập nhật thêm
-  `docs/HSK4_GRADUATION_PLAN.md`.
-- Git history giữ nhật ký cũ; source-of-truth hiện tại không được biến thành
-  append-only log dài hàng trăm dòng.
-- Một commit cho một task hoặc cụm task nguyên tử trong cùng milestone; message mô
-  tả kết quả learner-facing.
-- Trước commit: `git diff --check`, kiểm tra staging chính xác và ghi đúng gate đã
-  chạy. Không stage/commit thay đổi của người dùng ngoài phạm vi.
-
-## 11. Mẫu cập nhật cho người dùng
-
-- **Đã thay đổi cho người học:** hành vi/màn hình nào dễ dùng hoặc học sâu hơn.
-- **Task:** ID nào đã `ACCEPTED`, bằng chứng quan sát được.
-- **Nội dung giữ được:** HSK0…4 theo số ở mục 7.
-- **Đang làm:** một milestone và outcome kế tiếp.
-- **Còn vướng:** dependency nội dung/kỹ thuật/bên ngoài thật.
-- **Tiến độ:** `X/100`, không dùng phần trăm foundation cũ làm parity.
-
-Không báo số test, số file hoặc số dòng như một thành quả độc lập.
+Commit theo coherent module/mốc cleanup, không theo mỗi chỉnh CSS. Trước commit
+chạy `git diff --check`, rà staging và không đưa build/cache/report vào Git.
+Không push/deploy nếu người dùng chưa yêu cầu.

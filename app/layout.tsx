@@ -1,21 +1,20 @@
 import type { Metadata, Viewport } from "next";
 import "../src/critical.css";
 
-const siteUrl =
-  "https://hanzi-os-awakening.sopping-oboists-13ts.chatgpt.site";
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const siteUrl = new URL(configuredSiteUrl || "http://localhost:3000");
+const isPublicSite = Boolean(configuredSiteUrl);
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: siteUrl,
   applicationName: "HANZI.OS",
   title: "HANZI.OS | Mandarin Awakening System",
   description:
-    "Hệ thống học tiếng Trung thích ứng theo mục tiêu, trí nhớ và bằng chứng làm chủ.",
-  alternates: {
-    canonical: "/",
-  },
+    "Ứng dụng tự học Mainland Mandarin HSK0–HSK4, local-first cho người Việt.",
+  alternates: isPublicSite ? { canonical: "/" } : undefined,
   robots: {
-    index: true,
-    follow: true,
+    index: isPublicSite,
+    follow: isPublicSite,
   },
   referrer: "strict-origin-when-cross-origin",
   category: "education",
@@ -28,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: siteUrl,
+    url: siteUrl.toString(),
     siteName: "HANZI.OS",
-    title: "HANZI.OS - Đánh thức một ngôn ngữ mới",
+    title: "HANZI.OS — Đánh thức một ngôn ngữ mới",
     description:
-      "Lộ trình tiếng Trung thích ứng với FSRS, luyện phát âm, Hán tự và kiểm tra làm chủ.",
+      "Lộ trình Mainland Mandarin local-first với bài học, ôn tập và luyện tập rõ ràng.",
     images: [
       {
         url: "/hanzi-os-og-1200x630.webp",
@@ -44,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "HANZI.OS - Đánh thức một ngôn ngữ mới",
+    title: "HANZI.OS — Đánh thức một ngôn ngữ mới",
     description:
-      "Lộ trình tiếng Trung thích ứng với FSRS, luyện phát âm, Hán tự và kiểm tra làm chủ.",
+      "Lộ trình Mainland Mandarin local-first với bài học, ôn tập và luyện tập rõ ràng.",
     images: ["/hanzi-os-og-1200x630.webp"],
   },
 };

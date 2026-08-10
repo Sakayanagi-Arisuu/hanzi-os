@@ -31,14 +31,9 @@
       "role": "no-progress HSK0 to HSK1 UI walkthrough contract"
     },
     {
-      "id": "demo-runbook",
-      "relativePath": "docs/HSK01_LOCAL_DEMO.md",
-      "role": "repeatable defense walkthrough and limitations"
-    },
-    {
-      "id": "candidate-runbook",
-      "relativePath": "docs/LOCAL_RELEASE_CANDIDATE.md",
-      "role": "local candidate reproduction, verification and claim boundary"
+      "id": "testing-runbook",
+      "relativePath": "docs/TESTING.md",
+      "role": "local module smoke, regression and data-safety workflow"
     },
     {
       "id": "architecture",
@@ -52,23 +47,18 @@
     },
     {
       "id": "content-policy",
-      "relativePath": "docs/CONTENT_SYSTEM.md",
+      "relativePath": "docs/CONTENT_DELIVERY_PLAYBOOK.md",
       "role": "content visibility, review and release rules"
+    },
+    {
+      "id": "product-scope",
+      "relativePath": "docs/PRODUCT_VISION.md",
+      "role": "local-first product scope and explicit claim boundaries"
     },
     {
       "id": "production-readiness",
       "relativePath": "config/production-readiness.json",
       "role": "fail-closed production blockers"
-    },
-    {
-      "id": "deferred-production-roadmap",
-      "relativePath": "docs/PRODUCTION_UPGRADE_PLAN.md",
-      "role": "explicitly deferred hosted production scope"
-    },
-    {
-      "id": "deferred-sites-binding",
-      "relativePath": ".openai/hosting.json",
-      "role": "preserved Sites binding; not deployment evidence"
     }
   ],
   "gates": [

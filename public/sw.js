@@ -298,11 +298,10 @@ self.addEventListener("fetch", (event) => {
 
   if (
     url.pathname === "/manifest.webmanifest" ||
-    url.pathname === "/robots.txt" ||
-    url.pathname === "/sitemap.xml"
+    url.pathname === "/robots.txt"
   ) {
     event.respondWith(
-      networkFirstResource(event, SHELL_CACHE, SHELL_ASSETS.length + 3),
+      networkFirstResource(event, SHELL_CACHE, SHELL_ASSETS.length + 2),
     );
     return;
   }

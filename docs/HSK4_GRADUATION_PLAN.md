@@ -1,29 +1,12 @@
-# HANZI.OS — inventory HSK0-HSK4 và hợp đồng migration
+# Inventory HSK0–HSK4 và hợp đồng migration
 
-**Trạng thái:** roadmap legacy đã chốt tại commit `52cce0c`; tài liệu này được
-giữ vì `AGENTS.md` yêu cầu và là contract bảo toàn nội dung trong Reforge.
+Cập nhật: **10/08/2026**. Tài liệu này bảo toàn inventory/content contract khi
+sửa từng module. Nó không phải backlog và không chứng minh chất lượng sư phạm chỉ
+bằng số lesson.
 
-**Roadmap sản phẩm hiện hành:** `docs/RESTRUCTURE_MASTER_PLAN.md`.
+## 1. Inventory chuẩn đang dùng
 
-Tài liệu này **không còn là danh sách việc phát triển tiếp theo** và không phải
-tuyên bố HANZI.OS đã đạt chất lượng sư phạm, UX hay độ sâu của ChineseSkill.
-Lịch sử batch B0-B9/M1-M5 nằm trong Git.
-
-## 1. Mốc legacy phải giữ đúng nghĩa
-
-- **Sẵn sàng theo roadmap local cũ:** 96/100.
-- **Sẵn sàng phạm vi mở rộng M1-M5 cũ:** 97/100.
-- **Reforge parity:** 0/100 task được nghiệm thu tại thời điểm lập baseline.
-
-96/100 và 97/100 là hai snapshot của phạm vi implementation cũ. Chúng không
-được cộng vào tiến độ Reforge và không được diễn giải là “sản phẩm hoàn thiện
-96%”. Từ đây, tiến độ sản phẩm được tính bằng task `DONE` đã đủ evidence trong
-master plan; `DONE` ở đây đồng nghĩa đã được nghiệm thu (`ACCEPTED`).
-
-## 2. Inventory nguồn chính thức đang dùng
-
-Nguồn syllabus được materialize tại
-`content/sources/hsk-syllabus-2026/inventory.json`.
+Nguồn materialize tại `content/sources/hsk-syllabus-2026/inventory.json`.
 
 | Cấp | Từ vựng | Chữ nhận dạng | Ngữ pháp | Nhiệm vụ | Chủ đề |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -31,108 +14,94 @@ Nguồn syllabus được materialize tại
 | HSK2 | 200 | 125 | 75 | 17 | 34 |
 | HSK3 | 500 | 284 | 96 | 22 | 54 |
 | HSK4 | 1.000 | 441 | 95 | 30 | 77 |
-| Tổng HSK1-4 | **2.000** | **1.096** | **332** | **84** | **195** |
+| Tổng | **2.000** | **1.096** | **332** | **84** | **195** |
 
 Runtime có thêm 16 vocabulary ID demo/bridge, nên tổng runtime là **2.016**.
-Số inventory không chứng minh từng mục đã có đủ ví dụ, lượt luyện, audio, nét
-viết, recall, review interval hoặc human/native review.
+Inventory chỉ là phạm vi cần phủ; không chứng minh item đã có đủ ngữ cảnh,
+activity, recall trễ, audio, nét viết hoặc human/native review.
 
-## 3. Bài đang giao cho người học
+## 2. Nội dung learner-visible phải giữ
 
-| Cấp | Blueprint dự kiến cũ | Learner-visible | Rich Lesson UI |
-| --- | ---: | ---: | ---: |
-| HSK0 | 4 | **4/4** | **0/4** |
-| HSK1 | 40 | **40/40** | **40/40** |
-| HSK2 | 40 | **40/40** | **40/40** |
-| HSK3 | 55 | **55/55** | **55/55** |
-| HSK4 | 78 | **78/78** | **78/78** |
-| HSK1-4 | 213 | **213/213** | **213/213** |
+| Cấp | Lesson | Rich Lesson UI |
+| --- | ---: | ---: |
+| HSK0 | **4/4** | **0/4** |
+| HSK1 | **40/40** | **40/40** |
+| HSK2 | **40/40** | **40/40** |
+| HSK3 | **55/55** | **55/55** |
+| HSK4 | **78/78** | **78/78** |
+| HSK1–4 | **213/213** | **213/213** |
 
-Package hiện hành là `foundation-2026.08.5`, tổng cộng 217 lesson runtime. Các
-trạng thái HSK1-4 ở đây có nghĩa bài đã được adapter giao và mở được theo
-prerequisite của roadmap cũ. Chúng không tự động đạt acceptance của lesson
-engine, content density hoặc usability trong Reforge.
+Package hiện hành là `foundation-2026.08.5`, tổng 217 lesson runtime. “Rich” ở
+đây chỉ có nghĩa adapter hiện hành giao lesson qua Lesson UI giàu hoạt động; mỗi
+module vẫn phải kiểm độ sâu, tính đúng, mobile/keyboard và restore bằng journey
+thật.
 
-## 4. Assessment legacy
+Không tự sửa các số trên. Nếu audit phát hiện drift, ghi validator/source và
+regression cụ thể vào checkpoint rồi mới cập nhật bảng.
 
-- Level check local hiện có: HSK1 50 câu, HSK2 60 câu, HSK3 54 câu và HSK4 72
-  câu, với attempt/evidence versioned.
-- Mock practice hiện có hai form A/B cho mỗi HSK1-HSK4, mỗi form 12 câu và thời
-  lượng 18-35 phút tùy level.
-- Các mock 12 câu là prototype luyện tập nguyên bản, **không phải đề HSK đã thi,
-  không phải cấu trúc đầy đủ của kỳ thi và không được quảng bá như đề thật**.
-- Khi Reforge assessment, chỉ dùng blueprint/mẫu công khai hợp lệ làm chuẩn cấu
-  trúc; câu hỏi, distractor, giải thích và media phải là nội dung nguyên bản hoặc
-  có giấy phép rõ ràng.
+## 3. Assessment đang có
 
-## 5. Hợp đồng bảo toàn khi Reforge
+- Level check local: HSK1 50 câu, HSK2 60 câu, HSK3 54 câu, HSK4 72 câu.
+- Mock practice: hai form A/B cho mỗi HSK1–4, mỗi form 12 câu và 18–35 phút.
+- Mock 12 câu là bài luyện nguyên bản rút gọn, **không phải đề đã thi và không
+  phải cấu trúc đầy đủ của kỳ thi HSK**.
 
-Mọi vertical slice thay thế UI/runtime cũ phải giữ các invariant sau:
+Khi sửa assessment, chỉ dùng cấu trúc/mẫu chính thức được công khai hợp lệ làm
+tham chiếu. Item, distractor, giải thích và media phải nguyên bản hoặc có giấy
+phép/provenance rõ.
 
-1. Stable content/lesson/item ID không đổi nếu semantics không đổi. Nếu buộc
-   đổi, phải có bảng migration deterministic và regression test.
-2. Attempt giữ content version, schema version, idempotency key, timestamp và
-   skill evidence; replay không được cộng progress hai lần.
-3. Local projection, IndexedDB/localStorage, review schedule và enrollment hiện
-   hữu phải đọc được sau nâng cấp; fail-closed khi dữ liệu/version không hợp lệ.
-4. Local-to-account/cloud migration phải backward compatible và không chiếm
-   nhầm dữ liệu của guest hoặc account khác.
-5. Prerequisite/unlock không được mở nội dung chưa `UI-INTEGRATED`; lesson cũ
-   vẫn truy cập được cho đến khi slice thay thế đạt acceptance.
-6. Không suy mastery kỹ năng A từ evidence kỹ năng B. XP, streak, số câu đúng,
-   exposure và mastery phải là các khái niệm riêng.
-7. Browser TTS không phải evidence nói/phát âm. Hanzi recognition không phải
-   evidence viết nét. Metric UI phải nói đúng loại bằng chứng đã thu.
-8. FSRS/review schedule chỉ thay đổi sau migration test và so sánh cohort mẫu;
-   không reset lịch ôn để đơn giản hóa UI.
-9. Disclosure `humanReviewed: false` được giữ cho đến khi có review thật, có
-   danh tính người review và provenance đủ kiểm chứng.
-10. Không xóa generator/artifact đang có runtime consumer. Dùng `rg` xác nhận,
-    migrate consumer, chạy validator rồi mới dọn.
+## 4. Invariant migration
 
-## 6. Cổng nghiệm thu lại nội dung trong Reforge
+1. Giữ stable lesson/item/knowledge/card ID khi semantics không đổi; đổi ID cần
+   alias map deterministic và test.
+2. Attempt giữ content/schema/activity version, idempotency key, timestamp và
+   đúng skill evidence; retry không nhân đôi.
+3. Bảo toàn completion, mistake, bookmark, FSRS, streak, session dở, reset epoch,
+   owner scope và IndexedDB outbox.
+4. Guest↔account migration không chiếm nhầm state của owner khác và không
+   dual-write vô thời hạn.
+5. Không unlock/recommend/count content chưa learner-visible và đã qua gate
+   runtime tương ứng.
+6. XP, streak, exposure, coverage và mastery là các khái niệm riêng.
+7. Browser TTS không phải evidence nói; nhận dạng Hanzi không phải evidence viết
+   nét; hint/reveal/IME trợ giúp không phải independent recall.
+8. FSRS chỉ đổi sau migration fixture và so sánh lịch mẫu; không reset để đơn
+   giản hóa UI.
+9. Giữ `humanReviewed: false` tới khi review thật bind đúng artifact/version.
+10. Không xóa package/generator/artifact trước khi `rg` xác nhận hết consumer,
+    có rollback path và regression test.
 
-Một bài legacy chỉ được tính “đã chuyển sang Reforge” khi đồng thời:
+## 5. Khi nào một lesson được xác nhận ở module mới
 
 - mục tiêu, prerequisite, level mapping và thời lượng kỳ vọng rõ;
-- vocabulary/Hanzi/Pinyin/nghĩa Việt/ví dụ đúng ngữ cảnh;
-- có input dễ hiểu, knowledge card, thực hành có giàn đỡ và recall;
-- exercise types phù hợp cấp, đáp án/distractor/giải thích hợp lệ;
-- audio/pronunciation/handwriting nói đúng capability thực sự có;
-- review evidence nối đúng skill và không làm progress tăng phi thực tế;
-- hoạt động tốt bằng keyboard, touch/mobile và reduced motion;
-- runtime/package/local authorization hợp lệ, deep-link và restore không chớp;
-- targeted validator/test xanh và có UI smoke trên viewport mục tiêu;
-- checkpoint, master plan và tài liệu này cập nhật cùng commit.
+- Hanzi/Pinyin/nghĩa Việt/ví dụ đúng ngữ cảnh;
+- có input dễ hiểu, practice có giàn đỡ và independent recall;
+- đáp án, distractor, giải thích và remediation hợp lệ;
+- activity tạo evidence đúng kỹ năng và không làm progress tăng phi thực tế;
+- fallback mic/IME/handwriting không chặn người học;
+- dùng được bằng touch/mobile, keyboard và reduced motion;
+- deep link, reload/restore, local state và account adapter không chớp/mất dữ liệu;
+- validator/test trực tiếp xanh và browser smoke đi trọn journey.
 
-Các trạng thái vẫn dùng đúng nghĩa:
+Pipeline nội dung vẫn dùng các trạng thái:
 
-`DRAFT -> VALIDATED -> AI-REVIEWED -> RUNTIME-WIRED -> UI-INTEGRATED -> COMMITTED`
+`DRAFT → VALIDATED → AI-REVIEWED → RUNTIME-WIRED → UI-INTEGRATED → COMMITTED`
 
-Chỉ `UI-INTEGRATED` và `COMMITTED` được tính vào số bài người học nhận được.
-Task Reforge chỉ `DONE`/được nghiệm thu khi đạt thêm acceptance của task tương ứng.
+Chỉ `UI-INTEGRATED` và `COMMITTED` được tính là learner-visible. Generated JSON,
+draft, review payload hoặc test xanh mà chưa nối runtime không được cộng coverage.
 
-## 7. Phạm vi parity có kiểm soát
+## 6. Phạm vi và báo cáo
 
-- Critical path: Mainland Mandarin, giao diện tiếng Việt, HSK0-HSK4,
-  local-first web/PWA.
-- Functional parity nghĩa là tương đương về hành trình, loại hoạt động, review,
-  assessment, accessibility và độ sâu được đo; không phải clone pixel hay copy
-  curriculum/asset của ChineseSkill.
-- Taiwan Mandarin, Cantonese, native iOS/Android, commerce và hosted production
-  nằm ngoài 100 task trừ khi master plan hoặc người dùng chủ động mở rộng.
-- Không tuyên bố “đủ HSKx” hoặc “parity hoàn tất” nếu coverage chỉ là inventory,
-  còn task external/human/native/device chưa có evidence.
+Critical path là Mainland Mandarin, giao diện tiếng Việt, HSK0–HSK4 và
+local-first web/PWA. Taiwan Mandarin, Cantonese, native mobile, commerce và
+hosted production chỉ mở khi người dùng đổi phạm vi.
 
-## 8. Cách báo sau mỗi milestone
+Sau mỗi module, báo:
 
-Luôn ghi cả hai trục:
+- hành vi người học vừa dùng được và journey đã kiểm;
+- module nào đang `CHỜ TEST`, `ĐÃ DUYỆT` hoặc `CÒN LỖI`;
+- toàn bộ số HSK0–4 ở bảng bảo toàn nội dung;
+- external dependency còn thiếu như native review/audio, thiết bị, ASR/provider
+  hoặc credential thật.
 
-- **Legacy:** 96/100; HSK0 4/4 (rich 0/4), HSK1 40/40, HSK2 40/40,
-  HSK3 55/55, HSK4 78/78; rich HSK1-4 213/213, trừ khi migration thật sự làm
-  thay đổi số liệu.
-- **Reforge:** X/100 task `DONE`/được nghiệm thu, kèm ID task và bằng chứng người học nhìn
-  thấy/làm được.
-
-Nếu content count giảm do lỗi hoặc migration, phải báo thẳng, sửa regression và
-không giữ số cũ để làm đẹp tiến độ.
+Không dùng snapshot roadmap cũ hay số task làm phần trăm parity.

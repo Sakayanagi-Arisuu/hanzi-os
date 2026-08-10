@@ -32,7 +32,7 @@ describe("HSK0-4 local graduation candidate", () => {
       assessmentCalibrationEvidence: false,
       sitesVerified: false,
     });
-    expect(inputs.artifacts).toHaveLength(10);
+    expect(inputs.artifacts).toHaveLength(8);
     expect(contract.gates.map((gate: { id: string }) => gate.id)).toEqual([
       "technical-baseline",
       "browser-acceptance",

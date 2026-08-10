@@ -1,210 +1,119 @@
-# HANZI.OS — checkpoint hiện hành
+# HANZI.OS — Implementation checkpoint
 
-**Ngày chốt:** 10/08/2026
+**Cập nhật:** 10/08/2026
 
-**Baseline legacy Git:** `52cce0c` (`feat: hoàn thiện cổng danh tính và phòng luyện HSK`)
+**Cách làm:** từng module, người dùng test trước khi chuyển module
 
-**Trạng thái Reforge:** T001–T002 đã được nghiệm thu; T003 đang chụp baseline
-repo, dữ liệu và hành trình thật trước khi thay kiến trúc runtime.
+**Phạm vi:** Mainland Mandarin, chữ giản thể + Pinyin, UI tiếng Việt, HSK0–HSK4,
+local-first web/PWA
 
-Tài liệu này chỉ ghi **sự thật ở commit hiện tại**. Lịch sử chi tiết nằm trong
-Git, không tiếp tục nối nhật ký theo phiên vào đây.
+## 1. Quyết định hiện hành
 
-## 1. Hai hệ đo không được trộn lẫn
+Chủ dự án đã dừng cách tự chạy kế hoạch 100 task vì khó quan sát sản phẩm và dễ
+lệch mục tiêu qua các phiên dài. Từ checkpoint này:
 
-| Hệ đo | Trạng thái | Ý nghĩa |
-| --- | ---: | --- |
-| Legacy local milestone | **96/100** | Mức hoàn thiện theo roadmap cũ của bản local-first; không phải điểm UX, chất lượng sư phạm hay mức tương đương ChineseSkill |
-| Legacy M1-M5 | **97/100** | Mức hoàn thiện phạm vi identity, role, Studio, mock và release worker cũ |
-| Reforge parity | **2/100 task được nghiệm thu** | T001–T002 đã `ACCEPTED`; code cũ không tự động được tính |
+- không dùng số `X/100` làm tiến độ;
+- chỉ có một module sản phẩm được chỉnh tại một thời điểm;
+- sau mỗi module phải bật web, mô tả hành trình test ngắn và chờ người dùng duyệt;
+- ChineseSkill vẫn là benchmark tham khảo, không phải mẫu để sao chép;
+- tài liệu cũ đã được loại khỏi working tree, Git history là archive.
 
-Mốc 96/100 được giữ làm số liệu lịch sử có thể kiểm chứng. Từ đây về sau, không
-dùng nó để nói sản phẩm “gần hoàn thiện”. Chỉ task đáp ứng đầy đủ acceptance
-criteria trong `RESTRUCTURE_MASTER_PLAN.md` mới tăng tiến độ Reforge. Trạng thái
-`DONE` trong master plan có nghĩa task đã được nghiệm thu (`ACCEPTED`), không chỉ
-là đã viết xong code.
+Trạng thái module chỉ gồm:
 
-## 2. Nội dung đang hiện trên UI
+- `NOT-REVIEWED`: có code nhưng chưa được rà/test theo luồng mới;
+- `IN-REVIEW`: đang chỉnh hoặc đang chờ người dùng test;
+- `USER-ACCEPTED`: người dùng đã test và chấp nhận phiên bản hiện tại;
+- `BLOCKED`: thiếu dependency thật và có điều kiện mở khóa rõ.
 
-| Cấp | Bài learner-visible | Bài rich trên Lesson UI | Trạng thái |
-| --- | ---: | ---: | --- |
-| HSK0 | **4/4** | **0/4** | bridge nền tảng, chưa đạt độ sâu rich lesson |
-| HSK1 | **40/40** | **40/40** | đang chạy trong runtime |
-| HSK2 | **40/40** | **40/40** | đang chạy trong runtime |
-| HSK3 | **55/55** | **55/55** | đang chạy trong runtime |
-| HSK4 | **78/78** | **78/78** | đang chạy trong runtime |
-| HSK1-4 | **213/213** | **213/213** | đủ blueprint cũ, không đồng nghĩa đủ chiều sâu benchmark |
+## 2. Sổ module duy nhất
 
-Runtime hiện giao **217 bài** trong package `foundation-2026.08.5`: 4 bài HSK0
-và 213 bài HSK1-4. Inventory có **2.016 vocabulary ID** (2.000 mục syllabus và
-16 mục demo/bridge) cùng **1.096 chữ nhận dạng**. Các số này đo inventory và
-khả năng mở bài, không đo thời lượng học, số lượt luyện, chất lượng âm thanh,
-độ đa dạng bài tập hay mức thành thạo thực tế.
+| Module | Trạng thái | Hành trình cần test trước khi duyệt |
+|---|---|---|
+| Nền tảng repo và tài liệu | `IN-REVIEW` | Cấu trúc dễ hiểu, web local chạy, không mất content/migration |
+| Onboarding và shell điều hướng | `NOT-REVIEWED` | Người mới vào học; desktop/mobile; không chớp màn; tối đa 5 vùng rõ |
+| Học — lộ trình và bài học | `NOT-REVIEWED` | Mở bài, làm hoạt động, feedback, hoàn tất, reload/resume |
+| Ôn — FSRS và lỗi sai | `NOT-REVIEWED` | Thẻ đến hạn, reveal/rating, lỗi sai, reload không nhân đôi evidence |
+| Nói và phát âm | `NOT-REVIEWED` | Có/không microphone; disclosure TTS/ASR đúng; fallback dùng được |
+| Luyện chữ và handwriting | `NOT-REVIEWED` | Tra chữ theo ngữ cảnh; chỉ mở stroke có provenance; có IME escape hatch |
+| Reader, từ điển và mục đã lưu | `NOT-REVIEWED` | Đọc, tra, lưu, tạo deck; guest/account cùng trải nghiệm |
+| Tiến độ và Thất Trụ | `NOT-REVIEWED` | Coverage unique; mastery đúng kỹ năng; không dùng XP thay mastery |
+| Luyện đề và assessment | `NOT-REVIEWED` | Nguồn/cấu trúc rõ; không lộ đáp án; resume/submit/retry đúng |
+| Tài khoản và phân quyền | `NOT-REVIEWED` | Đăng ký/đăng nhập HANZI.OS; learner/editor/admin đúng màn hình |
+| Offline, backup và sync | `NOT-REVIEWED` | Offline shell; export/import; owner/reset/outbox không mất dữ liệu |
 
-Toàn bộ nội dung AI-assisted tiếp tục công bố `humanReviewed: false`. Không có
-chứng nhận native review, đề HSK chính thức hay bảo đảm đỗ HSK.
+Module tiếp theo do người dùng chọn sau khi test web; không tự mở nhiều module
+song song.
 
-## 3. Baseline kỹ thuật có thể tái sử dụng
+## 3. Inventory learner-visible cần bảo toàn
 
-- Ứng dụng web TypeScript/React local-first chạy trên modular monolith; dữ liệu
-  server local dùng D1/Drizzle, dữ liệu học có projection/version và cơ chế
-  offline recovery.
-- Curriculum graph, prerequisite, package/version, runtime adapter và shared
-  Lesson UI đang giao đủ các bài nêu trên.
-- Lesson, Reader, Review/FSRS, level check, mock practice, từ/chữ, tài khoản,
-  role, quản trị và Content Studio đã có implementation ở các mức khác nhau.
-- Learning attempt giữ content/schema version và idempotency; sync/cache có cơ
-  chế migration. Đây là ranh giới correctness phải bảo toàn khi thay shell.
-- Guest/local vẫn là luồng học chính. HANZI.OS account có thể đăng ký/đăng nhập
-  ở localhost. Google và Facebook có UI/callback/config nhưng **chưa được xác
-  nhận end-to-end trên môi trường public có credential thật**.
-- Cổng quản trị và Studio có authorization phía server. Chúng không phải bằng
-  chứng rằng trải nghiệm cho từng role đã được người dùng kiểm thử đầy đủ.
-- Hiện có bốn level check cũ và tám form mock A/B. Mỗi mock chỉ là bộ luyện 12
-  câu, không phải cấu trúc đầy đủ hay đề thật của các kỳ HSK gần đây.
+| Cấp | Bài learner-visible | Rich |
+|---|---:|---:|
+| HSK0 | 4/4 | 0/4 |
+| HSK1 | 40/40 | 40/40 |
+| HSK2 | 40/40 | 40/40 |
+| HSK3 | 55/55 | 55/55 |
+| HSK4 | 78/78 | 78/78 |
+| HSK1–4 | 213/213 | 213/213 |
 
-## 4. Vấn đề sản phẩm đã xác nhận
+Runtime package hiện hành là `foundation-2026.08.5`. Các package lịch sử vẫn là
+lineage/fixture/rollback nên không được xóa chỉ vì trùng dữ liệu. `content/` và
+`public/` đã được audit: chưa có tracked artifact nào đủ bằng chứng để xóa an
+toàn trong lượt cleanup này.
 
-1. Kiến trúc thông tin và từ vựng “hệ thống thức tỉnh” đang lấn át tác vụ học;
-   quá nhiều mục, trạng thái và thông báo làm người mới khó biết bước kế tiếp.
-2. Shell desktop-first, panel dày và hiệu ứng nền tạo cảm giác rối/giật; trạng
-   thái “đang khôi phục hành trình” có thể chớp qua trong lúc hydrate.
-3. Hành trình cốt lõi chưa được nghiệm thu như một chuỗi liền mạch:
-   onboarding → bài ngắn → giải thích → ôn tập → tiến bộ → bài tiếp theo.
-4. Inventory rộng nhưng mật độ hoạt động sư phạm, biến thể câu hỏi và độ lặp có
-   chủ đích chưa được đo ngang benchmark. `213/213` không chứng minh độ sâu.
-5. Thất Trụ có thể tăng nhanh vì mẫu evidence nhỏ. XP, số câu đúng và độ phủ
-   inventory chưa được tách rõ khỏi mastery dài hạn.
-6. Nhập Hanzi bằng bàn phím gây ma sát nếu người học chưa có IME; trợ lý
-   Pinyin→Hanzi hiện tại chưa thay thế một thiết kế bài tập nhập/chọn/viết phù
-   hợp từng cấp.
-7. Browser TTS chỉ hỗ trợ nghe/đọc. Chưa được dùng làm bằng chứng phát âm hoặc
-   nói; luồng tone/speech cần scoring, fallback và disclosure riêng.
-8. Thần Văn Lô đã mở catalog nhận dạng 1.096 chữ nhưng chưa tương đương một lộ
-   trình nét, bộ thủ, nhớ lại, viết và ôn tập có sư phạm.
-9. Mock 12 câu hiện tại không đáp ứng kỳ vọng mô phỏng kỳ thi. Không được lấy
-   đề có bản quyền trên mạng để lấp khoảng trống; phải dựa cấu trúc/mẫu công
-   khai hợp lệ và soạn item gốc.
-10. Chưa có vòng usability test độc lập đủ mạnh để tuyên bố UI dễ dùng hoặc sản
-    phẩm đạt functional/learning-depth parity với ChineseSkill.
+Các con số 2.016 vocabulary ID, 1.096 character-in-context và 332 grammar source
+row là inventory kỹ thuật/nguồn; không tự chứng minh mastery hay độ phủ sư phạm.
 
-## 5. Quyết định Reforge
+## 4. Trạng thái nền tảng hiện tại
 
-Mục tiêu mới là đạt **độ sâu chức năng và học tập có thể kiểm chứng** của luồng
-Mainland Mandarin trong ChineseSkill, giới hạn HSK0-HSK4 và giao diện tiếng
-Việt, bằng implementation và nội dung nguyên bản của HANZI.OS. “Hệ thống thức
-tỉnh hologram” là lớp thẩm mỹ/phản hồi, không phải một lớp thuật ngữ che khuất
-navigation hoặc nội dung học.
+- Web: Vinext/Next-style routes trong `app/`, learner runtime trong `src/`.
+- Guest progress: localStorage + IndexedDB, local-first.
+- Account server local: D1 qua Wrangler; migration bất biến tới `0020`, 21
+  migration và 39 app table trong restore rehearsal gần nhất.
+- Auth local: tài khoản HANZI.OS hoạt động; Google/Facebook fail-closed cho đến
+  khi có OAuth credential/public origin. Demo role: learner, editor, admin.
+- Local runtime: schema D1 đã dựng lại, ba demo account đã seed và dev server
+  đã smoke tại `http://localhost:3000` sau cleanup.
+- Content: browser TTS chỉ là fallback; native audio/human review/ASR calibrated/
+  AI provider vẫn là dependency riêng, không được tuyên bố đã có.
+- Hosting/production: tạm đóng; binding Sites cũ đã bị loại khỏi source tree.
 
-Đây không phải yêu cầu sao chép ChineseSkill. Không sao chép source code, UI,
-text bài học, câu hỏi, audio, video, hình ảnh, dữ liệu đóng hay asset thương
-mại. Benchmark chỉ cung cấp taxonomy chức năng, pattern hành trình và ngưỡng
-chất lượng để HANZI.OS tự thiết kế.
+## 5. Sự cố dữ liệu local trong cleanup 10/08/2026
 
-## 6. Freeze policy trong lúc tái cấu trúc
+Lệnh cleanup ban đầu đã xóa nhầm `.wrangler/` vì coi đó là cache. Thư mục này có
+D1 local (khoảng 4,27 MB, cập nhật trong ngày), nên tài khoản/role/dữ liệu server
+local tùy biến có thể đã mất nếu không có backup ngoài repo.
 
-- Không tiếp tục vá thẩm mỹ rời rạc trên shell cũ, trừ lỗi correctness, data
-  loss, security hoặc blocker trực tiếp của vertical slice đang chuyển đổi.
-- Không thêm menu, ẩn dụ hay dashboard mới trước khi information architecture
-  và design system Reforge được nghiệm thu.
-- Xây theo vertical slice sau feature boundary; chỉ chuyển route khi slice mới
-  đã đạt acceptance và có đường rollback/migration an toàn.
-- Tái sử dụng content inventory, stable ID, versioning, FSRS, local persistence,
-  authorization và pipeline đang có khi chúng qua contract test. Không refactor
-  chúng chỉ để đổi phong cách code.
-- Không xóa legacy consumer trước khi dùng `rg` xác nhận và có migration test.
-  Không làm mất progress local, attempt, review schedule hoặc account hiện có.
-- Không mở production/Sites/commerce/native app trong critical path. Giữ
-  `.openai/hosting.json` nguyên trạng đến khi người dùng chủ động mở deployment.
-- Giữ mobile, keyboard, touch target, contrast và `prefers-reduced-motion` như
-  acceptance bắt buộc; hiệu ứng chỉ xuất hiện khi phục vụ phản hồi học tập.
-- Không expose, unlock, recommend hoặc tính tiến độ từ nội dung chưa đạt
-  `UI-INTEGRATED` theo `CONTENT_DELIVERY_PLAYBOOK.md`.
+- Browser guest progress không nằm trong `.wrangler/`, nên không bị lệnh này xóa.
+- Không tìm thấy backup D1 rõ ràng trong workspace tại thời điểm audit.
+- Script cleanup đã được sửa fail-safe để **luôn giữ `.wrangler/`**.
+- Schema và ba demo account đã được dựng lại trước khi bàn giao web; dữ liệu
+  account local tùy biến không được tuyên bố khôi phục nếu không có backup.
 
-## 7. Sổ nghiệm thu Reforge
+Sự cố này phải được giữ trong checkpoint cho tới khi người dùng xác nhận không
+cần phục hồi thêm.
 
-### T001 — Hợp đồng sản phẩm Reforge — `DONE / ACCEPTED` (10/08/2026)
+## 6. Cleanup được phép và không được phép
 
-- **Đã thêm cho người học:** trang `/reforge`, mở được từ onboarding qua liên
-  kết “HANZI.OS dành cho ai?”, trình bày một north-star, đúng năm khu vực
-  **Học / Ôn / Nói / Luyện / Hồ sơ**, vòng Học/Hôm nay → bài ngắn → Ôn → Nói
-  hoặc Luyện → kết phiên và một CTA “Vào HANZI.OS”. Trang ghi rõ đây là đích
-  đang triển khai, không giả định Reforge đã hoàn tất.
-- **Hợp đồng dùng chung:** `src/product/reforgeProductContract.ts` là nguồn
-  canonical được trang giới thiệu tiêu thụ; `docs/PRODUCT_VISION.md` dùng cùng
-  persona, scope Mainland Mandarin giản thể/Pinyin HSK0–HSK4, local-first và
-  ranh giới không sao chép ChineseSkill.
-- **Review độc lập:** ba reviewer không tham gia triển khai cuối đều mô tả đúng
-  người học, năm khu vực, vòng học và giới hạn benchmark. Góp ý chung về nguy cơ
-  hiểu nhầm “đã hoàn tất” và AI/account bắt buộc đã được sửa bằng disclosure
-  trạng thái, lõi guest local đầy đủ và provider ngoài chỉ là tùy chọn. Usability
-  với người thật vẫn thuộc T011, không được suy ra từ review này.
-- **Evidence runtime:** production build xanh; contract Vitest 3/3; Playwright
-  `/reforge` 2/2 ở desktop và mobile 360 px với keyboard/reduced-motion; smoke
-  in-app browser ở 1280×720 và 360×800 xác nhận đúng 5 vùng, một CTA, không tràn
-  ngang, CTA cao 48 px và không có console warning/error. Bundle ceiling vẫn
-  trong gate ở **800.0 KiB**.
-- **Rủi ro dữ liệu/migration:** không đổi store, stable ID, progress, FSRS,
-  account hay content package; không cần migration/rollback dữ liệu.
-- **Nội dung UI không đổi:** HSK0 **4/4** (rich **0/4**), HSK1 **40/40**,
-  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1–4 **213/213**.
-- **Mốc tại nghiệm thu T001:** legacy local milestone **96/100** (snapshot lịch
-  sử); Reforge **1/100 task accepted**. T002 được ghi riêng ngay dưới đây.
+Được xóa khi đã chứng minh không có consumer:
 
-### T002 — Ma trận benchmark có nguồn — `DONE / ACCEPTED` (10/08/2026)
+- build/cache/log có thể tạo lại;
+- component/CSS/dependency mồ côi;
+- UI thử nghiệm đã bị chiến lược mới thay thế;
+- tài liệu stale có nội dung đã được source-of-truth mới thay thế.
 
-- **Đã thêm cho người học:** chưa thêm màn học mới. Roadmap nay chỉ được phép
-  xây năng lực có nguồn, ranh giới và tiêu chí quan sát được; không còn dùng cảm
-  giác “giống app đối chiếu” để thêm menu, nội dung hoặc lời hứa không kiểm chứng.
-- **Bằng chứng nghiên cứu:** sổ 13 nguồn có ID ổn định và ngày/giới hạn sử dụng.
-  Chỉ public web map được gắn `OBSERVED` sau khi đếm trực tiếp **75 topic node,
-  11 TestOut và Finish**; website/store/support được giữ ở `OFFICIAL_CLAIM`,
-  thuật toán/accuracy/coverage chưa đo ở `UNVERIFIED`, còn native app, course
-  ngoài Mainland và commerce/social được ghi `OUT_OF_SCOPE`.
-- **Traceability:** 18 capability canonical và 36 gap HANZI.OS đều nối ngược về
-  source/capability, task T001–T100 và acceptance cụ thể. Các mâu thuẫn về lộ
-  đáp án trước submit, handwriting không chấm, onboarding guest, role local so
-  với production, retention, custom deck và owner của quality threshold đã được
-  sửa ngay trong master plan thay vì để implementation tự diễn giải.
-- **Evidence contract:** Vitest 5/5 kiểm header/ID duy nhất, source kind phù hợp
-  classification, tham chiếu source/capability/task tồn tại, quality threshold
-  có owner T010 và cấm placeholder/claim “giống hệt”; typecheck và ESLint xanh.
-  Ba reviewer độc lập re-audit bản cuối đều `ACCEPTED`, không còn P0/P1.
-- **Rủi ro dữ liệu/migration:** không đổi runtime, store, content ID, progress,
-  FSRS hay account; không cần migration/rollback dữ liệu.
-- **Nội dung UI không đổi:** HSK0 **4/4** (rich **0/4**), HSK1 **40/40**,
-  HSK2 **40/40**, HSK3 **55/55**, HSK4 **78/78**; rich HSK1–4 **213/213**.
-- **Hai mốc:** legacy local milestone **96/100** (snapshot lịch sử); Reforge
-  **2/100 task accepted**. Task tích hợp đang làm: T003, baseline route,
-  component, package, store, API, role, consumer và hành trình học/ôn/khôi phục.
+Không xóa/di chuyển hàng loạt:
 
-## 8. Nguồn sự thật từ checkpoint này
+- `content/`, `public/`, `config/`, `drizzle/` và package lineage;
+- state/browser storage hay `.wrangler/`;
+- các cặp UI guest/account đang live trước khi có adapter + regression journey;
+- `docs/reports/` và `output/` của người dùng.
 
-Đọc theo thứ tự sau trước mỗi milestone Reforge:
+## 7. Điều kiện đóng lượt cleanup
 
-1. `AGENTS.md` — ranh giới bắt buộc của repo.
-2. `docs/PRODUCT_VISION.md` — north star, phạm vi parity và nguyên tắc UX.
-3. `docs/CHINESESKILL_BENCHMARK.md` — bằng chứng nghiên cứu, mức tin cậy và gap.
-4. `docs/RESTRUCTURE_MASTER_PLAN.md` — 100 task, dependency và acceptance.
-5. `docs/IMPLEMENTATION_CHECKPOINT.md` — baseline và tiến độ thực tế mới nhất.
-6. `docs/HSK4_GRADUATION_PLAN.md` — inventory legacy và migration contract.
-7. `docs/CONTENT_DELIVERY_PLAYBOOK.md` — chuẩn đưa nội dung lên UI.
-
-Nếu tài liệu cũ hoặc comment code mâu thuẫn, bộ nguồn trên và acceptance mới
-nhất được ưu tiên. `PRODUCTION_UPGRADE_PLAN.md` chỉ đọc khi người dùng chủ động
-mở lại production.
-
-## 9. Cách cập nhật checkpoint
-
-Mỗi milestone/commit Reforge phải ghi ngắn gọn:
-
-- task nào đã `DONE`/được nghiệm thu, task nào còn `IN_PROGRESS` hoặc `BLOCKED`;
-- người học nhìn thấy và làm được gì mới;
-- evidence UI/test nào chứng minh acceptance;
-- cả **legacy local milestone 96/100** và **Reforge X/100 accepted task**;
-- đủ các số content UI HSK0, HSK1, HSK2, HSK3, HSK4 và rich lesson;
-- migration/data risk còn lại và vertical slice tiếp theo.
-
-Không tăng tiến độ vì đã tạo draft, inventory, JSON, test, số dòng code hoặc UI
-chưa nối runtime. Không tuyên bố parity hoàn tất khi còn phụ thuộc credential,
-native/human review, nội dung được cấp phép hay kiểm thử thiết bị chưa thực hiện.
+- tài liệu không còn buộc phiên sau quay lại kế hoạch 100 task;
+- root/directory/module map rõ và không có link living-doc bị hỏng;
+- component/animation thử nghiệm đã chứng minh dead được loại bỏ;
+- targeted test, typecheck/build phù hợp xanh;
+- D1 local/schema/demo được dựng lại;
+- web chạy ở localhost và hành trình thật được smoke qua browser;
+- người dùng nhận URL và chọn module tiếp theo.

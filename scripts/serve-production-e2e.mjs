@@ -12,7 +12,7 @@ const workerPath = resolve(root, "dist/server/index.js");
 const host = process.env.E2E_HOST ?? "127.0.0.1";
 const port = Number.parseInt(process.env.E2E_PORT ?? "4173", 10);
 const readyNonce = process.env.E2E_READY_NONCE ?? "";
-const productionOrigin = "https://hanzi-os-awakening.sopping-oboists-13ts.chatgpt.site";
+const productionOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? `http://${host}:${port}`;
 const brotliCompress = promisify(brotliCompressCallback);
 const assetBufferCache = new Map();
 

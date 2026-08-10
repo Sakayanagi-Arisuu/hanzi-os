@@ -170,25 +170,29 @@ Chỉ được tuyên bố “hoàn thiện Reforge HSK0–HSK4” khi tất c�
 
 ### 7.5 Kế hoạch thực thi
 
-- **100/100 task** trong master plan được nghiệm thu bằng acceptance criteria;
-- mọi capability bắt buộc trong benchmark ở trạng thái Accepted, không còn
-  “đã code nhưng chưa thử”; mục Defer không được âm thầm tính vào hoàn thành.
+- toàn bộ module trong checkpoint được người dùng kiểm thử và xác nhận bằng
+  journey/acceptance quan sát được;
+- mỗi thời điểm chỉ mở một module chính; không chuyển module khi luồng đang kiểm
+  còn lỗi correctness, data-loss, accessibility hoặc UX chặn thao tác;
+- capability bắt buộc trong benchmark phải có runtime/UI evidence; “đã code
+  nhưng chưa thử” không được tính là hoàn thành.
 
 ## 8. Thước đo tiến độ mới
 
-Con số **96/100** trước đây chỉ đo mức hoàn thành của roadmap kỹ thuật cũ. Nó
-không đo khả năng tìm đường, chất lượng sư phạm, audio bản ngữ, độ đúng của chấm
-phát âm, hay mức người học dùng được. Vì vậy từ Reforge:
+Con số **96/100** trước đây chỉ đo roadmap kỹ thuật đã đóng. Nó không đo khả năng
+tìm đường, chất lượng sư phạm, audio bản ngữ, độ đúng của chấm phát âm hoặc mức
+người học dùng được. Vì vậy:
 
-- ghi “legacy roadmap: 96/100 — số lịch sử, không phải product parity”;
-- tiến độ chính là **task đã nghiệm thu / 100 task**;
+- không tiếp tục báo phần trăm/tổng task làm thước đo parity;
+- tiến độ chính là trạng thái module `CHỜ TEST`, `ĐÃ DUYỆT` hoặc `CÒN LỖI`, kèm
+  journey mà người dùng thật sự làm được;
 - luôn báo riêng nội dung UI theo HSK0, HSK1, HSK2, HSK3, HSK4;
-- báo thêm số lesson qua audit sâu, số item có activity thật, số capability đã
-  Accepted và kết quả usability gần nhất;
-- baseline Reforge là **chưa chấm** cho đến khi master plan khóa acceptance và
-  audit lại từng bằng chứng; không quy đổi code/test cũ thành phần trăm mới.
+- báo riêng lesson qua audit sâu, item có activity thật, capability đã kiểm và
+  kết quả usability gần nhất;
+- không quy đổi code, generated JSON, số test hoặc màn hình chưa nối runtime
+  thành tiến độ sản phẩm.
 
-## 9. Ngoài phạm vi 100 task
+## 9. Ngoài phạm vi local product hiện tại
 
 - khóa học Taiwan Mandarin, Cantonese, HSK5+ hoặc ngôn ngữ giao diện ngoài Việt;
 - sao chép giao diện, nội dung, media, API hoặc mô hình thương mại ChineseSkill;
@@ -197,5 +201,5 @@ phát âm, hay mức người học dùng được. Vì vậy từ Reforge:
 - tuyên bố “giọng bản ngữ”, “AI chấm phát âm chuẩn” hoặc “đề thi thật” khi chưa
   có nguồn, quyền sử dụng và kiểm định tương ứng.
 
-Các mục ngoài phạm vi chỉ được mở sau khi 100 task HSK0–HSK4 hoàn thành hoặc
-người dùng chủ động thay đổi tầm nhìn này.
+Các mục ngoài phạm vi chỉ được mở khi người dùng chủ động thay đổi tầm nhìn và
+module critical path hiện tại không bị bỏ dở để chạy theo tính năng mới.
