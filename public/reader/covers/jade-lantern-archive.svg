@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1080" role="img" aria-labelledby="title desc">
+  <title id="title">青灯书阁 · Thư Các Thanh Đăng</title>
+  <desc id="desc">Cánh cổng thư viện xanh ngọc trong bóng đêm với một ấn ký vàng đang mở.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#020b0c"/>
+      <stop offset="0.54" stop-color="#06201d"/>
+      <stop offset="1" stop-color="#04110f"/>
+    </linearGradient>
+    <radialGradient id="portal" cx="50%" cy="46%" r="48%">
+      <stop stop-color="#74ffe0" stop-opacity=".72"/>
+      <stop offset=".35" stop-color="#1ccaa7" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#02100e" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fff0a8"/>
+      <stop offset=".45" stop-color="#d7a94c"/>
+      <stop offset="1" stop-color="#76531e"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="18"/></filter>
+  </defs>
+  <rect width="720" height="1080" fill="url(#night)"/>
+  <circle cx="360" cy="460" r="310" fill="url(#portal)"/>
+  <path d="M106 916V302L360 112l254 190v614" fill="#03110f" stroke="#3fe0bd" stroke-opacity=".36" stroke-width="5"/>
+  <path d="M168 916V350L360 206l192 144v566" fill="none" stroke="#79ffe0" stroke-opacity=".55" stroke-width="7"/>
+  <path d="M248 916V430c0-74 50-134 112-134s112 60 112 134v486" fill="#071c19" stroke="#e2b75d" stroke-width="5"/>
+  <path d="M360 312v604M270 506h180M270 675h180" stroke="#5cf4d2" stroke-opacity=".28" stroke-width="3"/>
+  <ellipse cx="360" cy="912" rx="248" ry="44" fill="#50f4ce" opacity=".16" filter="url(#glow)"/>
+  <g transform="translate(360 420)">
+    <circle r="68" fill="#061714" stroke="url(#gold)" stroke-width="5"/>
+    <circle r="50" fill="none" stroke="#6df8d7" stroke-opacity=".38" stroke-width="2"/>
+    <path d="M0-39 34-20v40L0 39-34 20v-40Z" fill="none" stroke="url(#gold)" stroke-width="5"/>
+    <path d="M-18 0h36M0-18v36" stroke="#f3d37f" stroke-width="4"/>
+  </g>
+  <path d="M140 970h440" stroke="#d9ad55" stroke-opacity=".72" stroke-width="2"/>
+  <text x="360" y="820" text-anchor="middle" fill="#eafcf7" font-size="72" font-family="Noto Serif SC, serif" letter-spacing="12">青灯书阁</text>
+  <text x="360" y="872" text-anchor="middle" fill="#d7b464" font-size="22" font-family="Be Vietnam Pro, sans-serif" letter-spacing="5">THƯ CÁC THANH ĐĂNG</text>
+  <text x="360" y="1012" text-anchor="middle" fill="#76a99e" font-size="18" font-family="Be Vietnam Pro, sans-serif" letter-spacing="4">第一卷 · 失页之夜</text>
+</svg>

@@ -53,6 +53,7 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
 
 export const resolveSystemPageName = (pathname: string): SystemPageName => {
   if (pathname.startsWith("/exams")) return SYSTEM_PAGE_NAMES["/exams"]!;
+  if (pathname.startsWith("/reader")) return SYSTEM_PAGE_NAMES["/reader"]!;
   if (pathname.startsWith("/lesson/")) {
     return { code: "TRIAL-LIVE", title: "Thử Luyện Đang Tiến Hành", plain: "Bài học hiện tại" };
   }

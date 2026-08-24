@@ -18,6 +18,9 @@ const PathPage = lazy(async () => ({ default: (await import("./screens/PathPage"
 const ProfilePage = lazy(async () => ({ default: (await import("./screens/ProfilePage")).ProfilePage }));
 const PronunciationPage = lazy(async () => ({ default: (await import("./screens/PronunciationPage")).PronunciationPage }));
 const ReaderPage = lazy(async () => ({ default: (await import("./screens/ReaderPage")).ReaderPage }));
+const ReaderSeriesPage = lazy(async () => ({ default: (await import("./screens/ReaderSeriesPage")).ReaderSeriesPage }));
+const ReaderChapterPage = lazy(async () => ({ default: (await import("./screens/ReaderChapterPage")).ReaderChapterPage }));
+const ReaderChallengePage = lazy(async () => ({ default: (await import("./screens/ReaderChallengePage")).ReaderChallengePage }));
 const ReviewPage = lazy(async () => ({ default: (await import("./screens/ReviewPage")).ReviewPage }));
 
 export default function App() {
@@ -41,6 +44,9 @@ export default function App() {
           <Route path="/pronunciation" element={<PronunciationPage />} />
           <Route path="/characters" element={<CharactersPage />} />
           <Route path="/reader" element={<ReaderPage />} />
+          <Route path="/reader/series/:seriesId" element={<ReaderSeriesPage />} />
+          <Route path="/reader/series/:seriesId/chapter/:chapterId" element={<ReaderChapterPage />} />
+          <Route path="/reader/challenge" element={<ReaderChallengePage />} />
           <Route path="/dictionary" element={<DictionaryPage />} />
           <Route path="/analytics" element={<AnalyticsPage />} />
           <Route path="/profile" element={<ProfilePage />} />

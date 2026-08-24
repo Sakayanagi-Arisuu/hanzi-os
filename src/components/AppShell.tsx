@@ -53,6 +53,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   const rank = getInteractionRankProgress(state.xp);
   const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
+  const readerChapterRoute = /^\/reader\/series\/[^/]+\/chapter\/[^/]+$/u
+    .test(location.pathname);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [statusOpen, setStatusOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
@@ -248,8 +250,8 @@ export function AppShell({ children }: { children: ReactNode }) {
           </section>
         </div>
       )}
-      <SystemStatusHologram open={statusOpen} onClose={closeStatus} returnFocusRef={statusButtonRef} />
-      <SystemPromotionOverlay />
+      {!readerChapterRoute && <SystemStatusHologram open={statusOpen} onClose={closeStatus} returnFocusRef={statusButtonRef} />}
+      {!readerChapterRoute && <SystemPromotionOverlay />}
     </div>
   );
 }

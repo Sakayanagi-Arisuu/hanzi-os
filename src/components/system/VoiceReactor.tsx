@@ -1,4 +1,5 @@
 import { AudioLines, RadioTower, X } from "lucide-react";
+import { useLocation } from "react-router";
 import { useAudioEngine, type VoicePlaybackPhase } from "../../audio/AudioEngineProvider";
 
 type VoiceReactorProps = {
@@ -44,6 +45,8 @@ export function VoiceReactor({ sourceId, phase, label, compact = false, dismissi
 
 export function SystemVoiceBeacon() {
   const { playback } = useAudioEngine();
+  const location = useLocation();
+  if (location.pathname.startsWith("/reader")) return null;
   if (playback.phase === "idle") return null;
   return (
     <div className="system-voice-beacon">

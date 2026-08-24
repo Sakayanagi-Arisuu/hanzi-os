@@ -424,6 +424,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!hydrated) return;
     const awaken = () => {
+      if (window.location.pathname.startsWith("/reader")) return;
       if (bootedRef.current) return;
       bootedRef.current = true;
       suppressNextClickRef.current = true;
@@ -440,6 +441,7 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       window.setTimeout(() => { suppressNextClickRef.current = false; }, 250);
     };
     const interfaceClick = (event: MouseEvent) => {
+      if (window.location.pathname.startsWith("/reader")) return;
       if (suppressNextClickRef.current) return;
       const target = event.target instanceof Element ? event.target : null;
       const control = target?.closest<HTMLElement>('a[href], button:not([disabled]), [role="button"]');

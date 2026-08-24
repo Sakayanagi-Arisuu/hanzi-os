@@ -14,6 +14,7 @@ const authenticatedEntry = resolve(
   "screens/AuthenticatedReaderPage.tsx",
 );
 const readerRouterEntry = resolve(repositorySource, "screens/ReaderPage.tsx");
+const readerChallengeEntry = resolve(repositorySource, "screens/ReaderChallengePage.tsx");
 const authoritativeBank = realpathSync(resolve(
   repositorySource,
   "server/authoritativeReaderItemBank.ts",
@@ -41,14 +42,19 @@ const resolveTypeScriptImport = (owner: string, specifier: string) => {
 };
 
 describe("authenticated Reader client bundle boundary", () => {
-  it("loads local and authenticated Reader surfaces through separate chunks", () => {
+  it("keeps the public library independent and loads legacy challenge adapters through separate chunks", () => {
     const source = readFileSync(readerRouterEntry, "utf8");
     const specifiers = staticImports(source);
+    const challengeSource = readFileSync(readerChallengeEntry, "utf8");
+    const challengeSpecifiers = staticImports(challengeSource);
 
+    expect(specifiers).toContain("./ReaderLibraryPage");
     expect(specifiers).not.toContain("./LocalReaderPage");
     expect(specifiers).not.toContain("./AuthenticatedReaderPage");
-    expect(source).toContain('import("./LocalReaderPage")');
-    expect(source).toContain('import("./AuthenticatedReaderPage")');
+    expect(challengeSpecifiers).not.toContain("./LocalReaderPage");
+    expect(challengeSpecifiers).not.toContain("./AuthenticatedReaderPage");
+    expect(challengeSource).toContain('import("./LocalReaderPage")');
+    expect(challengeSource).toContain('import("./AuthenticatedReaderPage")');
   });
 
   it("does not import the public answer-bearing story bank in the authenticated surface", () => {

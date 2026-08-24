@@ -35,7 +35,7 @@ Trạng thái module chỉ gồm:
 | Ôn — FSRS và lỗi sai | `NOT-REVIEWED` | Thẻ đến hạn, reveal/rating, lỗi sai, reload không nhân đôi evidence |
 | Nói và phát âm | `NOT-REVIEWED` | Có/không microphone; disclosure TTS/ASR đúng; fallback dùng được |
 | Luyện chữ và handwriting | `NOT-REVIEWED` | Tra chữ theo ngữ cảnh; chỉ mở stroke có provenance; có IME escape hatch |
-| Reader, từ điển và mục đã lưu | `NOT-REVIEWED` | Đọc, tra, lưu, tạo deck; guest/account cùng trải nghiệm |
+| Reader, từ điển và mục đã lưu | `IN-REVIEW` | Đọc, tra Trung–Việt, lưu, tạo deck; guest/account cùng trải nghiệm |
 | Tiến độ và Thất Trụ | `NOT-REVIEWED` | Coverage unique; mastery đúng kỹ năng; không dùng XP thay mastery |
 | Luyện đề và assessment | `NOT-REVIEWED` | Nguồn/cấu trúc rõ; không lộ đáp án; resume/submit/retry đúng |
 | Tài khoản và phân quyền | `NOT-REVIEWED` | Đăng ký/đăng nhập HANZI.OS; learner/editor/admin đúng màn hình |
@@ -43,6 +43,39 @@ Trạng thái module chỉ gồm:
 
 Module tiếp theo do người dùng chọn sau khi test web; không tự mở nhiều module
 song song.
+
+### Vạn Quyển Các Mốc 1 đang chờ người dùng duyệt — 24/08/2026
+
+- `/reader` mở thẳng Thư Khố thay vì sheet/modal: 25 quyển nguyên bản đang khám
+  phá được, chia 8 nhóm tu tiên, trùng sinh, light novel, bí ẩn, khoa huyễn,
+  triết lý, võ hiệp và đời sống. Tìm kiếm/lọc nằm ngay trong trang; chọn bìa mở
+  mô tả và mục lục, rồi vào phiên đọc immersive để tra từ Trung–Việt.
+- `Thư Các Thanh Đăng` có 6 chương liên tục HSK2–3, mỗi chương 350–650 Hán tự;
+  24 quyển còn lại có một chương mở đầu đọc được. Toàn bộ là nội dung nguyên bản
+  AI-assisted, `humanReviewed:false`, không sao chép truyện, chương hay thương
+  hiệu đóng. Truyện `first-day` cùng stable ID vẫn tương thích qua deep link
+  nhưng đã ẩn khỏi trải nghiệm Thư Khố mới.
+- Tiến độ đọc local-first theo owner/generation/reset: vị trí đoạn, chế độ đọc,
+  completion, replay idempotent và adoption guest→account. Race khi khôi phục
+  chế độ đọc đã được khóa để observer không ghi đè dữ liệu trước khi scope sẵn
+  sàng. Lookup/TTS/Pinyin/bản dịch là hỗ trợ, không tạo mastery/evidence; lưu từ
+  cốt lõi dùng đúng một FSRS card hiện hành.
+- Rights manifest fail-closed đủ text/translation/image/audio/provenance/license.
+  Bìa chính là SVG code-native, 24 bìa thư mục là HTML/CSS code-native; browser
+  TTS chỉ là fallback opt-in và không autoplay trong mọi route `/reader`.
+- Evidence Reader: 15 test file/120 test unit+protocol+repository+outbox xanh;
+  E2E production 7/7 xanh cho guest/account, khám phá → mô tả/mục lục → đọc →
+  tra từ, lookup→FSRS, reload/offline, completion → chương sau → exit → replay,
+  focus/Escape/reduced-motion và viewport `1365×640`, `360×640`, `390×844`.
+  Browser smoke xác nhận không còn dialog khám phá hay tràn ngang. Content
+  precheck giữ HSK1–4 `40/40 + 40/40 + 55/55 + 78/78 = 213/213` rich.
+- `npm run check` vẫn dừng tại hai lỗi typecheck có sẵn ngoài Reader ở
+  `DashboardPage.tsx` (thiếu nhãn `dictionary`) và `PathPage.tsx` (`hsk0` chưa
+  nằm trong union đích). Production artifact build thành công; gate bundle hiện
+  hành dừng ở `880,5 KiB > 800 KiB` trên cây commit sạch; không sửa lan
+  module/budget trong mốc này.
+- Trạng thái giữ `IN-REVIEW`; chỉ chuyển `USER-ACCEPTED` sau khi chủ dự án test
+  web và xác nhận.
 
 ## 3. Inventory learner-visible cần bảo toàn
 
