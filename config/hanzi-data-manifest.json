@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "package": "hanzi-writer-data",
   "packageVersion": "2.0.1",
   "packageIntegrity": "sha512-nbQwM+MaryGoq7pBMIZLCd3lFq03nXuJuwku1+6UbjL58uU+9OULVcMkoNvNuJSoIV7f1bbPRfD4D/LQa5S7qg==",
@@ -9,5 +9,20 @@
   "upstreamRevision": "9d54d6bbba93023078628589ffbffff1edf91335",
   "license": "Arphic Public License",
   "licenseFileSha256": "sha256:5590533436c70f10f2f524ee61456238c290175c6662fbe1c700b5f038a6d328",
-  "characters": []
+  "inventory": {
+    "kind": "released-rich-lesson-characters",
+    "expectedCharacterCount": 1096,
+    "files": [
+      "content/runtime/hsk1-level-rich-lessons.json",
+      "content/runtime/hsk2-level-rich-lessons.json",
+      "content/runtime/hsk3-level-rich-lessons.json",
+      "content/runtime/hsk4-level-rich-lessons.json"
+    ]
+  },
+  "policy": {
+    "practiceOnly": true,
+    "masteryEligible": false,
+    "measurementEligible": false,
+    "humanReviewed": false
+  }
 }

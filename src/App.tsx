@@ -9,6 +9,7 @@ const Hsk2LevelCheckPage = lazy(async () => ({ default: (await import("./screens
 const Hsk3LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk3LevelCheckPage")).Hsk3LevelCheckPage }));
 const Hsk4LevelCheckPage = lazy(async () => ({ default: (await import("./screens/Hsk4LevelCheckPage")).Hsk4LevelCheckPage }));
 const CharactersPage = lazy(async () => ({ default: (await import("./screens/CharactersPage")).CharactersPage }));
+const CharacterForgeSessionPage = lazy(async () => ({ default: (await import("./screens/CharacterForgeSessionPage")).CharacterForgeSessionPage }));
 const DashboardPage = lazy(async () => ({ default: (await import("./screens/DashboardPage")).DashboardPage }));
 const DictionaryPage = lazy(async () => ({ default: (await import("./screens/DictionaryPage")).DictionaryPage }));
 const LessonPage = lazy(async () => ({ default: (await import("./screens/LessonPage")).LessonPage }));
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/dictionary" element={<DictionaryPage />} />
           <Route path="/analytics" element={<AnalyticsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/characters/session" element={<CharacterForgeSessionPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

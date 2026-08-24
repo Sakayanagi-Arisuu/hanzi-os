@@ -16,14 +16,33 @@ const outputRoot = resolve(root, "public/hanzi-data");
 const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
 
 if (
-  manifest.schemaVersion !== 1
+  manifest.schemaVersion !== 2
   || manifest.package !== "hanzi-writer-data"
-  || !Array.isArray(manifest.characters)
+  || manifest.inventory?.kind !== "released-rich-lesson-characters"
+  || !Array.isArray(manifest.inventory.files)
+  || manifest.policy?.practiceOnly !== true
+  || manifest.policy?.masteryEligible !== false
 ) {
   throw new Error("Invalid Hanzi data manifest");
 }
 
-const uniqueCharacters = [...new Set(manifest.characters)];
+const inventoryArtifacts = await Promise.all(manifest.inventory.files.map(async (file) => {
+  const artifact = JSON.parse(await readFile(resolve(root, file), "utf8"));
+  if (
+    artifact.state !== "authorized-for-personal-local-study"
+    || artifact.policy?.learnerVisibleForPersonalLocalStudy !== true
+    || !Array.isArray(artifact.lessons)
+  ) throw new Error(`Hanzi inventory source is not locally authorized: ${file}`);
+  return artifact;
+}));
+const uniqueCharacters = [...new Set(inventoryArtifacts.flatMap((artifact) =>
+  artifact.lessons.flatMap((lesson) =>
+    lesson.characters.flatMap((entry) => [...entry.hanzi]),
+  ),
+))].sort((left, right) => left.codePointAt(0) - right.codePointAt(0));
+if (uniqueCharacters.length !== manifest.inventory.expectedCharacterCount) {
+  throw new Error(`Expected ${manifest.inventory.expectedCharacterCount} released characters, got ${uniqueCharacters.length}`);
+}
 if (uniqueCharacters.some((character) => [...character].length !== 1)) {
   throw new Error("Every Hanzi data manifest entry must be one Unicode character");
 }
@@ -60,7 +79,8 @@ await writeFile(
     `License: ${manifest.license} (see ARPHICPL.TXT in this directory)`,
     `License file SHA-256: ${manifest.licenseFileSha256}`,
     "",
-    "Only the characters listed in config/hanzi-data-manifest.json are copied into the public build.",
+    `Inventory: ${manifest.inventory.kind} (${uniqueCharacters.length} characters)`,
+    "Stroke geometry is available for guided local practice only. It does not create mastery or measurement evidence.",
     "",
   ].join("\n"),
   "utf8",

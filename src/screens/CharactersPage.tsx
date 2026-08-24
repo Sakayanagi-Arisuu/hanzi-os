@@ -1,38 +1,69 @@
 import {
-  BookOpenText,
+  BookmarkCheck,
   ChevronRight,
-  Eye,
-  EyeOff,
+  Clock3,
+  Flame,
+  Layers3,
   PenTool,
   Search,
   ShieldCheck,
-  Volume2,
+  Sparkles,
+  Target,
+  X,
 } from "lucide-react";
-import { useMemo, useState } from "react";
-import { Link } from "react-router";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
+import {
+  createCharacterForgeSession,
+  getUniqueReleasedCharacterEntries,
+  parseCharacterForgeSession,
+  serializeCharacterForgeSession,
+  type CharacterForgeSource,
+} from "../characters/characterForgeSession";
+import { LESSON_BY_ID, RELEASED_VOCABULARY, RELEASED_WORD_BY_ID } from "../data/curriculum";
 import {
   RELEASED_CHARACTER_PRACTICE,
   type ReleasedCharacterPracticeEntry,
 } from "../learning/richLessonContent";
+import {
+  CHARACTER_FORGE_SESSION_STORAGE_KEY,
+  readLocalStorage,
+  writeLocalStorage,
+} from "../lib/storageKeys";
 import { stripPinyinMarks } from "../lib/pinyin";
-import { speakMandarin } from "../lib/speech";
+import { useLearning } from "../store/LearningStore";
 import "./CharactersPage.css";
 
 const levels = ["all", "hsk1", "hsk2", "hsk3", "hsk4"] as const;
 type CharacterLevel = typeof levels[number];
 
-const levelLabel = (level: CharacterLevel) => level === "all"
-  ? "Tất cả"
-  : level.toUpperCase();
+const levelLabel = (level: CharacterLevel) => level === "all" ? "Tất cả" : level.toUpperCase();
 
-const uniqueCharacters = (() => {
-  const seen = new Set<string>();
-  return RELEASED_CHARACTER_PRACTICE.filter((item) => {
-    if (seen.has(item.hanzi)) return false;
-    seen.add(item.hanzi);
-    return true;
-  });
-})();
+export const UNIQUE_RELEASED_CHARACTERS = getUniqueReleasedCharacterEntries(RELEASED_CHARACTER_PRACTICE);
+
+const vocabularyBySimplified = new Map(RELEASED_VOCABULARY.map((word) => [word.simplified, word]));
+
+export const getCharacterScriptPresentation = (
+  item: ReleasedCharacterPracticeEntry,
+  script: "simplified" | "traditional",
+) => {
+  const word = vocabularyBySimplified.get(item.contextWord);
+  if (script !== "traditional" || !word) return {
+    displayHanzi: item.hanzi,
+    displayContextWord: item.contextWord,
+    paired: false,
+  };
+  const simplifiedCharacters = [...word.simplified];
+  const traditionalCharacters = [...word.traditional];
+  const characterIndex = simplifiedCharacters.indexOf(item.hanzi);
+  return {
+    displayHanzi: characterIndex >= 0 && simplifiedCharacters.length === traditionalCharacters.length
+      ? traditionalCharacters[characterIndex] ?? item.hanzi
+      : item.hanzi,
+    displayContextWord: word.traditional,
+    paired: word.traditional !== word.simplified,
+  };
+};
 
 export const characterEntryMatchesQuery = (
   item: ReleasedCharacterPracticeEntry,
@@ -44,6 +75,8 @@ export const characterEntryMatchesQuery = (
   return [
     item.hanzi,
     item.contextWord,
+    vocabularyBySimplified.get(item.contextWord)?.traditional ?? "",
+    item.meaningVi,
     item.contextMeaningVi,
   ].some((value) => value.toLocaleLowerCase("vi").includes(normalized))
     || Boolean(pinyinQuery && [item.pinyin, item.contextPinyin].some((value) =>
@@ -51,163 +84,214 @@ export const characterEntryMatchesQuery = (
     ));
 };
 
+export const legacyCharacterRequestToSession = ({
+  character,
+  lessonId,
+}: {
+  character: string;
+  lessonId: string | null;
+}) => createCharacterForgeSession({
+  entries: RELEASED_CHARACTER_PRACTICE,
+  lessonId,
+  requestedHanzis: [character],
+  source: "legacy",
+  limit: lessonId ? 5 : 1,
+});
+
 export function CharactersPage() {
+  const { state } = useLearning();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const requested = useMemo(() => new URLSearchParams(location.search), [location.search]);
+  const requestedCharacter = requested.get("char") ?? "";
+  const requestedLessonId = requested.get("lesson");
+  const requestedLesson = requestedLessonId ? LESSON_BY_ID.get(requestedLessonId) ?? null : null;
   const [query, setQuery] = useState("");
   const [level, setLevel] = useState<CharacterLevel>("all");
-  const [selectedHanzi, setSelectedHanzi] = useState(
-    uniqueCharacters[0]?.hanzi ?? "",
-  );
-  const [revealed, setRevealed] = useState(true);
-  const [visibleCount, setVisibleCount] = useState(120);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [selectedHanzis, setSelectedHanzis] = useState<string[]>([]);
+  const [resume, setResume] = useState(() => parseCharacterForgeSession(readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)));
+
   const counts = useMemo(() => Object.fromEntries(levels.map((item) => [
     item,
     item === "all"
-      ? uniqueCharacters.length
-      : uniqueCharacters.filter((character) => character.level === item).length,
+      ? UNIQUE_RELEASED_CHARACTERS.length
+      : UNIQUE_RELEASED_CHARACTERS.filter((entry) => entry.level === item).length,
   ])) as Record<CharacterLevel, number>, []);
-  const filtered = useMemo(() => {
-    return uniqueCharacters.filter((item) =>
-      (level === "all" || item.level === level)
-      && characterEntryMatchesQuery(item, query)
-    );
-  }, [level, query]);
-  const selected = filtered.find((item) => item.hanzi === selectedHanzi)
-    ?? filtered[0]
-    ?? null;
+  const filtered = useMemo(() => UNIQUE_RELEASED_CHARACTERS.filter((entry) =>
+    (level === "all" || entry.level === level)
+    && characterEntryMatchesQuery(entry, query)
+  ), [level, query]);
+  const lessonEntries = useMemo(() => requestedLessonId
+    ? (() => {
+        const direct = getUniqueReleasedCharacterEntries(RELEASED_CHARACTER_PRACTICE.filter((entry) => entry.lessonId === requestedLessonId));
+        if (direct.length || !requestedLesson) return direct;
+        const lessonHanzis = new Set(requestedLesson.wordIds.flatMap((wordId) => [...(RELEASED_WORD_BY_ID.get(wordId)?.simplified ?? "")]));
+        return UNIQUE_RELEASED_CHARACTERS.filter((entry) => lessonHanzis.has(entry.hanzi));
+      })()
+    : [], [requestedLesson, requestedLessonId]);
 
-  const choose = (item: ReleasedCharacterPracticeEntry) => {
-    setSelectedHanzi(item.hanzi);
-    setRevealed(false);
+  const troubledHanzis = useMemo(() => {
+    const evidence = new Set<string>();
+    for (const mistake of state.mistakes.filter((item) => !item.resolved)) {
+      const word = mistake.wordId ? RELEASED_WORD_BY_ID.get(mistake.wordId)?.simplified : null;
+      const haystack = `${word ?? ""}${mistake.prompt}${mistake.correctAnswer}`;
+      UNIQUE_RELEASED_CHARACTERS.forEach((entry) => {
+        if (haystack.includes(entry.hanzi)) evidence.add(entry.hanzi);
+      });
+    }
+    for (const wordId of state.savedWords) {
+      const word = RELEASED_WORD_BY_ID.get(wordId)?.simplified;
+      if (!word) continue;
+      UNIQUE_RELEASED_CHARACTERS.forEach((entry) => {
+        if (word.includes(entry.hanzi)) evidence.add(entry.hanzi);
+      });
+    }
+    return [...evidence].slice(0, 5);
+  }, [state.mistakes, state.savedWords]);
+
+  useEffect(() => {
+    if (!requestedCharacter) return;
+    const legacySession = legacyCharacterRequestToSession({
+      character: requestedCharacter,
+      lessonId: requestedLesson?.id ?? null,
+    });
+    if (!legacySession) return;
+    writeLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY, serializeCharacterForgeSession(legacySession));
+    navigate(`/characters/session?source=legacy&char=${encodeURIComponent(requestedCharacter)}${requestedLesson ? `&lesson=${encodeURIComponent(requestedLesson.id)}` : ""}`, { replace: true });
+  }, [navigate, requestedCharacter, requestedLesson]);
+
+  useEffect(() => {
+    if (!pickerOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setPickerOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [pickerOpen]);
+
+  const startSession = ({
+    source,
+    lessonId = null,
+    requestedHanzis = [],
+    limit = 4,
+  }: {
+    source: CharacterForgeSource;
+    lessonId?: string | null;
+    requestedHanzis?: readonly string[];
+    limit?: number;
+  }) => {
+    const session = createCharacterForgeSession({
+      entries: RELEASED_CHARACTER_PRACTICE,
+      source,
+      lessonId,
+      requestedHanzis,
+      limit,
+      offset: new Date().getDate(),
+    });
+    if (!session) return;
+    writeLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY, serializeCharacterForgeSession(session));
+    setResume(session);
+    navigate(`/characters/session?source=${source}${lessonId ? `&lesson=${encodeURIComponent(lessonId)}` : ""}`);
   };
 
-  return (
-    <div className="character-forge-page">
-      <header className="character-forge-hero">
-        <div>
-          <span className="system-kicker"><PenTool size={15} /> THẦN VĂN LÔ · KHO NHẬN DIỆN</span>
-          <h1>Nhận diện 1.096 Hán tự trong từ</h1>
-          <p>Tìm một chữ, xem chữ ấy trong từ nào, nghe cả từ rồi trở về đúng bài học có ngữ cảnh. Đây là kho nhận diện trong ngữ cảnh, không phải từ điển âm-nghĩa độc lập hay dữ liệu thứ tự nét.</p>
-        </div>
-        <div className="character-forge-count">
-          <strong>{uniqueCharacters.length.toLocaleString("vi-VN")}</strong>
-          <span>ký tự có ví dụ từ</span>
-        </div>
-      </header>
+  const hasActiveResume = Boolean(resume && resume.phase !== "result");
+  const primary = requestedLesson && lessonEntries.length
+    ? {
+        label: `Tiếp tục từ “${requestedLesson.title}”`,
+        detail: `${lessonEntries.length} chữ trong đúng ngữ cảnh bài`,
+        action: () => startSession({ source: "lesson", lessonId: requestedLesson.id, requestedHanzis: lessonEntries.map((entry) => entry.hanzi), limit: 5 }),
+      }
+    : hasActiveResume && resume
+      ? {
+          label: "Tiếp tục phiên đang dở",
+          detail: `Chữ ${resume.currentIndex + 1}/${resume.hanzis.length} · tiến độ đã lưu trên thiết bị`,
+          action: () => navigate("/characters/session?resume=1"),
+        }
+      : {
+          label: "Tôi luyện nhanh 4 chữ",
+          detail: "Một vòng ngắn: nhìn cấu trúc, dự đoán nét, viết và kích hoạt",
+          action: () => startSession({ source: "quick", limit: 4 }),
+        };
 
-      <section className="character-forge-toolbar" aria-label="Lọc kho Hán tự">
-        <label>
-          <Search size={18} />
-          <span className="sr-only">Tìm Hán tự</span>
-          <input
-            value={query}
-            placeholder="Tìm chữ, pinyin hoặc nghĩa Việt..."
-            onChange={(event) => {
-              setQuery(event.target.value);
-              setVisibleCount(120);
-            }}
-          />
-        </label>
-        <div role="group" aria-label="Cấp độ HSK">
-          {levels.map((item) => (
-            <button
-              className={level === item ? "active" : ""}
-              key={item}
-              type="button"
-              aria-pressed={level === item}
-              onClick={() => {
-                setLevel(item);
-                setVisibleCount(120);
-              }}
-            >
-              {levelLabel(item)} <small>{counts[item]}</small>
-            </button>
-          ))}
+  return (
+    <div className="forge-lobby">
+      <section className="forge-lobby-hero" aria-labelledby="forge-lobby-title">
+        <div className="forge-lobby-copy">
+          <span className="forge-kicker"><PenTool /> THẦN VĂN LÔ · LÒ TÔI LUYỆN HÌNH THỂ</span>
+          <h1 id="forge-lobby-title">Hiểu cấu trúc. Viết từ trí nhớ.</h1>
+          <p>Một phiên ngắn giúp bạn nhìn rõ từng phần, đoán hướng nét và dùng lại chữ trong từ thật.</p>
+          <button className="forge-primary-summon" type="button" onClick={primary.action}>
+            <span><Sparkles /><strong>{primary.label}</strong><small>{primary.detail}</small></span>
+            <ChevronRight />
+          </button>
+          <div className="forge-lobby-bridges">
+            <span><ShieldCheck /> {UNIQUE_RELEASED_CHARACTERS.length.toLocaleString("vi-VN")} chữ có hình học nét đã phát hành</span>
+            <Link to="/dictionary">Cần tra một từ? Sang Tàng Tự Khố <ChevronRight /></Link>
+          </div>
         </div>
-        <p className="character-level-note">Mỗi cấp ghi lần đầu chữ xuất hiện trong lộ trình; không phải tổng tích lũy của cấp.</p>
+        <div className="forge-core" aria-hidden="true">
+          <i className="forge-core-ring is-outer" />
+          <i className="forge-core-ring is-middle" />
+          <i className="forge-core-ring is-inner" />
+          <span>{lessonEntries[0]?.hanzi ?? resume?.hanzis[resume.currentIndex] ?? "文"}</span>
+          <b>形</b><b>音</b><b>用</b>
+        </div>
       </section>
 
-      <div className="character-forge-layout">
-        <section
-          className="character-glyph-grid"
-          aria-label={`${filtered.length} Hán tự phù hợp`}
-        >
-          {filtered.slice(0, visibleCount).map((item) => (
-            <button
-              className={selected?.hanzi === item.hanzi ? "active" : ""}
-              key={`${item.level}:${item.hanzi}`}
-              type="button"
-              onClick={() => choose(item)}
-              aria-label={`Chữ ${item.hanzi} trong từ ${item.contextWord}, ${item.contextPinyin}`}
-              aria-pressed={selected?.hanzi === item.hanzi}
-            >
-              <strong>{item.hanzi}</strong><small>{item.contextWord}</small>
-            </button>
-          ))}
-          {filtered.length === 0 && (
-            <p className="character-empty">Không tìm thấy chữ phù hợp.</p>
-          )}
-          {visibleCount < filtered.length && (
-            <button
-              className="character-load-more"
-              type="button"
-              onClick={() => setVisibleCount((count) => count + 120)}
-            >
-              Xem thêm {Math.min(120, filtered.length - visibleCount)} chữ
-            </button>
-          )}
-        </section>
+      <section className="forge-pathways" aria-label="Chọn nguồn phiên tôi luyện">
+        <button type="button" onClick={() => startSession({ source: "quick", requestedHanzis: troubledHanzis, limit: Math.max(3, troubledHanzis.length) })} disabled={troubledHanzis.length === 0}>
+          <span><Target /></span>
+          <div><small>ƯU TIÊN BẰNG CHỨNG</small><strong>Chữ đang vướng</strong><p>{troubledHanzis.length ? `${troubledHanzis.join(" · ")} từ lỗi hoặc mục đã lưu` : "Chưa có lỗi hình thể phù hợp; mục này sẽ mở khi có bằng chứng."}</p></div>
+          <ChevronRight />
+        </button>
+        <button type="button" onClick={() => startSession({ source: "quick", limit: 4 })}>
+          <span><Flame /></span>
+          <div><small>3–5 CHỮ · KHOẢNG 8 PHÚT</small><strong>Tôi luyện nhanh</strong><p>Hệ thống chọn một vòng gọn từ kho đã phát hành.</p></div>
+          <ChevronRight />
+        </button>
+        <button type="button" onClick={() => setPickerOpen(true)}>
+          <span><Layers3 /></span>
+          <div><small>TÌM · LỌC · CHỌN TỐI ĐA 5</small><strong>Tự chọn chữ</strong><p>Mở kho chữ trong một bảng chọn riêng, không chen cạnh bàn viết.</p></div>
+          <ChevronRight />
+        </button>
+      </section>
 
-        <aside className="character-focus-card">
-          {selected ? (
-            <>
-              <div className="character-focus-live" aria-live="polite">
-                <span>{selected.level.toUpperCase()} · NHẬN DIỆN TRONG NGỮ CẢNH</span>
-                <div className="character-main-glyph">{selected.hanzi}</div>
-                {revealed ? (
-                  <div className="character-reveal">
-                    <strong>Chữ {selected.hanzi} trong từ</strong>
-                    <h2>{selected.contextWord}</h2>
-                    <p>{selected.contextPinyin}</p>
-                    <small>{selected.contextMeaningVi}</small>
-                  </div>
-                ) : (
-                  <div className="character-recall-prompt">
-                    <EyeOff size={22} />
-                    <strong>Tự nhớ từ chứa chữ này trước khi lật thẻ</strong>
-                    <small>Không ghi bằng chứng thành thạo ở lượt tự kiểm này.</small>
-                  </div>
-                )}
-              </div>
-              <button
-                className="character-sound"
-                type="button"
-                onClick={() => speakMandarin(selected.contextWord)}
-                aria-label={`Nghe từ ${selected.contextWord}`}
-              >
-                <Volume2 size={20} />
-              </button>
-              <div className="character-focus-actions">
-                <button type="button" onClick={() => setRevealed((value) => !value)}>
-                  {revealed ? <EyeOff size={17} /> : <Eye size={17} />}
-                  {revealed ? "Ẩn để tự kiểm" : "Hiện từ và nghĩa"}
-                </button>
-                <Link to={`/lesson/${encodeURIComponent(selected.lessonId)}`}>
-                  <BookOpenText size={17} /> Học trong bài <ChevronRight size={16} />
-                </Link>
-              </div>
-              <p className="character-provenance-note">
-                <ShieldCheck size={15} /> Luyện thứ tự nét sẽ mở riêng khi dữ liệu nét vượt cổng nguồn và bản quyền.
-              </p>
-            </>
-          ) : (
-            <div className="character-focus-empty" role="status">
-              <Search size={24} />
-              <strong>Không có mục để hiển thị</strong>
-              <small>Đổi từ khóa hoặc cấp HSK để tiếp tục.</small>
+      {(resume || requestedLesson) && (
+        <section className="forge-recent-thread" aria-label="Mạch luyện gần đây">
+          <div><Clock3 /><span><small>MẠCH GẦN NHẤT</small><strong>{requestedLesson ? requestedLesson.title : "Phiên tự chọn trên thiết bị"}</strong></span></div>
+          <div className="forge-mini-glyphs">{(resume?.hanzis ?? lessonEntries.map((entry) => entry.hanzi)).slice(0, 5).map((hanzi) => <span key={hanzi}>{hanzi}</span>)}</div>
+          {resume?.phase === "result"
+            ? <button type="button" onClick={() => startSession({ source: resume.source, lessonId: resume.lessonId, requestedHanzis: resume.needsReplay.length ? resume.needsReplay : resume.hanzis, limit: Math.max(3, resume.hanzis.length) })}>Luyện lại mạch này</button>
+            : resume && <button type="button" onClick={() => navigate("/characters/session?resume=1")}>Tiếp tục</button>}
+        </section>
+      )}
+
+      {pickerOpen && (
+        <div className="forge-picker-scrim" role="presentation" onMouseDown={() => setPickerOpen(false)}>
+          <section className="forge-picker" role="dialog" aria-modal="true" aria-labelledby="forge-picker-title" onMouseDown={(event) => event.stopPropagation()}>
+            <header>
+              <div><small>TỰ CHỌN PHÔI CHỮ</small><h2 id="forge-picker-title">Chọn 3–5 chữ cho một phiên</h2></div>
+              <button type="button" onClick={() => setPickerOpen(false)} aria-label="Đóng kho chọn chữ"><X /></button>
+            </header>
+            <div className="forge-picker-tools">
+              <label><Search /><span className="sr-only">Tìm Hán tự</span><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Tìm chữ, pinyin hoặc nghĩa Việt…" /></label>
+              <div role="group" aria-label="Lọc cấp HSK">{levels.map((item) => <button key={item} type="button" aria-pressed={level === item} onClick={() => setLevel(item)}>{levelLabel(item)} <small>{counts[item]}</small></button>)}</div>
             </div>
-          )}
-        </aside>
-      </div>
+            <div className="forge-picker-grid" aria-label={`${filtered.length} Hán tự phù hợp`}>
+              {filtered.slice(0, 240).map((entry) => {
+                const presentation = getCharacterScriptPresentation(entry, state.profile.script);
+                const selected = selectedHanzis.includes(entry.hanzi);
+                return <button key={entry.id} type="button" aria-pressed={selected} disabled={!selected && selectedHanzis.length >= 5} onClick={() => setSelectedHanzis((current) => current.includes(entry.hanzi) ? current.filter((hanzi) => hanzi !== entry.hanzi) : [...current, entry.hanzi])}><strong>{presentation.displayHanzi}</strong><span>{entry.pinyin}</span><small>{entry.meaningVi}</small>{selected && <BookmarkCheck />}</button>;
+              })}
+            </div>
+            <footer>
+              <p><strong>{selectedHanzis.length}/5 chữ</strong><span>{selectedHanzis.length < 3 ? `Chọn thêm ${3 - selectedHanzis.length} chữ` : "Phiên đã sẵn sàng"}</span></p>
+              <button type="button" disabled={selectedHanzis.length < 3} onClick={() => startSession({ source: "custom", requestedHanzis: selectedHanzis, limit: selectedHanzis.length })}>Khai lò với {selectedHanzis.length} chữ <ChevronRight /></button>
+            </footer>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
