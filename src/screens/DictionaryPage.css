@@ -1,0 +1,235 @@
+.dictionary-scope-switch {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.dictionary-scope-switch > span,
+.dictionary-scope-switch > a {
+  min-height: 44px;
+  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #92aca4;
+  background: rgba(4, 18, 14, 0.84);
+  border: 1px solid #23483e;
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.dictionary-scope-switch > a:hover,
+.dictionary-scope-switch > a:focus-visible {
+  color: #06110e;
+  background: var(--jade);
+  border-color: var(--jade);
+  outline: none;
+}
+
+.dictionary-corpus-state {
+  min-height: 44px;
+  margin-bottom: 10px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cyan);
+  background: rgba(85, 217, 255, 0.06);
+  border: 1px solid rgba(85, 217, 255, 0.2);
+  font-size: 10px;
+}
+
+.dictionary-corpus-state.error {
+  color: #f3c969;
+  background: rgba(243, 201, 105, 0.06);
+  border-color: rgba(243, 201, 105, 0.24);
+}
+
+.dictionary-lesson-context {
+  min-height: 70px;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  color: var(--cyan);
+  background: linear-gradient(90deg, rgba(85, 217, 255, 0.1), rgba(4, 18, 15, 0.95));
+  border: 1px solid rgba(85, 217, 255, 0.35);
+}
+
+.dictionary-lesson-context > div {
+  min-width: 0;
+  display: grid;
+}
+
+.dictionary-lesson-context span {
+  color: var(--gold);
+  font: 800 8px var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.dictionary-lesson-context strong { color: #ecf8f4; font-size: 14px; }
+.dictionary-lesson-context small { color: #78968d; font-size: 9px; }
+
+.dictionary-lesson-context button {
+  min-height: 44px;
+  padding: 0 14px;
+  color: #03100c;
+  background: var(--cyan);
+  border: 1px solid var(--cyan);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.dictionary-result-list > button > em {
+  color: var(--cyan);
+  font: 800 8px var(--mono);
+  font-style: normal;
+  letter-spacing: 0.06em;
+}
+
+.dictionary-result-list .dictionary-load-more {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan);
+  border-color: rgba(85, 217, 255, 0.3);
+  font-weight: 800;
+}
+
+.dictionary-entry .entry-meaning h2 {
+  margin-bottom: 8px;
+  color: var(--jade);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dictionary-entry .entry-meaning ol {
+  margin: 0;
+  padding-left: 26px;
+  display: grid;
+  gap: 7px;
+  color: #e2f0ec;
+}
+
+.dictionary-entry .entry-meaning li {
+  padding-left: 3px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.entry-classifiers,
+.entry-reference-note {
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: var(--gold);
+  background: rgba(243, 201, 105, 0.06);
+  border: 1px solid rgba(243, 201, 105, 0.25);
+}
+
+.entry-classifiers > span,
+.entry-reference-note > span { display: grid; gap: 4px; }
+.entry-classifiers small,
+.entry-reference-note small { color: #9b8755; font-size: 9px; line-height: 1.5; }
+.entry-classifiers strong,
+.entry-reference-note strong { color: #f6e4ae; font-size: 11px; }
+
+.dictionary-character-links,
+.dictionary-related-words { display: grid; gap: 8px; }
+
+.dictionary-character-links > span,
+.dictionary-related-words > span {
+  color: var(--cyan);
+  font: 800 8px var(--mono);
+  letter-spacing: 0.1em;
+}
+
+.dictionary-character-links > div { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.dictionary-character-links a {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  color: #effbf7;
+  background: #08231b;
+  border: 1px solid #2e5b4d;
+  font: 500 25px "Noto Sans SC", sans-serif;
+  text-decoration: none;
+}
+
+.dictionary-character-links a:hover,
+.dictionary-character-links a:focus-visible {
+  color: #04110d;
+  background: var(--jade);
+  border-color: var(--jade);
+  outline: none;
+}
+
+.dictionary-related-words > div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.dictionary-related-words button {
+  min-height: 52px;
+  padding: 7px 9px;
+  display: grid;
+  gap: 2px;
+  color: #e1efeb;
+  background: #071b15;
+  border: 1px solid #234a3f;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dictionary-related-words button strong { font: 600 17px "Noto Sans SC", sans-serif; }
+.dictionary-related-words button small { color: #78968d; font-size: 9px; line-height: 1.4; }
+
+.dictionary-source-details {
+  color: #839f97;
+  background: rgba(3, 14, 11, 0.72);
+  border: 1px solid #1d3d34;
+}
+
+.dictionary-source-details summary {
+  min-height: 44px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  color: #a7c1b9;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.dictionary-source-details p {
+  margin: 0;
+  padding: 0 12px 12px;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.dictionary-entry .save-word-button[aria-label] {
+  cursor: default;
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  .dictionary-lesson-context { grid-template-columns: 24px minmax(0, 1fr); }
+  .dictionary-lesson-context button { grid-column: 1 / -1; width: 100%; }
+  .dictionary-related-words > div { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dictionary-scope-switch > a,
+  .dictionary-character-links a,
+  .dictionary-related-words button { transition: none; }
+}

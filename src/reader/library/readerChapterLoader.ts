@@ -1,6 +1,7 @@
 import type { ReaderChapter } from "./readerContentModel";
 import { readerChapterIdentity } from "./readerContentModel";
 import { READER_SERIES_BY_ID } from "./readerManifest";
+import { loadEditorialReaderChapter } from "./editorialReaderClient";
 
 type ChapterModule = { default: ReaderChapter };
 type ChapterLoader = () => Promise<ChapterModule>;
@@ -23,6 +24,8 @@ const ascensionShelf = () => import("./chapters/reader-shelf-ascension");
 const wonderShelf = () => import("./chapters/reader-shelf-wonder");
 const horizonsShelf = () => import("./chapters/reader-shelf-horizons");
 const reflectionsShelf = () => import("./chapters/reader-shelf-reflections");
+const continuationShelf = () => import("./chapters/reader-shelf-continuations");
+const expandedChronicles = () => import("./chapters/reader-expanded-chronicles");
 
 const shelfEntries = (
   seriesIds: string[],
@@ -31,6 +34,32 @@ const shelfEntries = (
   const chapterId = `${seriesId}-c01`;
   return [readerChapterIdentity(seriesId, chapterId), shelfChapterLoader(loadShelf, chapterId)];
 }));
+
+const continuationEntries = (seriesIds: string[]) => Object.fromEntries(
+  seriesIds.map((seriesId) => {
+    const chapterId = `${seriesId}-c02`;
+    return [readerChapterIdentity(seriesId, chapterId), shelfChapterLoader(continuationShelf, chapterId)];
+  }),
+);
+
+const expandedEntries = (
+  seriesIds: string[],
+  chapterNumbers: number[],
+) => Object.fromEntries(seriesIds.flatMap((seriesId) => chapterNumbers.map((chapterNumber) => {
+  const chapterId = `${seriesId}-c${String(chapterNumber).padStart(2, "0")}`;
+  return [readerChapterIdentity(seriesId, chapterId), shelfChapterLoader(expandedChronicles, chapterId)];
+})));
+
+const allShelfSeriesIds = [
+  "van-menh-nguoc-dong", "kiem-lo-muoi-bac", "dao-mam-giua-tuyet",
+  "tro-lai-truoc-con-mua", "nhat-ky-ngay-mai", "nguoi-canh-giu-lan-hai",
+  "hoc-vien-bay-ngon-lua", "phap-su-ca-dem", "thanh-lam-thuc-tinh",
+  "chuyen-tau-dem-khong-ga-cuoi", "can-phong-so-bay", "nguoi-gui-thu-trong-mua",
+  "tram-khong-gian-so-chin", "ky-uc-tren-tang-may", "doc-gia-cuoi-cung",
+  "kiem-khach-thanh-co", "y-quan-ao-xam", "ban-do-bien-ai",
+  "quan-tra-ben-song", "nguoi-ban-bong", "ba-cau-hoi-cua-da",
+  "tiem-com-luc-sau-gio", "mua-he-o-bac-kinh", "buc-thu-chua-gui",
+];
 
 export const READER_CHAPTER_LOADERS: Readonly<Record<string, ChapterLoader>> = {
   "jade-lantern-archive::jade-lantern-archive-c01": () => import("./chapters/jade-lantern-archive-c01"),
@@ -71,6 +100,9 @@ export const READER_CHAPTER_LOADERS: Readonly<Record<string, ChapterLoader>> = {
     "mua-he-o-bac-kinh",
     "buc-thu-chua-gui",
   ], reflectionsShelf),
+  ...continuationEntries(allShelfSeriesIds),
+  ...expandedEntries(allShelfSeriesIds, [3, 4, 5, 6, 7, 8, 9, 10]),
+  ...expandedEntries(["jade-lantern-archive"], [7, 8, 9, 10]),
   "first-day::first-day": () => import("./chapters/first-day"),
 };
 
@@ -135,11 +167,14 @@ export const loadReaderChapter = async (
 ) => {
   const identity = readerChapterIdentity(seriesId, chapterId);
   const loader = READER_CHAPTER_LOADERS[identity];
-  if (!loader) throw new Error("reader-chapter-not-found");
   if (options.retry) cache.delete(identity);
   const existing = cache.get(identity);
   if (existing) return existing;
-  const pending = loader().then(({ default: chapter }) => {
+  const pending = (loader
+    ? loader().then(({ default: chapter }) => chapter)
+    : loadEditorialReaderChapter(seriesId, chapterId)
+  ).then((chapter) => {
+    if (!loader) return chapter;
     const validation = validateReaderChapter(chapter);
     if (!validation.ok) throw new Error(validation.errors.join("\n"));
     return chapter;

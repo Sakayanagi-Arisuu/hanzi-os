@@ -21,6 +21,8 @@
     "content:hash": "node scripts/content/hash.mjs",
     "content:catalog:export": "tsx scripts/content/export-item-catalog.ts",
     "content:validate": "node scripts/content/validate.mjs",
+    "content:mega-lexicon": "node scripts/content/build-mega-lexicon.mjs",
+    "content:mega-lexicon:validate": "node scripts/content/validate-mega-lexicon.mjs",
     "content:hsk4:extract": "python scripts/content/extract-hsk-syllabus.py",
     "content:hsk4:validate": "node scripts/content/validate-hsk-syllabus.mjs",
     "content:hsk4:report": "node scripts/content/report-hsk4-coverage.mjs",

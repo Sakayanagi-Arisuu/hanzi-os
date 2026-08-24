@@ -5,6 +5,7 @@ import {
   type ReaderSeries,
   type ReaderShelfId,
 } from "./readerContentModel";
+import { createReaderArcSummaries } from "./readerStoryArcs";
 
 export type ReaderShelfOption = {
   shelfId: "all" | Exclude<ReaderShelfId, "flagship" | "legacy">;
@@ -41,6 +42,13 @@ type ShelfSeriesSeed = {
   estimatedMinutes: number;
   relatedLessonId: string;
   focusLexemeIds: string[];
+};
+
+type ShelfContinuationSeed = {
+  titleZh: string;
+  titleVi: string;
+  hookVi: string;
+  estimatedMinutes: number;
 };
 
 const LEVELS = {
@@ -489,8 +497,38 @@ export const READER_SHELF_SEEDS: ShelfSeriesSeed[] = [
   },
 ];
 
+const CHAPTER_TWO_BY_SERIES_ID: Record<string, ShelfContinuationSeed> = {
+  "van-menh-nguoc-dong": { titleZh: "黑签上的第二个名字", titleVi: "Cái tên thứ hai trên thẻ đen", hookVi: "Thẻ đen đổi chữ và chỉ tới người lẽ ra không có mặt ở kiếp này.", estimatedMinutes: 5 },
+  "kiem-lo-muoi-bac": { titleZh: "第二层的无声考验", titleVi: "Khảo nghiệm không lời ở bậc hai", hookVi: "Bậc đá thứ hai buộc Cố Xuyên chọn giữa thanh kiếm và một người lạ.", estimatedMinutes: 4 },
+  "dao-mam-giua-tuyet": { titleZh: "会移动的阳光", titleVi: "Vệt nắng biết di chuyển", hookVi: "Ánh nắng trong vườn thuốc dịch chuyển như đang dẫn đường.", estimatedMinutes: 4 },
+  "tro-lai-truoc-con-mua": { titleZh: "写纸条的人", titleVi: "Người viết mảnh giấy", hookVi: "Lâm Hà bám theo một dấu nước và gặp người cũng nhớ kiếp trước.", estimatedMinutes: 5 },
+  "nhat-ky-ngay-mai": { titleZh: "体育馆的十二点", titleVi: "Mười hai giờ ở nhà thể chất", hookVi: "Châu Dư tới điểm hẹn và thấy ngày mai đang được viết ngay trước mắt.", estimatedMinutes: 4 },
+  "nguoi-canh-giu-lan-hai": { titleZh: "门外的未来", titleVi: "Tương lai ngoài cổng", hookVi: "Người áo đen đưa ra bằng chứng rằng đóng cổng mới là khởi đầu thảm họa.", estimatedMinutes: 5 },
+  "hoc-vien-bay-ngon-lua": { titleZh: "被改过的试卷", titleVi: "Đề thi bị sửa", hookVi: "Ngọn lửa không màu soi ra một câu hỏi giả giữa đề thi nhập học.", estimatedMinutes: 4 },
+  "phap-su-ca-dem": { titleZh: "书中的借书人", titleVi: "Người mượn trong sách", hookVi: "Tô Nguyên bước vào trang sách để tìm chủ nhân của tấm thẻ cũ.", estimatedMinutes: 4 },
+  "thanh-lam-thuc-tinh": { titleZh: "路灯的秘密", titleVi: "Bí mật của đèn đường", hookVi: "Dãy đèn dẫn An Dịch tới trạm điện đã bị niêm phong.", estimatedMinutes: 5 },
+  "chuyen-tau-dem-khong-ga-cuoi": { titleZh: "没发生过的车站", titleVi: "Nhà ga chưa từng xảy ra", hookVi: "Đoàn tàu dừng ở một ngày Lý Văn hoàn toàn không nhớ.", estimatedMinutes: 5 },
+  "can-phong-so-bay": { titleZh: "桌上的钥匙", titleVi: "Chìa khóa trên bàn", hookVi: "Chiếc chìa khóa mở một căn hộ mang số nhà của chính người giao hàng.", estimatedMinutes: 4 },
+  "nguoi-gui-thu-trong-mua": { titleZh: "第十三个收件人", titleVi: "Người nhận thứ mười ba", hookVi: "Bức thư gửi cho Trần Miên mô tả chính xác cơn mưa sáng mai.", estimatedMinutes: 4 },
+  "tram-khong-gian-so-chin": { titleZh: "冻结的十二分钟", titleVi: "Mười hai phút đóng băng", hookVi: "Dữ liệu trạm cho thấy cả đội đã từng cập bến rồi bị xóa ký ức.", estimatedMinutes: 5 },
+  "ky-uc-tren-tang-may": { titleZh: "消失的街道", titleVi: "Con phố biến mất", hookVi: "Bạch Tân đi tìm con phố vừa bị xóa khỏi cả bản đồ lẫn trí nhớ.", estimatedMinutes: 5 },
+  "doc-gia-cuoi-cung": { titleZh: "离线档案馆", titleVi: "Kho lưu trữ ngoại tuyến", hookVi: "Bức thư tay mở một cánh cửa mà mọi hệ thống đều báo không tồn tại.", estimatedMinutes: 5 },
+  "kiem-khach-thanh-co": { titleZh: "三句真话", titleVi: "Ba lời khai thật", hookVi: "Ba nhân chứng đều nói thật, nhưng chỉ một người kể đúng thứ tự.", estimatedMinutes: 5 },
+  "y-quan-ao-xam": { titleZh: "梦里的药方", titleVi: "Phương thuốc trong mơ", hookVi: "Ninh Sơ thức trắng để ghi lại toa thuốc chỉ xuất hiện trước bình minh.", estimatedMinutes: 5 },
+  "ban-do-bien-ai": { titleZh: "地图外的村庄", titleVi: "Ngôi làng ngoài bản đồ", hookVi: "Một đứa trẻ từ vùng trắng mang tới mảnh bản đồ không thể bị xóa.", estimatedMinutes: 4 },
+  "quan-tra-ben-song": { titleZh: "不加糖的茶", titleVi: "Tách trà không đường", hookVi: "Vị khách nhận ra điều mình muốn quên không phải là ký ức đau nhất.", estimatedMinutes: 4 },
+  "nguoi-ban-bong": { titleZh: "影子的旧主人", titleVi: "Chủ cũ của chiếc bóng", hookVi: "Chiếc bóng lạ tự tìm đường về và mang theo một nỗi buồn khác.", estimatedMinutes: 4 },
+  "ba-cau-hoi-cua-da": { titleZh: "慢下来的人", titleVi: "Người chịu đi chậm", hookVi: "Cậu bé trả lời câu hỏi thứ hai và khiến những người vội vã dừng chân.", estimatedMinutes: 3 },
+  "tiem-com-luc-sau-gio": { titleZh: "母亲的味道", titleVi: "Hương vị của mẹ", hookVi: "Một bát canh cũ giúp vị khách nhớ ra lời chưa từng nói ở nhà.", estimatedMinutes: 3 },
+  "mua-he-o-bac-kinh": { titleZh: "照片里的门牌", titleVi: "Số nhà trong bức ảnh", hookVi: "Con số mờ dẫn hai người tới một ngõ đã đổi tên từ lâu.", estimatedMinutes: 4 },
+  "buc-thu-chua-gui": { titleZh: "第十二封信", titleVi: "Lá thư thứ mười hai", hookVi: "Phương Nghi tìm thấy địa chỉ duy nhất cha mình đã gạch bỏ.", estimatedMinutes: 4 },
+};
+
 const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
   const chapterId = `${seed.seriesId}-c01`;
+  const continuation = CHAPTER_TWO_BY_SERIES_ID[seed.seriesId];
+  if (!continuation) throw new Error(`Reader continuation metadata missing for ${seed.seriesId}.`);
+  const continuationChapterId = `${seed.seriesId}-c02`;
   return {
     seriesId: seed.seriesId,
     version: `${READER_CONTENT_VERSION}:${seed.seriesId}:1`,
@@ -503,10 +541,11 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
     discoverable: true,
     levelBand: seed.levelBand,
     coverAsset: {
-      kind: "code-native",
+      kind: "art-directed",
+      src: `/reader/covers/m3/${seed.seriesId}.webp`,
       sigil: seed.coverSigil,
       tone: seed.coverTone,
-      altVi: `Bìa chữ nguyên bản của ${seed.titleVi}`,
+      altVi: `Bìa minh họa nguyên bản của ${seed.titleVi}`,
       rightsManifestId: `reader-cover:${seed.seriesId}`,
     },
     source: {
@@ -532,7 +571,21 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
         reviewStatus: "ai-assisted-draft",
         humanReviewed: false,
         rightsManifestId: `reader-chapter:${chapterId}`,
-      }],
+      }, {
+        chapterId: continuationChapterId,
+        version: `${READER_CONTENT_VERSION}:${continuationChapterId}:1`,
+        seriesId: seed.seriesId,
+        chapterNumber: 2,
+        titleZh: continuation.titleZh,
+        titleVi: continuation.titleVi,
+        hookVi: continuation.hookVi,
+        estimatedMinutes: continuation.estimatedMinutes,
+        relatedLessonIds: [seed.relatedLessonId],
+        publicationStatus: "released-local",
+        reviewStatus: "ai-assisted-draft",
+        humanReviewed: false,
+        rightsManifestId: `reader-chapter:${continuationChapterId}`,
+      }, ...createReaderArcSummaries(seed.seriesId, [seed.relatedLessonId])],
     }],
     focusLexemeIds: seed.focusLexemeIds,
     publicationStatus: "released-local",

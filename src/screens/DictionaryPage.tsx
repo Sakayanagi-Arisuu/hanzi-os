@@ -2,16 +2,35 @@ import {
   Bookmark,
   BookmarkCheck,
   BookOpen,
+  ChevronRight,
+  Database,
   Filter,
+  Layers3,
+  ListTree,
   Search,
   Sparkles,
   Volume2,
   X,
 } from "lucide-react";
-import { useMemo, useState } from "react";
-import { RELEASED_VOCABULARY } from "../data/curriculum";
+import { useEffect, useMemo, useState } from "react";
+import { Link, useLocation } from "react-router";
+import {
+  getLessonExpansionPack,
+  getLessonIdForMegaWord,
+  loadMegaLexicon,
+  MEGA_LEXICON_SEARCHABLE_COUNT,
+  searchMegaVocabularyByHanzi,
+  type MegaLexiconArtifact,
+  type MegaVocabularyItem,
+} from "../content/megaLexicon";
+import {
+  LESSON_BY_ID,
+  RELEASED_LESSONS,
+  RELEASED_VOCABULARY,
+} from "../data/curriculum";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import "./DictionaryPage.css";
 
 const normalizeSearch = (value: string) => value
   .normalize("NFD")
@@ -19,31 +38,154 @@ const normalizeSearch = (value: string) => value
   .toLowerCase()
   .trim();
 
+export type DictionaryWord = {
+  id: string;
+  simplified: string;
+  traditional: string;
+  pinyin: string;
+  pinyinNumbered: string;
+  meaning: string;
+  senses: string[];
+  classifiers: string[];
+  partOfSpeech: string;
+  toneNumbers: number[];
+  tags: string[];
+  isCore: boolean;
+  referenceLevel?: string;
+  editorialDepth?: "reference" | "curated";
+  example?: string;
+  examplePinyin?: string;
+  exampleMeaning?: string;
+};
+
+const megaToneNumbers = (word: MegaVocabularyItem) => [...word.pinyinNumbered.matchAll(/[1-5]/gu)]
+  .map((match) => Number(match[0]) % 5);
+
+const coreWords: DictionaryWord[] = RELEASED_VOCABULARY.map((word) => ({
+  ...word,
+  senses: [word.meaning],
+  classifiers: [],
+  toneNumbers: word.syllables.map((syllable) => syllable.lexicalTone),
+  isCore: true,
+}));
+
+const megaWordView = (word: MegaVocabularyItem): DictionaryWord => ({
+  ...word,
+  toneNumbers: megaToneNumbers(word),
+  tags: [
+    word.editorialDepth === "curated" ? "Chuyên đề biên tập sâu" : "Kho tham chiếu mở rộng",
+    word.referenceLevel === "mở rộng" ? "Trung văn hiện đại" : `Mốc ${word.referenceLevel}`,
+  ],
+  isCore: false,
+});
+
 export function DictionaryPage() {
+  const location = useLocation();
+  const requested = useMemo(() => new URLSearchParams(location.search), [location.search]);
+  const requestedLessonId = requested.get("lesson");
+  const requestedQuery = requested.get("q") ?? "";
   const { state, actions } = useLearning();
-  const [query, setQuery] = useState("");
+  const [artifact, setArtifact] = useState<MegaLexiconArtifact | null>(null);
+  const [deepLookupWords, setDeepLookupWords] = useState<DictionaryWord[]>([]);
+  const [deepLookupPending, setDeepLookupPending] = useState(false);
+  const [loadError, setLoadError] = useState("");
+  const [query, setQuery] = useState(requestedQuery);
+  const [lessonScope, setLessonScope] = useState(Boolean(requestedLessonId));
   const [savedOnly, setSavedOnly] = useState(false);
-  const [selectedId, setSelectedId] = useState(RELEASED_VOCABULARY[0]?.id ?? "");
+  const [selectedId, setSelectedId] = useState(coreWords[0]?.id ?? "");
+  const [visibleLimit, setVisibleLimit] = useState(160);
+
+  useEffect(() => {
+    let active = true;
+    loadMegaLexicon()
+      .then((value) => { if (active) setArtifact(value); })
+      .catch((reason: unknown) => { if (active) setLoadError(reason instanceof Error ? reason.message : "Không thể tải kho mở rộng."); });
+    return () => { active = false; };
+  }, []);
+
+  useEffect(() => { setVisibleLimit(160); }, [query, savedOnly]);
+  useEffect(() => {
+    let active = true;
+    if (!/\p{Script=Han}/u.test(query.trim())) {
+      setDeepLookupWords([]);
+      setDeepLookupPending(false);
+      return () => { active = false; };
+    }
+    setDeepLookupPending(true);
+    searchMegaVocabularyByHanzi(query)
+      .then((words) => {
+        if (active) setDeepLookupWords(words.map(megaWordView));
+      })
+      .catch(() => {
+        if (active) setDeepLookupWords([]);
+      })
+      .finally(() => {
+        if (active) setDeepLookupPending(false);
+      });
+    return () => { active = false; };
+  }, [query]);
+  useEffect(() => {
+    setQuery(requestedQuery);
+    setLessonScope(Boolean(requestedLessonId));
+  }, [requestedLessonId, requestedQuery]);
+
+  const allWords = useMemo(() => {
+    const base = artifact ? [...coreWords, ...artifact.vocabulary.map(megaWordView)] : coreWords;
+    const surfaces = new Set(base.map((word) => word.simplified));
+    return [...base, ...deepLookupWords.filter((word) => !surfaces.has(word.simplified))];
+  }, [artifact, deepLookupWords]);
+  const requestedLesson = requestedLessonId ? LESSON_BY_ID.get(requestedLessonId) ?? null : null;
+  const lessonWordIds = useMemo(() => {
+    if (!requestedLesson) return null;
+    const packIds = artifact
+      ? getLessonExpansionPack(artifact, requestedLesson.id)?.wordIds ?? []
+      : [];
+    return new Set([...requestedLesson.wordIds, ...packIds]);
+  }, [artifact, requestedLesson]);
   const results = useMemo(() => {
     const normalized = normalizeSearch(query);
-    return RELEASED_VOCABULARY.filter((word) => {
-      if (savedOnly && !state.savedWords.includes(word.id)) return false;
+    return allWords.filter((word) => {
+      if (lessonScope && lessonWordIds && !lessonWordIds.has(word.id)) return false;
+      if (savedOnly && (!word.isCore || !state.savedWords.includes(word.id))) return false;
       if (!normalized) return true;
       const haystack = [word.simplified, word.traditional, word.pinyin, word.pinyinNumbered, word.meaning, ...word.tags].join(" ");
       return normalizeSearch(haystack).includes(normalized);
     });
-  }, [query, savedOnly, state.savedWords]);
-  const selected = RELEASED_VOCABULARY.find((word) => word.id === selectedId) ?? results[0];
+  }, [allWords, lessonScope, lessonWordIds, query, savedOnly, state.savedWords]);
+  const selected = results.find((word) => word.id === selectedId) ?? results[0];
+  const coreLessonByWordId = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const lesson of RELEASED_LESSONS) for (const wordId of lesson.wordIds) if (!map.has(wordId)) map.set(wordId, lesson.id);
+    return map;
+  }, []);
+  const selectedPathLessonId = selected
+    ? selected.isCore
+      ? requestedLesson?.wordIds.includes(selected.id) ? requestedLesson.id : coreLessonByWordId.get(selected.id) ?? null
+      : artifact ? getLessonIdForMegaWord(artifact, selected.id) : null
+    : null;
+  const relatedWords = useMemo(() => {
+    if (!selected) return [];
+    const characters = new Set([...selected.simplified]);
+    return allWords
+      .filter((word) => word.id !== selected.id && [...word.simplified].some((character) => characters.has(character)))
+      .sort((left, right) => Number(right.isCore) - Number(left.isCore) || left.simplified.length - right.simplified.length)
+      .slice(0, 8);
+  }, [allWords, selected]);
 
   return (
     <div className="content-page dictionary-page">
       <header className="page-hero dictionary-hero">
         <div>
-          <span className="system-kicker"><BookOpen size={15} /> TÀNG TỰ KHỐ · CHỈ MỤC TRÊN THIẾT BỊ</span>
-          <h1>Tàng Tự Khố</h1>
-          <p>Tra chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt; lưu trực tiếp vào lịch ôn cá nhân.</p>
+          <span className="system-kicker"><BookOpen size={15} /> TÀNG TỰ KHỐ · TỪ VÀ CỤM TỪ</span>
+          <h1>Từ điển Trung – Việt</h1>
+          <p>Tra giản thể, phồn thể, Pinyin hoặc tiếng Việt; xem từng lớp nghĩa, từ loại, lượng từ, câu dùng và những từ liên quan trong cùng một hồ sơ.</p>
+          <div className="dictionary-scope-switch" aria-label="Phân biệt kho từ và kho chữ">
+            <span><strong>Đang ở Tàng Tự Khố</strong> · tra cả từ</span>
+            <Link to="/characters">Sang Thần Văn Lô · học từng chữ</Link>
+            <Link to="/path">Học theo Thiên Lộ <ChevronRight size={15} /></Link>
+          </div>
         </div>
-        <div className="lexicon-count"><strong>{RELEASED_VOCABULARY.length}</strong><span>mục từ đã phát hành</span></div>
+        <div className="lexicon-count"><strong>{(artifact?.stats.totalSearchableVocabulary ?? MEGA_LEXICON_SEARCHABLE_COUNT).toLocaleString("vi-VN")}</strong><span>mục từ có thể tra bằng chữ Hán</span></div>
       </header>
 
       <div className="dictionary-searchbar">
@@ -53,22 +195,38 @@ export function DictionaryPage() {
         <button className={savedOnly ? "filter-button active" : "filter-button"} type="button" onClick={() => setSavedOnly((value) => !value)}><Filter size={17} /> Đã lưu</button>
       </div>
 
+      {!artifact && !loadError && <div className="dictionary-corpus-state"><Database size={16} /> Đang nối thêm 9.077 mục mở rộng…</div>}
+      {deepLookupPending && <div className="dictionary-corpus-state"><Database size={16} /> Đang mở mảnh từ điển chuyên sâu cho “{query.trim()}”…</div>}
+      {loadError && <div className="dictionary-corpus-state error"><Database size={16} /> Kho cốt lõi vẫn dùng được; kho mở rộng chưa tải được.</div>}
+
+      {requestedLesson && (
+        <section className="dictionary-lesson-context" aria-label="Phạm vi từ của bài">
+          <BookOpen size={18} />
+          <div><span>TỪ TRONG BÀI</span><strong>{requestedLesson.title}</strong><small>{lessonWordIds?.size ?? requestedLesson.wordIds.length} mục cốt lõi và mở rộng</small></div>
+          <button type="button" aria-pressed={lessonScope} onClick={() => setLessonScope((value) => !value)}>
+            {lessonScope ? "Tra toàn bộ từ điển" : "Chỉ xem từ của bài"}
+          </button>
+        </section>
+      )}
+
       <div className="dictionary-layout">
         <section className="dictionary-results">
-          <header><span>{results.length} KẾT QUẢ</span><small>Giản thể · Phồn thể · Pinyin · Việt</small></header>
+          <header><span>{results.length.toLocaleString("vi-VN")} KẾT QUẢ</span><small>Giản thể · Phồn thể · Pinyin · Việt</small></header>
           <div className="dictionary-result-list">
-            {results.map((word) => (
+            {results.slice(0, visibleLimit).map((word) => (
               <button className={selected?.id === word.id ? "active" : ""} key={word.id} type="button" onClick={() => setSelectedId(word.id)}>
-                <span className="tone-sequence" aria-label={`Thanh từ điển ${word.syllables.map((syllable) => syllable.lexicalTone || "nhẹ").join(", ")}`}>
-                  {word.syllables.map((syllable) => (
-                    <i className={`tone-mark tone-${syllable.lexicalTone}`} key={syllable.index}>{syllable.lexicalTone || "·"}</i>
+                <span className="tone-sequence" aria-label={`Thanh từ điển ${word.toneNumbers.map((tone) => tone || "nhẹ").join(", ")}`}>
+                  {word.toneNumbers.map((tone, index) => (
+                    <i className={`tone-mark tone-${tone}`} key={`${word.id}-${index}`}>{tone || "·"}</i>
                   ))}
                 </span>
                 <strong>{state.profile.script === "traditional" ? word.traditional : word.simplified}</strong>
                 <span><b>{word.pinyin}</b><small>{word.meaning}</small></span>
-                {state.savedWords.includes(word.id) && <BookmarkCheck size={16} />}
+                {word.isCore && state.savedWords.includes(word.id) && <BookmarkCheck size={16} />}
+                {!word.isCore && <em>{word.editorialDepth === "curated" ? "SÂU" : "MỞ RỘNG"}</em>}
               </button>
             ))}
+            {visibleLimit < results.length && <button className="dictionary-load-more" type="button" onClick={() => setVisibleLimit((value) => value + 160)}>Hiện thêm 160 mục</button>}
             {!results.length && <div className="empty-search"><Search size={28} /><strong>Không tìm thấy mục phù hợp</strong><p>Thử chữ Hán, pinyin hoặc một phần nghĩa tiếng Việt.</p></div>}
           </div>
         </section>
@@ -77,7 +235,7 @@ export function DictionaryPage() {
           <aside className="dictionary-entry">
             <div className="entry-scanline" aria-hidden="true" />
             <header>
-              <span>HỒ SƠ TỪ MỤC · NỘI DUNG ĐÃ PHÁT HÀNH</span>
+              <span>{selected.isCore ? "HỒ SƠ TỪ MỤC · BÀI CỐT LÕI" : selected.editorialDepth === "curated" ? "HỒ SƠ TỪ MỤC · BIÊN TẬP SÂU" : "HỒ SƠ TỪ MỤC · KHO MỞ RỘNG"}</span>
               <div>
                 <h1>{state.profile.script === "traditional" ? selected.traditional : selected.simplified}</h1>
                 {selected.simplified !== selected.traditional && <small>{selected.simplified} / {selected.traditional}</small>}
@@ -85,9 +243,9 @@ export function DictionaryPage() {
               <button className="sound-button" type="button" onClick={() => speakMandarin(selected.simplified)} aria-label={`Nghe ${selected.simplified}`}><Volume2 size={22} /></button>
             </header>
             <div className="entry-pronunciation">
-              <span className="tone-sequence" aria-label={`Thanh từ điển ${selected.syllables.map((syllable) => syllable.lexicalTone || "nhẹ").join(", ")}`}>
-                {selected.syllables.map((syllable) => (
-                  <i className={`tone-mark tone-${syllable.lexicalTone}`} key={syllable.index}>{syllable.lexicalTone || "·"}</i>
+              <span className="tone-sequence" aria-label={`Thanh từ điển ${selected.toneNumbers.map((tone) => tone || "nhẹ").join(", ")}`}>
+                {selected.toneNumbers.map((tone, index) => (
+                  <i className={`tone-mark tone-${tone}`} key={`${selected.id}-detail-${index}`}>{tone || "·"}</i>
                 ))}
               </span>
               <strong>{selected.pinyin}</strong>
@@ -95,20 +253,45 @@ export function DictionaryPage() {
             </div>
             <div className="entry-meaning">
               <small>{selected.partOfSpeech}</small>
-              <h2>{selected.meaning}</h2>
+              <h2>Nghĩa tiếng Việt</h2>
+              <ol>{selected.senses.map((sense) => <li key={sense}>{sense}</li>)}</ol>
             </div>
-            <div className="entry-example">
-              <span>NGỮ CẢNH DẪN Ý</span>
-              <strong>{selected.example}</strong>
-              <small>{selected.examplePinyin}</small>
-              <p>{selected.exampleMeaning}</p>
-              <button className="icon-button" type="button" onClick={() => speakMandarin(selected.example)} aria-label="Nghe câu ví dụ"><Volume2 size={18} /></button>
-            </div>
+            {selected.classifiers.length > 0 && <div className="entry-classifiers"><ListTree size={17} /><span><small>LƯỢNG TỪ / CÁCH ĐẾM</small><strong>{selected.classifiers.join(" · ")}</strong></span></div>}
+            {selected.example && (
+              <div className="entry-example">
+                <span>NGỮ CẢNH DẪN Ý</span>
+                <strong>{selected.example}</strong>
+                <small>{selected.examplePinyin}</small>
+                <p>{selected.exampleMeaning}</p>
+                <button className="icon-button" type="button" onClick={() => speakMandarin(selected.example!)} aria-label="Nghe câu ví dụ"><Volume2 size={18} /></button>
+              </div>
+            )}
+            {!selected.example && <div className="entry-reference-note"><Database size={17} /><span><strong>Mục tham chiếu {selected.referenceLevel === "7-9" ? "nâng cao 7–9" : `cấp ${selected.referenceLevel}`}</strong><small>Luyện nhận diện và nghe trong ải từ vựng; phần ví dụ chuyên sâu đang được mở rộng dần.</small></span></div>}
             <div className="entry-tags">{selected.tags.map((tag) => <span key={tag}><Sparkles size={12} /> {tag}</span>)}</div>
-            <button className={`save-word-button ${state.savedWords.includes(selected.id) ? "saved" : ""}`} type="button" onClick={() => actions.toggleSavedWord(selected.id)}>
-              {state.savedWords.includes(selected.id) ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
-              {state.savedWords.includes(selected.id) ? "Đã nối với ký ức trận" : "Lưu vào ký ức trận"}
-            </button>
+            <section className="dictionary-character-links" aria-label="Hán tự trong mục từ">
+              <span>CHỮ TRONG TỪ</span>
+              <div>{[...selected.simplified].map((character, index) => (
+                <Link key={`${character}-${index}`} to={`/characters?char=${encodeURIComponent(character)}${selectedPathLessonId ? `&lesson=${encodeURIComponent(selectedPathLessonId)}` : ""}`}>{character}</Link>
+              ))}</div>
+            </section>
+            {relatedWords.length > 0 && <section className="dictionary-related-words">
+              <span><Layers3 size={15} /> TỪ CÓ CHUNG HÁN TỰ</span>
+              <div>{relatedWords.map((word) => <button key={word.id} type="button" onClick={() => setSelectedId(word.id)}><strong>{word.simplified}</strong><small>{word.pinyin} · {word.meaning}</small></button>)}</div>
+            </section>}
+            <details className="dictionary-source-details">
+              <summary>Nguồn và phạm vi mục từ</summary>
+              <p>{selected.isCore ? "Mục từ nằm trong gói bài học HSK0–4 của HANZI.OS." : "Nghĩa tham chiếu Trung–Việt từ CVDICT (CC BY-SA 4.0), đối chiếu danh sách HSK đã ghim; mục chưa qua duyệt giáo viên."}</p>
+            </details>
+            {selected.isCore ? (
+              <button className={`save-word-button ${state.savedWords.includes(selected.id) ? "saved" : ""}`} type="button" onClick={() => actions.toggleSavedWord(selected.id)}>
+                {state.savedWords.includes(selected.id) ? <BookmarkCheck size={18} /> : <Bookmark size={18} />}
+                {state.savedWords.includes(selected.id) ? "Đã nối với Ký Ức Trận" : "Lưu vào Ký Ức Trận"}
+              </button>
+            ) : selectedPathLessonId ? (
+              <Link className="save-word-button" to={`/lesson/${encodeURIComponent(selectedPathLessonId)}`} viewTransition>Học từ này trong Thiên Lộ <ChevronRight size={18} /></Link>
+            ) : (
+              <span className="save-word-button" aria-label="Mục tham chiếu đang mở trong Tàng Tự Khố">Mục tham chiếu đang mở</span>
+            )}
           </aside>
         )}
       </div>

@@ -22,6 +22,17 @@ export type ReaderSupportEvent = {
   occurredAt: string;
 };
 
+export type ReaderSavedEntry = {
+  entryId: string;
+  simplified: string;
+  traditional?: string;
+  pinyin: string | null;
+  partOfSpeechVi: string;
+  contextualMeaningVi: string;
+  sourceType: "original-context-gloss" | "mega-lexicon" | "reader-character-fallback";
+  savedAt: string;
+};
+
 export type ReaderProgressDocument = {
   schemaVersion: typeof READER_PROGRESS_SCHEMA_VERSION;
   ownerKey: string;
@@ -33,6 +44,7 @@ export type ReaderProgressDocument = {
   bookmarkedSeriesIds: string[];
   chapters: Record<string, ReaderChapterProgress>;
   supportEvents: ReaderSupportEvent[];
+  savedEntries: Record<string, ReaderSavedEntry>;
 };
 
 type ReaderProgressV1 = {
@@ -73,6 +85,7 @@ export const createEmptyReaderProgress = (
   bookmarkedSeriesIds: [],
   chapters: {},
   supportEvents: [],
+  savedEntries: {},
 });
 
 const validChapterProgress = (value: unknown): value is ReaderChapterProgress => {
@@ -97,6 +110,21 @@ const validSupportEvent = (value: unknown): value is ReaderSupportEvent => {
     && (event.paragraphId === null || safeString(event.paragraphId))
     && (event.referenceEntryId === null || safeString(event.referenceEntryId))
     && safeTimestamp(event.occurredAt);
+};
+
+const validSavedEntry = (value: unknown): value is ReaderSavedEntry => {
+  if (!value || typeof value !== "object") return false;
+  const entry = value as Partial<ReaderSavedEntry>;
+  return safeString(entry.entryId)
+    && safeString(entry.simplified, 24)
+    && (entry.traditional === undefined || safeString(entry.traditional, 24))
+    && (entry.pinyin === null || safeString(entry.pinyin, 160))
+    && safeString(entry.partOfSpeechVi)
+    && safeString(entry.contextualMeaningVi, 1_000)
+    && (entry.sourceType === "original-context-gloss"
+      || entry.sourceType === "mega-lexicon"
+      || entry.sourceType === "reader-character-fallback")
+    && safeTimestamp(entry.savedAt);
 };
 
 export const parseReaderProgress = (
@@ -149,6 +177,12 @@ export const parseReaderProgress = (
       || candidate.supportEvents.length > 500
       || candidate.supportEvents.some((event) => !validSupportEvent(event))
     ))
+    || (candidate.savedEntries !== undefined && (
+      !candidate.savedEntries
+      || typeof candidate.savedEntries !== "object"
+      || Object.keys(candidate.savedEntries).length > 2_000
+      || Object.values(candidate.savedEntries).some((entry) => !validSavedEntry(entry))
+    ))
   ) return createEmptyReaderProgress(scope, now);
   const valid = candidate as ReaderProgressDocument;
   return {
@@ -160,6 +194,7 @@ export const parseReaderProgress = (
     bookmarkedSeriesIds: [...new Set(valid.bookmarkedSeriesIds)],
     chapters: structuredClone(valid.chapters),
     supportEvents: structuredClone(valid.supportEvents ?? []),
+    savedEntries: structuredClone(valid.savedEntries ?? {}),
   };
 };
 
@@ -245,6 +280,28 @@ export const recordReaderSupport = (
   updatedAt: now,
   supportEvents: [...document.supportEvents, { ...event, occurredAt: now }].slice(-500),
 });
+
+export const toggleReaderSavedEntry = (
+  document: ReaderProgressDocument,
+  entry: Omit<ReaderSavedEntry, "savedAt">,
+  now = new Date().toISOString(),
+): ReaderProgressDocument => {
+  const savedEntries = { ...document.savedEntries };
+  if (savedEntries[entry.entryId]) delete savedEntries[entry.entryId];
+  else savedEntries[entry.entryId] = { ...entry, savedAt: now };
+  return { ...document, updatedAt: now, savedEntries };
+};
+
+export const removeReaderSavedEntry = (
+  document: ReaderProgressDocument,
+  entryId: string,
+  now = new Date().toISOString(),
+): ReaderProgressDocument => {
+  if (!document.savedEntries[entryId]) return document;
+  const savedEntries = { ...document.savedEntries };
+  delete savedEntries[entryId];
+  return { ...document, updatedAt: now, savedEntries };
+};
 
 export const seriesCompletion = (
   document: ReaderProgressDocument,

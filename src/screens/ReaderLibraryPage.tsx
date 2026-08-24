@@ -1,7 +1,9 @@
 import {
   ArrowRight,
+  Bookmark,
   Compass,
   LibraryBig,
+  PenLine,
   Search,
   SlidersHorizontal,
   X,
@@ -9,6 +11,9 @@ import {
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router";
 import { ReaderCover } from "../reader/library/ReaderCover";
+import { ReaderSavedWordsDialog } from "../reader/library/ReaderSavedWordsDialog";
+import { loadEditorialReaderCatalog } from "../reader/library/editorialReaderClient";
+import type { ReaderSeries } from "../reader/library/readerContentModel";
 import {
   READER_DISCOVERABLE_SERIES,
   READER_SERIES_BY_ID,
@@ -19,10 +24,12 @@ import {
 } from "../reader/library/readerShelfCatalog";
 import {
   chapterState,
+  removeReaderSavedEntry,
   seriesCompletion,
 } from "../reader/library/readerProgress";
 import { useReaderProgress } from "../reader/library/useReaderProgress";
 import "../reader/library/readerLibrary.css";
+import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 
 const LIBRARY_VIEW_KEY = "hanzi-os-reader-library-view-v2";
@@ -66,7 +73,7 @@ const writeLibraryView = (discovery: DiscoveryState, scrollY = window.scrollY) =
   }
 };
 
-const matchesShelf = (series: (typeof READER_DISCOVERABLE_SERIES)[number], shelf: DiscoveryState["shelf"]) => {
+const matchesShelf = (series: ReaderSeries, shelf: DiscoveryState["shelf"]) => {
   if (shelf === "all") return true;
   if (series.shelfId === shelf) return true;
   const label = READER_SHELF_OPTIONS.find((option) => option.shelfId === shelf)?.label;
@@ -75,7 +82,7 @@ const matchesShelf = (series: (typeof READER_DISCOVERABLE_SERIES)[number], shelf
 
 export function ReaderLibraryPage() {
   const { sync } = useLearning();
-  const { progress, storageError } = useReaderProgress({
+  const { progress, setProgress, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
   });
@@ -84,15 +91,28 @@ export function ReaderLibraryPage() {
   const [filtersExpanded, setFiltersExpanded] = useState(
     initialView.discovery.query.length > 0 || initialView.discovery.level !== "Tất cả",
   );
+  const [savedWordsOpen, setSavedWordsOpen] = useState(false);
+  const [editorialSeries, setEditorialSeries] = useState<ReaderSeries[]>([]);
   const discoveryRef = useRef(discovery);
   const catalogRef = useRef<HTMLElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+  const savedWordsTriggerRef = useRef<HTMLButtonElement>(null);
   discoveryRef.current = discovery;
 
-  const libraryChapterCount = READER_DISCOVERABLE_SERIES.reduce(
+  const seriesCatalog = useMemo(() => {
+    const staticIds = new Set(READER_DISCOVERABLE_SERIES.map((series) => series.seriesId));
+    return [...READER_DISCOVERABLE_SERIES, ...editorialSeries.filter((series) => !staticIds.has(series.seriesId))];
+  }, [editorialSeries]);
+  const seriesById = useMemo(
+    () => new Map(seriesCatalog.map((series) => [series.seriesId, series])),
+    [seriesCatalog],
+  );
+  const libraryChapterCount = seriesCatalog.reduce(
     (sum, series) => sum + series.volumes.flatMap((volume) => volume.chapters).length,
     0,
   );
+  const savedEntries = Object.values(progress.savedEntries)
+    .sort((left, right) => right.savedAt.localeCompare(left.savedAt));
 
   useEffect(() => {
     const restore = window.requestAnimationFrame(() => window.scrollTo({ top: initialView.scrollY }));
@@ -109,7 +129,15 @@ export function ReaderLibraryPage() {
     writeLibraryView(discovery);
   }, [discovery]);
 
-  const filtered = READER_DISCOVERABLE_SERIES.filter((series) => {
+  useEffect(() => {
+    let active = true;
+    loadEditorialReaderCatalog()
+      .then((series) => { if (active) setEditorialSeries(series); })
+      .catch(() => undefined);
+    return () => { active = false; };
+  }, []);
+
+  const filtered = seriesCatalog.filter((series) => {
     const query = discovery.query.trim().toLocaleLowerCase("vi");
     const queryMatch = !query || [
       series.titleVi,
@@ -126,7 +154,7 @@ export function ReaderLibraryPage() {
   });
 
   const continueSeries = progress.lastSeriesId
-    ? READER_SERIES_BY_ID.get(progress.lastSeriesId)
+    ? seriesById.get(progress.lastSeriesId) ?? READER_SERIES_BY_ID.get(progress.lastSeriesId)
     : null;
   const continueChapter = continueSeries?.discoverable
     ? continueSeries.volumes.flatMap((volume) => volume.chapters)
@@ -152,13 +180,21 @@ export function ReaderLibraryPage() {
   return (
     <section className="reader-library" data-testid="reader-library">
       <header className="reader-library-topbar">
-        <div>
+        <div className="reader-library-identity">
           <span><LibraryBig size={17} aria-hidden="true" /> VẠN QUYỂN CÁC</span>
-          <strong>{READER_DISCOVERABLE_SERIES.length} quyển nguyên bản · đọc và tra từ ngay</strong>
+          <strong>{seriesCatalog.length} quyển đang phát hành · đọc và tra từ ngay</strong>
         </div>
-        <button type="button" className="reader-explore-trigger" onClick={openDiscovery}>
-          <Compass size={19} aria-hidden="true" /> Khám phá
-        </button>
+        <div className="reader-topbar-actions">
+          <Link className="reader-editor-trigger" to="/studio/library">
+            <PenLine size={17} aria-hidden="true" /> Dành cho biên tập viên
+          </Link>
+          <button ref={savedWordsTriggerRef} type="button" className="reader-saved-words-trigger" onClick={() => setSavedWordsOpen(true)}>
+            <Bookmark size={18} aria-hidden="true" /> Sổ từ <span>{savedEntries.length}</span>
+          </button>
+          <button type="button" className="reader-explore-trigger" onClick={openDiscovery}>
+            <Compass size={19} aria-hidden="true" /> Khám phá
+          </button>
+        </div>
       </header>
 
       <main>
@@ -241,7 +277,7 @@ export function ReaderLibraryPage() {
           )}
 
           <p className="reader-catalog-count" aria-live="polite">
-            Hiển thị <strong>{filtered.length}</strong> / {READER_DISCOVERABLE_SERIES.length} quyển đang mở
+            Hiển thị <strong>{filtered.length}</strong> / {seriesCatalog.length} quyển đang mở
           </p>
 
           {filtered.length > 0 ? (
@@ -284,6 +320,15 @@ export function ReaderLibraryPage() {
           </p>
         )}
       </main>
+
+      <ReaderSavedWordsDialog
+        entries={savedEntries}
+        open={savedWordsOpen}
+        returnFocusRef={savedWordsTriggerRef}
+        onClose={() => setSavedWordsOpen(false)}
+        onSpeak={(text) => speakMandarin(text, 0.76)}
+        onRemove={(entryId) => setProgress((current) => removeReaderSavedEntry(current, entryId))}
+      />
     </section>
   );
 }

@@ -11,11 +11,19 @@ export type ReaderSamplerParagraphInput = {
 export const createReaderSamplerChapter = (
   seriesId: string,
   paragraphs: ReaderSamplerParagraphInput[],
+): ReaderChapter => createReaderShelfChapter(seriesId, 1, paragraphs);
+
+export const createReaderShelfChapter = (
+  seriesId: string,
+  chapterNumber: number,
+  paragraphs: ReaderSamplerParagraphInput[],
 ): ReaderChapter => {
   const series = READER_SHELF_SERIES_BY_ID.get(seriesId);
-  const summary = series?.volumes[0]?.chapters[0];
+  const summary = series?.volumes
+    .flatMap((volume) => volume.chapters)
+    .find((chapter) => chapter.chapterNumber === chapterNumber);
   if (!series || !summary) {
-    throw new Error(`Reader sampler ${seriesId} is absent from the shelf catalog.`);
+    throw new Error(`Reader chapter ${seriesId}#${chapterNumber} is absent from the shelf catalog.`);
   }
   return {
     chapterId: summary.chapterId,
@@ -36,7 +44,7 @@ export const createReaderSamplerChapter = (
     rights: {
       rightsManifestId: summary.rightsManifestId,
       sourceType: "original-hanzi-os",
-      provenanceNote: "Chương mở đầu nguyên bản HANZI.OS; AI-assisted, humanReviewed:false.",
+      provenanceNote: "Chương truyện nguyên bản HANZI.OS; AI-assisted, humanReviewed:false.",
     },
   };
 };

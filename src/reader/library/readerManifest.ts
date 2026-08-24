@@ -8,6 +8,7 @@ import {
   READER_RIGHTS_MANIFEST,
 } from "./readerRights";
 import { READER_SHELF_SERIES } from "./readerShelfCatalog";
+import { createReaderArcSummaries } from "./readerStoryArcs";
 
 const jadeChapter = (
   chapterNumber: number,
@@ -45,10 +46,11 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
     discoverable: true,
     levelBand: { min: "HSK2", max: "HSK3", label: "HSK2–3 · độ khó gợi ý" },
     coverAsset: {
-      kind: "image",
-      src: "/reader/covers/jade-lantern-archive.svg",
+      kind: "art-directed",
+      src: "/reader/covers/m3/jade-lantern-archive.webp",
+      sigil: "阁",
       tone: "jade",
-      altVi: "Cánh cổng thư viện xanh ngọc mở giữa bóng đêm, phía trên là ấn ký vàng",
+      altVi: "Thư các ngọc khổng lồ mở giữa đêm, những trang sách phát sáng cuộn thành dòng sông",
       rightsManifestId: "reader-cover:jade-lantern-archive",
     },
     source: {
@@ -67,6 +69,7 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
         jadeChapter(4, "没有字的记录", "Bản ghi không có chữ", "Người quản thư nói ra sự thật về sáu trang và cái giá của người giữ trang.", 9, ["hsk3-main-idea-detail-notes-lesson-02"]),
         jadeChapter(5, "墨潮来了", "Thủy triều mực kéo đến", "Khi mực đen nuốt lối ra, Lục Minh phải chọn giữa trang sách và một người bạn.", 10, ["hsk3-event-retelling-lesson-01"]),
         jadeChapter(6, "第三声钟响以后", "Sau tiếng chuông thứ ba", "Sáu trang trở về, arc đầu khép lại — nhưng một bản đồ mới vừa sáng lên dưới dòng sông.", 10, ["hsk3-guided-paragraph-lesson-01"]),
+        ...createReaderArcSummaries("jade-lantern-archive", ["hsk3-guided-paragraph-lesson-01"], 7),
       ],
     }],
     focusLexemeIds: [

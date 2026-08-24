@@ -3,7 +3,7 @@ import type { ReaderChapter } from "../readerContentModel";
 
 const chapter: ReaderChapter = {
   chapterId: "first-day",
-  version: "reader-pilot-2026.08.1:first-day:legacy-1",
+  version: "reader-pilot-2026.08.2:first-day:legacy-1",
   seriesId: "first-day",
   chapterNumber: 1,
   titleZh: "中文课的第一天",

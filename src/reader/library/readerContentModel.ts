@@ -1,4 +1,4 @@
-export const READER_CONTENT_VERSION = "reader-pilot-2026.08.1" as const;
+export const READER_CONTENT_VERSION = "reader-pilot-2026.08.2" as const;
 
 export type ReaderShelfId =
   | "flagship"
@@ -96,7 +96,7 @@ export type ReaderSeries = {
   discoverable: boolean;
   levelBand: ReaderLevelBand;
   coverAsset: {
-    kind: "image" | "code-native";
+    kind: "image" | "code-native" | "art-directed";
     src?: string;
     sigil?: string;
     tone: ReaderCoverTone;

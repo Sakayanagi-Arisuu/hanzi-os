@@ -2,9 +2,64 @@ import type {
   ReaderParagraph,
   ReaderParagraphSegment,
 } from "./readerContentModel";
-import { READER_REFERENCE_ENTRY_BY_SIMPLIFIED } from "./readerLexicon";
+import {
+  createReaderLookupEntry,
+  READER_REFERENCE_ENTRY_BY_SIMPLIFIED,
+  type ReaderReferenceEntry,
+} from "./readerLexicon";
 
 const TOKEN_PATTERN = /\[\[([^\]]+)\]\]/gu;
+const HAN_RUN_PATTERN = /\p{Script=Han}+/gu;
+const WORD_SEGMENTER = typeof Intl.Segmenter === "function"
+  ? new Intl.Segmenter("zh-CN", { granularity: "word" })
+  : null;
+
+const pushToken = (
+  segments: ReaderParagraphSegment[],
+  entry: ReaderReferenceEntry,
+) => {
+  segments.push({
+    kind: "token",
+    sequence: segments.length,
+    surface: entry.simplified,
+    ...(entry.lexemeId
+      ? { lexemeId: entry.lexemeId }
+      : { referenceEntryId: entry.entryId }),
+  });
+};
+
+const pushText = (segments: ReaderParagraphSegment[], text: string) => {
+  if (!text) return;
+  const previous = segments.at(-1);
+  if (previous?.kind === "text") {
+    previous.text += text;
+    return;
+  }
+  segments.push({ kind: "text", sequence: segments.length, text });
+};
+
+const pushLookupableText = (
+  segments: ReaderParagraphSegment[],
+  text: string,
+) => {
+  let cursor = 0;
+  HAN_RUN_PATTERN.lastIndex = 0;
+  let match: RegExpExecArray | null;
+  while ((match = HAN_RUN_PATTERN.exec(text)) !== null) {
+    pushText(segments, text.slice(cursor, match.index));
+    const run = match[0];
+    const words = WORD_SEGMENTER
+      ? [...WORD_SEGMENTER.segment(run)].map((part) => part.segment)
+      : [...run];
+    words.forEach((surface) => {
+      const entry = READER_REFERENCE_ENTRY_BY_SIMPLIFIED.get(surface)
+        ?? createReaderLookupEntry(surface);
+      pushToken(segments, entry);
+    });
+    cursor = match.index + run.length;
+  }
+  pushText(segments, text.slice(cursor));
+};
 
 export const authorReaderParagraph = ({
   paragraphId,
@@ -20,26 +75,20 @@ export const authorReaderParagraph = ({
   const segments: ReaderParagraphSegment[] = [];
   let cursor = 0;
   let match: RegExpExecArray | null;
+  TOKEN_PATTERN.lastIndex = 0;
   while ((match = TOKEN_PATTERN.exec(markedZhHans)) !== null) {
     const plain = markedZhHans.slice(cursor, match.index);
-    if (plain) segments.push({ kind: "text", sequence: segments.length, text: plain });
+    pushLookupableText(segments, plain);
     const surface = match[1] ?? "";
     const entry = READER_REFERENCE_ENTRY_BY_SIMPLIFIED.get(surface);
     if (!entry) {
       throw new Error(`Reader token ${surface} has no explicit reference entry.`);
     }
-    segments.push({
-      kind: "token",
-      sequence: segments.length,
-      surface,
-      ...(entry.lexemeId
-        ? { lexemeId: entry.lexemeId }
-        : { referenceEntryId: entry.entryId }),
-    });
+    pushToken(segments, entry);
     cursor = match.index + match[0].length;
   }
   const tail = markedZhHans.slice(cursor);
-  if (tail) segments.push({ kind: "text", sequence: segments.length, text: tail });
+  pushLookupableText(segments, tail);
   const zhHans = segments.map((segment) =>
     segment.kind === "token" ? segment.surface : segment.text
   ).join("");

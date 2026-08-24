@@ -8,7 +8,10 @@ import {
   validateReaderChapter,
 } from "./readerChapterLoader";
 import { readerChapterIdentity } from "./readerContentModel";
-import { READER_REFERENCE_ENTRY_BY_ID } from "./readerLexicon";
+import {
+  isReaderHanCharacter,
+  READER_REFERENCE_ENTRY_BY_ID,
+} from "./readerLexicon";
 import {
   READER_DISCOVERABLE_SERIES,
   READER_SERIES_CATALOG,
@@ -17,9 +20,11 @@ import { READER_SHELF_OPTIONS } from "./readerShelfCatalog";
 import {
   completeReaderChapter,
   createEmptyReaderProgress,
+  removeReaderSavedEntry,
   parseReaderProgress,
   recordReaderSupport,
   resolveReadingMode,
+  toggleReaderSavedEntry,
   updateReaderPosition,
 } from "./readerProgress";
 import {
@@ -38,7 +43,7 @@ const allSummaries = READER_SERIES_CATALOG.flatMap((series) =>
   series.volumes.flatMap((volume) => volume.chapters.map((chapter) => ({ series, chapter })))
 );
 
-describe("Vạn Quyển Các Mốc 1 content model", () => {
+describe("Vạn Quyển Các Mốc 3 content model", () => {
   it("opens a dense original catalog while keeping the legacy first-day ID out of discovery", () => {
     expect(READER_DISCOVERABLE_SERIES).toHaveLength(25);
     expect(READER_DISCOVERABLE_SERIES.some((series) => series.seriesId === "first-day"))
@@ -56,6 +61,17 @@ describe("Vạn Quyển Các Mốc 1 content model", () => {
       expect(series.volumes.flatMap((volume) => volume.chapters).length)
         .toBeGreaterThan(0);
     });
+    expect(READER_DISCOVERABLE_SERIES.flatMap((series) =>
+      series.volumes.flatMap((volume) => volume.chapters)
+    )).toHaveLength(250);
+    const coverSources = new Set<string>();
+    READER_DISCOVERABLE_SERIES.forEach((series) => {
+      expect(series.volumes.flatMap((volume) => volume.chapters)).toHaveLength(10);
+      expect(series.coverAsset).toMatchObject({ kind: "art-directed" });
+      expect(series.coverAsset.src).toMatch(/^\/reader\/covers\/m3\/.+\.webp$/);
+      coverSources.add(series.coverAsset.src ?? "");
+    });
+    expect(coverSources).toHaveLength(25);
   });
 
   it("keeps the catalog lightweight and every released chapter behind a shard loader", () => {
@@ -100,6 +116,15 @@ describe("Vạn Quyển Các Mốc 1 content model", () => {
               : token.referenceEntryId;
             expect(READER_REFERENCE_ENTRY_BY_ID.has(entryId ?? "")).toBe(true);
           });
+        paragraph.segments
+          .filter((segment) => segment.kind === "text")
+          .forEach((segment) => {
+            expect([...segment.text].some(isReaderHanCharacter)).toBe(false);
+          });
+        const lookupableHanzi = paragraph.segments
+          .filter((segment) => segment.kind === "token")
+          .reduce((sum, token) => sum + countHanzi(token.surface), 0);
+        expect(lookupableHanzi).toBe(countHanzi(paragraph.zhHans));
       });
       if (series.seriesId === "jade-lantern-archive") {
         expect(countHanzi(chapter.paragraphs.map((paragraph) => paragraph.zhHans).join("")))
@@ -108,7 +133,7 @@ describe("Vạn Quyển Các Mốc 1 content model", () => {
           .toBeLessThanOrEqual(650);
       }
     }
-  });
+  }, 60_000);
 
   it("fails closed when a referenced rights record is absent", () => {
     expect(validateReaderRightsManifest(READER_RIGHTS_MANIFEST, READER_SERIES_CATALOG))
@@ -167,6 +192,31 @@ describe("Vạn Quyển Các local-first progress", () => {
     expect(supported.supportEvents).toHaveLength(1);
     expect(supported.supportEvents[0]).not.toHaveProperty("mastery");
     expect(supported.supportEvents[0]).not.toHaveProperty("evidence");
+  });
+
+  it("migrates an older V2 document and keeps contextual saves outside mastery", () => {
+    const now = "2026-08-24T04:00:00.000Z";
+    const olderV2 = createEmptyReaderProgress(scope, now) as unknown as Record<string, unknown>;
+    delete olderV2.savedEntries;
+    const migrated = parseReaderProgress(olderV2, scope, now);
+    expect(migrated.savedEntries).toEqual({});
+
+    const saved = toggleReaderSavedEntry(migrated, {
+      entryId: "reader-char:U+7075",
+      simplified: "灵",
+      pinyin: null,
+      partOfSpeechVi: "chữ Hán trong ngữ cảnh",
+      contextualMeaningVi: "Chữ xuất hiện trong đoạn thử nghiệm.",
+      sourceType: "reader-character-fallback",
+    }, "2026-08-24T04:01:00.000Z");
+    expect(saved.savedEntries["reader-char:U+7075"]).toMatchObject({
+      simplified: "灵",
+      savedAt: "2026-08-24T04:01:00.000Z",
+    });
+    expect(saved.savedEntries["reader-char:U+7075"]).not.toHaveProperty("mastery");
+    expect(saved.savedEntries["reader-char:U+7075"]).not.toHaveProperty("fsrs");
+    expect(removeReaderSavedEntry(saved, "reader-char:U+7075", "2026-08-24T04:02:00.000Z").savedEntries)
+      .toEqual({});
   });
 
   it("always resolves every legacy assessment state to the independent library", () => {

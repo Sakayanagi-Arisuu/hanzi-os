@@ -39,7 +39,7 @@ const original = (
   illustrator: "HANZI.OS code-native artwork",
   narrator: "Không có bản ghi âm; trình duyệt chỉ cung cấp TTS tổng hợp tùy chọn",
   canonicalSourceUrl: `hanzi-os:reader:${contentId}`,
-  sourceEdition: "reader-pilot-2026.08.1",
+  sourceEdition: "reader-pilot-2026.08.2",
   licenseId: "HANZI-OS-LOCAL-DRAFT-ALL-RIGHTS-RESERVED",
   licenseUrl: "hanzi-os:legal:reader-local-draft",
   commercialUseAllowed: false,
@@ -49,7 +49,7 @@ const original = (
   changesMade: "Bản thảo đầu tiên cho pilot local-first.",
   textRights: "Nguyên bản tạo riêng cho dự án; chưa qua rà soát pháp lý thương mại.",
   translationRights: "Bản dịch tiếng Việt nguyên bản đi cùng bản thảo.",
-  imageRights: "Đồ họa SVG hoặc bìa HTML/CSS code-native tạo riêng cho dự án.",
+  imageRights: "Minh họa bìa tạo mới riêng cho dự án; lớp tiêu đề dựng bằng HTML/CSS.",
   audioRights: "Không phân phối audio; TTS trình duyệt không phải tài sản nội dung.",
   jurisdictionsChecked: ["local-study-only; legal-review-pending"],
   contractOrEvidencePath: "src/reader/library/readerRights.ts",
@@ -59,8 +59,8 @@ const original = (
   ...overrides,
 });
 
-const chapterIds = [1, 2, 3, 4, 5, 6].map((number) =>
-  `reader-chapter:jade-lantern-archive-c0${number}`
+const chapterIds = Array.from({ length: 10 }, (_, index) => index + 1).map((number) =>
+  `reader-chapter:jade-lantern-archive-c${String(number).padStart(2, "0")}`
 );
 
 const shelfRights = READER_SHELF_SERIES.flatMap((series) => {
@@ -77,7 +77,9 @@ const shelfRights = READER_SHELF_SERIES.flatMap((series) => {
     original(series.coverAsset.rightsManifestId, {
       author: "Không áp dụng",
       translator: "Không áp dụng",
-      changesMade: "Bìa chữ HTML/CSS code-native tạo từ token HANZI.OS.",
+      illustrator: "OpenAI built-in image generation · HANZI.OS art direction",
+      changesMade: "Minh họa nguyên bản không chữ, tối ưu WebP; tên sách và ấn ký dựng bằng HTML/CSS.",
+      imageRights: "Ảnh tạo mới riêng cho dự án bằng OpenAI built-in image generation; không mô phỏng IP hay bìa sách cụ thể.",
     }),
   ];
 });
@@ -85,7 +87,11 @@ const shelfRights = READER_SHELF_SERIES.flatMap((series) => {
 export const READER_RIGHTS_MANIFEST: ReaderRightsRecord[] = [
   original("reader-series:jade-lantern-archive"),
   ...chapterIds.map((contentId) => original(contentId)),
-  original("reader-cover:jade-lantern-archive"),
+  original("reader-cover:jade-lantern-archive", {
+    illustrator: "OpenAI built-in image generation · HANZI.OS art direction",
+    changesMade: "Minh họa thư các ngọc nguyên bản không chữ, tối ưu WebP; tiêu đề dựng bằng HTML/CSS.",
+    imageRights: "Ảnh tạo mới riêng cho dự án bằng OpenAI built-in image generation; không mô phỏng IP hay bìa sách cụ thể.",
+  }),
   ...shelfRights,
   original("reader-series:first-day", {
     sourceType: "legacy-hanzi-os",

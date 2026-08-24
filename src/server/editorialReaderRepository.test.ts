@@ -1,0 +1,95 @@
+import { describe, expect, it } from "vitest";
+import type { D1Database } from "./d1";
+import { EditorialReaderRepository } from "./editorialReaderRepository";
+
+const publishedBook = {
+  schemaVersion: 1,
+  seriesId: "thanh-pho-thu-nghiem",
+  titleZh: "试验城市",
+  titleVi: "Thành Phố Thử Nghiệm",
+  synopsisVi: "Một biên tập viên thử luồng phát hành sách nguyên bản.",
+  hookVi: "Cánh cửa chỉ mở sau khi revision được phê duyệt.",
+  genreIds: ["Bí ẩn"],
+  shelfId: "bi-an",
+  levelBand: { min: "HSK2", max: "HSK3", label: "HSK2–3 · độ khó gợi ý" },
+  cover: { src: "/reader/covers/editorial/test.webp", altVi: "Thành phố dưới ánh đèn", tone: "jade" },
+  chapters: [{
+    titleZh: "门后的光",
+    titleVi: "Ánh sáng sau cửa",
+    hookVi: "Một dấu hiệu mới xuất hiện.",
+    estimatedMinutes: 5,
+    paragraphs: [
+      { zhHans: "城市的门慢慢打开。", pinyin: "Chéngshì de mén mànmàn dǎkāi.", vi: "Cánh cửa thành phố từ từ mở." },
+      { zhHans: "里面有一张新的地图。", pinyin: "Lǐmiàn yǒu yì zhāng xīn de dìtú.", vi: "Bên trong có một tấm bản đồ mới." },
+    ],
+  }],
+  rights: {
+    textProvenanceVi: "Bản thảo nguyên bản của biên tập viên.",
+    coverProvenanceVi: "Bìa nguyên bản có quyền sử dụng.",
+    editorAttestsRights: true,
+  },
+  humanReviewed: false,
+};
+
+const contentJson = JSON.stringify({ contentKind: "reader-series", readerSeries: publishedBook });
+
+describe("Editorial Reader published projection", () => {
+  it("queries published revisions only and drops malformed content", async () => {
+    let query = "";
+    const database = {
+      prepare(sql: string) {
+        query = sql;
+        return {
+          async all() {
+            return {
+              success: true,
+              results: [
+                { stableKey: "reader.series.thanh-pho-thu-nghiem", contentJson },
+                { stableKey: "reader.series.broken", contentJson: "{" },
+                { stableKey: "reader.series.other", contentJson: JSON.stringify({ contentKind: "lesson" }) },
+              ],
+            };
+          },
+        };
+      },
+    } as unknown as D1Database;
+
+    const series = await new EditorialReaderRepository(database).listPublishedSeries();
+    expect(query).toContain("r.workflow_state = 'published'");
+    expect(query).toContain("i.stable_key LIKE 'reader.series.%'");
+    expect(series).toHaveLength(1);
+    expect(series[0]).toMatchObject({ seriesId: publishedBook.seriesId, discoverable: true });
+  });
+
+  it("binds a stable series key and projects only a requested chapter", async () => {
+    let bound: unknown[] = [];
+    let query = "";
+    const database = {
+      prepare(sql: string) {
+        query = sql;
+        return {
+          bind(...values: unknown[]) {
+            bound = values;
+            return this;
+          },
+          async first() {
+            return { stableKey: "reader.series.thanh-pho-thu-nghiem", contentJson };
+          },
+        };
+      },
+    } as unknown as D1Database;
+
+    const repository = new EditorialReaderRepository(database);
+    const chapter = await repository.getPublishedChapter(
+      publishedBook.seriesId,
+      "thanh-pho-thu-nghiem-c01",
+    );
+    expect(query).toContain("r.workflow_state = 'published'");
+    expect(bound).toEqual(["reader.series.thanh-pho-thu-nghiem"]);
+    expect(chapter).toMatchObject({
+      seriesId: publishedBook.seriesId,
+      chapterId: "thanh-pho-thu-nghiem-c01",
+    });
+    expect(chapter?.paragraphs).toHaveLength(2);
+  });
+});

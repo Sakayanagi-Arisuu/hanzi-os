@@ -44,6 +44,40 @@ Trạng thái module chỉ gồm:
 Module tiếp theo do người dùng chọn sau khi test web; không tự mở nhiều module
 song song.
 
+### Vạn Quyển Các Mốc 3 đang chờ người dùng duyệt — 25/08/2026
+
+- Thư khố giữ 25 stable series ID và mở rộng thành **250 chương đọc được**: mỗi
+  quyển có trọn 10 chương, nối theo tuyến truyện riêng. Stable chapter ID cũ,
+  completion, vị trí đọc, Sổ Từ, owner/generation/reset và guest→account adoption
+  được giữ nguyên. Nội dung mới là AI-assisted, `humanReviewed:false`, không được
+  dùng làm mastery/evidence.
+- Cả 25 quyển có **25 bìa minh họa riêng theo nội dung**, tạo bằng OpenAI built-in
+  image generation, tối ưu WebP `720×1080` tổng khoảng 2,54 MB. Bìa không còn Hán
+  tự lớn ở giữa; 25 tệp có 25 hash khác nhau và rights manifest ghi provenance,
+  phạm vi sử dụng cùng trạng thái review fail-closed.
+- Reader tokenizer bao toàn bộ Hán tự bằng token có thể bấm, ưu tiên cụm từ rồi
+  fallback từng chữ. Lookup sâu dùng kho CVDICT + HSK mở rộng gồm **119.048 bề mặt
+  tiếng Trung có thể tra**, trong đó 11.093 mục tải tức thời và 119.043 mục exact
+  lookup chia 64 shard. Cụm `熄灭` được browser smoke xác nhận tra ra Pinyin,
+  phồn thể và nghĩa Việt ngay ở Chương 10 rồi mở cùng hồ sơ trong Tàng Tự Khố.
+  Mục tham chiếu có thể lưu vào Sổ Từ nhưng không tự tạo mastery/FSRS.
+- Biên tập viên có `/studio/library` theo luồng gian hàng: nhập hồ sơ sách, URL
+  bìa, thể loại/HSK, thêm/bớt chương và đoạn Trung–Pinyin–Vi, khai provenance và
+  xác nhận quyền. Server yêu cầu `content:drafts:write`; sách mới đi qua draft →
+  validation → submission → approval → publish của Content Studio và learner API
+  chỉ đọc revision `published`. Mã sách built-in được chặn trùng.
+- Gate Mốc 3: `build-mega-lexicon --check` và validator toàn bộ 64 shard xanh;
+  targeted ESLint xanh; 4 test file/20 test Reader–lexicon–editorial xanh, bao đủ
+  250 chapter shard và mọi Hán tự trong mỗi đoạn. Browser smoke thật xác nhận 25
+  bìa M3 tải đủ ở 720 px, không còn cover sigil, 250 chương, deep link Chương 10,
+  lookup `熄灭`, Tàng Tự Khố 119.048 mục và form biên tập; viewport editor
+  `360×640` không tràn ngang, touch target nhỏ nhất 44 px.
+- `npm run typecheck` không có lỗi do Mốc 3 nhưng vẫn dừng ở đúng hai lỗi có sẵn
+  ngoài Reader tại `DashboardPage.tsx` (thiếu nhãn `dictionary`) và `PathPage.tsx`
+  (`hsk0` chưa nằm trong union đích). Inventory HSK1–4 không đổi:
+  `40/40 + 40/40 + 55/55 + 78/78 = 213/213` rich.
+- Trạng thái Mốc 3 là `IN-REVIEW`; chờ chủ dự án test web trước khi duyệt.
+
 ### Vạn Quyển Các Mốc 1 đang chờ người dùng duyệt — 24/08/2026
 
 - `/reader` mở thẳng Thư Khố thay vì sheet/modal: 25 quyển nguyên bản đang khám

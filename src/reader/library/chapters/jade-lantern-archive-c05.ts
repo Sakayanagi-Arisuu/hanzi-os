@@ -3,7 +3,7 @@ import type { ReaderChapter } from "../readerContentModel";
 
 const chapter: ReaderChapter = {
   chapterId: "jade-lantern-archive-c05",
-  version: "reader-pilot-2026.08.1:jade-lantern-archive-c05:1",
+  version: "reader-pilot-2026.08.2:jade-lantern-archive-c05:1",
   seriesId: "jade-lantern-archive",
   chapterNumber: 5,
   titleZh: "墨潮来了",

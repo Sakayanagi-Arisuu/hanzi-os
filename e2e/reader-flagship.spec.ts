@@ -41,6 +41,7 @@ test("reads, looks up, saves, resumes, completes, exits and replays without crea
   const learnerCopy = await page.locator("main").innerText();
   expect(learnerCopy).not.toMatch(/Reader session|receipt|schema|mastery|outbox|hash|closed alpha/u);
   await expect(page.getByTestId("reader-book-grid").getByRole("link")).toHaveCount(25);
+  await expect(page.getByText("THƯ KHỐ ĐANG MỞ · 54 CHƯƠNG ĐỌC ĐƯỢC")).toBeVisible();
   await expect(page.getByText("Ngày đầu ở lớp tiếng Trung", { exact: true })).toHaveCount(0);
   await page.getByRole("link", { name: "Mở mô tả Thư Các Thanh Đăng" }).click();
   await page.getByRole("link", { name: "Mở chương đầu" }).click();
@@ -97,6 +98,31 @@ test("reads, looks up, saves, resumes, completes, exits and replays without crea
   expect((learningState.evidence ?? []).filter((item: { source: string }) =>
     item.source === "reader"
   )).toEqual([]);
+});
+
+test("makes every Han character lookupable and keeps non-core saves in the Reader wordbook", async ({ page }) => {
+  await finishOnboarding(page);
+  await page.goto("/reader/series/van-menh-nguoc-dong");
+  await expect(page.getByText("Cái tên thứ hai trên thẻ đen", { exact: true })).toBeVisible();
+  await page.getByRole("link", { name: "Mở Trở lại ngày thử kiếm" }).click();
+
+  await page.getByRole("button", { name: "Tra từ 谢", exact: true }).first().click();
+  const wordSheet = page.getByRole("dialog", { name: "谢" });
+  await expect(wordSheet.getByText("Chưa có Pinyin trong kho cốt lõi")).toBeVisible();
+  await expect(wordSheet.getByText(/Chữ xuất hiện trong đoạn/u)).toBeVisible();
+  await wordSheet.getByRole("button", { name: "Lưu vào Sổ Từ" }).click();
+  await expect(wordSheet.getByRole("button", { name: "Đã lưu vào Sổ Từ" })).toBeVisible();
+  await wordSheet.getByRole("button", { name: "Đóng 谢" }).click();
+
+  await page.goto("/reader");
+  await page.getByRole("button", { name: "Sổ từ 1" }).click();
+  const wordbook = page.getByRole("dialog", { name: "Sổ Từ Vạn Quyển" });
+  await expect(wordbook.getByText("谢", { exact: true })).toBeVisible();
+  await expect(wordbook.getByText(/không tự tính mastery/u)).toBeVisible();
+
+  const savedEntry = await progressDocument(page);
+  expect(savedEntry.savedEntries?.["reader-char:U+8C22"]).toMatchObject({ simplified: "谢" });
+  expect(savedEntry.savedEntries?.["reader-char:U+8C22"]).not.toHaveProperty("fsrs");
 });
 
 test("opens the independent library immediately for an authenticated account session", async ({ page }) => {

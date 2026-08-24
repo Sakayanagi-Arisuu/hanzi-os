@@ -9,8 +9,11 @@ import {
   RotateCcw,
   Sparkles,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { ReaderCover } from "../reader/library/ReaderCover";
+import { loadEditorialReaderCatalog } from "../reader/library/editorialReaderClient";
+import type { ReaderSeries } from "../reader/library/readerContentModel";
 import { resolveReaderEntry } from "../reader/library/readerEntryResolver";
 import { READER_SERIES_BY_ID } from "../reader/library/readerManifest";
 import {
@@ -38,7 +41,30 @@ export function ReaderSeriesPage() {
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
   });
-  const series = READER_SERIES_BY_ID.get(seriesId);
+  const staticSeries = READER_SERIES_BY_ID.get(seriesId);
+  const [editorialSeries, setEditorialSeries] = useState<ReaderSeries | null>(null);
+  const [editorialLoading, setEditorialLoading] = useState(!staticSeries);
+  const series = staticSeries ?? editorialSeries ?? undefined;
+
+  useEffect(() => {
+    if (staticSeries) {
+      setEditorialLoading(false);
+      return;
+    }
+    let active = true;
+    setEditorialLoading(true);
+    loadEditorialReaderCatalog()
+      .then((catalog) => {
+        if (active) setEditorialSeries(catalog.find((candidate) => candidate.seriesId === seriesId) ?? null);
+      })
+      .catch(() => undefined)
+      .finally(() => { if (active) setEditorialLoading(false); });
+    return () => { active = false; };
+  }, [seriesId, staticSeries]);
+
+  if (editorialLoading) {
+    return <section className="reader-recovery" role="status"><BookOpenText size={44} aria-hidden="true" /><span>VẠN QUYỂN CÁC</span><h1>Đang lấy sách từ gian biên tập…</h1></section>;
+  }
 
   if (!series) {
     return (

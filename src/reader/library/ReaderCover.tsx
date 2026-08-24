@@ -17,15 +17,24 @@ export function ReaderCover({ series, compact = false, catalog = false }: {
         />
       ) : (
         <div
-          className="reader-cover-art"
+          className={`reader-cover-art ${series.coverAsset.kind === "art-directed" ? "reader-cover-art--generated" : ""}`}
           data-cover-tone={series.coverAsset.tone}
           role="img"
           aria-label={series.coverAsset.altVi}
         >
+          {series.coverAsset.kind === "art-directed" && series.coverAsset.src && (
+            <img
+              className="reader-cover-art__image"
+              src={series.coverAsset.src}
+              alt=""
+              aria-hidden="true"
+              width={720}
+              height={1080}
+              loading={catalog ? "lazy" : "eager"}
+              decoding="async"
+            />
+          )}
           <span className="reader-cover-art__eyebrow">HANZI.OS · ORIGINAL</span>
-          <span className="reader-cover-art__sigil" aria-hidden="true">
-            {series.coverAsset.sigil}
-          </span>
           <span className="reader-cover-art__zh" lang="zh-Hans">{series.titleZh}</span>
           <strong>{series.titleVi}</strong>
           <span className="reader-cover-art__seal" aria-hidden="true">阅</span>

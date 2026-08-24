@@ -24,6 +24,7 @@ import { Link, useNavigate, useParams } from "react-router";
 import { speakMandarin } from "../lib/speech";
 import { ReaderDialog } from "../reader/library/ReaderDialog";
 import { ReaderWordDialog } from "../reader/library/ReaderWordDialog";
+import { loadEditorialReaderCatalog } from "../reader/library/editorialReaderClient";
 import {
   loadReaderChapter,
   prefetchReaderChapter,
@@ -31,10 +32,11 @@ import {
 import type {
   ReaderChapter,
   ReaderParagraph,
-  ReaderToken,
+  ReaderSeries,
 } from "../reader/library/readerContentModel";
 import {
-  READER_REFERENCE_ENTRY_BY_ID,
+  hydrateReaderReferenceEntry,
+  resolveReaderTokenEntry,
   type ReaderReferenceEntry,
 } from "../reader/library/readerLexicon";
 import { READER_SERIES_BY_ID } from "../reader/library/readerManifest";
@@ -42,6 +44,7 @@ import {
   completeReaderChapter,
   recordReaderSupport,
   resolveReadingMode,
+  toggleReaderSavedEntry,
   updateReaderPosition,
   type ReaderMode,
 } from "../reader/library/readerProgress";
@@ -54,10 +57,6 @@ type ChapterLoadState =
   | { phase: "ready"; chapter: ReaderChapter }
   | { phase: "error"; timeout: boolean };
 
-const entryForToken = (token: ReaderToken) => READER_REFERENCE_ENTRY_BY_ID.get(
-  token.lexemeId ? `reader-core:${token.lexemeId}` : token.referenceEntryId ?? "",
-) ?? null;
-
 function ParagraphText({
   paragraph,
   onToken,
@@ -69,8 +68,7 @@ function ParagraphText({
     <p className="reader-chinese-copy" lang="zh-Hans">
       {paragraph.segments.map((segment) => {
         if (segment.kind === "text") return <span key={`text-${segment.sequence}`}>{segment.text}</span>;
-        const entry = entryForToken(segment);
-        if (!entry) return <span key={`token-${segment.sequence}`}>{segment.surface}</span>;
+        const entry = resolveReaderTokenEntry(segment, paragraph.vi);
         return (
           <button
             key={`token-${segment.sequence}`}
@@ -95,7 +93,10 @@ export function ReaderChapterPage() {
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
   });
-  const series = READER_SERIES_BY_ID.get(seriesId);
+  const staticSeries = READER_SERIES_BY_ID.get(seriesId);
+  const [editorialSeries, setEditorialSeries] = useState<ReaderSeries | null>(null);
+  const [editorialLoading, setEditorialLoading] = useState(!staticSeries);
+  const series = staticSeries ?? editorialSeries ?? undefined;
   const chapters = series?.volumes.flatMap((volume) => volume.chapters) ?? [];
   const summaryIndex = chapters.findIndex((chapter) => chapter.chapterId === chapterId);
   const summary = summaryIndex >= 0 ? chapters[summaryIndex] : null;
@@ -112,6 +113,7 @@ export function ReaderChapterPage() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const supportTriggerRef = useRef<HTMLButtonElement>(null);
   const tokenTriggerRef = useRef<HTMLElement>(null);
+  const lookupSequenceRef = useRef(0);
   const restoredChapterRef = useRef("");
   const progressRef = useRef(progress);
   const modeRef = useRef(mode);
@@ -122,6 +124,22 @@ export function ReaderChapterPage() {
     document.body.classList.add("reader-library-immersive");
     return () => document.body.classList.remove("reader-library-immersive");
   }, []);
+
+  useEffect(() => {
+    if (staticSeries) {
+      setEditorialLoading(false);
+      return;
+    }
+    let active = true;
+    setEditorialLoading(true);
+    loadEditorialReaderCatalog()
+      .then((catalog) => {
+        if (active) setEditorialSeries(catalog.find((candidate) => candidate.seriesId === seriesId) ?? null);
+      })
+      .catch(() => undefined)
+      .finally(() => { if (active) setEditorialLoading(false); });
+    return () => { active = false; };
+  }, [seriesId, staticSeries]);
 
   useEffect(() => {
     if (!series || !summary) return;
@@ -241,12 +259,40 @@ export function ReaderChapterPage() {
     tokenTriggerRef.current = target;
     setSelectedEntry(entry);
     recordSupport("lookup", entry.entryId, paragraphId);
+    const sequence = ++lookupSequenceRef.current;
+    void hydrateReaderReferenceEntry(entry).then((hydrated) => {
+      if (lookupSequenceRef.current === sequence) setSelectedEntry(hydrated);
+    }).catch(() => undefined);
   };
 
-  const closeWord = () => setSelectedEntry(null);
+  const closeWord = () => {
+    lookupSequenceRef.current += 1;
+    setSelectedEntry(null);
+  };
   const speak = (text: string) => {
     recordSupport("tts", selectedEntry?.entryId ?? null);
     speakMandarin(text, 0.76);
+  };
+  const toggleSavedEntry = (entry: ReaderReferenceEntry) => {
+    if (entry.lexemeId) {
+      void actions.toggleSavedWord(entry.lexemeId);
+      return;
+    }
+    const sourceType = entry.sourceType === "original-context-gloss"
+      || entry.sourceType === "mega-lexicon"
+      || entry.sourceType === "reader-character-fallback"
+      ? entry.sourceType
+      : null;
+    if (!sourceType) return;
+    setProgress((current) => toggleReaderSavedEntry(current, {
+      entryId: entry.entryId,
+      simplified: entry.simplified,
+      ...(entry.traditional ? { traditional: entry.traditional } : {}),
+      pinyin: entry.pinyin,
+      partOfSpeechVi: entry.partOfSpeechVi,
+      contextualMeaningVi: entry.contextualMeaningVi,
+      sourceType,
+    }));
   };
   const togglePinyin = () => {
     setShowPinyin((current) => {
@@ -279,6 +325,10 @@ export function ReaderChapterPage() {
   const progressPercent = chapter
     ? Math.round(((activeIndex + 1) / Math.max(1, chapter.paragraphs.length)) * 100)
     : 0;
+
+  if (editorialLoading) {
+    return <section className="reader-chapter-loader" role="status" aria-live="polite"><BookOpenText size={42} aria-hidden="true" /><strong>Đang lấy chương từ gian biên tập…</strong></section>;
+  }
 
   if (!series || !summary) {
     return (
@@ -350,6 +400,7 @@ export function ReaderChapterPage() {
             <span>第 {chapter!.chapterNumber} 章</span>
             <h1 lang="zh-Hans">{chapter!.titleZh}</h1>
             <p>{chapter!.titleVi}</p>
+            <small className="reader-lookup-hint">Chạm bất kỳ chữ Hán nào để tra và lưu.</small>
           </header>
           {chapter!.paragraphs.map((paragraph, index) => (
             <section className="reader-prose-paragraph" id={paragraph.paragraphId} key={paragraph.paragraphId} data-paragraph-number={index + 1}>
@@ -427,11 +478,13 @@ export function ReaderChapterPage() {
       <ReaderWordDialog
         entry={selectedEntry}
         open={Boolean(selectedEntry)}
-        saved={Boolean(selectedEntry?.lexemeId && state.savedWords.includes(selectedEntry.lexemeId))}
+        saved={Boolean(selectedEntry && (selectedEntry.lexemeId
+          ? state.savedWords.includes(selectedEntry.lexemeId)
+          : progress.savedEntries[selectedEntry.entryId]))}
         returnFocusRef={tokenTriggerRef}
         onClose={closeWord}
         onSpeak={speak}
-        onSave={(lexemeId) => void actions.toggleSavedWord(lexemeId)}
+        onToggleSave={toggleSavedEntry}
       />
     </section>
   );

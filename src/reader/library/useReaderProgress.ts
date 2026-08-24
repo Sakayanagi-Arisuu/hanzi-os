@@ -35,8 +35,10 @@ export const useReaderProgress = ({
       const currentProgress = progressRef.current;
       const canAdoptGuestProgress = authenticated
         && previousOwnerRef.current.startsWith("anonymous:")
-        && Object.keys(currentProgress.chapters).length > 0
-        && Object.keys(stored.chapters).length === 0;
+        && (Object.keys(currentProgress.chapters).length > 0
+          || Object.keys(currentProgress.savedEntries).length > 0)
+        && Object.keys(stored.chapters).length === 0
+        && Object.keys(stored.savedEntries).length === 0;
       const next = canAdoptGuestProgress
         ? adoptReaderProgressScope(currentProgress, scope)
         : stored;
