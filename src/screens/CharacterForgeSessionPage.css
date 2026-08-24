@@ -1,4 +1,4 @@
-/* Focused session overrides: one task, one feedback region, one primary CTA. */
+/* Focused session: fixed command/action bars, one no-scroll drawing workspace. */
 .forge-session {
   background: var(--forge-void);
 }
@@ -41,96 +41,243 @@
   border-radius: 999px;
 }
 
-.forge-session-progress progress::-webkit-progress-bar {
-  background: #17332a;
-}
-
-.forge-session-progress progress::-webkit-progress-value {
-  background: var(--forge-jade);
-}
-
-.forge-session-progress progress::-moz-progress-bar {
-  background: var(--forge-jade);
-}
+.forge-session-progress progress::-webkit-progress-bar { background: #17332a; }
+.forge-session-progress progress::-webkit-progress-value { background: var(--forge-jade); }
+.forge-session-progress progress::-moz-progress-bar { background: var(--forge-jade); }
 
 .forge-session-stage.is-drawing {
-  padding: clamp(10px, 1.5vw, 20px);
+  padding: clamp(10px, 1.5vw, 18px);
+  overflow: hidden;
+  scrollbar-gutter: auto;
+  align-content: stretch;
 }
 
 .forge-stage-content.is-drawing {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
   grid-template-rows: minmax(0, 1fr);
+  place-items: stretch;
+  align-content: stretch;
   gap: 0;
 }
 
 .stroke-practice {
-  width: min(100%, 600px);
-  height: max-content;
-  min-height: max-content;
+  width: min(100%, 980px);
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
   grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: max-content max-content max-content;
+  grid-template-rows: auto minmax(0, 1fr);
   grid-template-areas:
     "heading"
-    "board"
-    "copy";
-  justify-items: center;
-  align-self: start;
-  align-content: center;
+    "workspace";
+  justify-self: center;
+  align-self: stretch;
+  align-items: stretch;
+  align-content: stretch;
   gap: 12px;
 }
 
 .stroke-practice > header {
-  width: min(100%, 460px);
-  align-self: auto;
-  align-items: flex-start;
+  grid-area: heading;
+  width: 100%;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(81, 246, 193, .14);
+}
+
+.stroke-practice-heading {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.stroke-practice > header .stroke-practice-heading > span {
+  grid-row: 1;
+  color: var(--forge-gold);
+  font: 800 11px var(--mono);
+  letter-spacing: .1em;
+  white-space: nowrap;
 }
 
 .stroke-practice > header h2 {
-  margin: 4px 0 0;
-  font-size: clamp(23px, 2.6vw, 30px);
+  grid-column: 2;
+  grid-row: 1;
+  margin: 0;
+  color: var(--forge-text);
+  font-size: clamp(21px, 2.2vw, 27px);
   letter-spacing: -.025em;
 }
 
-.stroke-practice > header > strong {
-  min-height: 32px;
-  padding: 0 10px;
-  color: var(--forge-text);
-  background: #0a211a;
-  border-radius: 999px;
+.stroke-brief {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--forge-muted);
   font-size: 13px;
+  line-height: 1.35;
 }
 
-.stroke-brief {
-  margin: 4px 0 0;
+.stroke-practice > header > strong {
+  min-height: 36px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+  color: var(--forge-text);
+  background: #0a211a;
+  border: 1px solid var(--forge-soft-line);
+  border-radius: 999px;
+  font: 800 13px var(--mono);
+  white-space: nowrap;
+}
+
+.stroke-practice > header > strong span {
   color: var(--forge-muted);
-  font-size: 14px;
-  line-height: 1.45;
+  font: 700 11px var(--mono);
+  letter-spacing: .04em;
+}
+
+.stroke-practice > header > strong svg {
+  width: 16px;
+  color: var(--forge-jade);
+}
+
+.stroke-workspace {
+  grid-area: workspace;
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(250px, 320px);
+  align-items: stretch;
+  gap: clamp(18px, 3vw, 36px);
+}
+
+.stroke-board-area {
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stroke-board-shell {
-  width: min(100%, clamp(340px, 46vh, 460px));
-  background: #03100d;
-  border-color: rgba(98, 220, 255, .28);
-  border-radius: 16px;
+  grid-area: auto;
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1.138 / 1;
+  overflow: hidden;
+  background: #020d0a;
+  border: 1px solid rgba(98, 220, 255, .38);
+  border-radius: 18px;
   clip-path: none;
+  box-shadow: inset 0 0 50px rgba(81, 246, 193, .025), 0 18px 54px rgba(0, 0, 0, .22);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.stroke-practice-copy {
-  width: min(100%, 460px);
+.stroke-board-shell[data-tone="error"] {
+  border-color: rgba(255, 120, 107, .7);
+  box-shadow: inset 0 0 40px rgba(255, 120, 107, .035), 0 0 0 2px rgba(255, 120, 107, .08);
+}
+
+.stroke-board-shell[data-tone="success"] {
+  border-color: rgba(81, 246, 193, .62);
+}
+
+.stroke-board {
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  margin: 12px;
+  display: block;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.stroke-grid {
+  fill: none;
+  stroke: rgba(98, 220, 255, .15);
+  stroke-width: 3;
+  stroke-dasharray: none;
+  pointer-events: none;
+}
+
+.stroke-grid .is-diagonal {
+  stroke: rgba(98, 220, 255, .08);
+  stroke-dasharray: 12 16;
+}
+
+.stroke-memory-reference path {
+  fill: rgba(237, 255, 249, .13);
+  pointer-events: none;
+}
+
+.stroke-shape { fill: rgba(237, 255, 249, .035); }
+.stroke-shape.is-current { fill: rgba(243, 201, 105, .11); }
+.stroke-shape.is-done { fill: rgba(81, 246, 193, .38); }
+
+.stroke-guide {
+  stroke-width: 18;
+  stroke-dasharray: 20 24;
+}
+
+.stroke-user-trace,
+.stroke-comparison-attempt {
+  stroke: var(--forge-cyan);
+  stroke-width: 30;
+}
+
+.stroke-user-trace.is-error { stroke: var(--forge-error); }
+.stroke-user-trace.is-success { stroke: var(--forge-jade); }
+
+.stroke-coach {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(96px, auto) auto;
+  align-content: center;
+  gap: 10px;
+}
+
+.stroke-coach-label {
+  display: flex;
+  align-items: center;
   gap: 8px;
+  color: var(--forge-muted);
+  font: 700 12px var(--mono);
+  letter-spacing: .04em;
+}
+
+.stroke-coach-label > span {
+  width: 8px;
+  height: 8px;
+  background: var(--forge-jade);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(81, 246, 193, .6);
 }
 
 .stroke-feedback {
-  min-height: 48px;
-  padding: 11px 13px;
+  min-height: 96px;
+  margin: 0;
+  padding: 14px;
   display: flex;
   align-items: flex-start;
-  gap: 9px;
+  gap: 10px;
   color: var(--forge-muted);
   background: #071914;
   border: 1px solid var(--forge-soft-line);
-  border-left-width: 3px;
-  border-radius: 8px;
-  line-height: 1.45;
+  border-left: 3px solid var(--forge-cyan);
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .stroke-feedback > svg {
@@ -153,12 +300,54 @@
 }
 
 .stroke-actions {
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 
 .stroke-actions button {
-  flex: 0 1 auto;
-  min-width: 148px;
+  width: 100%;
+  min-height: 44px;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  color: var(--forge-muted);
+  background: #061b15;
+  border: 1px solid var(--forge-soft-line);
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.stroke-actions button:hover,
+.stroke-actions button:focus-visible {
+  color: var(--forge-text);
+  background: #0a251d;
+  border-color: rgba(98, 220, 255, .52);
+}
+
+.stroke-actions button:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+
+.stroke-actions button svg {
+  width: 18px;
+  flex: 0 0 18px;
+}
+
+.stroke-actions .stroke-rescue {
+  color: var(--forge-gold);
+  border-color: rgba(243, 201, 105, .38);
+}
+
+.stroke-practice-state {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
 }
 
 .forge-session[data-phase="guided"] .forge-action-dock,
@@ -175,52 +364,93 @@
     gap: 8px;
   }
 
-  .forge-session-identity strong {
-    font-size: 14px;
+  .forge-session-identity strong { font-size: 14px; }
+  .forge-session-identity small { font-size: 12px; }
+  .forge-session-progress span { font-size: 11px; }
+
+  .forge-session-stage.is-drawing { padding: 7px 9px; }
+
+  .stroke-practice {
+    width: min(100%, 390px);
+    gap: 7px;
   }
 
-  .forge-session-identity small {
+  .stroke-practice > header {
+    min-height: 48px;
+    gap: 8px;
+  }
+
+  .stroke-practice-heading { gap: 2px 8px; }
+  .stroke-practice > header .stroke-practice-heading > span { font-size: 9px; }
+  .stroke-practice > header h2 { font-size: 20px; }
+  .stroke-brief { font-size: 11px; }
+
+  .stroke-practice > header > strong {
+    min-height: 34px;
+    padding: 0 9px;
     font-size: 12px;
   }
 
-  .forge-session-progress span {
-    font-size: 11px;
+  .stroke-practice > header > strong span { display: none; }
+
+  .stroke-workspace {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 7px;
   }
 
-  .forge-session-stage.is-drawing {
-    padding: 8px 10px;
-  }
-
-  .stroke-practice {
-    gap: 9px;
-  }
-
-  .stroke-practice > header,
-  .stroke-practice-copy {
-    width: min(100%, 390px);
-  }
-
-  .stroke-practice > header h2 {
-    font-size: 23px;
-  }
-
-  .stroke-brief {
-    font-size: 13px;
-  }
+  .stroke-board-area { align-items: center; }
 
   .stroke-board-shell {
-    width: min(82vw, 360px);
+    height: min(100%, 299px);
+    width: auto;
+    max-width: min(100%, 340px);
+    justify-self: center;
+    border-radius: 14px;
   }
 
+  .stroke-board {
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    margin: 8px;
+  }
+
+  .stroke-coach {
+    grid-template-rows: auto auto;
+    gap: 6px;
+  }
+
+  .stroke-coach-label { display: none; }
+
   .stroke-feedback {
-    min-height: 48px;
-    font-size: 14px;
+    min-height: 44px;
+    padding: 9px 10px;
+    align-items: center;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .stroke-feedback > svg {
+    width: 17px;
+    height: 17px;
+    flex-basis: 17px;
+    margin: 0;
+  }
+
+  .stroke-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
   }
 
   .stroke-actions button {
-    min-width: 132px;
-    font-size: 13px;
+    min-width: 0;
+    min-height: 44px;
+    padding: 6px 9px;
+    justify-content: center;
+    font-size: 12px;
   }
+
+  .stroke-actions button:only-child { grid-column: 1 / -1; }
 
   .forge-session[data-phase="guided"] .forge-action-dock,
   .forge-session[data-phase="recall"] .forge-action-dock {
@@ -229,32 +459,54 @@
 }
 
 @media (max-height: 540px) and (min-width: 761px) {
+  .forge-session-stage.is-drawing { padding: 6px 12px; }
+
   .stroke-practice {
-    max-width: 560px;
+    max-width: 900px;
     gap: 6px;
   }
 
-  .stroke-board-shell {
-    width: 280px;
-    max-height: 246px;
+  .stroke-practice > header { min-height: 40px; }
+  .stroke-practice > header h2 { font-size: 20px; }
+  .stroke-brief { display: none; }
+
+  .stroke-workspace {
+    grid-template-columns: minmax(260px, 1fr) minmax(250px, 300px);
+    gap: 18px;
   }
 
-  .stroke-practice > header,
-  .stroke-practice-copy {
-    width: min(100%, 500px);
+  .stroke-coach {
+    grid-template-rows: minmax(0, 1fr) 44px;
+    align-content: stretch;
+    gap: 6px;
   }
 
-  .stroke-practice > header h2 {
-    font-size: 22px;
-  }
-
-  .stroke-brief {
-    display: none;
-  }
+  .stroke-coach-label { display: none; }
 
   .stroke-feedback {
-    min-height: 40px;
-    padding: 7px 10px;
+    min-height: 0;
+    height: 100%;
+    padding: 9px 11px;
     font-size: 12px;
+    overflow: hidden;
   }
+
+  .stroke-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .stroke-actions button {
+    min-width: 0;
+    padding-inline: 8px;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .stroke-actions button:only-child { grid-column: 1 / -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stroke-board-shell,
+  .stroke-actions button { transition: none; }
 }

@@ -39,7 +39,7 @@ export type StrokePracticeResult = {
 
 export type StrokeScaffoldVisibility = {
   grid: boolean;
-  glyph: boolean;
+  memoryReference: boolean;
   strokeShapes: boolean;
   strokeGuide: boolean;
 };
@@ -60,19 +60,22 @@ export const getStrokeScaffoldVisibility = ({
   complete: boolean;
 }): StrokeScaffoldVisibility => {
   if (variant === "memory") return {
-    grid: false,
-    glyph: memoryReferenceVisible,
+    grid: true,
+    memoryReference: memoryReferenceVisible,
     strokeShapes: false,
     strokeGuide: memoryStrokeHintVisible && !complete,
   };
   const referenceVisible = variant === "guided" || playing;
   return {
-    grid: referenceVisible && assistance >= 1,
-    glyph: referenceVisible && assistance >= 2,
+    grid: true,
+    memoryReference: false,
     strokeShapes: referenceVisible,
     strokeGuide: referenceVisible && !complete && !playing && assistance >= 3,
   };
 };
+
+export const shouldOfferStrokeRescue = (variant: "guided" | "memory", missesOnStroke: number) =>
+  variant === "guided" || missesOnStroke >= 2;
 
 export const shouldAdvanceStrokeAttempt = ({
   variant,
@@ -179,6 +182,7 @@ export function StrokeOrderPractice({
   const [playing, setPlaying] = useState(false);
   const [memoryReferenceVisible, setMemoryReferenceVisible] = useState(false);
   const [memoryStrokeHintVisible, setMemoryStrokeHintVisible] = useState(false);
+  const [currentStrokeMisses, setCurrentStrokeMisses] = useState(0);
   const [totalMisses, setTotalMisses] = useState(0);
   const svgRef = useRef<SVGSVGElement>(null);
   const completionSent = useRef(false);
@@ -202,6 +206,7 @@ export function StrokeOrderPractice({
     setPlaying(false);
     setMemoryReferenceVisible(false);
     setMemoryStrokeHintVisible(false);
+    setCurrentStrokeMisses(0);
     setTotalMisses(0);
     completionSent.current = false;
     loadHanziStrokeData(hanzi)
@@ -277,6 +282,7 @@ export function StrokeOrderPractice({
       setStrokeIndex(next);
       setTrace([]);
       setMemoryStrokeHintVisible(false);
+      setCurrentStrokeMisses(0);
       if (analysis.passed) {
         setAssistance((level) => getAdaptiveAssistance(level, "success"));
       } else {
@@ -288,6 +294,8 @@ export function StrokeOrderPractice({
         ? variant === "guided" ? "Đã viết đủ các nét. Tiếp theo, bạn sẽ tự viết lại từ trí nhớ." : "Đã viết đủ các nét. Bạn có thể tiếp tục."
         : analysis.passed ? `${analysis.feedback} Tiếp tục nét ${next + 1}.` : `Nét chưa đúng nhưng đã được ghi lại. Tiếp tục nét ${next + 1}.`);
     } else {
+      const nextMisses = currentStrokeMisses + 1;
+      setCurrentStrokeMisses(nextMisses);
       setTotalMisses((value) => value + 1);
       setAssistance((level) => getAdaptiveAssistance(level, "miss"));
       setFeedbackTone("error");
@@ -298,7 +306,11 @@ export function StrokeOrderPractice({
           setAssistedStrokes((value) => value + 1);
         }
       }
-      setFeedback(`Chưa đúng. ${analysis.feedback}${variant === "memory" ? " Hãy thử lại theo chấm vàng và nét mờ." : ""}`);
+      setFeedback(`Sai nét ${strokeIndex + 1}: ${analysis.feedback}${variant === "memory"
+        ? nextMisses >= 2
+          ? " Thử lại theo nét mờ hoặc chọn “Đi nét này giúp tôi”."
+          : " Hãy thử lại theo chấm vàng và nét mờ."
+        : ""}`);
     }
   };
 
@@ -315,42 +327,33 @@ export function StrokeOrderPractice({
     const next = strokeIndex + 1;
     setStrokeIndex(next);
     setTrace([]);
+    setCurrentStrokeMisses(0);
+    setMemoryStrokeHintVisible(false);
     setCompletedTraces((traces) => [...traces, medianToScreen(data.medians[strokeIndex]!) ]);
-    setAssistedTraceIndexes((indexes) => [...indexes, strokeIndex]);
-    setAssistedStrokes((value) => value + 1);
+    if (!assistedTraceIndexes.includes(strokeIndex)) {
+      setAssistedTraceIndexes((indexes) => [...indexes, strokeIndex]);
+      setAssistedStrokes((value) => value + 1);
+    }
     setAssistance((level) => getAdaptiveAssistance(level, "hint"));
     setFeedbackTone("neutral");
     setFeedback(next === data.strokes.length ? "Đã đi hết chữ với một nét được hỗ trợ." : "Nét khó đã được đối chiếu; tiếp tục nét kế tiếp.");
   };
-  const toggleMemoryGlyph = useCallback(() => {
+  const toggleMemoryReference = useCallback(() => {
     if (memoryReferenceVisible) {
       setMemoryReferenceVisible(false);
       setFeedbackTone("neutral");
-      setFeedback("Chữ mờ đã ẩn. Tiếp tục viết từ trí nhớ.");
+      setFeedback("Đã ẩn chữ mẫu. Tiếp tục viết từ trí nhớ.");
       return;
     }
     setMemoryReferenceVisible(true);
     setAssistance((level) => getAdaptiveAssistance(level, "hint"));
-    setAssistedStrokes((value) => value + 1);
-    setFeedbackTone("neutral");
-    setFeedback("Đã hiện chữ mờ để gợi hình. Không hiển thị đường hay thứ tự nét.");
-  }, [memoryReferenceVisible]);
-
-  const toggleCurrentStrokeHint = useCallback(() => {
-    const nextVisible = !memoryStrokeHintVisible;
-    setMemoryStrokeHintVisible(nextVisible);
-    setFeedbackTone("neutral");
-    if (!nextVisible) {
-      setFeedback("Đã ẩn gợi ý nét. Tiếp tục viết từ trí nhớ.");
-      return;
-    }
     if (!assistedTraceIndexes.includes(strokeIndex)) {
       setAssistedTraceIndexes((indexes) => [...indexes, strokeIndex]);
       setAssistedStrokes((value) => value + 1);
-      setAssistance((level) => getAdaptiveAssistance(level, "hint"));
     }
-    setFeedback("Chấm vàng là điểm bắt đầu. Hãy viết theo nét mờ.");
-  }, [assistedTraceIndexes, memoryStrokeHintVisible, strokeIndex]);
+    setFeedbackTone("neutral");
+    setFeedback("Đã hiện chữ mẫu vừa khung. Lượt này được ghi là có trợ giúp.");
+  }, [assistedTraceIndexes, memoryReferenceVisible, strokeIndex]);
 
   if (loadError) return (
     <div className="stroke-practice-state is-error" role="status">
@@ -365,62 +368,74 @@ export function StrokeOrderPractice({
   return (
     <section className="stroke-practice" data-assistance={assistance} data-variant={variant} aria-labelledby="stroke-practice-title">
       <header>
-        <div>
-          <span>{variant === "memory" ? "TÁI TẠO" : "RÈN NÉT"}</span>
-          <h2 id="stroke-practice-title">{variant === "memory" ? "Tự viết từ trí nhớ" : "Đi một lượt theo mẫu"}</h2>
-          <p className="stroke-brief">Viết từng nét đúng thứ tự. Không cần viết đẹp.</p>
+        <div className="stroke-practice-heading">
+          <span>{variant === "memory" ? "BÀN VIẾT TRÍ NHỚ" : "BÀN DẪN NÉT"}</span>
+          <h2 id="stroke-practice-title">{variant === "memory" ? "Tự viết chữ" : "Viết theo mẫu"}</h2>
+          <p className="stroke-brief">Đúng thứ tự và hướng nét là đạt — không chấm chữ đẹp.</p>
         </div>
-        <strong>{complete ? <><Check /> Hoàn tất</> : `Nét ${strokeIndex + 1}/${data.strokes.length}`}</strong>
+        <strong aria-label={complete ? "Đã hoàn tất chữ" : `Đang viết nét ${strokeIndex + 1} trên ${data.strokes.length}`}>
+          {complete ? <><Check /> Hoàn tất</> : <><span>Nét</span> {strokeIndex + 1}/{data.strokes.length}</>}
+        </strong>
       </header>
 
-      <div className="stroke-board-shell">
-        <svg
-          ref={svgRef}
-          className="stroke-board"
-          viewBox="0 0 1024 900"
-          role="img"
-          aria-label={`Bàn luyện thứ tự ${data.strokes.length} nét của chữ ${hanzi}. Có thể dùng lựa chọn viết trên giấy ở cuối màn hình.`}
-          onPointerDown={begin}
-          onPointerMove={move}
-          onPointerUp={end}
-          onPointerCancel={() => setDrawing(false)}
-        >
-          {scaffold.grid && <path className="stroke-grid" d="M512 0V900M0 450H1024M0 0L1024 900M1024 0L0 900" />}
-          {scaffold.strokeShapes && <g transform="translate(0 900) scale(1 -1)">
-            {data.strokes.map((stroke, index) => (
-              <path
-                key={`${hanzi}-stroke-${index}`}
-                d={stroke}
-                className={index < strokeIndex || index <= demoStep ? "stroke-shape is-done" : index === strokeIndex ? "stroke-shape is-current" : "stroke-shape"}
-              />
-            ))}
-          </g>}
-          {!complete && !playing && currentMedian.length > 0 && <>
-            {scaffold.strokeGuide && <polyline className="stroke-guide" points={currentMedian.map((point) => `${point.x},${point.y}`).join(" ")} />}
-            {scaffold.strokeGuide && <circle className="stroke-start" cx={currentMedian[0]!.x} cy={currentMedian[0]!.y} r="18" />}
-          </>}
-          {complete && data.medians.map((median, index) => (
-            <polyline key={`standard-${index}`} className="stroke-comparison-standard" points={medianToScreen(median).map((point) => `${point.x},${point.y}`).join(" ")} />
-          ))}
-          {(complete || variant === "memory") && completedTraces.map((completedTrace, index) => (
-            <polyline key={`attempt-${index}`} className={assistedTraceIndexes.includes(index) ? "stroke-comparison-assisted" : "stroke-comparison-attempt"} points={completedTrace.map((point) => `${point.x},${point.y}`).join(" ")} />
-          ))}
-          {trace.length > 1 && <polyline className="stroke-user-trace" points={trace.map((point) => `${point.x},${point.y}`).join(" ")} />}
-        </svg>
-        {scaffold.glyph && <span className="stroke-board-glyph" aria-hidden="true">{hanzi}</span>}
-      </div>
+      <div className="stroke-workspace">
+        <div className="stroke-board-area">
+          <div className="stroke-board-shell" data-tone={feedbackTone}>
+            <svg
+              ref={svgRef}
+              className="stroke-board"
+              viewBox="0 0 1024 900"
+              role="img"
+              aria-label={`Bàn luyện thứ tự ${data.strokes.length} nét của chữ ${hanzi}. Có thể dùng lựa chọn viết trên giấy ở thanh dưới.`}
+              onPointerDown={begin}
+              onPointerMove={move}
+              onPointerUp={end}
+              onPointerCancel={() => setDrawing(false)}
+            >
+              {scaffold.grid && <g className="stroke-grid" aria-hidden="true">
+                <rect x="2" y="2" width="1020" height="896" rx="34" />
+                <path d="M512 0V900M0 450H1024" />
+                <path className="is-diagonal" d="M0 0L1024 900M1024 0L0 900" />
+              </g>}
+              {scaffold.memoryReference && <g className="stroke-memory-reference" transform="translate(0 900) scale(1 -1)" aria-hidden="true">
+                {data.strokes.map((stroke, index) => <path key={`${hanzi}-memory-${index}`} d={stroke} />)}
+              </g>}
+              {scaffold.strokeShapes && <g transform="translate(0 900) scale(1 -1)">
+                {data.strokes.map((stroke, index) => (
+                  <path
+                    key={`${hanzi}-stroke-${index}`}
+                    d={stroke}
+                    className={index < strokeIndex || index <= demoStep ? "stroke-shape is-done" : index === strokeIndex ? "stroke-shape is-current" : "stroke-shape"}
+                  />
+                ))}
+              </g>}
+              {!complete && !playing && currentMedian.length > 0 && <>
+                {scaffold.strokeGuide && <polyline className="stroke-guide" points={currentMedian.map((point) => `${point.x},${point.y}`).join(" ")} />}
+                {scaffold.strokeGuide && <circle className="stroke-start" cx={currentMedian[0]!.x} cy={currentMedian[0]!.y} r="18" />}
+              </>}
+              {complete && data.medians.map((median, index) => (
+                <polyline key={`standard-${index}`} className="stroke-comparison-standard" points={medianToScreen(median).map((point) => `${point.x},${point.y}`).join(" ")} />
+              ))}
+              {(complete || variant === "memory") && completedTraces.map((completedTrace, index) => (
+                <polyline key={`attempt-${index}`} className={assistedTraceIndexes.includes(index) ? "stroke-comparison-assisted" : "stroke-comparison-attempt"} points={completedTrace.map((point) => `${point.x},${point.y}`).join(" ")} />
+              ))}
+              {trace.length > 1 && <polyline className={`stroke-user-trace is-${feedbackTone}`} points={trace.map((point) => `${point.x},${point.y}`).join(" ")} />}
+            </svg>
+          </div>
+        </div>
 
-      <div className="stroke-practice-copy">
-        <p className="stroke-feedback" data-tone={feedbackTone} role={feedbackTone === "error" ? "alert" : "status"} aria-live={feedbackTone === "error" ? "assertive" : "polite"}>
-          {feedbackTone === "error" ? <AlertCircle aria-hidden="true" /> : feedbackTone === "success" ? <Check aria-hidden="true" /> : null}
-          <span>{feedback}</span>
-        </p>
-        {!complete && <div className="stroke-actions" aria-label="Trợ giúp luyện nét">
-          {variant === "memory" && <button type="button" aria-pressed={memoryReferenceVisible} onClick={toggleMemoryGlyph}><Eye /> {memoryReferenceVisible ? "Ẩn chữ mờ" : "Hiện chữ mờ"}</button>}
-          {variant === "memory" && memoryStrokeHintVisible && <button type="button" aria-pressed={memoryStrokeHintVisible} onClick={toggleCurrentStrokeHint}><Eye /> Ẩn gợi ý nét</button>}
-          {variant === "guided" && <button type="button" onClick={playOrder} disabled={playing}><Play /> {playing ? "Đang phát…" : "Xem thứ tự nét"}</button>}
-          {variant === "guided" && <button type="button" onClick={skipStroke}><SkipForward /> Đi nét này giúp tôi</button>}
-        </div>}
+        <aside className="stroke-coach" aria-label="Phản hồi và trợ giúp luyện nét">
+          <div className="stroke-coach-label"><span aria-hidden="true" />{complete ? "Đã hoàn thành chữ" : `Đang luyện nét ${strokeIndex + 1}`}</div>
+          <p className="stroke-feedback" data-tone={feedbackTone} role={feedbackTone === "error" ? "alert" : "status"} aria-live={feedbackTone === "error" ? "assertive" : "polite"}>
+            {feedbackTone === "error" ? <AlertCircle aria-hidden="true" /> : feedbackTone === "success" ? <Check aria-hidden="true" /> : null}
+            <span>{feedback}</span>
+          </p>
+          {!complete && <div className="stroke-actions" aria-label="Trợ giúp luyện nét">
+            {variant === "memory" && <button type="button" aria-pressed={memoryReferenceVisible} onClick={toggleMemoryReference}><Eye /> {memoryReferenceVisible ? "Ẩn chữ mẫu" : "Hiện chữ mẫu"}</button>}
+            {variant === "guided" && <button type="button" onClick={playOrder} disabled={playing}><Play /> {playing ? "Đang phát…" : "Xem thứ tự"}</button>}
+            {shouldOfferStrokeRescue(variant, currentStrokeMisses) && <button className="stroke-rescue" type="button" onClick={skipStroke}><SkipForward /> Đi nét này giúp tôi</button>}
+          </div>}
+        </aside>
       </div>
     </section>
   );

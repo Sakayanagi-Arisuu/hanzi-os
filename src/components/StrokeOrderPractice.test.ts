@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { analyzeTraceAgainstMedian, getStrokeScaffoldVisibility, shouldAdvanceStrokeAttempt, traceMatchesMedian } from "./StrokeOrderPractice";
+import {
+  analyzeTraceAgainstMedian,
+  getStrokeScaffoldVisibility,
+  shouldAdvanceStrokeAttempt,
+  shouldOfferStrokeRescue,
+  traceMatchesMedian,
+} from "./StrokeOrderPractice";
 
 describe("stroke order trace tolerance", () => {
   const median = [
@@ -40,7 +46,7 @@ describe("stroke order trace tolerance", () => {
 });
 
 describe("memory reconstruction scaffold", () => {
-  it("keeps the recall board blank even when a previous phase had high assistance", () => {
+  it("keeps only the positioning grid visible when recall starts", () => {
     expect(getStrokeScaffoldVisibility({
       variant: "memory",
       assistance: 5,
@@ -49,14 +55,14 @@ describe("memory reconstruction scaffold", () => {
       playing: false,
       complete: false,
     })).toEqual({
-      grid: false,
-      glyph: false,
+      grid: true,
+      memoryReference: false,
       strokeShapes: false,
       strokeGuide: false,
     });
   });
 
-  it("reveals only a faint glyph after an explicit memory hint", () => {
+  it("reveals the fitted geometry reference only after an explicit memory hint", () => {
     expect(getStrokeScaffoldVisibility({
       variant: "memory",
       assistance: 3,
@@ -65,8 +71,8 @@ describe("memory reconstruction scaffold", () => {
       playing: false,
       complete: false,
     })).toEqual({
-      grid: false,
-      glyph: true,
+      grid: true,
+      memoryReference: true,
       strokeShapes: false,
       strokeGuide: false,
     });
@@ -81,8 +87,8 @@ describe("memory reconstruction scaffold", () => {
       playing: false,
       complete: false,
     })).toEqual({
-      grid: false,
-      glyph: false,
+      grid: true,
+      memoryReference: false,
       strokeShapes: false,
       strokeGuide: true,
     });
@@ -97,5 +103,11 @@ describe("guided stroke flow", () => {
   it("still ignores an accidental tap and keeps recall strict", () => {
     expect(shouldAdvanceStrokeAttempt({ variant: "guided", pointCount: 1, passed: false })).toBe(false);
     expect(shouldAdvanceStrokeAttempt({ variant: "memory", pointCount: 6, passed: false })).toBe(false);
+  });
+
+  it("offers a recovery path immediately in guided practice and after two recall misses", () => {
+    expect(shouldOfferStrokeRescue("guided", 0)).toBe(true);
+    expect(shouldOfferStrokeRescue("memory", 1)).toBe(false);
+    expect(shouldOfferStrokeRescue("memory", 2)).toBe(true);
   });
 });
