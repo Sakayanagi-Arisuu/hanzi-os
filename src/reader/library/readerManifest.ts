@@ -3,12 +3,16 @@ import {
   type ReaderChapterSummary,
   type ReaderSeries,
 } from "./readerContentModel";
+import { readerChapterBackground } from "./readerChapterArtwork";
 import {
   assertValidReaderRightsManifest,
   READER_RIGHTS_MANIFEST,
 } from "./readerRights";
 import { READER_SHELF_SERIES } from "./readerShelfCatalog";
 import { createReaderArcSummaries } from "./readerStoryArcs";
+
+const JADE_COVER_SRC = "/reader/covers/m3/jade-lantern-archive.webp";
+const JADE_COVER_RIGHTS_ID = "reader-cover:jade-lantern-archive";
 
 const jadeChapter = (
   chapterNumber: number,
@@ -25,7 +29,15 @@ const jadeChapter = (
   titleZh,
   titleVi,
   hookVi,
-  estimatedMinutes,
+  estimatedMinutes: Math.max(12, estimatedMinutes),
+  backgroundAsset: readerChapterBackground({
+    seriesId: "jade-lantern-archive",
+    seriesTitleVi: "Thư Các Thanh Đăng",
+    chapterId: `jade-lantern-archive-c0${chapterNumber}`,
+    chapterTitleVi: titleVi,
+    coverSrc: JADE_COVER_SRC,
+    coverRightsManifestId: JADE_COVER_RIGHTS_ID,
+  }),
   relatedLessonIds,
   publicationStatus: "released-local",
   reviewStatus: "ai-assisted-draft",
@@ -47,11 +59,11 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
     levelBand: { min: "HSK2", max: "HSK3", label: "HSK2–3 · độ khó gợi ý" },
     coverAsset: {
       kind: "art-directed",
-      src: "/reader/covers/m3/jade-lantern-archive.webp",
+      src: JADE_COVER_SRC,
       sigil: "阁",
       tone: "jade",
       altVi: "Thư các ngọc khổng lồ mở giữa đêm, những trang sách phát sáng cuộn thành dòng sông",
-      rightsManifestId: "reader-cover:jade-lantern-archive",
+      rightsManifestId: JADE_COVER_RIGHTS_ID,
     },
     source: {
       rightsManifestId: "reader-series:jade-lantern-archive",
@@ -69,7 +81,19 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
         jadeChapter(4, "没有字的记录", "Bản ghi không có chữ", "Người quản thư nói ra sự thật về sáu trang và cái giá của người giữ trang.", 9, ["hsk3-main-idea-detail-notes-lesson-02"]),
         jadeChapter(5, "墨潮来了", "Thủy triều mực kéo đến", "Khi mực đen nuốt lối ra, Lục Minh phải chọn giữa trang sách và một người bạn.", 10, ["hsk3-event-retelling-lesson-01"]),
         jadeChapter(6, "第三声钟响以后", "Sau tiếng chuông thứ ba", "Sáu trang trở về, arc đầu khép lại — nhưng một bản đồ mới vừa sáng lên dưới dòng sông.", 10, ["hsk3-guided-paragraph-lesson-01"]),
-        ...createReaderArcSummaries("jade-lantern-archive", ["hsk3-guided-paragraph-lesson-01"], 7),
+        ...createReaderArcSummaries("jade-lantern-archive", ["hsk3-guided-paragraph-lesson-01"], 7)
+          .map((chapter) => ({
+            ...chapter,
+            estimatedMinutes: Math.max(12, chapter.estimatedMinutes),
+            backgroundAsset: readerChapterBackground({
+              seriesId: "jade-lantern-archive",
+              seriesTitleVi: "Thư Các Thanh Đăng",
+              chapterId: chapter.chapterId,
+              chapterTitleVi: chapter.titleVi,
+              coverSrc: JADE_COVER_SRC,
+              coverRightsManifestId: JADE_COVER_RIGHTS_ID,
+            }),
+          })),
       ],
     }],
     focusLexemeIds: [
@@ -84,7 +108,7 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
   ...READER_SHELF_SERIES,
   {
     seriesId: "first-day",
-    version: `${READER_CONTENT_VERSION}:first-day:legacy-1`,
+    version: "reader-pilot-2026.08.2:first-day:legacy-1",
     titleZh: "中文课的第一天",
     titleVi: "Ngày đầu ở lớp tiếng Trung",
     synopsisVi: "Một cuộc gặp ngắn giữa người học và giáo viên Vương trong ngày đầu tiên.",
@@ -111,7 +135,7 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
       titleVi: "Truyện ngắn",
       chapters: [{
         chapterId: "first-day",
-        version: `${READER_CONTENT_VERSION}:first-day:legacy-1`,
+        version: "reader-pilot-2026.08.2:first-day:legacy-1",
         seriesId: "first-day",
         chapterNumber: 1,
         titleZh: "中文课的第一天",

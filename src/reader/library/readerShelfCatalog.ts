@@ -1,10 +1,12 @@
 import {
   READER_CONTENT_VERSION,
+  type ReaderChapterSummary,
   type ReaderCoverTone,
   type ReaderLevelBand,
   type ReaderSeries,
   type ReaderShelfId,
 } from "./readerContentModel";
+import { readerChapterBackground } from "./readerChapterArtwork";
 import { createReaderArcSummaries } from "./readerStoryArcs";
 
 export type ReaderShelfOption = {
@@ -529,6 +531,20 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
   const continuation = CHAPTER_TWO_BY_SERIES_ID[seed.seriesId];
   if (!continuation) throw new Error(`Reader continuation metadata missing for ${seed.seriesId}.`);
   const continuationChapterId = `${seed.seriesId}-c02`;
+  const coverSrc = `/reader/covers/m3/${seed.seriesId}.webp`;
+  const coverRightsManifestId = `reader-cover:${seed.seriesId}`;
+  const withBackground = (chapter: ReaderChapterSummary): ReaderChapterSummary => ({
+    ...chapter,
+    estimatedMinutes: Math.max(12, chapter.estimatedMinutes),
+    backgroundAsset: readerChapterBackground({
+      seriesId: seed.seriesId,
+      seriesTitleVi: seed.titleVi,
+      chapterId: chapter.chapterId,
+      chapterTitleVi: chapter.titleVi,
+      coverSrc,
+      coverRightsManifestId,
+    }),
+  });
   return {
     seriesId: seed.seriesId,
     version: `${READER_CONTENT_VERSION}:${seed.seriesId}:1`,
@@ -542,11 +558,11 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
     levelBand: seed.levelBand,
     coverAsset: {
       kind: "art-directed",
-      src: `/reader/covers/m3/${seed.seriesId}.webp`,
+      src: coverSrc,
       sigil: seed.coverSigil,
       tone: seed.coverTone,
       altVi: `Bìa minh họa nguyên bản của ${seed.titleVi}`,
-      rightsManifestId: `reader-cover:${seed.seriesId}`,
+      rightsManifestId: coverRightsManifestId,
     },
     source: {
       rightsManifestId: `reader-series:${seed.seriesId}`,
@@ -557,7 +573,7 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
       volumeId: `${seed.seriesId}-v01`,
       titleZh: "第一卷：开篇",
       titleVi: "Quyển I · Khai thiên",
-      chapters: [{
+      chapters: ([{
         chapterId,
         version: `${READER_CONTENT_VERSION}:${chapterId}:1`,
         seriesId: seed.seriesId,
@@ -565,7 +581,7 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
         titleZh: seed.chapterTitleZh,
         titleVi: seed.chapterTitleVi,
         hookVi: seed.chapterHookVi,
-        estimatedMinutes: seed.estimatedMinutes,
+        estimatedMinutes: Math.max(12, seed.estimatedMinutes),
         relatedLessonIds: [seed.relatedLessonId],
         publicationStatus: "released-local",
         reviewStatus: "ai-assisted-draft",
@@ -579,13 +595,13 @@ const toReaderSeries = (seed: ShelfSeriesSeed): ReaderSeries => {
         titleZh: continuation.titleZh,
         titleVi: continuation.titleVi,
         hookVi: continuation.hookVi,
-        estimatedMinutes: continuation.estimatedMinutes,
+        estimatedMinutes: Math.max(12, continuation.estimatedMinutes),
         relatedLessonIds: [seed.relatedLessonId],
         publicationStatus: "released-local",
         reviewStatus: "ai-assisted-draft",
         humanReviewed: false,
         rightsManifestId: `reader-chapter:${continuationChapterId}`,
-      }, ...createReaderArcSummaries(seed.seriesId, [seed.relatedLessonId])],
+      }, ...createReaderArcSummaries(seed.seriesId, [seed.relatedLessonId])] as ReaderChapterSummary[]).map(withBackground),
     }],
     focusLexemeIds: seed.focusLexemeIds,
     publicationStatus: "released-local",

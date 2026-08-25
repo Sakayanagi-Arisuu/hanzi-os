@@ -23,6 +23,11 @@ const book: EditorialReaderBook = {
     titleVi: "Ánh sáng sau cửa",
     hookVi: "Một dấu hiệu mới xuất hiện.",
     estimatedMinutes: 5,
+    background: {
+      src: "/reader/backgrounds/editorial/thanh-pho-thu-nghiem-c01.webp",
+      altVi: "Một cánh cửa sáng trong thành phố mưa",
+      focalPoint: "right",
+    },
     paragraphs: [
       { zhHans: "城市的门慢慢打开。", pinyin: "Chéngshì de mén mànmàn dǎkāi.", vi: "Cánh cửa thành phố từ từ mở." },
       { zhHans: "里面有一张新的地图。", pinyin: "Lǐmiàn yǒu yì zhāng xīn de dìtú.", vi: "Bên trong có một tấm bản đồ mới." },
@@ -31,6 +36,7 @@ const book: EditorialReaderBook = {
   rights: {
     textProvenanceVi: "Bản thảo nguyên bản của biên tập viên.",
     coverProvenanceVi: "Bìa nguyên bản có quyền sử dụng.",
+    backgroundProvenanceVi: "Nền chương nguyên bản có quyền sử dụng.",
     editorAttestsRights: true,
   },
   humanReviewed: false,
@@ -42,6 +48,12 @@ describe("Vạn Quyển Các editorial storefront", () => {
     const series = editorialBookToSeries(book);
     expect(series).toMatchObject({ seriesId: book.seriesId, discoverable: true, humanReviewed: false });
     const chapter = editorialBookToChapter(book, "thanh-pho-thu-nghiem-c01");
+    expect(chapter).toMatchObject({
+      backgroundAsset: {
+        src: "/reader/backgrounds/editorial/thanh-pho-thu-nghiem-c01.webp",
+        focalPoint: "right",
+      },
+    });
     expect(chapter?.paragraphs).toHaveLength(2);
     chapter?.paragraphs.forEach((paragraph) => {
       expect(paragraph.segments.filter((segment) => segment.kind === "text")
@@ -63,5 +75,16 @@ describe("Vạn Quyển Các editorial storefront", () => {
     expect(parsed.ok).toBe(false);
     expect(parsed.errors.join(" ")).toContain("provenance");
     expect(parsed.errors.join(" ")).toContain("2 đến 40 đoạn");
+  });
+
+  it("requires background provenance only when an editor enables chapter art", () => {
+    const missingBackgroundRights = structuredClone(book);
+    delete missingBackgroundRights.rights.backgroundProvenanceVi;
+    expect(parseEditorialReaderBook(missingBackgroundRights).errors.join(" "))
+      .toContain("provenance cho nền minh họa");
+
+    const noBackground = structuredClone(missingBackgroundRights);
+    delete noBackground.chapters[0]!.background;
+    expect(parseEditorialReaderBook(noBackground)).toMatchObject({ ok: true });
   });
 });

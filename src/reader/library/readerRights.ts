@@ -39,7 +39,7 @@ const original = (
   illustrator: "HANZI.OS code-native artwork",
   narrator: "Không có bản ghi âm; trình duyệt chỉ cung cấp TTS tổng hợp tùy chọn",
   canonicalSourceUrl: `hanzi-os:reader:${contentId}`,
-  sourceEdition: "reader-pilot-2026.08.2",
+  sourceEdition: "reader-pilot-2026.08.3",
   licenseId: "HANZI-OS-LOCAL-DRAFT-ALL-RIGHTS-RESERVED",
   licenseUrl: "hanzi-os:legal:reader-local-draft",
   commercialUseAllowed: false,
@@ -84,6 +84,17 @@ const shelfRights = READER_SHELF_SERIES.flatMap((series) => {
   ];
 });
 
+const dedicatedBackgroundRights = Array.from({ length: 10 }, (_, index) => {
+  const chapterId = `van-menh-nguoc-dong-c${String(index + 1).padStart(2, "0")}`;
+  return original(`reader-background:${chapterId}`, {
+    author: "Không áp dụng",
+    translator: "Không áp dụng",
+    illustrator: "OpenAI built-in image generation · HANZI.OS art direction",
+    changesMade: "Cảnh nền chương nguyên bản 1600×900, tối ưu WebP; giữ nhân vật và sơn môn nhất quán theo character anchor của serial.",
+    imageRights: "Ảnh tạo mới riêng cho dự án bằng OpenAI built-in image generation; không mô phỏng IP, nhân vật hay cảnh từ tác phẩm có sẵn.",
+  });
+});
+
 export const READER_RIGHTS_MANIFEST: ReaderRightsRecord[] = [
   original("reader-series:jade-lantern-archive"),
   ...chapterIds.map((contentId) => original(contentId)),
@@ -93,6 +104,7 @@ export const READER_RIGHTS_MANIFEST: ReaderRightsRecord[] = [
     imageRights: "Ảnh tạo mới riêng cho dự án bằng OpenAI built-in image generation; không mô phỏng IP hay bìa sách cụ thể.",
   }),
   ...shelfRights,
+  ...dedicatedBackgroundRights,
   original("reader-series:first-day", {
     sourceType: "legacy-hanzi-os",
     author: "HANZI.OS legacy local content",
@@ -179,7 +191,10 @@ export const validateReaderRightsManifest = (
       series.source.rightsManifestId,
       series.coverAsset.rightsManifestId,
       ...series.volumes.flatMap((volume) =>
-        volume.chapters.map((chapter) => chapter.rightsManifestId)
+        volume.chapters.flatMap((chapter) => [
+          chapter.rightsManifestId,
+          ...(chapter.backgroundAsset ? [chapter.backgroundAsset.rightsManifestId] : []),
+        ])
       ),
     ];
     requiredIds.forEach((rightsId) => {

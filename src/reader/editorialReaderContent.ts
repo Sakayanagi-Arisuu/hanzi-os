@@ -26,6 +26,11 @@ export type EditorialReaderChapter = {
   titleVi: string;
   hookVi: string;
   estimatedMinutes: number;
+  background?: {
+    src: string;
+    altVi: string;
+    focalPoint: "left" | "center" | "right";
+  } | undefined;
   paragraphs: EditorialReaderParagraph[];
 };
 
@@ -48,6 +53,7 @@ export type EditorialReaderBook = {
   rights: {
     textProvenanceVi: string;
     coverProvenanceVi: string;
+    backgroundProvenanceVi?: string;
     editorAttestsRights: true;
   };
   humanReviewed: false;
@@ -59,6 +65,8 @@ const asRecord = (value: unknown) => value && typeof value === "object" && !Arra
 const text = (value: unknown, max: number) => typeof value === "string"
   && value.trim().length > 0
   && value.length <= max;
+const validAssetUrl = (value: unknown) => text(value, 2_000)
+  && (String(value).startsWith("/") || String(value).startsWith("https://"));
 
 export const parseEditorialReaderBook = (value: unknown) => {
   const errors: string[] = [];
@@ -86,6 +94,13 @@ export const parseEditorialReaderBook = (value: unknown) => {
       const chapter = asRecord(candidate);
       if (!chapter || !text(chapter.titleZh, 100) || !/\p{Script=Han}/u.test(String(chapter.titleZh)) || !text(chapter.titleVi, 160) || !text(chapter.hookVi, 600)) errors.push(`Chương ${chapterIndex + 1} thiếu tiêu đề hoặc câu dẫn.`);
       if (!chapter || !Number.isInteger(chapter.estimatedMinutes) || Number(chapter.estimatedMinutes) < 1 || Number(chapter.estimatedMinutes) > 60) errors.push(`Thời lượng chương ${chapterIndex + 1} không hợp lệ.`);
+      const background = chapter ? asRecord(chapter.background) : null;
+      if (chapter?.background !== undefined && (
+        !background
+        || !validAssetUrl(background.src)
+        || !text(background.altVi, 300)
+        || !["left", "center", "right"].includes(String(background.focalPoint))
+      )) errors.push(`Nền minh họa chương ${chapterIndex + 1} cần URL nội bộ/HTTPS, mô tả và điểm lấy nét hợp lệ.`);
       const paragraphs = chapter && Array.isArray(chapter.paragraphs) ? chapter.paragraphs : [];
       if (paragraphs.length < 2 || paragraphs.length > 40) errors.push(`Chương ${chapterIndex + 1} cần từ 2 đến 40 đoạn căn chỉnh.`);
       paragraphs.forEach((candidateParagraph, paragraphIndex) => {
@@ -93,6 +108,10 @@ export const parseEditorialReaderBook = (value: unknown) => {
         if (!paragraph || !text(paragraph.zhHans, 2_000) || !/\p{Script=Han}/u.test(String(paragraph.zhHans)) || !text(paragraph.pinyin, 4_000) || !text(paragraph.vi, 4_000)) errors.push(`Đoạn ${paragraphIndex + 1} của chương ${chapterIndex + 1} thiếu Trung–Pinyin–Việt.`);
       });
     });
+    const hasBackground = book.chapters.some((candidate) => Boolean(asRecord(candidate)?.background));
+    if (hasBackground && (!rights || !text(rights.backgroundProvenanceVi, 1_000))) {
+      errors.push("Sách có nền chương phải ghi provenance cho nền minh họa.");
+    }
   }
   return errors.length
     ? { ok: false, errors, book: null } as const
@@ -138,6 +157,15 @@ export const editorialBookToSeries = (book: EditorialReaderBook): ReaderSeries =
         titleVi: chapter.titleVi,
         hookVi: chapter.hookVi,
         estimatedMinutes: chapter.estimatedMinutes,
+        ...(chapter.background ? {
+          backgroundAsset: {
+            kind: "image" as const,
+            src: chapter.background.src,
+            altVi: chapter.background.altVi,
+            focalPoint: chapter.background.focalPoint,
+            rightsManifestId: `editorial-background:${chapterId}`,
+          },
+        } : {}),
         relatedLessonIds: [],
         publicationStatus: "released-local",
         reviewStatus: "ai-assisted-draft",
@@ -168,6 +196,7 @@ export const editorialBookToChapter = (
     titleZh: summary.titleZh,
     titleVi: summary.titleVi,
     estimatedMinutes: summary.estimatedMinutes,
+    ...(summary.backgroundAsset ? { backgroundAsset: summary.backgroundAsset } : {}),
     paragraphs: source.paragraphs.map((paragraph, index) => authorReaderParagraph({
       paragraphId: `${chapterId}-p${String(index + 1).padStart(2, "0")}`,
       markedZhHans: paragraph.zhHans,
@@ -181,7 +210,7 @@ export const editorialBookToChapter = (
     rights: {
       rightsManifestId: summary.rightsManifestId,
       sourceType: "original-hanzi-os",
-      provenanceNote: book.rights.textProvenanceVi,
+      provenanceNote: `${book.rights.textProvenanceVi}${source.background ? ` · Nền: ${book.rights.backgroundProvenanceVi}` : ""}`,
     },
   };
 };

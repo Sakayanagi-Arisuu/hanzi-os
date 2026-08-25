@@ -10,8 +10,16 @@ export type ReaderReferenceEntry = {
   partOfSpeechVi: string;
   contextualMeaningVi: string;
   otherMeaningsVi: string[];
+  contextVi?: string;
+  lookupStatus?: "ready" | "loading" | "composed" | "unavailable";
+  components?: Array<{
+    simplified: string;
+    traditional?: string;
+    pinyin: string;
+    meaningVi: string;
+  }>;
   lexemeId?: string;
-  sourceType: "hanzi-os-core" | "original-context-gloss" | "mega-lexicon" | "reader-character-fallback";
+  sourceType: "hanzi-os-core" | "original-context-gloss" | "mega-lexicon" | "mega-lexicon-composed" | "reader-character-fallback";
 };
 
 const core = (
@@ -121,6 +129,7 @@ const MANUAL_READER_REFERENCE_ENTRIES: ReaderReferenceEntry[] = [
   reference("blank-book", "无字册", "wúzìcè", "quyển sách không chữ"),
   reference("ink-tide", "墨潮", "mòcháo", "làn thủy triều mực"),
   reference("seal", "书印", "shūyìn", "ấn ký của thư các"),
+  reference("box-bottom", "箱底", "xiāngdǐ", "đáy hộp, đáy rương", "cụm danh từ"),
 ];
 
 const manualLexemeIds = new Set(
@@ -188,18 +197,16 @@ export const createReaderCharacterEntry = (
   const codePoint = character.codePointAt(0)?.toString(16).toUpperCase() ?? "UNKNOWN";
   const entryId = `reader-char:U+${codePoint}`;
   const existing = READER_REFERENCE_ENTRY_BY_ID.get(entryId);
-  if (existing) return contextVi
-    ? { ...existing, contextualMeaningVi: `Chữ xuất hiện trong đoạn: ${contextVi}` }
-    : existing;
+  if (existing) return contextVi ? { ...existing, contextVi } : existing;
   const entry: ReaderReferenceEntry = {
     entryId,
     simplified: character,
     pinyin: null,
     partOfSpeechVi: "chữ Hán trong ngữ cảnh",
-    contextualMeaningVi: contextVi
-      ? `Chữ xuất hiện trong đoạn: ${contextVi}`
-      : "Chưa có nghĩa cốt lõi; mở Tàng Tự Khố để tra cứu sâu.",
+    contextualMeaningVi: "Đang tìm mục chữ trong Tàng Tự Khố.",
     otherMeaningsVi: [],
+    ...(contextVi ? { contextVi } : {}),
+    lookupStatus: "loading",
     sourceType: "reader-character-fallback",
   };
   READER_REFERENCE_ENTRIES.push(entry);
@@ -212,24 +219,24 @@ export const createReaderLookupEntry = (
   surface: string,
   contextVi?: string,
 ): ReaderReferenceEntry => {
+  const direct = READER_REFERENCE_ENTRY_BY_SIMPLIFIED.get(surface);
+  if (direct) return contextVi ? { ...direct, contextVi } : direct;
   if ([...surface].length === 1) return createReaderCharacterEntry(surface, contextVi);
   const codePoints = [...surface]
     .map((character) => `U+${character.codePointAt(0)?.toString(16).toUpperCase() ?? "UNKNOWN"}`)
     .join("-");
   const entryId = `reader-lookup:${codePoints}`;
   const existing = READER_REFERENCE_ENTRY_BY_ID.get(entryId);
-  if (existing) return contextVi
-    ? { ...existing, contextualMeaningVi: `Cụm từ xuất hiện trong đoạn: ${contextVi}` }
-    : existing;
+  if (existing) return contextVi ? { ...existing, contextVi } : existing;
   const entry: ReaderReferenceEntry = {
     entryId,
     simplified: surface,
     pinyin: null,
     partOfSpeechVi: "từ/cụm từ trong ngữ cảnh",
-    contextualMeaningVi: contextVi
-      ? `Cụm từ xuất hiện trong đoạn: ${contextVi}`
-      : "Đang đối chiếu với Tàng Tự Khố mở rộng.",
+    contextualMeaningVi: "Đang tìm mục từ khớp trong Tàng Tự Khố.",
     otherMeaningsVi: [],
+    ...(contextVi ? { contextVi } : {}),
+    lookupStatus: "loading",
     sourceType: "reader-character-fallback",
   };
   READER_REFERENCE_ENTRIES.push(entry);
@@ -242,21 +249,72 @@ export const hydrateReaderReferenceEntry = async (
   entry: ReaderReferenceEntry,
 ): Promise<ReaderReferenceEntry> => {
   if (entry.sourceType !== "reader-character-fallback") return entry;
-  const word = await lookupMegaVocabulary(entry.simplified);
-  if (!word) return entry;
-  const hydrated: ReaderReferenceEntry = {
-    entryId: `reader-mega:${word.id}`,
-    simplified: word.simplified,
-    traditional: word.traditional,
-    pinyin: word.pinyin || word.pinyinNumbered || null,
-    partOfSpeechVi: word.partOfSpeech || "từ/cụm từ",
-    contextualMeaningVi: word.meaning,
-    otherMeaningsVi: word.senses.filter((sense) => sense !== word.meaning),
-    sourceType: "mega-lexicon",
-  };
-  READER_REFERENCE_ENTRY_BY_ID.set(hydrated.entryId, hydrated);
-  READER_REFERENCE_ENTRY_BY_SIMPLIFIED.set(hydrated.simplified, hydrated);
-  return hydrated;
+  try {
+    const word = await lookupMegaVocabulary(entry.simplified);
+    if (word) {
+      const hydrated: ReaderReferenceEntry = {
+        entryId: `reader-mega:${word.id}`,
+        simplified: word.simplified,
+        traditional: word.traditional,
+        pinyin: word.pinyin || word.pinyinNumbered || null,
+        partOfSpeechVi: word.partOfSpeech || "từ/cụm từ",
+        contextualMeaningVi: word.meaning,
+        otherMeaningsVi: word.senses.filter((sense) => sense !== word.meaning),
+        ...(entry.contextVi ? { contextVi: entry.contextVi } : {}),
+        lookupStatus: "ready",
+        sourceType: "mega-lexicon",
+      };
+      READER_REFERENCE_ENTRY_BY_ID.set(hydrated.entryId, hydrated);
+      READER_REFERENCE_ENTRY_BY_SIMPLIFIED.set(hydrated.simplified, hydrated);
+      return hydrated;
+    }
+
+    const characters = [...entry.simplified];
+    if (characters.length > 1) {
+      const words = await Promise.all(characters.map((character) => lookupMegaVocabulary(character)));
+      if (words.every((candidate) => Boolean(candidate))) {
+        const components = words.map((candidate, index) => {
+          const component = candidate!;
+          return {
+            simplified: characters[index]!,
+            ...(component.traditional && component.traditional !== characters[index]
+              ? { traditional: component.traditional }
+              : {}),
+            pinyin: component.pinyin || component.pinyinNumbered,
+            meaningVi: component.meaning,
+          };
+        });
+        const composed: ReaderReferenceEntry = {
+          ...entry,
+          traditional: components.map((component) => component.traditional ?? component.simplified).join(""),
+          pinyin: components.map((component) => component.pinyin).join(" "),
+          partOfSpeechVi: "cụm ghép theo thành phần",
+          contextualMeaningVi: `Ghép nghĩa: ${components.map((component) => `${component.simplified} (${component.meaningVi})`).join(" + ")}.`,
+          otherMeaningsVi: [],
+          lookupStatus: "composed",
+          components,
+          sourceType: "mega-lexicon-composed",
+        };
+        READER_REFERENCE_ENTRY_BY_ID.set(composed.entryId, composed);
+        READER_REFERENCE_ENTRY_BY_SIMPLIFIED.set(composed.simplified, composed);
+        return composed;
+      }
+    }
+
+    const unavailable: ReaderReferenceEntry = {
+      ...entry,
+      contextualMeaningVi: `Chưa có mục từ khớp cho “${entry.simplified}”. Bạn vẫn có thể mở Tàng Tự Khố hoặc tra từng chữ.`,
+      lookupStatus: "unavailable",
+    };
+    READER_REFERENCE_ENTRY_BY_ID.set(unavailable.entryId, unavailable);
+    return unavailable;
+  } catch {
+    return {
+      ...entry,
+      contextualMeaningVi: "Chưa tải được Tàng Tự Khố. Hãy kiểm tra kết nối rồi mở lại từ này.",
+      lookupStatus: "unavailable",
+    };
+  }
 };
 
 export const resolveReaderTokenEntry = (
@@ -266,8 +324,8 @@ export const resolveReaderTokenEntry = (
   const entry = READER_REFERENCE_ENTRY_BY_ID.get(
     token.lexemeId ? `reader-core:${token.lexemeId}` : token.referenceEntryId ?? "",
   );
-  if (entry?.sourceType === "reader-character-fallback" && contextVi) {
-    return { ...entry, contextualMeaningVi: `Chữ xuất hiện trong đoạn: ${contextVi}` };
+  if (entry && contextVi) {
+    return { ...entry, contextVi };
   }
   return entry ?? createReaderLookupEntry(token.surface, contextVi);
 };

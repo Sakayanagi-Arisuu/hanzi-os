@@ -1,4 +1,4 @@
-export const READER_CONTENT_VERSION = "reader-pilot-2026.08.2" as const;
+export const READER_CONTENT_VERSION = "reader-pilot-2026.08.3" as const;
 
 export type ReaderShelfId =
   | "flagship"
@@ -34,6 +34,14 @@ export type ReaderRightsReference = {
   provenanceNote: string;
 };
 
+export type ReaderChapterBackgroundAsset = {
+  kind: "image";
+  src: string;
+  altVi: string;
+  focalPoint: "left" | "center" | "right";
+  rightsManifestId: string;
+};
+
 export type ReaderToken = {
   kind: "token";
   sequence: number;
@@ -67,6 +75,7 @@ export type ReaderChapter = {
   titleZh: string;
   titleVi: string;
   estimatedMinutes: number;
+  backgroundAsset?: ReaderChapterBackgroundAsset;
   paragraphs: ReaderParagraph[];
   relatedLessonIds: string[];
   publicationStatus: "released-local";

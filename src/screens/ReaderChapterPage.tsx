@@ -282,7 +282,9 @@ export function ReaderChapterPage() {
       || entry.sourceType === "mega-lexicon"
       || entry.sourceType === "reader-character-fallback"
       ? entry.sourceType
-      : null;
+      : entry.sourceType === "mega-lexicon-composed"
+        ? "mega-lexicon"
+        : null;
     if (!sourceType) return;
     setProgress((current) => toggleReaderSavedEntry(current, {
       entryId: entry.entryId,
@@ -372,6 +374,21 @@ export function ReaderChapterPage() {
 
   return (
     <section className="reader-chapter-shell" data-testid="reader-chapter-shell" data-reader-mode={mode}>
+      {chapter!.backgroundAsset && (
+        <figure
+          className="reader-chapter-art"
+          data-focal-point={chapter!.backgroundAsset.focalPoint}
+        >
+          <img
+            src={chapter!.backgroundAsset.src}
+            alt={chapter!.backgroundAsset.altVi}
+            width={1600}
+            height={900}
+            fetchPriority="high"
+          />
+          <span aria-hidden="true" />
+        </figure>
+      )}
       <header className="reader-chapter-header">
         <button type="button" onClick={() => navigate("/reader")} aria-label="Thoát phiên đọc và trở về Thư Khố">
           <X size={21} aria-hidden="true" />

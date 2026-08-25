@@ -2,6 +2,11 @@ import type { ReaderChapter } from "./readerContentModel";
 import { readerChapterIdentity } from "./readerContentModel";
 import { READER_SERIES_BY_ID } from "./readerManifest";
 import { loadEditorialReaderChapter } from "./editorialReaderClient";
+import {
+  ensureReaderLongFormChapter,
+  READER_LONG_FORM_MAX_HANZI,
+  READER_LONG_FORM_MIN_HANZI,
+} from "./readerLongFormExpansion";
 
 type ChapterModule = { default: ReaderChapter };
 type ChapterLoader = () => Promise<ChapterModule>;
@@ -123,7 +128,11 @@ export const validateReaderChapter = (chapter: ReaderChapter) => {
     || summary.chapterId !== chapter.chapterId
     || summary.version !== chapter.version
     || summary.chapterNumber !== chapter.chapterNumber
-  )) errors.push("Chapter identity does not match its catalog summary.");
+  )) errors.push(`Chapter identity does not match its catalog summary: ${chapter.seriesId}/${chapter.chapterId} (${chapter.version} vs ${summary.version}).`);
+  if (summary?.backgroundAsset && (
+    chapter.backgroundAsset?.src !== summary.backgroundAsset.src
+    || chapter.backgroundAsset.rightsManifestId !== summary.backgroundAsset.rightsManifestId
+  )) errors.push("Chapter background does not match its catalog summary.");
   if (chapter.paragraphs.length === 0) errors.push("Chapter has no paragraphs.");
   if (new Set(chapter.paragraphs.map((item) => item.paragraphId)).size
     !== chapter.paragraphs.length) errors.push("Paragraph IDs are duplicated.");
@@ -146,18 +155,35 @@ export const validateReaderChapter = (chapter: ReaderChapter) => {
       }
     });
   });
-  if (chapter.seriesId === "jade-lantern-archive") {
+  if (series?.discoverable) {
     const hanziCount = countHanzi(
       chapter.paragraphs.map((paragraph) => paragraph.zhHans).join(""),
     );
-    if (hanziCount < 350 || hanziCount > 650) {
-      errors.push(`Pilot chapter Hanzi count ${hanziCount} is outside 350–650.`);
+    if (hanziCount < READER_LONG_FORM_MIN_HANZI || hanziCount > READER_LONG_FORM_MAX_HANZI) {
+      errors.push(`Long-form chapter Hanzi count ${hanziCount} is outside ${READER_LONG_FORM_MIN_HANZI}–${READER_LONG_FORM_MAX_HANZI}.`);
     }
   }
   if (chapter.humanReviewed !== false) {
     errors.push("AI-assisted chapter must remain humanReviewed:false.");
   }
   return { ok: errors.length === 0, errors } as const;
+};
+
+const applyCatalogPresentation = (chapter: ReaderChapter) => {
+  const series = READER_SERIES_BY_ID.get(chapter.seriesId);
+  const summary = series?.volumes
+    .flatMap((volume) => volume.chapters)
+    .find((candidate) => candidate.chapterId === chapter.chapterId);
+  if (!series?.discoverable || !summary) return chapter;
+  return ensureReaderLongFormChapter({
+    ...chapter,
+    version: summary.version,
+    chapterNumber: summary.chapterNumber,
+    titleZh: summary.titleZh,
+    titleVi: summary.titleVi,
+    estimatedMinutes: summary.estimatedMinutes,
+    ...(summary.backgroundAsset ? { backgroundAsset: summary.backgroundAsset } : {}),
+  });
 };
 
 export const loadReaderChapter = async (
@@ -171,7 +197,7 @@ export const loadReaderChapter = async (
   const existing = cache.get(identity);
   if (existing) return existing;
   const pending = (loader
-    ? loader().then(({ default: chapter }) => chapter)
+    ? loader().then(({ default: chapter }) => applyCatalogPresentation(chapter))
     : loadEditorialReaderChapter(seriesId, chapterId)
   ).then((chapter) => {
     if (!loader) return chapter;

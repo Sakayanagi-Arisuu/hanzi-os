@@ -101,6 +101,11 @@ export function ReaderSeriesPage() {
           <h1>{series.titleVi}</h1>
           <strong className="reader-series-hook">{series.hookVi}</strong>
           <p>{series.synopsisVi}</p>
+          <p className="reader-series-provenance">
+            {staticSeries
+              ? "Truyện nguyên bản soạn cho HANZI.OS · có AI hỗ trợ · chưa human review · không sao chép hoặc chuyển thể từ tiểu thuyết có sẵn."
+              : `Nguồn do biên tập viên khai báo · ${series.source.provenanceNote}`}
+          </p>
           <div className="reader-series-tags">
             <span>{series.genreIds.join(" · ")}</span>
             <span>{series.levelBand.label}</span>

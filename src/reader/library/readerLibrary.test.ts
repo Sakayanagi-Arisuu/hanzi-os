@@ -1,4 +1,7 @@
 import runtimeCatalogJson from "../../../content/packages/foundation-2026.08.5/runtime-catalog.json";
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import { resolveReaderEntry, type LegacyReaderState } from "./readerEntryResolver";
 import {
@@ -7,6 +10,10 @@ import {
   READER_CHAPTER_LOADERS,
   validateReaderChapter,
 } from "./readerChapterLoader";
+import {
+  READER_LONG_FORM_MAX_HANZI,
+  READER_LONG_FORM_MIN_HANZI,
+} from "./readerLongFormExpansion";
 import { readerChapterIdentity } from "./readerContentModel";
 import {
   isReaderHanCharacter,
@@ -15,6 +22,7 @@ import {
 import {
   READER_DISCOVERABLE_SERIES,
   READER_SERIES_CATALOG,
+  READER_SERIES_BY_ID,
 } from "./readerManifest";
 import { READER_SHELF_OPTIONS } from "./readerShelfCatalog";
 import {
@@ -43,7 +51,7 @@ const allSummaries = READER_SERIES_CATALOG.flatMap((series) =>
   series.volumes.flatMap((volume) => volume.chapters.map((chapter) => ({ series, chapter })))
 );
 
-describe("Vạn Quyển Các Mốc 3 content model", () => {
+describe("Vạn Quyển Các Mốc 4 content model", () => {
   it("opens a dense original catalog while keeping the legacy first-day ID out of discovery", () => {
     expect(READER_DISCOVERABLE_SERIES).toHaveLength(25);
     expect(READER_DISCOVERABLE_SERIES.some((series) => series.seriesId === "first-day"))
@@ -66,12 +74,30 @@ describe("Vạn Quyển Các Mốc 3 content model", () => {
     )).toHaveLength(250);
     const coverSources = new Set<string>();
     READER_DISCOVERABLE_SERIES.forEach((series) => {
-      expect(series.volumes.flatMap((volume) => volume.chapters)).toHaveLength(10);
+      const chapters = series.volumes.flatMap((volume) => volume.chapters);
+      expect(chapters).toHaveLength(10);
+      chapters.forEach((chapter) => {
+        expect(chapter.estimatedMinutes).toBeGreaterThanOrEqual(12);
+        expect(chapter.backgroundAsset?.src).toMatch(/^\/reader\/(backgrounds|covers)\/.+\.webp$/);
+      });
       expect(series.coverAsset).toMatchObject({ kind: "art-directed" });
       expect(series.coverAsset.src).toMatch(/^\/reader\/covers\/m3\/.+\.webp$/);
       coverSources.add(series.coverAsset.src ?? "");
     });
     expect(coverSources).toHaveLength(25);
+    const destinyScenes = READER_SERIES_BY_ID.get("van-menh-nguoc-dong")!
+      .volumes.flatMap((volume) => volume.chapters)
+      .map((chapter) => chapter.backgroundAsset?.src);
+    expect(new Set(destinyScenes)).toHaveLength(10);
+    expect(destinyScenes.every((src) => src?.startsWith("/reader/backgrounds/m4/van-menh-nguoc-dong/")))
+      .toBe(true);
+    const destinySceneFiles = destinyScenes.map((src) =>
+      resolve(process.cwd(), "public", String(src).replace(/^\//u, ""))
+    );
+    expect(destinySceneFiles.every(existsSync)).toBe(true);
+    expect(new Set(destinySceneFiles.map((file) =>
+      createHash("sha256").update(readFileSync(file)).digest("hex")
+    ))).toHaveLength(10);
   });
 
   it("keeps the catalog lightweight and every released chapter behind a shard loader", () => {
@@ -126,11 +152,11 @@ describe("Vạn Quyển Các Mốc 3 content model", () => {
           .reduce((sum, token) => sum + countHanzi(token.surface), 0);
         expect(lookupableHanzi).toBe(countHanzi(paragraph.zhHans));
       });
-      if (series.seriesId === "jade-lantern-archive") {
-        expect(countHanzi(chapter.paragraphs.map((paragraph) => paragraph.zhHans).join("")))
-          .toBeGreaterThanOrEqual(350);
-        expect(countHanzi(chapter.paragraphs.map((paragraph) => paragraph.zhHans).join("")))
-          .toBeLessThanOrEqual(650);
+      if (series.discoverable) {
+        const hanziCount = countHanzi(chapter.paragraphs.map((paragraph) => paragraph.zhHans).join(""));
+        expect(hanziCount).toBeGreaterThanOrEqual(READER_LONG_FORM_MIN_HANZI);
+        expect(hanziCount).toBeLessThanOrEqual(READER_LONG_FORM_MAX_HANZI);
+        expect(chapter.backgroundAsset).toEqual(summary.backgroundAsset);
       }
     }
   }, 60_000);
