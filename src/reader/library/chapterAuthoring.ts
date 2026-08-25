@@ -10,9 +10,6 @@ import {
 
 const TOKEN_PATTERN = /\[\[([^\]]+)\]\]/gu;
 const HAN_RUN_PATTERN = /\p{Script=Han}+/gu;
-const WORD_SEGMENTER = typeof Intl.Segmenter === "function"
-  ? new Intl.Segmenter("zh-CN", { granularity: "word" })
-  : null;
 
 const pushToken = (
   segments: ReaderParagraphSegment[],
@@ -48,10 +45,7 @@ const pushLookupableText = (
   while ((match = HAN_RUN_PATTERN.exec(text)) !== null) {
     pushText(segments, text.slice(cursor, match.index));
     const run = match[0];
-    const words = WORD_SEGMENTER
-      ? [...WORD_SEGMENTER.segment(run)].map((part) => part.segment)
-      : [...run];
-    words.forEach((surface) => {
+    [...run].forEach((surface) => {
       const entry = READER_REFERENCE_ENTRY_BY_SIMPLIFIED.get(surface)
         ?? createReaderLookupEntry(surface);
       pushToken(segments, entry);
@@ -80,11 +74,7 @@ export const authorReaderParagraph = ({
     const plain = markedZhHans.slice(cursor, match.index);
     pushLookupableText(segments, plain);
     const surface = match[1] ?? "";
-    const entry = READER_REFERENCE_ENTRY_BY_SIMPLIFIED.get(surface);
-    if (!entry) {
-      throw new Error(`Reader token ${surface} has no explicit reference entry.`);
-    }
-    pushToken(segments, entry);
+    pushLookupableText(segments, surface);
     cursor = match.index + match[0].length;
   }
   const tail = markedZhHans.slice(cursor);

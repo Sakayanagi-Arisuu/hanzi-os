@@ -138,20 +138,35 @@ const manualLexemeIds = new Set(
 const manualSurfaces = new Set(
   MANUAL_READER_REFERENCE_ENTRIES.map((entry) => entry.simplified),
 );
+const HAN_CHARACTER_PATTERN = /\p{Script=Han}/u;
+
+const conciseVietnameseMeanings = (...values: string[]) => [...new Set(
+  values
+    .flatMap((value) => value.replace(/\s+/gu, " ").split(/[;；]/u))
+    .map((meaning) => meaning.trim())
+    .filter((meaning) => meaning
+      && meaning.length <= 80
+      && !meaning.includes("[")
+      && !meaning.includes("]")
+      && !HAN_CHARACTER_PATTERN.test(meaning)),
+)].slice(0, 4);
 
 const releasedEntries: ReaderReferenceEntry[] = RELEASED_VOCABULARY
   .filter((word) => !manualLexemeIds.has(word.id) && !manualSurfaces.has(word.simplified))
-  .map((word) => ({
-    entryId: `reader-core:${word.id}`,
-    lexemeId: word.id,
-    simplified: word.simplified,
-    traditional: word.traditional,
-    pinyin: word.pinyin,
-    partOfSpeechVi: word.partOfSpeech,
-    contextualMeaningVi: word.meaning,
-    otherMeaningsVi: [],
-    sourceType: "hanzi-os-core" as const,
-  }));
+  .map((word) => {
+    const meanings = conciseVietnameseMeanings(word.meaning);
+    return {
+      entryId: `reader-core:${word.id}`,
+      lexemeId: word.id,
+      simplified: word.simplified,
+      traditional: word.traditional,
+      pinyin: word.pinyin,
+      partOfSpeechVi: word.partOfSpeech,
+      contextualMeaningVi: meanings[0] ?? word.meaning,
+      otherMeaningsVi: meanings.slice(1),
+      sourceType: "hanzi-os-core" as const,
+    };
+  });
 
 export const READER_REFERENCE_ENTRIES: ReaderReferenceEntry[] = [
   ...MANUAL_READER_REFERENCE_ENTRIES,
@@ -166,7 +181,6 @@ export const READER_REFERENCE_ENTRY_BY_SIMPLIFIED = new Map(
   READER_REFERENCE_ENTRIES.map((entry) => [entry.simplified, entry]),
 );
 
-const HAN_CHARACTER_PATTERN = /\p{Script=Han}/u;
 const lookupSurfacesByInitial = new Map<string, string[]>();
 
 READER_REFERENCE_ENTRY_BY_SIMPLIFIED.forEach((_entry, surface) => {
@@ -252,14 +266,20 @@ export const hydrateReaderReferenceEntry = async (
   try {
     const word = await lookupMegaVocabulary(entry.simplified);
     if (word) {
+      const conciseMeanings = conciseVietnameseMeanings(word.meaning, ...word.senses);
+      const concisePartOfSpeech = word.partOfSpeech
+        && word.partOfSpeech.length <= 40
+        && !HAN_CHARACTER_PATTERN.test(word.partOfSpeech)
+        ? word.partOfSpeech
+        : "chữ Hán";
       const hydrated: ReaderReferenceEntry = {
         entryId: `reader-mega:${word.id}`,
         simplified: word.simplified,
         traditional: word.traditional,
         pinyin: word.pinyin || word.pinyinNumbered || null,
-        partOfSpeechVi: word.partOfSpeech || "từ/cụm từ",
-        contextualMeaningVi: word.meaning,
-        otherMeaningsVi: word.senses.filter((sense) => sense !== word.meaning),
+        partOfSpeechVi: concisePartOfSpeech,
+        contextualMeaningVi: conciseMeanings[0] ?? "Chưa có nghĩa Việt ngắn đáng tin.",
+        otherMeaningsVi: conciseMeanings.slice(1),
         ...(entry.contextVi ? { contextVi: entry.contextVi } : {}),
         lookupStatus: "ready",
         sourceType: "mega-lexicon",
@@ -269,41 +289,9 @@ export const hydrateReaderReferenceEntry = async (
       return hydrated;
     }
 
-    const characters = [...entry.simplified];
-    if (characters.length > 1) {
-      const words = await Promise.all(characters.map((character) => lookupMegaVocabulary(character)));
-      if (words.every((candidate) => Boolean(candidate))) {
-        const components = words.map((candidate, index) => {
-          const component = candidate!;
-          return {
-            simplified: characters[index]!,
-            ...(component.traditional && component.traditional !== characters[index]
-              ? { traditional: component.traditional }
-              : {}),
-            pinyin: component.pinyin || component.pinyinNumbered,
-            meaningVi: component.meaning,
-          };
-        });
-        const composed: ReaderReferenceEntry = {
-          ...entry,
-          traditional: components.map((component) => component.traditional ?? component.simplified).join(""),
-          pinyin: components.map((component) => component.pinyin).join(" "),
-          partOfSpeechVi: "cụm ghép theo thành phần",
-          contextualMeaningVi: `Ghép nghĩa: ${components.map((component) => `${component.simplified} (${component.meaningVi})`).join(" + ")}.`,
-          otherMeaningsVi: [],
-          lookupStatus: "composed",
-          components,
-          sourceType: "mega-lexicon-composed",
-        };
-        READER_REFERENCE_ENTRY_BY_ID.set(composed.entryId, composed);
-        READER_REFERENCE_ENTRY_BY_SIMPLIFIED.set(composed.simplified, composed);
-        return composed;
-      }
-    }
-
     const unavailable: ReaderReferenceEntry = {
       ...entry,
-      contextualMeaningVi: `Chưa có mục từ khớp cho “${entry.simplified}”. Bạn vẫn có thể mở Tàng Tự Khố hoặc tra từng chữ.`,
+      contextualMeaningVi: "Chưa có nghĩa Việt ngắn đáng tin.",
       lookupStatus: "unavailable",
     };
     READER_REFERENCE_ENTRY_BY_ID.set(unavailable.entryId, unavailable);
@@ -311,7 +299,7 @@ export const hydrateReaderReferenceEntry = async (
   } catch {
     return {
       ...entry,
-      contextualMeaningVi: "Chưa tải được Tàng Tự Khố. Hãy kiểm tra kết nối rồi mở lại từ này.",
+      contextualMeaningVi: "Không tải được nghĩa. Hãy chạm lại chữ này.",
       lookupStatus: "unavailable",
     };
   }

@@ -74,7 +74,7 @@ function ParagraphText({
             key={`token-${segment.sequence}`}
             className="reader-inline-token"
             type="button"
-            aria-label={`Tra từ ${segment.surface}`}
+            aria-label={`Tra chữ ${segment.surface}`}
             onClick={(event) => onToken(entry, event.currentTarget, paragraph.paragraphId)}
           >
             {segment.surface}
@@ -88,7 +88,7 @@ function ParagraphText({
 export function ReaderChapterPage() {
   const { seriesId = "", chapterId = "" } = useParams();
   const navigate = useNavigate();
-  const { state, actions, sync } = useLearning();
+  const { sync } = useLearning();
   const { progress, scopeReady, setProgress, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
@@ -274,11 +274,8 @@ export function ReaderChapterPage() {
     speakMandarin(text, 0.76);
   };
   const toggleSavedEntry = (entry: ReaderReferenceEntry) => {
-    if (entry.lexemeId) {
-      void actions.toggleSavedWord(entry.lexemeId);
-      return;
-    }
-    const sourceType = entry.sourceType === "original-context-gloss"
+    const sourceType = entry.sourceType === "hanzi-os-core"
+      || entry.sourceType === "original-context-gloss"
       || entry.sourceType === "mega-lexicon"
       || entry.sourceType === "reader-character-fallback"
       ? entry.sourceType
@@ -495,9 +492,7 @@ export function ReaderChapterPage() {
       <ReaderWordDialog
         entry={selectedEntry}
         open={Boolean(selectedEntry)}
-        saved={Boolean(selectedEntry && (selectedEntry.lexemeId
-          ? state.savedWords.includes(selectedEntry.lexemeId)
-          : progress.savedEntries[selectedEntry.entryId]))}
+        saved={Boolean(selectedEntry && progress.savedEntries[selectedEntry.entryId])}
         returnFocusRef={tokenTriggerRef}
         onClose={closeWord}
         onSpeak={speak}

@@ -29,7 +29,7 @@ export type ReaderSavedEntry = {
   pinyin: string | null;
   partOfSpeechVi: string;
   contextualMeaningVi: string;
-  sourceType: "original-context-gloss" | "mega-lexicon" | "reader-character-fallback";
+  sourceType: "hanzi-os-core" | "original-context-gloss" | "mega-lexicon" | "reader-character-fallback";
   savedAt: string;
 };
 
@@ -121,7 +121,8 @@ const validSavedEntry = (value: unknown): value is ReaderSavedEntry => {
     && (entry.pinyin === null || safeString(entry.pinyin, 160))
     && safeString(entry.partOfSpeechVi)
     && safeString(entry.contextualMeaningVi, 1_000)
-    && (entry.sourceType === "original-context-gloss"
+    && (entry.sourceType === "hanzi-os-core"
+      || entry.sourceType === "original-context-gloss"
       || entry.sourceType === "mega-lexicon"
       || entry.sourceType === "reader-character-fallback")
     && safeTimestamp(entry.savedAt);

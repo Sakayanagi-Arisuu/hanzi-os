@@ -141,6 +141,8 @@ describe("Vạn Quyển Các Mốc 4 content model", () => {
               ? `reader-core:${token.lexemeId}`
               : token.referenceEntryId;
             expect(READER_REFERENCE_ENTRY_BY_ID.has(entryId ?? "")).toBe(true);
+            expect([...token.surface]).toHaveLength(1);
+            expect(isReaderHanCharacter(token.surface)).toBe(true);
           });
         paragraph.segments
           .filter((segment) => segment.kind === "text")
@@ -241,6 +243,17 @@ describe("Vạn Quyển Các local-first progress", () => {
     });
     expect(saved.savedEntries["reader-char:U+7075"]).not.toHaveProperty("mastery");
     expect(saved.savedEntries["reader-char:U+7075"]).not.toHaveProperty("fsrs");
+    const coreSaved = toggleReaderSavedEntry(saved, {
+      entryId: "reader-core:hsk-vocab-00254",
+      simplified: "一",
+      traditional: "一",
+      pinyin: "yī",
+      partOfSpeechVi: "số từ",
+      contextualMeaningVi: "một",
+      sourceType: "hanzi-os-core",
+    }, "2026-08-24T04:01:30.000Z");
+    expect(parseReaderProgress(coreSaved, scope).savedEntries["reader-core:hsk-vocab-00254"])
+      .toMatchObject({ simplified: "一", sourceType: "hanzi-os-core" });
     expect(removeReaderSavedEntry(saved, "reader-char:U+7075", "2026-08-24T04:02:00.000Z").savedEntries)
       .toEqual({});
   });

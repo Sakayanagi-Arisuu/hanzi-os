@@ -512,20 +512,10 @@
 .reader-word-meaning > p { margin: 0; color: #64dfff; font-size: 18px; }
 .reader-word-meaning > small { color: #8ca9a0; font-size: 11px; }
 .reader-word-meaning > strong { color: #edf9f5; font-size: 18px; line-height: 1.5; }
-.reader-word-composed-note { margin-top: 7px !important; padding: 9px 10px; color: #b8cdc6 !important; background: #0a211b; border: 1px solid rgba(100, 223, 255, .16); font-size: 12px !important; line-height: 1.55; }
-.reader-word-components { margin: 8px 0 0; padding: 0; display: grid; gap: 7px; list-style: none; }
-.reader-word-components li { min-height: 48px; padding: 8px 10px; display: grid; grid-template-columns: 36px 100px minmax(0, 1fr); align-items: center; gap: 8px; background: #04120f; border: 1px solid rgba(93, 244, 200, .13); border-radius: 7px; }
-.reader-word-components li > strong { color: #eff9f5; font: 500 24px/1 "Noto Serif SC", serif; }
-.reader-word-components li > span { color: #65dfff; font-size: 12px; }
-.reader-word-components li > small { color: #b5c8c1; font-size: 12px; line-height: 1.45; }
-.reader-word-meaning details { color: #afc6be; font-size: 13px; }
-.reader-word-meaning summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; }
-.reader-word-meaning ul { margin: 0; padding-left: 20px; }
+.reader-word-other-meanings { margin-top: 8px; color: #c8d8d2; font-size: 13px; }
+.reader-word-other-meanings summary { min-height: 44px; padding: 0 11px; display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #f1c75f; background: rgba(241, 199, 95, .08); border: 1px solid rgba(241, 199, 95, .28); border-radius: 7px; font-weight: 800; cursor: pointer; }
+.reader-word-other-meanings ul { margin: 8px 0 0; padding: 10px 12px 10px 30px; display: grid; gap: 7px; background: #04120f; border-radius: 7px; line-height: 1.5; }
 .reader-word-actions { display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; }
-.reader-reference-note { grid-column: 1 / -1; margin: 0; padding: 12px; color: #9eb8af; background: #091d18; font-size: 12px; line-height: 1.55; }
-.reader-word-context { margin-top: 10px; padding: 12px; color: #b9cec7; background: rgba(4, 17, 14, .78); border: 1px solid rgba(229, 188, 99, .18); border-radius: 7px; }
-.reader-word-context small { color: #e5bc63; font: 700 9px/1 var(--mono); letter-spacing: .12em; }
-.reader-word-context p { margin: 7px 0 0; font-size: 13px; line-height: 1.65; }
 .reader-word-actions button:disabled { cursor: wait; opacity: .56; }
 .reader-dictionary-link { min-height: 46px; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 7px; color: #e5bc63; font-size: 12px; font-weight: 700; }
 .reader-saved-words { padding: 18px; }
