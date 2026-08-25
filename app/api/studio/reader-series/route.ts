@@ -11,7 +11,9 @@ import {
   editorialBookToStudioLesson,
   parseEditorialReaderBook,
 } from "../../../../src/reader/editorialReaderContent";
+import { scanEditorialReaderVocabulary } from "../../../../src/reader/editorialReaderLexiconScan";
 import { READER_SERIES_BY_ID } from "../../../../src/reader/library/readerManifest";
+import { lookupEditorialReaderSurface } from "../../../../src/server/editorialReaderLexiconScan";
 import { noStoreJsonHeaders } from "../../../../src/sync/protocol";
 
 export const dynamic = "force-dynamic";
@@ -34,14 +36,19 @@ export async function POST(request: Request) {
   try {
     const authorized = await authorizeStudio("content:drafts:write");
     if (!authorized.ok) return authorized.response;
+    const lexiconScan = await scanEditorialReaderVocabulary(
+      parsed.book.chapters,
+      lookupEditorialReaderSurface,
+    );
+    const governedBook = { ...parsed.book, lexiconScan };
     const revision = await new ContentStudioRepository(authorized.context.database).createDraft({
       actorUserId: authorized.context.account.userId,
       actorSessionId: authorized.context.sessionId,
       itemType: "lesson",
-      stableKey: `reader.series.${parsed.book.seriesId}`,
-      title: `Vạn Quyển Các · ${parsed.book.titleVi}`,
-      level: parsed.book.levelBand.min.toLowerCase() as "hsk1" | "hsk2" | "hsk3" | "hsk4",
-      content: editorialBookToStudioLesson(parsed.book),
+      stableKey: `reader.series.${governedBook.seriesId}`,
+      title: `Vạn Quyển Các · ${governedBook.titleVi}`,
+      level: governedBook.levelBand.min.toLowerCase() as "hsk1" | "hsk2" | "hsk3" | "hsk4",
+      content: editorialBookToStudioLesson(governedBook),
       idempotencyKey: readIdempotencyKey(request, input.idempotencyKey),
     });
     return Response.json({ revision }, { status: 201, headers: noStoreJsonHeaders });

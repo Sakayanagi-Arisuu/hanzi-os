@@ -1,5 +1,10 @@
 import { authorReaderParagraph } from "./library/chapterAuthoring";
 import {
+  EDITORIAL_READER_LEXICON_SCAN_VERSION,
+  editorialReaderContentFingerprint,
+  type EditorialReaderLexiconScan,
+} from "./editorialReaderLexiconScan";
+import {
   READER_CONTENT_VERSION,
   type ReaderChapter,
   type ReaderCoverTone,
@@ -56,6 +61,7 @@ export type EditorialReaderBook = {
     backgroundProvenanceVi?: string;
     editorAttestsRights: true;
   };
+  lexiconScan?: EditorialReaderLexiconScan;
   humanReviewed: false;
 };
 
@@ -67,6 +73,14 @@ const text = (value: unknown, max: number) => typeof value === "string"
   && value.length <= max;
 const validAssetUrl = (value: unknown) => text(value, 2_000)
   && (String(value).startsWith("/") || String(value).startsWith("https://"));
+const nonNegativeInteger = (value: unknown) => Number.isInteger(value) && Number(value) >= 0;
+const boundedStringList = (
+  value: unknown,
+  pattern: RegExp,
+  maxItems = 120,
+) => Array.isArray(value)
+  && value.length <= maxItems
+  && value.every((item) => typeof item === "string" && pattern.test(item));
 
 export const parseEditorialReaderBook = (value: unknown) => {
   const errors: string[] = [];
@@ -75,6 +89,7 @@ export const parseEditorialReaderBook = (value: unknown) => {
   const levelBand = asRecord(book.levelBand);
   const cover = asRecord(book.cover);
   const rights = asRecord(book.rights);
+  const lexiconScan = book.lexiconScan === undefined ? null : asRecord(book.lexiconScan);
   if (book.schemaVersion !== 1) errors.push("schemaVersion phải bằng 1.");
   if (!text(book.seriesId, 72) || !/^[a-z0-9][a-z0-9-]{2,71}$/u.test(String(book.seriesId))) errors.push("Mã sách chỉ dùng chữ thường, số và dấu gạch ngang.");
   if (!text(book.titleZh, 80) || !/\p{Script=Han}/u.test(String(book.titleZh))) errors.push("Thiếu tên sách tiếng Trung.");
@@ -111,6 +126,47 @@ export const parseEditorialReaderBook = (value: unknown) => {
     const hasBackground = book.chapters.some((candidate) => Boolean(asRecord(candidate)?.background));
     if (hasBackground && (!rights || !text(rights.backgroundProvenanceVi, 1_000))) {
       errors.push("Sách có nền chương phải ghi provenance cho nền minh họa.");
+    }
+  }
+  if (book.lexiconScan !== undefined) {
+    const fingerprintableChapters = Array.isArray(book.chapters)
+      && book.chapters.every((candidate) => {
+        const chapter = asRecord(candidate);
+        return chapter
+          && Array.isArray(chapter.paragraphs)
+          && chapter.paragraphs.every((candidateParagraph) => {
+            const paragraph = asRecord(candidateParagraph);
+            return paragraph && typeof paragraph.zhHans === "string";
+          });
+      });
+    const validCounts = lexiconScan
+      && nonNegativeInteger(lexiconScan.characterCount)
+      && nonNegativeInteger(lexiconScan.uniqueCharacterCount)
+      && nonNegativeInteger(lexiconScan.coveredCharacterCount)
+      && nonNegativeInteger(lexiconScan.candidateWordCount)
+      && nonNegativeInteger(lexiconScan.coveredWordCount)
+      && Number(lexiconScan.coveredCharacterCount) <= Number(lexiconScan.uniqueCharacterCount)
+      && Number(lexiconScan.coveredWordCount) <= Number(lexiconScan.candidateWordCount);
+    if (
+      !lexiconScan
+      || lexiconScan.version !== EDITORIAL_READER_LEXICON_SCAN_VERSION
+      || typeof lexiconScan.contentFingerprint !== "string"
+      || !/^fnv1a:[0-9a-f]{8}$/u.test(lexiconScan.contentFingerprint)
+      || typeof lexiconScan.scannedAt !== "string"
+      || Number.isNaN(Date.parse(lexiconScan.scannedAt))
+      || !validCounts
+      || !boundedStringList(lexiconScan.missingCharacters, /^\p{Script=Han}$/u)
+      || !boundedStringList(lexiconScan.unresolvedWords, /^\p{Script=Han}{2,8}$/u)
+      || lexiconScan.aiAssisted !== false
+      || lexiconScan.humanReviewed !== false
+    ) {
+      errors.push("Kết quả quét Tàng Tự Khố không hợp lệ.");
+    } else if (
+      fingerprintableChapters
+      && editorialReaderContentFingerprint(book.chapters as EditorialReaderChapter[])
+        !== lexiconScan.contentFingerprint
+    ) {
+      errors.push("Kết quả quét Tàng Tự Khố không khớp nội dung chương hiện tại.");
     }
   }
   return errors.length

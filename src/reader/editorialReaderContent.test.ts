@@ -6,6 +6,7 @@ import {
   parseEditorialReaderBook,
   type EditorialReaderBook,
 } from "./editorialReaderContent";
+import { scanEditorialReaderVocabulary } from "./editorialReaderLexiconScan";
 
 const book: EditorialReaderBook = {
   schemaVersion: 1,
@@ -58,6 +59,8 @@ describe("Vạn Quyển Các editorial storefront", () => {
     chapter?.paragraphs.forEach((paragraph) => {
       expect(paragraph.segments.filter((segment) => segment.kind === "text")
         .every((segment) => !/\p{Script=Han}/u.test(segment.text))).toBe(true);
+      expect(paragraph.segments.filter((segment) => segment.kind === "token")
+        .every((segment) => [...segment.surface].length === 1)).toBe(true);
     });
     expect(editorialBookToStudioLesson(book)).toMatchObject({
       contentKind: "reader-series",
@@ -86,5 +89,20 @@ describe("Vạn Quyển Các editorial storefront", () => {
     const noBackground = structuredClone(missingBackgroundRights);
     delete noBackground.chapters[0]!.background;
     expect(parseEditorialReaderBook(noBackground)).toMatchObject({ ok: true });
+  });
+
+  it("accepts a current lexicon scan and rejects it after chapter text changes", async () => {
+    const scannedBook = structuredClone(book);
+    scannedBook.lexiconScan = await scanEditorialReaderVocabulary(
+      scannedBook.chapters,
+      async () => true,
+      "2026-08-25T10:00:00.000Z",
+    );
+    expect(parseEditorialReaderBook(scannedBook)).toMatchObject({ ok: true });
+
+    scannedBook.chapters[0]!.paragraphs[0]!.zhHans = "城市的另一扇门慢慢打开。";
+    const stale = parseEditorialReaderBook(scannedBook);
+    expect(stale.ok).toBe(false);
+    expect(stale.errors.join(" ")).toContain("không khớp nội dung chương");
   });
 });
