@@ -1,3 +1,12 @@
+import {
+  HSK_BUILT_IN_EXAM_FORM_KEYS,
+  HSK_STANDARD_EXAM_STRUCTURE,
+  hskStandardItemCount,
+  isHskExamFormKey,
+  isHskExamLevel,
+  type HskExamFormKey,
+} from "../assessment/hskExamStructure";
+
 export const STUDIO_ITEM_TYPES = [
   "vocabulary",
   "character",
@@ -21,6 +30,52 @@ export const STUDIO_WORKFLOW_STATES = [
 export type StudioItemType = typeof STUDIO_ITEM_TYPES[number];
 export type StudioLevel = typeof STUDIO_LEVELS[number];
 export type StudioWorkflowState = typeof STUDIO_WORKFLOW_STATES[number];
+
+export const STUDIO_ITEM_PRESENTATION: Record<StudioItemType, {
+  module: string;
+  label: string;
+  description: string;
+}> = {
+  vocabulary: {
+    module: "Tàng Tự Khố",
+    label: "Từ và cụm từ",
+    description: "Hán tự, Pinyin, nghĩa Việt và ví dụ dùng từ trong ngữ cảnh.",
+  },
+  character: {
+    module: "Thần Văn Lô",
+    label: "Hán tự",
+    description: "Một chữ, cách đọc, nghĩa và từ hoặc câu giúp nhận diện chữ ấy.",
+  },
+  grammar: {
+    module: "Pháp Tắc Điện",
+    label: "Ngữ pháp",
+    description: "Mẫu câu, giải thích tiếng Việt và ví dụ đúng cấp độ.",
+  },
+  lesson: {
+    module: "Thiên Lộ",
+    label: "Bài học",
+    description: "Mục tiêu, từ mới, hội thoại, ngữ pháp và bài tập trong một bài.",
+  },
+  exam_item: {
+    module: "Phòng Luyện Đề",
+    label: "Câu hỏi luyện đề",
+    description: "Một câu hỏi có ngữ liệu, lựa chọn, đáp án và lời giải.",
+  },
+  exam_form: {
+    module: "Phòng Luyện Đề",
+    label: "Bộ đề",
+    description: "Ghép các câu hỏi đã kiểm định thành một cửa dungeon cân bằng.",
+  },
+};
+
+export const STUDIO_WORKFLOW_LABELS: Record<StudioWorkflowState, string> = {
+  draft: "Bản nháp",
+  validated: "Đã kiểm định",
+  submitted: "Chờ phê duyệt",
+  approved: "Đã phê duyệt",
+  published: "Đang phát hành",
+  archived: "Đã lưu trữ",
+};
 
 export type StudioValidationIssue = {
   path: string;
@@ -236,7 +291,7 @@ export async function validateStudioContent(
     addRequired(errors, answerIntegrity, "exercises", "Bài tập cần đáp án, ít nhất hai distractor và giải thích.");
   } else if (itemType === "exam_item") {
     addRequired(errors, nonEmpty(content.promptVi), "promptVi", "Thiếu đề bài.");
-    addRequired(errors, ["listening", "reading", "vocabulary", "grammar"].includes(String(content.skill)), "skill", "Kỹ năng thi không hợp lệ.");
+    addRequired(errors, ["listening", "reading", "vocabulary", "grammar", "writing"].includes(String(content.skill)), "skill", "Kỹ năng thi không hợp lệ.");
     const options = Array.isArray(content.options) ? content.options : [];
     answerIntegrity = options.length >= 3
       && options.every((option) => nonEmpty(option, 1_000))
@@ -248,20 +303,49 @@ export async function validateStudioContent(
     contextualChinese = nonEmpty(content.hanzi, 2) || nonEmpty(content.passageHanzi, 2);
     addRequired(errors, contextualChinese, "hanzi", "Câu thi cần ngữ liệu tiếng Trung gốc.");
   } else {
-    addRequired(errors, ["hsk1", "hsk2", "hsk3", "hsk4"].includes(String(content.examLevel)), "examLevel", "Form thi cần level HSK1–4.");
-    addRequired(errors, ["a", "b"].includes(String(content.formKey).toLowerCase()), "formKey", "Form thi cần version A hoặc B.");
-    addRequired(errors, Number.isInteger(content.timeLimitMinutes) && Number(content.timeLimitMinutes) >= 10 && Number(content.timeLimitMinutes) <= 180, "timeLimitMinutes", "Thời gian form phải từ 10 đến 180 phút.");
+    const examLevel = isHskExamLevel(content.examLevel)
+      ? content.examLevel
+      : null;
+    addRequired(errors, Boolean(examLevel), "examLevel", "Form thi cần level HSK1–4.");
+    const formKey = isHskExamFormKey(content.formKey)
+      ? content.formKey.toLowerCase() as HskExamFormKey
+      : null;
+    addRequired(errors, Boolean(formKey), "formKey", "Cửa luyện đề cần ký hiệu từ A đến L.");
+    addRequired(
+      errors,
+      Boolean(formKey && !HSK_BUILT_IN_EXAM_FORM_KEYS.includes(
+        formKey as typeof HSK_BUILT_IN_EXAM_FORM_KEYS[number],
+      )),
+      "formKey",
+      "Cửa A–F đã có sẵn; Biên Tập Viện mở cửa mới từ G đến L.",
+    );
+    const structure = examLevel ? HSK_STANDARD_EXAM_STRUCTURE[examLevel] : null;
+    addRequired(
+      errors,
+      Boolean(structure && content.timeLimitMinutes === structure.timeLimitMinutes),
+      "timeLimitMinutes",
+      "Thời gian phải khớp cấu trúc chuẩn của cấp HSK đã chọn.",
+    );
     const itemStableKeys = Array.isArray(content.itemStableKeys) ? content.itemStableKeys : [];
-    contextualChinese = itemStableKeys.length >= 12
+    const expectedItemCount = examLevel ? hskStandardItemCount(examLevel) : 0;
+    contextualChinese = itemStableKeys.length === expectedItemCount
       && itemStableKeys.every((key) => nonEmpty(key, 160))
       && new Set(itemStableKeys).size === itemStableKeys.length;
-    addRequired(errors, contextualChinese, "itemStableKeys", "Form cần ít nhất 12 exam item không trùng.");
+    addRequired(
+      errors,
+      contextualChinese,
+      "itemStableKeys",
+      `Form cần đúng ${expectedItemCount || "số"} mã câu đã kiểm định và không trùng.`,
+    );
     const coverage = asRecord(content.coverage);
-    answerIntegrity = Boolean(coverage)
-      && ["listening", "reading", "vocabulary", "grammar"].every((skill) =>
-        Number.isInteger(coverage?.[skill]) && Number(coverage?.[skill]) >= 3
+    answerIntegrity = Boolean(coverage && structure)
+      && structure!.sections.every((section) =>
+        coverage?.[section.skill] === section.itemCount
+      )
+      && Number(coverage?.writing ?? 0) === (
+        structure!.sections.find((section) => section.skill === "writing")?.itemCount ?? 0
       );
-    addRequired(errors, answerIntegrity, "coverage", "Form cần tối thiểu ba câu cho nghe, đọc, từ vựng và ngữ pháp.");
+    addRequired(errors, answerIntegrity, "coverage", "Phân bố Nghe–Đọc–Viết phải khớp cấu trúc chuẩn của cấp HSK.");
   }
 
   if (content.audioSource === "browser-tts") {
@@ -291,7 +375,13 @@ export async function validateStudioContent(
   };
 }
 
-export const studioStarterContent = (itemType: StudioItemType) => ({
+export const studioStarterContent = (
+  itemType: StudioItemType,
+  level: StudioLevel = "hsk1",
+) => {
+  const examLevel = isHskExamLevel(level) ? level : "hsk1";
+  const examStructure = HSK_STANDARD_EXAM_STRUCTURE[examLevel];
+  return ({
   ...(itemType === "vocabulary" ? {
     hanzi: "你好",
     pinyin: "nǐ hǎo",
@@ -329,13 +419,17 @@ export const studioStarterContent = (itemType: StudioItemType) => ({
     answerIndex: 0,
     explanationVi: "我 là tôi, 是 là, 学生 là học sinh.",
   } : {
-    examLevel: "hsk1",
-    formKey: "a",
-    timeLimitMinutes: 18,
-    itemStableKeys: Array.from({ length: 12 }, (_value, index) =>
-      `hsk1-mock-item-${String(index + 1).padStart(2, "0")}`
+    examLevel,
+    formKey: "g",
+    timeLimitMinutes: examStructure.timeLimitMinutes,
+    itemStableKeys: Array.from({ length: hskStandardItemCount(examLevel) }, (_value, index) =>
+      `${examLevel}-mock-item-${String(index + 1).padStart(3, "0")}`
     ),
-    coverage: { listening: 3, reading: 3, vocabulary: 3, grammar: 3 },
+    coverage: {
+      listening: examStructure.sections.find((section) => section.skill === "listening")?.itemCount ?? 0,
+      reading: examStructure.sections.find((section) => section.skill === "reading")?.itemCount ?? 0,
+      writing: examStructure.sections.find((section) => section.skill === "writing")?.itemCount ?? 0,
+    },
   }),
   review: {
     humanReviewed: false,
@@ -347,4 +441,5 @@ export const studioStarterContent = (itemType: StudioItemType) => ({
       originality: false,
     },
   },
-});
+  });
+};

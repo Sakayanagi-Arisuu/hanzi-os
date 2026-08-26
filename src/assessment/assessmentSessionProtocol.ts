@@ -13,7 +13,9 @@ export const ASSESSMENT_SESSION_PROTOCOL_VERSION = 1 as const;
 export const ASSESSMENT_SESSION_FORM_SCHEMA_VERSION = 1 as const;
 export const ASSESSMENT_SESSION_IDEMPOTENCY_SCOPE =
   "assessment-session-open-v1";
-export const MAX_ASSESSMENT_FORM_ITEMS = 40;
+// HSK4 uses 100 items. The protocol remains bounded, but the previous level-
+// check ceiling of 40 could not represent a standards-sized mock exam.
+export const MAX_ASSESSMENT_FORM_ITEMS = 100;
 
 export type AssessmentItemModality =
   | "visual-selection"

@@ -163,6 +163,8 @@
     "content:hsk4:level-rich-lessons:validate": "node scripts/content/validate-hsk4-level-rich-lessons.mjs",
     "content:hsk4:local-level-check": "node scripts/content/build-hsk4-local-level-check.mjs",
     "content:hsk4:local-level-check:validate": "node scripts/content/validate-hsk4-local-level-check.mjs",
+    "content:hsk:mock-exam-alternates": "node scripts/content/build-hsk-mock-exam-alternate-bank.mjs",
+    "content:hsk:mock-exam-alternates:validate": "node scripts/content/validate-hsk-mock-exam-alternate-bank.mjs",
     "content:hsk1:local-study-review": "node scripts/content/build-hsk1-local-study-review.mjs",
     "content:hsk1:local-study-review:validate": "node scripts/content/validate-hsk1-local-study-review.mjs",
     "content:hsk1:local-study-package": "node scripts/content/build-hsk1-local-study-package-input.mjs",

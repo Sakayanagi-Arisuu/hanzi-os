@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "registryId": "hsk-exam-source-registry-2026.08",
+  "accessedOn": "2026-08-21",
+  "policy": {
+    "officialSourcesSetStructureAndCompetencyTargets": true,
+    "thirdPartySourcesAreFormatAndWorkflowBenchmarksOnly": true,
+    "externalQuestionTextImported": false,
+    "externalAudioImported": false,
+    "unknownOrRestrictedLicensesBlockContentImport": true
+  },
+  "sources": [
+    {
+      "sourceId": "moe-gf0025-2021",
+      "name": "International Chinese Language Education Chinese Proficiency Grading Standards (GF0025-2021)",
+      "url": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202111/t20211118_580755.html",
+      "authority": "official-standard",
+      "usage": ["competency-taxonomy", "level-fit", "skill-coverage"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "chinesetest-download-center",
+      "name": "Chinese Test Service Download Center",
+      "url": "https://admin.chinesetest.cn/godownload.do",
+      "authority": "official-exam-service",
+      "usage": ["published-test-structure", "official-sample-linking", "scoring-reference"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "chinesetest-hsk-structure",
+      "name": "Chinese Test Service HSK test structure",
+      "url": "https://www.chinesetest.cn/HSK/1?type=1",
+      "authority": "official-exam-service",
+      "usage": ["section-order", "item-count", "time-limit", "score-shape"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "hskmock-vietnamese",
+      "name": "HSK Mock Vietnamese",
+      "url": "https://hskmock.com/vi/index.html",
+      "authority": "official-practice-platform",
+      "usage": ["full-test-workflow", "timed-practice", "mistake-review"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "hanzii-vietnamese",
+      "name": "Hanzii Vietnamese exam practice",
+      "url": "https://hanzii.net/other/help/?hl=vi",
+      "authority": "vietnamese-learner-platform-benchmark",
+      "usage": ["set-selection", "instant-score", "answer-review", "retry-history"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "supertest-vietnamese",
+      "name": "SuperTest Vietnamese HSK practice",
+      "url": "https://www.hskonline.com/vi/3/4",
+      "authority": "hsk-practice-platform-benchmark",
+      "usage": ["large-bank-navigation", "mock-form-catalog", "skill-drills"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "prep-vietnamese",
+      "name": "PREP Vietnamese HSK mock-paper guidance",
+      "url": "https://prepedu.com/vi/blog/mo-phong-de-thi-hsk",
+      "authority": "vietnamese-preparation-guidance",
+      "usage": ["timed-rehearsal-workflow", "answer-explanation-expectation"],
+      "contentImportAllowed": false
+    },
+    {
+      "sourceId": "thanhmaihsk-vietnamese",
+      "name": "Thanhmaihsk Vietnamese HSK practice guidance",
+      "url": "https://thanhmaihsk.edu.vn/de-thi-hsk-1/",
+      "authority": "vietnamese-preparation-guidance",
+      "usage": ["question-type-taxonomy", "mistake-analysis-loop", "delayed-retry-workflow"],
+      "contentImportAllowed": false
+    }
+  ]
+}

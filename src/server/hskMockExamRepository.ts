@@ -8,11 +8,11 @@ import {
 import type { D1Database } from "./d1";
 import {
   HSK_MOCK_EXAM_SKILLS,
-  getHskMockExamDefinition,
   type HskMockExamDefinition,
   type HskMockExamLevel,
   type HskMockExamFormKey,
 } from "./hskMockExamBank";
+import { resolveHskMockExamDefinitionByBlueprint } from "./hskMockExamEditorialRepository";
 
 type SessionRow = {
   sessionId: string;
@@ -55,6 +55,9 @@ export const publicHskMockExamDefinition = (definition: HskMockExamDefinition) =
   certificationEligible: false as const,
   masteryEligible: false as const,
   prerequisiteUnlockEligible: false as const,
+  standardStructure: definition.standardStructure,
+  legacy: definition.legacy,
+  sections: definition.sections,
 });
 
 export const hskMockExamRepositoryOptions = (
@@ -64,7 +67,30 @@ export const hskMockExamRepositoryOptions = (
   blueprint: definition.blueprint,
   sessionTimeLimitMs: definition.timeLimitMinutes * 60_000,
   allowIncompleteSubmissionAfterTimeout: true,
+  excludePreviouslyExposedItems: definition.legacy,
+  shuffleFormItems: definition.legacy,
+  // Mock exams are repeatable, practice-only sessions. Their immutable form
+  // and attempts remain auditable without consuming the one-time exposure
+  // ledger reserved for measurement-eligible assessments.
+  recordItemExposures: false,
 });
+
+export const hskMockExamRepositoryOptionsForSession = async (
+  database: D1Database,
+  userId: string,
+  sessionId: string,
+) => {
+  const row = await database.prepare(
+    `SELECT blueprint_id AS blueprintId
+     FROM assessment_sessions
+     WHERE id = ? AND user_id = ? LIMIT 1`,
+  ).bind(sessionId, userId).first<{ blueprintId: string }>();
+  const definition = row
+    ? await resolveHskMockExamDefinitionByBlueprint(database, row.blueprintId)
+    : null;
+  if (!definition) throw new Error("Mock Exam session definition is unavailable.");
+  return hskMockExamRepositoryOptions(definition);
+};
 
 const parseResponseAnswer = (raw: string) => {
   try {
@@ -101,6 +127,21 @@ const parseForm = async (
 
 export class HskMockExamRepository {
   constructor(private readonly database: D1Database) {}
+
+  async activeDoor(userId: string) {
+    const row = await this.database.prepare(
+      `SELECT blueprint_id AS blueprintId
+       FROM assessment_sessions
+       WHERE user_id = ? AND status = 'started' AND blueprint_id LIKE 'hsk-mock-%'
+       ORDER BY started_at DESC LIMIT 1`,
+    ).bind(userId).first<{ blueprintId: string }>();
+    if (!row) return null;
+    const definition = await this.definitionForBlueprint(row.blueprintId);
+    return definition ? {
+      examLevel: definition.examLevel,
+      formKey: definition.formKey,
+    } : null;
+  }
 
   async resume(
     userId: string,
@@ -174,7 +215,7 @@ export class HskMockExamRepository {
     if (!rows.success) throw new Error("Unable to read Mock Exam history.");
     const results = [];
     for (const row of rows.results ?? []) {
-      const definition = this.definitionForBlueprint(row.blueprintId);
+      const definition = await this.definitionForBlueprint(row.blueprintId);
       if (!definition) continue;
       results.push(await this.resultForSession(userId, row, definition));
     }
@@ -199,13 +240,12 @@ export class HskMockExamRepository {
        WHERE id = ? AND user_id = ? AND status = 'submitted' LIMIT 1`,
     ).bind(sessionId, userId).first<SessionRow>();
     if (!row) return null;
-    const definition = this.definitionForBlueprint(row.blueprintId);
+    const definition = await this.definitionForBlueprint(row.blueprintId);
     return definition ? this.resultForSession(userId, row, definition) : null;
   }
 
   private definitionForBlueprint(blueprintId: string) {
-    const match = /^hsk-mock-(hsk[1-4])-([ab])-v1$/u.exec(blueprintId);
-    return match ? getHskMockExamDefinition(match[1], match[2]) : null;
+    return resolveHskMockExamDefinitionByBlueprint(this.database, blueprintId);
   }
 
   private async resultForSession(
@@ -239,7 +279,7 @@ export class HskMockExamRepository {
         recommendedLessonHref: `/lesson/${encodeURIComponent(item.sourceLessonId)}`,
       };
     });
-    const skills = HSK_MOCK_EXAM_SKILLS.map((skill) => {
+    const skills = definition.sections.map(({ skill }) => {
       const items = review.filter((item) => item.skill === skill);
       return {
         skill,

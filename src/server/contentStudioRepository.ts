@@ -70,6 +70,19 @@ export type StudioWorkflowEvent = {
   occurredAt: number;
 };
 
+export type PublishedStudioRuntimeItem = {
+  stableKey: string;
+  itemType: StudioItemType;
+  level: StudioLevel;
+  title: string;
+  revision: number;
+  revisionId: string;
+  schemaVersion: 1;
+  contentSha256: string;
+  publishedAt: number;
+  content: Record<string, unknown>;
+};
+
 type RevisionRow = Omit<StudioRevision, "content" | "validation"> & {
   contentJson: string;
   validationJson: string | null;
@@ -449,6 +462,17 @@ export class ContentStudioRepository {
     assertMutationIdentity(input);
     const current = await this.getRevision(input.revisionId);
     const validated = await validateStudioContent(current.itemType, current.content);
+    if (
+      current.itemType === "exam_form"
+      && current.content.examLevel !== current.level
+    ) {
+      validated.result.valid = false;
+      validated.result.checks.structure = false;
+      validated.result.errors.push({
+        path: "examLevel",
+        message: "Cấp HSK của cửa phải trùng với cấp độ phân loại nội dung.",
+      });
+    }
     if (validated.result.contentSha256 !== current.contentSha256) {
       throw new ContentStudioTransitionError("Stored content digest is inconsistent.");
     }
@@ -563,6 +587,28 @@ export class ContentStudioRepository {
       archived: "published",
     };
     const fromState = expectedFrom[input.toState];
+    if (input.toState === "published" && current.itemType === "exam_form") {
+      const occupied = await this.database.prepare(
+        `SELECT r.id
+           FROM content_revisions r
+           INNER JOIN content_items i ON i.id = r.item_id
+          WHERE i.item_type = 'exam_form'
+            AND r.workflow_state = 'published'
+            AND r.id <> ?
+            AND json_extract(r.content_json, '$.examLevel') = ?
+            AND lower(json_extract(r.content_json, '$.formKey')) = lower(?)
+          LIMIT 1`,
+      ).bind(
+        current.id,
+        current.content.examLevel,
+        current.content.formKey,
+      ).first<{ id: string }>();
+      if (occupied) {
+        throw new ContentStudioTransitionError(
+          "Cửa này đang có một bản phát hành khác; hãy lưu trữ bản cũ trước.",
+        );
+      }
+    }
     const note = input.note?.trim().slice(0, 1_000) ?? "";
     const operationSha256 = await requestDigest({
       operation: "transition",
@@ -863,18 +909,7 @@ export class ContentStudioRepository {
         throw new Error("Released content package failed its immutable digest fence.");
       }
       return {
-        item: JSON.parse(row.packageJson) as {
-          stableKey: string;
-          itemType: StudioItemType;
-          level: StudioLevel;
-          title: string;
-          revision: number;
-          revisionId: string;
-          schemaVersion: 1;
-          contentSha256: string;
-          publishedAt: number;
-          content: Record<string, unknown>;
-        },
+        item: JSON.parse(row.packageJson) as PublishedStudioRuntimeItem,
         packageSha256: row.packageSha256,
         manifestSha256: row.manifestSha256,
       };
@@ -895,6 +930,31 @@ export class ContentStudioRepository {
       ...manifest,
       manifestSha256: await studioSha256(canonicalStudioJson(manifest)),
     };
+  }
+
+  async releasedRuntimeRevision(
+    revisionId: string,
+  ): Promise<PublishedStudioRuntimeItem | null> {
+    const row = await this.database.prepare(
+      `SELECT package_json AS packageJson, package_sha256 AS packageSha256,
+              manifest_json AS manifestJson, manifest_sha256 AS manifestSha256
+         FROM content_release_packages
+        WHERE revision_id = ? LIMIT 1`,
+    ).bind(revisionId).first<{
+      packageJson: string;
+      packageSha256: string;
+      manifestJson: string;
+      manifestSha256: string;
+    }>();
+    if (!row) return null;
+    const packageValue = JSON.parse(row.packageJson) as PublishedStudioRuntimeItem;
+    const manifestValue = JSON.parse(row.manifestJson) as unknown;
+    if (
+      packageValue.revisionId !== revisionId
+      || await studioSha256(canonicalStudioJson(packageValue)) !== row.packageSha256
+      || await studioSha256(canonicalStudioJson(manifestValue)) !== row.manifestSha256
+    ) throw new Error("Released content package failed its immutable digest fence.");
+    return packageValue;
   }
 
   private async findIdempotentRevision(

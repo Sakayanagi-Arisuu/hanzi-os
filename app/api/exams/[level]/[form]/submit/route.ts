@@ -4,11 +4,14 @@ import {
   type SubmitAssessmentSessionReceiptV1,
 } from "../../../../../../src/assessment/assessmentSubmissionProtocol";
 import { handleAssessmentMutation } from "../../../../../../src/server/assessmentRouteHandler";
-import { getHskMockExamDefinition } from "../../../../../../src/server/hskMockExamBank";
+import {
+  isHskMockExamFormKey,
+  isHskMockExamLevel,
+} from "../../../../../../src/server/hskMockExamBank";
 import { mockExamError } from "../../../../../../src/server/hskMockExamHttp";
 import {
   HskMockExamRepository,
-  hskMockExamRepositoryOptions,
+  hskMockExamRepositoryOptionsForSession,
   type HskMockExamResult,
 } from "../../../../../../src/server/hskMockExamRepository";
 import { ASSESSMENT_SESSION_SUBMIT_MUTATION_POLICY } from "../../../../../../src/server/mutationRateLimit";
@@ -18,8 +21,9 @@ type Context = { params: Promise<{ level: string; form: string }> };
 
 export async function POST(request: Request, context: Context) {
   const { level, form } = await context.params;
-  const definition = getHskMockExamDefinition(level, form);
-  if (!definition) return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
+  if (!isHskMockExamLevel(level) || !isHskMockExamFormKey(form)) {
+    return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
+  }
   return handleAssessmentMutation<
     SubmitAssessmentSessionCommandV1,
     SubmitAssessmentSessionReceiptV1 & { result: HskMockExamResult }
@@ -30,7 +34,12 @@ export async function POST(request: Request, context: Context) {
     payloadTooLargeCode: "MOCK_EXAM_SUBMISSION_PAYLOAD_TOO_LARGE",
     policy: ASSESSMENT_SESSION_SUBMIT_MUTATION_POLICY,
     parse: parseSubmitAssessmentSessionCommand,
-    repositoryOptions: hskMockExamRepositoryOptions(definition),
+    repositoryOptions: ({ database, userId, command }) =>
+      hskMockExamRepositoryOptionsForSession(
+        database,
+        userId,
+        command.sessionId,
+      ),
     execute: async (repository, userId, command, database) => {
       const receipt = await repository.submitSession(userId, command);
       const result = await new HskMockExamRepository(database).result(

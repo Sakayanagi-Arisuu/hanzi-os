@@ -12,6 +12,11 @@ import {
   ContentReleaseWorker,
   ContentReleaseWorkerRepository,
 } from "./contentReleaseWorker";
+import { hskMockExamEditorialSuggestions } from "./hskMockExamBank";
+import {
+  loadPublishedEditorialHskMockExamDefinitions,
+  resolveHskMockExamDefinitionByBlueprint,
+} from "./hskMockExamEditorialRepository";
 
 const migrationDirectory = new URL("../../drizzle/", import.meta.url);
 const migrations = readdirSync(migrationDirectory)
@@ -128,6 +133,69 @@ describe("governed Content Studio revisions", () => {
       stableKey: "hsk1.mock.form-a",
       workflowState: "draft",
     });
+  });
+
+  it("projects a published Studio door into the learner catalog and immutable resume lookup", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    const content = studioStarterContent("exam_form", "hsk1") as Extract<
+      ReturnType<typeof studioStarterContent>,
+      { itemStableKeys: string[] }
+    >;
+    content.itemStableKeys = [...hskMockExamEditorialSuggestions().hsk1.g!];
+    content.review.aiSelfReview = {
+      accuracy: true,
+      levelFit: true,
+      pedagogy: true,
+      answerIntegrity: true,
+      originality: true,
+    };
+    const draft = await repository.createDraft({
+      actorUserId: "editor",
+      actorSessionId: "editor-session",
+      itemType: "exam_form",
+      stableKey: "hsk1.mock.form-g",
+      title: "Mô phỏng HSK1 · Cửa G",
+      level: "hsk1",
+      content,
+      idempotencyKey: "create:hsk1-mock-form-g",
+    });
+    const validated = await repository.validateRevision({
+      actorUserId: "editor", actorSessionId: "editor-session",
+      revisionId: draft.id, expectedRowVersion: draft.rowVersion,
+      idempotencyKey: "validate:hsk1-mock-form-g",
+    });
+    const submitted = await repository.transition({
+      actorUserId: "editor", actorSessionId: "editor-session",
+      revisionId: draft.id, expectedRowVersion: validated.rowVersion,
+      toState: "submitted", idempotencyKey: "submit:hsk1-mock-form-g",
+      requestId: "request-submit-hsk1-mock-form-g",
+    });
+    const approved = await repository.transition({
+      actorUserId: "admin", actorSessionId: "admin-session",
+      revisionId: draft.id, expectedRowVersion: submitted.rowVersion,
+      toState: "approved", idempotencyKey: "approve:hsk1-mock-form-g",
+      requestId: "request-approve-hsk1-mock-form-g",
+    });
+    await repository.transition({
+      actorUserId: "admin", actorSessionId: "admin-session",
+      revisionId: draft.id, expectedRowVersion: approved.rowVersion,
+      toState: "published", idempotencyKey: "publish:hsk1-mock-form-g",
+      requestId: "request-publish-hsk1-mock-form-g",
+    });
+    await drainReleases(database);
+
+    const [definition] = await loadPublishedEditorialHskMockExamDefinitions(database);
+    expect(definition).toMatchObject({
+      examLevel: "hsk1",
+      formKey: "g",
+      blueprint: { itemCount: 40 },
+    });
+    await expect(resolveHskMockExamDefinitionByBlueprint(
+      database,
+      definition!.blueprint.id,
+    )).resolves.toMatchObject({ formKey: "g", blueprint: { itemCount: 40 } });
   });
 
   it("keeps a failed five-pass or answer check in draft", async () => {

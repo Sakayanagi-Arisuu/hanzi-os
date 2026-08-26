@@ -8,6 +8,7 @@ import { requestCorrelationId } from "../../../src/server/auditRepository";
 import { readBoundedRequestText } from "../../../src/server/boundedRequestBody";
 import { authorizeStudio } from "../../../src/server/contentStudioHttp";
 import { ContentStudioRepository } from "../../../src/server/contentStudioRepository";
+import { processContentReleaseBatch } from "../../../src/server/contentReleaseWorker";
 
 export const dynamic = "force-dynamic";
 
@@ -71,7 +72,7 @@ export async function POST(request: Request) {
         title: form.get("title") ?? "",
         content: content as Record<string, unknown>,
       });
-      return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã tạo draft revision 1; chưa xuất hiện trong learner runtime.");
+      return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã tạo bản nháp. Người học chưa nhìn thấy nội dung này.");
     }
     if (action === "update") {
       const level = form.get("level");
@@ -88,7 +89,7 @@ export async function POST(request: Request) {
         level,
         content: content as Record<string, unknown>,
       });
-      return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã lưu draft với content digest mới.");
+      return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã lưu thay đổi vào bản nháp.");
     }
     if (action === "validate") {
       const revision = await repository.validateRevision({
@@ -101,8 +102,8 @@ export async function POST(request: Request) {
         `/studio/items/${encodeURIComponent(revision.id)}`,
         revision.validation?.valid ? "notice" : "error",
         revision.validation?.valid
-          ? "Validation xanh; revision sẵn sàng gửi duyệt."
-          : "Validation chưa đạt; xem lỗi và sửa draft trước khi gửi duyệt.",
+          ? "Nội dung đã đạt kiểm định và sẵn sàng gửi duyệt."
+          : "Nội dung chưa đạt; hãy xem các mục cần chỉnh sửa bên dưới.",
       );
     }
     if (action === "fork") {
@@ -110,7 +111,7 @@ export async function POST(request: Request) {
         ...common,
         sourceRevisionId: revisionId,
       });
-      return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã fork revision bất biến thành draft mới.");
+      return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã tạo một bản nháp mới từ nội dung đang phát hành.");
     }
     const toState = action === "submit"
       ? "submitted" as const
@@ -127,13 +128,25 @@ export async function POST(request: Request) {
       requestId: requestCorrelationId(request),
       note: form.get("note") ?? undefined,
     });
+    let releaseReady = true;
+    if (toState === "published" || toState === "archived") {
+      try {
+        await processContentReleaseBatch(authorized.context.database);
+      } catch {
+        releaseReady = false;
+      }
+    }
     const notice = toState === "published"
-      ? "Đã publish revision bất biến; learner runtime có thể đọc đúng digest này."
+      ? releaseReady
+        ? "Đã phát hành nội dung cho người học."
+        : "Đã duyệt phát hành; gói nội dung đang chờ đồng bộ lại."
       : toState === "archived"
-        ? "Đã archive revision; learner runtime ngừng phân phối revision này."
+        ? releaseReady
+          ? "Đã ngừng phát hành nội dung này."
+          : "Đã yêu cầu ngừng phát hành; catalog đang chờ đồng bộ lại."
         : toState === "approved"
-          ? "Admin đã phê duyệt; revision sẵn sàng publish."
-          : "Editor đã gửi revision vào hàng phê duyệt.";
+          ? "Nội dung đã được phê duyệt và sẵn sàng phát hành."
+          : "Đã gửi nội dung vào hàng chờ phê duyệt.";
     return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", notice);
   } catch (error) {
     return redirect(

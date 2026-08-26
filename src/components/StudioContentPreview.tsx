@@ -113,16 +113,16 @@ export function StudioContentPreview({
       ? content.itemStableKeys.filter((entry): entry is string => typeof entry === "string")
       : [];
     return (
-      <section style={styles.card} aria-label="Bản xem trước hướng dẫn Mock Exam">
-        <span style={styles.label}>LEARNER UI PREVIEW · MOCK EXAM FORM</span>
+      <section style={styles.card} aria-label="Bản xem trước hướng dẫn bộ đề">
+        <span style={styles.label}>BẢN XEM TRƯỚC · BỘ ĐỀ</span>
         <strong style={{ ...styles.hanzi, fontSize: 32 }}>
-          {text(content.examLevel).toUpperCase()} · FORM {text(content.formKey).toUpperCase()}
+          {text(content.examLevel).toUpperCase()} · CỬA {text(content.formKey).toUpperCase()}
         </strong>
         <small style={styles.pinyin}>
           {String(content.timeLimitMinutes ?? "—")} phút · {keys.length} câu
         </small>
         <em style={styles.meaning}>
-          Đáp án được giữ phía máy chủ; learner chỉ review sau khi phiên kết thúc.
+          Đáp án chỉ hiện sau khi người học kết thúc phiên luyện đề.
         </em>
       </section>
     );

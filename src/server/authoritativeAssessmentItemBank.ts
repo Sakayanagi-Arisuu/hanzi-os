@@ -204,18 +204,27 @@ export const selectAuthoritativeAssessmentForm = ({
   exposedGroups,
   exposedEquivalentGroups = new Set<string>(),
   random,
+  excludePreviouslyExposedItems = true,
+  shuffleFormItems = true,
 }: {
   bank: readonly AuthoritativeAssessmentItem[];
   blueprint: AuthoritativeAssessmentBlueprint;
   exposedGroups: ReadonlySet<string>;
   exposedEquivalentGroups?: ReadonlySet<string>;
   random: AssessmentRandomSource;
+  excludePreviouslyExposedItems?: boolean;
+  shuffleFormItems?: boolean;
 }): AuthoritativeAssessmentSelection => {
   const candidates = shuffled(
     bank.filter((item) =>
       isIssuableAuthoritativeAssessmentItem(item, blueprint)
-      && !exposedGroups.has(item.exposureGroupId)
-      && !exposedEquivalentGroups.has(item.equivalentGroupId)
+      && (
+        !excludePreviouslyExposedItems
+        || (
+          !exposedGroups.has(item.exposureGroupId)
+          && !exposedEquivalentGroups.has(item.equivalentGroupId)
+        )
+      )
     ),
     random,
   );
@@ -260,7 +269,7 @@ export const selectAuthoritativeAssessmentForm = ({
       missingBySkill,
     };
   }
-  const ordered = shuffled(selected, random);
+  const ordered = shuffleFormItems ? shuffled(selected, random) : selected;
   const form: AssessmentFormV1 = {
     schemaVersion: 1,
     blueprintId: blueprint.id,

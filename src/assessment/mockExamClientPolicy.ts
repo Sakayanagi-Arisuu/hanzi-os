@@ -1,20 +1,32 @@
-export type MockExamClientLevel = "hsk1" | "hsk2" | "hsk3" | "hsk4";
-export type MockExamClientForm = "a" | "b";
+import {
+  HSK_EXAM_FORM_KEYS,
+  HSK_EXAM_LEVELS,
+  type HskExamFormKey,
+  type HskExamLevel,
+} from "./hskExamStructure";
 
-const MOCK_EXAM_LEVELS = new Set<MockExamClientLevel>([
-  "hsk1",
-  "hsk2",
-  "hsk3",
-  "hsk4",
-]);
-const MOCK_EXAM_FORMS = new Set<MockExamClientForm>(["a", "b"]);
+export type MockExamClientLevel = HskExamLevel;
+export type MockExamClientForm = HskExamFormKey;
+
+const MOCK_EXAM_LEVELS = new Set<MockExamClientLevel>(HSK_EXAM_LEVELS);
+const MOCK_EXAM_FORMS_BY_LEVEL: Record<
+  MockExamClientLevel,
+  ReadonlySet<MockExamClientForm>
+> = {
+  hsk1: new Set(HSK_EXAM_FORM_KEYS),
+  hsk2: new Set(HSK_EXAM_FORM_KEYS),
+  hsk3: new Set(HSK_EXAM_FORM_KEYS),
+  hsk4: new Set(HSK_EXAM_FORM_KEYS),
+};
 
 export const isSupportedMockExamRoute = (
   level: string,
   form: string,
-): level is MockExamClientLevel => MOCK_EXAM_LEVELS.has(
-  level as MockExamClientLevel,
-) && MOCK_EXAM_FORMS.has(form as MockExamClientForm);
+): level is MockExamClientLevel => {
+  if (!MOCK_EXAM_LEVELS.has(level as MockExamClientLevel)) return false;
+  return MOCK_EXAM_FORMS_BY_LEVEL[level as MockExamClientLevel]
+    .has(form as MockExamClientForm);
+};
 
 export const mockExamOpenCommandStorageKey = (
   level: string,
@@ -23,6 +35,9 @@ export const mockExamOpenCommandStorageKey = (
 
 export const mockExamSubmitCommandStorageKey = (sessionId: string) =>
   `hanzi.mock.submit.${sessionId}`;
+
+export const mockExamAbandonCommandStorageKey = (sessionId: string) =>
+  `hanzi.mock.abandon.${sessionId}`;
 
 export const mockExamAttemptCommandStorageKey = (
   sessionId: string,
@@ -98,6 +113,7 @@ export const clearCompletedMockExamCommandKeys = (
 ) => {
   clearMockExamOpenCommand(storage, level, form);
   storage.removeItem(mockExamSubmitCommandStorageKey(sessionId));
+  storage.removeItem(mockExamAbandonCommandStorageKey(sessionId));
   for (let position = 0; position < expectedItemCount; position += 1) {
     clearMockExamAttemptCommand(storage, sessionId, position);
   }

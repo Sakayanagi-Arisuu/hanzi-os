@@ -7,6 +7,7 @@ import {
   clearCompletedMockExamCommandKeys,
   clearMockExamOpenCommand,
   isSupportedMockExamRoute,
+  mockExamAbandonCommandStorageKey,
   mockExamAttemptCommandStorageKey,
   mockExamOpenCommandStorageKey,
   mockExamSubmitCommandStorageKey,
@@ -42,8 +43,12 @@ describe("Mock Exam client session policy", () => {
   it("rejects unknown runner routes before requesting a session", () => {
     expect(isSupportedMockExamRoute("hsk1", "a")).toBe(true);
     expect(isSupportedMockExamRoute("hsk4", "b")).toBe(true);
+    expect(isSupportedMockExamRoute("hsk1", "c")).toBe(true);
+    expect(isSupportedMockExamRoute("hsk4", "l")).toBe(true);
     expect(isSupportedMockExamRoute("hsk5", "a")).toBe(false);
-    expect(isSupportedMockExamRoute("hsk1", "c")).toBe(false);
+    expect(isSupportedMockExamRoute("hsk1", "d")).toBe(true);
+    expect(isSupportedMockExamRoute("hsk2", "k")).toBe(true);
+    expect(isSupportedMockExamRoute("hsk2", "m")).toBe(false);
   });
 
   it("clears stale open and submit receipts only after completion", () => {
@@ -64,6 +69,9 @@ describe("Mock Exam client session policy", () => {
     );
     expect(removeItem).toHaveBeenCalledWith(
       mockExamSubmitCommandStorageKey("session-42"),
+    );
+    expect(removeItem).toHaveBeenCalledWith(
+      mockExamAbandonCommandStorageKey("session-42"),
     );
   });
 

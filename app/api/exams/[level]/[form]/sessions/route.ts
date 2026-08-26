@@ -5,7 +5,12 @@ import {
 } from "../../../../../../src/assessment/assessmentSessionProtocol";
 import { handleAssessmentMutation } from "../../../../../../src/server/assessmentRouteHandler";
 import { AssessmentIdempotencyConflictError } from "../../../../../../src/server/assessmentRepository";
-import { getHskMockExamDefinition } from "../../../../../../src/server/hskMockExamBank";
+import {
+  getHskMockExamDefinition,
+  getLegacyHskMockExamDefinition,
+} from "../../../../../../src/server/hskMockExamBank";
+import { getD1Database } from "../../../../../../src/server/d1";
+import { resolveHskMockExamDefinition } from "../../../../../../src/server/hskMockExamEditorialRepository";
 import { authorizeMockExamLearner, mockExamError } from "../../../../../../src/server/hskMockExamHttp";
 import {
   HskMockExamRepository,
@@ -21,15 +26,30 @@ type Context = { params: Promise<{ level: string; form: string }> };
 
 export async function GET(_request: Request, context: Context) {
   const { level, form } = await context.params;
-  const definition = getHskMockExamDefinition(level, form);
-  if (!definition) return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
+  const legacyDefinition = getLegacyHskMockExamDefinition(level, form);
   const authorized = await authorizeMockExamLearner();
   if (!authorized.ok) return authorized.response;
   try {
-    const session = await new HskMockExamRepository(
+    const definition = await resolveHskMockExamDefinition(
       authorized.database,
-    ).resume(authorized.userId, definition);
-    return Response.json({ session }, { headers: noStoreJsonHeaders });
+      level,
+      form,
+    );
+    if (!definition && !legacyDefinition) return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
+    const repository = new HskMockExamRepository(
+      authorized.database,
+    );
+    const session = (definition
+      ? await repository.resume(authorized.userId, definition)
+      : null) ?? (legacyDefinition
+      ? await repository.resume(
+        authorized.userId,
+        legacyDefinition,
+      ) : null);
+    const activeDoor = session
+      ? null
+      : await repository.activeDoor(authorized.userId);
+    return Response.json({ session, activeDoor }, { headers: noStoreJsonHeaders });
   } catch {
     return mockExamError(409, "MOCK_EXAM_RESUME_FAILED", "Phiên Mock Exam không còn khớp form bất biến.");
   }
@@ -37,7 +57,18 @@ export async function GET(_request: Request, context: Context) {
 
 export async function POST(request: Request, context: Context) {
   const { level, form } = await context.params;
-  const definition = getHskMockExamDefinition(level, form);
+  let definition = getHskMockExamDefinition(level, form);
+  if (!definition) {
+    try {
+      definition = await resolveHskMockExamDefinition(
+        await getD1Database(),
+        level,
+        form,
+      );
+    } catch {
+      return mockExamError(503, "MOCK_EXAM_CATALOG_UNAVAILABLE", "Kho cửa biên tập chưa sẵn sàng.");
+    }
+  }
   if (!definition) return mockExamError(404, "MOCK_EXAM_NOT_FOUND", "Không tìm thấy form Mock Exam.");
   return handleAssessmentMutation<
     OpenAssessmentSessionCommandV1,

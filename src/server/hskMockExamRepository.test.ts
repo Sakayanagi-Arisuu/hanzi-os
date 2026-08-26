@@ -5,10 +5,14 @@ import type { D1Database, D1PreparedStatement, D1RunResult } from "./d1";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import { CONTENT_VERSION } from "../data/contentIdentity";
 import { AssessmentRepository } from "./assessmentRepository";
-import { getHskMockExamDefinition } from "./hskMockExamBank";
+import {
+  getHskMockExamDefinition,
+  getLegacyHskMockExamDefinition,
+} from "./hskMockExamBank";
 import {
   HskMockExamRepository,
   hskMockExamRepositoryOptions,
+  hskMockExamRepositoryOptionsForSession,
 } from "./hskMockExamRepository";
 
 const migrations = readdirSync(new URL("../../drizzle/", import.meta.url))
@@ -73,6 +77,135 @@ const seed = (database: SQLiteD1) => {
 };
 
 describe("HSK Mock Exam assessment integration", () => {
+  it("keeps a v1 12-item door resumable after standards-sized v2 forms ship", async () => {
+    const database = new SQLiteD1();
+    seed(database);
+    const legacy = getLegacyHskMockExamDefinition("hsk3", "b")!;
+    const assessment = new AssessmentRepository(database, {
+      ...hskMockExamRepositoryOptions(legacy),
+      publicationPolicy: {
+        manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
+        audience: "closed-alpha",
+        lifecycle: "published",
+        closedAlphaEligible: true,
+        productionEligible: false,
+        promotionChannel: "closed-alpha",
+        promotionManifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
+      },
+      randomSource: () => 0.5,
+      now: () => now,
+    });
+    const opened = await assessment.openSession("learner", {
+      protocolVersion: 1,
+      idempotencyKey: "mock:hsk3:b:legacy-open",
+      installationId: "installation",
+      deviceId: "device",
+      deviceSequence: 1,
+      resetEpoch: 0,
+      contentVersion: CONTENT_VERSION,
+      enrollmentId: "enrollment",
+    });
+    const resolved = await hskMockExamRepositoryOptionsForSession(
+      database,
+      "learner",
+      opened.sessionId,
+    );
+    expect(resolved.blueprint?.id).toBe("hsk-mock-hsk3-b-v1");
+    expect(resolved.blueprint?.itemCount).toBe(12);
+    await expect(new HskMockExamRepository(database).resume(
+      "learner",
+      legacy,
+      now,
+    )).resolves.toMatchObject({
+      binding: { blueprintId: "hsk-mock-hsk3-b-v1", expectedItemCount: 12 },
+      recorded: [],
+    });
+  });
+
+  it("opens another repeatable door without deleting an earlier exposure ledger", async () => {
+    const database = new SQLiteD1();
+    seed(database);
+    const doorF = getHskMockExamDefinition("hsk1", "f")!;
+    const doorA = getHskMockExamDefinition("hsk1", "a")!;
+    const publicationPolicy = {
+      manifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
+      audience: "closed-alpha" as const,
+      lifecycle: "published" as const,
+      closedAlphaEligible: true,
+      productionEligible: false,
+      promotionChannel: "closed-alpha" as const,
+      promotionManifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
+    };
+    const earlierLedger = new AssessmentRepository(database, {
+      ...hskMockExamRepositoryOptions(doorF),
+      publicationPolicy,
+      recordItemExposures: true,
+      randomSource: () => 0.5,
+      now: () => now,
+    });
+    const earlier = await earlierLedger.openSession("learner", {
+      protocolVersion: 1,
+      idempotencyKey: "mock:hsk1:f:earlier-open",
+      installationId: "installation",
+      deviceId: "device",
+      deviceSequence: 1,
+      resetEpoch: 0,
+      contentVersion: CONTENT_VERSION,
+      enrollmentId: "enrollment",
+    });
+    expect(database.sqlite.prepare(
+      "SELECT COUNT(*) AS count FROM assessment_item_exposures",
+    ).get()).toEqual({ count: 40 });
+    await expect(new HskMockExamRepository(database).activeDoor("learner"))
+      .resolves.toEqual({ examLevel: "hsk1", formKey: "f" });
+    await earlierLedger.abandonSession("learner", {
+      protocolVersion: 1,
+      idempotencyKey: "mock:hsk1:f:earlier-abandon",
+      installationId: "installation",
+      deviceId: "device",
+      deviceSequence: 2,
+      resetEpoch: 0,
+      contentVersion: CONTENT_VERSION,
+      sessionId: earlier.sessionId,
+      formHash: earlier.formHash,
+    });
+    await expect(new HskMockExamRepository(database).activeDoor("learner"))
+      .resolves.toBeNull();
+
+    const repeatableDoor = new AssessmentRepository(database, {
+      ...hskMockExamRepositoryOptions(doorA),
+      publicationPolicy,
+      randomSource: () => 0.5,
+      now: () => now,
+    });
+    const opened = await repeatableDoor.openSession("learner", {
+      protocolVersion: 1,
+      idempotencyKey: "mock:hsk1:a:repeatable-open",
+      installationId: "installation",
+      deviceId: "device",
+      deviceSequence: 3,
+      resetEpoch: 0,
+      contentVersion: CONTENT_VERSION,
+      enrollmentId: "enrollment",
+    });
+
+    expect(opened).toMatchObject({
+      blueprintId: doorA.blueprint.id,
+      expectedItemCount: 40,
+      status: "started",
+    });
+    expect(database.sqlite.prepare(
+      "SELECT COUNT(*) AS count FROM assessment_item_exposures",
+    ).get()).toEqual({ count: 40 });
+    await expect(new HskMockExamRepository(database).resume(
+      "learner",
+      doorA,
+      now,
+    )).resolves.toMatchObject({
+      binding: { sessionId: opened.sessionId, blueprintId: doorA.blueprint.id },
+    });
+  });
+
   it("opens answer-free, resumes, scores, recommends real lessons and keeps history", async () => {
     const database = new SQLiteD1();
     seed(database);
@@ -172,12 +305,12 @@ describe("HSK Mock Exam assessment integration", () => {
     });
     const result = await historyRepository.result("learner", opened.sessionId);
     expect(result).toMatchObject({
-      score: { correct: 11, answered: 12, total: 12, percent: 92 },
+      score: { correct: 39, answered: 40, total: 40, percent: 98 },
       masteryEligible: false,
       prerequisiteUnlockEligible: false,
       certificationEligible: false,
     });
-    expect(result?.review).toHaveLength(12);
+    expect(result?.review).toHaveLength(40);
     expect(result?.recommendations[0]).toMatchObject({ wrongCount: 1 });
     expect(result?.recommendations[0]?.href).toMatch(/^\/lesson\//u);
     expect(await historyRepository.history("learner")).toEqual([result]);

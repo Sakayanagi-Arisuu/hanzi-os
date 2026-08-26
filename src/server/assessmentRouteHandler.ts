@@ -70,7 +70,11 @@ export type AssessmentMutationRouteConfig<TCommand, TReceipt> = {
     command: TCommand,
     database: D1Database,
   ) => Promise<TReceipt & { duplicate: boolean }>;
-  repositoryOptions?: AssessmentRepositoryOptions;
+  repositoryOptions?: AssessmentRepositoryOptions | ((input: {
+    database: D1Database;
+    userId: string;
+    command: TCommand;
+  }) => Promise<AssessmentRepositoryOptions>);
 };
 
 const knownConflict = (error: unknown) =>
@@ -156,8 +160,11 @@ export const handleAssessmentMutation = async <TCommand, TReceipt>(
     if (!parsed.ok) {
       return errorResponse(422, config.invalidCode, parsed.reason, requestId);
     }
+    const repositoryOptions = typeof config.repositoryOptions === "function"
+      ? await config.repositoryOptions({ database, userId, command: parsed.command })
+      : config.repositoryOptions;
     const receipt = await config.execute(
-      new AssessmentRepository(database, config.repositoryOptions),
+      new AssessmentRepository(database, repositoryOptions),
       userId,
       parsed.command,
       database,

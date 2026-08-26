@@ -31,6 +31,7 @@ describe("Content Studio learner UI preview", () => {
     const content = studioStarterContent("exam_form");
     const reviewed = {
       ...content,
+      formKey: "l",
       review: {
         humanReviewed: false,
         aiSelfReview: {
@@ -50,9 +51,9 @@ describe("Content Studio learner UI preview", () => {
       itemType: "exam_form",
       content: reviewed,
     }));
-    expect(html).toContain("MOCK EXAM FORM");
-    expect(html).toContain("HSK1 · FORM A");
-    expect(html).toContain("18 phút · 12 câu");
+    expect(html).toContain("BẢN XEM TRƯỚC · BỘ ĐỀ");
+    expect(html).toContain("HSK1 · CỬA L");
+    expect(html).toContain("40 phút · 40 câu");
     expect(html).not.toMatch(/answerIndex|correctAnswer/u);
   });
 });

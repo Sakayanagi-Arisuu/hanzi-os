@@ -105,7 +105,7 @@ describe("strict answer-free assessment form protocol", () => {
     }
   });
 
-  it("rejects forms above the shared forty-item cap", () => {
+  it("rejects forms above the shared 100-item HSK ceiling", () => {
     const candidate = form();
     candidate.items = Array.from(
       { length: MAX_ASSESSMENT_FORM_ITEMS + 1 },

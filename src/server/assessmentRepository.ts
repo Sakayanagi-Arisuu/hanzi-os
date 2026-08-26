@@ -157,6 +157,9 @@ export type AssessmentRepositoryOptions = {
   now?: () => number;
   sessionTimeLimitMs?: number;
   allowIncompleteSubmissionAfterTimeout?: boolean;
+  excludePreviouslyExposedItems?: boolean;
+  shuffleFormItems?: boolean;
+  recordItemExposures?: boolean;
 };
 
 const secureRandom: AssessmentRandomSource = () => {
@@ -209,6 +212,9 @@ export class AssessmentRepository {
   private readonly now: () => number;
   private readonly sessionTimeLimitMs: number | null;
   private readonly allowIncompleteSubmissionAfterTimeout: boolean;
+  private readonly excludePreviouslyExposedItems: boolean;
+  private readonly shuffleFormItems: boolean;
+  private readonly recordItemExposures: boolean;
 
   constructor(
     private readonly database: D1Database,
@@ -232,6 +238,10 @@ export class AssessmentRepository {
     ) throw new Error("Assessment session time limit is invalid.");
     this.allowIncompleteSubmissionAfterTimeout =
       options.allowIncompleteSubmissionAfterTimeout ?? false;
+    this.excludePreviouslyExposedItems =
+      options.excludePreviouslyExposedItems ?? true;
+    this.shuffleFormItems = options.shuffleFormItems ?? true;
+    this.recordItemExposures = options.recordItemExposures ?? true;
   }
 
   async openSession(
@@ -266,6 +276,8 @@ export class AssessmentRepository {
       exposedGroups: exposed.exposureGroups,
       exposedEquivalentGroups: exposed.equivalentGroups,
       random: this.randomSource,
+      excludePreviouslyExposedItems: this.excludePreviouslyExposedItems,
+      shuffleFormItems: this.shuffleFormItems,
     });
     if (
       selection.kind !== "selected"
@@ -387,7 +399,7 @@ export class AssessmentRepository {
         command.resetEpoch,
         ASSESSMENT_SESSION_IDEMPOTENCY_SCOPE,
       ),
-      ...selection.items.map((item) => this.database.prepare(
+      ...(this.recordItemExposures ? selection.items.map((item) => this.database.prepare(
         `INSERT INTO assessment_item_exposures (id, user_id, session_id, reset_epoch, content_version, item_id, item_version, exposure_group_id, equivalent_group_id, form_family_id, exposed_at)
          SELECT ?, ?, id, reset_epoch, content_version, ?, ?, ?, ?, ?, ?
          FROM assessment_sessions
@@ -404,7 +416,7 @@ export class AssessmentRepository {
         sessionId,
         userId,
         command.resetEpoch,
-      )),
+      )) : []),
       this.database.prepare(
         `INSERT INTO outbox_events (id, user_id, aggregate_type, aggregate_id, event_type, schema_version, reset_epoch, payload_json, status, attempts, available_at, created_at)
          SELECT ?, ?, 'assessment_session', id, 'assessment.started', 1, reset_epoch, ?, 'pending', 0, ?, ?
