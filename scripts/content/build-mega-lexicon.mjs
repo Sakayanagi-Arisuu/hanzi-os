@@ -18,7 +18,7 @@ const SOURCE_METADATA_PATH = join(SOURCE_DIR, "source.json");
 const ATTRIBUTION_PATH = join(SOURCE_DIR, "ATTRIBUTION.md");
 const CORE_CATALOG_PATH = join(
   ROOT,
-  "content/packages/foundation-2026.08.5/runtime-catalog.json",
+  "content/packages/foundation-2026.08.7/runtime-catalog.json",
 );
 
 const HSK_SOURCE = {
@@ -121,7 +121,7 @@ const firstTraditional = (row, displayWord) => {
 };
 
 const cedictPronunciations = (row, displayWord) => {
-  const matches = [...row.CEDICT.matchAll(/([^/|]+)\|([^\[]+)\[([^\]]+)\]/gu)];
+  const matches = [...row.CEDICT.matchAll(/([^/|]+)\|([^[]+)\[([^\]]+)\]/gu)];
   const exact = matches.filter((match) => match[2] === displayWord);
   return (exact.length ? exact : matches).map((match) => match[3]);
 };

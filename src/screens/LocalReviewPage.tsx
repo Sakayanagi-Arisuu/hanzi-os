@@ -1,21 +1,20 @@
 import {
   BrainCircuit,
   CalendarClock,
-  Check,
   ChevronRight,
   CircleCheck,
-  Gauge,
   RotateCcw,
+  ScanLine,
   Sparkles,
-  Volume2,
   Zap,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { Rating, type Grade } from "ts-fsrs";
+import { ReviewRatingConsole } from "../components/ReviewRatingConsole";
+import { ReviewMemoryArena } from "../components/ReviewMemoryArena";
 import { RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { makeIdempotencyKey } from "../lib/evidence";
-import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 import { emitSystemSignal } from "../system/systemSignals";
 
@@ -63,11 +62,16 @@ export function LocalReviewPage() {
   const [reviewKey, setReviewKey] = useState(() =>
     makeIdempotencyKey("review-card")
   );
+  const cardHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
   const currentId = queue[index];
   const word = RELEASED_WORD_BY_ID.get(currentId);
   const card = currentId ? state.fsrsCards[currentId] : undefined;
   const complete = index >= queue.length;
+
+  useEffect(() => {
+    if (currentId) cardHeadingRef.current?.focus();
+  }, [currentId]);
 
   const grade = async (rating: Grade) => {
     if (!word) return;
@@ -155,113 +159,98 @@ export function LocalReviewPage() {
 
   return (
     <div className="content-page review-page">
-      <header className="page-hero review-hero">
-        <div>
-          <span className="system-kicker">
-            <BrainCircuit size={15} /> KÝ ỨC TRẬN · LỊCH FSRS
-          </span>
-          <h1>Ký Ức Trận</h1>
-          <p>
-            Nhìn câu hỏi, tự gọi lại đáp án trong đầu rồi mới lật thẻ. Hệ thống
-            sẽ tính lịch ôn từ phản hồi của bạn.
-          </p>
-        </div>
-        <div className="review-live-stats">
-          <span><strong>{queue.length - index}</strong><small>đang chờ</small></span>
-          <span><strong>{state.reviewCount}</strong><small>lượt đã ôn</small></span>
-          <span>
-            <strong>{vocabularyEvidenceCount}</strong>
-            <small>bằng chứng từ vựng</small>
-          </span>
-        </div>
-      </header>
-
-      <div className="review-session-bar">
-        <span>MẢNH KÝ ỨC {String(index + 1).padStart(2, "0")}</span>
-        <div><i style={{ width: `${progress}%` }} /></div>
-        <strong>{index + 1}/{queue.length}</strong>
-      </div>
-
-      <section className={`memory-card ${revealed ? "revealed" : ""}`}>
-        <div className="memory-grid" aria-hidden="true" />
-        <div className="memory-card-head">
-          <span>
-            <Sparkles size={15} /> {word.partOfSpeech} · nội dung beta
-          </span>
-          <button
-            className="icon-button"
-            type="button"
-            onClick={() => speakMandarin(character)}
-            aria-label={`Nghe ${character}`}
-          >
-            <Volume2 size={20} />
-          </button>
-        </div>
-        <div className="memory-front">
-          <span className="memory-character">{character}</span>
-          <p>{revealed ? word.pinyin : "Gọi lại cách đọc và ý nghĩa"}</p>
-        </div>
-        {revealed && (
-          <div className="memory-back">
-            <div><small>Ý nghĩa</small><strong>{word.meaning}</strong></div>
-            <div>
-              <small>Ngữ cảnh</small>
-              <strong>{word.example}</strong>
-              <span>{word.examplePinyin}</span>
-              <p>{word.exampleMeaning}</p>
-            </div>
-            <div className="memory-tags">
-              {word.tags.map((tag) => <span key={tag}>{tag}</span>)}
+      <div className="review-session-header">
+        <header className="page-hero review-hero">
+          <div className="review-hero-identity">
+            <span className="review-hero-sigil" aria-hidden="true">
+              <BrainCircuit size={24} /><i /><b>03</b>
+            </span>
+            <div className="review-hero-copy">
+              <span className="system-kicker">
+                KÝ ỨC TRẬN · LỊCH FSRS
+              </span>
+              <h1>Ký Ức Trận</h1>
+              <p>Triệu hồi · tự nhớ · phán định. Mỗi mảnh ký ức được tái đồng bộ ngay trên thiết bị.</p>
             </div>
           </div>
-        )}
-        {!revealed && (
-          <button
-            className="reveal-button"
-            type="button"
-            onClick={() => setRevealed(true)}
-          >
-            Hiện đáp án <ChevronRight size={18} />
-          </button>
-        )}
-      </section>
-
-      {revealed && (
-        <section className="rating-console">
-          <div className="rating-heading">
-            <Gauge size={19} />
+          <div className="review-live-stats">
+            <span><strong>{queue.length - index}</strong><small>đang chờ</small></span>
+            <span><strong>{state.reviewCount}</strong><small>lượt đã ôn</small></span>
             <span>
-              <strong>Bạn nhớ tốt đến đâu?</strong>
-              <small>Đánh giá khả năng gọi lại, không đánh giá sự quen mắt.</small>
+              <strong>{vocabularyEvidenceCount}</strong>
+              <small>bằng chứng từ vựng</small>
             </span>
           </div>
-          <div className="rating-buttons">
-            {ratingOptions.map((option) => (
-              <button
-                className={option.className}
-                key={option.rating}
-                type="button"
-                onClick={() => grade(option.rating)}
-              >
-                <kbd>{option.key}</kbd>
-                <span><strong>{option.label}</strong><small>{option.hint}</small></span>
-                {option.rating === Rating.Good && <Check size={17} />}
-              </button>
-            ))}
+        </header>
+
+        <div className="review-session-bar">
+          <span><ScanLine size={14} /> MẢNH KÝ ỨC {String(index + 1).padStart(2, "0")}</span>
+          <div className="review-progress-rail"><i style={{ width: `${progress}%` }} /><b aria-hidden="true" /></div>
+          <strong><b>{index + 1}</b> / {queue.length}</strong>
+        </div>
+      </div>
+
+      <div className="review-card-scroll">
+        <ReviewMemoryArena
+          audioSourceId={`review:local:${word.id}`}
+          character={character}
+          example={word.example}
+          exampleMeaning={word.exampleMeaning}
+          examplePinyin={word.examplePinyin}
+          meaning={word.meaning}
+          partOfSpeech={word.partOfSpeech}
+          pinyin={word.pinyin}
+          revealed={revealed}
+          tags={word.tags}
+          titleId="local-review-card-title"
+          titleRef={cardHeadingRef}
+        />
+
+        <footer className="fsrs-status-line">
+          <span>
+            <CalendarClock size={15} />
+            Lần ôn trước: {card?.last_review
+              ? new Date(card.last_review).toLocaleDateString("vi-VN")
+              : "thẻ mới"}
+          </span>
+          <span><Zap size={15} /> +5 XP tương tác mỗi phán định</span>
+          <span><CircleCheck size={15} /> Tự động lưu sau mỗi thẻ</span>
+        </footer>
+      </div>
+
+      {revealed ? (
+        <ReviewRatingConsole
+          heading="Bạn nhớ tốt đến đâu?"
+          headingId="local-review-rating-title"
+          helper="Đánh giá khả năng gọi lại, không đánh giá sự quen mắt."
+          onGrade={grade}
+          options={ratingOptions}
+        />
+      ) : (
+        <section
+          className="review-action-console review-reveal-console"
+          aria-label="Thao tác thẻ ôn"
+          data-review-action="reveal"
+        >
+          <div className="review-action-inner">
+            <div className="rating-heading">
+              <span className="review-command-sigil" aria-hidden="true"><Sparkles size={19} /></span>
+              <span>
+                <b>GIAO THỨC TRUY HỒI</b>
+                <strong>Tự gọi lại trước khi xem đáp án</strong>
+                <small>Nói thầm cách đọc và ý nghĩa, rồi mới giải mã mảnh ký ức.</small>
+              </span>
+            </div>
+            <button
+              className="reveal-button"
+              type="button"
+              onClick={() => setRevealed(true)}
+            >
+              <span><small>GIẢI MÃ</small>Hiện đáp án</span> <ChevronRight size={18} />
+            </button>
           </div>
         </section>
       )}
-
-      <footer className="fsrs-status-line">
-        <span>
-          <CalendarClock size={15} />
-          Lần ôn trước: {card?.last_review
-            ? new Date(card.last_review).toLocaleDateString("vi-VN")
-            : "thẻ mới"}
-        </span>
-          <span><Zap size={15} /> +5 XP tương tác mỗi phán định</span>
-        <span><CircleCheck size={15} /> Tự động lưu sau mỗi thẻ</span>
-      </footer>
     </div>
   );
 }

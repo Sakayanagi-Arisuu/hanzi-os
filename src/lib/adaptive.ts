@@ -1,5 +1,8 @@
 import { RELEASED_LESSONS, RELEASED_WORD_BY_ID } from "../data/curriculum";
-import { getHskCurriculumView } from "../data/hskCurriculumGraph";
+import {
+  getHskCurriculumView,
+  getProgressingHskCurriculumView,
+} from "../data/hskCurriculumGraph";
 import type {
   LearningGoal,
   LearningState,
@@ -50,6 +53,38 @@ export const isLessonPassed = (lesson: Lesson, state: LearningState) =>
   isLessonReleased(lesson) &&
   RELEASED_LESSON_BY_ID.has(lesson.id) &&
   (state.completedLessons[lesson.id]?.bestScore ?? 0) >= 70;
+
+export const getProgressingPathReleasedLessons = (state: LearningState) => {
+  const passedLessonIds = new Set(
+    RELEASED_LESSONS
+      .filter((lesson) => isLessonPassed(lesson, state))
+      .map((lesson) => lesson.id),
+  );
+  const visibleLessonIds = new Set(
+    getProgressingHskCurriculumView(
+      state.profile.startingLevel,
+      passedLessonIds,
+    ).visibleLessonIds,
+  );
+  return RELEASED_LESSONS.filter((lesson) => visibleLessonIds.has(lesson.id));
+};
+
+export const getProgressingReleasedLessonProgress = (state: LearningState) => {
+  const activeLessons = getProgressingPathReleasedLessons(state);
+  const completedCount = activeLessons.filter((lesson) =>
+    isLessonPassed(lesson, state)
+  ).length;
+  const totalCount = activeLessons.length;
+
+  return {
+    completedCount,
+    totalCount,
+    remainingCount: Math.max(0, totalCount - completedCount),
+    progress: totalCount === 0
+      ? 0
+      : Math.round((completedCount / totalCount) * 100),
+  };
+};
 
 export const getReleasedLessonProgress = (state: LearningState) => {
   const activeLessons = getActivePathReleasedLessons(
@@ -131,10 +166,6 @@ export const isLessonUnlocked = (lesson: Lesson, state: LearningState) => {
     !isLessonReleased(lesson)
     || !releasedLesson
     || !isLessonReleased(releasedLesson)
-    || !isLessonIdAvailableForStartingLevel(
-      releasedLesson.id,
-      state.profile.startingLevel,
-    )
   ) return false;
   if (!Array.isArray(releasedLesson.prerequisiteIds)) return false;
 
@@ -145,9 +176,7 @@ export const isLessonUnlocked = (lesson: Lesson, state: LearningState) => {
 };
 
 export const getNextLesson = (state: LearningState) => {
-  const activeLessons = getActivePathReleasedLessons(
-    state.profile.startingLevel,
-  );
+  const activeLessons = getProgressingPathReleasedLessons(state);
   return activeLessons.find((lesson) =>
     isLessonUnlocked(lesson, state) &&
     (!state.completedLessons[lesson.id] || state.completedLessons[lesson.id].bestScore < 70),
@@ -162,8 +191,19 @@ export type DailyMission = {
   to: string;
   minutes: number;
   reward: string;
-  kind: "lesson" | "correction" | "review" | "goal" | "diagnostic";
+  kind: "lesson" | "correction" | "review" | "goal" | "diagnostic" | "practice";
 };
+
+export const buildPronunciationDailyMission = (): DailyMission => ({
+  id: "voice-daily",
+  code: "VOICE-03",
+  title: "Vạn Âm Điện · Ải đọc hôm nay",
+  description: "Đọc 6 câu ngắn lấy từ nội dung HSK đang mở; lượt luyện được ghi vào Thất Trụ nhưng chưa phải phép đo phát âm.",
+  to: "/pronunciation",
+  minutes: 6,
+  reward: "+10 XP tương tác · 1 lần/ngày",
+  kind: "practice",
+});
 
 export const buildDailyMissions = (
   state: LearningState,
@@ -229,16 +269,20 @@ export const buildDailyMissions = (
     });
   }
 
-  missions.push({
-    id: "goal-focus",
-    code: "DESTINY-03",
-    title: goal.practiceLabel,
-    description: `Bài bổ trợ được ưu tiên cho thiên mệnh “${goal.label}”.`,
-    to: goal.practicePath,
-    minutes: Math.max(4, minutes - missions.reduce((sum, mission) => sum + mission.minutes, 0)),
-    reward: "Tăng độ sẵn sàng",
-    kind: "goal",
-  });
+  missions.push(buildPronunciationDailyMission());
+
+  if (goal.practicePath !== "/pronunciation") {
+    missions.push({
+      id: "goal-focus",
+      code: "DESTINY-03",
+      title: goal.practiceLabel,
+      description: `Bài bổ trợ được ưu tiên cho thiên mệnh “${goal.label}”.`,
+      to: goal.practicePath,
+      minutes: Math.max(4, minutes - missions.reduce((sum, mission) => sum + mission.minutes, 0)),
+      reward: "Tăng độ sẵn sàng",
+      kind: "goal",
+    });
+  }
 
   return missions;
 };

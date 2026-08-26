@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "bankId": "hsk-mock-exam-alternate-local-2026.08",
-  "contentVersion": "foundation-2026.08.5",
+  "contentVersion": "foundation-2026.08.7",
   "state": "ai-reviewed-for-personal-local-practice",
   "policy": {
     "humanReviewed": false,
@@ -5655,5 +5655,5 @@
       ]
     }
   },
-  "integritySha256": "sha256:292c4367bdd1ec30cda829e17e005e74ee883e46f05ab4ee86fbc2946c0e4923"
+  "integritySha256": "sha256:34d8cd69e1229d2873547469da248862eb768e784527d7b66f6c9c914de5e5f1"
 }

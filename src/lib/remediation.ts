@@ -22,10 +22,10 @@ export const evaluateRemediationAttempt = (
     ? 0
     : usedHint
       ? currentStreak
-      : currentStreak + 1;
+      : Math.max(1, currentStreak);
   return {
     correctedStreak,
-    resolved: correctedStreak >= 2,
+    resolved: correctedStreak >= 1,
     unassistedCorrect,
   };
 };

@@ -4682,6 +4682,29 @@ export async function scheduleLearningCommandRetry(
   });
 }
 
+/**
+ * Makes an explicitly retried command immediately eligible for the next
+ * coordinator flush. The owner-generation fence and stable record identity
+ * remain intact, so releasing a delayed retry cannot move work between
+ * learners or create a second command.
+ */
+export async function releaseLearningCommandRetry(
+  recordKey: string,
+  ownerGeneration: OwnerGeneration,
+) {
+  return mutateRecord(recordKey, ownerGeneration, (record) => {
+    if (!record || record.status !== "pending") {
+      return { result: record ?? null };
+    }
+    const released: LearningCommandOutboxRecord = {
+      ...record,
+      leaseUntil: null,
+      nextAttemptAt: null,
+    };
+    return { record: released, result: released };
+  });
+}
+
 export async function quarantineLearningCommand(
   recordKey: string,
   ownerGeneration: OwnerGeneration,

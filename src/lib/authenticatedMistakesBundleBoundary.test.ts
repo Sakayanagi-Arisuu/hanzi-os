@@ -64,7 +64,8 @@ describe("authenticated remediation bundle boundary", () => {
     expect(specifiers).not.toContain("./LocalMistakesPage");
     expect(source).not.toMatch(/\bcorrectAnswer\b/u);
     expect(source).not.toMatch(/\bresolveMistake\b/u);
-    expect(source).toContain("chưa khả dụng");
+    expect(source).toContain("/api/learning/mistakes");
+    expect(source).toContain('source: "mistake"');
   });
 
   it("cannot transitively reach local remediation answers or curriculum", () => {

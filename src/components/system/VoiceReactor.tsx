@@ -21,6 +21,7 @@ export function VoiceReactor({ sourceId, phase, label, compact = false, dismissi
     : observedPhase === "processing" ? "Đang phân tích tín hiệu"
       : observedPhase === "playing" || observedPhase === "preparing" ? "Hệ thống đang phát âm"
         : observedPhase === "result" ? "Đã giải mã tín hiệu"
+          : observedPhase === "error" ? "Không thể phát âm · bấm lại để thử"
           : observedPhase === "denied" ? "Kênh thu chưa được cấp quyền"
             : observedPhase === "unavailable" ? "Thiết bị không hỗ trợ kênh này"
               : "Kênh âm thanh sẵn sàng");
@@ -48,6 +49,12 @@ export function SystemVoiceBeacon() {
   const location = useLocation();
   if (location.pathname.startsWith("/reader")) return null;
   if (playback.phase === "idle") return null;
+  // Review cards render playback state beside the memory core, so a second
+  // floating reactor would cover the fixed judgement console.
+  if (playback.sourceId?.startsWith("review:")) return null;
+  // The character-forge session owns the whole viewport and renders audio
+  // controls in its command area. A floating beacon would cover its action dock.
+  if (location.pathname === "/characters/session") return null;
   return (
     <div className="system-voice-beacon">
       <VoiceReactor sourceId={playback.sourceId} dismissible />

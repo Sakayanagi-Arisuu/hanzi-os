@@ -165,3 +165,14 @@ export function LessonDepthPanel({
     </section>
   );
 }
+
+export function LessonDepthDisclosure({ lessonId }: { lessonId: string }) {
+  const content = getRichLessonContent(lessonId);
+  if (!content) return null;
+  return (
+    <details className="lesson-depth-disclosure">
+      <summary>Khám phá hội thoại và nội dung mở rộng</summary>
+      <LessonDepthPanel lessonId={lessonId} contentOverride={content} />
+    </details>
+  );
+}

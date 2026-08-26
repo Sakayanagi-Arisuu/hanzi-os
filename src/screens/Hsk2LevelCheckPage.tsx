@@ -5,7 +5,11 @@ import {
   HSK2_LEVEL_CHECK_ITEMS,
 } from "../data/hsk2LevelCheck";
 import { HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY } from "../lib/storageKeys";
-import { HskLevelCheckPage, type HskLevelCheckConfig } from "./HskLevelCheckPage";
+import {
+  createPlacementGateConfig,
+  HskLevelCheckPage,
+  type HskLevelCheckConfig,
+} from "./HskLevelCheckPage";
 
 const config = {
   level: 2,
@@ -25,6 +29,6 @@ const config = {
   },
 } satisfies HskLevelCheckConfig;
 
-export function Hsk2LevelCheckPage() {
-  return <HskLevelCheckPage config={config} />;
+export function Hsk2LevelCheckPage({ placement = false }: { placement?: boolean }) {
+  return <HskLevelCheckPage config={placement ? createPlacementGateConfig(config) : config} />;
 }

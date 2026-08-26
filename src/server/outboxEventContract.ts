@@ -153,7 +153,7 @@ const EVENT_CONTRACTS = {
       evidenceCount: "positive-integer",
       rawScore: "percentage",
       gateScore: "percentage",
-      requiredEvidenceCount: "positive-integer",
+      requiredEvidenceCount: "integer",
       requiredCorrectCount: "integer",
       passed: "boolean",
       submittedAt: "iso-date",
@@ -335,13 +335,14 @@ const ISO_INSTANT_PATTERN =
 const SHA256_PATTERN = /^sha256:[0-9a-f]{64}$/u;
 const SAFE_CONTENT_VERSION_PATTERN =
   /^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/u;
-const OBJECTIVE_SOURCES = new Set(["lesson", "reader"]);
+const OBJECTIVE_SOURCES = new Set(["lesson", "reader", "mistake"]);
 const OBJECTIVE_METHODS = new Set([
   "meaning-selection",
   "phonology-recognition",
   "listening-selection",
   "typed-character-recall",
   "reading-comprehension",
+  "remediation-recall",
 ]);
 const OBJECTIVE_OUTCOMES = new Set(["correct", "incorrect"]);
 const SKILLS = new Set([
@@ -505,7 +506,6 @@ const hasValidEventSemantics = (
     return isSafeInteger(payload.evidenceCount)
       && payload.evidenceCount > 0
       && isSafeInteger(payload.requiredEvidenceCount)
-      && payload.requiredEvidenceCount > 0
       && payload.requiredEvidenceCount <= payload.evidenceCount
       && isSafeInteger(payload.requiredCorrectCount)
       && payload.requiredCorrectCount <= payload.requiredEvidenceCount;
@@ -516,6 +516,8 @@ const hasValidEventSemantics = (
     const outcome = payload.outcome;
     const score = payload.score;
     return (source !== "reader" || method === "reading-comprehension")
+      && (source !== "mistake" || method === "remediation-recall")
+      && (source === "mistake" || method !== "remediation-recall")
       && ((outcome === "correct" && score === 100)
         || (outcome === "incorrect" && score === 0));
   }

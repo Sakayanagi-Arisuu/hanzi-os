@@ -77,6 +77,27 @@ describe("learning attempt command protocol", () => {
     });
   });
 
+  it("accepts an answer-only remediation command without a lesson session", () => {
+    const { sessionId: _sessionId, ...withoutSession } = command();
+    expect(parseLearningAttemptCommand({
+      ...withoutSession,
+      source: "mistake",
+    })).toMatchObject({
+      ok: true,
+      command: { source: "mistake", method: "meaning-selection" },
+    });
+  });
+
+  it("rejects a remediation command that tries to claim a lesson session", () => {
+    expect(parseLearningAttemptCommand({
+      ...command(),
+      source: "mistake",
+    })).toEqual({
+      ok: false,
+      reason: "Remediation attempts do not accept lesson sessions.",
+    });
+  });
+
   it.each(["previous-release-fixture", "future-release-fixture"])(
     "permanently rejects unsupported content version %s",
     (contentVersion) => {

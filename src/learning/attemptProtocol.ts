@@ -14,7 +14,7 @@ export const ATTEMPT_IDEMPOTENCY_SCOPE = "learning-attempt-v1";
 
 export type ObjectiveAttemptSource = Extract<
   EvidenceSource,
-  "lesson" | "reader"
+  "lesson" | "reader" | "mistake"
 >;
 
 export type ObjectiveAttemptMethod = Extract<
@@ -63,7 +63,7 @@ export type LearningAttemptReceiptV1 = {
   evidenceId: string;
   resetEpoch: number;
   source: ObjectiveAttemptSource;
-  method: ObjectiveAttemptMethod;
+  method: ObjectiveAttemptMethod | "remediation-recall";
   activityId: string;
   activityVersion: string;
   skill: Skill;
@@ -155,15 +155,25 @@ export const parseLearningAttemptCommand = (
   if (input.contentVersion !== CONTENT_VERSION) {
     return { ok: false, reason: "Attempt content version is unsupported." };
   }
-  if (input.source !== "lesson" && input.source !== "reader") {
-    return { ok: false, reason: "Only objective lesson and reader attempts are supported." };
+  if (
+    input.source !== "lesson"
+    && input.source !== "reader"
+    && input.source !== "mistake"
+  ) {
+    return {
+      ok: false,
+      reason: "Only objective lesson, reader and remediation attempts are supported.",
+    };
   }
   if (
     typeof input.method !== "string"
     || !OBJECTIVE_METHODS.has(input.method as ObjectiveAttemptMethod)
-    || !isAttemptSourceMethodAllowed(
-      input.source,
-      input.method as ObjectiveAttemptMethod,
+    || (
+      input.source !== "mistake"
+      && !isAttemptSourceMethodAllowed(
+        input.source,
+        input.method as ObjectiveAttemptMethod,
+      )
     )
   ) {
     return { ok: false, reason: "Attempt source and method are incompatible." };
@@ -179,6 +189,12 @@ export const parseLearningAttemptCommand = (
   }
   if (input.source === "lesson" && input.sessionId === undefined) {
     return { ok: false, reason: "Lesson attempts require a server-issued lesson session." };
+  }
+  if (input.source === "mistake" && input.sessionId !== undefined) {
+    return {
+      ok: false,
+      reason: "Remediation attempts do not accept lesson sessions.",
+    };
   }
   const occurredAt = normalizedTime(input.occurredAt);
   if (!occurredAt) {

@@ -2,17 +2,19 @@ import { devices, expect, test } from "@playwright/test";
 
 const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await page.goto("/");
+  await expect(page.getByTestId("product-overview")).toBeVisible();
+  await page.locator("#landing-main").getByRole("button", {
+    name: "Kích hoạt HANZI.OS",
+  }).click();
+  await expect(page.getByTestId("onboarding-wizard")).toBeVisible();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
+  await expect(page).toHaveURL(/\/assessment$/u);
   await expect(page.getByRole("heading", {
-    name: /Đánh thức một ngôn ngữ mới/i,
+    name: "Khảo Nghiệm Căn Cơ",
   })).toBeVisible();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
-  await expect(page.getByRole("heading", {
-    name: /Đánh thức tiếng Trung trong bạn/i,
-  })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
-  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
+  await page.goto("/");
 };
 
 test.use({ ...devices["Pixel 7"] });
@@ -62,7 +64,9 @@ test("keeps the mobile command sheet keyboard-safe and routes without overflow",
     },
     {
       path: "/lesson/boot-1",
-      ready: () => page.getByRole("button", { name: /Bước vào Thử Luyện/i }),
+      ready: () => page.getByRole("button", {
+        name: /Hoàn tất 3 chặng học ở trên|Bước vào Thử Luyện/i,
+      }),
     },
     {
       path: "/reader",
@@ -149,15 +153,16 @@ test("plays every built-in system voice without a device voice", async ({ page }
 
 test("exposes single-select state and supports arrow navigation", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", {
-    name: /Đánh thức một ngôn ngữ mới/i,
-  })).toBeVisible();
+  await page.locator("#landing-main").getByRole("button", {
+    name: "Kích hoạt HANZI.OS",
+  }).click();
+  await expect(page.getByTestId("onboarding-wizard")).toBeVisible();
 
   const goalGroup = page.getByRole("radiogroup", {
-    name: "Thiên Mệnh, mục tiêu học",
+    name: "Mục tiêu học",
   });
-  const conversation = goalGroup.getByRole("radio", { name: /^Giao tiếp/u });
-  const hsk = goalGroup.getByRole("radio", { name: /^Hướng tới HSK/u });
+  const conversation = goalGroup.getByRole("radio", { name: /^Giao tiếp hằng ngày/u });
+  const hsk = goalGroup.getByRole("radio", { name: /^Học theo lộ trình HSK/u });
   await expect(conversation).toHaveAttribute("aria-checked", "true");
   await conversation.focus();
   await page.keyboard.press("ArrowRight");
@@ -165,19 +170,19 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
   await expect(hsk).toHaveAttribute("aria-checked", "true");
   await expect(conversation).toHaveAttribute("aria-checked", "false");
 
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
   const startingGroup = page.getByRole("radiogroup", {
-    name: /Căn Cơ Tự Khai · điểm xuất phát/u,
+    name: "Trình độ hiện tại",
   });
-  const zero = startingGroup.getByRole("radio", { name: /^HSK0/u });
-  const hsk1 = startingGroup.getByRole("radio", { name: /^HSK1/u });
+  const zero = startingGroup.getByRole("radio", { name: /^Mới bắt đầu/u });
+  const hsk1 = startingGroup.getByRole("radio", { name: /^Đã học khoảng HSK1/u });
   await zero.focus();
   await page.keyboard.press("ArrowDown");
   await expect(hsk1).toBeFocused();
   await expect(hsk1).toHaveAttribute("aria-checked", "true");
 
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
   await page.goto("/profile");
 
   const profileGoalGroup = page.getByRole("radiogroup", {
@@ -194,7 +199,9 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
   await expect(career).toHaveAttribute("aria-checked", "true");
 
   await page.goto("/assessment");
-  await page.getByRole("button", { name: /Bắt đầu khảo nghiệm/u }).click();
+  await page.getByRole("button", { name: "Chọn tầng Khảo Nghiệm" }).click();
+  await page.getByRole("link", { name: "Mở Khảo Nghiệm HSK1" }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm" }).click();
   const assessmentGroup = page.getByRole("radiogroup", {
     name: "Các lựa chọn cho câu 1",
   });
@@ -208,7 +215,12 @@ test("exposes single-select state and supports arrow navigation", async ({ page 
   await expect(secondAssessmentOption).toHaveAttribute("aria-checked", "true");
 
   await page.goto("/reader");
-  const readerGroup = page.locator(".reader-check").getByRole("radiogroup");
+  await page.getByRole("button", { name: /Mở quyển Ngày đầu ở lớp tiếng Trung/u }).click();
+  await page.getByRole("button", { name: "Bước vào trang sách" }).click();
+  await page.getByRole("button", { name: "Đã đọc xong" }).click();
+  const readerGroup = page.getByRole("radiogroup", {
+    name: "Các lựa chọn đọc hiểu",
+  });
   const readerOptions = readerGroup.getByRole("radio");
   const firstReaderOption = readerOptions.nth(0);
   const secondReaderOption = readerOptions.nth(1);

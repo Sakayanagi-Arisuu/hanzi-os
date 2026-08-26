@@ -31,6 +31,30 @@ describe("cold bootstrap runtime boundary", () => {
     );
   });
 
+  it("recovers localhost before a stale worker can serve the client bundle", () => {
+    const rootLayout = readSource("app/layout.tsx");
+    const app = readSource("src/App.tsx");
+    const recoveryPage = readSource("public/dev-recover.html");
+
+    expect(rootLayout).toContain("DEVELOPMENT_SERVICE_WORKER_RECOVERY_SCRIPT");
+    expect(rootLayout).toContain("navigator.serviceWorker.getRegistrations()");
+    expect(rootLayout).toContain('key.startsWith("hanzi-os-")');
+    expect(rootLayout).toContain("window.location.reload()");
+    expect(rootLayout).toContain("<head>");
+    expect(rootLayout.indexOf("<head>")).toBeLessThan(
+      rootLayout.indexOf("<body>"),
+    );
+    expect(app).toContain("recoverLocalLazyRoute");
+    expect(app).toContain("/dev-recover.html?returnTo=");
+    expect(app).toContain('recoverLocalLazyRoute("mock-exam", error)');
+    expect(app).toContain('recoverLocalLazyRoute("review", error)');
+    expect(recoveryPage).toContain("navigator.serviceWorker.getRegistrations()");
+    expect(recoveryPage).toContain('key.startsWith("hanzi-os-")');
+    expect(recoveryPage).toContain('searchParams.set("dev-recovered", "v15")');
+    expect(recoveryPage).not.toContain("localStorage");
+    expect(recoveryPage).not.toContain("indexedDB");
+  });
+
   it("keeps onboarded routing and projection code behind a dynamic boundary", () => {
     const clientRuntime = readSource("app/client-runtime.tsx");
     const imports = staticSpecifiers(clientRuntime);
@@ -44,6 +68,22 @@ describe("cold bootstrap runtime boundary", () => {
     expect(clientRuntime).toContain(
       'import("../src/OnboardedLearningRuntime")',
     );
+    expect(clientRuntime).toContain(
+      'import("../src/components/FirstRunExperience")',
+    );
+  });
+
+  it("keeps the public landing and setup outside the onboarded route graph", () => {
+    const firstRun = readSource("src/components/FirstRunExperience.tsx");
+    const firstRunImports = staticSpecifiers(firstRun);
+
+    expect(firstRunImports).toEqual(expect.arrayContaining([
+      "./PublicLanding",
+      "./SystemOnboarding",
+    ]));
+    expect(firstRunImports).not.toContain("react-router");
+    expect(firstRunImports).not.toContain("../App");
+    expect(firstRunImports).not.toContain("../styles.css");
   });
 
   it("keeps identity/onboarding branching out of the onboarded route graph", () => {

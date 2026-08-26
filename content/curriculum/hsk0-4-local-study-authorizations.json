@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "authorizationId": "hsk0-4-local-study-authorizations-2026.08.5",
   "profileId": "hsk0-4-personal-study-2026.07.1",
-  "runtimeContentVersion": "foundation-2026.08.5",
+  "runtimeContentVersion": "foundation-2026.08.7",
   "scope": "personal-local-study-runtime-only",
   "sourceBindings": [
     {
@@ -53,22 +53,22 @@
     {
       "id": "curriculumGraph",
       "relativePath": "content/curriculum/hsk0-4-graph.json",
-      "sha256": "sha256:34f8ae8c017bf04b132679fe8d627d51527eca9ee0e20b7566236197b5b0c0c2"
+      "sha256": "sha256:bfefae962d8249da17e37bbe41945fedaa580c116d8c3659a6d0fc01bea6009d"
     },
     {
       "id": "unitReleasePolicy",
       "relativePath": "content/curriculum/hsk0-4-unit-release-policy.json",
-      "sha256": "sha256:c7954983e8c6f0c2231ea8ae0f906a281776b17e8bc241e16cff61dbf558d3cc"
+      "sha256": "sha256:a1fe1a943e477cf76dba3725bf58983cefffc71f5a542a19976665a659531a91"
     },
     {
       "id": "packageManifest",
-      "relativePath": "content/packages/foundation-2026.08.5/manifest.json",
-      "sha256": "sha256:ec8c6f743b2a5d6fc3ed53ab827f4f2ea9d975393b7609b4bdb55e97f5a378ca"
+      "relativePath": "content/packages/foundation-2026.08.7/manifest.json",
+      "sha256": "sha256:9bbedc6fae95c19319b20d35381c5549599f00b910b341b060183196ac812050"
     },
     {
       "id": "packageItemCatalog",
-      "relativePath": "content/packages/foundation-2026.08.5/item-catalog.json",
-      "sha256": "sha256:e1c9ed886111f1bfde10ae12383592bde99b6eeabbf873692057b33c2ce5ee3c"
+      "relativePath": "content/packages/foundation-2026.08.7/item-catalog.json",
+      "sha256": "sha256:f40ec4a44420c8f31f277e6b08272072d49bed8de697a4015143433121423059"
     }
   ],
   "authorizations": [
@@ -88,8 +88,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -125,8 +125,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -158,8 +158,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -186,8 +186,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -221,8 +221,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -267,8 +267,8 @@
       "unitReleaseDigest": "sha256:bb0e124e2ec29bc60ee17ee9f929d7cafef459174dd9d1513a0a2f3923911cda",
       "localStudyReviewId": "hsk1-level-batch-local-study-review-2026.08.1",
       "localStudyReviewSha256": "sha256:6fbac64d76918822c3577f980d4aed3fda7ba03142febc57c2efae3eb92c9eb7",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -311,8 +311,8 @@
       "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
       "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
       "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -349,8 +349,8 @@
       "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
       "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
       "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -383,8 +383,8 @@
       "unitReleaseDigest": "sha256:eccb02deee1c6800c6c2f9e962364362a224b6429b40ab15e6da8654bf613e23",
       "localStudyReviewId": "hsk2-level-batch-local-study-review-2026.08.2",
       "localStudyReviewSha256": "sha256:1ae6bda15e071c22f78b121d071dc14d9cbe12e88cf37e1140a08e81bf8e2b90",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -433,8 +433,8 @@
       "unitReleaseDigest": "sha256:e96e3281ea99b593c1321282c4fb182dd9dc189afbfad0c413cb97d8ddb3bb51",
       "localStudyReviewId": "hsk3-level-batch-local-study-review-2026.08.3",
       "localStudyReviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -474,8 +474,8 @@
       "unitReleaseDigest": "sha256:e96e3281ea99b593c1321282c4fb182dd9dc189afbfad0c413cb97d8ddb3bb51",
       "localStudyReviewId": "hsk3-level-batch-local-study-review-2026.08.3",
       "localStudyReviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -514,8 +514,8 @@
       "unitReleaseDigest": "sha256:e96e3281ea99b593c1321282c4fb182dd9dc189afbfad0c413cb97d8ddb3bb51",
       "localStudyReviewId": "hsk3-level-batch-local-study-review-2026.08.3",
       "localStudyReviewSha256": "sha256:87824a0de97239eacc9718bee3f1498a293b023ad5ac2b3135b9273132a56e14",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -573,8 +573,8 @@
       "unitReleaseDigest": "sha256:435449e57ccc057e3a119bbd185466d5a6ab17ac54ae6e5fd0a162ba493cbe47",
       "localStudyReviewId": "hsk4-level-batch-local-study-review-2026.08.4",
       "localStudyReviewSha256": "sha256:9a04b718749724f7900e5379a92afaf7c0b3f93989b3c6a10f752fa82f95411b",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -623,8 +623,8 @@
       "unitReleaseDigest": "sha256:435449e57ccc057e3a119bbd185466d5a6ab17ac54ae6e5fd0a162ba493cbe47",
       "localStudyReviewId": "hsk4-level-batch-local-study-review-2026.08.4",
       "localStudyReviewSha256": "sha256:9a04b718749724f7900e5379a92afaf7c0b3f93989b3c6a10f752fa82f95411b",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -665,8 +665,8 @@
       "unitReleaseDigest": "sha256:435449e57ccc057e3a119bbd185466d5a6ab17ac54ae6e5fd0a162ba493cbe47",
       "localStudyReviewId": "hsk4-level-batch-local-study-review-2026.08.4",
       "localStudyReviewSha256": "sha256:9a04b718749724f7900e5379a92afaf7c0b3f93989b3c6a10f752fa82f95411b",
-      "packageId": "foundation-2026.08.5",
-      "itemCatalogSha256": "sha256:ece4992a63056f987244309204b484f1b245409eec500c4925018c2d33dbd363",
+      "packageId": "foundation-2026.08.7",
+      "itemCatalogSha256": "sha256:07982e23d7b03ddecece824d658eb3f9085a7f25b4b0c53876b0e2ff416b816f",
       "authorizationState": "authorized-for-personal-local-study",
       "presentation": {
         "authorizationState": "authorized-for-personal-local-study",
@@ -692,5 +692,5 @@
     "grantsProductionEligibility": false,
     "sitesDeploymentAuthorized": false
   },
-  "authorizationSha256": "sha256:c43dc115a6103aa91693cde18a580d6ab1c0594b82d7affceebb0d345e0bc871"
+  "authorizationSha256": "sha256:568d23152bdad586352719e4f51a5bef70c63c521d9aa3382bb1b06c1bc9cd91"
 }

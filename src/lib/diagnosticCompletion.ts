@@ -1,4 +1,4 @@
-import type { LearningState } from "../types";
+import type { LearningState, StartingLevel } from "../types";
 
 const clampObservedAccuracy = (value: number) =>
   Math.max(0, Math.min(100, Math.round(value)));
@@ -44,3 +44,45 @@ export const applyObservedDiagnosticCompletion = (
     ].slice(-160),
   };
 };
+
+export const applySkippedDiagnostic = (
+  state: LearningState,
+  completedAt = new Date().toISOString(),
+  activityId = `diagnostic-skip:${completedAt}`,
+): LearningState => ({
+  ...state,
+  profile: {
+    ...state.profile,
+    startingLevel: "zero",
+  },
+  diagnostic: {
+    completed: true,
+    score: 0,
+    recommendedLessonId: "boot-1",
+    completedAt,
+  },
+  activityLog: [
+    ...state.activityLog,
+    {
+      id: activityId,
+      type: "diagnostic" as const,
+      label: "Bỏ qua Khảo Nghiệm Căn Cơ · bắt đầu từ số 0",
+      xp: 0,
+      occurredAt: completedAt,
+    },
+  ].slice(-160),
+});
+
+export const applyAcceptedDiagnosticPlacement = (
+  state: LearningState,
+  startingLevel: Exclude<StartingLevel, "basic">,
+  score: number,
+  completedAt = new Date().toISOString(),
+  activityId = `diagnostic-placement:${completedAt}`,
+): LearningState => applyObservedDiagnosticCompletion({
+  ...state,
+  profile: {
+    ...state.profile,
+    startingLevel,
+  },
+}, score, completedAt, activityId);

@@ -1,4 +1,4 @@
-import runtimeCatalogJson from "../../../content/packages/foundation-2026.08.5/runtime-catalog.json";
+import runtimeCatalogJson from "../../../content/packages/foundation-2026.08.7/runtime-catalog.json";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";

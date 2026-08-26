@@ -51,6 +51,7 @@ import {
   CURRENT_AUTHORITATIVE_READER_STORIES,
   authoritativeReaderItemByVersion,
   isIssuableAuthoritativeReaderStory,
+  isPracticePreviewReaderStory,
   readerAnswersMatch,
   readerPresentationForItem,
   selectAuthoritativeReaderForm,
@@ -190,6 +191,7 @@ export type ReaderRepositoryOptions = {
   publicationPolicy?: ContentReleasePolicy;
   bank?: readonly AuthoritativeReaderStory[];
   now?: () => number;
+  practicePreview?: boolean;
 };
 
 export const READER_OBJECTIVE_SCORING_VERSION =
@@ -226,6 +228,7 @@ export class ReaderRepository {
   private readonly publicationPolicy: ContentReleasePolicy;
   private readonly bank: readonly AuthoritativeReaderStory[];
   private readonly now: () => number;
+  private readonly practicePreview: boolean;
 
   constructor(
     private readonly database: D1Database,
@@ -235,6 +238,8 @@ export class ReaderRepository {
       options.publicationPolicy ?? CURRENT_CONTENT_RELEASE_POLICY;
     this.bank = options.bank ?? CURRENT_AUTHORITATIVE_READER_STORIES;
     this.now = options.now ?? Date.now;
+    this.practicePreview = options.practicePreview
+      ?? process.env.NODE_ENV === "development";
   }
 
   async openSession(
@@ -283,6 +288,7 @@ export class ReaderRepository {
       supportMode: command.supportMode,
       exposedGroups: exposureHistory.exposureGroups,
       exposedEquivalentGroups: exposureHistory.equivalentGroups,
+      practicePreview: this.practicePreview,
     });
     if (selection.kind !== "selected") {
       throw new ReaderFormUnavailableError(
@@ -1711,7 +1717,14 @@ export class ReaderRepository {
       || binding.story.formVersion !== session.formVersion
       || binding.story.script !== session.script
       || binding.story.supportPolicyVersion !== session.supportPolicyVersion
-      || !isIssuableAuthoritativeReaderStory(binding.story)
+      || !(
+        isIssuableAuthoritativeReaderStory(binding.story)
+        || (
+          this.practicePreview
+          && session.supportMode === "assisted"
+          && isPracticePreviewReaderStory(binding.story)
+        )
+      )
       || canonicalStringify(
         readerPresentationForItem(
           binding.item,
@@ -1722,7 +1735,7 @@ export class ReaderRepository {
       ) !== canonicalStringify(formItem)
     ) {
       throw new ReaderContentUnavailableError(
-        "Reader item is no longer bound to the exact approved server bank.",
+        "Reader item is no longer bound to the active authoritative bank.",
       );
     }
     return binding;

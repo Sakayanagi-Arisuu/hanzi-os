@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Đang nối lại HANZI.OS</title>
+    <style>
+      :root { color-scheme: dark; font-family: Inter, system-ui, sans-serif; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #030708; color: #e9fff7; }
+      main { width: min(460px, calc(100% - 32px)); padding: 32px; border: 1px solid #1e5545; border-radius: 18px; background: #07110f; text-align: center; }
+      span { color: #56efbd; font: 700 11px/1.4 ui-monospace, monospace; letter-spacing: .16em; }
+      h1 { margin: 12px 0; font-size: clamp(28px, 8vw, 42px); }
+      p { margin: 0; color: #9cb8ae; line-height: 1.65; }
+      a { display: none; margin-top: 22px; min-height: 44px; align-items: center; justify-content: center; border-radius: 10px; background: #56efbd; color: #02100c; font-weight: 800; text-decoration: none; }
+      a.visible { display: flex; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span>RECOVERY PROTOCOL · LOCALHOST</span>
+      <h1>Đang nối lại giao diện…</h1>
+      <p id="status">Tiến độ và phiên đang dở vẫn được giữ nguyên.</p>
+      <a id="continue" href="/">Trở lại HANZI.OS</a>
+    </main>
+    <script>
+      (() => {
+        const parameters = new URLSearchParams(window.location.search);
+        const rawReturnTo = parameters.get("returnTo") || "/";
+        const attempt = Math.max(0, Number(parameters.get("attempt") || "0"));
+        const status = document.getElementById("status");
+        const continueLink = document.getElementById("continue");
+        const target = new URL(rawReturnTo, window.location.origin);
+        if (target.origin !== window.location.origin || !target.pathname.startsWith("/")) {
+          target.pathname = "/";
+          target.search = "";
+          target.hash = "";
+        }
+        target.searchParams.set("dev-recovered", "v15");
+        continueLink.href = `${target.pathname}${target.search}${target.hash}`;
+
+        void (async () => {
+          try {
+            const wasControlled = Boolean(navigator.serviceWorker?.controller);
+            if ("serviceWorker" in navigator) {
+              const registrations = await navigator.serviceWorker.getRegistrations();
+              await Promise.allSettled(
+                registrations.map((registration) => registration.unregister()),
+              );
+            }
+            if ("caches" in window) {
+              const keys = await window.caches.keys();
+              await Promise.allSettled(
+                keys
+                  .filter((key) => key.startsWith("hanzi-os-"))
+                  .map((key) => window.caches.delete(key)),
+              );
+            }
+
+            if (wasControlled && attempt < 3) {
+              const retry = new URL("/dev-recover.html", window.location.origin);
+              retry.searchParams.set("attempt", String(attempt + 1));
+              retry.searchParams.set(
+                "returnTo",
+                `${target.pathname}${target.search}${target.hash}`,
+              );
+              window.location.replace(`${retry.pathname}${retry.search}`);
+              return;
+            }
+            window.location.replace(continueLink.href);
+          } catch (error) {
+            status.textContent = "Chưa tự nối lại được. Hãy dùng nút bên dưới; dữ liệu học không bị xóa.";
+            continueLink.classList.add("visible");
+            console.error("HANZI.OS development recovery failed", error);
+          }
+        })();
+      })();
+    </script>
+  </body>
+</html>

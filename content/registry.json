@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "currentContentVersion": "foundation-2026.08.5",
+  "currentContentVersion": "foundation-2026.08.7",
   "packages": [
     {
       "packageId": "foundation-2026.07.1",
@@ -139,6 +139,28 @@
       "contentVersion": "foundation-2026.08.5",
       "relativePath": "packages/foundation-2026.08.5",
       "manifestSha256": "sha256:7bde60677deabbef7de60247b600ab2bb5fe84952e618a8492061def695054f5",
+      "audience": "closed-alpha",
+      "lifecycle": "candidate",
+      "closedAlphaEligible": false,
+      "productionEligible": false,
+      "promotion": null
+    },
+    {
+      "packageId": "foundation-2026.08.6",
+      "contentVersion": "foundation-2026.08.6",
+      "relativePath": "packages/foundation-2026.08.6",
+      "manifestSha256": "sha256:edeb58405caed6ef73382450a5ad4f5c0358cedacf95438844dd259a291bbf63",
+      "audience": "closed-alpha",
+      "lifecycle": "candidate",
+      "closedAlphaEligible": false,
+      "productionEligible": false,
+      "promotion": null
+    },
+    {
+      "packageId": "foundation-2026.08.7",
+      "contentVersion": "foundation-2026.08.7",
+      "relativePath": "packages/foundation-2026.08.7",
+      "manifestSha256": "sha256:d3e4cf513b04d77687755283e070ac11991cc640c17237bf3fbce560c304d4ab",
       "audience": "closed-alpha",
       "lifecycle": "candidate",
       "closedAlphaEligible": false,

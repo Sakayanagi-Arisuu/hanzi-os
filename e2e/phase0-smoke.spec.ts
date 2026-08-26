@@ -5,6 +5,7 @@ import {
   type OwnerScopedCacheRecord,
   writeCurrentOwnerLocalState,
 } from "./indexedDb";
+import { completeLessonTheory } from "./helpers/lessonTheory";
 
 const runtimeCatalog = JSON.parse(readFileSync(
   new URL("../content/runtime/hsk0-4-runtime-catalog.json", import.meta.url),
@@ -25,13 +26,21 @@ const runtimeCatalog = JSON.parse(readFileSync(
 
 const finishOnboarding = async (page: import("@playwright/test").Page) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /Đánh thức một ngôn ngữ mới/i })).toBeVisible();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
-  await expect(page.getByRole("heading", { name: /Đánh thức tiếng Trung trong bạn/i })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
-  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
+  await expect(page.getByTestId("product-overview")).toBeVisible();
+  await page.locator("#landing-main").getByRole("button", {
+    name: "Kích hoạt HANZI.OS",
+  }).click();
+  await expect(page.getByTestId("onboarding-wizard")).toBeVisible();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
+  await expect(page).toHaveURL(/\/assessment$/u);
+  await expect(page.getByRole("heading", { name: "Khảo Nghiệm Căn Cơ" })).toBeVisible();
+  await expect.poll(() => page.evaluate(() => {
+    const state = JSON.parse(localStorage.getItem("hanzi-os-learning-state-v1") ?? "{}");
+    return state.profile?.name;
+  })).toBe("Hành giả vô danh");
+  await page.goto("/");
 };
 
 test("onboards a new learner into the released path", async ({ page }) => {
@@ -43,15 +52,15 @@ test("onboards a new learner into the released path", async ({ page }) => {
 
 test("shows the complete HSK4 target while retaining its prerequisite bridge", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", {
-    name: /Đánh thức một ngôn ngữ mới/i,
-  })).toBeVisible();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("radiogroup", { name: /Căn Cơ Tự Khai · điểm xuất phát/u })
-    .getByRole("radio", { name: /^HSK4/u })
+  await page.locator("#landing-main").getByRole("button", {
+    name: "Kích hoạt HANZI.OS",
+  }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("radiogroup", { name: "Trình độ hiện tại" })
+    .getByRole("radio", { name: /HSK4/u })
     .click();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
   await page.goto("/path");
 
   await expect(page.getByTestId("hsk4-level-check-card")).toBeVisible();
@@ -60,15 +69,15 @@ test("shows the complete HSK4 target while retaining its prerequisite bridge", a
 
 test("does not bypass a released HSK1 lesson prerequisite", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", {
-    name: /Đánh thức một ngôn ngữ mới/i,
-  })).toBeVisible();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("radiogroup", { name: /Căn Cơ Tự Khai · điểm xuất phát/u })
-    .getByRole("radio", { name: /^HSK1/u })
+  await page.locator("#landing-main").getByRole("button", {
+    name: "Kích hoạt HANZI.OS",
+  }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("radiogroup", { name: "Trình độ hiện tại" })
+    .getByRole("radio", { name: /HSK1/u })
     .click();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
 
   await page.goto("/lesson/daily-1");
   await expect(page.getByRole("heading", {
@@ -86,6 +95,7 @@ test("does not expose a historical draft lesson opened by direct URL", async ({ 
 test("persists an answered lesson item and resumes the exact session", async ({ page }) => {
   await finishOnboarding(page);
   await page.goto("/lesson/boot-1");
+  await completeLessonTheory(page);
   await page.getByRole("button", { name: /Bước vào Thử Luyện/i }).click();
 
   const firstOption = page.locator(".answer-grid button").first();
@@ -172,13 +182,18 @@ test("keeps public-client Reader practice out of verified mastery", async ({ pag
   await finishOnboarding(page);
   await page.goto("/reader");
   const correctAnswer = "Tự giới thiệu là người Việt Nam và cảm ơn giáo viên.";
+  await page.getByRole("button", { name: /Mở quyển Ngày đầu ở lớp tiếng Trung/u }).click();
+  await page.getByRole("button", { name: "Bước vào trang sách" }).click();
+  await page.getByRole("button", { name: "Đã đọc xong" }).click();
   await page.getByRole("radio", { name: correctAnswer }).click();
-  await page.getByRole("button", { name: "Xác nhận practice" }).click();
-  await expect(page.getByText("Đã hiểu đúng")).toBeVisible();
+  await page.getByRole("button", { name: "Chốt lựa chọn" }).click();
+  await expect(page.getByText("Đã định vị đúng chi tiết")).toBeVisible();
 
-  await page.getByRole("button", { name: "Làm lại câu hiểu bài" }).click();
+  await page.getByRole("button", { name: "Xem kết quả" }).click();
+  await page.getByRole("button", { name: "Đọc lại câu chuyện" }).click();
+  await page.getByRole("button", { name: "Đã đọc xong" }).click();
   await page.getByRole("radio", { name: correctAnswer }).click();
-  await page.getByRole("button", { name: "Xác nhận practice" }).click();
+  await page.getByRole("button", { name: "Chốt lựa chọn" }).click();
 
   await expect.poll(() => page.evaluate(() => {
     const state = JSON.parse(localStorage.getItem("hanzi-os-learning-state-v1") ?? "{}");
@@ -266,7 +281,7 @@ test("resets progress without deleting the durable sync identity", async ({ page
   await page.goto("/profile");
   await page.getByRole("button", { name: "Xóa toàn bộ dữ liệu HANZI.OS" }).click();
   await page.getByRole("button", { name: "Xóa toàn bộ dữ liệu", exact: true }).click();
-  await expect(page.getByRole("heading", { name: /Đánh thức một ngôn ngữ mới/i })).toBeVisible();
+  await expect(page.getByTestId("product-overview")).toBeVisible();
 
   await expect.poll(() => page.evaluate(async () => ({
     progressReset: (() => {
@@ -365,6 +380,18 @@ test("traps keyboard focus in destructive dialogs and restores the trigger", asy
   });
   await expect(dialog).toBeVisible();
   await expect(cancel).toBeFocused();
+
+  const geometry = await dialog.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return {
+      centerX: rect.left + rect.width / 2,
+      centerY: rect.top + rect.height / 2,
+      viewportCenterX: window.innerWidth / 2,
+      viewportCenterY: window.innerHeight / 2,
+    };
+  });
+  expect(Math.abs(geometry.centerX - geometry.viewportCenterX)).toBeLessThanOrEqual(1);
+  expect(Math.abs(geometry.centerY - geometry.viewportCenterY)).toBeLessThanOrEqual(1);
 
   await page.keyboard.press("Shift+Tab");
   await expect(confirm).toBeFocused();

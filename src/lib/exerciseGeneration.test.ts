@@ -3,6 +3,7 @@ import { LESSON_BY_ID, RELEASED_LESSONS } from "../data/curriculum";
 import type { Lesson } from "../types";
 import {
   answersMatch,
+  buildExerciseCatalog,
   buildExercises,
   shuffleWith,
   toneLabels,
@@ -42,6 +43,31 @@ describe("exercise generation", () => {
       new Set([toneLabels[1], toneLabels[2], toneLabels[3], toneLabels[4]]),
     );
     expect(tones.every((exercise) => exercise.requiredForPass)).toBe(true);
+  });
+
+  it("does not test untaught writing, sentence reading, or standalone meaning in boot-1", () => {
+    const lesson = LESSON_BY_ID.get("boot-1")!;
+    const exercises = buildExercises(lesson, "simplified", seededRandom(31));
+
+    expect(exercises).toHaveLength(10);
+    expect(new Set(exercises.map((exercise) => exercise.kind))).toEqual(
+      new Set(["pinyin", "tone", "listening"]),
+    );
+    expect(exercises.filter((exercise) => exercise.kind === "tone")).toHaveLength(4);
+    expect(exercises.filter((exercise) => exercise.kind === "pinyin")).toHaveLength(4);
+    expect(exercises.filter((exercise) => exercise.kind === "listening")).toHaveLength(2);
+    expect(exercises.every((exercise) =>
+      exercise.wordId && lesson.wordIds.includes(exercise.wordId)
+    )).toBe(true);
+  });
+
+  it("keeps legacy boot-1 activities resolvable for sessions already in progress", () => {
+    const lesson = LESSON_BY_ID.get("boot-1")!;
+    const catalog = buildExerciseCatalog(lesson, "simplified", seededRandom(31));
+
+    expect(catalog.some((exercise) => exercise.id === "yi-recall")).toBe(true);
+    expect(catalog.some((exercise) => exercise.id === "ren-sentence")).toBe(true);
+    expect(catalog.some((exercise) => exercise.id === "ni-meaning")).toBe(true);
   });
 
   it("keeps the technical sandhi golden fixtures in every tone-pair session", () => {
@@ -84,7 +110,34 @@ describe("exercise generation", () => {
     expect(exercises.every((exercise) => exercise.activityVersion.length > 0)).toBe(true);
   });
 
+  it("balances every supported activity skill into a grammar lesson session", () => {
+    const lesson = LESSON_BY_ID.get("daily-1")!;
+    const exercises = buildExercises(lesson, "simplified", seededRandom(17));
+
+    expect(new Set(exercises.map((exercise) => exercise.skill))).toEqual(new Set([
+      "vocabulary",
+      "pronunciation",
+      "listening",
+      "writing",
+      "grammar",
+    ]));
+  });
+
+  it("balances reading into a lesson session when grammar is not presented", () => {
+    const lesson = LESSON_BY_ID.get("boot-2")!;
+    const exercises = buildExercises(lesson, "simplified", seededRandom(23));
+
+    expect(new Set(exercises.map((exercise) => exercise.skill))).toEqual(new Set([
+      "vocabulary",
+      "pronunciation",
+      "listening",
+      "writing",
+      "reading",
+    ]));
+  });
+
   it("keeps every released lesson compatible with the ten-evidence completion contract", () => {
+    expect(RELEASED_LESSONS).toHaveLength(217);
     for (const [index, lesson] of RELEASED_LESSONS.entries()) {
       const exercises = buildExercises(lesson, "simplified", seededRandom(index + 1));
       expect(exercises, lesson.id).toHaveLength(10);

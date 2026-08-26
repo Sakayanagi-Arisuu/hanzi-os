@@ -32,6 +32,7 @@ import {
 import { useSystemUi } from "../../system/systemUiPreferences";
 import { emitSystemSignal } from "../../system/systemSignals";
 import { useLearning } from "../../store/LearningStore";
+import { useInteractionXp } from "../../store/InteractionXpStore";
 import type { Skill } from "../../types";
 
 const SKILL_LABELS: Record<Skill, { code: string; label: string }> = {
@@ -52,6 +53,7 @@ type SystemStatusHologramProps = {
 
 export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemStatusHologramProps) {
   const { state, dueWordIds, level } = useLearning();
+  const interactionXp = useInteractionXp();
   const {
     preferences,
     resolvedMotion,
@@ -65,7 +67,10 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const closeSignalRef = useRef(() => emitSystemSignal({ type: "system.panel-closed", sourceId: "status:keyboard" }));
   const titleId = useId();
   const descriptionId = useId();
-  const rank = getInteractionRankProgress(state.xp);
+  const rank = getInteractionRankProgress(interactionXp.totalXp);
+  const displayedLevel = interactionXp.authoritative
+    ? Math.floor(interactionXp.totalXp / 500) + 1
+    : level;
   const systemClass = getSystemClass(state.profile.goal);
   const progress = getReleasedLessonProgress(state);
   const nextLesson = getNextLesson(state);
@@ -248,7 +253,7 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
           >
             <div className="sys-holo-card-depth" aria-hidden="true" />
             <div className="sys-holo-rank-orbit" aria-hidden="true"><i /><b /><span /></div>
-            <div className="sys-holo-avatar" aria-hidden="true"><span>{level}</span><small>境</small></div>
+            <div className="sys-holo-avatar" aria-hidden="true"><span>{displayedLevel}</span><small>境</small></div>
             <span className="sys-holo-id">STATUS WINDOW · HZ-{state.profile.goal.toUpperCase()}-{String(progress.completedCount).padStart(3, "0")}</span>
             <h2 id={titleId}>{state.profile.name}</h2>
             <p className="sys-holo-class">{systemClass.title}</p>
@@ -259,7 +264,7 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
             </div>
             <div className="sys-holo-rank-track"><i style={{ width: `${rank.progress}%` }} /></div>
             <div className="sys-holo-core-stats">
-              <div><Zap size={16} /><span><small>NĂNG LƯỢNG TƯƠNG TÁC</small><strong>{state.xp.toLocaleString("vi-VN")} XP</strong></span></div>
+              <div><Zap size={16} /><span><small>NĂNG LƯỢNG TƯƠNG TÁC</small><strong>{interactionXp.pending ? "ĐANG ĐỒNG BỘ" : `${interactionXp.totalXp.toLocaleString("vi-VN")} XP`}</strong></span></div>
               <div><CircleGauge size={16} /><span><small>THỬ LUYỆN THÔNG QUA</small><strong>{progress.completedCount}/{progress.totalCount}</strong></span></div>
             </div>
             <p className="sys-holo-truth" id={descriptionId}>XP, danh hiệu và chỉ số dưới đây là tín hiệu học tập nội bộ; không thay thế chứng nhận HSK hay tự suy ra năng lực nói.</p>

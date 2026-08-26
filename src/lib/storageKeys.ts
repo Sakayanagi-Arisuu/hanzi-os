@@ -9,6 +9,7 @@ export const SYNC_DEVICE_STORAGE_KEY = "hanzi-os-sync-device-v1";
 export const LESSON_SESSION_STORAGE_PREFIX = "hanzi-os-lesson-session-v4:";
 const LESSON_SESSION_STORAGE_FAMILY_PREFIX = "hanzi-os-lesson-session-v";
 export const ASSESSMENT_SESSION_STORAGE_KEY = "hanzi-os-assessment-session-v1";
+export const CHARACTER_FORGE_SESSION_STORAGE_KEY = "hanzi-os-character-forge-session-v1";
 export const HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY =
   "hanzi-os-hsk1-level-check-session-v1";
 export const HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY =
@@ -17,6 +18,16 @@ export const HSK3_LEVEL_CHECK_SESSION_STORAGE_KEY =
   "hanzi-os-hsk3-level-check-session-v1";
 export const HSK4_LEVEL_CHECK_SESSION_STORAGE_KEY =
   "hanzi-os-hsk4-level-check-session-v1";
+export const PLACEMENT_GATE_SESSION_STORAGE_SUFFIX = ":placement-gate-v1";
+export const HSK_LEVEL_CHECK_SESSION_STORAGE_KEYS = [
+  HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY,
+  HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY,
+  HSK3_LEVEL_CHECK_SESSION_STORAGE_KEY,
+  HSK4_LEVEL_CHECK_SESSION_STORAGE_KEY,
+] as const;
+
+export const getPlacementGateSessionStorageKey = (levelCheckStorageKey: string) =>
+  `${levelCheckStorageKey}${PLACEMENT_GATE_SESSION_STORAGE_SUFFIX}`;
 
 export const isLegacyLearningResumeStorageKey = (key: string) =>
   key === ASSESSMENT_SESSION_STORAGE_KEY
@@ -28,10 +39,9 @@ export const isLearningProgressStorageKey = (key: string) =>
   || key === LEARNING_CORRUPT_STORAGE_KEY
   || key === LEARNING_OWNERSHIP_QUARANTINE_STORAGE_KEY
   || key === LEARNING_OWNER_STORAGE_KEY
-  || key === HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY
-  || key === HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY
-  || key === HSK3_LEVEL_CHECK_SESSION_STORAGE_KEY
-  || key === HSK4_LEVEL_CHECK_SESSION_STORAGE_KEY
+  || HSK_LEVEL_CHECK_SESSION_STORAGE_KEYS.some((levelCheckKey) =>
+    key === levelCheckKey || key === getPlacementGateSessionStorageKey(levelCheckKey)
+  )
   || isLegacyLearningResumeStorageKey(key);
 
 export const isHanziOsStorageKey = (key: string) => key.startsWith("hanzi-os-");

@@ -70,8 +70,18 @@ thêm một hệ điều hướng cạnh tranh.
 | **Luyện** | Dùng kiến thức ngoài lộ trình | Viết chữ, Reader, phrasebook, kho từ/chữ, game và luyện đề |
 | **Hồ sơ** | Xem mục tiêu và kiểm soát ứng dụng | Tiến độ, tài khoản, âm thanh, script, accessibility và dữ liệu |
 
-Tên chủ đề như “Thiên Lộ” hoặc “Ký Ức Trận” chỉ được dùng làm phụ đề/không khí;
-nhãn chính phải là tiếng Việt phổ thông như “Học”, “Ôn”, “Luyện phát âm”.
+### Giọng hệ thống canonical
+
+- HANZI.OS nói bằng giọng **hệ thống · nhiệm vụ · chuyển sinh · tu luyện**; các
+  thuật ngữ cốt lõi gồm **Khảo Luyện, Thí Luyện, Thử Luyện, Mạo Hiểm Giả, Hành
+  Giả, Cảnh Giới, Thiên Lộ, Ký Ức Trận**.
+- Danh tính guest mặc định và fallback luôn là **Hành giả vô danh**; không tự
+  đổi thành “Người học HANZI.OS”.
+- Navigation cấp cao vẫn là **Học, Ôn, Nói, Luyện, Hồ sơ**. Thuật ngữ lore được
+  dùng trong tiêu đề, nhiệm vụ và phản hồi, nhưng lần xuất hiện dễ mơ hồ phải có
+  lời giải nghĩa ngắn, ví dụ “Khảo Luyện · khảo sát trình độ”.
+- Giọng hệ thống không được biến receipt, schema, hash, CI hay policy nội bộ
+  thành thông báo cho người học.
 
 ## 5. Vòng học hằng ngày
 

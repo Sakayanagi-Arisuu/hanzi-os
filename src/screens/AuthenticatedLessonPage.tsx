@@ -12,7 +12,6 @@ import {
   PenLine,
   Play,
   RefreshCw,
-  RotateCcw,
   Sparkles,
   Target,
   Volume2,
@@ -26,7 +25,10 @@ import {
   useState,
 } from "react";
 import { Link, useParams } from "react-router";
-import { LessonDepthPanel } from "../components/LessonDepthPanel";
+import { LessonDepthDisclosure } from "../components/LessonDepthPanel";
+import { LessonQuestResult } from "../components/LessonQuestResult";
+import { LessonQuestTransition } from "../components/LessonQuestTransition";
+import { LessonTheoryPanel } from "../components/LessonTheoryPanel";
 import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ConfirmModal } from "../components/SystemFeedback";
@@ -49,6 +51,8 @@ import {
 import type { LessonSessionAuthorityBindingV1 } from "../learning/lessonSessionProtocol";
 import type { SubmitLessonSessionReceiptV1 } from "../learning/lessonSessionSubmissionProtocol";
 import type { ActiveLessonAttemptProjectionV1 } from "../learning/projectionProtocol";
+import { resolveExerciseSpeechText } from "../learning/exerciseSpeech";
+import { claimLessonInteractionXp } from "../learning/interactionXpClient";
 import {
   abandonmentReceiptMatchesSessionBinding,
   activeProjectionMatchesSessionBinding,
@@ -57,12 +61,12 @@ import {
   submissionReceiptMatchesSessionBinding,
 } from "../learning/normalizedLessonUiAuthority";
 import {
-  isLessonIdAvailableForStartingLevel,
   isLessonReleased,
 } from "../lib/adaptive";
 import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { useInteractionXp } from "../store/InteractionXpStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
@@ -72,6 +76,7 @@ import {
   enqueueObjectiveAttemptCommand,
   LEARNING_COMMAND_QUEUE_CHANGED_EVENT,
   listLearningCommandRecords,
+  releaseLearningCommandRetry,
   type LearningCommandOutboxRecord,
   type QueuedLessonSessionDependency,
 } from "../sync/learningCommandOutbox";
@@ -92,10 +97,23 @@ type RuntimePhase =
 
 type AttemptOutcome = "idle" | "pending" | "correct" | "incorrect";
 
-const displayCharacter = (
-  word: VocabularyItem,
-  script: "simplified" | "traditional",
-) => script === "traditional" ? word.traditional : word.simplified;
+class LessonTransitionDeadlineError extends Error {
+  constructor() {
+    super("Lesson transition exceeded its recovery deadline.");
+    this.name = "LessonTransitionDeadlineError";
+  }
+}
+
+const withLessonTransitionDeadline = <T,>(
+  operation: Promise<T>,
+  timeoutMs = 8_000,
+) => new Promise<T>((resolve, reject) => {
+  const timeout = window.setTimeout(
+    () => reject(new LessonTransitionDeadlineError()),
+    timeoutMs,
+  );
+  operation.then(resolve, reject).finally(() => window.clearTimeout(timeout));
+});
 
 const exerciseIcon = (kind: NormalizedLessonPresentationActivityV1["kind"]) => {
   if (kind === "listening") return Headphones;
@@ -157,14 +175,11 @@ export function AuthenticatedLessonPage() {
 function AuthenticatedLessonPageScope() {
   const { lessonId } = useParams();
   const { state, actions, sync } = useLearning();
+  const interactionXp = useInteractionXp();
   const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
   const availableForPath = Boolean(
     requestedLesson
     && isLessonReleased(requestedLesson)
-    && isLessonIdAvailableForStartingLevel(
-      requestedLesson.id,
-      state.profile.startingLevel,
-    ),
   );
   const unavailableLesson = Boolean(requestedLesson && !availableForPath);
   const lesson = availableForPath ? requestedLesson : undefined;
@@ -196,8 +211,18 @@ function AuthenticatedLessonPageScope() {
   );
   const [abandonModalOpen, setAbandonModalOpen] = useState(false);
   const [attemptStartedAt, setAttemptStartedAt] = useState(() => Date.now());
+  const [reviewingTheory, setReviewingTheory] = useState(false);
+  const [theoryReady, setTheoryReady] = useState(false);
+  const [transitionDelayed, setTransitionDelayed] = useState(false);
+  const [transitionRetrying, setTransitionRetrying] = useState(false);
+  const [transitionActiveStep, setTransitionActiveStep] = useState<0 | 1 | 2>(0);
+  const [claimingReward, setClaimingReward] = useState(false);
+  const [rewardClaimedLocally, setRewardClaimedLocally] = useState(false);
+  const [rewardError, setRewardError] = useState<string | null>(null);
   const advanceLockRef = useRef(false);
+  const submitRecoveryRef = useRef<() => Promise<void>>(async () => undefined);
   const feedbackRef = useRef<HTMLElement | null>(null);
+  const lessonPassedBeforeSessionRef = useRef<boolean | null>(null);
 
   const accountKey = sync.session?.authenticated
     ? sync.session.accountKey
@@ -236,6 +261,50 @@ function AuthenticatedLessonPageScope() {
   const refreshRecords = useCallback(() => {
     setRecordsVersion((current) => current + 1);
   }, []);
+
+  const retryPendingTransition = useCallback(async () => {
+    if (transitionRetrying) return;
+    setTransitionRetrying(true);
+    try {
+      await actions.syncNow();
+    } catch {
+      setTransitionDelayed(true);
+    } finally {
+      refreshRecords();
+      refreshProjection();
+      setTransitionRetrying(false);
+    }
+  }, [actions, refreshProjection, refreshRecords, transitionRetrying]);
+
+  useEffect(() => {
+    const pending = phase === "opening"
+      || phase === "submitting"
+      || phase === "abandoning";
+    if (!pending) {
+      setTransitionDelayed(false);
+      setTransitionRetrying(false);
+      setTransitionActiveStep(0);
+      return;
+    }
+
+    setTransitionDelayed(false);
+    const automaticRetry = window.setTimeout(() => {
+      void actions.syncNow().catch(() => undefined).finally(() => {
+        refreshRecords();
+        refreshProjection();
+      });
+    }, 3_000);
+    const slowConnection = window.setTimeout(() => {
+      setTransitionDelayed(true);
+      if (phase === "submitting") {
+        void submitRecoveryRef.current();
+      }
+    }, 8_000);
+    return () => {
+      window.clearTimeout(automaticRetry);
+      window.clearTimeout(slowConnection);
+    };
+  }, [actions, phase, refreshProjection, refreshRecords]);
 
   useEffect(() => {
     window.addEventListener(
@@ -302,9 +371,13 @@ function AuthenticatedLessonPageScope() {
         return true;
       }
       if (terminal.status === "pending") {
-        setPhase(terminal.kind === "lesson-session-submit"
-          ? "submitting"
-          : "abandoning");
+        if (terminal.kind === "lesson-session-submit") {
+          setTransitionActiveStep(2);
+          setTransitionDelayed(Boolean(terminal.nextAttemptAt));
+          setPhase("submitting");
+        } else {
+          setPhase("abandoning");
+        }
         return true;
       }
       if (terminal.kind === "lesson-session-submit") {
@@ -752,9 +825,12 @@ function AuthenticatedLessonPageScope() {
 
   const startSession = async () => {
     if (!lesson || !progress || !lessonUnlocked || busy) return;
+    lessonPassedBeforeSessionRef.current = lessonProgress?.passed ?? null;
     setBusy(true);
     setError(null);
     setResult(null);
+    setRewardClaimedLocally(false);
+    setRewardError(null);
     setPhase("opening");
     try {
       const environment = await exactEnvironment();
@@ -821,8 +897,14 @@ function AuthenticatedLessonPageScope() {
     }
   };
 
-  const submitSession = async () => {
-    if (!runtime || !sessionBinding || !commandIds || !records || busy) return;
+  const submitSession = async (recoveryAttempt = false) => {
+    if (
+      !runtime
+      || !sessionBinding
+      || !commandIds
+      || !records
+      || (busy && !recoveryAttempt)
+    ) return;
     const projectedActivityIds = new Set(
       projectedAttempts.map((attempt) => attempt.activityId),
     );
@@ -852,30 +934,72 @@ function AuthenticatedLessonPageScope() {
     }
     setBusy(true);
     setError(null);
+    setTransitionDelayed(false);
+    if (!recoveryAttempt) setTransitionActiveStep(0);
     setPhase("submitting");
     try {
-      const environment = await exactEnvironment();
-      if (!environment) throw new Error("Owner scope đã thay đổi.");
-      const input = await buildNormalizedLessonSubmissionQueueInput(
-        runtime,
-        environment,
-        new Date().toISOString(),
-        localAttemptPositions,
-      );
-      await enqueueLessonSessionSubmissionCommand(input);
-      refreshRecords();
-      refreshProjection();
-      void actions.syncNow().catch(() => undefined).finally(() => {
+      await withLessonTransitionDeadline((async () => {
+        const environment = await exactEnvironment();
+        if (!environment) throw new Error("Owner scope đã thay đổi.");
+        const input = await buildNormalizedLessonSubmissionQueueInput(
+          runtime,
+          environment,
+          new Date().toISOString(),
+          localAttemptPositions,
+        );
+        setTransitionActiveStep(1);
+        // The command key is stable. Re-enqueuing after a timeout returns the
+        // existing record instead of creating a second completion/reward.
+        await enqueueLessonSessionSubmissionCommand(input);
+        setTransitionActiveStep(2);
         refreshRecords();
         refreshProjection();
-      });
+        void actions.syncNow().catch(() => undefined).finally(() => {
+          refreshRecords();
+          refreshProjection();
+        });
+      })());
     } catch (cause) {
+      if (cause instanceof LessonTransitionDeadlineError) {
+        setTransitionDelayed(true);
+        return;
+      }
       setError(cause instanceof Error ? cause.message : "Không thể nộp phiên.");
       setPhase("error");
     } finally {
       setBusy(false);
     }
   };
+
+  const retrySubmissionTransition = async () => {
+    if (transitionRetrying) return;
+    setTransitionRetrying(true);
+    try {
+      const pendingSubmission = commandIds && records?.find((record) =>
+        record.kind === "lesson-session-submit"
+        && record.commandId === commandIds.submitCommandId
+        && record.status === "pending"
+      );
+      if (pendingSubmission && ownerGeneration) {
+        await releaseLearningCommandRetry(
+          pendingSubmission.recordKey,
+          ownerGeneration,
+        );
+        setTransitionActiveStep(2);
+        setTransitionDelayed(false);
+      } else {
+        await submitSession(true);
+      }
+      await actions.syncNow();
+    } catch {
+      setTransitionDelayed(true);
+    } finally {
+      refreshRecords();
+      refreshProjection();
+      setTransitionRetrying(false);
+    }
+  };
+  submitRecoveryRef.current = retrySubmissionTransition;
 
   const abandonSession = async () => {
     if (!runtime || busy) return;
@@ -904,6 +1028,20 @@ function AuthenticatedLessonPageScope() {
     } finally {
       setBusy(false);
     }
+  };
+
+  const claimLessonReward = async () => {
+    if (!lesson || resetEpoch === null || claimingReward) return;
+    setClaimingReward(true);
+    setRewardError(null);
+    const receipt = await claimLessonInteractionXp(lesson.id, resetEpoch)
+      .catch(() => null);
+    setClaimingReward(false);
+    if (!receipt) {
+      setRewardError("Chưa thể mở rương lúc này. Hãy thử lại sau.");
+      return;
+    }
+    setRewardClaimedLocally(true);
   };
 
   const confirmAbandonSession = () => {
@@ -951,27 +1089,29 @@ function AuthenticatedLessonPageScope() {
 
   if (phase === "loading" || records === null) {
     return (
-      <div className="lesson-state-screen" role="status" aria-live="polite">
-        <BrainCircuit size={44} />
-          <h1>Đang kiểm chứng phiên học</h1>
-          <p>Hệ thống đang khôi phục đúng câu hỏi và tiến độ của phiên này.</p>
-      </div>
+      <LessonQuestTransition
+        kind="restoring"
+        lessonTitle={lesson.title}
+        itemCount={runtime?.activities.length}
+      />
     );
   }
 
   if (phase === "opening" || phase === "submitting" || phase === "abandoning") {
-    const copy = phase === "opening"
-      ? ["Đang chuẩn bị bài học", "Hệ thống đang khôi phục đúng câu hỏi và vị trí của bạn."]
-      : phase === "submitting"
-        ? ["Đang lưu kết quả", "Hệ thống đang kiểm tra và lưu toàn bộ câu trả lời."]
-        : ["Đang dừng phiên học", "Những câu đã hoàn thành vẫn được giữ lại an toàn."];
     return (
-      <div className="lesson-state-screen" role="status" aria-live="polite">
-        <BrainCircuit size={44} />
-        <h1>{copy[0]}</h1>
-        <p>{copy[1]}</p>
-        <Link className="secondary-button" to="/path">Rời trang và đồng bộ sau</Link>
-      </div>
+      <LessonQuestTransition
+        kind={phase}
+        lessonTitle={lesson.title}
+        itemCount={runtime?.activities.length}
+        activeStep={phase === "submitting" ? transitionActiveStep : undefined}
+        delayed={transitionDelayed}
+        retrying={transitionRetrying}
+        onRetry={() => void (
+          phase === "submitting"
+            ? retrySubmissionTransition()
+            : retryPendingTransition()
+        )}
+      />
     );
   }
 
@@ -1014,41 +1154,48 @@ function AuthenticatedLessonPageScope() {
   }
 
   if (phase === "result" && result) {
+    const rawCorrectCount = Math.round(
+      (result.rawScore / 100) * result.evidenceCount,
+    );
+    const requiredPassed = result.requiredEvidenceCount === 0
+      || result.requiredCorrectCount / result.requiredEvidenceCount >= 0.7;
+    const projectedReward = interactionXp.lessonRewards?.find(
+      (reward) => reward.lessonId === lesson.id,
+    );
+    const rewardState = !result.passed
+      ? "unavailable" as const
+      : rewardClaimedLocally || projectedReward?.status === "claimed"
+        ? "claimed" as const
+        : claimingReward
+          ? "claiming" as const
+          : projectedReward?.status === "pending"
+            || lessonPassedBeforeSessionRef.current === false
+            ? "claimable" as const
+            : "claimed" as const;
     return (
-      <div className="lesson-result-screen">
-        <div className={`result-sigil ${result.passed ? "passed" : "retry"}`}>
-          {result.passed ? <CircleCheck size={38} /> : <RotateCcw size={38} />}
-          <span />
-        </div>
-          <span className="system-kicker">THỬ LUYỆN · ĐÃ HOÀN THÀNH</span>
-        <h1>{result.passed
-          ? "Cảnh giới đã khai mở"
-          : "Chưa đạt ngưỡng khai mở"}</h1>
-        <p>{result.passed
-          ? "Kết quả đã được xác nhận và bài tiếp theo đã sẵn sàng."
-          : "Kết quả đã được lưu; hãy ôn lại các câu chưa đúng rồi thử lần nữa."}</p>
-        <div className="result-metrics">
-              <div><small>Tỉ lệ đúng</small><strong>{result.rawScore}%</strong></div>
-          <div><small>Điểm mở nút</small><strong>{result.gateScore}%</strong></div>
-          <div><small>Số câu đã làm</small><strong>{result.evidenceCount}</strong></div>
-        </div>
-        <div className="mastery-threshold">
-          <span style={{ width: `${result.gateScore}%` }} />
-          <i style={{ left: "70%" }}>70% · KHAI MỞ</i>
-        </div>
-        <div className="result-actions">
-          <button className="secondary-button" type="button" onClick={() => {
+      <LessonQuestResult
+        lessonId={lesson.id}
+        lessonTitle={lesson.title}
+        chineseTitle={lesson.chineseTitle}
+        passed={result.passed}
+        correctCount={rawCorrectCount}
+        totalCount={result.evidenceCount}
+        gateScore={result.gateScore}
+        requiredPassed={requiredPassed}
+        rewardXp={lesson.xp}
+        rewardState={rewardState}
+        rewardError={rewardError}
+        onClaimReward={() => void claimLessonReward()}
+        onRetry={() => {
             setDismissedTerminalId(result.idempotencyKey);
             setResult(null);
+            lessonPassedBeforeSessionRef.current = null;
+            setRewardClaimedLocally(false);
+            setRewardError(null);
             setPhase("briefing");
-          }}>
-            <RotateCcw size={17} /> Mở phiên mới
-          </button>
-          <Link className="primary-button" to="/path" onClick={refreshProjection}>
-            Tiếp tục Thiên Lộ <ArrowRight size={17} />
-          </Link>
-        </div>
-      </div>
+        }}
+        onNavigate={refreshProjection}
+      />
     );
   }
 
@@ -1062,71 +1209,41 @@ function AuthenticatedLessonPageScope() {
           <span>THỬ LUYỆN · 01/02</span>
           <strong>{lesson.minutes} phút · XP chỉ là tương tác</strong>
         </header>
-        <section className="briefing-hero">
-          <div>
-            <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
-            <h1>{lesson.title}</h1>
-            <p className="briefing-chinese">{lesson.chineseTitle}</p>
-            <p>{lesson.objective.replace(
-              /;\s*chưa chấm mastery trước review\./giu,
-              ".",
-            )}</p>
-          </div>
-          <div className="mastery-gate">
-            <Target size={26} />
-            <span>Ngưỡng khai mở</span>
-            <strong>70%</strong>
-                <small>Hoàn thành đầy đủ lượt thử để mở bài tiếp theo.</small>
-          </div>
-        </section>
-        <div className="briefing-grid">
-          <section className="briefing-concept">
-            <header><span>01 · CỐT LÕI</span><BrainCircuit size={20} /></header>
-            <h2>{guide.concept}</h2>
-            <p>{guide.rule}</p>
-            <div className="guide-examples">
-              {guide.examples.map((example) => (
-                <button key={example.chinese} type="button" onClick={() => speakMandarin(example.chinese)}>
-                  <Volume2 size={17} />
-                  <span><strong>{example.chinese}</strong><small>{example.pinyin}</small></span>
-                  <em>{example.meaning}</em>
-                </button>
-              ))}
+        <div className="lesson-briefing-scroll">
+          <section className="briefing-hero">
+            <div>
+              <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
+              <h1>{lesson.title}</h1>
+              <p className="briefing-chinese">{lesson.chineseTitle}</p>
+              <p>{lesson.objective.replace(
+                /;\s*chưa chấm mastery trước review\./giu,
+                ".",
+              )}</p>
+            </div>
+            <div className="mastery-gate">
+              <Target size={26} />
+              <span>Ngưỡng khai mở</span>
+              <strong>70%</strong>
+              <small>Hoàn thành đầy đủ lượt thử để mở bài tiếp theo.</small>
             </div>
           </section>
-          <aside className="briefing-intel">
-            <div className="pitfall-panel">
-              <span><AlertTriangle size={17} /> ĐIỂM MÙ THƯỜNG GẶP</span>
-              <p>{guide.pitfall}</p>
-            </div>
-            <div className="checkpoint-panel">
-              <span><Target size={17} /> TỰ KIỂM</span>
-              <p>{guide.checkpoint}</p>
-            </div>
-          </aside>
+          <LessonTheoryPanel
+            guide={guide}
+            lessonId={lesson.id}
+            lessonWords={lessonWords}
+            script={state.profile.script}
+            practiceKinds={runtime?.activities.map((activity) => activity.kind)}
+            onReadinessChange={setTheoryReady}
+          />
+          <LessonDepthDisclosure lessonId={lesson.id} />
+          <p className="synthetic-audio-note">
+            Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
+          </p>
         </div>
-        <section className="briefing-lexicon">
-          <header><span>02 · TÍN HIỆU MỤC TIÊU</span><small>{lessonWords.length} mục</small></header>
-          <div>
-            {lessonWords.map((word) => {
-              const character = displayCharacter(word, state.profile.script);
-              return (
-                <button key={word.id} type="button" onClick={() => speakMandarin(character)}>
-                  <strong>{character}</strong><span>{word.pinyin}</span>
-                  <small>{word.meaning}</small><Volume2 size={15} />
-                </button>
-              );
-            })}
-          </div>
-        </section>
-        <LessonDepthPanel lessonId={lesson.id} />
-        <p className="synthetic-audio-note">
-          Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
-        </p>
         <footer className="briefing-actions">
               <p><Lightbulb size={17} /> Phần luyện tập xuất hiện khi bạn đã hoàn thành bài tiên quyết.</p>
-          <button className="primary-button" disabled={busy} type="button" onClick={() => void startSession()}>
-            Bắt đầu luyện tập <Play size={17} />
+          <button className="primary-button" disabled={busy || (!theoryReady && !runtime)} type="button" onClick={() => void startSession()}>
+            {theoryReady || runtime ? "Bắt đầu luyện tập" : "Hoàn tất 3 chặng học ở trên"} <Play size={17} />
           </button>
         </footer>
       </div>
@@ -1145,6 +1262,11 @@ function AuthenticatedLessonPageScope() {
       </div>
     );
   }
+  const currentSpeechText = resolveExerciseSpeechText(
+    current,
+    current.wordId ? WORD_BY_ID.get(current.wordId) : undefined,
+    runtime.script,
+  );
 
   const checked = outcome === "correct" || outcome === "incorrect";
   const isCorrect = outcome === "correct";
@@ -1165,8 +1287,8 @@ function AuthenticatedLessonPageScope() {
     <>
       <div className="lesson-live-page">
       <header className="lesson-live-header">
-        <Link className="icon-button" to="/path" aria-label="Rời trang; giữ phiên để tiếp tục sau">
-          <X size={20} />
+        <Link className="lesson-return-link" to="/path" aria-label="Rời bài và trở về Thiên Lộ; tiến độ đã được tự lưu">
+          <ArrowLeft size={18} /><span>Thiên Lộ</span>
         </Link>
         <div
           className="lesson-progress-track"
@@ -1177,31 +1299,49 @@ function AuthenticatedLessonPageScope() {
           aria-valuenow={index + 1}
         ><i style={{ width: `${completion}%` }} /></div>
         <span>{index + 1} / {runtime.activities.length}</span>
+        <button className="lesson-theory-button" type="button" onClick={() => {
+          if (outcome === "idle") setSelectedUsedHint(true);
+          setReviewingTheory(true);
+        }} aria-pressed={reviewingTheory}>
+          <BookOpenText size={17} /><span>Lý thuyết</span>
+        </button>
         <button
-          className="secondary-button"
+          className="secondary-button lesson-abandon-button"
           disabled={busy}
           type="button"
           onClick={confirmAbandonSession}
+          aria-label="Dừng lượt học hiện tại"
         >
-          Hủy phiên
+          <X size={16} /><span>Dừng lượt</span>
         </button>
       </header>
       <div className="lesson-context">
         <span><ExerciseIcon size={16} /> {current.instruction}</span>
         <strong>{lesson.title} · kỹ năng {current.skill}</strong>
       </div>
-      <section className="exercise-stage">
+      <section className={`exercise-stage ${reviewingTheory ? "is-theory-review" : ""}`}>
+        {reviewingTheory ? (
+          <LessonTheoryPanel
+            compact
+            guide={guide}
+            lessonId={lesson.id}
+            lessonWords={lessonWords}
+            script={state.profile.script}
+            practiceKinds={runtime.activities.map((activity) => activity.kind)}
+          />
+        ) : (
+          <>
         <div className={`exercise-prompt kind-${current.kind}`}>
           {current.kind === "listening" ? (
-            <button className="sound-orb" type="button" onClick={() => current.spokenText && speakMandarin(current.spokenText)} aria-label="Phát âm thanh">
+            <button className="sound-orb" type="button" onClick={() => currentSpeechText && speakMandarin(currentSpeechText)} aria-label="Phát âm thanh">
               <Volume2 size={38} /><span aria-hidden="true" />
             </button>
           ) : (
             <>
               <h1>{current.prompt}</h1>
               {current.promptMeta && <p>{current.promptMeta}</p>}
-              {current.spokenText && (
-                <button className="listen-inline" type="button" onClick={() => speakMandarin(current.spokenText!)}>
+              {currentSpeechText && (
+                <button className="listen-inline" type="button" onClick={() => speakMandarin(currentSpeechText)}>
                   <Volume2 size={17} /> Nghe
                 </button>
               )}
@@ -1253,14 +1393,25 @@ function AuthenticatedLessonPageScope() {
             })}
           </div>
         )}
+          </>
+        )}
       </section>
       <footer
-        className={`answer-console ${checked ? (isCorrect ? "correct" : "wrong") : ""}`}
+        className={`answer-console ${reviewingTheory ? "lesson-theory-console" : checked ? (isCorrect ? "correct" : "wrong") : ""}`}
         ref={feedbackRef}
         tabIndex={-1}
         aria-live="polite"
         aria-busy={outcome === "pending"}
       >
+        {reviewingTheory ? (
+          <>
+            <p><BookOpenText size={17} /> Phiên vẫn được giữ; câu hiện tại được ghi là đã dùng trợ giúp.</p>
+            <button className="primary-button" type="button" onClick={() => setReviewingTheory(false)}>
+              Quay lại câu {index + 1} <ArrowRight size={17} />
+            </button>
+          </>
+        ) : (
+          <>
         {outcome === "pending" ? (
               <p><BrainCircuit size={17} /> Đang ghi nhận câu trả lời; lựa chọn tạm thời không thể đổi.</p>
         ) : checked ? (
@@ -1309,6 +1460,8 @@ function AuthenticatedLessonPageScope() {
             : "Gửi để chấm"}
           <ArrowRight size={17} />
         </button>
+          </>
+        )}
       </footer>
       </div>
 

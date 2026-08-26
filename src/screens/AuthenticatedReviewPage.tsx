@@ -2,16 +2,14 @@ import {
   AlertTriangle,
   BrainCircuit,
   CalendarClock,
-  Check,
   ChevronRight,
   CircleCheck,
   Cloud,
   CloudOff,
-  Gauge,
   RefreshCw,
+  ScanLine,
   ShieldAlert,
   Sparkles,
-  Volume2,
 } from "lucide-react";
 import {
   useCallback,
@@ -21,6 +19,8 @@ import {
   useState,
 } from "react";
 import { Link } from "react-router";
+import { ReviewRatingConsole } from "../components/ReviewRatingConsole";
+import { ReviewMemoryArena } from "../components/ReviewMemoryArena";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
@@ -32,8 +32,9 @@ import {
   type ReviewQueueV1,
   type ReviewRating,
 } from "../learning/reviewProtocol";
+import { REVIEW_INTERACTION_XP } from "../learning/interactionXp";
+import { notifyInteractionXpChanged } from "../learning/interactionXpClient";
 import { makeIdempotencyKey } from "../lib/evidence";
-import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
@@ -442,8 +443,11 @@ function AuthenticatedReviewPageScope() {
   const allPendingRecords = reviewRecords.filter(
     (record) => record.status === "pending",
   );
-  const allAcknowledgedRecords = reviewRecords.filter(
+  const acknowledgedRecords = relevantRecords.filter(
     (record) => record.status === "acknowledged",
+  );
+  const pendingRecords = relevantRecords.filter(
+    (record) => record.status === "pending",
   );
   const quarantinedRecords = reviewRecords.filter(
     (record) => record.status === "quarantined",
@@ -475,7 +479,10 @@ function AuthenticatedReviewPageScope() {
           "Chưa thể đồng bộ ngay; lệnh bền vững vẫn được giữ trên thiết bị.",
         );
       })
-      .finally(refresh);
+      .finally(() => {
+        refresh();
+        notifyInteractionXpChanged();
+      });
   };
 
   const grade = async (rating: ReviewRating) => {
@@ -554,11 +561,14 @@ function AuthenticatedReviewPageScope() {
       setRevealed(false);
       setQueueNotice(
         online
-          ? "Đánh giá đã được ghi bền vững và đang chờ receipt máy chủ."
-          : "Đánh giá đã được ghi bền vững; hệ thống sẽ gửi khi có mạng.",
+          ? "Đánh giá đã được lưu và đang đồng bộ lịch ôn."
+          : "Đánh giá đã được giữ an toàn; hệ thống sẽ gửi khi có mạng.",
       );
       if (online) {
-        void actions.syncNow().catch(() => undefined).finally(refresh);
+        void actions.syncNow().catch(() => undefined).finally(() => {
+          refresh();
+          notifyInteractionXpChanged();
+        });
       }
     } catch (cause) {
       setActionError(
@@ -706,7 +716,7 @@ function AuthenticatedReviewPageScope() {
   }
 
   if (availableCards.length === 0) {
-    const pending = allPendingRecords.length > 0;
+    const pending = pendingRecords.length > 0;
     return (
       <div className="review-complete-screen" role="status" aria-live="polite">
         <div className="memory-complete-core">
@@ -726,9 +736,9 @@ function AuthenticatedReviewPageScope() {
         </p>
         <div className="review-summary-grid">
           <div><small>Đã xử lý</small><strong>{relevantRecords.length}</strong></div>
-          <div><small>Đang chờ gửi</small><strong>{allPendingRecords.length}</strong></div>
-          <div><small>Đã xác nhận</small><strong>{allAcknowledgedRecords.length}</strong></div>
-              <div><small>Lượt đã ghi nhận</small><strong>0</strong></div>
+          <div><small>Đang chờ gửi</small><strong>{pendingRecords.length}</strong></div>
+          <div><small>Đã xác nhận</small><strong>{acknowledgedRecords.length}</strong></div>
+          <div><small>EXP đã cộng</small><strong>+{acknowledgedRecords.length * REVIEW_INTERACTION_XP}</strong></div>
         </div>
         <button className="primary-button" type="button" onClick={syncAndRefresh}>
           <RefreshCw size={17} /> Đồng bộ và làm mới
@@ -761,156 +771,125 @@ function AuthenticatedReviewPageScope() {
 
   return (
     <div className="content-page review-page" aria-busy={busy}>
-      <header className="page-hero review-hero">
-        <div>
-          <span className="system-kicker">
-            <BrainCircuit size={15} /> ÔN TẬP THÔNG MINH · TỰ ĐÁNH GIÁ
-          </span>
-          <h1>Ký Ức Trận</h1>
-          <p>
-            Tự gọi lại cách đọc và ý nghĩa trước khi lật thẻ. Đánh giá của bạn
-            chỉ dùng để sắp lịch ôn tiếp theo.
-          </p>
-        </div>
-        <div className="review-live-stats">
-              <span><strong>{availableCards.length}</strong><small>thẻ còn lại</small></span>
-              <span><strong>{allPendingRecords.length}</strong><small>đang chờ lưu</small></span>
-              <span><strong>0</strong><small>mức thành thạo từ tự chấm</small></span>
-        </div>
-      </header>
-
-      {(queueNotice || actionError || !online) && (
-        <div className="fsrs-status-line" role={actionError ? "alert" : "status"} aria-live="polite">
-          <span>
-            {online ? <Cloud size={15} /> : <CloudOff size={15} />}
-            {actionError
-              ? "Chưa thể lưu đánh giá lúc này. Hãy kiểm tra kết nối rồi thử lại."
-              : queueNotice
-                ? "Lịch ôn vừa thay đổi và đang được làm mới."
-                : "Đang ngoại tuyến; lượt ôn vẫn được giữ trên thiết bị."}
-          </span>
-        </div>
-      )}
-
-      <div
-        className="review-session-bar"
-        role="progressbar"
-        aria-label="Tiến độ hàng đợi ôn tập"
-        aria-valuemin={0}
-        aria-valuemax={queue.cards.length}
-        aria-valuenow={handledCount}
-      >
-        <span>THẺ ÔN {String(handledCount + 1).padStart(2, "0")}</span>
-        <div><i style={{ width: `${progress}%` }} /></div>
-        <strong>{handledCount + 1}/{queue.cards.length}</strong>
-      </div>
-
-      <section
-        className={`memory-card ${revealed ? "revealed" : ""}`}
-        aria-labelledby="authenticated-review-card-title"
-      >
-        <div className="memory-grid" aria-hidden="true" />
-        <div className="memory-card-head">
-          <span>
-            <Sparkles size={15} /> {word.partOfSpeech} · từ vựng trong lộ trình
-          </span>
-          <button
-            className="icon-button"
-            type="button"
-            onClick={() => speakMandarin(character)}
-            aria-label={`Nghe ${character}`}
-          >
-            <Volume2 size={20} />
-          </button>
-        </div>
-        <div className="memory-front">
-          <h2
-            className="memory-character"
-            id="authenticated-review-card-title"
-            ref={cardHeadingRef}
-            tabIndex={-1}
-          >
-            {character}
-          </h2>
-          <p>{revealed ? word.pinyin : "Gọi lại cách đọc và ý nghĩa"}</p>
-        </div>
-        {revealed && (
-          <div className="memory-back">
-            <div>
-              <small>Ý nghĩa</small>
-              <strong>{word.meaning}</strong>
-            </div>
-            <div>
-              <small>Ngữ cảnh</small>
-              <strong>{word.example}</strong>
-              <span>{word.examplePinyin}</span>
-              <p>{word.exampleMeaning}</p>
-            </div>
-            <div className="memory-tags">
-              {word.tags.map((tag) => <span key={tag}>{tag}</span>)}
+      <div className="review-session-header">
+        <header className="page-hero review-hero">
+          <div className="review-hero-identity">
+            <span className="review-hero-sigil" aria-hidden="true">
+              <BrainCircuit size={24} /><i /><b>03</b>
+            </span>
+            <div className="review-hero-copy">
+              <span className="system-kicker">
+                KÝ ỨC TRẬN · TỰ ĐÁNH GIÁ
+              </span>
+              <h1>Ký Ức Trận</h1>
+              <p>Triệu hồi · tự nhớ · phán định. Lịch ôn tài khoản được đồng bộ sau mỗi mảnh ký ức.</p>
             </div>
           </div>
-        )}
-        {!revealed && (
-          <button
-            className="reveal-button"
-            disabled={busy}
-            type="button"
-            onClick={() => setRevealed(true)}
-          >
-            Hiện đáp án <ChevronRight size={18} />
-          </button>
-        )}
-      </section>
+          <div className="review-live-stats">
+            <span><strong>{availableCards.length}</strong><small>thẻ còn lại</small></span>
+            <span><strong>{allPendingRecords.length}</strong><small>đang chờ lưu</small></span>
+            <span><strong>+{acknowledgedRecords.length * REVIEW_INTERACTION_XP}</strong><small>EXP đã cộng</small></span>
+          </div>
+        </header>
 
-      {revealed && (
-        <section className="rating-console" aria-labelledby="review-rating-title">
-          <div className="rating-heading">
-            <Gauge size={19} />
+        {(queueNotice || actionError || !online) && (
+          <div className="review-session-notice" role={actionError ? "alert" : "status"} aria-live="polite">
             <span>
-              <strong id="review-rating-title">Bạn gọi lại tốt đến đâu?</strong>
-              <small>Tự đánh giá chỉ sắp lịch ôn tiếp theo, không tính đúng/sai hay XP.</small>
+              {online ? <Cloud size={15} /> : <CloudOff size={15} />}
+              {actionError
+                ? "Chưa thể lưu đánh giá lúc này. Hãy kiểm tra kết nối rồi thử lại."
+                : queueNotice
+                  ? "Lịch ôn vừa thay đổi và đang được làm mới."
+                  : "Đang ngoại tuyến; lượt ôn vẫn được giữ trên thiết bị."}
             </span>
           </div>
-          <div className="rating-buttons">
-            {ratingOptions.map((option) => (
-              <button
-                className={option.className}
-                disabled={busy}
-                key={option.rating}
-                type="button"
-                onClick={() => void grade(option.rating)}
-              >
-                <kbd>{option.key}</kbd>
-                <span>
-                  <strong>{option.label}</strong>
-                  <small>{option.hint}</small>
-                </span>
-                {option.rating === 3 && <Check size={17} />}
-              </button>
-            ))}
+        )}
+
+        <div
+          className="review-session-bar"
+          role="progressbar"
+          aria-label="Tiến độ hàng đợi ôn tập"
+          aria-valuemin={0}
+          aria-valuemax={queue.cards.length}
+          aria-valuenow={handledCount}
+        >
+          <span><ScanLine size={14} /> MẢNH KÝ ỨC {String(handledCount + 1).padStart(2, "0")}</span>
+          <div className="review-progress-rail"><i style={{ width: `${progress}%` }} /><b aria-hidden="true" /></div>
+          <strong><b>{handledCount + 1}</b> / {queue.cards.length}</strong>
+        </div>
+      </div>
+
+      <div className="review-card-scroll">
+        <ReviewMemoryArena
+          audioSourceId={`review:account:${word.id}`}
+          character={character}
+          example={word.example}
+          exampleMeaning={word.exampleMeaning}
+          examplePinyin={word.examplePinyin}
+          meaning={word.meaning}
+          partOfSpeech={word.partOfSpeech}
+          pinyin={word.pinyin}
+          revealed={revealed}
+          tags={word.tags}
+          titleId="authenticated-review-card-title"
+          titleRef={cardHeadingRef}
+        />
+
+        <footer className="fsrs-status-line">
+          <span>
+            <CalendarClock size={15} />
+            Lịch ôn: {new Date(current.dueAt).toLocaleString("vi-VN")}
+          </span>
+          <span>
+            <ShieldAlert size={15} />
+            Tự đánh giá dùng để xếp lịch ôn
+          </span>
+          <span>
+            <CircleCheck size={15} />
+            Lịch mới xuất hiện sau khi lưu
+          </span>
+          <span aria-live="polite">
+            Tự đánh giá phiên này: {(ratings[1] ?? 0) + (ratings[2] ?? 0)
+              + (ratings[3] ?? 0) + (ratings[4] ?? 0)}
+          </span>
+        </footer>
+      </div>
+
+      {revealed ? (
+        <ReviewRatingConsole
+          busy={busy}
+          heading="Bạn gọi lại tốt đến đâu?"
+          headingId="authenticated-review-rating-title"
+          helper={`Tự đánh giá chỉ xếp lịch, không chấm đúng/sai. Mỗi thẻ được xác nhận cộng ${REVIEW_INTERACTION_XP} EXP hoạt động.`}
+          onGrade={grade}
+          options={ratingOptions}
+        />
+      ) : (
+        <section
+          className="review-action-console review-reveal-console"
+          aria-label="Thao tác thẻ ôn"
+          data-review-action="reveal"
+        >
+          <div className="review-action-inner">
+            <div className="rating-heading">
+              <span className="review-command-sigil" aria-hidden="true"><Sparkles size={19} /></span>
+              <span>
+                <b>GIAO THỨC TRUY HỒI</b>
+                <strong>Tự gọi lại trước khi xem đáp án</strong>
+                <small>Nói thầm cách đọc và ý nghĩa, rồi mới giải mã mảnh ký ức.</small>
+              </span>
+            </div>
+            <button
+              className="reveal-button"
+              disabled={busy}
+              type="button"
+              onClick={() => setRevealed(true)}
+            >
+              <span><small>GIẢI MÃ</small>Hiện đáp án</span> <ChevronRight size={18} />
+            </button>
           </div>
         </section>
       )}
-
-      <footer className="fsrs-status-line">
-        <span>
-          <CalendarClock size={15} />
-          Lịch ôn: {new Date(current.dueAt).toLocaleString("vi-VN")}
-        </span>
-        <span>
-          <ShieldAlert size={15} />
-          Tự đánh giá dùng để xếp lịch ôn
-        </span>
-        <span>
-          <CircleCheck size={15} />
-          Lịch mới xuất hiện sau khi lưu
-        </span>
-        <span aria-live="polite">
-          Tự đánh giá phiên này: {(ratings[1] ?? 0) + (ratings[2] ?? 0)
-            + (ratings[3] ?? 0) + (ratings[4] ?? 0)}
-        </span>
-      </footer>
     </div>
   );
 }

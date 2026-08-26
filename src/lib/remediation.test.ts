@@ -15,22 +15,17 @@ describe("remediation attempt policy", () => {
     expect(hidden).toEqual({ visible: false, used: true });
   });
 
-  it("does not advance or close a mistake after the answer was revealed", () => {
-    expect(evaluateRemediationAttempt(1, true, true)).toEqual({
-      correctedStreak: 1,
+  it("does not advance or close a mistake after a hint was used", () => {
+    expect(evaluateRemediationAttempt(0, true, true)).toEqual({
+      correctedStreak: 0,
       resolved: false,
       unassistedCorrect: false,
     });
   });
 
-  it("requires two unassisted correct recalls", () => {
+  it("closes the current repair after one independent correct recall", () => {
     expect(evaluateRemediationAttempt(0, true, false)).toEqual({
       correctedStreak: 1,
-      resolved: false,
-      unassistedCorrect: true,
-    });
-    expect(evaluateRemediationAttempt(1, true, false)).toEqual({
-      correctedStreak: 2,
       resolved: true,
       unassistedCorrect: true,
     });

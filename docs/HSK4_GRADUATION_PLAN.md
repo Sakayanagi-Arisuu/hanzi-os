@@ -31,7 +31,7 @@ activity, recall trễ, audio, nét viết hoặc human/native review.
 | HSK4 | **78/78** | **78/78** |
 | HSK1–4 | **213/213** | **213/213** |
 
-Package hiện hành là `foundation-2026.08.5`, tổng 217 lesson runtime. “Rich” ở
+Package hiện hành là `foundation-2026.08.7`, tổng 217 lesson runtime. “Rich” ở
 đây chỉ có nghĩa adapter hiện hành giao lesson qua Lesson UI giàu hoạt động; mỗi
 module vẫn phải kiểm độ sâu, tính đúng, mobile/keyboard và restore bằng journey
 thật.

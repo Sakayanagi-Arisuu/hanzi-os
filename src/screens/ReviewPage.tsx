@@ -1,5 +1,6 @@
 import { BrainCircuit } from "lucide-react";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
+import { useAudioEngine } from "../audio/AudioEngineProvider";
 import { useLearning } from "../store/LearningStore";
 import { LocalReviewPage } from "./LocalReviewPage";
 
@@ -18,6 +19,12 @@ const pending = (
 
 export function ReviewPage() {
   const { sync } = useLearning();
+  const { prepareMandarinSpeech } = useAudioEngine();
+
+  useEffect(() => {
+    prepareMandarinSpeech();
+  }, [prepareMandarinSpeech]);
+
   if (sync.session === null) return pending;
   if (!sync.session.authenticated) return <LocalReviewPage />;
   return (

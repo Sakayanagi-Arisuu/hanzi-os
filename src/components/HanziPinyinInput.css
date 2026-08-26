@@ -69,13 +69,12 @@
 .hanzi-ime-search:focus-within { outline: 2px solid var(--cyan); outline-offset: 2px; }
 .hanzi-ime-candidates { max-height: 260px; overflow-y: auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
 .hanzi-ime-candidates button {
-  min-height: 66px;
+  min-height: 60px;
   padding: 8px 10px;
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-template-rows: auto auto;
   align-items: center;
-  gap: 1px 9px;
+  gap: 9px;
   color: #d9eee7;
   text-align: left;
   background: #0a1d17;
@@ -84,9 +83,8 @@
 }
 .hanzi-ime-candidates button:hover { border-color: var(--jade); }
 .hanzi-ime-candidates button:focus-visible { border-color: var(--jade); outline: 2px solid var(--jade); outline-offset: 2px; }
-.hanzi-ime-candidates strong { grid-row: 1 / 3; color: var(--gold); font: 600 28px "Noto Sans SC", sans-serif; }
+.hanzi-ime-candidates strong { color: var(--gold); font: 600 28px "Noto Sans SC", sans-serif; }
 .hanzi-ime-candidates span { color: var(--cyan); font-size: 11px; }
-.hanzi-ime-candidates small { overflow: hidden; color: #799a90; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
 .hanzi-ime-empty { margin: 0; color: #799a90; font-size: 10px; line-height: 1.55; text-align: left; }
 
 @media (max-width: 620px) {

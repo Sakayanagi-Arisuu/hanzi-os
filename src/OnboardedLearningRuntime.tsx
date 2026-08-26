@@ -7,6 +7,7 @@ import { SystemVoiceBeacon } from "./components/system/VoiceReactor";
 import {
   NormalizedLearningProjectionProvider,
 } from "./store/NormalizedLearningProjectionStore";
+import { InteractionXpProvider } from "./store/InteractionXpStore";
 import { SystemUiProvider } from "./system/systemUiPreferences";
 
 function AudioRouteReset() {
@@ -28,11 +29,13 @@ export function OnboardedLearningRuntime() {
       <SystemUiProvider>
         <AudioEngineProvider>
           <NormalizedLearningProjectionProvider>
-            <BrowserRouter>
-              <AudioRouteReset />
-              <App />
-              <SystemVoiceBeacon />
-            </BrowserRouter>
+            <InteractionXpProvider>
+              <BrowserRouter>
+                <AudioRouteReset />
+                <App />
+                <SystemVoiceBeacon />
+              </BrowserRouter>
+            </InteractionXpProvider>
           </NormalizedLearningProjectionProvider>
         </AudioEngineProvider>
       </SystemUiProvider>

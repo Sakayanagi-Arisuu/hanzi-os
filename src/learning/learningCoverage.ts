@@ -34,6 +34,12 @@ type ExerciseIdentity = {
   skill: Skill;
 };
 
+export const PILLAR_SIGNAL_POLICY_VERSION = "wilson-confidence-v1" as const;
+export const PILLAR_SIGNAL_MINIMUM_SPAN_MS =
+  24 * 60 * 60 * 1_000;
+export const PILLAR_SIGNAL_MINIMUM_UNIQUE_ACTIVITIES = 6;
+export const PILLAR_SIGNAL_SAMPLE_TARGET = 24;
+
 /**
  * Presentation-free mirror of the released exercise ID rules. This keeps the
  * dashboard from allocating prompts, answer keys, distractors and explanations
@@ -94,6 +100,8 @@ const buildCompactExerciseIdentities = (
 
 export type ReleasedLessonActivity = {
   activityId: string;
+  activityVersion: string;
+  contentVersion: string;
   method: ObjectiveAttemptMethod;
   skill: Skill;
 };
@@ -116,6 +124,10 @@ const buildReleasedLessonActivities = (
   ))
   .map((exercise) => ({
     activityId: `${lesson.id}:${exercise.id}`,
+    activityVersion: exercise.kind === "tone-pair"
+      ? `${lesson.contentVersion}:tone-sandhi:1`
+      : `${lesson.contentVersion}:${lesson.id}:1`,
+    contentVersion: lesson.contentVersion,
     method: methodForExercise(exercise),
     skill: exercise.skill,
   }));
@@ -169,81 +181,201 @@ const findReleasedActivity = (
   return releasedActivityById.get(activityId);
 };
 
-export type LearnerActivityCoverage = Record<Skill, {
+export type LearnerActivityCoverageState =
+  | "unavailable"
+  | "insufficient"
+  | "measured";
+
+export type LearnerActivityCoverageItem = {
   covered: number;
   target: number;
   percent: number | null;
+  /** The learner can enter a released practice flow for this pillar. */
+  practiceAvailable: boolean;
+  /** A reviewed, policy-bound measurement channel exists for this pillar. */
   supported: boolean;
-}>;
-
-export const learnerActivityCoveragePercent = (
-  covered: number,
-  target: number,
-) => {
-  if (!Number.isFinite(covered) || !Number.isFinite(target) || target <= 0) {
-    return null;
-  }
-  return Math.min(
-    100,
-    Math.round((Math.max(0, covered) / target) * 1_000) / 10,
-  );
+  state: LearnerActivityCoverageState;
 };
 
-const coverageFromCounts = (
-  counts: Readonly<Partial<Record<Skill, number>>>,
-): LearnerActivityCoverage => Object.fromEntries(SKILLS.map((skill) => {
-  const target = LEARNING_COVERAGE_TARGETS[skill];
-  const covered = Math.min(target, Math.max(0, counts[skill] ?? 0));
-  return [skill, {
-    covered,
-    target,
-    percent: learnerActivityCoveragePercent(covered, target),
-    supported: target > 0,
-  }];
-})) as LearnerActivityCoverage;
+export type LearnerActivityCoverage = Record<
+  Skill,
+  LearnerActivityCoverageItem
+>;
+
+const roundedPercent = (value: number) => Math.min(
+  100,
+  Math.max(0, Math.round(value * 10) / 10),
+);
+
+/**
+ * Conservative 95% Wilson lower bound, weighted by independent sample depth.
+ * It deliberately avoids claiming IRT/BKT calibration: released activities do
+ * not yet carry reviewed difficulty/discrimination parameters. A perfect but
+ * tiny sample therefore stays low, while errors and uncertainty both pull the
+ * signal down.
+ */
+const confidenceAdjustedPillarSignal = (
+  correct: number,
+  observed: number,
+) => {
+  if (observed <= 0 || correct < 0 || correct > observed) return null;
+  const z = 1.96;
+  const zSquared = z * z;
+  const proportion = correct / observed;
+  const denominator = 1 + zSquared / observed;
+  const centre = proportion + zSquared / (2 * observed);
+  const margin = z * Math.sqrt(
+    (proportion * (1 - proportion) + zSquared / (4 * observed)) / observed,
+  );
+  const lowerBound = Math.max(0, (centre - margin) / denominator);
+  const sampleReliability = Math.min(1, observed / PILLAR_SIGNAL_SAMPLE_TARGET);
+  return roundedPercent(lowerBound * sampleReliability * 100);
+};
+
+const emptyPillarSignal = (): LearnerActivityCoverage => Object.fromEntries(
+  SKILLS.map((skill) => {
+    const supported = LEARNING_COVERAGE_TARGETS[skill] > 0;
+    // Speaking practice is released in Vạn Âm Điện, but browser transcripts
+    // remain unverified and therefore cannot become a skill measurement.
+    const practiceAvailable = supported || skill === "speaking";
+    return [skill, {
+      covered: 0,
+      target: supported ? PILLAR_SIGNAL_SAMPLE_TARGET : 0,
+      percent: null,
+      practiceAvailable,
+      supported,
+      state: supported ? "insufficient" : "unavailable",
+    }];
+  }),
+) as LearnerActivityCoverage;
+
+type PillarSignalCandidate = {
+  occurredAt: number;
+  outcome: "correct" | "incorrect";
+  sessionId: string;
+  stableOrder: string;
+};
+
+const localPillarSignalCandidate = (
+  item: LearningEvidence,
+  released: ReleasedLessonActivity,
+): PillarSignalCandidate | null => {
+  if (
+    item.source !== "lesson"
+    || (item.outcome !== "correct" && item.outcome !== "incorrect")
+    || (item.outcome === "correct" ? item.score !== 100 : item.score !== 0)
+    || !item.verified
+    || item.contentVersion !== released.contentVersion
+    || item.activityVersion !== released.activityVersion
+    || item.skill !== released.skill
+    || item.method !== released.method
+    || item.metadata?.usedHint !== false
+    || typeof item.metadata.sessionId !== "string"
+    || !item.metadata.sessionId
+  ) return null;
+
+  const occurredAt = Date.parse(item.occurredAt);
+  if (!Number.isFinite(occurredAt)) return null;
+  return {
+    occurredAt,
+    outcome: item.outcome,
+    sessionId: item.metadata.sessionId,
+    stableOrder: item.idempotencyKey,
+  };
+};
+
+const byTimeThenStableOrder = (
+  left: PillarSignalCandidate,
+  right: PillarSignalCandidate,
+) => left.occurredAt - right.occurredAt
+  || left.stableOrder.localeCompare(right.stableOrder);
 
 export const deriveLocalLearnerActivityCoverage = (
   evidence: readonly LearningEvidence[],
 ): LearnerActivityCoverage => {
-  const uniqueCorrectActivities = new Set<string>();
-  const counts = Object.fromEntries(SKILLS.map((skill) => [skill, 0])) as
-    Record<Skill, number>;
+  // One activity contributes at most one independent item. Within a lesson
+  // session only the first clean attempt counts, preventing an immediate retry
+  // from becoming fresh evidence. A later session may update the item's latest
+  // observed outcome without increasing breadth.
+  const activitySessions = new Map<
+    string,
+    Map<string, PillarSignalCandidate>
+  >();
   for (const item of evidence) {
-    if (
-      item.source !== "lesson"
-      || item.outcome !== "correct"
-      || !item.verified
-      || item.metadata?.usedHint === true
-      || item.metadata?.priorExposure === true
-    ) continue;
     const released = findReleasedActivity(item.activityId);
-    if (
-      !released
-      || released.skill !== item.skill
-      || released.method !== item.method
-    ) continue;
-    if (uniqueCorrectActivities.has(item.activityId)) continue;
-    uniqueCorrectActivities.add(item.activityId);
-    counts[item.skill] += 1;
+    if (!released) continue;
+    const candidate = localPillarSignalCandidate(item, released);
+    if (!candidate) continue;
+    const sessions = activitySessions.get(item.activityId) ?? new Map();
+    const existing = sessions.get(candidate.sessionId);
+    if (!existing || byTimeThenStableOrder(candidate, existing) < 0) {
+      sessions.set(candidate.sessionId, candidate);
+    }
+    activitySessions.set(item.activityId, sessions);
   }
-  return coverageFromCounts(counts);
+
+  const selectedBySkill = new Map<Skill, PillarSignalCandidate[]>();
+  const observationsBySkill = new Map<Skill, PillarSignalCandidate[]>();
+  for (const [activityId, sessions] of activitySessions) {
+    const released = findReleasedActivity(activityId);
+    if (!released || sessions.size <= 0) continue;
+    const observations = [...sessions.values()].sort(byTimeThenStableOrder);
+    const selected = observations.at(-1)!;
+    selectedBySkill.set(released.skill, [
+      ...(selectedBySkill.get(released.skill) ?? []),
+      selected,
+    ]);
+    observationsBySkill.set(released.skill, [
+      ...(observationsBySkill.get(released.skill) ?? []),
+      ...observations,
+    ]);
+  }
+
+  const signal = emptyPillarSignal();
+  for (const skill of SKILLS) {
+    if (!signal[skill].supported) continue;
+    const selected = selectedBySkill.get(skill) ?? [];
+    const observations = observationsBySkill.get(skill) ?? [];
+    const covered = selected.length;
+    signal[skill].covered = covered;
+    if (covered < PILLAR_SIGNAL_MINIMUM_UNIQUE_ACTIVITIES) continue;
+
+    const sessions = new Set(observations.map((item) => item.sessionId));
+    const ordered = [...observations].sort(byTimeThenStableOrder);
+    const span = ordered.length > 1
+      ? ordered.at(-1)!.occurredAt - ordered[0]!.occurredAt
+      : 0;
+    if (sessions.size < 2 || span < PILLAR_SIGNAL_MINIMUM_SPAN_MS) continue;
+
+    const correct = selected.filter((item) => item.outcome === "correct").length;
+    signal[skill].percent = confidenceAdjustedPillarSignal(correct, covered);
+    signal[skill].state = "measured";
+  }
+  return signal;
 };
 
 /**
- * Uses server-owned COUNT(DISTINCT activity_id) aggregates for correct,
- * unassisted, first-exposure attempts. Values are bounded by the released
- * catalog before presentation.
+ * Projection V4 only carries first-exposure correct breadth. It does not carry
+ * the item outcomes, distinct sessions and server time required by the
+ * confidence signal. Treating those raw counts as a skill estimate would
+ * silently change their meaning, so account pillars remain insufficient until
+ * a newer exact projection supplies a policy-bound aggregate.
  */
 export const deriveProjectedLearnerActivityCoverage = (
   uniqueCorrectActivityCounts: Readonly<Record<Skill, number>>,
-): LearnerActivityCoverage => coverageFromCounts(uniqueCorrectActivityCounts);
+): LearnerActivityCoverage => {
+  void uniqueCorrectActivityCounts;
+  return emptyPillarSignal();
+};
 
 export const formatLearnerActivityCoverage = (
   covered: number,
   target: number,
 ) => target <= 0
-  ? "Chưa có hoạt động hỗ trợ"
-  : `${covered.toLocaleString("vi-VN")} / ${target.toLocaleString("vi-VN")} hoạt động đúng`;
+  ? "Trụ chưa khai mở"
+  : covered <= 0
+    ? "Chưa ghi nhận chiến tích"
+    : `${covered.toLocaleString("vi-VN")} / ${target.toLocaleString("vi-VN")} chiến tích khảo luyện`;
 
 export const formatCoveragePercent = (percent: number | null) => {
   if (percent === null) return "Chưa hỗ trợ";

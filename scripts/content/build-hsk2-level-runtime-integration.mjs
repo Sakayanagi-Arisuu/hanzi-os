@@ -7,7 +7,7 @@ import {
 } from "../../src/content/hsk2LevelBatch.mjs";
 import { loadHskSyllabusBundle } from "../../src/content/hskSyllabusInventory.mjs";
 
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.7";
 
 const GRAPH_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_PATH = "content/curriculum/hsk0-4-unit-release-policy.json";

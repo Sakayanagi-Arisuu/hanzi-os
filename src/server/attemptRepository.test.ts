@@ -319,6 +319,76 @@ describe("normalized objective attempt repository", () => {
     });
   });
 
+  it("records remediation as verified, non-mastery evidence only after a real mistake", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    const repository = repositoryFor(database);
+    const origin = command({
+      response: {
+        kind: "answer",
+        answer: "sai",
+        usedHint: false,
+        durationMs: 700,
+      },
+    });
+    await repository.commitObjectiveAttempt(
+      "user-a",
+      origin,
+      scoreObjectiveAttempt(origin),
+    );
+
+    const remediation = command({
+      idempotencyKey: "attempt:repository:remediation:1",
+      deviceSequence: 2,
+      source: "mistake",
+      sessionId: undefined,
+      occurredAt: "2026-07-22T06:05:00.000Z",
+    });
+    const receipt = await repository.commitObjectiveAttempt(
+      "user-a",
+      remediation,
+      scoreObjectiveAttempt(remediation),
+    );
+
+    expect(receipt).toMatchObject({
+      source: "mistake",
+      method: "remediation-recall",
+      outcome: "correct",
+      score: 100,
+    });
+    expect(database.database.prepare(
+      "SELECT source, method, session_id AS sessionId FROM learning_attempts WHERE id = ?",
+    ).get(receipt.attemptId)).toEqual({
+      source: "mistake",
+      method: "remediation-recall",
+      sessionId: null,
+    });
+    expect(database.database.prepare(
+      "SELECT source, method, verified, mastery_eligible AS masteryEligible FROM learning_evidence WHERE id = ?",
+    ).get(receipt.evidenceId)).toEqual({
+      source: "mistake",
+      method: "remediation-recall",
+      verified: 1,
+      masteryEligible: 0,
+    });
+  });
+
+  it("rejects a fabricated remediation item with no verified incorrect origin", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    const repository = repositoryFor(database);
+    const remediation = command({
+      source: "mistake",
+      sessionId: undefined,
+    });
+
+    await expect(repository.commitObjectiveAttempt(
+      "user-a",
+      remediation,
+      scoreObjectiveAttempt(remediation),
+    )).rejects.toBeInstanceOf(AttemptSessionUnavailableError);
+  });
+
   it("returns one duplicate receipt without duplicating normalized rows", async () => {
     const database = new SQLiteD1();
     seedUser(database, "user-a");

@@ -11,6 +11,8 @@ type ServiceWorkerContext = {
 const loadServiceWorker = (overrides: {
   caches?: unknown;
   fetch?: unknown;
+  origin?: string;
+  self?: Record<string, unknown>;
 } = {}): ServiceWorkerContext => {
   const source = readFileSync(
     new URL("../../public/sw.js", import.meta.url),
@@ -27,6 +29,8 @@ const loadServiceWorker = (overrides: {
       );
     }
   }
+  const origin = overrides.origin ?? "https://hanzi.example";
+  const location = new URL(origin);
   const context = {
     Headers,
     Request: ServiceWorkerRequest,
@@ -42,7 +46,14 @@ const loadServiceWorker = (overrides: {
       ) => {
         listeners[type] = listener;
       },
-      location: { origin: "https://hanzi.example" },
+      clients: {
+        claim: vi.fn().mockResolvedValue(undefined),
+        matchAll: vi.fn().mockResolvedValue([]),
+      },
+      location: { hostname: location.hostname, origin: location.origin },
+      registration: { unregister: vi.fn().mockResolvedValue(true) },
+      skipWaiting: vi.fn().mockResolvedValue(undefined),
+      ...overrides.self,
     },
   };
 
@@ -74,6 +85,12 @@ describe("service worker privacy policy", () => {
     "/exams",
     "/exams/hsk4/b",
     "/exams/history",
+    "/@vite/client",
+    "/@react-refresh",
+    "/app/client-app.tsx",
+    "/node_modules/.vite/deps/react.js",
+    "/src/screens/MockExamsPage.tsx",
+    "/dev-recover.html",
   ])("bypasses identity-aware path %s", (pathname) => {
     expect(serviceWorker.shouldBypassServiceWorker(pathname)).toBe(true);
 
@@ -161,9 +178,9 @@ describe("service worker privacy policy", () => {
     await expect(installWork).rejects.toThrow("Unable to cache /offline.html");
     expect(deleteCache).toHaveBeenCalledTimes(3);
     expect(deleteCache.mock.calls.flat()).toEqual(expect.arrayContaining([
-      "hanzi-os-shell-v12",
-      "hanzi-os-pages-v12",
-      "hanzi-os-assets-v12",
+      "hanzi-os-shell-v13",
+      "hanzi-os-pages-v13",
+      "hanzi-os-assets-v13",
     ]));
     expect(cleanupObservedFinishedAppDocument).toEqual([true, true, true]);
   });
@@ -200,5 +217,68 @@ describe("service worker privacy policy", () => {
     expect(fetch).toHaveBeenCalledTimes(4);
     expect(put).toHaveBeenCalledTimes(4);
     expect(deleteCache).not.toHaveBeenCalled();
+  });
+
+  it("self-removes a localhost worker, clears only HANZI.OS caches, and reloads clients", async () => {
+    const deleteCache = vi.fn().mockResolvedValue(true);
+    const navigate = vi.fn().mockResolvedValue(undefined);
+    const unregister = vi.fn().mockResolvedValue(true);
+    const skipWaiting = vi.fn().mockResolvedValue(undefined);
+    const matchAll = vi.fn().mockResolvedValue([
+      { navigate, url: "http://localhost:3000/exams" },
+    ]);
+    serviceWorker = loadServiceWorker({
+      caches: {
+        delete: deleteCache,
+        keys: vi.fn().mockResolvedValue([
+          "hanzi-os-assets-v12",
+          "unrelated-cache",
+        ]),
+      },
+      origin: "http://localhost:3000",
+      self: {
+        clients: { matchAll },
+        registration: { unregister },
+        skipWaiting,
+      },
+    });
+    let installWork: Promise<unknown> | null = null;
+    serviceWorker.listeners.install({
+      waitUntil: (work: Promise<unknown>) => {
+        installWork = work;
+      },
+    } as never);
+    await expect(installWork).resolves.toBeUndefined();
+    expect(skipWaiting).toHaveBeenCalledOnce();
+
+    let activateWork: Promise<unknown> | null = null;
+    serviceWorker.listeners.activate({
+      waitUntil: (work: Promise<unknown>) => {
+        activateWork = work;
+      },
+    } as never);
+    await expect(activateWork).resolves.toBeUndefined();
+    expect(deleteCache).toHaveBeenCalledWith("hanzi-os-assets-v12");
+    expect(deleteCache).not.toHaveBeenCalledWith("unrelated-cache");
+    expect(unregister).toHaveBeenCalledOnce();
+    expect(matchAll).toHaveBeenCalledWith({
+      includeUncontrolled: true,
+      type: "window",
+    });
+    expect(navigate).toHaveBeenCalledWith("http://localhost:3000/exams");
+
+    const respondWith = vi.fn();
+    serviceWorker.listeners.fetch({
+      request: {
+        destination: "script",
+        headers: new Headers(),
+        method: "GET",
+        mode: "cors",
+        url: "http://localhost:3000/src/screens/MockExamsPage.tsx",
+      },
+      respondWith,
+      waitUntil: vi.fn(),
+    } as never);
+    expect(respondWith).not.toHaveBeenCalled();
   });
 });

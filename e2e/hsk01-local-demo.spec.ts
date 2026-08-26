@@ -1,5 +1,6 @@
 import { readFileSync } from "node:fs";
 import { expect, test, type Page } from "@playwright/test";
+import { completeLessonTheory } from "./helpers/lessonTheory";
 import {
   readIndexedDbStore,
   type OwnerScopedCacheRecord,
@@ -169,23 +170,23 @@ const readLessonResume = async (
 
 const finishHsk1TargetOnboarding = async (page: Page) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", {
-    name: /Đánh thức một ngôn ngữ mới/i,
-  })).toBeVisible();
-  await page.getByRole("radiogroup", { name: "Thiên Mệnh, mục tiêu học" })
-    .getByRole("radio", { name: /^Hướng tới HSK/u })
+  await expect(page.getByTestId("product-overview")).toBeVisible();
+  await page.locator("#landing-main").getByRole("button", {
+    name: "Kích hoạt HANZI.OS",
+  }).click();
+  await page.getByRole("radiogroup", { name: "Mục tiêu học" })
+    .getByRole("radio", { name: /^Học theo lộ trình HSK/u })
     .click();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("radiogroup", { name: /Căn Cơ Tự Khai · điểm xuất phát/u })
-    .getByRole("radio", { name: /^HSK1/u })
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("radiogroup", { name: "Trình độ hiện tại" })
+    .getByRole("radio", { name: /HSK1/u })
     .click();
-  await page.getByRole("button", { name: "Tiếp tục thiết lập" }).click();
-  await page.getByRole("button", { name: "Kích hoạt HANZI.OS" }).click();
+  await page.getByRole("button", { name: "Tiếp tục", exact: true }).click();
+  await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
+  await expect(page).toHaveURL(/\/assessment$/u);
   await expect(page.getByRole("heading", {
-    name: /Đánh thức tiếng Trung trong bạn/i,
+    name: "Khảo Nghiệm Căn Cơ",
   })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Xác nhận trạng thái" })).toBeVisible();
-  await page.getByRole("button", { name: "Xác nhận trạng thái" }).click();
 };
 
 const expectLessonNodeState = async (
@@ -209,6 +210,7 @@ const startLesson = async (page: Page, lessonId: string) => {
   await restoredStateExpect(page.getByText(
     /TTS của trình duyệt chỉ dùng để luyện nghe và nhại/i,
   )).toBeVisible();
+  await completeLessonTheory(page);
   await page.getByRole("button", {
     name: /Bước vào Thử Luyện/i,
   }).click();

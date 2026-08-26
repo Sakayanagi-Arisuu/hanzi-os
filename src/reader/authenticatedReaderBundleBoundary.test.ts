@@ -13,8 +13,17 @@ const authenticatedEntry = resolve(
   repositorySource,
   "screens/AuthenticatedReaderPage.tsx",
 );
+const localEntry = resolve(repositorySource, "screens/LocalReaderPage.tsx");
 const readerRouterEntry = resolve(repositorySource, "screens/ReaderPage.tsx");
-const readerChallengeEntry = resolve(repositorySource, "screens/ReaderChallengePage.tsx");
+const readerChallengeEntry = resolve(
+  repositorySource,
+  "screens/ReaderChallengePage.tsx",
+);
+const readerExperienceEntry = resolve(repositorySource, "reader/ReaderExperience.tsx");
+const readerPresentationEntry = resolve(
+  repositorySource,
+  "reader/readerPresentationContent.ts",
+);
 const authoritativeBank = realpathSync(resolve(
   repositorySource,
   "server/authoritativeReaderItemBank.ts",
@@ -57,6 +66,16 @@ describe("authenticated Reader client bundle boundary", () => {
     expect(challengeSource).toContain('import("./AuthenticatedReaderPage")');
   });
 
+  it("routes guest and account adapters through the same learner experience", () => {
+    const localSource = readFileSync(localEntry, "utf8");
+    const authenticatedSource = readFileSync(authenticatedEntry, "utf8");
+
+    expect(imports(localSource)).toContain("../reader/ReaderExperience");
+    expect(imports(authenticatedSource)).toContain("../reader/ReaderExperience");
+    expect(localSource).toContain("<ReaderExperience");
+    expect(authenticatedSource).toContain("<ReaderExperience");
+  });
+
   it("does not import the public answer-bearing story bank in the authenticated surface", () => {
     const source = readFileSync(authenticatedEntry, "utf8");
     const specifiers = imports(source);
@@ -71,6 +90,16 @@ describe("authenticated Reader client bundle boundary", () => {
     );
     expect(source).not.toMatch(/\bRELEASED_STORIES\b/u);
     expect(source).not.toMatch(/\bcorrectAnswer\b/u);
+  });
+
+  it("keeps shared presentation material answer-free", () => {
+    const experienceSource = readFileSync(readerExperienceEntry, "utf8");
+    const presentationSource = readFileSync(readerPresentationEntry, "utf8");
+
+    expect(imports(experienceSource)).not.toContain("../data/curriculum");
+    expect(presentationSource).not.toMatch(/\bcorrectAnswer\b/u);
+    expect(presentationSource).not.toMatch(/\bexplanation\b/u);
+    expect(presentationSource).not.toMatch(/\bcomprehension\b/u);
   });
 
   it("cannot transitively import the server-confidential Reader bank", () => {

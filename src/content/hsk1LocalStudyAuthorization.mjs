@@ -40,7 +40,7 @@ export const HSK1_LOCAL_STUDY_AUTHORIZATION_RELATIVE_PATH =
 export const HSK1_LOCAL_STUDY_AUTHORIZATION_ID =
   "hsk0-4-local-study-authorizations-2026.08.5";
 
-const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.5";
+const CURRENT_LOCAL_STUDY_VERSION = "foundation-2026.08.7";
 
 const GRAPH_RELATIVE_PATH = "content/curriculum/hsk0-4-graph.json";
 const RELEASE_POLICY_RELATIVE_PATH =

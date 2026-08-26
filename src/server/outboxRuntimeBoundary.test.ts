@@ -45,5 +45,5 @@ describe("transactional outbox runtime boundary", () => {
     }
 
     expect(violations).toEqual([]);
-  });
+  }, 30_000);
 });

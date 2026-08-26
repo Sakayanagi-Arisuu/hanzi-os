@@ -21,7 +21,7 @@ Git content
 
 Client không được import draft, review envelope, answer key kín hoặc dữ liệu
 editorial chỉ dành cho server/tooling. Package hiện hành là
-`foundation-2026.08.5`; thay version phải đi qua registry, validator và migration
+`foundation-2026.08.7`; thay version phải đi qua registry, validator và migration
 thay vì sửa chuỗi rải rác.
 
 ## 2. Trách nhiệm thư mục root

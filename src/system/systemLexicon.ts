@@ -17,7 +17,7 @@ export const SYSTEM_LEXICON = {
   dueCard: { fantasy: "Mảnh Ký Ức Đến Hạn", plain: "Thẻ cần truy hồi" },
   savedWord: { fantasy: "Ấn Ký Từ Vựng", plain: "Từ đã lưu" },
   mistake: { fantasy: "Nghịch Cảnh", plain: "Lỗi cần luyện lại" },
-  levelCheck: { fantasy: "Đại Khảo Cảnh Giới", plain: "Tự kiểm cuối chặng" },
+  levelCheck: { fantasy: "Khảo Nghiệm Căn Cơ", plain: "Khảo sát điểm khởi hành" },
   result: { fantasy: "Bản Đồ Bù Khuyết", plain: "Vùng nên luyện tiếp" },
 } as const;
 
@@ -37,12 +37,12 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
   "/path": { code: "PATH-02", title: "Thiên Lộ", plain: "Lộ trình bài học" },
   "/review": { code: "MEM-03", title: "Ký Ức Trận", plain: "Ôn tập FSRS" },
   "/mistakes": { code: "REMEDY-04", title: "Nghịch Cảnh Lục", plain: "Luyện lại lỗi sai" },
-  "/assessment": { code: "ORIGIN-05", title: "Khảo Nghiệm Căn Cơ", plain: "Tự kiểm điểm xuất phát" },
-  "/assessment/hsk1": { code: "TRIAL-HSK1", title: "Đại Khảo Cảnh Giới HSK1", plain: "Tự kiểm cuối chặng HSK1" },
-  "/assessment/hsk2": { code: "TRIAL-HSK2", title: "Đại Khảo Cảnh Giới HSK2", plain: "Tự kiểm cuối chặng HSK2" },
-  "/assessment/hsk3": { code: "TRIAL-HSK3", title: "Đại Khảo Cảnh Giới HSK3", plain: "Tự kiểm cuối chặng HSK3" },
-  "/assessment/hsk4": { code: "TRIAL-HSK4", title: "Đại Khảo Cảnh Giới HSK4", plain: "Tự kiểm cuối chặng HSK4" },
-  "/exams": { code: "EXAM-01", title: "Phòng Luyện Đề", plain: "Tài liệu HSK và luyện nhanh" },
+  "/assessment": { code: "ORIGIN-05", title: "Khảo Nghiệm Căn Cơ", plain: "Khảo sát điểm khởi hành" },
+  "/assessment/hsk1": { code: "ORIGIN-HSK1", title: "Khảo Nghiệm Căn Cơ HSK1", plain: "Khảo sát điểm khởi hành" },
+  "/assessment/hsk2": { code: "ORIGIN-HSK2", title: "Khảo Nghiệm Căn Cơ HSK2", plain: "Khảo sát điểm khởi hành" },
+  "/assessment/hsk3": { code: "ORIGIN-HSK3", title: "Khảo Nghiệm Căn Cơ HSK3", plain: "Khảo sát điểm khởi hành" },
+  "/assessment/hsk4": { code: "ORIGIN-HSK4", title: "Khảo Nghiệm Căn Cơ HSK4", plain: "Khảo sát điểm khởi hành" },
+  "/exams": { code: "THI-09", title: "Phòng Luyện Đề", plain: "Khảo luyện HSK theo phiên" },
   "/pronunciation": { code: "VOICE-06", title: "Vạn Âm Điện", plain: "Luyện âm và nhận dạng giọng nói" },
   "/characters": { code: "GLYPH-07", title: "Thần Văn Lô", plain: "Phân khu Hán tự" },
   "/reader": { code: "READ-08", title: "Vạn Quyển Các", plain: "Luyện đọc" },
@@ -53,7 +53,14 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
 
 export const resolveSystemPageName = (pathname: string): SystemPageName => {
   if (pathname.startsWith("/exams")) return SYSTEM_PAGE_NAMES["/exams"]!;
+  if (pathname.startsWith("/characters")) return SYSTEM_PAGE_NAMES["/characters"]!;
   if (pathname.startsWith("/reader")) return SYSTEM_PAGE_NAMES["/reader"]!;
+  const placementMatch = pathname.match(/^\/assessment\/placement\/hsk([1-4])$/u);
+  if (placementMatch) return {
+    code: `ORIGIN-HSK${placementMatch[1]}`,
+    title: `Khảo Nghiệm Căn Cơ HSK${placementMatch[1]}`,
+    plain: "Khảo sát điểm khởi hành",
+  };
   if (pathname.startsWith("/lesson/")) {
     return { code: "TRIAL-LIVE", title: "Thử Luyện Đang Tiến Hành", plain: "Bài học hiện tại" };
   }

@@ -118,9 +118,11 @@ export const scoreLessonSession = (
     return null;
   }
   const correctCount = answers.filter((item) => item.outcome === "correct").length;
+  // A clean retry is still valid for lesson progression. Prior exposure stays
+  // recorded on the evidence and remains ineligible for mastery/coverage, but
+  // it must not make a failed lesson impossible to pass forever.
   const gateEligible = (item: LearningEvidence) =>
-    item.metadata?.usedHint !== true
-    && item.metadata?.priorExposure !== true;
+    item.metadata?.usedHint !== true;
   const gateCorrectCount = answers.filter((item) =>
     item.outcome === "correct" && gateEligible(item)
   ).length;
@@ -136,7 +138,10 @@ export const scoreLessonSession = (
   const ungatedScore = Math.round((gateCorrectCount / answers.length) * 100);
   return {
     rawScore,
-    gateScore: requiredPassed ? ungatedScore : Math.min(ungatedScore, 69),
+    // Required items remain available for remediation diagnostics, but they do
+    // not create a hidden second pass condition. Progression is determined by
+    // the visible, unassisted score shown to the learner.
+    gateScore: ungatedScore,
     requiredPassed,
     requiredEvidenceCount: requiredAnswers.length,
     requiredCorrect,

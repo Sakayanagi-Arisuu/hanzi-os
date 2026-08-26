@@ -356,7 +356,6 @@ export const parseLessonResume = (
       value.phase !== "exercise"
       || Number(value.index) !== resolvedExercises.length - 1
       || !value.checked
-      || Number(value.earnedXp) < 1
       || Number(value.earnedXp) > lesson.xp
     ))
     || (!value.finished && Number(value.earnedXp) !== 0)

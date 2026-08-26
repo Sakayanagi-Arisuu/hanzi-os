@@ -11,25 +11,25 @@ import {
 import { ResponsiveHeroBackdrop } from "../src/components/ResponsiveHeroBackdrop";
 import {
   observeServiceWorkerLifecycle,
+  unregisterDevelopmentServiceWorkers,
 } from "../src/lib/serviceWorkerRegistration";
 
 const ClientRuntime = lazy(async () => ({
   default: (await import("./client-runtime")).ClientRuntime,
 }));
 
+const DEV_SERVICE_WORKER_RELOAD_KEY = "hanzi-os-dev-sw-detached";
+
 function BootstrapShell() {
   return (
-    <main className="onboarding-shell bootstrap-shell" aria-busy="true">
+    <main className="system-bootstrap" aria-busy="true">
       <ResponsiveHeroBackdrop priority />
-      <div className="onboarding-grid" aria-hidden="true" />
-      <section className="onboarding-brand">
-        <div className="boot-badge">AWAKENING PROTOCOL · LOCAL FIRST</div>
-        <div className="onboarding-logo"><span>汉</span><div><strong>HANZI.OS</strong><small>Mandarin Awakening System</small></div></div>
-        <h1>Đánh thức một<br /><em>ngôn ngữ mới.</em></h1>
-        <p>Lộ trình tiếng Trung thích ứng theo bằng chứng truy hồi, không dùng XP thay cho năng lực.</p>
-      </section>
-      <section className="onboarding-console bootstrap-console" aria-live="polite">
-        <span className="route-loader"><i /><strong>Đang khôi phục tiến độ trên thiết bị...</strong></span>
+      <section className="system-bootstrap-card" aria-live="polite">
+        <div className="system-bootstrap-brand"><span>汉</span><div><strong>HANZI.OS</strong><small>Tiếng Trung cho người Việt</small></div></div>
+        <div className="system-bootstrap-status">
+          <span aria-hidden="true" />
+          <strong>Đang mở HANZI.OS...</strong>
+        </div>
       </section>
     </main>
   );
@@ -45,7 +45,6 @@ export function ClientApp() {
   const reloadOnControllerChangeRef = useRef(false);
 
   useEffect(() => {
-    setMounted(true);
     setOnline(navigator.onLine);
     const handleOnline = () => setOnline(true);
     const handleOffline = () => setOnline(false);
@@ -61,7 +60,32 @@ export function ClientApp() {
     navigator.serviceWorker?.addEventListener("controllerchange", handleControllerChange);
     let stopObservingServiceWorker: (() => void) | null = null;
     let disposed = false;
-    if ("serviceWorker" in navigator) {
+
+    const initializeClient = async () => {
+      if (process.env.NODE_ENV === "development" && "serviceWorker" in navigator) {
+        try {
+          const needsDetachReload = await unregisterDevelopmentServiceWorkers(
+            navigator.serviceWorker,
+          );
+          if (disposed) return;
+          if (
+            needsDetachReload
+            && sessionStorage.getItem(DEV_SERVICE_WORKER_RELOAD_KEY) !== "1"
+          ) {
+            sessionStorage.setItem(DEV_SERVICE_WORKER_RELOAD_KEY, "1");
+            window.location.reload();
+            return;
+          }
+          sessionStorage.removeItem(DEV_SERVICE_WORKER_RELOAD_KEY);
+        } catch {
+          // A failed development cleanup must not block the learner runtime.
+        }
+        if (!disposed) setMounted(true);
+        return;
+      }
+
+      setMounted(true);
+      if (!("serviceWorker" in navigator)) return;
       navigator.serviceWorker.register("/sw.js").then((registration) => {
         if (disposed) return;
         registrationRef.current = registration;
@@ -77,7 +101,9 @@ export function ClientApp() {
       }).catch(() => {
         if (!disposed) setServiceWorkerError(true);
       });
-    }
+    };
+
+    void initializeClient();
     return () => {
       disposed = true;
       stopObservingServiceWorker?.();

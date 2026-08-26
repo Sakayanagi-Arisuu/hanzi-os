@@ -237,7 +237,7 @@ export class LessonSessionSubmissionRepository {
       requiredEvidenceCount: derived.requiredEvidenceCount,
       requiredCorrectCount: derived.requiredCorrectCount,
       passed: derived.passed,
-      hintAndRepeatPolicy: "ineligible-for-gate-v1",
+      hintAndRepeatPolicy: "hint-ineligible-repeat-allowed-v2",
     });
     const eventPayload = encodeOutboxEventPayload({
       eventType: "lesson.completed",
@@ -813,7 +813,11 @@ export class LessonSessionSubmissionRepository {
         );
       }
       const correct = attempt.outcome === "correct";
-      const gateEligible = attempt.usedHint === 0 && attempt.priorExposure === 0;
+      // Repeated activities remain marked as prior exposure and therefore do
+      // not become fresh mastery evidence. They may still prove an unassisted
+      // retry for lesson progression; otherwise a learner could never recover
+      // from a failed first session with this fixed activity form.
+      const gateEligible = attempt.usedHint === 0;
       if (correct) correctCount += 1;
       if (correct && gateEligible) gateCorrectCount += 1;
       if (answer.requiredForPass && correct && gateEligible) {

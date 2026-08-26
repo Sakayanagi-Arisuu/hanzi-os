@@ -1,5 +1,4 @@
 import {
-  AlertTriangle,
   ArrowLeft,
   ArrowRight,
   BookOpenText,
@@ -21,7 +20,9 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router";
-import { LessonDepthPanel } from "../components/LessonDepthPanel";
+import { LessonDepthDisclosure } from "../components/LessonDepthPanel";
+import { LessonQuestResult } from "../components/LessonQuestResult";
+import { LessonTheoryPanel } from "../components/LessonTheoryPanel";
 import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
@@ -33,12 +34,16 @@ import {
   type LessonResumeV5,
 } from "../learning/resumeProtocol";
 import {
+  calculateLessonFirstClearXp,
+  isLocalLessonRewardClaimed,
+} from "../learning/interactionXp";
+import { resolveExerciseSpeechText } from "../learning/exerciseSpeech";
+import {
   localLessonActivityProvenance,
   localLessonSessionProvenance,
   materializeLocalLessonRuntime,
 } from "../learning/localLessonRuntime";
 import {
-  isLessonIdAvailableForStartingLevel,
   isLessonReleased,
   isLessonUnlocked,
 } from "../lib/adaptive";
@@ -62,9 +67,6 @@ import {
 } from "../sync/learningResumeStore";
 import type { VocabularyItem } from "../types";
 import { AuthenticatedLessonPage } from "./AuthenticatedLessonPage";
-
-const displayCharacter = (word: VocabularyItem, script: "simplified" | "traditional") =>
-  script === "traditional" ? word.traditional : word.simplified;
 
 const exerciseIcon = (kind: Exercise["kind"]) => {
   if (kind === "listening") return Headphones;
@@ -96,10 +98,6 @@ function LocalLessonPage() {
   const availableForPath = Boolean(
     requestedLesson
     && isLessonReleased(requestedLesson)
-    && isLessonIdAvailableForStartingLevel(
-      requestedLesson.id,
-      state.profile.startingLevel,
-    ),
   );
   const unavailableLesson = Boolean(requestedLesson && !availableForPath);
   const lesson = availableForPath ? requestedLesson : undefined;
@@ -118,6 +116,10 @@ function LocalLessonPage() {
   const [answers, setAnswers] = useState<LessonResumeAnswer[]>([]);
   const [finished, setFinished] = useState(false);
   const [earnedXp, setEarnedXp] = useState(0);
+  const [claimingReward, setClaimingReward] = useState(false);
+  const [rewardError, setRewardError] = useState<string | null>(null);
+  const [reviewingTheory, setReviewingTheory] = useState(false);
+  const [theoryReady, setTheoryReady] = useState(false);
 
   const guide = useMemo(() => getLessonGuide(lesson?.id ?? ""), [lesson?.id]);
   const lessonWords = useMemo(
@@ -304,6 +306,10 @@ function LocalLessonPage() {
     setAnswers([]);
     setFinished(false);
     setEarnedXp(0);
+    setClaimingReward(false);
+    setRewardError(null);
+    setReviewingTheory(false);
+    setTheoryReady(false);
   };
 
   if (phase === "briefing" && !finished) {
@@ -315,79 +321,49 @@ function LocalLessonPage() {
           <strong>{lesson.minutes} phút · {lesson.xp} XP</strong>
         </header>
 
-        <section className="briefing-hero">
-          <div>
-            <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
-            <h1>{lesson.title}</h1>
-            <p className="briefing-chinese">{lesson.chineseTitle}</p>
-            <p>{lesson.objective}</p>
-          </div>
-          <div className="mastery-gate">
-            <Target size={26} />
-            <span>Ngưỡng Thông Qua Tự Kiểm</span>
-            <strong>70%</strong>
-            <small>Hiểu quy tắc rồi tự gọi lại, không học bằng đoán đáp án.</small>
-          </div>
-        </section>
-
-        <div className="briefing-grid">
-          <section className="briefing-concept">
-            <header><span>01 · CỐT LÕI</span><BrainCircuit size={20} /></header>
-            <h2>{guide.concept}</h2>
-            <p>{guide.rule}</p>
-            <div className="guide-examples">
-              {guide.examples.map((example) => (
-                <button key={example.chinese} type="button" onClick={() => speakMandarin(example.chinese)}>
-                  <Volume2 size={17} />
-                  <span><strong>{example.chinese}</strong><small>{example.pinyin}</small></span>
-                  <em>{example.meaning}</em>
-                </button>
-              ))}
+        <div className="lesson-briefing-scroll">
+          <section className="briefing-hero">
+            <div>
+              <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
+              <h1>{lesson.title}</h1>
+              <p className="briefing-chinese">{lesson.chineseTitle}</p>
+              <p>{lesson.objective}</p>
+            </div>
+            <div className="mastery-gate">
+              <Target size={26} />
+              <span>Ngưỡng Thông Qua Tự Kiểm</span>
+              <strong>70%</strong>
+              <small>Hiểu quy tắc rồi tự gọi lại, không học bằng đoán đáp án.</small>
             </div>
           </section>
 
-          <aside className="briefing-intel">
-            <div className="pitfall-panel">
-              <span><AlertTriangle size={17} /> ĐIỂM MÙ THƯỜNG GẶP</span>
-              <p>{guide.pitfall}</p>
-            </div>
-            <div className="checkpoint-panel">
-              <span><Target size={17} /> TỰ KIỂM TRƯỚC KHI VÀO TRẬN</span>
-              <p>{guide.checkpoint}</p>
-            </div>
-          </aside>
+          <LessonTheoryPanel
+            guide={guide}
+            lessonId={lesson.id}
+            lessonWords={lessonWords}
+            script={state.profile.script}
+            practiceKinds={exercises.map((exercise) => exercise.kind)}
+            onReadinessChange={setTheoryReady}
+          />
+
+          <LessonDepthDisclosure lessonId={lesson.id} />
+
+          <p className="synthetic-audio-note">
+            Âm Mẫu Tổng Hợp · TTS của trình duyệt chỉ dùng để luyện nghe và nhại; không phải audio người thật hay bằng chứng phát âm.
+          </p>
         </div>
-
-        <section className="briefing-lexicon">
-          <header><span>02 · TÍN HIỆU MỤC TIÊU</span><small>{lessonWords.length} mục trong bài</small></header>
-          <div>
-            {lessonWords.map((word) => {
-              const character = displayCharacter(word, state.profile.script);
-              return (
-                <button key={word.id} type="button" onClick={() => speakMandarin(character)}>
-                  <strong>{character}</strong>
-                  <span>{word.pinyin}</span>
-                  <small>{word.meaning}</small>
-                  <Volume2 size={15} />
-                </button>
-              );
-            })}
-          </div>
-        </section>
-
-        <LessonDepthPanel lessonId={lesson.id} />
-
-        <p className="synthetic-audio-note">
-          Âm Mẫu Tổng Hợp · TTS của trình duyệt chỉ dùng để luyện nghe và nhại; không phải audio người thật hay bằng chứng phát âm.
-        </p>
 
         <footer className="briefing-actions">
           <p><Lightbulb size={17} /> Phiên làm bài sẽ tự lưu sau mỗi lựa chọn và tiếp tục đúng vị trí khi tải lại trang.</p>
-          <button className="primary-button" type="button" onClick={() => {
+          <button className="primary-button" disabled={!theoryReady && answers.length === 0 && index === 0} type="button" onClick={() => {
             emitSystemSignal({ type: "lesson.started", sourceId: `lesson:${lesson.id}` });
             setPhase("exercise");
           }}>
-            Bước vào Thử Luyện <Play size={17} />
+            {answers.length > 0 || index > 0 || selected
+              ? `Tiếp tục câu ${index + 1}/${exercises.length}`
+              : theoryReady
+                ? "Bước vào Thử Luyện"
+                : "Hoàn tất 3 chặng học ở trên"} <Play size={17} />
           </button>
         </footer>
       </div>
@@ -460,12 +436,12 @@ function LocalLessonPage() {
       return;
     }
     const previous = state.completedLessons[lesson.id];
-    const firstMastery = gateScore >= 70 && (!previous || previous.bestScore < 70);
-    const reward = firstMastery
-      ? lesson.xp
-      : previous
-        ? Math.round(lesson.xp * 0.2)
-        : Math.round(lesson.xp * 0.25);
+    const reward = calculateLessonFirstClearXp({
+      lessonXp: lesson.xp,
+      gateScore,
+      previousBestScore: previous?.bestScore,
+    });
+    const firstClear = reward > 0;
     if (!localRuntime) return;
     const disposition = await actions.completeLesson(
       lesson.id,
@@ -481,44 +457,71 @@ function LocalLessonPage() {
       type: gateScore >= 70 ? "lesson.completed" : "learning.retry",
       sourceId: `lesson:${lesson.id}:result`,
       eventId: `${sessionId}:result`,
-      message: gateScore >= 70 ? `Nhiệm vụ ${lesson.title} hoàn thành. Kinh nghiệm đã được ghi nhận.` : undefined,
+      message: gateScore >= 70
+        ? firstClear
+          ? `Nhiệm vụ ${lesson.title} hoàn thành. Rương phần thưởng đã xuất hiện.`
+          : `Nhiệm vụ ${lesson.title} đã được luyện lại.`
+        : undefined,
     });
-    if (firstMastery) emitSystemSignal({
+    if (firstClear) emitSystemSignal({
       type: "path.unlocked",
       sourceId: `lesson:${lesson.id}:unlock`,
       eventId: `${sessionId}:unlock`,
     });
   };
 
+  const claimReward = async () => {
+    if (claimingReward) return;
+    setClaimingReward(true);
+    setRewardError(null);
+    const awarded = await actions.claimLessonReward(lesson.id);
+    setClaimingReward(false);
+    if (!awarded) {
+      setRewardError("Chưa thể mở rương lúc này. Hãy thử lại sau.");
+    }
+  };
+
   if (finished) {
     const passed = gateScore >= 70;
-    const bestScore = Math.max(gateScore, state.completedLessons[lesson.id]?.bestScore ?? 0);
+    const completion = state.completedLessons[lesson.id];
+    const rewardClaimed = passed && isLocalLessonRewardClaimed({
+      lessonId: lesson.id,
+      lessonTitle: lesson.title,
+      lessonXp: lesson.xp,
+      completedAt: completion?.completedAt,
+      activityLog: state.activityLog,
+    });
+    const rewardState = !passed
+      ? "unavailable" as const
+      : rewardClaimed || earnedXp === 0
+        ? "claimed" as const
+        : claimingReward ? "claiming" as const : "claimable" as const;
     return (
-      <div className="lesson-result-screen">
-        <div className={`result-sigil ${passed ? "passed" : "retry"}`}>
-          {passed ? <CircleCheck size={38} /> : <RotateCcw size={38} />}
-          <span />
-        </div>
-        <span className="system-kicker">THỬ LUYỆN TRÊN THIẾT BỊ · TỰ KIỂM</span>
-        <h1>{passed ? "Thử Luyện đã thông qua" : "Phiên Thử Luyện đã được lưu trên thiết bị"}</h1>
-        <p>{passed ? "Bạn đã đạt ngưỡng 70% và mở bước tiếp theo trong lộ trình trên thiết bị." : requiredPassed ? "Các câu sai đã được giữ trong Nghịch Cảnh Lục để bạn luyện lại." : "Phần thanh điệu chưa đạt 70%. Hãy ôn phần cốt lõi rồi thử lại."}</p>
-        <div className="result-metrics">
-          <div><small>Điểm Thông Qua Tự Kiểm</small><strong>{gateScore}%</strong></div>
-          <div><small>Tốt nhất trên máy này</small><strong>{bestScore}%</strong></div>
-          <div><small>Năng Lượng Tương Tác</small><strong>+{earnedXp} XP</strong></div>
-        </div>
-        <div className="mastery-threshold"><span style={{ width: `${gateScore}%` }} /><i style={{ left: "70%" }}>70% · THÔNG QUA TỰ KIỂM</i></div>
-        <div className="result-actions">
-          <button className="secondary-button" type="button" onClick={restart}><RotateCcw size={17} /> Học và thử lại</button>
-          {passed ? (
-            <Link className="primary-button" to="/path" onClick={clearSession}>Tiếp tục Thiên Lộ <ArrowRight size={17} /></Link>
-          ) : (
-            <Link className="primary-button" to="/mistakes" onClick={clearSession}>Phá giải Nghịch Cảnh <ArrowRight size={17} /></Link>
-          )}
-        </div>
-      </div>
+      <LessonQuestResult
+        lessonId={lesson.id}
+        lessonTitle={lesson.title}
+        chineseTitle={lesson.chineseTitle}
+        passed={passed}
+        correctCount={correctCount}
+        totalCount={exercises.length}
+        gateScore={gateScore}
+        requiredPassed={requiredPassed}
+        rewardXp={lesson.xp}
+        rewardState={rewardState}
+        rewardError={rewardError}
+        onClaimReward={() => void claimReward()}
+        onRetry={restart}
+        onNavigate={clearSession}
+        retryDestination="/mistakes"
+        retryDestinationLabel="Xem câu cần ôn"
+      />
     );
   }
+  const currentSpeechText = resolveExerciseSpeechText(
+    current,
+    current.wordId ? WORD_BY_ID.get(current.wordId) : undefined,
+    state.profile.script,
+  );
 
   const ExerciseIcon = exerciseIcon(current.kind);
   const progress = Math.round(((index + 1) / exercises.length) * 100);
@@ -526,9 +529,17 @@ function LocalLessonPage() {
   return (
     <div className="lesson-live-page">
       <header className="lesson-live-header">
-        <Link className="icon-button" to="/path" aria-label="Thoát bài học"><X size={20} /></Link>
+        <Link className="lesson-return-link" to="/path" aria-label="Rời bài và trở về Thiên Lộ; tiến độ đã được tự lưu">
+          <ArrowLeft size={18} /><span>Thiên Lộ</span>
+        </Link>
         <div className="lesson-progress-track"><i style={{ width: `${progress}%` }} /></div>
         <span>{index + 1} / {exercises.length}</span>
+        <button className="lesson-theory-button" type="button" onClick={() => {
+          if (!checked) setSelectedUsedHint(true);
+          setReviewingTheory(true);
+        }} aria-pressed={reviewingTheory}>
+          <BookOpenText size={17} /><span>Lý thuyết</span>
+        </button>
         <span className="lesson-xp"><Zap size={15} /> {lesson.xp} XP</span>
       </header>
 
@@ -537,10 +548,21 @@ function LocalLessonPage() {
         <strong>{lesson.title} · {lesson.chineseTitle}</strong>
       </div>
 
-      <section className="exercise-stage">
+      <section className={`exercise-stage ${reviewingTheory ? "is-theory-review" : ""}`}>
+        {reviewingTheory ? (
+          <LessonTheoryPanel
+            compact
+            guide={guide}
+            lessonId={lesson.id}
+            lessonWords={lessonWords}
+            script={state.profile.script}
+            practiceKinds={exercises.map((exercise) => exercise.kind)}
+          />
+        ) : (
+          <>
         <div className={`exercise-prompt kind-${current.kind}`}>
           {current.kind === "listening" ? (
-            <button className="sound-orb" type="button" onClick={() => current.spokenText && speakMandarin(current.spokenText)} aria-label="Phát âm thanh">
+            <button className="sound-orb" type="button" onClick={() => currentSpeechText && speakMandarin(currentSpeechText)} aria-label="Phát âm thanh">
               <Volume2 size={38} />
               <span aria-hidden="true" />
             </button>
@@ -548,8 +570,8 @@ function LocalLessonPage() {
             <>
               <h1>{current.prompt}</h1>
               {current.promptMeta && <p>{current.promptMeta}</p>}
-              {current.spokenText && current.kind !== "recall" && (
-                <button className="listen-inline" type="button" onClick={() => speakMandarin(current.spokenText!)}>
+              {currentSpeechText && current.kind !== "recall" && (
+                <button className="listen-inline" type="button" onClick={() => speakMandarin(currentSpeechText)}>
                   <Volume2 size={17} /> Nghe
                 </button>
               )}
@@ -601,9 +623,20 @@ function LocalLessonPage() {
             })}
           </div>
         )}
+          </>
+        )}
       </section>
 
-      <footer className={`answer-console ${checked ? (isCorrect ? "correct" : "wrong") : ""}`}>
+      <footer className={`answer-console ${reviewingTheory ? "lesson-theory-console" : checked ? (isCorrect ? "correct" : "wrong") : ""}`}>
+        {reviewingTheory ? (
+          <>
+            <p><BookOpenText size={17} /> Tiến độ vẫn được giữ; câu hiện tại được ghi là đã dùng trợ giúp.</p>
+            <button className="primary-button" type="button" onClick={() => setReviewingTheory(false)}>
+              Quay lại câu {index + 1} <ArrowRight size={17} />
+            </button>
+          </>
+        ) : (
+          <>
         {checked ? (
           <div className="answer-explanation">
             {isCorrect ? <CircleCheck size={23} /> : <Lightbulb size={23} />}
@@ -623,6 +656,8 @@ function LocalLessonPage() {
           {checked ? (index === exercises.length - 1 ? "Hoàn tất thử luyện" : "Câu tiếp theo") : "Xác nhận"}
           <ArrowRight size={17} />
         </button>
+          </>
+        )}
       </footer>
     </div>
   );

@@ -1,10 +1,13 @@
 const CACHE_PREFIX = "hanzi-os-";
-const CACHE_VERSION = "v12";
+const CACHE_VERSION = "v13";
 const SHELL_CACHE = `${CACHE_PREFIX}shell-${CACHE_VERSION}`;
 const PAGE_CACHE = `${CACHE_PREFIX}pages-${CACHE_VERSION}`;
 const ASSET_CACHE = `${CACHE_PREFIX}assets-${CACHE_VERSION}`;
 
 const ACTIVE_CACHES = new Set([SHELL_CACHE, PAGE_CACHE, ASSET_CACHE]);
+const IS_LOCAL_DEVELOPMENT = ["localhost", "127.0.0.1"].includes(
+  self.location.hostname,
+);
 const SHELL_ASSETS = [
   "/offline.html",
   "/manifest.webmanifest",
@@ -22,6 +25,16 @@ const AUTH_PATH_PREFIXES = [
   "/callback",
 ];
 const PROTECTED_PATH_PREFIXES = ["/account", "/admin", "/studio", "/exams"];
+const DEVELOPMENT_PATH_PREFIXES = [
+  "/@fs",
+  "/@id",
+  "/@react-refresh",
+  "/@vite",
+  "/app",
+  "/node_modules",
+  "/src",
+  "/dev-recover.html",
+];
 
 function isPathAtOrBelow(pathname, prefix) {
   return pathname === prefix || pathname.startsWith(`${prefix}/`);
@@ -30,6 +43,9 @@ function isPathAtOrBelow(pathname, prefix) {
 function shouldBypassServiceWorker(pathname) {
   return (
     isPathAtOrBelow(pathname, "/api") ||
+    DEVELOPMENT_PATH_PREFIXES.some((prefix) =>
+      isPathAtOrBelow(pathname, prefix),
+    ) ||
     AUTH_PATH_PREFIXES.some((prefix) => isPathAtOrBelow(pathname, prefix)) ||
     PROTECTED_PATH_PREFIXES.some((prefix) =>
       isPathAtOrBelow(pathname, prefix),
@@ -156,10 +172,35 @@ async function installShell() {
 }
 
 self.addEventListener("install", (event) => {
+  if (IS_LOCAL_DEVELOPMENT) {
+    event.waitUntil(self.skipWaiting());
+    return;
+  }
   event.waitUntil(installShell());
 });
 
 self.addEventListener("activate", (event) => {
+  if (IS_LOCAL_DEVELOPMENT) {
+    event.waitUntil(
+      (async () => {
+        const keys = await caches.keys();
+        await Promise.allSettled(
+          keys
+            .filter((key) => key.startsWith(CACHE_PREFIX))
+            .map((key) => caches.delete(key)),
+        );
+        await self.registration.unregister();
+        const windows = await self.clients.matchAll({
+          includeUncontrolled: true,
+          type: "window",
+        });
+        await Promise.allSettled(
+          windows.map((client) => client.navigate(client.url)),
+        );
+      })(),
+    );
+    return;
+  }
   event.waitUntil(
     (async () => {
       const keys = await caches.keys();
@@ -282,6 +323,7 @@ function staleWhileRevalidate(event, cacheName, maxEntries) {
 }
 
 self.addEventListener("fetch", (event) => {
+  if (IS_LOCAL_DEVELOPMENT) return;
   const { request } = event;
   if (request.method !== "GET" || request.headers.has("range")) return;
 

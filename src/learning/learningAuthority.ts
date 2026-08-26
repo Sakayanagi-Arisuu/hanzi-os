@@ -1,6 +1,6 @@
 import {
-  getActivePathReleasedLessons,
-  getReleasedLessonProgress,
+  getProgressingPathReleasedLessons,
+  getProgressingReleasedLessonProgress,
   isLessonPassed,
   isLessonUnlocked,
 } from "../lib/adaptive";
@@ -46,10 +46,8 @@ export const resolveLearningPathAuthority = ({
   authoritativeProgress: AuthoritativeReleasedLessonProgressV1 | null;
 }): LearningPathAuthorityResolution => {
   if (!authenticated) {
-    const progress = getReleasedLessonProgress(localState);
-    const activeLessons = getActivePathReleasedLessons(
-      localState.profile.startingLevel,
-    );
+    const progress = getProgressingReleasedLessonProgress(localState);
+    const activeLessons = getProgressingPathReleasedLessons(localState);
     const lessons = new Map(activeLessons.map((lesson) => {
       const passed = isLessonPassed(lesson, localState);
       const unlocked = passed || isLessonUnlocked(lesson, localState);

@@ -18,6 +18,7 @@ describe("HANZI.OS storage lifecycle", () => {
     "hanzi-os-learning-state-v1-corrupt",
     "hanzi-os-learning-state-v1-ownership-quarantine",
     "hanzi-os-assessment-session-v1",
+    "hanzi-os-hsk1-level-check-session-v1:placement-gate-v1",
     "hanzi-os-lesson-session-v3:boot-1",
     "hanzi-os-lesson-session-v4:boot-1",
   ])("recognizes progress key %s across session schema versions", (key) => {

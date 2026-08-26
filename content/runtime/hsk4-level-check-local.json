@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "bankId": "hsk4-level-assessment-2026.07",
   "formId": "hsk4-level-form-a",
-  "contentVersion": "foundation-2026.08.5",
+  "contentVersion": "foundation-2026.08.7",
   "state": "ai-reviewed-for-personal-local-self-check",
   "disclosure": {
     "humanReviewed": false,
@@ -2540,5 +2540,5 @@
       "prerequisiteWaiverEligible": false
     }
   ],
-  "integritySha256": "sha256:f9a925015ba121e77ad74c73f970b665604d3022f5fd56129560dea53fc4bca9"
+  "integritySha256": "sha256:6b159d9c70b50ba8863cea2501d24d90a9feec9093fac8ec38e5ffeae06e1bdb"
 }

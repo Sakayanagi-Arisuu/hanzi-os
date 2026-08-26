@@ -1,5 +1,4 @@
 import { COURSE_UNITS } from "../data/curriculum";
-import { getSystemClass } from "./systemLexicon";
 import type { LearningState } from "../types";
 
 export { getSystemClass } from "./systemLexicon";
@@ -127,21 +126,11 @@ export type SystemCeremony = {
 
 export const deriveSystemCeremonies = (state: LearningState): SystemCeremony[] => {
   const rank = getInteractionRankProgress(state.xp);
-  const systemClass = getSystemClass(state.profile.goal);
   const journeyTitles = deriveJourneyTitles(state.completedLessons)
     .filter((item) => item.completed);
   const highestJourney = journeyTitles.at(-1);
   const ceremonies: SystemCeremony[] = [];
 
-  if (state.profile.onboarded) {
-    ceremonies.push({
-      id: `awakening:${state.profile.goal}`,
-      eyebrow: "AWAKENING PROTOCOL COMPLETE",
-      title: systemClass.title,
-      subtitle: systemClass.plain,
-      disclosure: "Định hướng nội bộ theo Thiên Mệnh đã chọn; không phải cấp năng lực.",
-    });
-  }
   if (rank.currentThreshold > 0) {
     ceremonies.push({
       id: `activity-rank:${rank.currentThreshold}`,

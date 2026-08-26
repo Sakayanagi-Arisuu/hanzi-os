@@ -40,8 +40,18 @@ liệu đã xóa; không tạo thư mục archive mới trong source tree.
 - Tối đa năm vùng người học: **Học, Ôn, Nói, Luyện, Hồ sơ**.
 - Một màn hình có một hành động chính; thông tin nâng cao dùng progressive
   disclosure; nhãn chức năng phải rõ, lore hologram chỉ là lớp thẩm mỹ.
+- Giọng điệu canonical mang phong cách **hệ thống · nhiệm vụ · chuyển sinh · tu
+  luyện**. Dùng `Khảo Nghiệm Căn Cơ` riêng cho chức năng xác định điểm khởi
+  hành; giữ nhất quán các từ `Khảo Luyện`, `Thí Luyện`, `Thử Luyện`, `Mạo Hiểm
+  Giả`, `Hành Giả`, `Cảnh Giới`, `Thiên Lộ`; danh tính guest
+  mặc định là `Hành giả vô danh`, không tự đổi thành “Người học HANZI.OS”. Khi
+  thuật ngữ lore có thể mơ hồ, ghép ngay mô tả chức năng phổ thông hoặc
+  accessible label; không bỏ lore và cũng không để lore che tác vụ.
 - Mobile-first, touch target tối thiểu 44×44 px, keyboard/focus rõ, WCAG AA và
   `prefers-reduced-motion`.
+- Với màn hình thao tác theo phiên, header và thanh hành động chính phải luôn
+  nằm trong viewport khả dụng; chỉ vùng nội dung giữa được cuộn. Không để CTA
+  trôi dưới fold hoặc bị thanh điều hướng mobile che.
 - Không route overlay/flicker, animation trang trí liên tục, jargon backend,
   receipt/hash/ID hoặc thông báo nghiệp vụ trong UI người học.
 - Có escape hatch cho microphone, IME và handwriting.

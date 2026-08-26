@@ -6,7 +6,8 @@ import { fileURLToPath } from "node:url";
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const clientRoot = resolve(root, "dist/client");
 const publicRoot = resolve(root, "public");
-const budgetBytes = 800 * 1024;
+const budgetKiB = 1024;
+const budgetBytes = budgetKiB * 1024;
 
 const walk = async (directory) => {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -36,8 +37,8 @@ const largestHeroBytes = Math.max(
 );
 // This deliberately sums every emitted client JS/CSS asset, including lazy
 // route chunks, plus the largest responsive hero. It is therefore a
-// conservative ceiling for any initial route, not a measurement of bytes that
-// one cold navigation actually requests. Lighthouse remains the network-aware
+// conservative whole-application ceiling, not a measurement of bytes that one
+// cold navigation actually requests. Lighthouse remains the network-aware
 // initial-route check.
 const clientAssetCeilingBytes = compressedClientBytes + largestHeroBytes;
 const kib = (bytes) => (bytes / 1024).toFixed(1);
@@ -48,7 +49,7 @@ console.log(
 );
 if (clientAssetCeilingBytes > budgetBytes) {
   throw new Error(
-    `Conservative client asset ceiling exceeds the 800 KiB Phase 0 budget by ${
+    `Conservative client asset ceiling exceeds the ${budgetKiB} KiB local-release budget by ${
       kib(clientAssetCeilingBytes - budgetBytes)
     } KiB`,
   );

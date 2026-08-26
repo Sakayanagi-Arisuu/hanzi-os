@@ -1,24 +1,27 @@
 import {
+  BookOpenCheck,
   BriefcaseBusiness,
   Check,
+  ChevronLeft,
   ChevronRight,
-  CircleGauge,
+  Clock3,
   Languages,
-  Map,
   MessageCircle,
   Plane,
-  ScanLine,
-  ShieldCheck,
-  Sparkles,
   Target,
+  UserRound,
 } from "lucide-react";
-import { useState } from "react";
-import { ResponsiveHeroBackdrop } from "./ResponsiveHeroBackdrop";
+import { useEffect, useRef, useState } from "react";
 import { HSK_STARTING_LEVEL_OPTIONS } from "../data/hskLearningPaths";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { useLearning } from "../store/LearningStore";
-import { getSystemClass } from "../system/systemLexicon";
-import type { LearningGoal, Profile } from "../types";
+import type { LearningGoal, Profile, StartingLevel } from "../types";
+import { ResponsiveHeroBackdrop } from "./ResponsiveHeroBackdrop";
+
+type SystemOnboardingProps = {
+  onComplete?: () => void;
+  onExit?: () => void;
+};
 
 const goals: Array<{
   id: LearningGoal;
@@ -26,258 +29,286 @@ const goals: Array<{
   description: string;
   icon: typeof MessageCircle;
 }> = [
-  { id: "conversation", title: "Giao tiếp", description: "Nghe và nói tự nhiên trong đời sống.", icon: MessageCircle },
-  { id: "hsk", title: "Hướng tới HSK", description: "Ưu tiên kỹ năng nền; chưa phải lộ trình luyện thi hoàn chỉnh.", icon: Target },
-  { id: "career", title: "Công việc", description: "Họp, email và giao tiếp chuyên nghiệp.", icon: BriefcaseBusiness },
-  { id: "travel", title: "Du lịch", description: "Sinh tồn nhanh trong tình huống thật.", icon: Plane },
+  {
+    id: "conversation",
+    title: "Giao tiếp hằng ngày",
+    description: "Ưu tiên nghe, nói và những tình huống gần gũi.",
+    icon: MessageCircle,
+  },
+  {
+    id: "hsk",
+    title: "Học theo lộ trình HSK",
+    description: "Đi từng chặng từ nền tảng đến HSK4.",
+    icon: Target,
+  },
+  {
+    id: "career",
+    title: "Dùng trong công việc",
+    description: "Tập trung vào hội thoại và từ vựng chuyên nghiệp.",
+    icon: BriefcaseBusiness,
+  },
+  {
+    id: "travel",
+    title: "Dùng khi du lịch",
+    description: "Học các tình huống cần thiết trong chuyến đi.",
+    icon: Plane,
+  },
 ];
 
-const startingLevels = HSK_STARTING_LEVEL_OPTIONS;
+const levelCopy: Record<Exclude<StartingLevel, "basic">, {
+  title: string;
+  description: string;
+}> = {
+  zero: {
+    title: "Mới bắt đầu",
+    description: "Chưa học hoặc muốn bắt đầu lại từ Pinyin và thanh điệu.",
+  },
+  hsk1: {
+    title: "Đã học khoảng HSK1",
+    description: "Biết một số từ và mẫu câu rất cơ bản.",
+  },
+  hsk2: {
+    title: "Đã học khoảng HSK2",
+    description: "Hiểu và dùng được các câu quen thuộc hằng ngày.",
+  },
+  hsk3: {
+    title: "Đã học khoảng HSK3",
+    description: "Giao tiếp trong tình huống quen thuộc và đọc đoạn ngắn.",
+  },
+  hsk4: {
+    title: "Đã học khoảng HSK4",
+    description: "Đọc, nghe và diễn đạt được nhiều chủ đề thông dụng.",
+  },
+};
+
+const startingLevels = HSK_STARTING_LEVEL_OPTIONS.map(({ id }) => ({
+  id,
+  ...levelCopy[id],
+}));
 
 const dailyMinuteOptions = [10, 20, 30] as const;
-const scriptOptions = ["simplified", "traditional"] as const;
 
-export function SystemOnboarding() {
-  const { actions } = useLearning();
+const stepCopy = [
+  {
+    kicker: "Mục tiêu học",
+    title: "Bạn học tiếng Trung để làm gì?",
+    description: "Chọn mục tiêu gần nhất. Bạn có thể đổi lại trong Hồ sơ bất cứ lúc nào.",
+  },
+  {
+    kicker: "Trình độ hiện tại",
+    title: "Bạn muốn bắt đầu từ đâu?",
+    description: "Không cần chọn thật chính xác. Hệ thống sẽ điều chỉnh sau khi có thêm kết quả học.",
+  },
+  {
+    kicker: "Nhịp học phù hợp",
+    title: "Bạn muốn học bao lâu mỗi ngày?",
+    description: "Một lịch ngắn và đều thường dễ duy trì hơn một buổi học quá dài.",
+  },
+] as const;
+
+export function SystemOnboarding({ onComplete, onExit }: SystemOnboardingProps) {
+  const { actions, state } = useLearning();
   const [step, setStep] = useState(0);
-  const [profile, setProfile] = useState<Profile>({
-    name: "",
-    goal: "conversation",
-    dailyMinutes: 20,
-    script: "simplified",
-    startingLevel: "zero",
-    onboarded: true,
-  });
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const [profile, setProfile] = useState<Profile>(() => state.profile.onboarded
+    ? { ...state.profile }
+    : {
+        name: "",
+        goal: "conversation",
+        dailyMinutes: 20,
+        script: "simplified",
+        startingLevel: "zero",
+        onboarded: true,
+      });
+
+  useEffect(() => {
+    headingRef.current?.focus();
+  }, [step]);
+
+  const goToStep = (nextStep: number) => {
+    setStep(Math.max(0, Math.min(stepCopy.length - 1, nextStep)));
+  };
 
   const activate = () => {
-    actions.finishOnboarding({
+    const persisted = actions.finishOnboarding({
       ...profile,
       name: profile.name.trim() || "Hành giả vô danh",
       onboarded: true,
     });
+    if (persisted) onComplete?.();
   };
 
-  return (
-    <main className="onboarding-shell">
-      <ResponsiveHeroBackdrop priority />
-      <div className="onboarding-grid" aria-hidden="true" />
-      <div className="sys-awakening-ritual" aria-hidden="true">
-        <span className="sys-awakening-ring ring-one" />
-        <span className="sys-awakening-ring ring-two" />
-        <span className="sys-awakening-ring ring-three" />
-        <strong>觉</strong>
-      </div>
-      <section className="onboarding-brand">
-        <div className="boot-badge"><ScanLine size={16} /> AWAKENING PROTOCOL 0{step + 1}/03</div>
-        <div className="onboarding-logo">
-          <span><Languages size={38} /></span>
-          <div>
-            <strong>HANZI.OS</strong>
-            <small>Mandarin Awakening System</small>
-          </div>
-        </div>
-        <h1>Đánh thức một<br /><em>ngôn ngữ mới.</em></h1>
-        <p>
-          Từ thanh điệu đầu tiên đến hội thoại, đọc và viết. Hệ thống khởi tạo
-          Thiên Lộ từ mục tiêu và Căn Cơ Tự Khai; Tín Hiệu Học Tập phát sinh
-          sau đó sẽ giúp ưu tiên hoạt động phù hợp hơn.
-        </p>
-        <div className="boot-status">
-          <span><ShieldCheck size={15} /> FSRS memory core</span>
-          <span><CircleGauge size={15} /> Thất Trụ Học Tập</span>
-          <span><Sparkles size={15} /> Chỉ Thị Ngày thích ứng</span>
-        </div>
-      </section>
+  const currentStep = stepCopy[step]!;
 
-      <section className="onboarding-console" aria-live="polite">
-        <header>
-          <div>
-            <small>INITIALIZATION NODE</small>
-            <strong>{step === 0 ? "Kích hoạt Thiên Mệnh" : step === 1 ? "Quét Căn Cơ và Nhịp Tu Luyện" : "Xác nhận Bảng Thuộc Tính"}</strong>
-          </div>
-          <div className="step-dots">
-            {[0, 1, 2].map((item) => <span className={item <= step ? "active" : ""} key={item} />)}
-          </div>
+  return (
+    <main className="setup-shell" data-testid="onboarding-wizard">
+      <ResponsiveHeroBackdrop priority />
+      <div className="setup-grid" aria-hidden="true" />
+
+      <header className="setup-header">
+        <a className="setup-brand" href="/welcome" onClick={(event) => {
+          if (!onExit) return;
+          event.preventDefault();
+          onExit();
+        }}>
+          <span><Languages aria-hidden="true" size={25} /></span>
+          <div><strong>HANZI.OS</strong><small>Thiết lập lộ trình</small></div>
+        </a>
+        <button className="setup-exit" type="button" onClick={onExit}>
+          <ChevronLeft aria-hidden="true" size={17} />
+          Về trang giới thiệu
+        </button>
+      </header>
+
+      <section className="setup-card" aria-labelledby="setup-step-title">
+        <header className="setup-progress">
+          <span>Bước {step + 1} trong {stepCopy.length}</span>
+          <ol aria-label={`Tiến độ thiết lập: bước ${step + 1} trong ${stepCopy.length}`}>
+            {stepCopy.map((item, index) => (
+              <li
+                aria-current={index === step ? "step" : undefined}
+                className={index <= step ? "is-complete" : ""}
+                key={index}
+              >
+                <span className="sr-only">{item.kicker}</span>
+              </li>
+            ))}
+          </ol>
         </header>
 
-        {step === 0 && (
-          <div
-            className="goal-grid"
-            role="radiogroup"
-            aria-label="Thiên Mệnh, mục tiêu học"
-          >
-            {goals.map(({ id, title, description, icon: Icon }, optionIndex) => (
-              <button
-                className={profile.goal === id ? "selected" : ""}
-                data-radio-index={optionIndex}
-                key={id}
-                role="radio"
-                aria-checked={profile.goal === id}
-                tabIndex={profile.goal === id ? 0 : -1}
-                type="button"
-                onClick={() => setProfile((current) => ({ ...current, goal: id }))}
-                onKeyDown={(event) => handleRadioGroupKeyDown(event, {
-                  currentIndex: optionIndex,
-                  itemCount: goals.length,
-                  onSelect: (nextIndex) => setProfile((current) => ({
-                    ...current,
-                    goal: goals[nextIndex]!.id,
-                  })),
-                })}
-              >
-                <Icon size={22} />
-                <span><strong>{title}</strong><small>{description}</small></span>
-                {profile.goal === id && <Check size={18} />}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className="setup-body">
+          <p className="setup-kicker">{currentStep.kicker}</p>
+          <h1 id="setup-step-title" ref={headingRef} tabIndex={-1}>{currentStep.title}</h1>
+          <p className="setup-description">{currentStep.description}</p>
 
-        {step === 1 && (
-          <div className="rhythm-panel">
-            <label>
-              <span>Tên hiển thị</span>
-              <input
-                value={profile.name}
-                placeholder="Hành giả vô danh"
-                onChange={(event) => setProfile((current) => ({ ...current, name: event.target.value }))}
-              />
-            </label>
-            <fieldset>
-              <legend id="onboarding-starting-level-legend">Căn Cơ Tự Khai · điểm xuất phát</legend>
-              <div
-                className="starting-level-grid"
-                role="radiogroup"
-                aria-labelledby="onboarding-starting-level-legend"
-              >
-                {startingLevels.map((level, optionIndex) => (
-                  <button
-                    className={profile.startingLevel === level.id ? "selected" : ""}
-                    data-radio-index={optionIndex}
-                    key={level.id}
-                    role="radio"
-                    aria-checked={profile.startingLevel === level.id}
-                    tabIndex={profile.startingLevel === level.id ? 0 : -1}
-                    type="button"
-                    onClick={() => setProfile((current) => ({ ...current, startingLevel: level.id }))}
-                    onKeyDown={(event) => handleRadioGroupKeyDown(event, {
-                      currentIndex: optionIndex,
-                      itemCount: startingLevels.length,
-                      onSelect: (nextIndex) => setProfile((current) => ({
-                        ...current,
-                        startingLevel: startingLevels[nextIndex]!.id,
-                      })),
-                    })}
-                  >
-                    <strong>{level.title}</strong>
-                    <span>{level.description}</span>
-                    {profile.startingLevel === level.id && <Check size={16} />}
-                  </button>
-                ))}
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend id="onboarding-daily-minutes-legend">Nhịp Tu Luyện · thời lượng mỗi ngày</legend>
-              <div
-                className="segmented-options"
-                role="radiogroup"
-                aria-labelledby="onboarding-daily-minutes-legend"
-              >
-                {dailyMinuteOptions.map((minutes, optionIndex) => (
-                  <button
-                    className={profile.dailyMinutes === minutes ? "selected" : ""}
-                    data-radio-index={optionIndex}
-                    key={minutes}
-                    role="radio"
-                    aria-checked={profile.dailyMinutes === minutes}
-                    tabIndex={profile.dailyMinutes === minutes ? 0 : -1}
-                    type="button"
-                    onClick={() => setProfile((current) => ({ ...current, dailyMinutes: minutes }))}
-                    onKeyDown={(event) => handleRadioGroupKeyDown(event, {
-                      currentIndex: optionIndex,
-                      itemCount: dailyMinuteOptions.length,
-                      onSelect: (nextIndex) => setProfile((current) => ({
-                        ...current,
-                        dailyMinutes: dailyMinuteOptions[nextIndex]!,
-                      })),
-                    })}
-                  >
-                    <strong>{minutes}</strong><span>phút</span>
-                  </button>
-                ))}
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend id="onboarding-script-legend">Hệ chữ ưu tiên</legend>
-              <div
-                className="segmented-options script-options"
-                role="radiogroup"
-                aria-labelledby="onboarding-script-legend"
-              >
+          {step === 0 && (
+            <div className="setup-option-grid setup-goal-grid" role="radiogroup" aria-label="Mục tiêu học">
+              {goals.map(({ id, title, description, icon: Icon }, optionIndex) => (
                 <button
-                  className={profile.script === "simplified" ? "selected" : ""}
-                  data-radio-index={0}
+                  className={profile.goal === id ? "is-selected" : ""}
+                  data-radio-index={optionIndex}
+                  key={id}
                   role="radio"
-                  aria-checked={profile.script === "simplified"}
-                  tabIndex={profile.script === "simplified" ? 0 : -1}
+                  aria-checked={profile.goal === id}
+                  tabIndex={profile.goal === id ? 0 : -1}
                   type="button"
-                  onClick={() => setProfile((current) => ({ ...current, script: "simplified" }))}
+                  onClick={() => setProfile((current) => ({ ...current, goal: id }))}
                   onKeyDown={(event) => handleRadioGroupKeyDown(event, {
-                    currentIndex: 0,
-                    itemCount: scriptOptions.length,
+                    currentIndex: optionIndex,
+                    itemCount: goals.length,
                     onSelect: (nextIndex) => setProfile((current) => ({
                       ...current,
-                      script: scriptOptions[nextIndex]!,
+                      goal: goals[nextIndex]!.id,
                     })),
                   })}
                 >
-                  <strong>简体</strong><span>Giản thể</span>
+                  <span className="setup-option-icon"><Icon aria-hidden="true" size={20} /></span>
+                  <span className="setup-option-copy"><strong>{title}</strong><small>{description}</small></span>
+                  <Check className="setup-option-check" aria-hidden="true" size={18} />
                 </button>
+              ))}
+            </div>
+          )}
+
+          {step === 1 && (
+            <div className="setup-option-grid setup-level-grid" role="radiogroup" aria-label="Trình độ hiện tại">
+              {startingLevels.map((level, optionIndex) => (
                 <button
-                  className={profile.script === "traditional" ? "selected" : ""}
-                  data-radio-index={1}
+                  className={profile.startingLevel === level.id ? "is-selected" : ""}
+                  data-radio-index={optionIndex}
+                  key={level.id}
                   role="radio"
-                  aria-checked={profile.script === "traditional"}
-                  tabIndex={profile.script === "traditional" ? 0 : -1}
+                  aria-checked={profile.startingLevel === level.id}
+                  tabIndex={profile.startingLevel === level.id ? 0 : -1}
                   type="button"
-                  onClick={() => setProfile((current) => ({ ...current, script: "traditional" }))}
+                  onClick={() => setProfile((current) => ({ ...current, startingLevel: level.id }))}
                   onKeyDown={(event) => handleRadioGroupKeyDown(event, {
-                    currentIndex: 1,
-                    itemCount: scriptOptions.length,
+                    currentIndex: optionIndex,
+                    itemCount: startingLevels.length,
                     onSelect: (nextIndex) => setProfile((current) => ({
                       ...current,
-                      script: scriptOptions[nextIndex]!,
+                      startingLevel: startingLevels[nextIndex]!.id,
                     })),
                   })}
                 >
-                  <strong>繁體</strong><span>Phồn thể</span>
+                  <span className="setup-option-copy"><strong>{level.title}</strong><small>{level.description}</small></span>
+                  <Check className="setup-option-check" aria-hidden="true" size={18} />
                 </button>
-              </div>
-            </fieldset>
-          </div>
-        )}
+              ))}
+            </div>
+          )}
 
-        {step === 2 && (
-          <div className="activation-summary">
-            <div className="activation-core"><Languages size={34} /><span /></div>
-            <h2>Bảng Thuộc Tính đã sẵn sàng</h2>
-            <dl>
-              <div><dt>Danh xưng</dt><dd>{profile.name || "Hành giả vô danh"}</dd></div>
-              <div><dt>Thiên Mệnh</dt><dd>{goals.find((goal) => goal.id === profile.goal)?.title}</dd></div>
-              <div><dt>Chức hệ định hướng</dt><dd>{getSystemClass(profile.goal).title}</dd></div>
-              <div><dt>Căn Cơ Tự Khai</dt><dd>{startingLevels.find((level) => level.id === profile.startingLevel)?.title}</dd></div>
-              <div><dt>Nhịp Tu Luyện</dt><dd>{profile.dailyMinutes} phút/ngày</dd></div>
-              <div><dt>Hệ chữ</dt><dd>{profile.script === "simplified" ? "Giản thể" : "Phồn thể"}</dd></div>
-            </dl>
-            <p><Map size={16} /> Căn Cơ Tự Khai không miễn Điều Kiện Khai Mở; hệ thống sẽ đề nghị Khảo Nghiệm ngắn sau khi kích hoạt.</p>
-          </div>
-        )}
+          {step === 2 && (
+            <div className="setup-preferences">
+              <fieldset>
+                <legend id="setup-daily-minutes-legend"><Clock3 aria-hidden="true" size={17} /> Thời lượng mỗi ngày</legend>
+                <div className="setup-minutes" role="radiogroup" aria-labelledby="setup-daily-minutes-legend">
+                  {dailyMinuteOptions.map((minutes, optionIndex) => (
+                    <button
+                      className={profile.dailyMinutes === minutes ? "is-selected" : ""}
+                      data-radio-index={optionIndex}
+                      key={minutes}
+                      role="radio"
+                      aria-checked={profile.dailyMinutes === minutes}
+                      tabIndex={profile.dailyMinutes === minutes ? 0 : -1}
+                      type="button"
+                      onClick={() => setProfile((current) => ({ ...current, dailyMinutes: minutes }))}
+                      onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                        currentIndex: optionIndex,
+                        itemCount: dailyMinuteOptions.length,
+                        onSelect: (nextIndex) => setProfile((current) => ({
+                          ...current,
+                          dailyMinutes: dailyMinuteOptions[nextIndex]!,
+                        })),
+                      })}
+                    >
+                      <strong>{minutes}</strong><span>phút</span>
+                    </button>
+                  ))}
+                </div>
+              </fieldset>
 
-        <footer>
-          {step > 0 ? <button className="back-button" type="button" onClick={() => setStep((current) => current - 1)}>Quay lại</button> : <span />}
-          <button className="activate-button" type="button" onClick={() => step < 2 ? setStep((current) => current + 1) : activate()}>
-            {step < 2 ? "Tiếp tục thiết lập" : "Kích hoạt HANZI.OS"}
-            <ChevronRight size={18} />
+              <label className="setup-name-field" htmlFor="setup-display-name">
+                <span><UserRound aria-hidden="true" size={17} /> Tên hiển thị <small>không bắt buộc</small></span>
+                <input
+                  autoComplete="nickname"
+                  id="setup-display-name"
+                  maxLength={40}
+                  value={profile.name}
+                  placeholder="Ví dụ: Minh Anh"
+                  onChange={(event) => setProfile((current) => ({ ...current, name: event.target.value }))}
+                />
+              </label>
+
+              <fieldset className="setup-script-choice">
+                <legend><BookOpenCheck aria-hidden="true" size={17} /> Hệ chữ hiển thị</legend>
+                <div role="radiogroup" aria-label="Hệ chữ hiển thị">
+                  <button type="button" role="radio" aria-checked={profile.script === "simplified"} className={profile.script === "simplified" ? "is-selected" : ""} onClick={() => setProfile((current) => ({ ...current, script: "simplified" }))}>
+                    <strong>简 · Giản thể</strong><small>Lộ trình chính, đầy đủ bàn nét đã kiểm chứng.</small>
+                  </button>
+                  <button type="button" role="radio" aria-checked={profile.script === "traditional"} className={profile.script === "traditional" ? "is-selected" : ""} onClick={() => setProfile((current) => ({ ...current, script: "traditional" }))}>
+                    <strong>繁 · Phồn thể</strong><small>Đổi chữ trong bài, ôn tập, đọc và từ điển; bàn nét chỉ mở khi có dữ liệu hợp lệ.</small>
+                  </button>
+                </div>
+              </fieldset>
+            </div>
+          )}
+        </div>
+
+        <footer className="setup-actions">
+          <button className="setup-secondary-button" type="button" onClick={() => {
+            if (step === 0) onExit?.();
+            else goToStep(step - 1);
+          }}>
+            <ChevronLeft aria-hidden="true" size={18} />
+            {step === 0 ? "Trang giới thiệu" : "Quay lại"}
+          </button>
+          <button className="setup-primary-button" type="button" onClick={() => {
+            if (step < stepCopy.length - 1) goToStep(step + 1);
+            else activate();
+          }}>
+            {step < stepCopy.length - 1 ? "Tiếp tục" : "Bắt đầu Khảo Nghiệm Căn Cơ"}
+            <ChevronRight aria-hidden="true" size={18} />
           </button>
         </footer>
       </section>

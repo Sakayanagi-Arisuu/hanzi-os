@@ -10,7 +10,6 @@ export type HanziInputCandidate = {
   id: string;
   hanzi: string;
   pinyin: string;
-  meaning: string;
 };
 
 export const normalizePinyinInput = (value: string) => stripPinyinMarks(
@@ -22,7 +21,6 @@ const PINYIN_INDEX = RELEASED_VOCABULARY.map((word) => ({
   simplified: word.simplified,
   traditional: word.traditional,
   pinyin: word.pinyin,
-  meaning: word.meaning,
   normalizedPinyin: normalizePinyinInput(word.pinyin),
 }));
 
@@ -46,7 +44,7 @@ export const findHanziCandidates = (
       const hanzi = script === "traditional" ? item.traditional : item.simplified;
       if (seen.has(hanzi)) return [];
       seen.add(hanzi);
-      return [{ id: item.id, hanzi, pinyin: item.pinyin, meaning: item.meaning }];
+      return [{ id: item.id, hanzi, pinyin: item.pinyin }];
     })
     .slice(0, Math.max(1, limit));
 };
@@ -133,7 +131,7 @@ export function HanziPinyinInput({
           <header>
             <div>
               <strong>Bàn phím pinyin nội bộ</strong>
-              <small>Gõ pinyin bạn nhớ rồi chọn chữ, giống bộ gõ của hệ điều hành.</small>
+              <small>Gõ pinyin bạn nhớ rồi chọn chữ; nghĩa tiếng Việt không được hiển thị trong Thử Luyện.</small>
             </div>
             <button type="button" aria-label="Đóng bàn phím pinyin" onClick={closeIme}>
               <X size={17} />
@@ -166,7 +164,6 @@ export function HanziPinyinInput({
                   >
                     <strong>{candidate.hanzi}</strong>
                     <span>{candidate.pinyin}</span>
-                    <small>{candidate.meaning}</small>
                   </button>
                 ))}
               </div>

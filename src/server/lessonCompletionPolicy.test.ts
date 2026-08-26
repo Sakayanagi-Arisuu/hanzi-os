@@ -5,8 +5,8 @@ import {
 } from "./lessonCompletionPolicy";
 
 describe("versioned lesson completion policy", () => {
-  it("passes only when the clean gate score and required subset both reach 70%", () => {
-    expect(LESSON_COMPLETION_POLICY_VERSION).toBe("lesson-completion-policy-v1");
+  it("passes when the clean gate score reaches 70%", () => {
+    expect(LESSON_COMPLETION_POLICY_VERSION).toBe("lesson-completion-policy-v3");
     expect(calculateLessonCompletionScore({
       evidenceCount: 10,
       correctCount: 10,
@@ -23,13 +23,13 @@ describe("versioned lesson completion policy", () => {
     });
   });
 
-  it("caps a high aggregate score when required evidence fails", () => {
+  it("keeps required evidence diagnostic without silently capping the score", () => {
     expect(calculateLessonCompletionScore({
       evidenceCount: 10,
       correctCount: 10,
       gateCorrectCount: 9,
       requiredEvidenceCount: 10,
       requiredCorrectCount: 6,
-    })).toMatchObject({ gateScore: 69, passed: false });
+    })).toMatchObject({ gateScore: 90, passed: true });
   });
 });

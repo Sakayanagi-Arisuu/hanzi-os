@@ -119,33 +119,26 @@ test("shows the complete HSK4 path and completes its 72-item local level check w
   await card.getByRole("link", { name: /Bước vào Đại Khảo/u }).click();
 
   await expect(page.getByTestId("hsk4-level-check-intro")).toBeVisible();
-  await page.getByRole("button", { name: /Bắt đầu tự kiểm tra/u }).click();
+  await page.getByRole("button", { name: /Bắt đầu Khảo Nghiệm/u }).click();
   await expect(page.getByText("1/72", { exact: true })).toBeVisible();
 
   await page.getByRole("radiogroup", {
     name: "Các lựa chọn cho câu 1",
   }).getByRole("radio").first().click();
-  await page.getByRole("button", { name: "Xác nhận" }).click();
-  await expect(page.getByRole("button", { name: "Câu tiếp theo" }))
-    .toBeVisible();
+  await expect(page.getByText("2/72", { exact: true })).toBeVisible();
 
   await page.reload();
-  await expect(page.getByText("1/72", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Câu tiếp theo" }).click();
+  await expect(page.getByText("2/72", { exact: true })).toBeVisible();
 
   for (let question = 2; question <= 72; question += 1) {
     await page.getByRole("radiogroup", {
       name: `Các lựa chọn cho câu ${question}`,
     }).getByRole("radio").first().click();
-    await page.getByRole("button", { name: "Xác nhận" }).click();
-    await page.getByRole("button", {
-      name: question === 72 ? "Xem kết quả" : "Câu tiếp theo",
-    }).click();
   }
 
   await expect(page.getByTestId("hsk4-level-check-result")).toBeVisible();
   await expect(page.getByText(/\/72 câu đúng quan sát/u)).toBeVisible();
-  await expect(page.getByText(/không phải điểm thi HSK chính thức/u)).toBeVisible();
+  await expect(page.getByText(/không phải điểm thi hay chứng chỉ HSK/u)).toBeVisible();
   await expect(page.locator("body")).not.toContainText("mastery");
 
   await expect.poll(() => page.evaluate((contentVersion) => {

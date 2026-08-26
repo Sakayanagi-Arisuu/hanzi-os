@@ -1126,14 +1126,24 @@ export async function transitionOwnerCheckpoint(
 export async function allocateDeviceSequence(): Promise<number> {
   const database = await openSyncDatabase();
   const transaction = database.transaction(META_STORE, "readwrite");
+  // Subscribe before the first request. A very fast IndexedDB implementation
+  // may commit between the final put() and a late listener registration,
+  // leaving the caller waiting forever even though the sequence was written.
+  const done = transactionDone(transaction);
   const store = transaction.objectStore(META_STORE);
-  const record = await requestResult(
-    store.get("deviceSequence") as IDBRequest<MetaRecord | undefined>,
-  );
-  const next = typeof record?.value === "number" ? record.value + 1 : 1;
-  store.put({ key: "deviceSequence", value: next } satisfies MetaRecord);
-  await transactionDone(transaction);
-  return next;
+  try {
+    const record = await requestResult(
+      store.get("deviceSequence") as IDBRequest<MetaRecord | undefined>,
+    );
+    const next = typeof record?.value === "number" ? record.value + 1 : 1;
+    store.put({ key: "deviceSequence", value: next } satisfies MetaRecord);
+    await done;
+    return next;
+  } catch (error) {
+    abortTransaction(transaction);
+    await done.catch(() => undefined);
+    throw error;
+  }
 }
 
 export async function listPendingOperations(

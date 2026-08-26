@@ -16,6 +16,8 @@ import {
   listLearningCommandRecords,
   prepareLearningCommand,
   quarantineLearningCommand,
+  releaseLearningCommandRetry,
+  scheduleLearningCommandRetry,
   summarizeLearningCommandQueue,
 } from "./learningCommandOutbox";
 import {
@@ -550,6 +552,68 @@ describe("normalized learning command IndexedDB journal", () => {
     expect(await summarizeLearningCommandQueue(ownerAReturned)).toEqual({
       pendingCount: 2,
       quarantinedCount: 1,
+    });
+  });
+
+  it("lets an explicit retry bypass backoff without rewriting command identity", async () => {
+    const ownerGeneration = (await readOrInitializeOwnerGeneration("account:a"))
+      .ownerGeneration;
+    const queued = await enqueueObjectiveAttemptCommand(
+      readerAttemptInput(ownerGeneration, "manual-retry"),
+    );
+    const firstAttemptAt = new Date("2026-07-22T01:00:00.000Z");
+    const claimed = await claimLearningCommand(
+      queued.recordKey,
+      ownerGeneration,
+      firstAttemptAt,
+    );
+    expect(claimed).toMatchObject({
+      status: "pending",
+      attemptCount: 1,
+      nextAttemptAt: null,
+      leaseUntil: "2026-07-22T01:00:30.000Z",
+    });
+
+    const scheduled = await scheduleLearningCommandRetry(
+      queued.recordKey,
+      ownerGeneration,
+      firstAttemptAt,
+    );
+    expect(scheduled).toMatchObject({
+      status: "pending",
+      attemptCount: 1,
+      nextAttemptAt: "2026-07-22T01:00:01.000Z",
+      leaseUntil: null,
+    });
+    await expect(claimLearningCommand(
+      queued.recordKey,
+      ownerGeneration,
+      new Date("2026-07-22T01:00:00.001Z"),
+    )).resolves.toBeNull();
+
+    const released = await releaseLearningCommandRetry(
+      queued.recordKey,
+      ownerGeneration,
+    );
+    expect(released).toMatchObject({
+      status: "pending",
+      attemptCount: 1,
+      nextAttemptAt: null,
+      leaseUntil: null,
+      commandId: queued.commandId,
+      requestHash: queued.requestHash,
+      deviceSequence: queued.deviceSequence,
+    });
+    await expect(claimLearningCommand(
+      queued.recordKey,
+      ownerGeneration,
+      new Date("2026-07-22T01:00:00.001Z"),
+    )).resolves.toMatchObject({
+      status: "pending",
+      attemptCount: 2,
+      commandId: queued.commandId,
+      requestHash: queued.requestHash,
+      deviceSequence: queued.deviceSequence,
     });
   });
 

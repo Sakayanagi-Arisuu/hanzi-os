@@ -103,12 +103,12 @@ for (const ownerCase of [
     const releaseSession = await delayAnonymousSession(page);
 
     await page.goto("/", { waitUntil: "domcontentloaded" });
-    await expect(page.getByText("Đang xác minh quyền sở hữu kho học..."))
+    await expect(page.getByText("Đang khôi phục tiến độ trên thiết bị..."))
       .toBeVisible();
     await expect(page.getByText("PRIVATE VAULT LEARNER")).toHaveCount(0);
 
     releaseSession();
-    await expect(page.getByText("Kích hoạt Thiên Mệnh")).toBeVisible();
+    await expect(page.getByTestId("product-overview")).toBeVisible();
     await expect(page.getByText("PRIVATE VAULT LEARNER")).toHaveCount(0);
 
     const persisted = await page.evaluate(() => {

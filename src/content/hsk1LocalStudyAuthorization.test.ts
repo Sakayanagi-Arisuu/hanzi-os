@@ -20,7 +20,7 @@ describe("HSK1 local-study authorization", () => {
         hsk2Lessons: 40,
         hsk3Lessons: 55,
         hsk4Lessons: 78,
-        runtimeContentVersion: "foundation-2026.08.5",
+        runtimeContentVersion: "foundation-2026.08.7",
         humanReviewed: false,
         productionEligible: false,
         sitesAuthorized: false,

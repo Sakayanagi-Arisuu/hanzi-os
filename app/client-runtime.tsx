@@ -15,10 +15,10 @@ const OnboardedLearningRuntime = lazy(async () => ({
   ).OnboardedLearningRuntime,
 }));
 
-const SystemOnboarding = lazy(async () => ({
+const FirstRunExperience = lazy(async () => ({
   default: (
-    await import("../src/components/SystemOnboarding")
-  ).SystemOnboarding,
+    await import("../src/components/FirstRunExperience")
+  ).FirstRunExperience,
 }));
 
 function RuntimeLoadingState({ message }: { message: string }) {
@@ -37,13 +37,17 @@ function RuntimeLoadingState({ message }: { message: string }) {
 
 function LearningExperience() {
   const { state, sync, stateLoadSource } = useLearning();
+  const setupRequested = typeof window !== "undefined" && (
+    window.location.pathname === "/onboarding"
+    || new URLSearchParams(window.location.search).get("setup") === "1"
+  );
 
   if (shouldGateLearningBootstrap(sync.phase)) {
     return (
       <RuntimeLoadingState
         message={stateLoadSource === "default"
-          ? "Đang kiểm tra phiên tài khoản..."
-          : "Đang xác minh quyền sở hữu kho học..."}
+          ? "Đang mở HANZI.OS..."
+          : "Đang khôi phục tiến độ trên thiết bị..."}
       />
     );
   }
@@ -54,13 +58,13 @@ function LearningExperience() {
         <RuntimeLoadingState
           message={state.profile.onboarded
             ? "Đang mở không gian học..."
-            : "Đang chuẩn bị hồ sơ học..."}
+            : "Đang mở trang giới thiệu..."}
         />
       )}
     >
-      {state.profile.onboarded
+      {state.profile.onboarded && !setupRequested
         ? <OnboardedLearningRuntime />
-        : <SystemOnboarding />}
+        : <FirstRunExperience />}
     </Suspense>
   );
 }

@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import {
   observeServiceWorkerLifecycle,
+  unregisterDevelopmentServiceWorkers,
 } from "./serviceWorkerRegistration";
 
 class WorkerFixture extends EventTarget {
@@ -23,6 +24,31 @@ class RegistrationFixture extends EventTarget {
 }
 
 describe("service-worker registration lifecycle", () => {
+  it("unregisters every stale development worker and requests one detach reload", async () => {
+    const unregisterFirst = vi.fn().mockResolvedValue(true);
+    const unregisterSecond = vi.fn().mockResolvedValue(true);
+    const serviceWorker = {
+      controller: {},
+      getRegistrations: vi.fn().mockResolvedValue([
+        { unregister: unregisterFirst },
+        { unregister: unregisterSecond },
+      ]),
+    } as unknown as ServiceWorkerContainer;
+
+    await expect(unregisterDevelopmentServiceWorkers(serviceWorker)).resolves.toBe(true);
+    expect(unregisterFirst).toHaveBeenCalledOnce();
+    expect(unregisterSecond).toHaveBeenCalledOnce();
+  });
+
+  it("does not request a detach reload when no worker controls the page", async () => {
+    const serviceWorker = {
+      controller: null,
+      getRegistrations: vi.fn().mockResolvedValue([]),
+    } as unknown as ServiceWorkerContainer;
+
+    await expect(unregisterDevelopmentServiceWorkers(serviceWorker)).resolves.toBe(false);
+  });
+
   it("reports an initial worker that becomes redundant after register resolves", () => {
     const worker = new WorkerFixture();
     const registration = new RegistrationFixture();

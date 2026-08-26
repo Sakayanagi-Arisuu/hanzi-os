@@ -4,7 +4,7 @@ import type { CSSProperties } from "react";
 export const metadata: Metadata = {
   title: "Dữ liệu giọng nói | HANZI.OS",
   description:
-    "Công bố riêng về microphone và Web Speech API trong bản prototype HANZI.OS.",
+    "Công bố về hai chế độ nhận dạng chữ và phản hồi âm học trong HANZI.OS.",
   alternates: { canonical: "/voice-data" },
   robots: { index: true, follow: true },
   openGraph: {
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: "/voice-data",
     title: "Dữ liệu giọng nói | HANZI.OS",
     description:
-      "Công bố riêng về microphone và Web Speech API trong bản prototype HANZI.OS.",
+      "Công bố về hai chế độ nhận dạng chữ và phản hồi âm học trong HANZI.OS.",
   },
 };
 
@@ -98,95 +98,128 @@ export default function VoiceDataPage() {
         </nav>
 
         <header>
-          <span style={styles.kicker}>VOICE DATA NOTICE · 22/07/2026</span>
+          <span style={styles.kicker}>VOICE DATA NOTICE · 13/08/2026</span>
           <h1 style={styles.title}>Dữ liệu giọng nói</h1>
           <p style={styles.lead}>
-            Đây là công bố riêng cho chức năng microphone và nhận dạng giọng nói
-            trong bản prototype hiện tại.
+            Vạn Âm Điện có hai chế độ tùy chọn và độc lập: nhận dạng chữ bằng
+            dịch vụ của trình duyệt, và phản hồi âm học beta bằng Azure Speech.
+            Bạn có thể luyện nghe, nhại và tự xác nhận mà không bật chế độ nào.
           </p>
         </header>
 
         <p role="note" style={styles.notice}>
-          Prototype lưu receipt đồng ý gồm phiên bản chính sách, mục đích, chế độ
-          xử lý và thời điểm đồng ý trong localStorage của trình duyệt này, đồng
-          thời có nút rút đồng ý. Receipt sai cấu trúc hoặc thuộc chính sách cũ
-          không mở microphone. Chưa có consent ledger
-          phía máy chủ hoặc đồng bộ lựa chọn giữa các thiết bị. Nếu bạn không muốn
-          nhà cung cấp nhận dạng xử lý giọng nói, đừng đồng ý và hãy từ chối quyền
-          microphone.
+          Hai chế độ có hai xác nhận riêng trong localStorage. Đồng ý nhận dạng
+          chữ không cho phép gửi WAV tới Azure; phản hồi âm học chỉ mở sau khi
+          bạn xác nhận riêng cho người học hiện tại. Xác nhận Azure hết hạn sau
+          30 ngày và cả hai đều có thể rút ngay trên trang luyện đọc. Lựa chọn
+          chưa được đồng bộ giữa các thiết bị.
         </p>
 
         <section style={styles.section}>
-          <h2 style={styles.heading}>Điều gì xảy ra khi bạn ghi âm?</h2>
+          <h2 style={styles.heading}>1. Nhận dạng chữ của trình duyệt</h2>
           <ol style={styles.list}>
-            <li>Bạn chủ động bấm nút ghi âm trong trang luyện phát âm.</li>
-            <li>Trình duyệt có thể yêu cầu quyền sử dụng microphone.</li>
+            <li>Bạn chủ động bật nhận dạng chữ và bắt đầu đọc.</li>
+            <li>Trình duyệt yêu cầu quyền sử dụng microphone nếu cần.</li>
             <li>
               Web Speech API của trình duyệt thu và xử lý giọng nói; tùy trình
               duyệt, âm thanh có thể được gửi tới dịch vụ nhận dạng bên ngoài thiết bị.
             </li>
             <li>
               Frontend HANZI.OS nhận transcript và độ tin cậy do trình duyệt trả
-              về để tính mức khớp văn bản với câu mẫu.
+              về để kiểm tra máy có nghe đủ nội dung câu mẫu hay không.
             </li>
           </ol>
-        </section>
-
-        <section style={styles.section}>
-          <h2 style={styles.heading}>Prototype hiện lưu gì?</h2>
           <p style={styles.copy}>
-            Mã ứng dụng hiện không truy cập tệp âm thanh thô và không tải âm thanh
-            lên backend HANZI.OS. Ứng dụng có lưu transcript, confidence, điểm khớp
-            văn bản và phương pháp chấm dưới dạng learning evidence cục bộ trong
-            localStorage. Bản ghi này được đánh dấu là unverified, không phải bằng
-            chứng mastery phát âm đã xác minh. Kể cả khi bạn đăng nhập, lớp tạo
-            gói đồng bộ loại evidence speech-transcript trước khi ghi outbox và
-            backend cũng từ chối payload chứa loại evidence này.
-          </p>
-          <p style={styles.copy}>
-            Nhà cung cấp trình duyệt có thể có cách truyền, lưu giữ hoặc dùng dữ
-            liệu khác. HANZI.OS prototype không kiểm soát được chính sách đó; hãy
-            kiểm tra cài đặt và chính sách của trình duyệt bạn dùng.
+            Luồng này không gửi tệp âm thanh thô tới máy chủ HANZI.OS. Bản ghi chữ
+            và mức khớp chữ có thể được lưu thành bằng chứng cục bộ, nhưng luôn
+            mang nhãn <strong>chưa xác minh</strong>, không có điểm phát âm và
+            không tăng mức làm chủ kỹ năng.
           </p>
         </section>
 
         <section style={styles.section}>
-          <h2 style={styles.heading}>Điểm số không phải chấm phát âm</h2>
+          <h2 style={styles.heading}>2. Phản hồi âm học beta bằng Azure</h2>
           <p style={styles.copy}>
-            Điểm hiện tại kết hợp độ giống transcript và confidence do trình
-            duyệt cung cấp. Nó không phân tích tín hiệu âm thanh, cao độ, thanh
-            điệu, âm đầu hay âm cuối và không được dùng làm bằng chứng mastery
-            phát âm đã được xác minh.
+            Chỉ sau xác nhận riêng, trình duyệt mới tạo một đoạn WAV PCM 16 kHz
+            mono, tối đa 15 giây. WAV được gửi tới điểm nhận cùng trang của HANZI.OS;
+            máy chủ đối chiếu mã hoạt động với câu đã phát hành rồi chuyển tạm
+            đoạn ghi, câu mẫu và thông tin kỹ thuật cần thiết tới Microsoft Azure
+            Speech Pronunciation Assessment. Khóa Azure chỉ tồn tại phía máy chủ.
+          </p>
+          <p style={styles.copy}>
+            HANZI.OS xử lý WAV trong bộ nhớ để hoàn tất một yêu cầu, không ghi
+            tệp âm thanh vào localStorage, IndexedDB, Cache API, hàng đợi đồng bộ hay D1.
+            Kết quả Azure hiện chỉ hiển thị trong phiên và không được ghi vào
+            tiến độ, XP, Thất Trụ hoặc hồ sơ làm chủ kỹ năng.
+          </p>
+          <p style={styles.copy}>
+            Theo tài liệu Microsoft hiện hành, dữ liệu khách hàng gửi cho
+            real-time speech-to-text và pronunciation assessment không được
+            Microsoft lưu giữ. Dữ liệu vẫn được Azure xử lý để trả kết quả tại
+            vùng của tài nguyên đã cấu hình; điều khoản và chính sách của
+            Microsoft áp dụng cho lần xử lý đó. Xem nguồn chính thức về
+            {" "}<a
+              href="https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/speech-service/speech-to-text/data-privacy-security?view=foundry-classic"
+              rel="noreferrer"
+              style={styles.link}
+              target="_blank"
+            >dữ liệu Speech-to-Text</a>.
           </p>
         </section>
 
         <section style={styles.section}>
-          <h2 style={styles.heading}>Lựa chọn và rút quyền</h2>
+          <h2 style={styles.heading}>Hiểu đúng kết quả beta</h2>
+          <p style={styles.copy}>
+            Azure trả điểm 0–100 cho độ chính xác âm học, độ trôi chảy, độ đầy đủ
+            và điểm phát âm tổng hợp, cùng gợi ý theo từ/âm vị khi có. Đây là phản
+            hồi từ mô hình, chưa được HANZI.OS nghiệm chuẩn với người Việt mới học,
+            nên không phải chứng nhận “chuẩn bản ngữ” và không được dùng làm bằng
+            chứng làm chủ kỹ năng, phần thưởng hay điều kiện mở khóa.
+          </p>
+          <p style={styles.copy}>
+            Với <code>zh-CN</code>, Azure không trả một điểm thanh điệu từ vựng
+            riêng; đánh giá prosody cũng chỉ được Microsoft hỗ trợ cho
+            <code> en-US</code>. Vì vậy HANZI.OS không diễn giải điểm Azure thành
+            “% đúng thanh điệu”. Phản hồi đường cao độ chạy trên thiết bị là một
+            tín hiệu luyện tập riêng, không thay thế phép chấm đã nghiệm chuẩn.
+            Xem giới hạn theo locale trong
+            {" "}<a
+              href="https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-pronunciation-assessment"
+              rel="noreferrer"
+              style={styles.link}
+              target="_blank"
+            >tài liệu Pronunciation Assessment</a>.
+          </p>
+        </section>
+
+        <section style={styles.section}>
+          <h2 style={styles.heading}>Bạn kiểm soát điều gì?</h2>
           <ul style={styles.list}>
-            <li>Bạn vẫn có thể nghe mẫu và luyện nhại mà không dùng ghi âm.</li>
+            <li>Bạn vẫn có thể nghe mẫu và tự xác nhận mà không dùng microphone.</li>
             <li>
-              Bạn có thể dùng nút rút đồng ý trong trang phát âm và thu hồi quyền
-              microphone trong cài đặt site của trình duyệt bất kỳ lúc nào.
+              Bạn có thể rút riêng quyền nhận dạng chữ hoặc phản hồi âm học, rồi
+              thu hồi quyền microphone trong cài đặt site của trình duyệt.
             </li>
             <li>
-              Vì HANZI.OS không giữ bản âm thanh phía máy chủ trong prototype,
-              hiện không có bản âm thanh trên backend HANZI.OS để yêu cầu xóa.
+              Rút quyền ngăn các lượt mới; nó không thể thu hồi một yêu cầu đã
+              xử lý xong. HANZI.OS không có bản WAV lưu tại chỗ để xóa sau đó.
             </li>
             <li>
-              Rút đồng ý ngăn lần ghi mới nhưng không tự xóa evidence transcript
-              đã lưu. Bạn có thể xuất hoặc xóa toàn bộ dữ liệu cục bộ trong trang
-              Hồ sơ.
+              Rút nhận dạng chữ không tự xóa transcript evidence cũ. Bạn có thể
+              xuất hoặc xóa toàn bộ dữ liệu cục bộ trong trang Hồ sơ.
             </li>
+            <li>Nếu Azure lỗi, hết quota hoặc quá thời gian, bạn có thể thử lại hoặc dùng cách tự xác nhận; lượt lỗi không tạo bằng chứng học tập.</li>
           </ul>
         </section>
 
         <section style={styles.section}>
-          <h2 style={styles.heading}>Điều kiện trước khi lên production</h2>
+          <h2 style={styles.heading}>Giới hạn của bản local/private beta</h2>
           <p style={styles.copy}>
-            Nếu bổ sung pipeline speech phía máy chủ, HANZI.OS phải triển khai
-            consent riêng có phiên bản, mô tả nhà xử lý, mục đích, thời hạn lưu,
-            lựa chọn opt-in, cơ chế rút consent và xóa dữ liệu end-to-end trước
-            khi nhận audio. Các khả năng đó chưa được triển khai trong prototype.
+            Điểm nhận phản hồi âm học chỉ được bật trên localhost ở máy phát triển
+            và dùng hạn mức Azure Speech F0 của chủ dự án. Chưa có sổ xác nhận
+            phía máy chủ, chưa có nghiên cứu nghiệm chuẩn và chưa được
+            phép mở công khai. Trước public beta cần rà pháp lý, bảo mật, quota,
+            giám sát lỗi, quyền chủ thể dữ liệu và nghiệm chuẩn điểm số.
           </p>
         </section>
 
@@ -200,7 +233,7 @@ export default function VoiceDataPage() {
         </section>
 
         <footer style={styles.footer}>
-          Cập nhật lần cuối: 22/07/2026 · Phạm vi: Web Speech API trong prototype.
+          Cập nhật lần cuối: 13/08/2026 · Phạm vi: Web Speech API và Azure Speech local/private beta.
         </footer>
       </article>
     </main>

@@ -6,7 +6,10 @@ import {
 } from "../data/curriculum";
 import type { LearningState, Lesson } from "../types";
 import {
+  buildDailyMissions,
+  buildPronunciationDailyMission,
   getNextLesson,
+  getProgressingReleasedLessonProgress,
   getReleasedLessonProgress,
   isMistakeFromActivePathContent,
   isLessonPassed,
@@ -102,6 +105,25 @@ describe("lesson release and prerequisite policy", () => {
     expect(isLessonUnlocked(boot2, makeState({ "boot-1": completion(70) }))).toBe(true);
   });
 
+  it("opens the first HSK1 trial after the complete HSK0 prerequisite chain", () => {
+    const completedFoundation = {
+      "boot-1": completion(90),
+      "boot-2": completion(70),
+      "boot-3": completion(70),
+      "boot-4": completion(80),
+    };
+    const state = makeState(completedFoundation, "zero");
+
+    expect(isLessonUnlocked(lesson("survival-1"), state)).toBe(true);
+    expect(getNextLesson(state)?.id).toBe("survival-1");
+    expect(getProgressingReleasedLessonProgress(state)).toEqual({
+      completedCount: 4,
+      totalCount: 44,
+      remainingCount: 40,
+      progress: 9,
+    });
+  });
+
   it("keeps a lesson locked without its prerequisite while retaining visible-path mistakes", () => {
     const characters1 = lesson("characters-1");
     const state = makeState({
@@ -157,5 +179,35 @@ describe("lesson release and prerequisite policy", () => {
       nextLesson?.releaseState === "beta" ||
       nextLesson?.releaseState === "published",
     ).toBe(true);
+  });
+});
+
+describe("daily pronunciation mission", () => {
+  it("describes the six-item HSK-linked practice and its bounded daily interaction reward", () => {
+    expect(buildPronunciationDailyMission()).toEqual(expect.objectContaining({
+      id: "voice-daily",
+      to: "/pronunciation",
+      kind: "practice",
+      minutes: 6,
+      reward: "+10 XP tương tác · 1 lần/ngày",
+    }));
+    expect(buildPronunciationDailyMission().description).toContain("6 câu");
+    expect(buildPronunciationDailyMission().description).toContain("HSK");
+  });
+
+  it("does not duplicate a goal mission that already opens Vạn Âm Điện", () => {
+    const missions = buildDailyMissions(makeState(), 0);
+
+    expect(missions.filter((mission) => mission.to === "/pronunciation")).toHaveLength(1);
+    expect(missions.some((mission) => mission.id === "goal-focus")).toBe(false);
+  });
+
+  it("keeps a distinct goal mission when its route is not Vạn Âm Điện", () => {
+    const state = makeState();
+    state.profile.goal = "hsk";
+    const missions = buildDailyMissions(state, 0);
+
+    expect(missions.filter((mission) => mission.to === "/pronunciation")).toHaveLength(1);
+    expect(missions.some((mission) => mission.id === "goal-focus")).toBe(true);
   });
 });

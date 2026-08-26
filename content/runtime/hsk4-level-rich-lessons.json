@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "presentationId": "hsk4-level-rich-lessons-2026.08.4",
-  "contentVersion": "foundation-2026.08.5",
+  "contentVersion": "foundation-2026.08.7",
   "level": "HSK4",
   "state": "authorized-for-personal-local-study",
   "disclosure": {
@@ -28,7 +28,7 @@
   },
   "authorizationBinding": {
     "authorizationId": "hsk0-4-local-study-authorizations-2026.08.5",
-    "authorizationSha256": "sha256:c43dc115a6103aa91693cde18a580d6ab1c0594b82d7affceebb0d345e0bc871",
+    "authorizationSha256": "sha256:568d23152bdad586352719e4f51a5bef70c63c521d9aa3382bb1b06c1bc9cd91",
     "unitIds": [
       "hsk4-deep-comprehension",
       "hsk4-summary-argument",
@@ -11206,5 +11206,5 @@
       "characters": []
     }
   ],
-  "integritySha256": "sha256:86067a86b7478c0a9ab6fb5cc1e9664e832580c4e52401ae1baa36fbf26a1612"
+  "integritySha256": "sha256:1945e1650cb3fe69170336695d80484b2946ec7cf027dfbdf5877a0b2a69d15e"
 }

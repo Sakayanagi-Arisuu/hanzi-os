@@ -431,6 +431,24 @@ describe("outbox event contract", () => {
     });
   });
 
+  it("accepts lesson completion when the immutable form has no required gate items", () => {
+    const payload = {
+      ...eventPayloads["lesson.completed"],
+      requiredEvidenceCount: 0,
+      requiredCorrectCount: 0,
+    };
+
+    expect(() => encodeOutboxEventPayload({
+      eventType: "lesson.completed",
+      aggregateId: "lesson-session",
+      resetEpoch: 2,
+      payload,
+    })).not.toThrow();
+    expect(decodeOutboxEvent(storedEvent("lesson.completed", payload))).toMatchObject({
+      ok: true,
+    });
+  });
+
   it("validates producer payloads before persisting only allow-listed fields", () => {
     const encoded = encodeOutboxEventPayload({
       eventType: "lesson.started",

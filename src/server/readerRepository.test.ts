@@ -222,11 +222,13 @@ const repository = (
   options: {
     bank?: readonly AuthoritativeReaderStory[];
     publicationPolicy?: ContentReleasePolicy;
+    practicePreview?: boolean;
   } = {},
 ) => new ReaderRepository(database, {
   bank: options.bank ?? approvedBank(),
   publicationPolicy: options.publicationPolicy ?? promotedPolicy,
   now: () => NOW,
+  practicePreview: options.practicePreview ?? false,
 });
 
 const openCommand = (
@@ -355,6 +357,31 @@ describe("server-authoritative Reader bank", () => {
       kind: "unavailable",
       reason: "story-not-issuable",
     });
+  });
+
+  it("opens the pending bank only as an assisted local practice preview", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    const preview = repository(database, {
+      bank: CURRENT_AUTHORITATIVE_READER_STORIES,
+      practicePreview: true,
+    });
+    const opened = await preview.openSession("user-a", openCommand("user-a", {
+      storyId: "first-day",
+      supportMode: "assisted",
+    }));
+
+    expect(opened.expectedItemCount).toBe(4);
+    expect(opened.form.items.every((item) =>
+      item.answerExposure === "public-client"
+      && item.masteryEligible === false
+    )).toBe(true);
+    await expect(preview.openSession("user-a", openCommand("user-a", {
+      idempotencyKey: "reader-preview-unassisted",
+      deviceSequence: 2,
+      storyId: "first-day",
+      supportMode: "unassisted",
+    }))).rejects.toBeInstanceOf(ReaderFormUnavailableError);
   });
 });
 

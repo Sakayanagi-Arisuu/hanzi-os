@@ -107,7 +107,7 @@ export default function PrivacyPage() {
         </nav>
 
         <header>
-          <span style={styles.kicker}>LEGAL PLACEHOLDER · 25/07/2026</span>
+          <span style={styles.kicker}>LEGAL PLACEHOLDER · 13/08/2026</span>
           <h1 style={styles.title}>Quyền riêng tư</h1>
           <p style={styles.lead}>
             Trang này mô tả cách bản closed-alpha hiện tại xử lý dữ liệu trên
@@ -200,11 +200,27 @@ export default function PrivacyPage() {
         <section style={styles.section}>
           <h2 style={styles.heading}>Microphone và nhận dạng giọng nói</h2>
           <p style={styles.copy}>
-            Tính năng phát âm dùng Web Speech API của trình duyệt. Khi bạn chủ
-            động bắt đầu ghi âm, trình duyệt hoặc nhà cung cấp dịch vụ nhận dạng
-            của trình duyệt có thể xử lý âm thanh ngoài thiết bị. Frontend
-            HANZI.OS hiện chỉ nhận transcript và độ tin cậy; ứng dụng không nhận
-            hoặc lưu tệp âm thanh thô trên backend.
+            Vạn Âm Điện có hai chế độ tùy chọn với hai xác nhận riêng. Nhận dạng
+            chữ dùng Web Speech API: trình duyệt hoặc nhà cung cấp của trình duyệt
+            có thể xử lý âm thanh ngoài thiết bị, còn frontend HANZI.OS chỉ nhận
+            transcript và độ tin cậy. Luồng này không tải tệp WAV lên máy chủ
+            HANZI.OS.
+          </p>
+          <p style={styles.copy}>
+            Phản hồi âm học beta cần một xác nhận tự nguyện độc lập. Sau khi bạn
+            đồng ý, một đoạn WAV tối đa 15 giây được gửi qua điểm nhận cùng trang
+            rồi chuyển tạm tới Microsoft Azure Speech cùng câu mẫu và thông tin
+            kỹ thuật cần thiết. HANZI.OS không lưu WAV sau khi yêu cầu kết thúc;
+            kết quả Azure chỉ hiển thị trong phiên, chưa nghiệm chuẩn và không
+            tăng mức làm chủ kỹ năng, XP hay điều kiện mở khóa.
+            Microsoft công bố rằng dữ liệu gửi cho real-time speech-to-text và
+            pronunciation assessment không được họ lưu giữ, nhưng việc xử lý vẫn
+            chịu điều khoản và chính sách Microsoft hiện hành.
+          </p>
+          <p style={styles.copy}>
+            Azure <code>zh-CN</code> không cung cấp điểm thanh điệu từ vựng riêng;
+            vì vậy điểm 0–100 của nhà cung cấp không được trình bày như “% đúng
+            thanh điệu” hoặc chứng nhận chuẩn bản ngữ.
           </p>
           <p style={styles.copy}>
             Xem công bố riêng tại <a href="/voice-data" style={styles.link}>Dữ liệu giọng nói</a>
@@ -219,8 +235,10 @@ export default function PrivacyPage() {
             liệu trình duyệt hoặc trình duyệt tự thu hồi bộ nhớ. Dữ liệu cloud
             được giữ đến khi tài khoản bị xóa; API xóa dùng danh tính phía máy chủ
             và xóa các bản ghi phụ thuộc. HANZI.OS không bán dữ liệu học. Việc
-            lưu giữ âm thanh bởi dịch vụ nhận dạng của trình duyệt nằm ngoài quyền
-            kiểm soát của prototype này.
+            xử lý hoặc lưu giữ âm thanh bởi dịch vụ nhận dạng của trình duyệt nằm
+            ngoài quyền kiểm soát của prototype. HANZI.OS không lưu WAV gửi cho
+            phản hồi âm học; chính sách xử lý của Azure được công bố riêng tại
+            trang Dữ liệu giọng nói.
           </p>
         </section>
 
@@ -239,7 +257,7 @@ export default function PrivacyPage() {
         </section>
 
         <footer style={styles.footer}>
-          Cập nhật lần cuối: 25/07/2026 · Phạm vi: closed alpha local-first với đồng bộ tài khoản tùy chọn.
+          Cập nhật lần cuối: 13/08/2026 · Phạm vi: closed alpha local-first với đồng bộ tài khoản tùy chọn.
         </footer>
       </article>
     </main>

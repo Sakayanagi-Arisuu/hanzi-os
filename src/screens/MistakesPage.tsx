@@ -1,6 +1,7 @@
 import { BrainCircuit } from "lucide-react";
 import { lazy, Suspense } from "react";
 import { useLearning } from "../store/LearningStore";
+import "./MistakesPage.css";
 
 const AuthenticatedMistakesPage = lazy(async () => ({
   default: (await import("./AuthenticatedMistakesPage"))
@@ -15,10 +16,7 @@ const pending = (
   <div className="lesson-state-screen" role="status" aria-live="polite">
     <BrainCircuit size={44} />
     <h1>Đang mở Nghịch Cảnh Lục</h1>
-    <p>
-      Hệ thống đang chọn đúng phiên phá giải trên thiết bị hoặc từ tài khoản
-      đã xác thực.
-    </p>
+    <p>Đang chuẩn bị lỗi cần luyện tiếp.</p>
   </div>
 );
 

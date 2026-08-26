@@ -7,6 +7,9 @@ import {
 } from "../data/curriculum";
 import type { LearningAttemptCommandV1 } from "../learning/attemptProtocol";
 import {
+  CURRENT_AUTHORITATIVE_READER_STORIES,
+} from "./authoritativeReaderItemBank";
+import {
   scoreObjectiveAttempt,
   UnsupportedAttemptActivityError,
 } from "./attemptScoring";
@@ -58,6 +61,26 @@ describe("authoritative objective attempt scoring", () => {
     });
   });
 
+  it("re-scores remediation against the released activity without mastery", () => {
+    const { sessionId: _sessionId, ...base } = lessonCommand();
+    expect(scoreObjectiveAttempt({
+      ...base,
+      source: "mistake",
+    })).toMatchObject({
+      skill: "vocabulary",
+      outcome: "correct",
+      score: 100,
+      baseMasteryEligible: false,
+      requiredForPass: false,
+      sessionBinding: null,
+      metadata: {
+        originSource: "lesson",
+        originMethod: "meaning-selection",
+        remediation: true,
+      },
+    });
+  });
+
   it("re-grades reader answers from the released story", () => {
     const story = RELEASED_STORIES[0];
     const question = story.comprehension[0];
@@ -74,6 +97,37 @@ describe("authoritative objective attempt scoring", () => {
       outcome: "correct",
       baseMasteryEligible: false,
       sessionBinding: null,
+    });
+  });
+
+  it("re-scores a current authoritative Reader mistake without granting mastery", () => {
+    const story = CURRENT_AUTHORITATIVE_READER_STORIES[0];
+    const item = story.items[0];
+    const { sessionId: _sessionId, ...base } = lessonCommand();
+    expect(scoreObjectiveAttempt({
+      ...base,
+      idempotencyKey: "attempt:score:reader-remediation",
+      activityId: `${story.id}:${item.id}`,
+      activityVersion: item.itemVersion,
+      source: "mistake",
+      method: "reading-comprehension",
+      response: {
+        kind: "answer",
+        answer: item.correctAnswer,
+        usedHint: false,
+      },
+    })).toMatchObject({
+      skill: "reading",
+      outcome: "correct",
+      score: 100,
+      baseMasteryEligible: false,
+      requiredForPass: false,
+      sessionBinding: null,
+      metadata: {
+        originSource: "reader",
+        originMethod: "reading-comprehension",
+        remediation: true,
+      },
     });
   });
 

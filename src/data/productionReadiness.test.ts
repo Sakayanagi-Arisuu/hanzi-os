@@ -51,7 +51,17 @@ type HanziDataManifest = {
   sourceRevision: string;
   upstreamRevision: string;
   licenseFileSha256: string;
-  characters: string[];
+  inventory: {
+    kind: string;
+    expectedCharacterCount: number;
+    files: string[];
+  };
+  policy: {
+    practiceOnly: boolean;
+    masteryEligible: boolean;
+    measurementEligible: boolean;
+    humanReviewed: boolean;
+  };
 };
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
@@ -811,7 +821,7 @@ describe("production readiness manifest", () => {
     expect(output).toContain("technicalTestsPassed is not allowed");
   });
 
-  it("does not publish stroke geometry before character content is released", () => {
+  it("publishes practice-only stroke geometry for the exact released HSK1-4 character inventory", () => {
     const publishedCharacterFiles = readdirSync(join(
       repositoryRoot,
       "public",
@@ -819,9 +829,18 @@ describe("production readiness manifest", () => {
     ))
       .filter((name) => name.endsWith(".json"))
       .sort();
-    expect(hanziDataManifest.schemaVersion).toBe(1);
-    expect(hanziDataManifest.characters).toEqual([]);
-    expect(publishedCharacterFiles).toEqual([]);
+    expect(hanziDataManifest.schemaVersion).toBe(2);
+    expect(hanziDataManifest.inventory).toMatchObject({
+      kind: "released-rich-lesson-characters",
+      expectedCharacterCount: 1_096,
+    });
+    expect(hanziDataManifest.policy).toMatchObject({
+      practiceOnly: true,
+      masteryEligible: false,
+      measurementEligible: false,
+      humanReviewed: false,
+    });
+    expect(publishedCharacterFiles).toHaveLength(1_096);
   });
 
   it("publishes the stroke-data license byte-for-byte without rewriting it", () => {

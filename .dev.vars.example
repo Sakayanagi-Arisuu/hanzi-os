@@ -1,0 +1,6 @@
+# Optional free pronunciation assessment for local/personal development.
+# Create one Azure AI Speech resource with the Free (F0) pricing tier.
+# Never expose these values through NEXT_PUBLIC_* variables or commit .dev.vars.
+HANZI_OS_AZURE_PRONUNCIATION_LOCAL_ENABLED=true
+AZURE_SPEECH_SUBSCRIPTION_KEY=replace-with-server-only-f0-resource-key
+AZURE_SPEECH_REGION=eastasia

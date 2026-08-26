@@ -432,7 +432,7 @@ describe("lesson session gate", () => {
     expect(scoreLessonSession([answer(1, true)], 10)).toBeNull();
   });
 
-  it("caps an otherwise passing score when critical tone checks fail", () => {
+  it("uses the visible unassisted score even when the remediation subset is weak", () => {
     const answers = [
       answer(0, false, true),
       answer(1, false, true),
@@ -441,14 +441,14 @@ describe("lesson session gate", () => {
     ];
     expect(scoreLessonSession(answers, 10)).toEqual({
       rawScore: 70,
-      gateScore: 69,
+      gateScore: 70,
       requiredPassed: false,
       requiredEvidenceCount: 3,
       requiredCorrect: 0,
     });
   });
 
-  it("passes only when both overall and critical thresholds are met", () => {
+  it("passes when the visible unassisted score reaches the threshold", () => {
     const answers = [
       answer(0, true, true),
       answer(1, true, true),
@@ -470,7 +470,20 @@ describe("lesson session gate", () => {
     });
   });
 
-  it("keeps hint-assisted and repeated correct answers out of the gate", () => {
+  it("lets an unassisted 8/10 lesson unlock the next trial", () => {
+    const answers = [
+      answer(0, false, true),
+      answer(1, false, true),
+      ...Array.from({ length: 8 }, (_, index) => answer(index + 2, true)),
+    ];
+    expect(scoreLessonSession(answers, 10)).toMatchObject({
+      rawScore: 80,
+      gateScore: 80,
+      requiredPassed: false,
+    });
+  });
+
+  it("keeps hints out of the gate while allowing a clean repeated retry", () => {
     const assisted = materializeEvidence(evidenceInput({
       idempotencyKey: "lesson-answer:assisted",
       activityId: "lesson:question-assisted",
@@ -488,7 +501,7 @@ describe("lesson session gate", () => {
 
     expect(scoreLessonSession([assisted, repeated], 2)).toEqual({
       rawScore: 100,
-      gateScore: 0,
+      gateScore: 50,
       requiredPassed: false,
       requiredEvidenceCount: 1,
       requiredCorrect: 0,

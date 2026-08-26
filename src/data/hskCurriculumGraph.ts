@@ -199,6 +199,14 @@ export type HskCurriculumView = {
   targetContentAvailable: boolean;
 };
 
+export type NextHskRealmPreview = {
+  pathId: HskCurriculumPathId;
+  lessonCount: number;
+  completedPrerequisiteCount: number;
+  remainingPrerequisiteCount: number;
+  progressPercent: number;
+};
+
 export const getHskCurriculumView = (
   startingLevel: StartingLevel,
 ): HskCurriculumView => {
@@ -223,6 +231,65 @@ export const getHskCurriculumView = (
     visibleLessonIds,
     mappedOfficialVocabularyCount: path.mappedOfficialVocabularyCount,
     targetContentAvailable: path.targetContentAvailable,
+  };
+};
+
+/**
+ * `startingLevel` is an entry target, not a permanent ceiling. Once every
+ * target lesson in the current path has exact pass evidence, the learner's
+ * visible journey advances to the next HSK path while retaining its
+ * prerequisite units.
+ */
+export const getProgressingHskCurriculumView = (
+  startingLevel: StartingLevel,
+  passedLessonIds: ReadonlySet<string>,
+): HskCurriculumView => {
+  let view = getHskCurriculumView(startingLevel);
+
+  while (
+    view.targetLessonIds.length > 0
+    && view.targetLessonIds.every((lessonId) => passedLessonIds.has(lessonId))
+  ) {
+    const nextPath = GRAPH.paths.find(
+      (path) => path.stageIndex === view.path.stageIndex + 1,
+    );
+    if (!nextPath) break;
+    view = getHskCurriculumView(
+      nextPath.pathId === "hsk0" ? "zero" : nextPath.pathId,
+    );
+  }
+
+  return view;
+};
+
+/**
+ * Learner-facing certainty for the next realm. This is intentionally derived
+ * from the same target lesson IDs that drive progression, so the preview can
+ * never promise a different unlock condition from the runtime gate.
+ */
+export const getNextHskRealmPreview = (
+  view: HskCurriculumView,
+  passedLessonIds: ReadonlySet<string>,
+): NextHskRealmPreview | null => {
+  const nextPath = GRAPH.paths.find(
+    (path) => path.stageIndex === view.path.stageIndex + 1,
+  );
+  if (!nextPath) return null;
+  const completedPrerequisiteCount = view.targetLessonIds.filter((lessonId) =>
+    passedLessonIds.has(lessonId)
+  ).length;
+  const lessonCount = view.targetLessonIds.length;
+  return {
+    pathId: nextPath.pathId,
+    lessonCount: nextPath.targetLessonIds.length,
+    completedPrerequisiteCount,
+    remainingPrerequisiteCount: Math.max(
+      0,
+      lessonCount - completedPrerequisiteCount,
+    ),
+    progressPercent: lessonCount === 0
+      ? 0
+      : Math.round((completedPrerequisiteCount / lessonCount) * 100),
   };
 };
 

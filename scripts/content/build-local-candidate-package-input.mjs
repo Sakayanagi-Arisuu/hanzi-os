@@ -2,8 +2,8 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { sha256Json } from "../../src/content/governance.mjs";
 
-const SOURCE_VERSION = "foundation-2026.08.4";
-const TARGET_VERSION = "foundation-2026.08.5";
+const SOURCE_VERSION = "foundation-2026.08.6";
+const TARGET_VERSION = "foundation-2026.08.7";
 const OUTPUT_DIRECTORY = "content/runtime/local-candidate-package-input";
 const root = process.cwd();
 const readJson = (relativePath) => JSON.parse(readFileSync(
@@ -18,9 +18,16 @@ const sourceCoverage = readJson(`${sourceDirectory}/coverage-claims.json`);
 const itemCatalog = {
   ...sourceCatalog,
   contentVersion: TARGET_VERSION,
-  items: sourceCatalog.items.map((item) => ({
-    ...item,
-    itemVersion: TARGET_VERSION,
+  items: await Promise.all(sourceCatalog.items.map(async (item) => {
+    const payload = item.itemType === "lesson" && item.itemId === "boot-4"
+      ? { ...item.payload, title: "Cặp thanh điệu" }
+      : item.payload;
+    return {
+      ...item,
+      itemVersion: TARGET_VERSION,
+      payload,
+      payloadSha256: await sha256Json({ itemType: item.itemType, payload }),
+    };
   })),
 };
 const runtimeIds = {

@@ -124,6 +124,9 @@ export class AttemptRepository {
     const attemptId = crypto.randomUUID();
     const evidenceId = crypto.randomUUID();
     const outboxId = crypto.randomUUID();
+    const persistedMethod = command.source === "mistake"
+      ? "remediation-recall" as const
+      : command.method;
     const receipt: LearningAttemptReceiptV1 = {
       protocolVersion: ATTEMPT_PROTOCOL_VERSION,
       idempotencyKey: command.idempotencyKey,
@@ -132,7 +135,7 @@ export class AttemptRepository {
       evidenceId,
       resetEpoch: command.resetEpoch,
       source: command.source,
-      method: command.method,
+      method: persistedMethod,
       activityId: command.activityId,
       activityVersion: command.activityVersion,
       skill: score.skill,
@@ -155,7 +158,7 @@ export class AttemptRepository {
         contentVersion: CONTENT_VERSION,
         contentManifestSha256: CURRENT_CONTENT_MANIFEST_SHA256,
         source: command.source,
-        method: command.method,
+        method: persistedMethod,
         activityId: command.activityId,
         activityVersion: command.activityVersion,
         skill: score.skill,
@@ -223,7 +226,7 @@ export class AttemptRepository {
           command.resetEpoch,
           command.activityId,
           command.activityVersion,
-          command.method,
+          persistedMethod,
           score.skill,
           score.requiredForPass ? 1 : 0,
         ]
@@ -275,7 +278,7 @@ export class AttemptRepository {
           command.activityId,
           command.activityVersion,
           command.source,
-          command.method,
+          persistedMethod,
           score.skill,
           responsePayload,
           score.outcome,
@@ -305,7 +308,7 @@ export class AttemptRepository {
           command.activityId,
           command.activityVersion,
           command.source,
-          command.method,
+          persistedMethod,
           score.skill,
           score.outcome,
           score.score,
@@ -480,6 +483,37 @@ export class AttemptRepository {
       );
     }
 
+    if (command.source === "mistake") {
+      const verifiedOrigin = await this.database.prepare(
+        `SELECT attempt.id
+         FROM learning_attempts attempt
+         INNER JOIN learning_evidence evidence
+           ON evidence.user_id = attempt.user_id
+          AND evidence.attempt_id = attempt.id
+          AND evidence.reset_epoch = attempt.reset_epoch
+         WHERE attempt.user_id = ? AND attempt.enrollment_id = ?
+           AND attempt.reset_epoch = ? AND attempt.content_version = ?
+           AND attempt.activity_id = ? AND attempt.activity_version = ?
+           AND attempt.source IN ('lesson', 'reader')
+           AND attempt.outcome = 'incorrect'
+           AND evidence.source = attempt.source
+           AND evidence.outcome = 'incorrect' AND evidence.verified = 1
+         LIMIT 1`,
+      ).bind(
+        userId,
+        enrollment.id,
+        command.resetEpoch,
+        CONTENT_VERSION,
+        command.activityId,
+        command.activityVersion,
+      ).first<{ id: string }>();
+      if (!verifiedOrigin) {
+        throw new AttemptSessionUnavailableError(
+          "Remediation attempts require a verified mistake from the current learning epoch.",
+        );
+      }
+    }
+
     let sessionId: string | null = null;
     let sessionFormHash: string | null = null;
     let sessionExpectedEvidenceCount: number | null = null;
@@ -534,7 +568,10 @@ export class AttemptRepository {
         throw error;
       }
       sessionId = session.id;
-    } else if (command.sessionId || score.sessionBinding) {
+    } else if (
+      command.sessionId
+      || (command.source === "reader" && score.sessionBinding)
+    ) {
       throw new AttemptSessionUnavailableError(
         "Reader attempts cannot use lesson sessions.",
       );

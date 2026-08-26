@@ -10,6 +10,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { createPortal } from "react-dom";
 
 type ToastTone = "success" | "info" | "warning";
 
@@ -152,7 +153,7 @@ export function ConfirmModal({
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div className="modal-scrim" onMouseDown={onCancel}>
       <section
         ref={modalRef}
@@ -187,6 +188,7 @@ export function ConfirmModal({
           </button>
         </div>
       </section>
-    </div>
+    </div>,
+    document.body,
   );
 }

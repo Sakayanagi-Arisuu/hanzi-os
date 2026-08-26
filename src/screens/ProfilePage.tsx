@@ -45,6 +45,7 @@ import {
 import { parseLearningStateImport } from "../lib/learningStateImport";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { INITIAL_LEARNING_STATE, useLearning } from "../store/LearningStore";
+import { useInteractionXp } from "../store/InteractionXpStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import {
   deriveJourneyTitles,
@@ -100,6 +101,7 @@ const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
   const { state, actions, level, sync } = useLearning();
+  const interactionXp = useInteractionXp();
   const authorization = sync.session?.authenticated
     ? sync.session.authorization
     : undefined;
@@ -141,7 +143,10 @@ export function ProfilePage() {
   const completedCount = sync.session?.authenticated
     ? normalized.authoritativeProgress?.completedCount ?? null
     : localProgress.completedCount;
-  const rank = getInteractionRankProgress(state.xp);
+  const rank = getInteractionRankProgress(interactionXp.totalXp);
+  const displayedLevel = interactionXp.authoritative
+    ? Math.floor(interactionXp.totalXp / 500) + 1
+    : level;
   const systemClass = getSystemClass(draft.goal);
   const journeyTitle = deriveJourneyTitles(state.completedLessons)
     .filter((item) => item.completed)
@@ -332,7 +337,7 @@ export function ProfilePage() {
           <h1>Bảng Thuộc Tính</h1>
           <p>Điều chỉnh Thiên Mệnh, Nhịp Tu Luyện, hiệu ứng hệ thống và dữ liệu cá nhân đang lưu trên thiết bị.</p>
         </div>
-        <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(level).padStart(2, "0")}</strong><small>{rank.title} · {state.xp} XP tương tác</small></div>
+        <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(displayedLevel).padStart(2, "0")}</strong><small>{interactionXp.pending ? "Đang hợp nhất EXP" : `${rank.title} · ${interactionXp.totalXp} XP tương tác`}</small></div>
       </header>
 
       <div className="profile-layout">

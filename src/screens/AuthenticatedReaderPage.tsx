@@ -3,13 +3,8 @@ import {
   ArrowLeft,
   ArrowRight,
   BookOpenText,
-  CheckCircle2,
-  Headphones,
   RefreshCw,
   ShieldCheck,
-  Volume2,
-  X,
-  XCircle,
 } from "lucide-react";
 import {
   useCallback,
@@ -22,10 +17,12 @@ import { Link } from "react-router";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import { ConfirmModal } from "../components/SystemFeedback";
 import {
-  CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE,
   CURRENT_CONTENT_MANIFEST_SHA256,
   CURRENT_CONTENT_VERSION,
 } from "../content/currentContentIdentity";
+import {
+  CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE,
+} from "../content/clientContentAvailability";
 import type {
   ActiveReaderAttemptProjectionV3,
   ActiveReaderSessionProjectionV3,
@@ -39,11 +36,15 @@ import {
   type NormalizedReaderSessionQueueContextV1,
   type StableNormalizedReaderCommandIds,
 } from "../learning/normalizedReaderSessionCommands";
-import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { speakMandarin } from "../lib/speech";
 import {
   deriveExactReaderCoverage,
 } from "../reader/normalizedReaderUiCoverage";
+import {
+  ReaderExperience,
+  type ReaderJourneyStage,
+} from "../reader/ReaderExperience";
+import { FIRST_DAY_READER_PRESENTATION } from "../reader/readerPresentationContent";
 import {
   readerAbandonmentReceiptMatchesSessionBinding,
   readerProjectionMatchesSessionBinding,
@@ -101,6 +102,7 @@ type QueuedReaderTerminal =
 // material is bundled into the authenticated Reader surface.
 const CURRENT_READER_STORY_ID = "first-day";
 const CURRENT_READER_SCRIPT = "simplified" as const;
+const CURRENT_READER_STORY = FIRST_DAY_READER_PRESENTATION;
 
 const newestRecord = <T extends LearningCommandOutboxRecord>(records: T[]) =>
   [...records].sort(
@@ -195,13 +197,16 @@ export function AuthenticatedReaderPage() {
 }
 
 function AuthenticatedReaderPageScope() {
-  const { actions, sync } = useLearning();
+  const { state, actions, sync } = useLearning();
   const authority = useNormalizedLearningProjection();
   const refreshProjection = authority.refresh;
   const [records, setRecords] =
     useState<LearningCommandOutboxRecord[] | null>(null);
   const [recordsVersion, setRecordsVersion] = useState(0);
   const [phase, setPhase] = useState<ReaderRuntimePhase>("loading");
+  const [journeyStage, setJourneyStage] =
+    useState<ReaderJourneyStage>("shelf");
+  const [usedSupport, setUsedSupport] = useState(false);
   const [sessionDependency, setSessionDependency] =
     useState<QueuedReaderSessionDependency | null>(null);
   const [sessionBinding, setSessionBinding] =
@@ -225,7 +230,6 @@ function AuthenticatedReaderPageScope() {
     `reader-session-open:${crypto.randomUUID()}`,
   );
   const supportReopenInFlight = useRef(new Set<string>());
-  const questionHeadingRef = useRef<HTMLHeadingElement | null>(null);
 
   const accountKey = sync.session?.authenticated
     ? sync.session.accountKey
@@ -282,7 +286,7 @@ function AuthenticatedReaderPageScope() {
   useEffect(() => {
     let active = true;
     if (
-      !CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE
+      !CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE
       || !exactAuthority
       || !ownerGeneration
     ) {
@@ -298,7 +302,7 @@ function AuthenticatedReaderPageScope() {
       .catch(() => {
         if (!active) return;
         setError(
-          "Không thể đọc nhật ký Reader thuộc đúng tài khoản hiện tại.",
+          "Không thể khôi phục trang đọc của tài khoản này.",
         );
         setPhase("error");
       });
@@ -374,15 +378,9 @@ function AuthenticatedReaderPageScope() {
   }, [progress, readEnvironment, syncAndRefresh]);
 
   useEffect(() => {
-    if (phase === "exercise" && attemptState === "idle") {
-      questionHeadingRef.current?.focus();
-    }
-  }, [attemptState, index, phase]);
-
-  useEffect(() => {
     let active = true;
     if (
-      !CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE
+      !CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE
       || !exactAuthority
       || !readerProjection
       || !progress
@@ -415,7 +413,7 @@ function AuthenticatedReaderPageScope() {
         || binding.contentVersion !== progress.contentVersion
       ) {
         stopSafely(
-          "Binding Reader không còn khớp form answer-free của máy chủ.",
+          "Nội dung trang đọc đã thay đổi. Hãy mở lại để tiếp tục an toàn.",
         );
         return;
       }
@@ -425,7 +423,7 @@ function AuthenticatedReaderPageScope() {
         if (terminal.status === "quarantined") {
           stopSafely(
             terminal.quarantineReason
-              ?? "Lệnh kết thúc Reader đã bị máy chủ từ chối vĩnh viễn.",
+              ?? "Lượt đọc này không còn tiếp tục được.",
           );
           return;
         }
@@ -446,7 +444,7 @@ function AuthenticatedReaderPageScope() {
             terminal.commandId,
           )) {
             stopSafely(
-              "Receipt nộp Reader thiếu hoặc không khớp form server.",
+              "Kết quả trả về chưa đủ để xác nhận lượt đọc.",
             );
             return;
           }
@@ -455,6 +453,7 @@ function AuthenticatedReaderPageScope() {
           setSessionBinding(binding);
           setProjectedAttempts(projectedAttemptsForSession(dependency));
           setError(null);
+          setJourneyStage("result");
           setPhase("result");
           return;
         }
@@ -465,7 +464,7 @@ function AuthenticatedReaderPageScope() {
           terminal.command.reason,
         )) {
           stopSafely(
-            "Receipt dừng Reader thiếu hoặc không khớp form server.",
+            "Trang đọc chưa thể khép lại an toàn.",
           );
           return;
         }
@@ -475,7 +474,7 @@ function AuthenticatedReaderPageScope() {
             if (successor.status === "quarantined") {
               stopSafely(
                 successor.quarantineReason
-                  ?? "Không thể mở lại Reader ở chế độ hỗ trợ.",
+                  ?? "Chưa thể mở lại trang đọc với phần hỗ trợ.",
               );
               return;
             }
@@ -515,7 +514,7 @@ function AuthenticatedReaderPageScope() {
       if (!active) return;
       if (ids.sessionAlias !== dependency.sessionAlias) {
         stopSafely(
-          "Dependency Reader không còn khớp định danh phiên bền vững.",
+          "Phiên đọc hiện tại đã thay đổi. Hãy mở lại câu chuyện.",
         );
         return;
       }
@@ -536,13 +535,16 @@ function AuthenticatedReaderPageScope() {
         );
         stopSafely(
           quarantined?.quarantineReason
-            ?? "Coverage Reader không còn khớp form server bất biến.",
+            ?? "Tiến độ câu chuyện không còn khớp với trang đang mở.",
         );
         return;
       }
 
       const coveredPositions = new Set(coverage.coveredPositions);
       const pendingPosition = coverage.pendingPositions[0] ?? null;
+      if (coveredPositions.size > 0 || pendingPosition !== null) {
+        setJourneyStage("checkpoint");
+      }
       setSessionDependency(dependency);
       setSessionBinding(binding);
       setProjectedAttempts(projected);
@@ -605,7 +607,7 @@ function AuthenticatedReaderPageScope() {
           || !readerProjectionMatchesSessionBinding(activeSession, binding);
       })) {
         stopSafely(
-          "Binding cục bộ không còn khớp Reader session trong projection V3.",
+          "Trang đọc trên thiết bị này không còn khớp với tiến độ mới nhất.",
         );
         return () => {
           active = false;
@@ -613,7 +615,7 @@ function AuthenticatedReaderPageScope() {
       }
       if (candidates.length > 1) {
         stopSafely(
-          "Một Reader session server đang gắn với nhiều dependency cục bộ.",
+          "Có nhiều trang đọc dở cùng lúc. Hãy kiểm tra lại để chọn đúng trang.",
         );
         return () => {
           active = false;
@@ -651,7 +653,7 @@ function AuthenticatedReaderPageScope() {
         )
       ) {
         stopSafely(
-          "Reader session đã nhận attempt từ thiết bị khác; thiết bị này không tự hợp nhất lựa chọn.",
+          "Trang đọc đã được trả lời trên thiết bị khác; lựa chọn ở đây chưa được gộp.",
         );
         return () => {
           active = false;
@@ -669,7 +671,7 @@ function AuthenticatedReaderPageScope() {
         });
         if (refreshDecision === "conflict") {
           stopSafely(
-            "Projection V3 không còn là phần mở rộng bất biến của Reader session đã nhận.",
+            "Tiến độ mới nhất không còn nối tiếp đúng trang đọc đang mở.",
           );
           return () => {
             active = false;
@@ -689,7 +691,7 @@ function AuthenticatedReaderPageScope() {
           }).catch(() => {
             if (active) {
               stopSafely(
-                "Không thể cập nhật Reader anchor từ projection V3 mới hơn.",
+                "Chưa thể cập nhật tiến độ đọc mới nhất trên thiết bị này.",
               );
             }
           });
@@ -701,7 +703,7 @@ function AuthenticatedReaderPageScope() {
       void applySession(dependency, binding).catch(() => {
         if (active) {
           stopSafely(
-            "Không thể kiểm chứng form Reader do máy chủ đóng băng.",
+            "Chưa thể kiểm tra tính toàn vẹn của trang đọc.",
           );
         }
       });
@@ -732,7 +734,7 @@ function AuthenticatedReaderPageScope() {
     );
     if (currentDependencies.length > 1) {
       stopSafely(
-        "Có nhiều Reader dependency chưa kết thúc trong enrollment hiện tại.",
+        "Có nhiều lượt đọc dở. Hãy kiểm tra lại trước khi tiếp tục.",
       );
       return () => {
         active = false;
@@ -820,7 +822,7 @@ function AuthenticatedReaderPageScope() {
     if (dependency.status === "quarantined") {
       stopSafely(
         dependency.quarantineReason
-          ?? "Lệnh mở Reader đã bị máy chủ từ chối vĩnh viễn.",
+          ?? "Câu chuyện này hiện chưa thể mở.",
       );
       return () => {
         active = false;
@@ -834,7 +836,7 @@ function AuthenticatedReaderPageScope() {
     }
     const binding = authorityBindingForSession(dependency);
     if (!binding) {
-      stopSafely("Receipt mở Reader bị thiếu hoặc không hợp lệ.");
+      stopSafely("Trang đọc chưa nhận được dữ liệu xác nhận hợp lệ.");
       return () => {
         active = false;
       };
@@ -842,7 +844,7 @@ function AuthenticatedReaderPageScope() {
     void applySession(dependency, binding).catch(() => {
       if (active) {
         stopSafely(
-          "Không thể kiểm chứng form Reader do máy chủ đóng băng.",
+          "Chưa thể kiểm tra tính toàn vẹn của trang đọc.",
         );
       }
     });
@@ -863,10 +865,11 @@ function AuthenticatedReaderPageScope() {
   const startReader = useCallback(async () => {
     if (
       busy
-      || !CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE
+      || !CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE
       || !exactAuthority
       || !progress
     ) return;
+    setJourneyStage("reading");
     setBusy(true);
     setError(null);
     try {
@@ -875,7 +878,7 @@ function AuthenticatedReaderPageScope() {
       const input = await buildNormalizedReaderSessionOpenQueueInput({
         storyId: CURRENT_READER_STORY_ID,
         script: CURRENT_READER_SCRIPT,
-        supportMode: "unassisted",
+        supportMode: "assisted",
         authoritativeProgress: progress,
         environment,
         openCommandId: openCommandIdRef.current,
@@ -886,7 +889,7 @@ function AuthenticatedReaderPageScope() {
       await syncAndRefresh();
     } catch {
       setError(
-        "Không thể mở Reader trong đúng enrollment hiện tại. Kho nội dung có thể vẫn chưa đủ điều kiện phát hành.",
+        "Chưa thể mở câu chuyện cho lộ trình hiện tại. Hãy thử lại sau.",
       );
       setPhase("error");
     } finally {
@@ -904,7 +907,7 @@ function AuthenticatedReaderPageScope() {
     const activeSession = readerProjection?.activeReaderSession;
     if (
       busy
-      || !CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE
+      || !CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE
       || !activeSession
     ) return;
     setBusy(true);
@@ -923,7 +926,7 @@ function AuthenticatedReaderPageScope() {
       refreshRecords();
     } catch {
       setError(
-        "Không thể nhận Reader session từ projection V3 đúng owner/reset.",
+        "Chưa thể tiếp tục trang đọc từ thiết bị khác.",
       );
       setPhase("error");
     } finally {
@@ -977,7 +980,7 @@ function AuthenticatedReaderPageScope() {
       await syncAndRefresh();
     } catch {
       setError(
-        "Lựa chọn chưa thể gắn vào đúng Reader session. Giao diện không tự chấm kết quả.",
+        "Lựa chọn chưa được ghi nhận an toàn nên chưa thể chấm kết quả.",
       );
       setPhase("error");
     } finally {
@@ -1050,7 +1053,7 @@ function AuthenticatedReaderPageScope() {
       await syncAndRefresh();
     } catch {
       setError(
-        "Chỉ có thể nộp Reader khi mọi vị trí có receipt server chính xác.",
+        "Một vài lựa chọn chưa được xác nhận nên chưa thể hiện kết quả.",
       );
       setPhase("error");
     } finally {
@@ -1126,7 +1129,7 @@ function AuthenticatedReaderPageScope() {
       await syncAndRefresh();
     } catch {
       setError(
-        "Không thể dừng đúng Reader session hiện tại; không có trạng thái hoàn tất nào được suy đoán.",
+        "Trang đọc chưa thể khép lại an toàn. Tiến độ hiện có vẫn được giữ nguyên.",
       );
       setPhase("error");
     } finally {
@@ -1140,15 +1143,15 @@ function AuthenticatedReaderPageScope() {
     syncAndRefresh,
   ]);
 
-  if (!CURRENT_CONTENT_CLOSED_ALPHA_ELIGIBLE) {
+  if (!CURRENT_CLIENT_CLOSED_ALPHA_AVAILABLE) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <ShieldCheck size={44} />
-        <span>SERVER READER · RELEASE FENCE ACTIVE</span>
-        <h1>Reader xác thực chưa được phát hành</h1>
+        <span>VẠN QUYỂN CÁC</span>
+        <h1>Câu chuyện này chưa sẵn sàng</h1>
         <p>
-          Gói hiện tại chưa qua promotion và linguistic review. Nội dung công
-          khai chỉ còn là practice local, không được dùng làm mastery evidence.
+          Bạn vẫn có thể tiếp tục lộ trình hiện tại; câu chuyện sẽ xuất hiện khi
+          hoàn tất biên tập.
         </p>
         <Link className="primary-button" to="/path">
           <ArrowLeft size={17} /> Tiếp tục lộ trình đã mở
@@ -1167,14 +1170,24 @@ function AuthenticatedReaderPageScope() {
     );
   }
 
+  if (!CURRENT_READER_STORY) {
+    return (
+      <div className="lesson-state-screen" role="status">
+        <BookOpenText size={44} />
+        <h1>Chưa có câu chuyện phù hợp</h1>
+        <p>Hãy quay lại sau khi thư khố có bản đọc dành cho cấp độ của bạn.</p>
+        <Link className="primary-button" to="/path">Tiếp tục Thiên Lộ</Link>
+      </div>
+    );
+  }
+
   if (phase === "loading" || records === null) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <RefreshCw className="spin" size={44} />
-        <h1>Đang kiểm chứng Reader session</h1>
+        <h1>Đang mở cổng Vạn Quyển Các</h1>
         <p>
-          Hệ thống đang đối chiếu owner, reset epoch, enrollment và projection
-          V3 trước khi hiển thị form.
+          Đang khôi phục đúng trang đọc và tiến độ gần nhất của bạn.
         </p>
       </div>
     );
@@ -1182,66 +1195,36 @@ function AuthenticatedReaderPageScope() {
 
   if (phase === "briefing") {
     return (
-      <div className="assessment-intro authenticated-reader-intro">
-        <div className="assessment-core">
-          <BookOpenText size={38} />
-          <span />
-        </div>
-        <span className="system-kicker">
-          SERVER-AUTHORITATIVE · ANSWER-FREE FORM
-        </span>
-        <h1>Reader Session V1</h1>
-        <p>
-          Máy chủ phát đoạn đọc và lựa chọn không kèm đáp án. Mỗi lựa chọn phải
-          có receipt trước khi sang câu khác; trình duyệt không tự chấm và không
-          tự mở khóa bài học.
-        </p>
-        <div className="assessment-facts">
-          <span>
-            <ShieldCheck size={18} />
-            <strong>Form đóng băng</strong>
-            <small>SHA-256 binding</small>
-          </span>
-          <span>
-            <BookOpenText size={18} />
-            <strong>Reading riêng biệt</strong>
-            <small>không suy kỹ năng khác</small>
-          </span>
-          <span>
-            <Headphones size={18} />
-            <strong>Support minh bạch</strong>
-            <small>đổi phiên trước khi nghe</small>
-          </span>
-        </div>
-        <div className="assessment-actions">
-          <Link className="secondary-button" to="/path">
-            Quay lại lộ trình
-          </Link>
-          <button
-            className="primary-button"
-            disabled={busy}
-            type="button"
-            onClick={() => void startReader()}
-          >
-            Mở phiên không hỗ trợ <ArrowRight size={18} />
-          </button>
-        </div>
-      </div>
+      <ReaderExperience
+        story={CURRENT_READER_STORY}
+        stage={journeyStage === "briefing" ? "briefing" : "shelf"}
+        savedWordIds={state.savedWords}
+        supportUsed={usedSupport}
+        busy={busy}
+        scriptPreference={state.profile.script}
+        onStageChange={setJourneyStage}
+        onStart={() => void startReader()}
+        onExit={() => setJourneyStage("shelf")}
+        onSupportUsed={() => setUsedSupport(true)}
+        onSpeak={speakMandarin}
+        onToggleSavedWord={actions.toggleSavedWord}
+        onRestart={() => setJourneyStage("briefing")}
+      />
     );
   }
 
   if (phase === "remote-session") {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
-        <ShieldCheck size={44} />
-        <h1>Có Reader session đang mở trên thiết bị khác</h1>
+        <BookOpenText size={44} />
+        <h1>Trang đọc đang mở ở thiết bị khác</h1>
         <p>
-          Chỉ projection V3 đã cache cho đúng owner/reset mới được nhận vào
-          thiết bị này. Thao tác không mở phiên mới và không tải đáp án.
+          Bạn có thể tiếp tục chính trang đó tại đây mà không mất câu trả lời đã
+          ghi nhận.
         </p>
         <div className="assessment-actions">
           <Link className="secondary-button" to="/path">
-            Để phiên ở thiết bị kia
+            Giữ trang ở thiết bị kia
           </Link>
           <button
             className="primary-button"
@@ -1249,7 +1232,7 @@ function AuthenticatedReaderPageScope() {
             type="button"
             onClick={() => void adoptRemoteSession()}
           >
-            Tiếp tục trên thiết bị này <ArrowRight size={17} />
+            Tiếp tục đọc tại đây <ArrowRight size={17} />
           </button>
         </div>
       </div>
@@ -1264,26 +1247,26 @@ function AuthenticatedReaderPageScope() {
   ) {
     const copy = phase === "opening"
       ? {
-          title: "Đang chờ máy chủ phát form",
+          title: "Đang mở trang thiên thư",
           description:
-            "Không có nội dung hoặc đáp án local nào được dùng trong lúc chờ.",
+            "Các câu hỏi đang được chuẩn bị cho lượt đọc của bạn.",
         }
       : phase === "submitting"
         ? {
-            title: "Đang nộp Reader session",
+            title: "Đang đối chiếu lời giải",
             description:
-              "Máy chủ đang kiểm tra coverage và form hash trước khi trả kết quả.",
+              "Chỉ một khoảnh khắc nữa, kết quả toàn bộ mẩu chuyện sẽ hiện ra.",
           }
         : phase === "support-transition"
           ? {
-              title: "Đang chuyển sang phiên có hỗ trợ",
+              title: "Đang bật hỗ trợ nghe",
               description:
-                "Phiên không hỗ trợ phải được máy chủ xác nhận dừng trước khi TTS trình duyệt được bật.",
+                "Trang đọc sẽ tiếp tục với giọng đọc tổng hợp của thiết bị.",
             }
           : {
-              title: "Đang dừng Reader session",
+              title: "Đang khép lại trang đọc",
               description:
-                "Hệ thống đang chờ receipt dừng đúng session và form hash.",
+                "Những câu chưa trả lời sẽ được để lại cho lượt luyện sau.",
             };
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
@@ -1298,10 +1281,10 @@ function AuthenticatedReaderPageScope() {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
         <ShieldCheck size={44} />
-        <h1>Reader session đã dừng</h1>
+        <h1>Trang đọc đã khép lại</h1>
         <p>
-          Máy chủ đã xác nhận dừng phiên. Phần chưa hoàn tất không tạo kết quả,
-          XP, mastery hay thay đổi prerequisite.
+          Phần chưa hoàn tất không được tính vào kết quả và không ảnh hưởng tiến
+          độ hiện có của bạn.
         </p>
         <Link className="primary-button" to="/path">
           <ArrowLeft size={17} /> Trở lại lộ trình
@@ -1314,8 +1297,8 @@ function AuthenticatedReaderPageScope() {
     return (
       <div className="lesson-state-screen" role="alert">
         <AlertTriangle size={44} />
-        <h1>Reader session đã dừng an toàn</h1>
-        <p>{error ?? "Authority của phiên không còn khớp dữ liệu hiện tại."}</p>
+        <h1>Trang đọc tạm thời chưa thể mở</h1>
+        <p>{error ?? "Dữ liệu lượt đọc đã thay đổi. Hãy kiểm tra lại để tiếp tục an toàn."}</p>
         <div className="assessment-actions">
           <Link className="secondary-button" to="/path">
             Trở lại lộ trình
@@ -1339,51 +1322,42 @@ function AuthenticatedReaderPageScope() {
   }
 
   if (phase === "result" && result) {
-    const eligibleCount = result.results.filter(
-      (item) => item.masteryEligible,
-    ).length;
     return (
-      <div className="assessment-result authenticated-reader-result">
-        <div className="result-sigil observed">
-          <BookOpenText size={38} />
-          <span />
-        </div>
-        <span className="system-kicker">
-          SERVER-SCORED · READING ONLY
-        </span>
-        <h1>Kết quả Reader session</h1>
-        <div className="assessment-score">
-          <strong>{result.correctCount}/{result.attemptCount}</strong>
-          <span> · {result.score}%</span>
-        </div>
-        <p>
-          Máy chủ đã chấm đúng form bất biến. Chỉ {eligibleCount} mục đáp ứng
-          policy first-exposure/unassisted; kết quả đọc không được suy thành
-          nghe, nói, viết hay tự động mở khóa lộ trình.
-        </p>
-        <div
-          className="assessment-observation-list"
-          aria-label="Kết quả từng mục Reader"
-        >
-          {result.results.map((item) => (
-            <div key={item.itemVersion}>
-              <span>Mục {item.position + 1}</span>
-              <strong>
-                {item.correct ? "Đúng" : "Chưa đúng"}
-                {" · "}
-                {item.masteryEligible
-                  ? "đủ điều kiện evidence"
-                  : "practice-only"}
-              </strong>
-            </div>
-          ))}
-        </div>
-        <div className="assessment-actions">
-          <Link className="primary-button" to="/path">
-            Tiếp tục lộ trình hiện có <ArrowRight size={17} />
-          </Link>
-        </div>
-      </div>
+      <ReaderExperience
+        story={CURRENT_READER_STORY}
+        stage="result"
+        result={{
+          correctCount: result.correctCount,
+          total: result.attemptCount,
+          outcomes: result.results.map((item) => item.correct ? "correct" : "incorrect"),
+        }}
+        savedWordIds={state.savedWords}
+        supportUsed={usedSupport}
+        scriptPreference={state.profile.script}
+        onStageChange={setJourneyStage}
+        onStart={() => void startReader()}
+        onExit={() => setJourneyStage("shelf")}
+        onSupportUsed={() => setUsedSupport(true)}
+        onSpeak={speakMandarin}
+        onToggleSavedWord={actions.toggleSavedWord}
+        onRestart={() => {
+          openCommandIdRef.current =
+            `reader-session-open:${crypto.randomUUID()}`;
+          setSessionDependency(null);
+          setSessionBinding(null);
+          setProjectedAttempts([]);
+          setCommandIds(null);
+          setResult(null);
+          setSelected(null);
+          setIndex(0);
+          setAttemptState("idle");
+          setAwaitingPosition(null);
+          setError(null);
+          setUsedSupport(false);
+          setJourneyStage("briefing");
+          setPhase("briefing");
+        }}
+      />
     );
   }
 
@@ -1399,9 +1373,9 @@ function AuthenticatedReaderPageScope() {
     return (
       <div className="lesson-state-screen" role="alert">
         <AlertTriangle size={44} />
-        <h1>Form Reader không còn hợp lệ</h1>
+        <h1>Trang đọc không còn đồng bộ</h1>
         <p>
-          Phiên bị loại khỏi giao diện để tránh ghi lựa chọn vào một form khác.
+          Hãy trở lại Thiên Lộ rồi mở lại để nhận đúng nội dung hiện tại.
         </p>
         <Link className="primary-button" to="/path">
           Trở lại lộ trình
@@ -1410,190 +1384,53 @@ function AuthenticatedReaderPageScope() {
     );
   }
 
-  const coveredCount = coverageSnapshot.coveredPositions.length;
-  const progressPercent = Math.round(
-    (coveredCount / sessionBinding.expectedItemCount) * 100,
-  );
   const recordedOutcome = coverageSnapshot.outcomes.find(
     (outcome) => outcome.position === index,
   )?.outcome ?? null;
-  const allAttemptsRecorded = coverageSnapshot.complete;
-  const assisted = sessionBinding.supportMode === "assisted";
 
   return (
     <>
-      <div className="assessment-live authenticated-reader-live">
-        <header>
-          <button
-            className="icon-button"
-            type="button"
-            aria-label="Dừng Reader session"
-            onClick={() => setAbandonModalOpen(true)}
-          >
-            <X size={20} />
-          </button>
-          <div
-            role="progressbar"
-            aria-label="Tiến độ Reader đã được máy chủ ghi nhận"
-            aria-valuemin={0}
-            aria-valuemax={sessionBinding.expectedItemCount}
-            aria-valuenow={coveredCount}
-            aria-valuetext={`${coveredCount} trên ${sessionBinding.expectedItemCount} mục đã được ghi nhận`}
-          >
-            <i style={{ width: `${progressPercent}%` }} />
-          </div>
-          <span>{coveredCount}/{sessionBinding.expectedItemCount}</span>
-        </header>
-
-        <section className="assessment-question authenticated-reader-question">
-          <span className="system-kicker">
-            <BookOpenText size={15} />
-            {" "}
-            {assisted
-              ? "ASSISTED · PRACTICE-ONLY"
-              : "UNASSISTED · SERVER FORM"}
-          </span>
-          <h1
-            className="reader-server-stimulus"
-            ref={questionHeadingRef}
-            tabIndex={-1}
-          >
-            {currentItem.chineseStimulus}
-          </h1>
-          <h2>{currentItem.prompt}</h2>
-
-          <div className="reader-support-control">
-            {assisted ? (
-              <>
-                <button
-                  className="secondary-button"
-                  disabled={attemptState === "pending" || busy}
-                  type="button"
-                  onClick={() => speakMandarin(
-                    currentItem.chineseStimulus,
-                    0.76,
-                  )}
-                >
-                  <Volume2 size={17} /> Nghe TTS trình duyệt
-                </button>
-                <small>
-                  Audio tổng hợp là hỗ trợ; phiên này không đủ điều kiện mastery.
-                </small>
-              </>
-            ) : (
-              <>
-                <button
-                  className="secondary-button"
-                  disabled={attemptState === "pending" || busy}
-                  type="button"
-                  onClick={() => void abandonReader("support-requested")}
-                >
-                  <Headphones size={17} /> Cần nghe hỗ trợ
-                </button>
-                <small>
-                  Yêu cầu này sẽ dừng phiên hiện tại rồi mở một phiên assisted.
-                </small>
-              </>
-            )}
-          </div>
-
-          <div
-            className="assessment-options"
-            role="radiogroup"
-            aria-label={`Các lựa chọn cho mục Reader ${index + 1}`}
-          >
-            {currentItem.options.map((option, optionIndex) => (
-              <button
-                className={selected === option ? "selected" : ""}
-                disabled={attemptState !== "idle" || busy}
-                key={option}
-                role="radio"
-                aria-checked={selected === option}
-                tabIndex={
-                  selected === option || (!selected && optionIndex === 0)
-                    ? 0
-                    : -1
-                }
-                type="button"
-                onClick={() => setSelected(option)}
-                onKeyDown={(event) => handleRadioGroupKeyDown(event, {
-                  currentIndex: optionIndex,
-                  itemCount: currentItem.options.length,
-                  onSelect: (nextIndex) => setSelected(
-                    currentItem.options[nextIndex]!,
-                  ),
-                })}
-              >
-                <span>{String.fromCharCode(65 + optionIndex)}</span>
-                <strong>{option}</strong>
-              </button>
-            ))}
-          </div>
-        </section>
-
-        <footer className={
-          recordedOutcome === "correct"
-            ? "correct"
-            : recordedOutcome === "incorrect"
-              ? "wrong"
-              : ""
-        }>
-          <div role="status" aria-live="polite" aria-atomic="true">
-            {attemptState === "recorded" && recordedOutcome ? (
-              <>
-                <strong>
-                  {recordedOutcome === "correct"
-                    ? <><CheckCircle2 size={17} /> Máy chủ ghi nhận đúng</>
-                    : <><XCircle size={17} /> Máy chủ ghi nhận chưa đúng</>}
-                </strong>
-                <p>
-                  Receipt không chứa đáp án đúng. Kết quả chỉ thuộc kỹ năng đọc
-                  và policy của mục này.
-                </p>
-              </>
-            ) : attemptState === "pending" ? (
-              <>
-                <strong>Đang chờ receipt</strong>
-                <p>
-                  Lựa chọn đã vào hàng đợi bền vững; giao diện không tự chấm.
-                </p>
-              </>
-            ) : (
-              <p>Chọn phương án rồi gửi để máy chủ chấm đúng form.</p>
-            )}
-          </div>
-          <button
-            className="primary-button"
-            disabled={
-              busy
-              || attemptState === "pending"
-              || (attemptState === "idle" && !selected)
-            }
-            type="button"
-            onClick={() => {
-              if (attemptState === "recorded") continueReader();
-              else void recordAnswer();
-            }}
-          >
-            {attemptState === "recorded"
-              ? allAttemptsRecorded
-                ? "Nộp phiên"
-                : "Mục tiếp theo"
-              : attemptState === "pending"
-                ? "Đang ghi nhận"
-                : "Gửi lựa chọn"}
-            <ArrowRight size={17} />
-          </button>
-        </footer>
-      </div>
+      <ReaderExperience
+        story={CURRENT_READER_STORY}
+        stage={journeyStage === "checkpoint" ? "checkpoint" : "reading"}
+        checkpoint={journeyStage === "checkpoint" ? {
+          label: currentItem.itemId.includes("main") ? "Ý chính" : "Chi tiết",
+          position: index,
+          total: sessionBinding.expectedItemCount,
+          prompt: currentItem.prompt,
+          options: currentItem.options,
+          selected,
+          state: attemptState,
+          outcome: recordedOutcome,
+        } : null}
+        savedWordIds={state.savedWords}
+        supportUsed={usedSupport}
+        busy={busy}
+        scriptPreference={state.profile.script}
+        onStageChange={setJourneyStage}
+        onStart={() => setJourneyStage("reading")}
+        onExit={() => setAbandonModalOpen(true)}
+        onSupportUsed={() => {
+          setUsedSupport(true);
+          if (sessionBinding.supportMode === "unassisted") {
+            void abandonReader("support-requested");
+          }
+        }}
+        onSpeak={speakMandarin}
+        onToggleSavedWord={actions.toggleSavedWord}
+        onSelectOption={setSelected}
+        onSubmitOption={() => void recordAnswer()}
+        onContinueCheckpoint={continueReader}
+        onRestart={() => setJourneyStage("reading")}
+      />
 
       <ConfirmModal
         open={abandonModalOpen}
-        title="Dừng Reader session?"
-        description="Máy chủ sẽ đánh dấu đúng phiên này là đã dừng. Phần chưa hoàn tất không tạo kết quả hay mastery."
-        eyebrow="SESSION CONTROL"
+        title="Khép lại trang đọc?"
+        description="Những câu chưa trả lời sẽ không được tính vào kết quả. Bạn có thể bắt đầu một lượt mới sau đó."
+        eyebrow="VẠN QUYỂN CÁC"
         cancelLabel="Tiếp tục đọc"
-        confirmLabel="Dừng đúng phiên này"
+        confirmLabel="Khép lại"
         busy={busy}
         onCancel={() => setAbandonModalOpen(false)}
         onConfirm={() => void abandonReader("user-exit")}

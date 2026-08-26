@@ -1,17 +1,14 @@
 import {
   ArrowRight,
-  BrainCircuit,
   CheckCircle2,
   Eye,
   EyeOff,
-  History,
-  RotateCcw,
+  ListChecks,
   ShieldCheck,
-  ShieldX,
   Sparkles,
-  Swords,
+  XCircle,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router";
 import { useSystemFeedback } from "../components/SystemFeedback";
 import { isMistakeFromActivePathContent } from "../lib/adaptive";
@@ -80,11 +77,15 @@ export function LocalMistakesPage() {
     [state.mistakes, state.profile.startingLevel],
   );
   const unresolved = useMemo(
-    () => visibleMistakes.filter((mistake) => !mistake.resolved),
+    () => visibleMistakes.filter((mistake) =>
+      !mistake.resolved && mistake.correctedStreak < 1
+    ),
     [visibleMistakes],
   );
   const resolved = useMemo(
-    () => visibleMistakes.filter((mistake) => mistake.resolved),
+    () => visibleMistakes.filter((mistake) =>
+      mistake.resolved || mistake.correctedStreak >= 1
+    ),
     [visibleMistakes],
   );
   const [activeId, setActiveId] = useState<string | null>(
@@ -99,15 +100,49 @@ export function LocalMistakesPage() {
   );
   const [submittedMistake, setSubmittedMistake] =
     useState<MistakeRecord | null>(null);
+  const [attemptedIds, setAttemptedIds] = useState<ReadonlySet<string>>(
+    () => new Set(),
+  );
+  const [repairedIds, setRepairedIds] = useState<ReadonlySet<string>>(
+    () => new Set(),
+  );
+  const scrollRegionRef = useRef<HTMLDivElement | null>(null);
   const mistake = checked && submittedMistake
     ? submittedMistake
     : unresolved.find((item) => item.id === activeId) ?? unresolved[0];
 
-  const resetAttempt = () => {
+  const nextSessionMistake = useMemo(() => {
+    if (!submittedMistake) return null;
+    const candidates = unresolved.filter((item) =>
+      item.id !== submittedMistake.id && !attemptedIds.has(item.id)
+    );
+    return candidates.find((item) => item.skill === submittedMistake.skill)
+      ?? candidates[0]
+      ?? null;
+  }, [attemptedIds, submittedMistake, unresolved]);
+
+  useEffect(() => {
+    if (!checked) return;
+    const frame = window.requestAnimationFrame(() => {
+      const region = scrollRegionRef.current;
+      if (!region) return;
+      region.scrollTo({
+        top: region.scrollHeight,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+      });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [checked]);
+
+  const resetAttempt = (nextId?: string) => {
     const latest = submittedMistake
       ? state.mistakes.find((item) => item.id === submittedMistake.id)
       : null;
-    if (latest?.resolved) {
+    if (nextId) {
+      setActiveId(nextId);
+    } else if (latest?.resolved) {
       setActiveId(
         unresolved.find((item) => item.id !== latest.id)?.id ?? null,
       );
@@ -118,6 +153,9 @@ export function LocalMistakesPage() {
     setHint({ visible: false, used: false });
     setAttemptKey(makeIdempotencyKey("mistake-attempt"));
     setSubmittedMistake(null);
+    window.requestAnimationFrame(() => {
+      scrollRegionRef.current?.scrollTo({ top: 0, behavior: "auto" });
+    });
   };
 
   const submit = () => {
@@ -139,6 +177,10 @@ export function LocalMistakesPage() {
       correctedStreak: attempt.correctedStreak,
       resolved: attempt.resolved,
     });
+    setAttemptedIds((current) => new Set(current).add(mistake.id));
+    if (attempt.resolved) {
+      setRepairedIds((current) => new Set(current).add(mistake.id));
+    }
     actions.resolveMistake(
       mistake.id,
       isCorrect,
@@ -154,17 +196,14 @@ export function LocalMistakesPage() {
     if (isCorrect) {
       notify(
         hint.used
-          ? "Đáp án đúng sau khi mở gợi ý chỉ được ghi là luyện tập trên thiết bị; Chuỗi Phá Giải không tăng."
-          : attempt.correctedStreak >= 2
-            ? "Đã phá giải Nghịch Cảnh bằng hai lần tự gọi đúng liên tiếp trên thiết bị."
-            : "Đã hoàn thành lượt tự gọi đầu tiên trên thiết bị.",
+          ? "Đã hiểu cách làm. Lỗi này sẽ được kiểm tra lại ở một lượt sau."
+          : "Đã xử lý lỗi bằng một lượt tự trả lời độc lập; tiếp tục lộ trình để gặp kỹ năng trong ngữ cảnh khác.",
       );
     }
   };
 
   const chooseMistake = (id: string) => {
-    setActiveId(id);
-    resetAttempt();
+    resetAttempt(id);
   };
 
   const toggleHint = () => {
@@ -173,28 +212,22 @@ export function LocalMistakesPage() {
 
   if (!unresolved.length && !checked) {
     return (
-      <div className="mistake-clear-state">
-        <div className="clear-shield">
-          <ShieldCheck size={43} />
-          <span />
-        </div>
-        <span className="system-kicker">NGHỊCH CẢNH · ĐÃ THANH LỌC</span>
-        <h1>Không còn Nghịch Cảnh đang mở</h1>
-        <p>
-          Trạng thái này được lưu trên thiết bị để bạn tiếp tục luyện đúng lỗi
-          còn vướng.
-        </p>
-        <div>
-          <Link className="secondary-button" to="/review">
-            <BrainCircuit size={17} /> Vào Ký Ức Trận
-          </Link>
+      <div className="mistake-focus-empty">
+        <div className="mistake-focus-empty-icon"><ShieldCheck size={34} /></div>
+        <span className="system-kicker">NGHỊCH CẢNH LỤC</span>
+        <h1>Không còn lỗi cần luyện lại</h1>
+        <p>Lỗi mới sẽ tự xuất hiện tại đây sau khi bạn học.</p>
+        <div className="mistake-focus-empty-actions">
           <Link className="primary-button" to="/path">
             Tiếp tục Thiên Lộ <ArrowRight size={17} />
           </Link>
+          <Link className="mistake-focus-text-link" to="/review">
+            Ôn tại Ký Ức Trận
+          </Link>
         </div>
         {resolved.length > 0 && (
-          <span className="resolved-count">
-            <CheckCircle2 size={15} /> {resolved.length} lỗi đã đóng cục bộ
+          <span className="mistake-focus-empty-note">
+            <CheckCircle2 size={15} /> {resolved.length} lỗi đã hoàn tất
           </span>
         )}
       </div>
@@ -202,129 +235,138 @@ export function LocalMistakesPage() {
   }
 
   return (
-    <div className="content-page mistakes-page">
-      <header className="page-hero mistakes-hero">
+    <div className="content-page mistakes-page mistake-focus-page">
+      <header className="mistake-focus-heading">
         <div>
-          <span className="system-kicker">
-            <Swords size={15} /> NGHỊCH CẢNH LỤC · LUYỆN TRÊN THIẾT BỊ
-          </span>
-          <h1>Nghịch Cảnh Lục</h1>
-          <p>
-            Đây là phần luyện tập lưu trên thiết bị. Trạng thái phá giải giúp
-            bạn theo dõi những lỗi đã ôn lại.
-          </p>
+          <span className="system-kicker">NGHỊCH CẢNH LỤC</span>
+          <h1>Luyện lại lỗi đang vướng</h1>
+          <p>{unresolved.length} lỗi đang chờ · tập trung từng lỗi một.</p>
         </div>
-        <div className="mistake-hero-stats">
-          <span><strong>{unresolved.length}</strong><small>đang mở</small></span>
-          <span><strong>{resolved.length}</strong><small>đã phá giải</small></span>
+        <div className="mistake-focus-goal" aria-label="Tiến độ lượt luyện">
+          <ShieldCheck size={20} />
+          <span>
+            <strong>{repairedIds.size} lỗi đã xử lý</strong>
+            <small>không lặp lại ngay</small>
+          </span>
         </div>
       </header>
 
-      <div className="mistake-layout">
-        <aside className="mistake-index">
-          <header className="section-heading">
-            <div><span>TÍN HIỆU CẦN KHẮC PHỤC</span><h2>Nghịch Cảnh ưu tiên</h2></div>
-            <ShieldX size={20} />
-          </header>
-          <div className="mistake-list">
-            {unresolved.map((item, index) => (
-              <button
-                className={mistake?.id === item.id ? "active" : ""}
-                key={item.id}
-                type="button"
-                onClick={() => chooseMistake(item.id)}
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>
-                  <strong>{item.prompt}</strong>
-                  <small>
-                    {skillLabels[item.skill]} · sai {item.occurrences} lần
-                  </small>
-                </span>
-                <i>{item.correctedStreak}/2</i>
-              </button>
-            ))}
-          </div>
-        </aside>
+      <div className="mistake-focus-workspace">
+        <div className="mistake-focus-toolbar">
+          <details className="mistake-focus-queue">
+            <summary>
+              <ListChecks size={18} />
+              Đổi lỗi · {Math.max(1, unresolved.findIndex((item) => item.id === mistake?.id) + 1)}/{unresolved.length}
+            </summary>
+            <div className="mistake-focus-queue-panel">
+              <div className="mistake-focus-queue-list">
+                {unresolved.map((item, index) => (
+                  <button
+                    className={mistake?.id === item.id ? "active" : ""}
+                    key={item.id}
+                    type="button"
+                    onClick={() => chooseMistake(item.id)}
+                  >
+                    <span>{index + 1}</span>
+                    <strong>{item.prompt}</strong>
+                    <small>{skillLabels[item.skill]} · gặp {item.occurrences} lần</small>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </details>
+        </div>
 
         {mistake && (
-          <section className="correction-arena">
-            <header>
-              <span><Swords size={16} /> NÚT PHÁ GIẢI TRÊN THIẾT BỊ</span>
-              <strong>{mistake.correctedStreak}/2 lượt tự gọi đúng</strong>
+          <section className="mistake-focus-trial" aria-labelledby="mistake-focus-prompt">
+            <header className="mistake-focus-trial-header">
+              <span>{skillLabels[mistake.skill]}</span>
+              <strong className={`mistake-focus-phase${checked ? " feedback" : ""}`}>
+                {checked ? "Hiểu lỗi" : "Tự trả lời"}
+              </strong>
             </header>
-            <div className="correction-prompt">
-              <small>
-                {kindLabels[mistake.kind]} · {skillLabels[mistake.skill]}
-              </small>
-              <h2>{mistake.prompt}</h2>
-              <p>Hãy tự nhập đáp án trước khi mở gợi ý.</p>
-            </div>
-            <label className="correction-input">
-              <span>Câu trả lời của bạn</span>
-              <input
-                value={answer}
-                disabled={checked}
-                onChange={(event) => setAnswer(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter") submit();
-                }}
-                placeholder="Nhập nghĩa, pinyin hoặc đáp án..."
-                autoComplete="off"
-              />
-            </label>
-            <button
-              className="hint-toggle"
-              type="button"
-              onClick={toggleHint}
-            >
-              {hint.visible ? <EyeOff size={16} /> : <Eye size={16} />}
-              {" "}
-              {hint.visible ? "Ẩn gợi ý" : "Mở gợi ý"}
-            </button>
-            {hint.visible && (
-              <div className="correction-hint">
-                <Sparkles size={17} />
-                <p>{mistake.explanation}</p>
+
+            <div className="mistake-focus-scroll" ref={scrollRegionRef}>
+              <div className="mistake-focus-prompt">
+                <span>{kindLabels[mistake.kind]}</span>
+                <h2 id="mistake-focus-prompt">{mistake.prompt}</h2>
+                <p>Tự trả lời trước khi mở gợi ý.</p>
               </div>
-            )}
-            {checked && (
-              <div className={`correction-result ${correct ? "correct" : "wrong"}`}>
-                {correct
-                  ? <CheckCircle2 size={22} />
-                  : <RotateCcw size={22} />}
-                <div>
-                  <strong>
-                    {correct
-                      ? hint.used
-                        ? "Đúng sau khi đã mở gợi ý · chuỗi không tăng"
-                        : "Hoàn thành một lượt tự gọi local"
-                      : `Đáp án chuẩn: ${mistake.correctAnswer}`}
-                  </strong>
-                  <p>{mistake.explanation}</p>
-                </div>
-              </div>
-            )}
-            <footer>
-              <span>
-                <History size={15} /> Gặp lần cuối{" "}
-                {new Date(mistake.lastAttemptAt).toLocaleDateString("vi-VN")}
-              </span>
-              {checked ? (
-                <button
-                  className={correct ? "primary-button" : "secondary-button"}
-                  type="button"
-                  onClick={resetAttempt}
-                >
-                  {correct
-                    ? hint.used
-                      ? "Thử lại không gợi ý"
-                      : mistake.resolved
-                        ? "Hoàn tất practice local"
-                        : "Củng cố lần tiếp theo"
-                    : "Thử lại"}
-                  <ArrowRight size={17} />
+
+              <div className="mistake-focus-supports">
+                <button type="button" onClick={toggleHint} disabled={checked}>
+                  {hint.visible ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {hint.visible ? "Ẩn gợi ý" : "Cần gợi ý"}
                 </button>
+              </div>
+
+              {hint.visible && (
+                <div className="mistake-focus-hint" role="note">
+                  <Sparkles size={19} />
+                  <div><p>{mistake.explanation}</p><small>Gợi ý được ghi nhận; lỗi này sẽ được kiểm tra lại sau.</small></div>
+                </div>
+              )}
+
+              <label className="mistake-focus-input">
+                <span>Câu trả lời của bạn</span>
+                <input
+                  value={answer}
+                  disabled={checked}
+                  onChange={(event) => setAnswer(event.target.value)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") submit();
+                  }}
+                  placeholder="Tự nhập đáp án..."
+                  autoComplete="off"
+                />
+              </label>
+
+              {checked && (
+                <div className={`mistake-focus-result ${correct ? "correct" : "incorrect"}`} role="status" aria-live="polite">
+                  {correct ? <CheckCircle2 size={24} /> : <XCircle size={24} />}
+                  <div>
+                    <strong>
+                      {correct
+                        ? hint.used
+                          ? "Đã hiểu cách làm"
+                          : "Đã xử lý lỗi này"
+                        : "Chưa đúng — xem điểm cần sửa"}
+                    </strong>
+                    <p>
+                      {correct
+                        ? hint.used
+                          ? "Lỗi này sẽ quay lại ở lượt sau, không lặp ngay."
+                          : `Câu này không lặp lại ngay. Tiếp tục ${mistake.lessonId === "review" ? "Ký Ức Trận" : "Thiên Lộ"} để gặp kỹ năng trong ngữ cảnh khác.`
+                        : `Đáp án đúng: ${mistake.correctAnswer}. ${mistake.explanation}`}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+            </div>
+
+            <footer className="mistake-focus-actions">
+              {checked ? (
+                nextSessionMistake ? (
+                  <button
+                    className="primary-button"
+                    type="button"
+                    onClick={() => resetAttempt(nextSessionMistake.id)}
+                  >
+                    {nextSessionMistake.skill === mistake.skill
+                      ? "Câu khác cùng kỹ năng"
+                      : "Lỗi tiếp theo"}
+                    <ArrowRight size={17} />
+                  </button>
+                ) : (
+                  <Link
+                    className="primary-button"
+                    to={mistake.lessonId === "review" ? "/review" : "/path"}
+                  >
+                    {mistake.lessonId === "review" ? "Trở lại Ký Ức Trận" : "Tiếp tục Thiên Lộ"}
+                    <ArrowRight size={17} />
+                  </Link>
+                )
               ) : (
                 <button
                   className="primary-button"
@@ -332,7 +374,7 @@ export function LocalMistakesPage() {
                   type="button"
                   onClick={submit}
                 >
-                  Kiểm tra local <ArrowRight size={17} />
+                  Kiểm tra <ArrowRight size={17} />
                 </button>
               )}
             </footer>

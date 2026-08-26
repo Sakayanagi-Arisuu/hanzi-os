@@ -6,7 +6,6 @@ import {
   RELEASED_LESSONS,
 } from "../data/curriculum";
 import {
-  buildExerciseCatalog,
   buildExercises,
   type Exercise,
 } from "../lib/exerciseGeneration";
@@ -307,12 +306,16 @@ describe("normalized lesson server-form materializer", () => {
 
   it("does not expose feedback text or a typed-recall answer in presentation", async () => {
     const serverForm = formFor(
-      ROOT_LESSON,
+      LOCKED_LESSON,
       "simplified",
       false,
       () => 0.1,
     );
-    const runtime = await materializeValid(ROOT_LESSON, progress(), serverForm);
+    const runtime = await materializeValid(
+      LOCKED_LESSON,
+      progress([ROOT_LESSON]),
+      serverForm,
+    );
     const recall = runtime.activities.find((activity) => activity.kind === "recall");
 
     expect(recall).toBeDefined();
@@ -421,31 +424,17 @@ describe("normalized lesson server-form materializer", () => {
       code: "activity-unavailable",
     });
 
-    const issuedIds = new Set(base.form.activities.map((activity) => activity.activityId));
-    const replacement = buildExerciseCatalog(
-      ROOT_LESSON,
-      "simplified",
-      () => 0.125,
-    ).find((exercise) =>
-      exercise.requiredForPass !== true
-      && !issuedIds.has(`${ROOT_LESSON.id}:${exercise.id}`)
-    );
     const requiredPosition = base.form.activities.findIndex((activity) =>
       activity.requiredForPass
     );
-    expect(replacement).toBeDefined();
     expect(requiredPosition).toBeGreaterThanOrEqual(0);
-    if (!replacement || requiredPosition < 0) return;
+    if (requiredPosition < 0) return;
     const droppedRequiredForm: LessonSessionFormV1 = {
       ...base.form,
       activities: base.form.activities.map((activity, position) =>
         position === requiredPosition
           ? {
-              position,
-              activityId: `${ROOT_LESSON.id}:${replacement.id}`,
-              activityVersion: replacement.activityVersion,
-              method: methodForExercise(replacement),
-              skill: replacement.skill,
+              ...activity,
               requiredForPass: false,
             }
           : activity

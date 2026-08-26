@@ -24,12 +24,22 @@ import {
   scoreLessonSession,
 } from "../lib/evidence";
 import { commitDurableLearningState } from "../lib/durableLearningMutation";
-import { applyObservedDiagnosticCompletion } from "../lib/diagnosticCompletion";
+import {
+  applyAcceptedDiagnosticPlacement,
+  applyObservedDiagnosticCompletion,
+  applySkippedDiagnostic,
+} from "../lib/diagnosticCompletion";
 import {
   canAdvanceMistakeFromEvidence,
   canRecordLocalRemediationAttempt,
   evaluateRemediationAttempt,
 } from "../lib/remediation";
+import { applyPronunciationQuestReward } from "../learning/pronunciationPractice";
+import {
+  isLocalLessonRewardClaimed,
+  lessonRewardActivityId,
+} from "../learning/interactionXp";
+import { resolveDevelopmentSingleton } from "../lib/developmentContext";
 import {
   selectStoredState,
   type StoredStateSource,
@@ -229,15 +239,21 @@ export type LocalLearningMutationDisposition =
   | "rejected";
 
 type LearningActions = {
-  finishOnboarding: (profile: Profile) => void;
+  finishOnboarding: (profile: Profile) => boolean;
   updateProfile: (patch: Partial<Profile>) => void;
   recordAnswer: (
     evidence: AnswerEvidence,
     provenance: LocalLessonActivityProvenanceV1,
   ) => Promise<LocalLearningMutationDisposition>;
   recordPracticeEvidence: (evidence: PracticeEvidenceInput) => void;
+  completePronunciationMission: (missionId: string) => boolean;
   resolveMistake: (mistakeId: string, isCorrect: boolean, selectedAnswer?: string, idempotencyKey?: string, usedHint?: boolean) => void;
   completeDiagnostic: (score: number) => void;
+  acceptDiagnosticPlacement: (
+    startingLevel: Exclude<LearningState["profile"]["startingLevel"], "basic">,
+    score: number,
+  ) => void;
+  skipDiagnostic: () => void;
   completeLesson: (
     lessonId: string,
     score: number,
@@ -245,6 +261,7 @@ type LearningActions = {
     expectedEvidenceCount: number,
     provenance: LocalLessonSessionProvenanceV1,
   ) => Promise<LocalLearningMutationDisposition>;
+  claimLessonReward: (lessonId: string) => Promise<boolean>;
   toggleSavedWord: (wordId: string) => Promise<void>;
   gradeReview: (wordId: string, rating: Grade, idempotencyKey?: string) => Promise<void>;
   resetProgress: () => Promise<boolean>;
@@ -263,7 +280,15 @@ type LearningContextValue = {
   stateLoadSource: StoredStateSource;
 };
 
-const LearningContext = createContext<LearningContextValue | null>(null);
+const LEARNING_CONTEXT_REGISTRY_KEY = Symbol.for(
+  "hanzi-os.learning-context.v1",
+);
+const LearningContext = resolveDevelopmentSingleton(
+  globalThis as unknown as Record<PropertyKey, unknown>,
+  LEARNING_CONTEXT_REGISTRY_KEY,
+  () => createContext<LearningContextValue | null>(null),
+  process.env.NODE_ENV === "development",
+);
 
 const clamp = (value: number, min = 0, max = 100) =>
   Math.max(min, Math.min(max, value));
@@ -279,14 +304,26 @@ const evidenceMethodForAnswer = (evidence: AnswerEvidence): EvidenceMethod => {
 const appendActivity = (
   current: LearningState["activityLog"],
   event: Omit<LearningState["activityLog"][number], "id" | "occurredAt">,
-) => [
-  ...current,
-  {
+  stableId?: string,
+) => {
+  const next = [
+    ...current,
+    {
     ...event,
-    id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: stableId ?? `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     occurredAt: new Date().toISOString(),
-  },
-].slice(-160);
+    },
+  ];
+  if (next.length <= 2_000) return next;
+  const rewardIds = new Set(next
+    .filter((item) => item.id.startsWith("lesson-reward:"))
+    .map((item) => item.id));
+  const recentOrdinaryIds = new Set(next
+    .filter((item) => !rewardIds.has(item.id))
+    .slice(-(2_000 - rewardIds.size))
+    .map((item) => item.id));
+  return next.filter((item) => rewardIds.has(item.id) || recentOrdinaryIds.has(item.id));
+};
 
 const applyStudyDay = (current: LearningState) => {
   const today = localDateKey();
@@ -627,6 +664,15 @@ export function LearningProvider({ children }: { children: ReactNode }) {
     },
     recordPracticeEvidence: (evidence) =>
       persist((current) => recordEvidenceInState(current, evidence).state),
+    completePronunciationMission: (missionId) => {
+      let awarded = false;
+      const durable = persist((current) => {
+        const result = applyPronunciationQuestReward(current, missionId);
+        awarded = result.awarded;
+        return result.state;
+      });
+      return durable && awarded;
+    },
     resolveMistake: (mistakeId, isCorrect, selectedAnswer = "", idempotencyKey, usedHint = false) =>
       persist((current) => {
         const target = current.mistakes.find((mistake) => mistake.id === mistakeId);
@@ -680,6 +726,14 @@ export function LearningProvider({ children }: { children: ReactNode }) {
       }),
     completeDiagnostic: (score) =>
       persist((current) => applyObservedDiagnosticCompletion(current, score)),
+    acceptDiagnosticPlacement: (startingLevel, score) =>
+      persist((current) => applyAcceptedDiagnosticPlacement(
+        current,
+        startingLevel,
+        score,
+      )),
+    skipDiagnostic: () =>
+      persist((current) => applySkippedDiagnostic(current)),
     completeLesson: async (
       lessonId,
       score,
@@ -778,13 +832,6 @@ export function LearningProvider({ children }: { children: ReactNode }) {
         disposition = "inserted";
         const currentWithEvidence = evidenceResult.state;
         const day = applyStudyDay(currentWithEvidence);
-        const previous = currentWithEvidence.completedLessons[lessonId];
-        const firstMastery = normalizedScore >= 70 && (!previous || previous.bestScore < 70);
-        const earnedXp = firstMastery
-          ? lesson.xp
-          : previous
-            ? Math.round(lesson.xp * 0.2)
-            : Math.round(lesson.xp * 0.25);
         const fsrsCards = { ...currentWithEvidence.fsrsCards };
         lesson.wordIds.forEach((wordId) => {
           if (!fsrsCards[wordId]) fsrsCards[wordId] = emptyStoredCard();
@@ -792,8 +839,8 @@ export function LearningProvider({ children }: { children: ReactNode }) {
 
         return {
           ...currentWithEvidence,
-          xp: currentWithEvidence.xp + earnedXp,
-          dailyXp: day.dailyXp + earnedXp,
+          xp: currentWithEvidence.xp,
+          dailyXp: day.dailyXp,
           streak: day.streak,
           lastStudyDate: localDateKey(),
           completedLessons: {
@@ -809,11 +856,46 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           activityLog: appendActivity(currentWithEvidence.activityLog, {
             type: "lesson",
             label: lesson.title,
-            xp: earnedXp,
+            xp: 0,
           }),
         };
       });
       return durable ? disposition : "rejected";
+    },
+    claimLessonReward: async (lessonId) => {
+      const { LESSON_BY_ID } = await import("../data/curriculum");
+      let awarded = false;
+      const durable = persist((current) => {
+        const lesson = LESSON_BY_ID.get(lessonId);
+        const completion = current.completedLessons[lessonId];
+        if (
+          !lesson
+          || !completion
+          || completion.bestScore < 70
+          || isLocalLessonRewardClaimed({
+            lessonId,
+            lessonTitle: lesson.title,
+            lessonXp: lesson.xp,
+            completedAt: completion.completedAt,
+            activityLog: current.activityLog,
+          })
+        ) return current;
+        awarded = true;
+        const day = applyStudyDay(current);
+        return {
+          ...current,
+          xp: current.xp + lesson.xp,
+          dailyXp: day.dailyXp + lesson.xp,
+          streak: day.streak,
+          lastStudyDate: localDateKey(),
+          activityLog: appendActivity(current.activityLog, {
+            type: "lesson",
+            label: lesson.title,
+            xp: lesson.xp,
+          }, lessonRewardActivityId(lessonId)),
+        };
+      });
+      return durable && awarded;
     },
     toggleSavedWord: async (wordId) => {
       const { RELEASED_WORD_BY_ID } = await import("../data/curriculum");

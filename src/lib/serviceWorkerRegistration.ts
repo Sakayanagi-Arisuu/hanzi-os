@@ -5,6 +5,24 @@ export type ServiceWorkerLifecycleCallbacks = {
 };
 
 /**
+ * Development modules change without the content-hashed URLs used by a
+ * production build. An older worker can therefore serve a stale Vite module
+ * graph and leave the app stuck on its bootstrap screen. Unregistering here is
+ * intentionally development-only; production keeps its offline worker.
+ *
+ * The return value tells the caller whether the current page was controlled
+ * and needs one reload to detach from the removed worker.
+ */
+export async function unregisterDevelopmentServiceWorkers(
+  serviceWorker: ServiceWorkerContainer,
+) {
+  const hadController = Boolean(serviceWorker.controller);
+  const registrations = await serviceWorker.getRegistrations();
+  await Promise.all(registrations.map((registration) => registration.unregister()));
+  return hadController;
+}
+
+/**
  * Observes both the worker already installing when `register()` resolves and
  * later update workers. A registration promise can resolve before installation
  * finishes, so rejection of `register()` alone is not an install-failure signal.

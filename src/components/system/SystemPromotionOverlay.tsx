@@ -5,10 +5,12 @@ import { deriveSystemCeremonies } from "../../system/systemProgression";
 import { emitSystemSignal } from "../../system/systemSignals";
 import { useSystemUi } from "../../system/systemUiPreferences";
 import { useLearning } from "../../store/LearningStore";
+import { useInteractionXp } from "../../store/InteractionXpStore";
 
 export function SystemPromotionOverlay() {
   const location = useLocation();
   const { state } = useLearning();
+  const interactionXp = useInteractionXp();
   const {
     preferences,
     hydrated,
@@ -19,7 +21,10 @@ export function SystemPromotionOverlay() {
   const skipRef = useRef<HTMLButtonElement>(null);
   const titleId = useId();
   const descriptionId = useId();
-  const ceremonies = useMemo(() => deriveSystemCeremonies(state), [state]);
+  const ceremonies = useMemo(
+    () => deriveSystemCeremonies({ ...state, xp: interactionXp.totalXp }),
+    [interactionXp.totalXp, state],
+  );
   const ceremony = useMemo(() => ceremonies.find(
     (item) => !preferences.seenCeremonies.includes(item.id),
   ) ?? null, [ceremonies, preferences.seenCeremonies]);

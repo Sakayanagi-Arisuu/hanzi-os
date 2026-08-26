@@ -11,7 +11,8 @@ describe("HANZI.OS pinyin input", () => {
   it("searches the released vocabulary without receiving an answer", () => {
     const candidates = findHanziCandidates("ren");
     expect(candidates.some((item) => item.hanzi === "人")).toBe(true);
-    expect(candidates.every((item) => item.pinyin && item.meaning)).toBe(true);
+    expect(candidates.every((item) => item.pinyin)).toBe(true);
+    expect(candidates.every((item) => !("meaning" in item))).toBe(true);
   });
 
   it("prioritizes exact pinyin before longer matches", () => {

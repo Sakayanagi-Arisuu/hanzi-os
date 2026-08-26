@@ -17,12 +17,19 @@ import {
   Sparkles,
   Swords,
   Target,
+  Volume2,
   X,
   Zap,
 } from "lucide-react";
-import { NavLink, useLocation } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  resolvePlacementResumeDestination,
+  type PlacementResumeDestination,
+} from "../assessment/placementResume";
+import { useAudioEngine } from "../audio/AudioEngineProvider";
 import { useLearning } from "../store/LearningStore";
+import { useInteractionXp } from "../store/InteractionXpStore";
 import { resolveSystemPageName } from "../system/systemLexicon";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
@@ -47,16 +54,26 @@ const navItems = [
   { to: "/analytics", label: "Thiên Cơ Kính", short: "Số", icon: BarChart3 },
 ];
 
+const ASSESSMENT_INVITE_SESSION_KEY = "hanzi-os-assessment-invite-v1";
+
 export function AppShell({ children }: { children: ReactNode }) {
-  const { state, dueWordIds, level } = useLearning();
+  const { state, sync, dueWordIds, level } = useLearning();
+  const interactionXp = useInteractionXp();
+  const { announce, cancelSpeech } = useAudioEngine();
   const { resolvedMotion } = useSystemUi();
-  const rank = getInteractionRankProgress(state.xp);
+  const rank = getInteractionRankProgress(interactionXp.totalXp);
+  const displayedLevel = interactionXp.authoritative
+    ? Math.floor(interactionXp.totalXp / 500) + 1
+    : level;
   const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
+  const readerRoute = location.pathname.startsWith("/reader");
   const readerChapterRoute = /^\/reader\/series\/[^/]+\/chapter\/[^/]+$/u
     .test(location.pathname);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [statusOpen, setStatusOpen] = useState(false);
+  const [assessmentInviteOpen, setAssessmentInviteOpen] = useState(false);
+  const [assessmentResume, setAssessmentResume] = useState<PlacementResumeDestination | null>(null);
   const mainRef = useRef<HTMLElement>(null);
   const statusButtonRef = useRef<HTMLButtonElement>(null);
   const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
@@ -67,10 +84,62 @@ export function AppShell({ children }: { children: ReactNode }) {
   const page = resolveSystemPageName(location.pathname);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    const root = document.documentElement;
+    const previousScrollBehavior = root.style.scrollBehavior;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    root.style.scrollBehavior = previousScrollBehavior;
     mainRef.current?.focus({ preventScroll: true });
     document.title = `${page.title} | HANZI.OS`;
   }, [location.pathname, page.title]);
+
+  const playAssessmentInvite = useCallback((resume: PlacementResumeDestination | null) => {
+    announce(
+      resume?.phase === "question"
+        ? `Hành giả, Khảo Nghiệm Căn Cơ đang chờ tiếp tục từ câu ${resume.questionNumber}.`
+        : resume?.phase === "result"
+          ? "Hành giả, kết quả Khảo Nghiệm Căn Cơ đang chờ xác nhận."
+          : "Hành giả, Khảo Nghiệm Căn Cơ đang chờ. Hãy tham gia để hệ thống đề xuất điểm khởi hành.",
+      {
+        clipId: "quest.activated",
+        force: true,
+        priority: 2,
+        sourceId: "assessment-invite",
+      },
+    );
+  }, [announce]);
+
+  useEffect(() => {
+    if (
+      state.diagnostic.completed
+      || location.pathname.startsWith("/assessment")
+      || readerRoute
+    ) return;
+    const resume = resolvePlacementResumeDestination();
+    const ownerKey = sync.session?.authenticated
+      ? sync.session.accountKey
+      : sync.ownerKey;
+    const invitationId = resume?.sessionId ?? "new";
+    const storageKey = `${ASSESSMENT_INVITE_SESSION_KEY}:${ownerKey}:${invitationId}`;
+    try {
+      if (window.sessionStorage.getItem(storageKey)) return;
+      window.sessionStorage.setItem(storageKey, "shown");
+    } catch {
+      // The invitation may still be shown when session storage is unavailable.
+    }
+    setAssessmentResume(resume);
+    setAssessmentInviteOpen(true);
+    const voiceTimer = window.setTimeout(() => playAssessmentInvite(resume), 450);
+    return () => window.clearTimeout(voiceTimer);
+  }, [location.pathname, playAssessmentInvite, readerRoute, state.diagnostic.completed, sync.ownerKey, sync.session]);
+
+  useEffect(() => {
+    if (readerRoute) setAssessmentInviteOpen(false);
+  }, [readerRoute]);
+
+  useEffect(() => {
+    if (state.diagnostic.completed) setAssessmentInviteOpen(false);
+  }, [state.diagnostic.completed]);
 
   useEffect(() => {
     const handleSummonShortcut = (event: KeyboardEvent) => {
@@ -146,11 +215,13 @@ export function AppShell({ children }: { children: ReactNode }) {
 
         <div className="system-rank">
           <div className="rank-ring" style={{ "--rank": `${rank.progress * 3.6}deg` } as React.CSSProperties}>
-            <span>{level}</span>
+            <span>{displayedLevel}</span>
           </div>
           <span>
             <small>CẤP HỆ THỐNG · HOẠT ĐỘNG</small>
-            <strong>{rank.title} · {state.xp} XP tương tác</strong>
+            <strong>{interactionXp.pending
+              ? "Đang hợp nhất EXP"
+              : `${rank.title} · ${interactionXp.totalXp} XP tương tác`}</strong>
           </span>
         </div>
 
@@ -186,7 +257,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="system-pulses" aria-label="Trạng thái học tập">
             <span><BrainCircuit size={15} /> {dueWordIds.length} ôn tập</span>
             <span><Flame size={15} /> {state.streak} ngày</span>
-            <span><Zap size={15} /> {state.dailyXp}/{dailyTarget} XP</span>
+            <span><Zap size={15} /> {interactionXp.dailyXp === null
+              ? interactionXp.pending ? "Đang đồng bộ" : `${interactionXp.totalXp} XP`
+              : `${interactionXp.dailyXp}/${dailyTarget} XP`}</span>
           </div>
           <button
             ref={statusButtonRef}
@@ -252,6 +325,51 @@ export function AppShell({ children }: { children: ReactNode }) {
       )}
       {!readerChapterRoute && <SystemStatusHologram open={statusOpen} onClose={closeStatus} returnFocusRef={statusButtonRef} />}
       {!readerChapterRoute && <SystemPromotionOverlay />}
+      {assessmentInviteOpen && !readerRoute && (
+        <aside className="assessment-invite" role="status" aria-label="Lời mời Khảo Nghiệm Căn Cơ">
+          <header>
+            <Target size={20} aria-hidden="true" />
+            <span>
+              <small>NHIỆM VỤ KHỞI HÀNH</small>
+              <strong>{assessmentResume ? "Khảo Nghiệm Căn Cơ đang dở" : "Khảo Nghiệm Căn Cơ đang chờ"}</strong>
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                cancelSpeech();
+                setAssessmentInviteOpen(false);
+              }}
+              aria-label="Đóng lời mời Khảo Nghiệm Căn Cơ"
+            >
+              <X size={17} />
+            </button>
+          </header>
+          <p>{assessmentResume?.phase === "question"
+            ? `Tiến độ HSK${assessmentResume.level} đã lưu tại câu ${assessmentResume.questionNumber}.`
+            : assessmentResume?.phase === "result"
+              ? `Kết quả tầng HSK${assessmentResume.level} đã được giữ trên thiết bị.`
+              : "Tham gia để hệ thống đề xuất điểm khởi hành phù hợp."}</p>
+          <div>
+            <button type="button" onClick={() => playAssessmentInvite(assessmentResume)} aria-label="Nghe lại lời mời">
+              <Volume2 size={18} /> Nghe lại
+            </button>
+            <Link
+              to={assessmentResume?.href ?? "/assessment"}
+              viewTransition
+              onClick={() => {
+                cancelSpeech();
+                setAssessmentInviteOpen(false);
+              }}
+            >
+              {assessmentResume?.phase === "question"
+                ? `Tiếp tục câu ${assessmentResume.questionNumber}`
+                : assessmentResume?.phase === "result"
+                  ? "Xem kết quả"
+                  : "Tham gia ngay"} <ChevronRight size={17} />
+            </Link>
+          </div>
+        </aside>
+      )}
     </div>
   );
 }

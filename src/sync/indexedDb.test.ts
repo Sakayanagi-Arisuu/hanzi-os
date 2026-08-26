@@ -75,6 +75,22 @@ afterEach(async () => {
 });
 
 describe("IndexedDB sync journal", () => {
+  it("settles consecutive device sequence writes without losing transaction completion", async () => {
+    const sequenceWrites = Array.from({ length: 24 }, async () =>
+      allocateDeviceSequence()
+    );
+    const sequences = await Promise.race([
+      Promise.all(sequenceWrites),
+      new Promise<never>((_resolve, reject) => {
+        setTimeout(() => reject(new Error("Device sequence allocation stalled.")), 1_000);
+      }),
+    ]);
+
+    expect([...sequences].sort((left, right) => left - right)).toEqual(
+      Array.from({ length: 24 }, (_entry, index) => index + 1),
+    );
+  });
+
   it("commits the local checkpoint and outbox operation together", async () => {
     const localState = state();
     const document = createInitialSyncDocument(

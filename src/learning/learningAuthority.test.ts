@@ -80,8 +80,35 @@ describe("learning path authority", () => {
     expect(result.state).toBe("ready");
     if (result.state !== "ready") return;
     expect(result.view.mode).toBe("anonymous");
-    expect(result.view.completedCount)
-      .toBe(getHskCurriculumView("zero").visibleLessonIds.length);
+    expect(result.view.completedCount).toBe(RELEASED_LESSONS.length);
+  });
+
+  it("advances anonymous HSK0 progress to the first HSK1 trial", () => {
+    const localState = { ...INITIAL_LEARNING_STATE };
+    localState.completedLessons = Object.fromEntries(
+      getHskCurriculumView("zero").targetLessonIds.map((lessonId) => [
+        lessonId,
+        {
+          score: 80,
+          bestScore: 80,
+          attempts: 1,
+          completedAt: "2026-08-19T00:00:00.000Z",
+        },
+      ]),
+    );
+
+    const result = resolveLearningPathAuthority({
+      authenticated: false,
+      localState,
+      projection: null,
+      authoritativeProgress: null,
+    });
+
+    expect(result.state).toBe("ready");
+    if (result.state !== "ready") return;
+    expect(result.view.totalCount).toBe(44);
+    expect(result.view.nextLessonId).toBe("survival-1");
+    expect(result.view.lessons.get("survival-1")?.status).toBe("unlocked");
   });
 
   it("does not unlock the anonymous path from forged persisted aggregates without evidence", () => {

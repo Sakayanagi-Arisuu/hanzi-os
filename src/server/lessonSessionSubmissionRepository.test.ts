@@ -331,6 +331,7 @@ const seedReviewCard = (
 
 type AttemptSeedOptions = {
   exercises?: Exercise[];
+  lessonFixture?: (typeof RELEASED_LESSONS)[number];
   incorrectIndexes?: Set<number>;
   hintIndexes?: Set<number>;
   priorIndexes?: Set<number>;
@@ -341,6 +342,7 @@ const seedAttempts = (
   options: AttemptSeedOptions = {},
 ) => {
   const exercises = options.exercises ?? issuedExercises;
+  const activeLesson = options.lessonFixture ?? lesson;
   const timestamp = Date.parse("2026-07-22T05:10:00.000Z");
   exercises.forEach((exercise, index) => {
     const attemptId = `attempt-${index}`;
@@ -364,7 +366,7 @@ const seedAttempts = (
       sessionId,
       idempotencyId,
       CONTENT_VERSION,
-      `${lesson.id}:${exercise.id}`,
+      `${activeLesson.id}:${exercise.id}`,
       exercise.activityVersion,
       method,
       exercise.skill,
@@ -382,7 +384,7 @@ const seedAttempts = (
       `evidence-${index}`,
       attemptId,
       CONTENT_VERSION,
-      `${lesson.id}:${exercise.id}`,
+      `${activeLesson.id}:${exercise.id}`,
       exercise.activityVersion,
       method,
       exercise.skill,
@@ -471,6 +473,86 @@ describe("server-owned lesson-session submission repository", () => {
         dueAt: Date.parse(receipt.submittedAt),
       })),
     );
+  });
+
+  it("submits a frozen lesson form with no required gate activities", async () => {
+    const database = new SQLiteD1();
+    const zeroGateLesson = RELEASED_LESSONS.find(
+      (candidate) => candidate.id === "boot-2",
+    );
+    expect(zeroGateLesson).toBeDefined();
+    const zeroGateExercises = buildExercises(
+      zeroGateLesson!,
+      "simplified",
+      () => 0.5,
+    );
+    expect(zeroGateExercises).toHaveLength(10);
+    expect(zeroGateExercises.every(
+      (exercise) => exercise.requiredForPass !== true,
+    )).toBe(true);
+    const zeroGateForm: LessonSessionFormV1 = {
+      schemaVersion: 1,
+      script: "simplified",
+      activities: zeroGateExercises.map((exercise, position) => ({
+        position,
+        activityId: `${zeroGateLesson!.id}:${exercise.id}`,
+        activityVersion: exercise.activityVersion,
+        method: methodFor(exercise),
+        skill: exercise.skill,
+        requiredForPass: false,
+      })),
+    };
+    const zeroGateFormJson = canonicalLessonSessionForm(zeroGateForm);
+    const zeroGateFormHash = digestForm(zeroGateForm);
+
+    seedUserSession(database);
+    database.database.prepare(
+      `UPDATE lesson_sessions
+       SET lesson_id = ?, lesson_version = ?, expected_evidence_count = ?,
+           form_manifest_json = ?, form_manifest_hash = ?
+       WHERE id = ?`,
+    ).run(
+      zeroGateLesson!.id,
+      `${CONTENT_VERSION}:${zeroGateLesson!.id}:1`,
+      zeroGateExercises.length,
+      zeroGateFormJson,
+      zeroGateFormHash,
+      sessionId,
+    );
+    seedAttempts(database, {
+      exercises: zeroGateExercises,
+      lessonFixture: zeroGateLesson!,
+    });
+
+    const receipt = await repository(database).submit("user-a", command({
+      formHash: zeroGateFormHash,
+    }));
+
+    expect(receipt).toMatchObject({
+      status: "submitted",
+      evidenceCount: 10,
+      requiredEvidenceCount: 0,
+      requiredCorrectCount: 0,
+      passed: true,
+    });
+    expect(database.database.prepare(
+      `SELECT status, required_evidence_count AS requiredEvidenceCount,
+              required_correct_count AS requiredCorrectCount, passed
+       FROM lesson_sessions WHERE id = ?`,
+    ).get(sessionId)).toEqual({
+      status: "submitted",
+      requiredEvidenceCount: 0,
+      requiredCorrectCount: 0,
+      passed: 1,
+    });
+    const storedEvent = database.database.prepare(
+      "SELECT payload_json AS payloadJson FROM outbox_events WHERE event_type = 'lesson.completed'",
+    ).get() as { payloadJson: string };
+    expect(JSON.parse(storedEvent.payloadJson)).toMatchObject({
+      requiredEvidenceCount: 0,
+      requiredCorrectCount: 0,
+      passed: true,
+    });
   });
 
   it("returns the canonical receipt on an exact retry", async () => {
@@ -732,14 +814,17 @@ describe("server-owned lesson-session submission repository", () => {
     const cherryPickedForm = [...issuedExercises];
     const missingIndex = cherryPickedForm.findIndex((exercise) => exercise.requiredForPass);
     const existingIds = new Set(cherryPickedForm.map((exercise) => exercise.id));
-    const replacement = [0, 0.1, 0.9]
-      .flatMap((randomValue) => buildExercises(
-        lesson,
-        "simplified",
-        () => randomValue,
-      ))
+    const foreignLesson = RELEASED_LESSONS.find(
+      (candidate) => candidate.id !== lesson.id,
+    );
+    expect(foreignLesson).toBeDefined();
+    const replacement = buildExercises(
+      foreignLesson!,
+      "simplified",
+      () => 0.5,
+    )
       .find((exercise) =>
-        !exercise.requiredForPass && !existingIds.has(exercise.id)
+        !existingIds.has(exercise.id)
       );
     expect(replacement).toBeDefined();
     cherryPickedForm[missingIndex] = replacement!;
@@ -848,7 +933,7 @@ describe("server-owned lesson-session submission repository", () => {
     }))).rejects.toBeInstanceOf(LessonSessionSubmissionEvidenceConflictError);
   });
 
-  it("treats hints and prior exposure as gate-ineligible without trusting client scores", async () => {
+  it("rejects hinted answers but lets an unassisted retry pass without trusting client scores", async () => {
     const hinted = new SQLiteD1();
     seedUserSession(hinted);
     seedAttempts(hinted, { hintIndexes: new Set([0, 1, 2, 3]) });
@@ -868,11 +953,11 @@ describe("server-owned lesson-session submission repository", () => {
     });
     await expect(repository(repeated).submit("user-a", command())).resolves.toMatchObject({
       rawScore: 100,
-      gateScore: 0,
-      passed: false,
+      gateScore: 100,
+      passed: true,
     });
     expect(repeated.database.prepare(
       "SELECT COUNT(*) AS count FROM fsrs_cards",
-    ).get()).toEqual({ count: 0 });
+    ).get()).toEqual({ count: 4 });
   });
 });
