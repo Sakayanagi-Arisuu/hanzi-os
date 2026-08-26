@@ -26,6 +26,7 @@ import {
   clearMockExamAttemptCommand,
   clearCompletedMockExamCommandKeys,
   clearMockExamOpenCommand,
+  getActiveMockExamRedirectPath,
   isSupportedMockExamRoute,
   mockExamAbandonCommandStorageKey,
   mockExamAttemptCommandStorageKey,
@@ -612,6 +613,15 @@ function MockExamRunner() {
         session: ActiveSession | null;
         activeDoor: Pick<CatalogEntry, "examLevel" | "formKey"> | null;
       }>(`${endpoint}/sessions`);
+      const activeDoorRedirectPath = getActiveMockExamRedirectPath(
+        level,
+        form,
+        payload.session?.definition ?? payload.activeDoor,
+      );
+      if (activeDoorRedirectPath) {
+        navigate(activeDoorRedirectPath, { replace: true });
+        return;
+      }
       if (payload.session) {
         for (const attempt of payload.session.recorded) {
           clearMockExamAttemptCommand(
@@ -623,17 +633,6 @@ function MockExamRunner() {
         setSession(payload.session);
         setDefinition(payload.session.definition);
         setDefinitionLoadState("ready");
-      } else if (
-        payload.activeDoor
-        && (
-          payload.activeDoor.examLevel !== level
-          || payload.activeDoor.formKey !== form
-        )
-      ) {
-        navigate(
-          `/exams/${payload.activeDoor.examLevel}/${payload.activeDoor.formKey}?next=${encodeURIComponent(`${level}/${form}`)}`,
-          { replace: true },
-        );
       } else {
         clearMockExamOpenCommand(window.sessionStorage, level, form);
         const catalog = await requestJson<{ forms: CatalogEntry[] }>("/api/exams/catalog");

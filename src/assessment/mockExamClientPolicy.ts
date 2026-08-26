@@ -28,6 +28,27 @@ export const isSupportedMockExamRoute = (
     .has(form as MockExamClientForm);
 };
 
+export const getActiveMockExamRedirectPath = (
+  requestedLevel: string,
+  requestedForm: string,
+  activeDoor: {
+    examLevel: MockExamClientLevel;
+    formKey: MockExamClientForm;
+  } | null,
+) => {
+  if (
+    activeDoor === null
+    || (
+      activeDoor.examLevel === requestedLevel
+      && activeDoor.formKey === requestedForm
+    )
+  ) {
+    return null;
+  }
+
+  return `/exams/${activeDoor.examLevel}/${activeDoor.formKey}?next=${encodeURIComponent(`${requestedLevel}/${requestedForm}`)}`;
+};
+
 export const mockExamOpenCommandStorageKey = (
   level: string,
   form: string,

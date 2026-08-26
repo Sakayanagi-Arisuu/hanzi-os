@@ -6,6 +6,7 @@ import { parseSubmitAssessmentSessionCommand } from "./assessmentSubmissionProto
 import {
   clearCompletedMockExamCommandKeys,
   clearMockExamOpenCommand,
+  getActiveMockExamRedirectPath,
   isSupportedMockExamRoute,
   mockExamAbandonCommandStorageKey,
   mockExamAttemptCommandStorageKey,
@@ -49,6 +50,18 @@ describe("Mock Exam client session policy", () => {
     expect(isSupportedMockExamRoute("hsk1", "d")).toBe(true);
     expect(isSupportedMockExamRoute("hsk2", "k")).toBe(true);
     expect(isSupportedMockExamRoute("hsk2", "m")).toBe(false);
+  });
+
+  it("keeps the route aligned with the one active exam and preserves the requested door", () => {
+    expect(getActiveMockExamRedirectPath("hsk1", "a", {
+      examLevel: "hsk1",
+      formKey: "f",
+    })).toBe("/exams/hsk1/f?next=hsk1%2Fa");
+    expect(getActiveMockExamRedirectPath("hsk1", "f", {
+      examLevel: "hsk1",
+      formKey: "f",
+    })).toBeNull();
+    expect(getActiveMockExamRedirectPath("hsk1", "a", null)).toBeNull();
   });
 
   it("clears stale open and submit receipts only after completion", () => {
