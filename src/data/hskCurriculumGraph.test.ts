@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import {
+  getHskLessonPathId,
   getHskCurriculumView,
   getNextHskRealmPreview,
   getProgressingHskCurriculumView,
@@ -7,6 +8,13 @@ import {
 } from "./hskCurriculumGraph";
 
 describe("learner HSK0-4 curriculum view", () => {
+  it("groups catalog lessons by stable runtime identity instead of legacy unit names", () => {
+    expect(getHskLessonPathId("boot-1")).toBe("hsk0");
+    expect(getHskLessonPathId("survival-1")).toBe("hsk1");
+    expect(getHskLessonPathId("hsk4-timed-sectional-rehearsal-lesson-03")).toBe("hsk4");
+    expect(getHskLessonPathId("missing-lesson")).toBeNull();
+  });
+
   it("exposes different released slices instead of one shared path", () => {
     const hsk0 = getHskCurriculumView("zero");
     const hsk1 = getHskCurriculumView("hsk1");

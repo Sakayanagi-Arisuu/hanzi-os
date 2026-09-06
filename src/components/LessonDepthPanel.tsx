@@ -12,6 +12,8 @@ import {
   type RichDialogueTurn,
   type RichLessonContent,
 } from "../learning/richLessonContent";
+import { mergePublishedStudioLessonEnhancement } from "../content/publishedStudioClient";
+import type { PublishedStudioLessonEnhancement } from "../content/publishedStudioLessons";
 import { speakMandarin } from "../lib/speech";
 
 const Dialogue = ({ turns }: { turns: RichDialogueTurn[] }) => (
@@ -38,11 +40,17 @@ const Dialogue = ({ turns }: { turns: RichDialogueTurn[] }) => (
 export function LessonDepthPanel({
   lessonId,
   contentOverride,
+  enhancement,
 }: {
   lessonId: string;
   contentOverride?: RichLessonContent;
+  enhancement?: PublishedStudioLessonEnhancement;
 }) {
-  const content = contentOverride ?? getRichLessonContent(lessonId);
+  const content = mergePublishedStudioLessonEnhancement(
+    contentOverride ?? getRichLessonContent(lessonId),
+    enhancement,
+    lessonId,
+  );
   if (!content) return null;
   const headingId = `${lessonId}-depth-heading`;
 
@@ -60,13 +68,13 @@ export function LessonDepthPanel({
       </p>
 
       <div className="lesson-depth-grid">
-        <section className="rich-dialogue-panel">
+        {content.dialogue.length > 0 && <section className="rich-dialogue-panel">
           <h2><MessageCircleMore size={19} /> Hội thoại mẫu</h2>
           <p>Nghe từng câu, đọc theo rồi đổi vai A/B để nhại lại cả đoạn.</p>
           <Dialogue turns={content.dialogue} />
-        </section>
+        </section>}
 
-        <section className="rich-grammar-panel">
+        {content.grammar.length > 0 && <section className="rich-grammar-panel">
           <h2><Languages size={19} /> Ngữ pháp trong ngữ cảnh</h2>
           <p>Mở từng điểm, đọc ví dụ rồi tự nói câu trước khi xem mẫu.</p>
           <div className="rich-grammar-list">
@@ -117,7 +125,7 @@ export function LessonDepthPanel({
               </details>
             ))}
           </div>
-        </section>
+        </section>}
       </div>
 
       {content.characters.length > 0 && (
@@ -163,16 +171,5 @@ export function LessonDepthPanel({
         </section>
       )}
     </section>
-  );
-}
-
-export function LessonDepthDisclosure({ lessonId }: { lessonId: string }) {
-  const content = getRichLessonContent(lessonId);
-  if (!content) return null;
-  return (
-    <details className="lesson-depth-disclosure">
-      <summary>Khám phá hội thoại và nội dung mở rộng</summary>
-      <LessonDepthPanel lessonId={lessonId} contentOverride={content} />
-    </details>
   );
 }

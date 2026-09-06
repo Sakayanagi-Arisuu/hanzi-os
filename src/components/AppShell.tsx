@@ -10,6 +10,8 @@ import {
   Map,
   Mic2,
   Orbit,
+  PanelLeftClose,
+  PanelLeftOpen,
   PenTool,
   Search,
   Settings,
@@ -32,6 +34,11 @@ import { useLearning } from "../store/LearningStore";
 import { useInteractionXp } from "../store/InteractionXpStore";
 import { resolveSystemPageName } from "../system/systemLexicon";
 import { emitSystemSignal } from "../system/systemSignals";
+import {
+  LEARNER_SIDEBAR_STORAGE_KEY,
+  readLocalStorage,
+  writeLocalStorage,
+} from "../lib/storageKeys";
 import {
   getInteractionRankProgress,
   getSystemClass,
@@ -68,9 +75,15 @@ export function AppShell({ children }: { children: ReactNode }) {
   const systemClass = getSystemClass(state.profile.goal);
   const location = useLocation();
   const readerRoute = location.pathname.startsWith("/reader");
+  const lessonRoute = location.pathname.startsWith("/lesson/");
+  const reviewRoute = location.pathname === "/review";
+  const remediationRoute = location.pathname === "/mistakes";
   const readerChapterRoute = /^\/reader\/series\/[^/]+\/chapter\/[^/]+$/u
     .test(location.pathname);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [railCollapsed, setRailCollapsed] = useState(() =>
+    readLocalStorage(LEARNER_SIDEBAR_STORAGE_KEY) === "collapsed"
+  );
   const [statusOpen, setStatusOpen] = useState(false);
   const [assessmentInviteOpen, setAssessmentInviteOpen] = useState(false);
   const [assessmentResume, setAssessmentResume] = useState<PlacementResumeDestination | null>(null);
@@ -81,6 +94,12 @@ export function AppShell({ children }: { children: ReactNode }) {
   const dailyTarget = state.profile.dailyMinutes * 6;
 
   useEffect(() => setMobileMenuOpen(false), [location.pathname]);
+  useEffect(() => {
+    writeLocalStorage(
+      LEARNER_SIDEBAR_STORAGE_KEY,
+      railCollapsed ? "collapsed" : "expanded",
+    );
+  }, [railCollapsed]);
   const page = resolveSystemPageName(location.pathname);
 
   useEffect(() => {
@@ -114,6 +133,9 @@ export function AppShell({ children }: { children: ReactNode }) {
       state.diagnostic.completed
       || location.pathname.startsWith("/assessment")
       || readerRoute
+      || lessonRoute
+      || reviewRoute
+      || remediationRoute
     ) return;
     const resume = resolvePlacementResumeDestination();
     const ownerKey = sync.session?.authenticated
@@ -131,11 +153,13 @@ export function AppShell({ children }: { children: ReactNode }) {
     setAssessmentInviteOpen(true);
     const voiceTimer = window.setTimeout(() => playAssessmentInvite(resume), 450);
     return () => window.clearTimeout(voiceTimer);
-  }, [location.pathname, playAssessmentInvite, readerRoute, state.diagnostic.completed, sync.ownerKey, sync.session]);
+  }, [lessonRoute, location.pathname, playAssessmentInvite, readerRoute, remediationRoute, reviewRoute, state.diagnostic.completed, sync.ownerKey, sync.session]);
 
   useEffect(() => {
-    if (readerRoute) setAssessmentInviteOpen(false);
-  }, [readerRoute]);
+    if (!readerRoute && !lessonRoute && !reviewRoute && !remediationRoute) return;
+    cancelSpeech();
+    setAssessmentInviteOpen(false);
+  }, [cancelSpeech, lessonRoute, readerRoute, remediationRoute, reviewRoute]);
 
   useEffect(() => {
     if (state.diagnostic.completed) setAssessmentInviteOpen(false);
@@ -201,7 +225,11 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [mobileMenuOpen]);
 
   return (
-    <div className="app-frame" data-system-motion={resolvedMotion}>
+    <div
+      className="app-frame"
+      data-rail-collapsed={railCollapsed}
+      data-system-motion={resolvedMotion}
+    >
       <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
       <SystemAtmosphere />
       <aside className="side-rail">
@@ -212,6 +240,19 @@ export function AppShell({ children }: { children: ReactNode }) {
             <small>中文觉醒系统</small>
           </span>
         </NavLink>
+
+        <button
+          className="rail-collapse-button"
+          type="button"
+          onClick={() => setRailCollapsed((collapsed) => !collapsed)}
+          aria-label={railCollapsed ? "Mở rộng thanh điều hướng" : "Thu gọn thanh điều hướng"}
+          aria-expanded={!railCollapsed}
+          title={railCollapsed ? "Mở rộng thanh điều hướng" : "Thu gọn thanh điều hướng"}
+        >
+          {railCollapsed
+            ? <PanelLeftOpen size={18} aria-hidden="true" />
+            : <PanelLeftClose size={18} aria-hidden="true" />}
+        </button>
 
         <div className="system-rank">
           <div className="rank-ring" style={{ "--rank": `${rank.progress * 3.6}deg` } as React.CSSProperties}>
@@ -325,7 +366,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       )}
       {!readerChapterRoute && <SystemStatusHologram open={statusOpen} onClose={closeStatus} returnFocusRef={statusButtonRef} />}
       {!readerChapterRoute && <SystemPromotionOverlay />}
-      {assessmentInviteOpen && !readerRoute && (
+      {assessmentInviteOpen && !readerRoute && !lessonRoute && !reviewRoute && !remediationRoute && (
         <aside className="assessment-invite" role="status" aria-label="Lời mời Khảo Nghiệm Căn Cơ">
           <header>
             <Target size={20} aria-hidden="true" />

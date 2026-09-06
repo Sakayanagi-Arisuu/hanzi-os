@@ -7,15 +7,26 @@ import { noStoreJsonHeaders } from "../../../../src/sync/protocol";
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+export async function GET(request = new Request("http://localhost/api/admin/users")) {
   try {
     const authorized = await authorizeAdmin("admin:users:read");
     if (!authorized.ok) return authorized.response;
-    const users = await new AuthorizationRepository(
+    const params = new URL(request.url).searchParams;
+    const role = params.get("role");
+    const status = params.get("status");
+    const limit = Math.max(1, Math.min(50, Number.parseInt(params.get("limit") ?? "25", 10) || 25));
+    const offset = Math.max(0, Math.min(10_000, Number.parseInt(params.get("offset") ?? "0", 10) || 0));
+    const page = await new AuthorizationRepository(
       authorized.context.database,
-    ).listUsers();
+    ).listUserPage({
+      limit,
+      offset,
+      query: params.get("q")?.trim().slice(0, 120) ?? "",
+      role: role === "learner_only" || role === "content_editor" || role === "admin" ? role : "all",
+      status: status === "active" || status === "locked" ? status : "all",
+    });
     return Response.json(
-      { users, requestedBy: authorized.context.account.userId },
+      { ...page, limit, offset, requestedBy: authorized.context.account.userId },
       { headers: noStoreJsonHeaders },
     );
   } catch (error) {

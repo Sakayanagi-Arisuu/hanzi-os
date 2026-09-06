@@ -48,6 +48,9 @@ export function SystemVoiceBeacon() {
   const { playback } = useAudioEngine();
   const location = useLocation();
   if (location.pathname.startsWith("/reader")) return null;
+  // Lesson screens keep a fixed action dock inside the available viewport.
+  // A global floating beacon must never cover the teaching or answer CTA.
+  if (location.pathname.startsWith("/lesson/")) return null;
   if (playback.phase === "idle") return null;
   // Review cards render playback state beside the memory core, so a second
   // floating reactor would cover the fixed judgement console.

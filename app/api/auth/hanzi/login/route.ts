@@ -1,7 +1,7 @@
 import {
   authError,
   loadAuthRuntime,
-  roleAwareHanziReturnTo,
+  roleAwareSignInReturnTo,
   sameOriginMutation,
   sessionResponseHeaders,
 } from "../../../../../src/server/authHttp";
@@ -71,7 +71,7 @@ export async function POST(request: Request) {
         displayName: account.displayName,
       },
       authorization,
-      returnTo: roleAwareHanziReturnTo(
+      returnTo: roleAwareSignInReturnTo(
         typeof returnTo === "string" ? returnTo : null,
         authorization.roles,
       ),

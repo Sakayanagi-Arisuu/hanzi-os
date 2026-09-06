@@ -20,6 +20,11 @@ export const SESSION_COOKIE_NAME = "__Host-hanzi_session";
 export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
 export const RECENT_AUTH_WINDOW_MS = 10 * 60_000;
 
+export const normalizeAuthDeviceLabel = (value: string | null | undefined) => {
+  const normalized = value?.trim().replace(/^"(.*)"$/u, "$1").trim() ?? "";
+  return normalized ? normalized.slice(0, 120) : null;
+};
+
 export const FIRST_PARTY_AUTH_PROVIDERS = [
   "google",
   "facebook",
@@ -555,7 +560,7 @@ export class AuthRepository {
         input.identityId,
         tokenHash,
         input.authMethod,
-        input.deviceLabel?.slice(0, 120) ?? null,
+        normalizeAuthDeviceLabel(input.deviceLabel),
         userAgentHash,
         timestamp,
         timestamp,
@@ -713,6 +718,7 @@ export class AuthRepository {
     if (!result.success) throw new Error("Unable to list account sessions.");
     return (result.results ?? []).map((session) => ({
       ...session,
+      deviceLabel: normalizeAuthDeviceLabel(session.deviceLabel),
       current: session.id === currentSessionId,
     }));
   }

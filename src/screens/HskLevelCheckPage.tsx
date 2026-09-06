@@ -22,6 +22,7 @@ import {
   writeLocalStorage,
 } from "../lib/storageKeys";
 import { useLearning } from "../store/LearningStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import { emitSystemSignal } from "../system/systemSignals";
 
 export type HskLevelCheckSkill = "listening" | "reading" | "vocabulary" | "grammar";
@@ -163,6 +164,7 @@ const loadResume = (config: HskLevelCheckConfig): Resume | null => {
 
 export function HskLevelCheckPage({ config }: { config: HskLevelCheckConfig }) {
   const { state, actions } = useLearning();
+  const { checkpoint, recordReceipt } = useLearningJourney();
   const navigate = useNavigate();
   const initial = useMemo(() => loadResume(config), [config]);
   const [phase, setPhase] = useState<Phase>(initial?.phase ?? "intro");
@@ -333,6 +335,12 @@ export function HskLevelCheckPage({ config }: { config: HskLevelCheckConfig }) {
         recommendation.acceptedStartingLevel,
         recommendation.overallAccuracy * 100,
       );
+      recordReceipt({
+        stage: "transfer",
+        source: "assessment",
+        lessonId: checkpoint?.anchorLessonId ?? null,
+        activityId: `${sessionId}:journey-transfer`,
+      });
       navigate("/path");
     };
     return (

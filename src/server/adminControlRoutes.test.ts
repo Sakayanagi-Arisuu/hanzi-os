@@ -10,11 +10,11 @@ const mocks = vi.hoisted(() => {
   return {
     authorizeAdmin: vi.fn(),
     setAccountLocked: vi.fn(),
-    listSessions: vi.fn(),
+    listSessionPage: vi.fn(),
     revokeManagedSession: vi.fn(),
     listSettings: vi.fn(),
     updateSetting: vi.fn(),
-    listAudit: vi.fn(),
+    listAuditPage: vi.fn(),
     AuthorizationTargetNotFoundError,
     AuthorizationConcurrencyError,
     AdminSelfLockError,
@@ -40,7 +40,7 @@ vi.mock("./authorizationRepository", () => ({
   AuthorizationRepository: function AuthorizationRepository() {
     return {
       setAccountLocked: mocks.setAccountLocked,
-      listSessions: mocks.listSessions,
+      listSessionPage: mocks.listSessionPage,
       revokeManagedSession: mocks.revokeManagedSession,
     };
   },
@@ -67,7 +67,7 @@ vi.mock("./auditRepository", async (importOriginal) => {
   const actual = await importOriginal<typeof import("./auditRepository")>();
   return {
     ...actual,
-    AuditRepository: function AuditRepository() { return { list: mocks.listAudit }; },
+    AuditRepository: function AuditRepository() { return { listPage: mocks.listAuditPage }; },
   };
 });
 
@@ -89,15 +89,15 @@ beforeEach(() => {
   mocks.authorizeAdmin.mockResolvedValue({ ok: true, context });
   mocks.setAccountLocked.mockReset();
   mocks.setAccountLocked.mockResolvedValue({ status: "locked", controlRevision: 2 });
-  mocks.listSessions.mockReset();
-  mocks.listSessions.mockResolvedValue([]);
+  mocks.listSessionPage.mockReset();
+  mocks.listSessionPage.mockResolvedValue({ sessions: [], filteredTotal: 0, summary: { total: 0, active: 0, revoked: 0 } });
   mocks.revokeManagedSession.mockReset();
   mocks.listSettings.mockReset();
   mocks.listSettings.mockResolvedValue([]);
   mocks.updateSetting.mockReset();
   mocks.updateSetting.mockResolvedValue({ key: "maintenance_banner", revision: 1 });
-  mocks.listAudit.mockReset();
-  mocks.listAudit.mockResolvedValue([]);
+  mocks.listAuditPage.mockReset();
+  mocks.listAuditPage.mockResolvedValue({ events: [], filteredTotal: 0, summary: { total: 0, successful: 0, attention: 0 } });
 });
 
 describe("admin account, session, config and audit routes", () => {

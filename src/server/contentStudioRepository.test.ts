@@ -7,6 +7,7 @@ import {
   ContentStudioConcurrencyError,
   ContentStudioRepository,
   ContentStudioTransitionError,
+  type StudioRevision,
 } from "./contentStudioRepository";
 import {
   ContentReleaseWorker,
@@ -64,20 +65,8 @@ class SQLiteD1 implements D1Database {
 }
 
 const reviewedLesson = (objectiveVi = "Giới thiệu bản thân bằng câu ngắn.") => ({
+  ...studioStarterContent("lesson"),
   objectiveVi,
-  prerequisites: [],
-  vocabulary: ["你好", "我", "是"],
-  dialogue: [
-    { hanzi: "你好！", pinyin: "Nǐ hǎo!", meaningVi: "Xin chào!" },
-    { hanzi: "你好，我是安。", pinyin: "Nǐ hǎo, wǒ shì Ān.", meaningVi: "Xin chào, tôi là An." },
-  ],
-  grammar: [{ pattern: "A 是 B", explanationVi: "Dùng để giới thiệu danh tính." }],
-  exercises: [{
-    promptVi: "Chọn câu giới thiệu đúng.",
-    distractors: ["我很好吗？", "你是学生吗？"],
-    answer: "我是学生。",
-    explanationVi: "我是学生 dùng 是 để giới thiệu danh tính.",
-  }],
   review: {
     humanReviewed: false,
     aiSelfReview: {
@@ -115,6 +104,214 @@ const drainReleases = (database: SQLiteD1) => new ContentReleaseWorker(
 ).drain();
 
 describe("governed Content Studio revisions", () => {
+  it("keeps editorial ownership, reviewer and SLA changes append-only and concurrent-safe", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const now = Date.now();
+    database.sqlite.prepare(
+      "INSERT INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, ?, ?, ?, ?)",
+    ).run("editor", "content_editor", "admin", now, now);
+    database.sqlite.prepare(
+      "INSERT INTO user_roles (user_id, role, granted_by_user_id, granted_at, updated_at) VALUES (?, ?, ?, ?, ?)",
+    ).run("admin", "admin", "admin", now, now);
+    const repository = new ContentStudioRepository(database);
+    const draft = await createDraft(repository);
+    await expect(repository.assignmentsFor([draft])).resolves.toEqual([
+      expect.objectContaining({
+        revisionId: draft.id,
+        ownerUserId: "editor",
+        reviewerUserId: null,
+        rowVersion: 0,
+        isExplicit: false,
+      }),
+    ]);
+
+    const assigned = await repository.setAssignment({
+      actorUserId: "admin",
+      actorSessionId: "admin-session",
+      revisionId: draft.id,
+      expectedRowVersion: 0,
+      ownerUserId: "editor",
+      reviewerUserId: "admin",
+      priority: "urgent",
+      dueAt: now - 60_000,
+      note: "Ưu tiên rà độ chính xác trước hạn.",
+      idempotencyKey: "assignment:greeting-01",
+    });
+    expect(assigned).toMatchObject({ rowVersion: 1, priority: "urgent", isExplicit: true });
+    await expect(repository.setAssignment({
+      actorUserId: "admin",
+      actorSessionId: "admin-session",
+      revisionId: draft.id,
+      expectedRowVersion: 0,
+      ownerUserId: "editor",
+      reviewerUserId: "admin",
+      priority: "urgent",
+      dueAt: now - 60_000,
+      note: "Ưu tiên rà độ chính xác trước hạn.",
+      idempotencyKey: "assignment:greeting-01",
+    })).resolves.toEqual(assigned);
+    await expect(repository.setAssignment({
+      actorUserId: "admin",
+      actorSessionId: "admin-session",
+      revisionId: draft.id,
+      expectedRowVersion: 0,
+      ownerUserId: "editor",
+      reviewerUserId: "admin",
+      priority: "high",
+      dueAt: null,
+      idempotencyKey: "assignment:stale-write",
+    })).rejects.toBeInstanceOf(ContentStudioConcurrencyError);
+    expect(() => database.sqlite.prepare(
+      "UPDATE content_revision_assignment_events SET priority = 'low' WHERE id = ?",
+    ).run(assigned.id)).toThrow(/immutable/u);
+    const laterDraft = await repository.createDraft({
+      actorUserId: "editor",
+      actorSessionId: "editor-session",
+      itemType: "lesson",
+      stableKey: "hsk1.lesson.later-normal",
+      title: "Bản nháp mới hơn nhưng không khẩn",
+      level: "hsk1",
+      content: reviewedLesson(),
+      idempotencyKey: "create:later-normal",
+    });
+    await expect(repository.coordinationQueue(2)).resolves.toEqual([
+      expect.objectContaining({ id: draft.id }),
+      expect.objectContaining({ id: laterDraft.id }),
+    ]);
+    await expect(repository.operationalSummary()).resolves.toMatchObject({
+      assignment: { overdue: 1, dueSoon: 0, urgent: 1, withoutReviewer: 0 },
+    });
+    const validated = await repository.validateRevision({
+      actorUserId: "editor",
+      actorSessionId: "editor-session",
+      revisionId: draft.id,
+      expectedRowVersion: draft.rowVersion,
+      idempotencyKey: "validate:assigned-review",
+    });
+    const submitted = await repository.transition({
+      actorUserId: "editor",
+      actorSessionId: "editor-session",
+      revisionId: draft.id,
+      expectedRowVersion: validated.rowVersion,
+      toState: "submitted",
+      idempotencyKey: "submit:assigned-review",
+      requestId: "request:assigned-review",
+    });
+    await expect(repository.transition({
+      actorUserId: "learner",
+      actorSessionId: "other-admin-session",
+      revisionId: draft.id,
+      expectedRowVersion: submitted.rowVersion,
+      toState: "draft",
+      note: "Cần chỉnh sửa thêm ví dụ.",
+      idempotencyKey: "changes:wrong-reviewer",
+      requestId: "request:wrong-reviewer",
+    })).rejects.toThrow("Điều Hành Viên khác");
+    await expect(repository.transition({
+      actorUserId: "admin",
+      actorSessionId: "admin-session",
+      revisionId: draft.id,
+      expectedRowVersion: submitted.rowVersion,
+      toState: "draft",
+      note: "Cần chỉnh sửa thêm ví dụ.",
+      idempotencyKey: "changes:assigned-reviewer",
+      requestId: "request:assigned-reviewer",
+    })).resolves.toMatchObject({ workflowState: "draft" });
+  });
+
+  it("summarizes the editorial and release queues for admin operations", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    await createDraft(repository);
+    await expect(repository.operationalSummary()).resolves.toMatchObject({
+      workflow: { draft: 1, validated: 0, submitted: 0, approved: 0, published: 0, archived: 0 },
+      release: { pending: 0, processing: 0, published: 0, dead: 0, activePackages: 0 },
+      byType: { lesson: { total: 1, published: 0 } },
+      readerSeries: { total: 0, published: 0 },
+      deadReleaseEvents: [],
+    });
+    await expect(repository.listReleaseFailurePage()).resolves.toEqual({
+      events: [],
+      filteredTotal: 0,
+    });
+  });
+
+  it("searches and paginates a large Studio library without hiding matching revisions", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    for (let index = 1; index <= 5; index += 1) {
+      await repository.createDraft({
+        actorUserId: "editor",
+        actorSessionId: "editor-session",
+        itemType: "lesson",
+        stableKey: `hsk1.lesson.alpha-${index}`,
+        title: `Lộ trình Alpha ${index}`,
+        level: "hsk1",
+        content: reviewedLesson(`Mục tiêu Alpha ${index}.`),
+        idempotencyKey: `create:alpha-${index}`,
+      });
+    }
+
+    await expect(repository.count({ query: "alpha", level: "hsk1" })).resolves.toBe(5);
+    await expect(repository.count({ query: "%" })).resolves.toBe(0);
+    const firstPage = await repository.list({ query: "alpha", limit: 2, offset: 0 });
+    const secondPage = await repository.list({ query: "alpha", limit: 2, offset: 2 });
+    expect(firstPage).toHaveLength(2);
+    expect(secondPage).toHaveLength(2);
+    expect(new Set([...firstPage, ...secondPage].map((revision) => revision.id)).size).toBe(4);
+    await expect(repository.coordinationQueuePage({ query: "alpha", limit: 2, offset: 2 })).resolves.toMatchObject({
+      revisions: [expect.objectContaining({ title: expect.stringContaining("Alpha") }), expect.objectContaining({ title: expect.stringContaining("Alpha") })],
+      filteredTotal: 5,
+    });
+    await expect(repository.coordinationQueuePage({ query: "%" })).resolves.toEqual({
+      revisions: [],
+      filteredTotal: 0,
+    });
+  });
+
+  it("prevents self-approval and lets a separate reviewer request actionable changes", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    const draft = await createDraft(repository);
+    const validated = await repository.validateRevision({
+      actorUserId: "editor", actorSessionId: "editor-session",
+      revisionId: draft.id, expectedRowVersion: draft.rowVersion,
+      idempotencyKey: "validate:self-approval-fence",
+    });
+    const submitted = await repository.transition({
+      actorUserId: "editor", actorSessionId: "editor-session",
+      revisionId: draft.id, expectedRowVersion: validated.rowVersion,
+      toState: "submitted", idempotencyKey: "submit:self-approval-fence",
+      requestId: "request:self-approval-fence",
+    });
+    await expect(repository.transition({
+      actorUserId: "editor", actorSessionId: "editor-session",
+      revisionId: draft.id, expectedRowVersion: submitted.rowVersion,
+      toState: "approved", idempotencyKey: "approve:self-approval-fence",
+      requestId: "request:self-approval-rejected",
+    })).rejects.toThrow("không thể tự phê duyệt");
+    const returned = await repository.transition({
+      actorUserId: "admin", actorSessionId: "admin-session",
+      revisionId: draft.id, expectedRowVersion: submitted.rowVersion,
+      toState: "draft", idempotencyKey: "changes:self-approval-fence",
+      requestId: "request:changes-self-approval-fence",
+      note: "Bổ sung một ví dụ đối chiếu trước khi gửi lại.",
+    });
+    expect(returned).toMatchObject({ workflowState: "draft", validation: null });
+    await expect(repository.history(draft.itemId)).resolves.toMatchObject({
+      events: expect.arrayContaining([
+        expect.objectContaining({
+          toState: "draft",
+          metadata: expect.objectContaining({ note: "Bổ sung một ví dụ đối chiếu trước khi gửi lại." }),
+        }),
+      ]),
+    });
+  });
+
   it("persists exam forms through the D1 item-type boundary", async () => {
     const database = new SQLiteD1();
     addUsers(database);
@@ -306,6 +503,71 @@ describe("governed Content Studio revisions", () => {
       { category: "approval", action: "content.revision.approved" },
       { category: "publication", action: "content.revision.published" },
     ]));
+  });
+
+  it("blocks two different published items from claiming the same Thiên Lộ lesson", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    const approve = async (revision: StudioRevision, key: string) => {
+      const validated = await repository.validateRevision({
+        actorUserId: "editor",
+        actorSessionId: "editor-session",
+        revisionId: revision.id,
+        expectedRowVersion: revision.rowVersion,
+        idempotencyKey: `validate:${key}`,
+      });
+      const submitted = await repository.transition({
+        actorUserId: "editor",
+        actorSessionId: "editor-session",
+        revisionId: revision.id,
+        expectedRowVersion: validated.rowVersion,
+        toState: "submitted",
+        idempotencyKey: `submit:${key}`,
+        requestId: `request-submit-${key}`,
+      });
+      return repository.transition({
+        actorUserId: "admin",
+        actorSessionId: "admin-session",
+        revisionId: revision.id,
+        expectedRowVersion: submitted.rowVersion,
+        toState: "approved",
+        idempotencyKey: `approve:${key}`,
+        requestId: `request-approve-${key}`,
+      });
+    };
+
+    const firstApproved = await approve(await createDraft(repository), "lesson-target-a");
+    await repository.transition({
+      actorUserId: "admin",
+      actorSessionId: "admin-session",
+      revisionId: firstApproved.id,
+      expectedRowVersion: firstApproved.rowVersion,
+      toState: "published",
+      idempotencyKey: "publish:lesson-target-a",
+      requestId: "request-publish-lesson-target-a",
+    });
+
+    const second = await repository.createDraft({
+      actorUserId: "editor",
+      actorSessionId: "editor-session",
+      itemType: "lesson",
+      stableKey: "hsk1.lesson.greeting-alternate",
+      title: "Bản chào hỏi thay thế",
+      level: "hsk1",
+      content: reviewedLesson("Giới thiệu bản thân bằng một bản biên soạn khác."),
+      idempotencyKey: "create:lesson-target-b",
+    });
+    const secondApproved = await approve(second, "lesson-target-b");
+    await expect(repository.transition({
+      actorUserId: "admin",
+      actorSessionId: "admin-session",
+      revisionId: secondApproved.id,
+      expectedRowVersion: secondApproved.rowVersion,
+      toState: "published",
+      idempotencyKey: "publish:lesson-target-b",
+      requestId: "request-publish-lesson-target-b",
+    })).rejects.toThrow(/đang có một bản phát hành khác/u);
   });
 
   it("rejects stale edits and invalid workflow jumps", async () => {

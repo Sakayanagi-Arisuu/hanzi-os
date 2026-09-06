@@ -56,4 +56,18 @@ describe("Content Studio learner UI preview", () => {
     expect(html).toContain("40 phút · 40 câu");
     expect(html).not.toMatch(/answerIndex|correctAnswer/u);
   });
+
+  it("previews a graded text as aligned Reader copy without revealing its answer", () => {
+    const content = studioStarterContent("graded_text");
+    const html = renderToStaticMarkup(createElement(StudioContentPreview, {
+      revisionId: "revision-graded-text-1",
+      itemType: "graded_text",
+      content,
+    }));
+    expect(html).toContain("VẠN QUYỂN CÁC");
+    expect(html).toContain("今天是我上中文课的第一天");
+    expect(html).toContain("Hôm nay là ngày gì?");
+    expect(html).toContain("Lựa chọn đúng được ẩn trong bản xem trước");
+    expect(html).not.toContain("Ngày đầu học tiếng Trung");
+  });
 });

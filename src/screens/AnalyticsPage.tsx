@@ -94,8 +94,8 @@ const signalLabel = (
   if (state === "insufficient") {
     return authenticated
       ? "Đang hợp nhất bằng chứng"
-      : item.covered > 0
-        ? `${item.covered}/${item.target} hoạt động đủ điều kiện`
+      : item.practiceCount > 0
+        ? `${item.practiceCount}/${item.target} hoạt động đã ghi nhận`
         : "Chưa đủ bằng chứng độc lập";
   }
   return `${formatCoveragePercent(item.percent)} tín hiệu`;
@@ -380,8 +380,8 @@ export function AnalyticsPage() {
                     : visibleSignalState(item) === "insufficient"
                       ? authenticated
                         ? "Đang hợp nhất bằng chứng"
-                        : formatLearnerActivityCoverage(item.covered, item.target)
-                      : `${formatLearnerActivityCoverage(item.covered, item.target)} · ${formatCoveragePercent(item.percent)}`}</dd>
+                        : formatLearnerActivityCoverage(item.practiceCount, item.target)
+                      : `${formatLearnerActivityCoverage(item.practiceCount, item.target)} · ${formatCoveragePercent(item.percent)}`}</dd>
                 </div>)}
               </dl>
             </div>

@@ -1,5 +1,5 @@
 import { authorizeAdmin } from "../../../src/server/adminHttp";
-import { sameOriginMutation } from "../../../src/server/authHttp";
+import { boundedReturnTo, sameOriginMutation } from "../../../src/server/authHttp";
 import { requestCorrelationId } from "../../../src/server/auditRepository";
 import {
   AdminSelfLockError,
@@ -12,8 +12,8 @@ import { readBoundedRequestText } from "../../../src/server/boundedRequestBody";
 
 export const dynamic = "force-dynamic";
 
-const redirect = (request: Request, key: "updated" | "error", value: string) => {
-  const location = new URL("/admin", request.url);
+const redirect = (request: Request, key: "updated" | "error", value: string, returnTo?: string | null) => {
+  const location = new URL(boundedReturnTo(returnTo ?? null, "/admin"), request.url);
   location.searchParams.set(key, value);
   return Response.redirect(location, 303);
 };
@@ -32,18 +32,19 @@ export async function POST(request: Request) {
   const locked = form.get("locked");
   const reason = form.get("reason") ?? "";
   const expectedRevision = Number(form.get("expectedRevision"));
+  const returnTo = form.get("returnTo");
   if (
     !userId
     || (locked !== "true" && locked !== "false")
     || !Number.isInteger(expectedRevision)
   ) {
-    return redirect(request, "error", "Biểu mẫu trạng thái không hợp lệ.");
+    return redirect(request, "error", "Biểu mẫu trạng thái không hợp lệ.", returnTo);
   }
   try {
     const authorized = await authorizeAdmin("admin:users:lock", { stepUp: true });
     if (!authorized.ok) {
       const error = await authorized.response.json() as { error?: { message?: string } };
-      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.");
+      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.", returnTo);
     }
     await new AuthorizationRepository(authorized.context.database).setAccountLocked({
       actorUserId: authorized.context.account.userId,
@@ -54,17 +55,17 @@ export async function POST(request: Request) {
       expectedRevision,
       requestId: requestCorrelationId(request),
     });
-    return redirect(request, "updated", userId);
+    return redirect(request, "updated", userId, returnTo);
   } catch (error) {
     if (error instanceof AuthorizationConcurrencyError) {
-      return redirect(request, "error", "Dữ liệu đã đổi ở phiên khác; hãy tải lại.");
+      return redirect(request, "error", "Dữ liệu đã đổi ở phiên khác; hãy tải lại.", returnTo);
     }
     if (error instanceof AuthorizationTargetNotFoundError) {
-      return redirect(request, "error", "Không tìm thấy tài khoản.");
+      return redirect(request, "error", "Không tìm thấy tài khoản.", returnTo);
     }
     if (error instanceof AdminSelfLockError || error instanceof LastAdminProtectionError) {
-      return redirect(request, "error", "Không thể khóa tài khoản quản trị này.");
+      return redirect(request, "error", "Không thể khóa tài khoản quản trị này.", returnTo);
     }
-    return redirect(request, "error", "Không thể đổi trạng thái tài khoản.");
+    return redirect(request, "error", "Không thể đổi trạng thái tài khoản.", returnTo);
   }
 }

@@ -1,6 +1,6 @@
 # HANZI.OS — Implementation checkpoint
 
-**Cập nhật:** 24/08/2026
+**Cập nhật:** 05/09/2026
 
 **Cách làm:** từng module, người dùng test trước khi chuyển module
 
@@ -39,10 +39,441 @@ Trạng thái module chỉ gồm:
 | Tiến độ và Thất Trụ | `IN-REVIEW` | Coverage unique; mastery đúng kỹ năng; không dùng XP thay mastery |
 | Luyện đề và assessment | `IN-REVIEW` | Nguồn/cấu trúc rõ; không lộ đáp án; resume/submit/retry đúng |
 | Tài khoản và phân quyền | `IN-REVIEW` | Đăng ký/đăng nhập HANZI.OS; learner/editor/admin đúng màn hình |
+| Biên Tập Viện | `IN-REVIEW` | Soạn → kiểm định → gửi duyệt → sửa/duyệt → phát hành; nội dung tới đúng module learner |
+| Cổng Quản Trị | `IN-REVIEW` | Phân công/SLA, duyệt độc lập, release/replay, user/role/session/settings/audit |
 | Offline, backup và sync | `NOT-REVIEWED` | Offline shell; export/import; owner/reset/outbox không mất dữ liệu |
 
 Module tiếp theo do người dùng chọn sau khi test web; không tự mở nhiều module
 song song.
+
+### Ôn — Ký Ức Trận Ngọc Lệnh — 05/09/2026
+
+- **Module:** Ôn — FSRS và lỗi sai — `IN-REVIEW`; bốn màn MEM-01 đến MEM-04
+  đã triển khai theo hướng A · Ngọc Lệnh, chưa ghi `USER-ACCEPTED` trước khi
+  chủ dự án tự xem và thử trọn phiên.
+- **Người học thấy gì:** thanh điều hướng desktop có thể thu gọn và nhớ lựa
+  chọn; MEM-01 là Sảnh Ký Ức với lịch đến hạn, dự báo bảy ngày và phân bố lịch
+  FSRS; MEM-02 buộc tự truy hồi trước khi xem; MEM-03 mới mở Pinyin, nghĩa,
+  ví dụ, âm thanh và bốn mức tự đánh giá; MEM-04 tách số tự nhớ, dùng gợi ý,
+  thẻ yếu, trạng thái đồng bộ và lịch ôn kế tiếp. Nhãn pha trong toolbar và ấn
+  ký nay đổi đúng `MEM-02 · TRUY HỒI` / `MEM-03 · ĐỐI CHIẾU` thay vì ghi cố
+  định một mã. Light mode vẫn giữ giếng ký ức tối có chữ sáng để không mất
+  tương phản.
+- **Đã kiểm:** browser thật trên tài khoản demo học xong `boot-1` xác nhận
+  MEM-01 đọc dữ liệu thật `4` thẻ đến hạn, `4` thẻ kích hoạt, dự báo hôm nay
+  `4`, không dùng mock. Thanh điều hướng thu gọn và route `/path` không vỡ.
+  `npm run typecheck`, targeted ESLint và `10/10` targeted Vitest xanh; một lượt
+  test song song từng timeout do máy quá tải, chạy riêng lại hoàn tất trong
+  `933 ms`. Browser smoke MEM-02 → MEM-04 bị chặn ở hạ tầng dev khi worker
+  Miniflare báo `Network connection lost`; đây là nợ runtime cần tái kiểm trước
+  khi nghiệm thu, không được che bằng dữ liệu tĩnh.
+- **Dữ liệu giữ được:** browser test chỉ tạo bốn thẻ FSRS từ bài `boot-1` trên
+  tài khoản demo local; không seed mastery, không xóa `.wrangler/`, không sửa
+  stable ID hay inventory. HSK0 vẫn `4/4`; HSK1 `40/40`, HSK2 `40/40`, HSK3
+  `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** gallery `310` concept đã mở riêng tại
+  `http://localhost:4173/index.html` để chủ dự án chọn đúng một module kế tiếp;
+  Ký Ức Trận vẫn giữ `IN-REVIEW` cho tới khi có xác nhận thật.
+
+### Học — Tiên Môn đa diện và lesson shell thoáng — 01/09/2026
+
+- **Module:** Học — lộ trình và bài học — `IN-REVIEW`; đây là vòng tinh chỉnh
+  trực tiếp theo ảnh người dùng, chưa ghi `USER-ACCEPTED`.
+- **Người học thấy gì:** Mỗi HSK là một **Mục HSK/Tiên Môn** lớn, đa diện mười
+  cạnh thay cho card bốn cạnh, có đường kết giới lồng, vân hologram, năm hệ màu
+  ngọc–lam–kim–tím–chu sa, trạng thái, số cảnh giới/bí quyển và tiến độ. Mỗi
+  Chương/Cảnh giới nhỏ hơn, lùi vào hai bên và nối với Mục bằng linh mạch; nhãn
+  `MỤC HSK` và `CHƯƠNG` làm rõ phân cấp chức năng, lore không che nghĩa.
+- **Màn học:** bỏ hoàn toàn dải header rỗng và footer “Hoàn tất phần học ở trên”;
+  nút về Thiên Lộ/thời lượng được gấp vào khung mục tiêu, còn CTA xác nhận và
+  `Bước vào Thử Luyện` nằm ngay trong điều hướng của chặng cuối. Ô mục tiêu lặp
+  ở cột phải cũng được bỏ để nội dung dùng trọn chiều ngang. Tài khoản đăng nhập
+  vẫn khóa CTA và hiện `Đang mở phiên…` trong lúc tạo session, tránh gửi hai lần.
+- **Đã kiểm:** targeted ESLint, `git diff --check`, `npm run typecheck`, `5 file/
+  27 test` và production build đều xanh; bundle ceiling bảo thủ vẫn `1023,9
+  KiB` (`958,2 KiB` client JS/CSS Brotli + hero `65,7 KiB`) mà không nới gate.
+  Browser thật light/dark xác nhận `5` Mục, `16` Chương, `217` bài và không có
+  console warning/error. Ở desktop Mục rộng `1011 px`, cao `224–254 px`, Chương
+  rộng `841 px`, cao `191 px`; ở `390×844` Mục cao `303 px`, Chương `250 px`,
+  không tràn ngang. Luồng lý thuyết đi đủ ba chặng và đổi đúng từ `Đã hiểu · sẵn
+  sàng thử` sang `Bước vào Thử Luyện` mà không còn footer cũ.
+- **Dữ liệu giữ được:** smoke trên origin chính chỉ đọc lại đúng session
+  `boot-1` đang dở ở câu `2/10`; luồng CTA mới được thử trên origin local tách
+  biệt, không reset/abandon/submit dữ liệu thật. `.wrangler/`, localStorage/
+  IndexedDB, stable ID, completion, streak, saved item, FSRS, mistakes, outbox,
+  `docs/reports/` và `output/` không bị sửa/xóa. Inventory vẫn HSK0 `4/4`, HSK1
+  `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`.
+- **Tiếp theo:** chủ dự án test `/path` ở light/dark và `/lesson/boot-1`; chỉ sau
+  phản hồi thật mới cân tiếp chi tiết thị giác hoặc ghi `USER-ACCEPTED`.
+
+### Học — khôi phục toàn bộ Thiên Lộ và viết lại luồng học — 31/08/2026
+
+- **Module:** Học — lộ trình và bài học — `IN-REVIEW`; giao diện trước khi khôi
+  phục đã được giữ tại ref Git `refs/codex/backups/path-current-20260831`, còn
+  thiết kế danh sách dọc được truy lại từ commit `2193573`. Chưa ghi
+  `USER-ACCEPTED` trước khi chủ dự án tự học thử.
+- **Người học thấy gì:** Thiên Lộ lại là một hành trình dọc liên tục gồm đủ `5`
+  tầng, `16` cảnh giới và `217` bài. Bài chưa tới vẫn hiện để người học biết toàn
+  bộ lộ trình nhưng giữ khóa thật; không đổi điều kiện mở bài. Bên trong bài học
+  được thay bằng luồng gọn `Đích đến & nguyên tắc → Từ neo trong câu → Đọc/nghe
+  trọn mẫu (khi có) → Tự diễn đạt`; mỗi màn chỉ có một quyết định chính, phần
+  bài tập chi tiết và mẫu trả lời được thu gọn dần.
+- **Phân cấp Mạo Hiểm Giả:** mỗi tầng HSK nay là một cổng chiến dịch riêng với
+  huy hiệu chặng, trạng thái có biểu tượng + nhãn chữ và tổng bài đã đạt; mỗi
+  cảnh giới là một bảng nhiệm vụ hologram có ấn số, mã cảnh giới, tiêu đề
+  Việt–Trung và tiến độ riêng. Light mode dùng nền sáng xanh ngọc dịu nhưng giữ
+  các bảng nhiệm vụ tối để bảo toàn chất hệ thống và độ tương phản; tên bài bị
+  khóa không còn mờ theo màu nền tối. Không thêm animation trang trí liên tục.
+- **Nội dung học:** cả `213` bài rich dùng đúng hội thoại, toàn bộ điểm ngữ pháp
+  và nhiệm vụ giao tiếp của chính bài thay vì mẫu hướng dẫn legacy gắn nhầm ID.
+  Bài `survival-1` không còn nhận nhầm mẫu `A + 是 + B`; nhãn ngữ pháp nguồn khó
+  đọc được đổi thành tiêu đề tiếng Việt, thuật ngữ nội bộ như mastery/reviewer/
+  rubric/calibration không còn lộ cho người học. Phương pháp đọc tăng dần từ
+  nghe–bắt chước ở HSK0 tới nguồn–bằng chứng–giới hạn ở HSK4. Bài Bốn thanh
+  điệu giải thích cao độ tương đối, bốn đường giọng, lỗi dễ nhầm và bắt buộc tự
+  kiểm trước khi sang chặng.
+- **Đã kiểm:** hồi quy Thiên Lộ/runtime/nội dung/resume/journey xanh `11 file/
+  280 test`; lát cắt phân cấp mới xanh thêm `3 file/25 test`, `npm run
+  typecheck`, targeted ESLint, `git diff --check` và production build. Bundle
+  ceiling bảo thủ đạt `1023,9 KiB` (`958,2 KiB` client JS/CSS Brotli + hero
+  `65,7 KiB`) mà không nới gate. Browser thật light/dark xác nhận đủ `5` tầng,
+  `16` cảnh giới và `217` bài, không có lỗi mới sau reload, không tràn ngang ở
+  desktop hoặc `390×844`; panel bài học cao `440 px`, thanh hành động nằm trong
+  viewport và mọi nút thấy được đạt tối thiểu `44 px`.
+- **Cleanup có bằng chứng:** bỏ selector của catalog thử nghiệm, kho mở rộng từ
+  cũ, transfer lane/next-realm cũ và các declaration 3D bị ghi đè sau khi `rg`
+  xác nhận không còn consumer; không xóa content, package hay migration.
+- **Dữ liệu giữ được:** browser smoke quay lại đúng phiên `boot-1` đang dở ở câu
+  `2/10`, không abandon/reset/submit. `.wrangler/`, localStorage/IndexedDB,
+  stable ID, completion, streak, saved item, FSRS, mistakes, owner/reset scope,
+  session dở dang, outbox, `docs/reports/` và `output/` được giữ. Inventory vẫn
+  HSK0 `4/4` (rich `0/4`), HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4
+  `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** chủ dự án test `/path` ở light/dark, cuộn qua cổng HSK0–HSK4,
+  kiểm các cảnh giới và bài bị khóa; sau đó vào `Bốn thanh điệu`, đi hết ba
+  chặng lý thuyết rồi tiếp tục câu đang dở. Chỉ ghi `USER-ACCEPTED` sau phản hồi
+  thật.
+
+### Kho nội dung Admin/Editor đồng bộ với learner — 31/08/2026
+
+- **Module:** Biên Tập Viện + Cổng Quản Trị — `IN-REVIEW`; phản hồi mới được
+  xử lý trong đúng lát cắt kho nội dung, chưa chuyển `USER-ACCEPTED` trước khi
+  người dùng xem lại `/admin/content` và `/studio`.
+- **Người dùng thấy gì:** Admin và Editor không còn hiểu `0 revision D1` là
+  `0 nội dung người học`. Hai lớp được tách rõ: kho learner hiện có `217` bài
+  học, `2.016` mục từ, `476` điểm ngữ pháp trong bài, `227` nhiệm vụ giao tiếp,
+  `1.096` Hán tự trong bài, `5` chuyên đề âm, `1` bài đọc ngắn, `25` bộ sách,
+  `422` câu hỏi nguồn và `24` bộ đề; phía dưới vẫn báo riêng bản nháp/chờ duyệt/
+  bản đã phát hành từ Biên Tập Viện. Màn chọn nhóm, chọn loại và màn soạn cũng
+  cho biết quy mô nội dung nền tương ứng; empty state giải thích kho learner
+  vẫn nguyên vẹn khi xưởng chưa có revision.
+- **Tự đồng bộ:** projection server đọc trực tiếp từ cùng consumer của
+  curriculum, rich lesson, Reader và exam bank ở mỗi lần build/runtime; thêm
+  bài, sách hoặc đề vào nguồn hiện hành sẽ cập nhật số mà không cần seed/copy
+  sang D1. Type contract buộc mọi loại nội dung Studio có một projection; test
+  buộc mọi authoring route hiện hành có baseline khác 0. Phiên bản mutable của
+  xưởng được giữ riêng nên không nhân đôi stable ID hoặc gọi nội dung nền là
+  revision biên tập.
+- **Đã kiểm:** targeted inventory/Studio/repository/Reader/rich-content xanh
+  `6 file/50 test`; lượt chốt đường biên server xanh `2 file/12 test`;
+  `npm run typecheck`, targeted ESLint, `git diff --check` và production build
+  đều xanh. Bundle ceiling bảo thủ `1023,9 KiB` (`958,2 KiB` client JS/CSS
+  Brotli + hero `65,7 KiB`). Browser thật xác nhận `/admin/content`, `/studio`,
+  nhóm bài học và màn soạn bài ở light/dark: số đúng, không console error,
+  không tràn ngang và không có control thấy được dưới `44 px` tại viewport
+  khả dụng `639×552`.
+- **Dữ liệu giữ được:** không seed/migrate D1, không tạo revision và không chạm
+  tiến độ học. `.wrangler/`, localStorage/IndexedDB học tập, stable ID,
+  completion, streak, saved item, FSRS, mistakes, owner/reset scope, session dở
+  dang, outbox, `docs/reports/` và `output/` được giữ. Inventory vẫn HSK0 `4/4`
+  (rich `0/4`), HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`, tổng
+  HSK1–4 `213/213` rich.
+- **Tiếp theo:** người dùng test `/admin/content`, sau đó mở `/studio`, chọn
+  một nhóm và một loại nội dung; chỉ ghi `USER-ACCEPTED` sau xác nhận thật.
+
+### Admin + Biên Tập Viện + RBAC — phản hồi mở lại module — 31/08/2026
+
+- **Module:** Tài khoản và phân quyền + Biên Tập Viện + Cổng Quản Trị —
+  `IN-REVIEW`. Lần nghiệm thu 30/08 bên dưới vẫn là mốc lịch sử, nhưng phản hồi
+  mới cho thấy đích đăng nhập theo vai trò và dashboard vận hành chưa đạt nên ba
+  module được mở lại; chưa chuyển về `USER-ACCEPTED` trước khi người dùng test.
+- **Người dùng thấy gì:** đăng nhập từ một route người học như `/path` không còn
+  kéo tài khoản chuyên trách về Thiên Lộ: Editor vào `/studio`, Admin vào
+  `/admin`. Deep-link hợp lệ trong đúng back-office và `/account` vẫn được giữ
+  cho step-up; topbar Admin/Studio không còn mời tài khoản chuyên trách quay về
+  không gian học. Chính sách áp dụng cho HANZI.OS, email OTP, passkey và callback
+  Google/Facebook khi các provider đó được cấu hình.
+- **Dashboard dữ liệu thật:** phần đầu `/admin` hiển thị tài khoản hiện có, phiên
+  chưa thu hồi/chưa hết hạn, tài khoản có hoạt động học đã đồng bộ và số tương
+  tác học trong 7 ngày. Biểu đồ cột chồng theo ngày tách đăng nhập/học/biên tập,
+  có chú giải và bảng số liệu thay thế; biểu đồ cơ cấu tài khoản tách active,
+  locked, editor và admin. Số liệu lấy trực tiếp từ D1/audit/attempt/workflow;
+  guest/local không bị theo dõi và UI nói rõ giới hạn này, không dựng visitor,
+  DAU hoặc conversion giả. Biểu đồ content/release cũ vẫn dùng dữ liệu Studio
+  thật và giữ empty state khi chưa có revision phát hành.
+- **Đã kiểm:** `6 test file/31 test` RBAC/Admin/Auth xanh, `npm run typecheck`,
+  ESLint các file đổi và production build xanh. Bundle ceiling bảo thủ vẫn
+  `1023,8 KiB` (`958,0 KiB` client JS/CSS Brotli + hero `65,7 KiB`). Browser
+  thật xác nhận cả `/signin?returnTo=/path` → `/studio` cho Editor và → `/admin`
+  cho Admin; dashboard desktop `1280 px`, mobile `375×812`, light/dark không
+  tràn ngang và không có console error.
+- **Dữ liệu giữ được:** browser smoke chỉ tạo thêm hai phiên đăng nhập demo cùng
+  audit sign-in tương ứng; không tạo/sửa content và không chạm tiến độ học.
+  `.wrangler/`, localStorage, IndexedDB, stable ID, completion, streak, FSRS,
+  mistakes, owner/reset scope, session dở dang, outbox, `docs/reports/` và
+  `output/` đều được giữ. Inventory vẫn HSK0 `4/4` (rich `0/4`), HSK1 `40/40`,
+  HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** chờ người dùng đăng nhập thử Editor/Admin và duyệt số liệu
+  dashboard trên web local; chỉ sau xác nhận mới đổi ba module về
+  `USER-ACCEPTED`.
+
+### Admin + Biên Tập Viện + RBAC — người dùng đã nghiệm thu — 30/08/2026
+
+- **Module:** Tài khoản và phân quyền + Biên Tập Viện + Cổng Quản Trị —
+  `USER-ACCEPTED`; chủ dự án xác nhận `duyệt module` ngày 30/08/2026 sau lượt
+  bàn giao web và ba hành trình kiểm thử Admin/Editor/RBAC.
+- **Người dùng thấy gì:** light mode back-office dùng canvas jade-mist và các
+  lớp surface phân cấp thay cho nền trắng phẳng; chữ, trạng thái, focus và CTA
+  giữ tương phản rõ. Dashboard Admin diễn giải đúng trạng thái chưa có dữ liệu,
+  các danh sách người dùng/phiên/nhật ký/workflow/phát hành có lọc và phân trang
+  thật. Biên Tập Viện mở bản nháp bài học trống theo đúng bài đích, không còn
+  lén chèn nội dung demo `A 是 B`; biểu mẫu chia `Định vị → Biên soạn → Tự kiểm
+  & lưu`, phần dài thu gọn dần và tự mở đúng vùng khi validation lỗi.
+- **Phân quyền:** Editor được đọc workspace, tạo/sửa/tự kiểm/gửi duyệt nhưng
+  không được duyệt hoặc phát hành; Admin được duyệt/phát hành và quản lý
+  user/session/settings/audit nhưng không đóng vai người soạn. Trang quyền hiển
+  thị ma trận server-derived; các route quản trị dùng permission cụ thể thay vì
+  một gate chung mơ hồ. Browser thật đã xác nhận Editor bị chặn tại `/admin`
+  nhưng vẫn soạn được tại `/studio?create=lesson`, sau đó khôi phục phiên Admin.
+- **Đã kiểm:** `npm run typecheck`, ESLint toàn repo và `6 test file/53 test`
+  cho Studio/RBAC/Admin đều xanh. Production build xanh với ceiling bảo thủ
+  `1023,0 KiB` dưới gate `1024 KiB`. Browser desktop `1280×720` và mobile
+  `390×844` xác nhận Admin không tràn ngang, không có touch target dưới `44px`;
+  smoke light mode sau cleanup tại Thiên Cơ Kính, Nghịch Cảnh Lục, Vạn Âm Điện
+  và Vạn Quyển Các không có alert/runtime error hay regression layout.
+- **Cleanup có bằng chứng:** loại các họ CSS `adversity-*`, `acoustic-*`,
+  `analytics-*` và `authenticated-reader-*` của UI cũ sau khi `rg` chứng minh
+  không còn class consumer; các màn hình thay thế có stylesheet riêng và đã
+  được browser smoke. Không giảm chất lượng hero và không nới bundle budget.
+- **Gate toàn repo còn biết:** `npm run check` dừng tại HSK1 với
+  `communicative collection source binding is stale`. Đây là debt nguồn nội
+  dung có sẵn và là đầu vào cần audit ở lát cắt Thiên Lộ kế tiếp, không được vá
+  chéo trong module back-office.
+- **Dữ liệu giữ được:** không tạo bản nháp/content mutation trong browser test;
+  chỉ có sự kiện đăng nhập/đăng xuất demo. Không chạm `.wrangler/`, localStorage,
+  IndexedDB, `docs/reports/`, `output/`, stable ID, completion, streak, FSRS,
+  mistakes, owner/reset scope, session dở dang hoặc outbox. Inventory vẫn HSK0
+  `4/4` (rich `0/4`), HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`,
+  tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** mở đúng một module **Học — lộ trình và bài học** để đại tu nội
+  dung cùng trải nghiệm từng bài Thiên Lộ; các module khác giữ nguyên trạng thái.
+
+### Học — Thiên Lộ, lát cắt briefing sư phạm — chờ người dùng duyệt — 30/08/2026
+
+- **Module:** Học — lộ trình và bài học — `IN-REVIEW`; đây là vertical slice
+  đầu tiên của Thiên Lộ, chưa phải nghiệm thu toàn bộ 217 bài.
+- **Người học thấy gì:** briefing light mode dùng surface jade-mist sáng vừa,
+  chữ mực xanh đậm và không còn terminal tối ghép vào trang sáng. Luồng bắt buộc
+  là `Hiểu nguyên tắc → Nắm từ trọng tâm → Gặp trong ngữ cảnh (khi có rich
+  content) → Xem cách làm`; hội thoại có nghe từng lượt, nghĩa Việt, một mẫu câu
+  cốt lõi và bài tự nói trước khi mở đáp án. Bài lớn chỉ đưa tối đa 8 từ neo;
+  phiên đã khóa hiển thị đúng các word ID thật, inventory còn lại chỉ là tham
+  khảo nên không còn cảm giác phải học dồn hàng chục tới hàng trăm từ.
+- **Tính đúng đắn:** sửa lỗi câu trả lời cuối đạt ngưỡng 70% nhưng receipt dùng
+  điểm cũ; điểm gate nay tính từ `nextAnswers` trước khi ghi journey. Hint vẫn
+  không được nâng thành recall độc lập. Không đổi thuật toán tạo form để tránh
+  làm hỏng resume phiên local/account đang dở.
+- **Viewport và PWA:** briefing thường chỉ có một vùng cuộn ngoài; compact review
+  mới có vùng cuộn riêng. CTA luôn nằm trong viewport, mọi control thấy được đạt
+  tối thiểu 44 px, không tràn ngang. Voice Reactor và lời boot tiếng Việt bị tắt
+  riêng trên `/lesson/*`; banner phục hồi PWA chuyển lên mép trên nên không còn
+  chặn nút hành động ở mobile.
+- **Đã kiểm:** 5 file/239 test trọng điểm xanh; `npm run typecheck`, ESLint toàn
+  repo, HSK1 communicative pack check/validator và production build xanh. Bundle
+  ceiling bảo thủ `1023,8 KiB` dưới gate `1024 KiB`. Playwright production mobile
+  light/reduced-motion `390×844` xanh: không cuộn lồng, không tràn ngang, CTA
+  trong viewport, nền thẻ đủ sáng và không có Voice Reactor.
+- **Cleanup có bằng chứng:** bỏ CSS Graded Reader và activity/priority dashboard
+  cũ sau khi `rg` xác nhận không còn consumer; Reader và Analytics hiện dùng
+  stylesheet/module mới. Không xóa file dữ liệu, migration, `.wrangler/`,
+  `docs/reports/` hoặc `output/`.
+- **Dữ liệu giữ được:** content report vẫn có 2.016 vocabulary và 217 runtime
+  lessons; inventory learner-visible giữ HSK0 `4/4` (rich `0/4`), HSK1 `40/40`,
+  HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich. Stable
+  ID, completion, streak, saved item, FSRS, mistakes, owner/reset scope, session
+  dở dang và outbox không đổi.
+- **Nợ bị giảng viên trừ điểm:** package vẫn chỉ là `closed-alpha`, thiếu
+  contentOwner/sourceLicense/native review/audio; report còn 14 record hash
+  provenance cũ ở 7 mục character. Một số rich dialogue vượt 6 lượt và taxonomy
+  ngữ pháp còn nhãn nguồn khó hiểu. Full `precheck` đã sửa canonical hash-only
+  cho chuỗi HSK1 tới local-study package nhưng hiện dừng ở
+  `hsk1-daily-life-local-study-review.json is stale`; lát cắt kế tiếp phải tiếp
+  tục đúng builder/validator. Các lỗi này phải xử lý bằng lát cắt biên tập có
+  review/provenance thật, không được giả mạo `humanReviewed`.
+- **Tiếp theo:** chủ dự án test `/lesson/boot-1` ở light mode, đi hết bốn chặng
+  của một bài HSK1 có hội thoại và thử mở lý thuyết giữa phiên. Chỉ sau xác nhận
+  mới chuyển module sang `USER-ACCEPTED` hoặc mở lát cắt Thiên Lộ kế tiếp.
+
+### Light mode — hệ thức tỉnh hologram sáng đang chờ người dùng duyệt — 28/08/2026
+
+- **Module:** Onboarding và shell điều hướng — `IN-REVIEW`; chưa đổi thành
+  `USER-ACCEPTED` trước khi chủ dự án tự xem và xác nhận.
+- **Người học thấy gì:** light mode dùng canvas jade-mist thay cho nền trắng,
+  panel chỉ sáng hơn một bậc và mực xanh đậm thay toàn bộ chữ vốn dành cho nền
+  tối. Ký Ức Trận, Thất Trụ, Thiên Lộ, Nghịch Cảnh Lục, Vạn Âm Điện, Thần Văn
+  Lô, Vạn Quyển Các, Tàng Tự Khố, Thiên Cơ Kính, Phòng Luyện Đề và Hồ sơ đã có
+  surface/foreground đồng bộ; vùng hologram tối còn lại luôn có chữ sáng.
+- **Đã kiểm:** `npm run typecheck` xanh. Browser thật rà toàn bộ learner routes
+  trên desktop, chuyển dark/light và smoke mobile `390×844` tại `/review`,
+  `/exams`, `/dictionary`; không tràn ngang và CTA vẫn nằm trong viewport. Build
+  đã biên dịch đủ năm môi trường nhưng gate bundle cuối báo `1027,1 KiB`, vượt
+  ngân sách `1024 KiB` `3,1 KiB`; không nới ngân sách trong lát cắt giao diện.
+- **Gate toàn repo:** `npm run check` dừng sớm ở artifact nội dung HSK1 có sẵn
+  với lỗi `communicative collection source binding is stale`; không regenerate
+  content ngoài lát cắt theme. Dev runtime và các API learner đã kiểm đều trả
+  `200/304`, không có lỗi CSS/runtime mới trong hành trình smoke.
+- **Dữ liệu giữ được:** không xóa/chạm `.wrangler/`, localStorage, IndexedDB,
+  `docs/reports/` hay `output/`; không đổi stable ID, completion, streak, saved
+  item, FSRS, mistakes, owner/reset scope, session dở dang hoặc outbox. Inventory
+  learner-visible vẫn HSK0 `4/4` (rich `0/4`), HSK1 `40/40`, HSK2 `40/40`,
+  HSK3 `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** chủ dự án test light mode tại `/`, `/review`, `/pronunciation`
+  và `/profile`; chỉ chỉnh tiếp tone/độ đậm nếu có feedback cụ thể rồi mới duyệt.
+
+### Light mode + back-office tối giản + AI Vạn Quyển Các — 28/08/2026
+
+- **Module:** Biên Tập Viện và Cổng Quản Trị — `IN-REVIEW`; chưa đổi thành
+  `USER-ACCEPTED` trước khi chủ dự án nghiệm thu.
+- **Giao diện:** thêm light/dark mode toàn hệ thống; Admin mở vào dashboard có
+  ba việc cần làm, số liệu và biểu đồ; Biên Tập Viện tách theo nhóm nội dung,
+  chỉ hiện công cụ thuộc nhóm đã chọn và thu gọn tìm kiếm nâng cao.
+- **Vạn Quyển Các:** bước đầu chỉ cần tên sách, tên chương và bản thảo tiếng
+  Trung; adapter Gemini server-only tạo Pinyin cùng nghĩa tiếng Việt, sau đó bắt
+  buộc Editor xem lại trước khi lưu. Không có API key vẫn có đường nhập thủ công.
+  Nội dung AI luôn giữ `humanReviewed: false` cho tới review thật.
+- **An toàn dữ liệu:** giữ schema và stable ID Reader hiện hành; không chạm
+  `.wrangler/`, localStorage, IndexedDB hay inventory HSK0–HSK4.
+- **Đã kiểm:** typecheck, ESLint và production build xanh; bundle ceiling
+  `1021,1 KiB` dưới gate `1024 KiB`. Bộ regression back-office/Reader trước đó
+  xanh `63/63`; lượt chốt adapter AI, quyền Admin/Editor và repository xanh
+  `27/27`. Browser thật đã kiểm light mode tại Thiên Lộ, Vạn Quyển Các và màn
+  Soạn sách; viewport `390×844` không tràn ngang và không có touch target dưới
+  44 px.
+
+### Biên Tập Viện + Cổng Quản Trị hoàn tất triển khai, chờ một lượt nghiệm thu — 27/08/2026
+
+- **Module:** Biên Tập Viện và Cổng Quản Trị — `IN-REVIEW`. Theo yêu cầu trực
+  tiếp của chủ dự án, lượt này khép toàn bộ chương trình back-office trước rồi
+  mới bàn giao một lần; không chuyển `USER-ACCEPTED` khi chưa có xác nhận thật.
+- **Workflow chuẩn:** Editor chọn module/bài nguồn → soạn và xem trước → chạy
+  kiểm định năm chiều → gửi revision bất biến → Admin/người duyệt độc lập yêu
+  cầu sửa hoặc phê duyệt sau step-up → release worker phát hành và theo dõi sức
+  khỏe/replay. Phân công, người chịu trách nhiệm và SLA nằm trong Cổng Quản Trị;
+  draft không tự xuất hiện cho người học.
+- **Phạm vi biên soạn:** biểu mẫu chuyên môn cho từ vựng, Hán tự, ngữ pháp,
+  phát âm, nhiệm vụ giao tiếp, bài đọc ngắn, bài học, câu hỏi luyện đề và bộ đề;
+  sách nhiều chương dùng Bàn biên soạn Reader riêng. Bài học cho phép chọn đúng
+  lesson ID hiện hành rồi soạn mục tiêu, lý thuyết, hội thoại, ngữ pháp, bài tập
+  hướng dẫn, kỹ năng và liên kết nguồn. Thao tác “xóa” nghiệp vụ dùng archive/
+  supersede hoặc fork revision, không hard-delete stable ID hay tiến độ learner.
+- **Projection learner:** vocabulary đi vào Tàng Tự Khố/nguồn ôn theo bài;
+  character vào Thần Văn Lô; pronunciation vào Vạn Âm Điện; lesson, grammar và
+  communicative function làm giàu đúng bài Thiên Lộ; graded text/series đi vào
+  Vạn Quyển Các; exam item/form đi vào bank và cửa Phòng Luyện Đề. Projection
+  được lọc và dựng ở server; runtime công khai từ chối `exam_item`/`exam_form`,
+  đáp án đúng và revision pin chỉ tồn tại ở server. Khi D1 chưa có gói publish,
+  các module tiếp tục dùng inventory built-in hiện hành, không bị rỗng dữ liệu.
+- **Admin:** command center responsive có workflow, queue/SLA, coverage module,
+  user/role, session, settings, release health/replay và audit. Quyền draft,
+  validate, submit, approve, publish tách riêng; approve/publish và thao tác nhạy
+  cảm yêu cầu step-up. Bulk validate/submit, diff, tìm kiếm, filter, pagination,
+  archive và recovery release đều giữ ranh giới server.
+- **Đã kiểm:** `17 file/88 test` workflow/repository/route/release/exam/projection
+  xanh; `11 file/53 test` inventory, learning journey, Reader và preview xanh;
+  `npm run typecheck`, `npm run lint`, production build và bundle gate xanh.
+  Browser thật kiểm tra desktop/mobile cho `/admin`, `/studio`, `/path`,
+  `/lesson/boot-1`, `/dictionary`, `/characters`, `/pronunciation`: không console
+  error, không tràn ngang; Admin/Studio có touch target tối thiểu 44 px và header/
+  action của phiên học vẫn trong viewport. Build ceiling hiện `1024,0 KiB`
+  (`954,8 KiB` client Brotli + `69,2 KiB` hero), đúng giới hạn nhưng gần sát trần.
+- **Giới hạn gate toàn repo:** lượt full `npm test` còn dừng ở các generated
+  curriculum artifact đã lệch source binding/deterministic JSON từ working tree
+  có sẵn, ví dụ `hsk1CommunicativeUnitPacks.test.ts`. Không tự regenerate hoặc
+  ghi đè lô content ngoài lát cắt vì chưa có bằng chứng migration/provenance an
+  toàn; các gate trực tiếp của back-office và consumer đều đã xanh.
+- **Dữ liệu giữ được:** không xóa/chạm `.wrangler/`, localStorage, IndexedDB,
+  `docs/reports/` hay `output/`; không đổi stable lesson/vocabulary/character ID,
+  completion, streak, saved item, FSRS, mistakes, owner/reset scope, session dở
+  dang hoặc outbox. Inventory learner-visible vẫn HSK0 `4/4` (rich `0/4`), HSK1
+  `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** chủ dự án nghiệm thu một lượt từ `/studio` và `/admin` tới các
+  module learner; chỉ sau xác nhận mới đổi hai module sang `USER-ACCEPTED`.
+
+### Cổng Quản Trị — tách trang cho người không chuyên — 27/08/2026
+
+- **Module:** Cổng Quản Trị — `IN-REVIEW`. Trang `/admin` nay chỉ là bảng việc
+  trong ngày; các thao tác đã tách thành tám điểm vào có tên tiếng Việt rõ ràng:
+  Tổng quan, Công việc, Kho nội dung, Duyệt & phát hành, Tài khoản & quyền,
+  Phiên đăng nhập, Cấu hình và Nhật ký hoạt động.
+- **Luồng làm việc:** Admin bắt đầu ở Tổng quan → xử lý hàng Công việc → mở
+  revision trong Biên Tập Viện để duyệt → theo dõi phát hành hoặc khôi phục gói
+  lỗi. Editor vẫn soạn toàn bộ loại nội dung tại `/studio`; Cổng Quản Trị chỉ
+  điều phối, bảo vệ quyền và không thay learner progress. Mỗi form có nút quay
+  lại đúng trang đang làm, nhãn phổ thông và chi tiết kỹ thuật ẩn sau mở rộng.
+- **Trải nghiệm:** dùng một shell chung với điều hướng cố định, breadcrumb,
+  nhóm “Công việc hàng ngày / Quản trị hệ thống”, số việc cần xử lý, empty state
+  và cảnh báo step-up. Giao diện mobile chuyển thành danh sách dọc; mọi liên kết,
+  nút, ô nhập và trạng thái tập trung đạt tối thiểu `44×44px`, có focus rõ và
+  tôn trọng `prefers-reduced-motion`.
+- **Đã kiểm:** `AdminShell.test.tsx` cùng targeted route tests `13/13` xanh;
+  `npm run typecheck`, `npm run lint`, `npm run build` và bundle gate xanh ở
+  `1023,4 KiB`. Browser smoke thật kiểm tra đủ tám route Admin ở desktop
+  `1366×768` và mobile `390×844`: đúng heading/điều hướng, không tràn ngang,
+  không có control nhỏ hơn `44px`; `/studio` vẫn mở được ở mobile.
+- **Gate toàn repo:** `npm run check` đã chạy tới bộ kiểm định curriculum nền
+  nhưng dừng ở artifact HSK1 có sẵn với lỗi `communicative collection source
+  binding is stale` trong `hsk1UnitRuntimeProjection.mjs`. Không regenerate hoặc
+  ghi đè artifact này trong lát cắt Admin vì sẽ vượt phạm vi và có nguy cơ đổi
+  nội dung learner; targeted back-office/Studio và production build vẫn xanh.
+- **Dữ liệu giữ được:** chỉ thêm IA, shell, trang server và return-path cho form;
+  không xóa/chạm `.wrangler/`, localStorage, IndexedDB, `docs/reports/` hay
+  `output/`; giữ stable lesson/vocabulary/character ID, completion, streak,
+  saved item, FSRS, mistakes, owner/reset scope, session dở dang và outbox.
+  Inventory learner-visible vẫn HSK0 `4/4` (rich `0/4`), HSK1 `40/40`, HSK2
+  `40/40`, HSK3 `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** chủ dự án nghiệm thu một lượt từ `/admin` → Công việc → Duyệt
+  & phát hành và `/studio`; chỉ sau xác nhận thật mới đổi module sang
+  `USER-ACCEPTED`.
+
+### Biên Tập Viện — xưởng soạn nội dung task-first cho non-tech — 27/08/2026
+
+- **Module:** Biên Tập Viện — `IN-REVIEW`. Trang `/studio` được thiết kế lại để
+  bắt đầu bằng câu hỏi “Hôm nay bạn muốn soạn gì?” thay cho bản đồ trạng thái,
+  thống kê và các nhóm chức năng lặp lại. Mỗi mục chỉ xuất hiện một lần trong
+  đúng năm nhóm: Bài học & kiến thức, Giao tiếp & phát âm, Hán tự, Bài đọc và
+  Luyện đề.
+- **Luồng soạn:** mười thẻ tác vụ dẫn tới mười loại nội dung bằng nhãn tiếng
+  Việt phổ thông; `create=` chỉ dùng để mở biểu mẫu, còn `filterType=` chỉ dùng
+  để lọc thư viện, tránh mở nhầm form khi đang tìm bản nháp. Màn hình soạn có
+  tiêu đề module, đường quay lại, ba bước Nhập nội dung → Tự kiểm tra → Lưu bản
+  nháp và đánh dấu rõ ô bắt buộc. Phần “Sau khi tôi lưu, nội dung đi đâu?” giải
+  thích workflow kiểm định/phê duyệt/phát hành bằng `details` có thể mở khi cần.
+- **Phân quyền:** Admin nhìn thấy lối sang Cổng Quản Trị nhưng không được tạo
+  draft; Editor mới dùng biểu mẫu chuyên môn. Ranh giới quyền và toàn bộ
+  workflow server hiện hành không đổi.
+- **Đã kiểm:** 3 test file/27 test Studio form–catalog–route xanh; `npm run
+  typecheck`, `npm run lint`, `npm run build` và bundle gate xanh ở `1024,0 KiB`.
+  Browser smoke thật xác nhận `/studio` có 5 nhóm/10 tác vụ, không còn selector
+  layout cũ, không tràn ngang, touch target tối thiểu 44 px và không console error
+  ở desktop/mobile `390×844`; luồng `create=lesson` và `filterType=grammar` không
+  lẫn nhau.
+- **Dữ liệu giữ được:** chỉ đổi catalog/URL/markup/CSS của xưởng; không đổi
+  stable lesson/vocabulary/character ID, completion, streak, saved item, FSRS,
+  mistakes, owner/reset scope, session dở dang, outbox hay projection learner.
+  Inventory vẫn HSK0 `4/4` (rich `0/4`), HSK1 `40/40`, HSK2 `40/40`, HSK3
+  `55/55`, HSK4 `78/78`, tổng HSK1–4 `213/213` rich.
+- **Tiếp theo:** chủ dự án nghiệm thu một lượt từ `/studio` và `/admin`; chỉ sau
+  xác nhận mới chuyển module sang `USER-ACCEPTED`.
 
 ### Vạn Quyển Các Mốc 3 đang chờ người dùng duyệt — 25/08/2026
 
@@ -280,6 +711,146 @@ song song.
   cắt đã vượt `28,2 KiB`). Module chỉ chuyển `USER-ACCEPTED` sau khi chủ dự án
   dùng thử vai trò Biên tập viên và xác nhận.
 
+### Biên Tập Viện và Cổng Quản Trị — vận hành thư khố quy mô lớn đang chờ người dùng duyệt — 27/08/2026
+
+- **Module: `IN-REVIEW`.** Mốc dang dở sau khi mất lịch sử đã được khôi phục
+  thành một vertical slice vận hành hoàn chỉnh: chín biểu mẫu chuyên môn và bàn
+  sách nhiều chương cho editor non-tech; bản đồ biên soạn chỉ rõ nguồn nội dung
+  của Thiên Lộ, Ôn/lỗi sai, Vạn Âm Điện, Thần Văn Lô, Vạn Quyển Các, Khảo
+  Nghiệm/Luyện đề, Tàng Tự Khố và bảy kỹ năng. Chỉ số mastery, lịch FSRS và tiến
+  độ cá nhân tiếp tục là dữ liệu hệ thống, không phải trường editor được nhập.
+- Thư khố Studio không còn dừng ở `100/200` revision đầu: tìm theo tiêu đề hoặc
+  stable key có escape wildcard, lọc theo phân khu/trạng thái/cấp/người phụ trách,
+  đếm toàn bộ kết quả và phân trang `48` mục. Component test của biểu mẫu Studio
+  nay được Vitest thu thập thật thay vì bị cấu hình cũ bỏ qua.
+- Cổng Admin có hàng duyệt và hàng phát hành truy vấn độc lập; dashboard coverage
+  dùng toàn bộ D1 thay vì danh sách gần đây. Hàng phối hợp được xếp bằng SQL theo
+  quá hạn → ưu tiên → hạn xử lý, giữ lịch sử phân công/reviewer/SLA append-only;
+  bulk validate/submit, diff ảnh hưởng, release health và replay sự cố đều giữ
+  permission, same-origin, step-up và request-size boundary phía server.
+- Ranh giới learner giữ nguyên: editor không vào được deep-link Admin; draft,
+  validated, submitted và approved không xuất hiện với người học; chỉ published
+  head được projection. Không schema hay state completion, streak, FSRS,
+  mistakes, saved item, session dở dang, outbox, localStorage/IndexedDB nào bị
+  sửa. `.wrangler/` được giữ nguyên; browser smoke chỉ tạo một audit đăng nhập
+  demo Admin, không tạo revision hay evidence học mới; learner shell chỉ chạy
+  nhịp đồng bộ nền bình thường khi mở Thiên Lộ.
+- Đã kiểm: targeted Editor/Admin `37/37` Vitest và learner/content invariant
+  `26/26` xanh; typecheck, targeted ESLint, `db:check`, `git diff --check` và
+  production build xanh. Browser thật ở `1280×720` và `360×720` xác nhận Studio,
+  Admin và Thiên Lộ không tràn ngang, control đạt tối thiểu `44×44`, phân quyền
+  editor→admin bị chặn và Thiên Lộ còn HSK0 `4/4`, HSK1 `40/40`. `npm run check`
+  toàn repo vẫn fail sớm vì artifact communicative collection đang stale trong
+  các thay đổi nội dung ngoài lát cắt; không mở rộng sửa sang module người học ở
+  mốc này.
+- Mốc chỉ chuyển `USER-ACCEPTED` sau khi chủ dự án thử luồng editor/admin. Việc
+  đưa published overlay của từng loại nội dung vào mọi consumer learner còn lại
+  là vertical slice kế tiếp vì chạm trực tiếp runtime người học và cần một lượt
+  nghiệm thu riêng.
+
+### Tàng Tự Khố nhận mục từ đã phát hành từ Biên Tập Viện đang chờ người dùng duyệt — 27/08/2026
+
+- **Module: `IN-REVIEW`.** Consumer learner đầu tiên ngoài mock exam/Reader series
+  đã được nối với projection của Biên Tập Viện: `/dictionary` tải riêng loại
+  `vocabulary` từ `/api/content/runtime?type=vocabulary`, chỉ chấp nhận manifest
+  `published-only` của release worker và từ chối toàn bộ overlay nếu contract hoặc
+  bất kỳ item nào sai. Kho cốt lõi/mở rộng hiện hành luôn là fallback.
+- Stable key mới tạo thêm một mục tra cứu; stable key trùng mục hiện có cập nhật
+  Trung–Pinyin–Việt và ví dụ nhưng giữ `isCore`, chữ phồn thể, từ loại, lượng từ,
+  liên kết bài học và saved-item ID cũ. Mục Studio hiện nhãn **BIÊN TẬP**, nguồn
+  và ngày phát hành bằng ngôn ngữ phổ thông; mục mới chưa gắn bài không tự vào
+  Ký Ức Trận, không tạo XP, mastery hay evidence.
+- Trạng thái tải chỉ hiện sau `350 ms` để tránh nháy; success/fallback dùng
+  `role=status`. Nếu projection gián đoạn, UI nói rõ kho hiện tại vẫn dùng được.
+  Nút `Đã lưu` được nâng từ `42` lên chuẩn touch target `44 px` trong CSS scoped
+  của Tàng Tự Khố.
+- D1 local hiện có `0` vocabulary package đang phát hành nên browser smoke không
+  tạo revision thử. Nhánh có package publish, digest fence, published-head swap,
+  manifest sai, item sai, stable-key overlay và request `no-store` được kiểm bằng
+  D1/test cô lập; draft vẫn vô hình.
+- Đã kiểm: targeted publication/learner invariant `51/51` Vitest, typecheck,
+  targeted ESLint, `db:check`, production build và `git diff --check` xanh.
+  Browser thật ở `1280×720`, `360×720` và landscape `720×360` xác nhận 11.093 mục
+  fallback, tìm `你好` đúng `1` kết quả, không tràn ngang, `177` control của module
+  đạt tối thiểu `44 px` và không có console error. `npm run check` vẫn dừng ở
+  artifact HSK1 ngoài lát cắt: `communicative collection source binding is stale`.
+- Inventory HSK0 `4/4`, HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`
+  (`213/213` rich) và stable learner IDs không đổi. Mốc kế tiếp sau nghiệm thu là
+  published `graded_text` → Vạn Quyển Các; chưa tự mở rộng sang runtime bài học.
+
+### Vạn Quyển Các nhận bài đọc ngắn đã phát hành từ Biên Tập Viện đang chờ người dùng duyệt — 27/08/2026
+
+- **Module: `IN-REVIEW`.** Editor non-tech có thể soạn trọn một bài đọc ngắn:
+  tiêu đề Trung, tóm tắt Việt, thời lượng, liên kết bài học nguồn, các đoạn
+  Trung–Pinyin–Việt, câu hỏi đọc hiểu có lời giải và hồ sơ provenance/quyền sử
+  dụng. Stable key được chiếu thành Reader series/chapter ID xác định nên sửa nội
+  dung không làm gãy deep-link hoặc tiến độ đã có.
+- Vạn Quyển Các chỉ nhận published head loại `graded_text`. Mỗi item phải qua đủ
+  năm review pass, quyền sử dụng, lesson link, alignment, câu hỏi và digest/version
+  fence; item lỗi bị bỏ riêng, API/database lỗi fail-closed. D1 local hiện có `0`
+  graded text đã phát hành nên không tạo dữ liệu thử; `25` quyển/`250` chương tích
+  hợp và toàn bộ tiến độ cũ vẫn là fallback nguyên vẹn.
+- Bài phát hành hiện như một quyển Reader HSK0–4 có provenance rõ. Khảo Luyện giữ
+  lựa chọn đầu tiên, số lần thử và việc đã lộ lời giải; chỉ cho hoàn thành sau khi
+  trả lời đúng hết nhưng luôn ghi `measurementEligible:false` và
+  `masteryClaimed:false`. Trường comprehension mới là optional trong schema tiến
+  độ v2, giữ tương thích completion, bookmark, saved entry, owner/reset scope và
+  phiên đọc dở; chỉ reset lần thử chưa hoàn tất khi content version thực sự đổi.
+- Loading/offline có thông báo và retry, không biến kho rỗng hợp lệ thành lỗi.
+  Header và CTA phiên đọc vẫn cố định trong viewport; hit-area tra chữ thực tế
+  `45×60 px`, các control khác tối thiểu `44 px`. Bản CSS Reader bị đóng gói trùng
+  trong global bundle đã được loại sau audit consumer; stylesheet lazy đang dùng
+  được giữ nguyên, đưa ceiling từ `1026,1` xuống `1020,8 KiB` dưới gate `1024 KiB`.
+- Đã kiểm: targeted Reader/Studio/repository `8 file/37 test` xanh (bài quét toàn
+  bộ `250` chương chạy riêng `9/9` sau một lần chạm timeout do tranh CPU), invariant
+  learner `3 file/26 test`, typecheck, targeted ESLint, `db:check`, production
+  build và `git diff --check` xanh. Browser thật tại `1280×720`, `360×720` và
+  landscape `720×360` không tràn ngang, không console error, header/footer luôn
+  trong viewport. `npm run check` vẫn fail sớm ngoài lát cắt ở
+  `communicative collection source binding is stale`; `content:validate` riêng
+  còn báo checksum nguồn lịch sử không khớp từ package `foundation-2026.07.6`,
+  nên không tự tái sinh package/checksum người dùng trong module Reader.
+- Inventory HSK0 `4/4`, HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78`
+  và HSK1–4 `213/213` rich không đổi. Sau khi người dùng nghiệm thu, vertical slice
+  kế tiếp là published `lesson` → Thiên Lộ để editor bắt đầu điều khiển toàn bộ lộ
+  trình mà không thay thế hay làm mất runtime bài học hiện hành.
+
+### Thiên Lộ nhận bài học đã phát hành từ Biên Tập Viện đang chờ người dùng duyệt — 27/08/2026
+
+- **Module: `IN-REVIEW`.** Biểu mẫu bài học cho editor non-tech nay chọn trực
+  tiếp một stable lesson đích trong toàn bộ lộ trình: HSK0 `4`, HSK1 `40`, HSK2
+  `40`, HSK3 `55`, HSK4 `78`. Editor biên soạn tiêu đề Trung, mục tiêu, khái
+  niệm, quy tắc, lỗi thường gặp, checkpoint, hội thoại Trung–Pinyin–Việt, điểm
+  ngữ pháp và thực hành có đáp án Trung–Pinyin–Việt. Prerequisite, từ cốt lõi và
+  kỹ năng runtime được lấy nguyên vẹn từ bài đích thay vì cho nhập tay; đổi cấp
+  sẽ tải đúng inventory của cấp đó.
+- Một bài published chỉ phủ lớp trình bày của đúng lesson ID hiện hành. Tên,
+  mục tiêu, lý thuyết ba chặng và disclosure nội dung sâu được chiếu sang Thiên
+  Lộ/phiên bài học; activity bank, phiên làm bài, ngưỡng đạt, XP, graph khóa mở,
+  `contentVersion` và quan hệ dữ liệu vẫn do runtime cốt lõi quyết định. Hai
+  stable item không được cùng phát hành vào một lesson đích; phải lưu trữ bản cũ
+  trước. Guest và account dùng cùng projection.
+- Projection chỉ đọc published head loại `lesson`, kiểm tra release boundary,
+  revision/digest metadata, level–lesson binding, năm pass, `humanReviewed:false`,
+  graph/từ/kỹ năng exact-match và toàn bộ nội dung Trung–Pinyin–Việt. Manifest
+  lỗi hoặc API/D1 không sẵn sàng fail-closed về bài cốt lõi, hiện thông báo có
+  nút thử lại và không chặn học. D1 local hiện có `0` lesson published nên không
+  tạo dữ liệu giả; Thiên Lộ hiện hành được giữ nguyên làm fallback.
+- Đã kiểm: typecheck, targeted ESLint, `303/303` targeted Vitest cho Studio,
+  preview, validator, release worker/repository, projection, graph, local/account
+  lesson runtime và content inventory; `git diff --check` xanh. Production build
+  xanh ở `1023,6/1024 KiB`. Browser thật `1280×720` và `360×720` xác nhận Thiên
+  Lộ/phiên bài học không tràn ngang, control trong module đạt tối thiểu `44 px`,
+  topbar/CTA phiên luôn trong viewport, Studio card mobile không tràn và không có
+  console error. `npm run check` vẫn dừng đúng debt ngoài lát cắt:
+  `communicative collection source binding is stale`.
+- Dữ liệu giữ được: stable lesson/vocabulary/character ID, completion, streak,
+  saved item, FSRS, mistakes, owner/reset scope, phiên dở, outbox,
+  localStorage/IndexedDB và D1 `.wrangler/` không đổi. Inventory HSK0 `4/4`,
+  HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4 `78/78` và HSK1–4
+  `213/213` rich không đổi. Chờ chủ dự án test editor → publish → Thiên Lộ trước
+  khi chuyển `USER-ACCEPTED` hoặc chọn đúng một module kế tiếp.
+
 ### Thiên Lộ, Thần Văn Lô và Tàng Tự Khố đang chờ người dùng duyệt — 22/08/2026
 
 - Thiên Lộ nay luôn dựng **cảnh giới kế tiếp** từ chính runtime graph: hiện số
@@ -402,6 +973,12 @@ song song.
 
 ### Phòng Luyện Đề — mở rộng cửa và luồng biên tập đang chờ người dùng duyệt — 25/08/2026
 
+- Runner được cân lại theo phản hồi trực quan ngày 26/08: nhãn phần, tiêu đề,
+  audio, đáp án và nội dung dock dùng chung một trục rộng tối đa `900px`; đáp án
+  nằm gần câu hỏi thay vì bị ghim xuống đáy khoảng trống. HSK1–2 chia đúng hai
+  cột tiến độ, HSK3–4 chia ba cột, không còn ô trống làm HUD lệch. Browser thật
+  xác nhận các biên desktop trùng nhau; viewport `390×844` không tràn ngang,
+  bốn đáp án cao `56px`, CTA cao `50px` và nằm trên mobile nav.
 - Theo phản hồi trực quan ngày 26/08, bản xếp ba phòng theo tam giác đã được
   hoàn nguyên về room map desktop 2×2 cũ: HSK3–4 dùng ba ô Nghe/Đọc/Viết và
   chừa ô thứ tư; HSK1–2 vẫn dùng hai ô Nghe/Đọc. Hai dòng thống kê quy mô ở
@@ -582,6 +1159,137 @@ song song.
   keyboard và mobile `360×640` `2/2` xanh; typecheck, targeted ESLint và build
   xanh; bundle ceiling `789,3 KiB` dưới gate `800 KiB`. Inventory
   learner-visible không đổi.
+
+### Học — Thiên Lộ và bài “Bốn thanh điệu” đang chờ người dùng duyệt — 31/08/2026
+
+- **Module:** Học — kho Thiên Lộ và luồng học trong bài.
+- **Trạng thái:** `IN-REVIEW`; chưa ghi `USER-ACCEPTED` trước khi chủ dự án tự
+  học lại và xác nhận.
+- **Người học thấy gì:** Thiên Lộ luôn hiện đủ 217 bài theo đúng năm chặng
+  `4/40/40/55/78`; bài tương lai vẫn cho xem tên, mục tiêu và thời lượng nhưng
+  bị khóa theo authority runtime. Bài `boot-1` được tổ chức lại thành bốn bước
+  `Hiểu một ý → Từ cần dùng → Thấy trong câu → Tự làm thử`; phần thanh điệu có
+  công thức âm tiết, thang cao độ 1–5, bốn đường giọng 55/35/214/51, cử chỉ,
+  ví dụ `妈/麻/马/骂`, quy trình nghe ba bước, thanh nhẹ và câu kiểm tra bắt
+  buộc chọn đúng Thanh 4 trước khi đi tiếp. Phiên bài học không còn bị lời mời
+  Khảo Nghiệm Căn Cơ che phủ.
+- **Đã kiểm:** targeted Vitest 6 file/24 test, typecheck, targeted ESLint và
+  production build đều xanh; conservative client asset ceiling `1023,8 KiB`.
+  Browser thật xác nhận desktop có 217 card/216 card khóa và không tràn ngang;
+  mobile `390×844` vẫn có đủ bốn tone card, bốn đáp án kiểm tra, CTA 44 px,
+  không overlay và không tràn ngang. Câu sai/đúng của kiểm tra khái niệm đã được
+  smoke để xác nhận gate; feedback câu luyện thanh điệu dùng dấu hiệu truy hồi
+  cụ thể thay cho thông báo chung chung.
+- **Gate còn đỏ ngoài lát cắt:** `npm run check` dừng vì
+  `content/review/hsk1-time-place-events-local-study-review.json` đã stale từ
+  worktree nội dung đang dở. Full Vitest hiện có 253 file/2.054 test xanh và 78
+  file/234 test đỏ, chủ yếu là chuỗi provenance/generated content HSK1–4 stale
+  có sẵn; guide ký digest đã được giữ nguyên và targeted suite của lát cắt này
+  xanh. Không tái sinh hay ghi đè các draft/review thuộc phiên khác.
+- **Dữ liệu giữ được:** stable lesson/activity ID, unlock authority, completion,
+  phiên dở, FSRS, mistake và inventory rich HSK1–4 `213/213` không bị đổi;
+  `.wrangler/` không bị xóa. Browser smoke đã mở phiên `boot-1` local tới câu
+  `2/10` nhưng không hoàn tất bài hoặc mở khóa bài kế tiếp.
+- **Tiếp theo:** chủ dự án test `/path`, xem kho khóa và học lại `boot-1`; chỉ
+  sau xác nhận mới chuyển module này sang `USER-ACCEPTED`.
+
+### Học — Ấn Phổ Thiên Lộ và neo bài đang học — 01/09/2026
+
+- **Module:** Học — lộ trình và bài học.
+- **Trạng thái:** `IN-REVIEW`; người dùng đã xác nhận hướng mỹ thuật đẹp nhưng
+  banner/điểm neo mới vẫn chờ test cuối trước khi ghi `USER-ACCEPTED`.
+- **Người học thấy gì:** `/path` dùng hệ hình `Linh Thú Ấn Phổ` nguyên bản:
+  Mục HSK là đại ấn lớn, chương là cảnh giới nhỏ hơn và từng bài là bí quyển
+  gọn. Banner đầu trang đã đổi sang mẫu G `Thiên Thư Khai Quyển`: cuộn thiên thư
+  dùng crop cao phân giải `1460×363` từ đúng mockup G, giữ tỉ lệ `588:146`, sơn
+  thủy, năm ấn HSK0–HSK4, lệnh bài và pháp trận đúng ảnh chốt ở cả dark/light;
+  crop mới bỏ đường chỉ thừa bên trái và giữ đủ mép trục cuộn bên phải.
+  Tên bài `ĐANG TU LUYỆN` và tỷ số `bài đã thông qua` không bị đóng cứng trong
+  ảnh: hai lớp HTML `aria-live` che chữ mẫu và lấy trực tiếp `currentLesson`,
+  `completedCount` và tổng catalog. Nền hai lớp dữ liệu dùng lõi che kín chữ mẫu,
+  feather theo sắc ngọc của ảnh nên không còn mảng vá vuông hoặc bóng chữ cũ;
+  vòng tiến độ được căn theo tâm pháp trận và nhãn hai dòng tăng cỡ chữ. Mục HSK
+  và các card bài đã chốt không đổi;
+  chỉ số chương hiển thị La Mã, còn số bài vẫn giữ dạng `01`, `02`, `03`. Mỗi
+  lần đi từ module khác vào Thiên Lộ, node bài hiện tại có
+  `aria-current="step"` và tự được đưa vào vùng nhìn thấy nếu đang nằm ngoài
+  viewport; không cuộn lại khi node vốn đã hiện, và dùng cuộn tức thời khi người
+  học bật giảm chuyển động.
+- **Đã kiểm:** typecheck, targeted ESLint và Vitest lộ trình/hành trình `3 file / 25 test`
+  xanh; `git diff --check` sạch. Browser thật xác nhận dark/light desktop
+  `1366×643` và mobile `390×844`: không tràn ngang, artwork giữ đúng tỉ lệ,
+  DOM hiển thị đúng `ĐANG TU LUYỆN · Bốn thanh điệu` và `0/217 · bài đã thông
+  qua`; ảnh desktop xác nhận hai trục cuộn không bị cắt, không còn đường viền
+  trái, lớp dữ liệu không lộ mép và nội dung nằm giữa pháp trận. Node hiện tại
+  nằm trong viewport, reduced-motion tắt animation và
+  inventory DOM đủ `5` Mục HSK / `16` chương / `217` bài.
+- **Gate còn đỏ ngoài lát cắt:** production build biên dịch xong nhưng bundle
+  gate toàn repo báo `1026,3 KiB`, vượt trần `1024 KiB` đúng `2,3 KiB`; không nới
+  trần để che lỗi. `npm run check` vẫn còn blocker review HSK1 stale đã ghi ở
+  checkpoint trước và không bị tái sinh trong lát cắt giao diện này.
+- **Dữ liệu giữ được:** không đổi stable lesson ID, unlock authority, completion,
+  session dở, FSRS, mistakes, localStorage/IndexedDB hoặc `.wrangler/`; inventory
+  learner-visible vẫn là `4/40/40/55/78`, tổng `217`.
+- **Tiếp theo:** chủ dự án mở lại `/path`, kiểm banner và hành vi neo đúng bài
+  đang học; chỉ sau xác nhận mới đổi module này sang `USER-ACCEPTED`.
+
+### Nghịch Cảnh Lục — Thiên Văn Đài bị từ chối khi review — 05/09/2026
+
+- **Module:** Nghịch Cảnh Lục / REM. **Trạng thái:** `BLOCKED`; chủ dự án đã từ
+  chối bản giao diện vì độ tương đồng thấp và có ảnh Cốc Cốc chỉ còn lớp nền hệ
+  thống, không có shell hoặc nội dung `/mistakes`.
+- **Người học thấy gì:** tại vùng nội dung Cốc Cốc khoảng `1321×643`, giao diện
+  không đạt bộ ảnh chuẩn `1672×940`. Vòng tái hiện độc lập ở cùng viewport có
+  render shell và DOM sống, nhưng rơi về layout desktop cơ sở, rail mở rộng
+  `258 px`, command bar `70 px` và nội dung bị ép/cắt; đây vẫn là kết quả không
+  chấp nhận được.
+- **Đã kiểm:** precision pass hiện chỉ kích hoạt với
+  `(min-width: 1281px) and (min-height: 760px)`, nên không chạy trong viewport
+  Cốc Cốc ở ảnh lỗi. Kết nối điều khiển trực tiếp cửa sổ Cốc Cốc timeout hai lần;
+  không có bằng chứng để tuyên bố lỗi nền-trống riêng của Cốc Cốc đã được sửa.
+  Tuyên bố đối chiếu thành công trước đó bị rút lại.
+- **Dữ liệu giữ được:** không thay đổi D1, localStorage/IndexedDB, `.wrangler/`,
+  stable lesson/vocabulary/character ID, completion, streak, saved item, FSRS,
+  mistakes, owner/reset scope, phiên dở hoặc outbox trong vòng chẩn đoán này.
+  Inventory vẫn là HSK0 `4/4`, HSK1 `40/40`, HSK2 `40/40`, HSK3 `55/55`, HSK4
+  `78/78` và HSK1–4 `213/213` rich.
+- **Tiếp theo:** dừng triển khai theo yêu cầu của chủ dự án. Không gọi lại module
+  này là pixel-perfect hoặc `USER-ACCEPTED`. Chỉ mở lại khi tiêu chí được đổi
+  thành một viewport/dataset chuẩn có sai số đo được, vì pixel tuyệt đối trên dữ
+  liệu động và nhiều tỉ lệ màn hình chỉ đạt được bằng ảnh tĩnh, trái yêu cầu sản
+  phẩm.
+
+### Nghịch Cảnh Lục — Thiên Văn Đài mở lại để người dùng duyệt — 05/09/2026
+
+- **Module:** Nghịch Cảnh Lục / toàn bộ REM-01 đến REM-04.
+- **Trạng thái:** `IN-REVIEW`; checkpoint này thay cho kết luận `BLOCKED` ở
+  lần review trước, nhưng chưa ghi `USER-ACCEPTED` trước khi chủ dự án test.
+- **Người học thấy gì:** REM-01 là bản đồ sao động với vùng kỹ năng, mức cảnh
+  báo lấy từ số lần sai, danh sách ưu tiên, nguồn và dấu vết bảy ngày; nhãn thứ
+  tự sinh theo ngày thật thay vì đóng cứng theo mockup. REM-02 `Tái đấu`, REM-03
+  `Giải lỗi` và REM-04 `Hóa giải` dùng cùng sân Thiên Văn Đài; câu hỏi, đáp án,
+  gợi ý, kết quả, giải thích, tiến độ và tổng kết đều là DOM sống. Dùng gợi ý
+  được ghi nhận và không được nâng thành mastery. Rail thu gọn theo mockup ở
+  desktop; laptop thấp có bố cục riêng; mobile giữ header/hành động trong
+  viewport và chỉ cuộn nội dung giữa.
+- **Đã kiểm:** typecheck và targeted ESLint xanh; Vitest REM + bundle boundary
+  `2 file / 8 test` xanh; `git diff --check` không có whitespace error. Browser
+  chạy thật bằng tài khoản `learner.demo` qua đủ bốn pha tại `1674×942`,
+  `1365×643` và `390×844`; mọi POST `/api/learning/attempts` trả `201`. Ở canvas
+  chuẩn, rail/header/content đo đúng `103/85/857 px`, card Giải lỗi
+  `1040×450`, card Hóa giải `1040×340`, dải trạng thái `117 px`; ở laptop rail
+  `86 px`, header `70 px`, content `573 px`, không còn chồng CTA. `npm run check`
+  dừng ngoài lát cắt tại
+  `content/review/hsk1-daily-life-local-study-review.json is stale`.
+- **Dữ liệu giữ được:** D1 local có fixture review tách biệt gồm `18` attempt,
+  `5` signal và `18` evidence verified; toàn bộ evidence fixture giữ
+  `mastery_eligible=0`. Lượt browser cập nhật qua repository/server thật, không
+  dùng số mock trong UI. Không xóa `.wrangler/`, localStorage/IndexedDB, stable
+  ID, completion, streak, saved item, FSRS, mistake, owner/reset scope, phiên dở
+  hoặc outbox; inventory vẫn là HSK0 `4/4`, HSK1 `40/40`, HSK2 `40/40`, HSK3
+  `55/55`, HSK4 `78/78` và HSK1–4 rich `213/213`.
+- **Tiếp theo:** chủ dự án test `/mistakes` trên server local đang bật; chỉ sau
+  xác nhận mới đổi module này sang `USER-ACCEPTED` và chuyển sang module kế.
 
 ## 3. Inventory learner-visible cần bảo toàn
 

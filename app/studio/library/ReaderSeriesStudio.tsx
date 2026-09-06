@@ -1,27 +1,23 @@
 "use client";
 
 import {
+  ArrowLeft,
+  ArrowRight,
   BookPlus,
   CheckCircle2,
   ImageIcon,
   LibraryBig,
   Plus,
   Save,
-  ScanSearch,
+  Sparkles,
   Trash2,
-  TriangleAlert,
 } from "lucide-react";
 import { type FormEvent, useMemo, useState } from "react";
-import { lookupMegaVocabulary } from "../../../src/content/megaLexicon";
 import type {
   EditorialReaderBook,
   EditorialReaderChapter,
+  EditorialReaderParagraph,
 } from "../../../src/reader/editorialReaderContent";
-import {
-  editorialReaderContentFingerprint,
-  scanEditorialReaderVocabulary,
-  type EditorialReaderLexiconScan,
-} from "../../../src/reader/editorialReaderLexiconScan";
 import type { StudioRevision } from "../../../src/server/contentStudioRepository";
 import styles from "./library.module.css";
 
@@ -34,38 +30,65 @@ const slug = (value: string) => value
   .replace(/^-+|-+$/gu, "")
   .slice(0, 72);
 
-const blankParagraph = () => ({ zhHans: "", pinyin: "", vi: "" });
+const blankParagraph = (zhHans = ""): EditorialReaderParagraph => ({ zhHans, pinyin: "", vi: "" });
 const blankChapter = (number: number): EditorialReaderChapter => ({
   titleZh: `第${number}章`,
-  titleVi: `Chương ${number}`,
+  titleVi: "",
   hookVi: "",
   estimatedMinutes: 6,
   paragraphs: [blankParagraph(), blankParagraph()],
 });
+const READER_GENRES = ["Bí ẩn", "Đời sống", "Phiêu lưu", "Học đường", "Gia đình", "Tình bạn", "Chữa lành", "Tu tiên"] as const;
+
+const splitChineseText = (value: string) => {
+  const blocks = value.split(/\n\s*\n/gu).map((part) => part.trim()).filter(Boolean);
+  if (blocks.length >= 2) return blocks;
+  const sentences = value.match(/[^。！？!?]+[。！？!?]?/gu)?.map((part) => part.trim()).filter(Boolean) ?? [];
+  return sentences.length >= 2 ? sentences : blocks;
+};
+
+const chapterBody = (chapter: EditorialReaderChapter) => chapter.paragraphs
+  .map((paragraph) => paragraph.zhHans.trim())
+  .filter(Boolean)
+  .join("\n\n");
+
+type EnrichmentPayload = {
+  titleVi: string;
+  synopsisVi: string;
+  hookVi: string;
+  chapters: Array<{
+    titleVi: string;
+    hookVi: string;
+    estimatedMinutes: number;
+    paragraphs: Array<{ pinyin: string; vi: string }>;
+  }>;
+};
 
 export function ReaderSeriesStudio({
   revisions,
   canDraft,
+  aiAvailable,
 }: {
   revisions: StudioRevision[];
   canDraft: boolean;
+  aiAvailable: boolean;
 }) {
+  const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [titleZh, setTitleZh] = useState("");
   const [titleVi, setTitleVi] = useState("");
-  const [seriesId, setSeriesId] = useState("");
+  const [synopsisVi, setSynopsisVi] = useState("");
+  const [hookVi, setHookVi] = useState("");
   const [coverSrc, setCoverSrc] = useState("");
   const [chapters, setChapters] = useState<EditorialReaderChapter[]>([blankChapter(1)]);
-  const [lexiconScan, setLexiconScan] = useState<EditorialReaderLexiconScan | null>(null);
-  const [scanning, setScanning] = useState(false);
+  const [enriching, setEnriching] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [createdRevisionId, setCreatedRevisionId] = useState("");
   const suggestedId = useMemo(() => slug(titleVi), [titleVi]);
 
-  const replaceChapters = (
-    updater: (current: EditorialReaderChapter[]) => EditorialReaderChapter[],
-  ) => {
+  const replaceChapters = (updater: (current: EditorialReaderChapter[]) => EditorialReaderChapter[]) => {
     setChapters(updater);
-    setLexiconScan(null);
+    setCreatedRevisionId("");
   };
 
   const updateChapter = (index: number, patch: Partial<EditorialReaderChapter>) => {
@@ -73,10 +96,21 @@ export function ReaderSeriesStudio({
       chapterIndex === index ? { ...chapter, ...patch } : chapter));
   };
 
+  const updateChapterBody = (index: number, value: string) => {
+    const parts = splitChineseText(value);
+    updateChapter(index, {
+      paragraphs: (parts.length ? parts : [""]).map((zhHans, paragraphIndex) => ({
+        zhHans,
+        pinyin: chapters[index]?.paragraphs[paragraphIndex]?.pinyin ?? "",
+        vi: chapters[index]?.paragraphs[paragraphIndex]?.vi ?? "",
+      })),
+    });
+  };
+
   const updateParagraph = (
     chapterIndex: number,
     paragraphIndex: number,
-    key: "zhHans" | "pinyin" | "vi",
+    key: "pinyin" | "vi",
     value: string,
   ) => {
     replaceChapters((current) => current.map((chapter, index) => index === chapterIndex
@@ -89,52 +123,120 @@ export function ReaderSeriesStudio({
       : chapter));
   };
 
-  const scanVocabulary = async () => {
+  const sourceForAi = () => ({
+    titleZh: titleZh.trim(),
+    chapters: chapters.map((chapter) => ({
+      titleZh: chapter.titleZh.trim(),
+      paragraphs: splitChineseText(chapterBody(chapter)),
+    })),
+  });
+
+  const sourceIsReady = () => {
+    if (!/\p{Script=Han}/u.test(titleZh)) {
+      setError("Hãy nhập tên sách bằng tiếng Trung.");
+      return false;
+    }
+    const invalidChapter = sourceForAi().chapters.findIndex((chapter) =>
+      !/\p{Script=Han}/u.test(chapter.titleZh)
+      || chapter.paragraphs.length < 2
+      || chapter.paragraphs.some((paragraph) => !/\p{Script=Han}/u.test(paragraph)));
+    if (invalidChapter >= 0) {
+      setError(`Chương ${invalidChapter + 1} cần tiêu đề và ít nhất 2 đoạn tiếng Trung.`);
+      return false;
+    }
+    return true;
+  };
+
+  const enrichWithAi = async () => {
     setError("");
     setCreatedRevisionId("");
-    if (!chapters.some((chapter) => chapter.paragraphs.some((paragraph) =>
-      /\p{Script=Han}/u.test(paragraph.zhHans)))) {
-      setError("Hãy nhập nội dung tiếng Trung trước khi quét Tàng Tự Khố.");
-      return;
-    }
-    setScanning(true);
+    if (!sourceIsReady()) return;
+    setEnriching(true);
     try {
-      const report = await scanEditorialReaderVocabulary(
-        chapters,
-        async (surface) => Boolean(await lookupMegaVocabulary(surface)),
-      );
-      setLexiconScan(report);
-    } catch {
-      setError("Chưa thể đọc Tàng Tự Khố. Hãy kiểm tra lại kết nối nội bộ rồi quét lại.");
+      const response = await fetch("/api/studio/reader-series/enrich", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(sourceForAi()),
+      });
+      const payload = await response.json() as {
+        enriched?: EnrichmentPayload;
+        error?: { message?: string };
+      };
+      if (!response.ok || !payload.enriched) {
+        throw new Error(payload.error?.message ?? "Chưa thể tạo Pinyin và bản dịch.");
+      }
+      const enriched = payload.enriched;
+      setTitleVi(enriched.titleVi);
+      setSynopsisVi(enriched.synopsisVi);
+      setHookVi(enriched.hookVi);
+      replaceChapters((current) => current.map((chapter, chapterIndex) => {
+        const translated = enriched.chapters[chapterIndex];
+        if (!translated) return chapter;
+        return {
+          ...chapter,
+          titleVi: translated.titleVi,
+          hookVi: translated.hookVi,
+          estimatedMinutes: translated.estimatedMinutes,
+          paragraphs: chapter.paragraphs.map((paragraph, paragraphIndex) => ({
+            ...paragraph,
+            pinyin: translated.paragraphs[paragraphIndex]?.pinyin ?? "",
+            vi: translated.paragraphs[paragraphIndex]?.vi ?? "",
+          })),
+        };
+      }));
+      setStep(2);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "Chưa thể tạo Pinyin và bản dịch.");
     } finally {
-      setScanning(false);
+      setEnriching(false);
     }
+  };
+
+  const openManualReview = () => {
+    setError("");
+    if (!sourceIsReady()) return;
+    setStep(2);
+  };
+
+  const translationsAreReady = () => {
+    const invalidChapter = chapters.findIndex((chapter) =>
+      !chapter.titleVi.trim()
+      || !chapter.hookVi.trim()
+      || chapter.paragraphs.some((paragraph) => !paragraph.pinyin.trim() || !paragraph.vi.trim()));
+    if (!titleVi.trim() || invalidChapter >= 0) {
+      setError(invalidChapter >= 0
+        ? `Hãy hoàn tất Pinyin và bản dịch của chương ${invalidChapter + 1}.`
+        : "Hãy nhập tên sách tiếng Việt.");
+      return false;
+    }
+    return true;
+  };
+
+  const continueToDetails = () => {
+    setError("");
+    if (translationsAreReady()) setStep(3);
   };
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError("");
     setCreatedRevisionId("");
-    if (
-      !lexiconScan
-      || lexiconScan.contentFingerprint !== editorialReaderContentFingerprint(chapters)
-    ) {
-      setError("Hãy quét Tàng Tự Khố sau lần chỉnh sửa nội dung gần nhất.");
+    if (!translationsAreReady()) return;
+    const data = new FormData(event.currentTarget);
+    const id = suggestedId;
+    if (!id) {
+      setError("Tên tiếng Việt chưa tạo được định danh sách.");
       return;
     }
-    const data = new FormData(event.currentTarget);
-    const id = seriesId || suggestedId;
     const book: EditorialReaderBook = {
       schemaVersion: 1,
       seriesId: id,
-      titleZh: String(data.get("titleZh") ?? ""),
+      titleZh,
       titleVi,
-      synopsisVi: String(data.get("synopsisVi") ?? ""),
-      hookVi: String(data.get("hookVi") ?? ""),
-      genreIds: String(data.get("genreIds") ?? "")
-        .split(",")
-        .map((value) => value.trim())
-        .filter(Boolean),
+      synopsisVi,
+      hookVi,
+      genreIds: data.getAll("genreIds").map(String),
       shelfId: String(data.get("shelfId") ?? "doi-song") as EditorialReaderBook["shelfId"],
       levelBand: {
         min: String(data.get("levelMin") ?? "HSK2") as EditorialReaderBook["levelBand"]["min"],
@@ -150,10 +252,8 @@ export function ReaderSeriesStudio({
       rights: {
         textProvenanceVi: String(data.get("textProvenanceVi") ?? ""),
         coverProvenanceVi: String(data.get("coverProvenanceVi") ?? ""),
-        backgroundProvenanceVi: String(data.get("backgroundProvenanceVi") ?? ""),
         editorAttestsRights: true,
       },
-      lexiconScan,
       humanReviewed: false,
     };
     setSubmitting(true);
@@ -183,287 +283,91 @@ export function ReaderSeriesStudio({
   };
 
   return <div className={styles.workspace}>
-    <section className={styles.inventory} aria-labelledby="reader-studio-inventory">
-      <header>
-        <div>
-          <span>GIAN HÀNG NỘI DUNG</span>
-          <h2 id="reader-studio-inventory">Sách đang qua quy trình biên tập</h2>
-        </div>
-        <strong>{revisions.length} revision</strong>
-      </header>
-      {revisions.length
-        ? <div className={styles.revisionGrid}>{revisions.map((revision) => <article key={revision.id}>
-            <span>{revision.workflowState === "published" ? "ĐANG PHÁT HÀNH" : revision.workflowState.toUpperCase()}</span>
-            <h3>{revision.title.replace(/^Vạn Quyển Các · /u, "")}</h3>
-            <p>{revision.stableKey} · bản {revision.revision}</p>
-            <a href={`/studio/items/${encodeURIComponent(revision.id)}`}>Mở revision và quy trình duyệt</a>
-          </article>)}</div>
-        : <div className={styles.empty}>
-            <LibraryBig size={28} />
-            <p>Chưa có sách do biên tập viên đưa lên.</p>
-          </div>}
-    </section>
-
-    {canDraft && <form className={styles.form} onSubmit={submit}>
+    {canDraft && <form className={styles.form} id="new-reader-series" onSubmit={submit}>
       <header className={styles.formHero}>
-        <span><BookPlus size={25} /></span>
-        <div>
-          <small>SẢN PHẨM MỚI</small>
-          <h2>Thêm sách vào Vạn Quyển Các</h2>
-          <p>Tạo draft trước; chỉ revision được phê duyệt và phát hành mới xuất hiện với người học.</p>
-        </div>
+        <span><BookPlus size={24} /></span>
+        <div><small>SÁCH MỚI</small><h2>Soạn sách nhiều chương</h2></div>
       </header>
 
-      <fieldset>
-        <legend>01 · Hồ sơ sách</legend>
-        <div className={styles.grid2}>
-          <label>
-            <span>Tên tiếng Việt</span>
-            <input
-              required
-              maxLength={120}
-              value={titleVi}
-              onChange={(event) => {
-                setTitleVi(event.target.value);
-                if (!seriesId) setSeriesId(slug(event.target.value));
-              }}
-              placeholder="Ví dụ: Thành Phố Sau Cơn Mưa"
-            />
-          </label>
-          <label>
-            <span>Tên tiếng Trung</span>
-            <input required name="titleZh" maxLength={80} lang="zh-Hans" placeholder="雨后的城市" />
-          </label>
-          <label>
-            <span>Mã sách ổn định</span>
-            <input
-              required
-              pattern="[a-z0-9][a-z0-9-]{2,71}"
-              value={seriesId}
-              onChange={(event) => setSeriesId(event.target.value.toLowerCase())}
-              placeholder={suggestedId || "thanh-pho-sau-con-mua"}
-            />
-          </label>
-          <label>
-            <span>Thể loại, ngăn bằng dấu phẩy</span>
-            <input required name="genreIds" placeholder="Bí ẩn, Đô thị, Chữa lành" />
-          </label>
-          <label>
-            <span>Kệ trưng bày</span>
-            <select name="shelfId" defaultValue="bi-an">
-              <option value="tu-tien">Tu tiên</option>
-              <option value="trung-sinh">Trùng sinh</option>
-              <option value="light-novel">Light novel</option>
-              <option value="bi-an">Bí ẩn</option>
-              <option value="khoa-huyen">Khoa huyễn</option>
-              <option value="triet-ly">Triết lý</option>
-              <option value="vo-hiep">Võ hiệp</option>
-              <option value="doi-song">Đời sống</option>
-            </select>
-          </label>
-          <div className={styles.levelPair}>
-            <label>
-              <span>Từ cấp</span>
-              <select name="levelMin" defaultValue="HSK2">
-                <option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option>
-              </select>
-            </label>
-            <label>
-              <span>Đến cấp</span>
-              <select name="levelMax" defaultValue="HSK3">
-                <option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option>
-              </select>
-            </label>
-          </div>
-        </div>
-        <label><span>Mô tả</span><textarea required name="synopsisVi" rows={4} maxLength={2000} /></label>
-        <label><span>Câu dẫn trên gian hàng</span><textarea required name="hookVi" rows={2} maxLength={600} /></label>
-      </fieldset>
+      <ol className={styles.steps} aria-label="Ba bước soạn sách">
+        {["Bản thảo Trung", "Xem bản dịch", "Hoàn tất"].map((label, index) => {
+          const number = index + 1 as 1 | 2 | 3;
+          return <li className={step === number ? styles.currentStep : step > number ? styles.doneStep : ""} key={label} aria-current={step === number ? "step" : undefined}><b>{step > number ? <CheckCircle2 size={16} /> : number}</b><span>{label}</span></li>;
+        })}
+      </ol>
 
-      <fieldset>
-        <legend>02 · Bìa riêng</legend>
-        <div className={styles.coverEditor}>
-          <div className={styles.coverPreview}>
-            {coverSrc ? <img src={coverSrc} alt="Xem trước bìa đang nhập" /> : <ImageIcon size={38} />}
-          </div>
-          <div>
-            <label>
-              <span>URL bìa nội bộ hoặc HTTPS</span>
-              <input
-                required
-                value={coverSrc}
-                onChange={(event) => setCoverSrc(event.target.value)}
-                placeholder="/reader/covers/editorial/ten-sach.webp"
-              />
-            </label>
-            <label><span>Mô tả bìa cho screen reader</span><input required name="coverAltVi" maxLength={300} /></label>
-            <label>
-              <span>Tông khung</span>
-              <select name="coverTone" defaultValue="jade">
-                <option value="jade">Ngọc</option><option value="ember">Hỏa</option>
-                <option value="violet">Tím</option><option value="azure">Lam</option>
-                <option value="copper">Đồng</option><option value="indigo">Chàm</option>
-                <option value="rose">Hồng</option><option value="slate">Đá</option>
-              </select>
-            </label>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset>
-        <legend>03 · Chương và nội dung căn chỉnh</legend>
+      {step === 1 && <section className={styles.stepPanel} aria-labelledby="reader-source-title">
+        <header><span>1</span><h3 id="reader-source-title">Dán bản thảo tiếng Trung</h3></header>
+        <label className={styles.bookTitle}><span>Tên sách</span><input required lang="zh-Hans" value={titleZh} onChange={(event) => setTitleZh(event.target.value)} placeholder="雨后的城市" /></label>
         <div className={styles.chapterStack}>{chapters.map((chapter, chapterIndex) => <section className={styles.chapterCard} key={chapterIndex}>
-          <header>
-            <strong>Chương {chapterIndex + 1}</strong>
-            {chapters.length > 1 && <button
-              type="button"
-              onClick={() => replaceChapters((current) => current.filter((_item, index) => index !== chapterIndex))}
-            >
-              <Trash2 size={16} /> Xóa
-            </button>}
-          </header>
-          <div className={styles.grid2}>
-            <label><span>Tiêu đề Trung</span><input required lang="zh-Hans" value={chapter.titleZh} onChange={(event) => updateChapter(chapterIndex, { titleZh: event.target.value })} /></label>
-            <label><span>Tiêu đề Việt</span><input required value={chapter.titleVi} onChange={(event) => updateChapter(chapterIndex, { titleVi: event.target.value })} /></label>
-            <label><span>Câu dẫn chương</span><input required value={chapter.hookVi} onChange={(event) => updateChapter(chapterIndex, { hookVi: event.target.value })} /></label>
-            <label><span>Phút đọc ước tính</span><input required type="number" min={1} max={60} value={chapter.estimatedMinutes} onChange={(event) => updateChapter(chapterIndex, { estimatedMinutes: Number(event.target.value) })} /></label>
-          </div>
-          <div className={styles.backgroundOption}>
-            <label className={styles.backgroundToggle}>
-              <input
-                type="checkbox"
-                checked={Boolean(chapter.background)}
-                onChange={(event) => updateChapter(chapterIndex, {
-                  background: event.target.checked ? { src: "", altVi: "", focalPoint: "center" } : undefined,
-                })}
-              />
-              <span>
-                <strong>Nền minh họa riêng cho chương</strong>
-                <small>Tùy chọn · ảnh sẽ nằm sau một lớp tối để giữ độ tương phản chữ.</small>
-              </span>
-            </label>
-            {chapter.background && <div className={styles.chapterBackgroundEditor}>
-              <div className={styles.chapterBackgroundPreview}>
-                {chapter.background.src
-                  ? <img src={chapter.background.src} alt="Xem trước nền chương đang nhập" />
-                  : <ImageIcon size={32} />}
-              </div>
-              <label>
-                <span>URL nền nội bộ hoặc HTTPS</span>
-                <input
-                  required
-                  value={chapter.background.src}
-                  onChange={(event) => updateChapter(chapterIndex, {
-                    background: { ...chapter.background!, src: event.target.value },
-                  })}
-                  placeholder="/reader/backgrounds/editorial/ten-sach-c01.webp"
-                />
-              </label>
-              <label>
-                <span>Mô tả cảnh cho screen reader</span>
-                <input
-                  required
-                  maxLength={300}
-                  value={chapter.background.altVi}
-                  onChange={(event) => updateChapter(chapterIndex, {
-                    background: { ...chapter.background!, altVi: event.target.value },
-                  })}
-                />
-              </label>
-              <label>
-                <span>Điểm lấy nét</span>
-                <select
-                  value={chapter.background.focalPoint}
-                  onChange={(event) => updateChapter(chapterIndex, {
-                    background: {
-                      ...chapter.background!,
-                      focalPoint: event.target.value as "left" | "center" | "right",
-                    },
-                  })}
-                >
-                  <option value="left">Trái</option><option value="center">Giữa</option><option value="right">Phải</option>
-                </select>
-              </label>
-            </div>}
-          </div>
-          {chapter.paragraphs.map((paragraph, paragraphIndex) => <div className={styles.paragraph} key={paragraphIndex}>
-            <span>Đoạn {paragraphIndex + 1}</span>
-            <textarea required lang="zh-Hans" rows={3} value={paragraph.zhHans} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "zhHans", event.target.value)} placeholder="Đoạn tiếng Trung giản thể" />
-            <textarea required rows={2} value={paragraph.pinyin} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "pinyin", event.target.value)} placeholder="Pinyin căn chỉnh" />
-            <textarea required rows={2} value={paragraph.vi} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "vi", event.target.value)} placeholder="Nghĩa tiếng Việt" />
-          </div>)}
-          <button className={styles.secondary} type="button" onClick={() => updateChapter(chapterIndex, { paragraphs: [...chapter.paragraphs, blankParagraph()] })}>
-            <Plus size={16} /> Thêm đoạn
-          </button>
+          <header><strong>Chương {chapterIndex + 1}</strong>{chapters.length > 1 && <button type="button" onClick={() => replaceChapters((current) => current.filter((_chapter, index) => index !== chapterIndex))} aria-label={`Xóa chương ${chapterIndex + 1}`}><Trash2 size={17} /> Xóa</button>}</header>
+          <label><span>Tiêu đề chương</span><input required lang="zh-Hans" value={chapter.titleZh} onChange={(event) => updateChapter(chapterIndex, { titleZh: event.target.value })} /></label>
+          <label><span>Nội dung tiếng Trung</span><textarea required lang="zh-Hans" rows={10} value={chapterBody(chapter)} onChange={(event) => updateChapterBody(chapterIndex, event.target.value)} placeholder="Mỗi đoạn cách nhau một dòng trống." /></label>
         </section>)}</div>
-        <button className={styles.addChapter} type="button" onClick={() => replaceChapters((current) => [...current, blankChapter(current.length + 1)])}>
-          <Plus size={18} /> Thêm chương
-        </button>
-      </fieldset>
-
-      <fieldset>
-        <legend>04 · Kiểm tra tra từ</legend>
-        <div className={styles.scanPanel}>
-          <div className={styles.scanIntro}>
-            <span><ScanSearch size={24} /></span>
-            <div>
-              <strong>Quét toàn bộ chương bằng Tàng Tự Khố</strong>
-              <p>Mỗi chữ Hán sẽ là một điểm tra riêng khi đọc. Hệ thống cũng dò từ ghép để biên tập viên biết mục nào còn thiếu trước khi tạo bản nháp.</p>
-            </div>
-          </div>
-          <button className={styles.scanButton} type="button" onClick={scanVocabulary} disabled={scanning}>
-            <ScanSearch size={18} /> {scanning ? "Đang quét toàn bộ chương…" : "Quét Tàng Tự Khố"}
-          </button>
-          <p className={styles.scanNote}>Máy chỉ đối chiếu và phát hiện mục cần xem lại; không tự viết nghĩa rồi coi như đã được biên tập viên duyệt.</p>
-          {lexiconScan && <div className={styles.scanResult} role="status">
-            <div className={styles.scanMetrics}>
-              <span><small>CHỮ TRA ĐƯỢC</small><strong>{lexiconScan.coveredCharacterCount}/{lexiconScan.uniqueCharacterCount}</strong></span>
-              <span><small>TỪ GHÉP ĐÃ CÓ</small><strong>{lexiconScan.coveredWordCount}/{lexiconScan.candidateWordCount}</strong></span>
-              <span><small>TỔNG CHỮ TRONG TRUYỆN</small><strong>{lexiconScan.characterCount}</strong></span>
-            </div>
-            {lexiconScan.missingCharacters.length === 0
-              ? <p className={`${styles.scanStatus} ${styles.scanStatusOk}`}>
-                  <CheckCircle2 size={19} /> Mọi chữ Hán đều có mục tra cứu.
-                </p>
-              : <div className={`${styles.scanStatus} ${styles.scanStatusWarning}`}>
-                  <TriangleAlert size={19} />
-                  <div>
-                    <strong>Cần bổ sung {lexiconScan.uniqueCharacterCount - lexiconScan.coveredCharacterCount} chữ trước khi phát hành</strong>
-                    <p className={styles.scanMissing} lang="zh-Hans">{lexiconScan.missingCharacters.join(" · ")}</p>
-                  </div>
-                </div>}
-            {lexiconScan.unresolvedWords.length > 0 && <details className={styles.scanDetails}>
-              <summary>Các từ ghép cần biên tập xem lại ({lexiconScan.candidateWordCount - lexiconScan.coveredWordCount})</summary>
-              <p lang="zh-Hans">{lexiconScan.unresolvedWords.join(" · ")}</p>
-            </details>}
-          </div>}
+        <button className={styles.addChapter} type="button" onClick={() => replaceChapters((current) => [...current, blankChapter(current.length + 1)])}><Plus size={18} /> Thêm chương</button>
+        <div className={styles.aiAction}>
+          <button type="button" onClick={enrichWithAi} disabled={enriching || !aiAvailable}><Sparkles size={18} /> {enriching ? "Đang tạo bản dịch…" : aiAvailable ? "Tạo Pinyin & bản dịch" : "Gemini chưa kết nối"}</button>
+          <button className={styles.textButton} type="button" onClick={openManualReview}>Nhập bản dịch thủ công</button>
         </div>
-      </fieldset>
+      </section>}
 
-      <fieldset>
-        <legend>05 · Quyền sử dụng</legend>
-        <label><span>Provenance văn bản</span><textarea required name="textProvenanceVi" rows={2} placeholder="Ai viết, nguồn gốc bản thảo, giấy phép nếu có…" /></label>
-        <label><span>Provenance bìa</span><textarea required name="coverProvenanceVi" rows={2} placeholder="Ai minh họa/tạo ảnh, nguồn và quyền sử dụng…" /></label>
-        <label><span>Provenance nền chương (bắt buộc nếu dùng nền)</span><textarea name="backgroundProvenanceVi" rows={2} placeholder="Ai minh họa/tạo ảnh, công cụ, nguồn tham chiếu và quyền sử dụng…" /></label>
-        <label className={styles.attest}>
-          <input required type="checkbox" />
-          <span>Tôi xác nhận có quyền đưa văn bản, bìa và mọi nền chương đã chọn vào bản phát hành local; nội dung do máy hỗ trợ vẫn phải qua review ngôn ngữ thật.</span>
-        </label>
-      </fieldset>
+      {step === 2 && <section className={styles.stepPanel} aria-labelledby="reader-translation-title">
+        <header><span>2</span><div><h3 id="reader-translation-title">Xem lại bản dịch</h3><small>AI · chưa duyệt</small></div></header>
+        <label className={styles.bookTitle}><span>Tên sách tiếng Việt</span><input required value={titleVi} onChange={(event) => setTitleVi(event.target.value)} /></label>
+        <div className={styles.translationStack}>{chapters.map((chapter, chapterIndex) => <details className={styles.translationChapter} open={chapterIndex === 0} key={chapterIndex}>
+          <summary><span>Chương {chapterIndex + 1}</span><strong>{chapter.titleVi || "Chưa có bản dịch"}</strong></summary>
+          <div className={styles.translationChapterBody}>
+            <div className={styles.grid2}>
+              <label><span>Tiêu đề Việt</span><input required value={chapter.titleVi} onChange={(event) => updateChapter(chapterIndex, { titleVi: event.target.value })} /></label>
+              <label><span>Câu dẫn ngắn</span><input required value={chapter.hookVi} onChange={(event) => updateChapter(chapterIndex, { hookVi: event.target.value })} /></label>
+            </div>
+            {chapter.paragraphs.map((paragraph, paragraphIndex) => <article className={styles.translationRow} key={paragraphIndex}>
+              <p lang="zh-Hans">{paragraph.zhHans}</p>
+              <label><span>Pinyin</span><textarea required rows={2} value={paragraph.pinyin} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "pinyin", event.target.value)} /></label>
+              <label><span>Nghĩa tiếng Việt</span><textarea required rows={2} value={paragraph.vi} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "vi", event.target.value)} /></label>
+            </article>)}
+          </div>
+        </details>)}</div>
+        <div className={styles.stepActions}><button className={styles.secondary} type="button" onClick={() => setStep(1)}><ArrowLeft size={17} /> Bản thảo</button><button className={styles.primary} type="button" onClick={continueToDetails}>Tiếp tục <ArrowRight size={17} /></button></div>
+      </section>}
+
+      {step === 3 && <section className={styles.stepPanel} aria-labelledby="reader-details-title">
+        <header><span>3</span><h3 id="reader-details-title">Hoàn tất thông tin sách</h3></header>
+        <div className={styles.grid2}>
+          <label><span>Tên tiếng Việt</span><input required value={titleVi} onChange={(event) => setTitleVi(event.target.value)} /></label>
+          <label><span>Kệ sách</span><select name="shelfId" defaultValue="doi-song"><option value="doi-song">Đời sống</option><option value="bi-an">Bí ẩn</option><option value="tu-tien">Tu tiên</option><option value="light-novel">Light novel</option><option value="vo-hiep">Võ hiệp</option><option value="khoa-huyen">Khoa huyễn</option><option value="triet-ly">Triết lý</option><option value="trung-sinh">Trùng sinh</option></select></label>
+        </div>
+        <label><span>Mô tả ngắn</span><textarea required rows={3} maxLength={2000} value={synopsisVi} onChange={(event) => setSynopsisVi(event.target.value)} /></label>
+        <label><span>Câu giới thiệu</span><textarea required rows={2} maxLength={600} value={hookVi} onChange={(event) => setHookVi(event.target.value)} /></label>
+        <div className={styles.grid2}>
+          <label><span>Cấp độ từ</span><select name="levelMin" defaultValue="HSK2"><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option></select></label>
+          <label><span>Đến</span><select name="levelMax" defaultValue="HSK3"><option>HSK1</option><option>HSK2</option><option>HSK3</option><option>HSK4</option></select></label>
+        </div>
+        <fieldset className={styles.genrePicker}><legend>Thể loại</legend><div>{READER_GENRES.map((genre, index) => <label key={genre}><input type="checkbox" name="genreIds" value={genre} defaultChecked={index === 1} /><span>{genre}</span></label>)}</div></fieldset>
+        <div className={styles.coverEditor}>
+          <div className={styles.coverPreview}>{coverSrc ? <img src={coverSrc} alt="Xem trước bìa" /> : <ImageIcon size={38} />}</div>
+          <div>
+            <label><span>Ảnh bìa</span><input required value={coverSrc} onChange={(event) => setCoverSrc(event.target.value)} placeholder="/reader/covers/ten-sach.webp" /></label>
+            <label><span>Mô tả ảnh</span><input required name="coverAltVi" maxLength={300} /></label>
+            <label><span>Tông bìa</span><select name="coverTone" defaultValue="jade"><option value="jade">Ngọc</option><option value="ember">Hỏa</option><option value="violet">Tím</option><option value="azure">Lam</option><option value="copper">Đồng</option><option value="indigo">Chàm</option><option value="rose">Hồng</option><option value="slate">Đá</option></select></label>
+          </div>
+        </div>
+        <details className={styles.rightsPanel}>
+          <summary>Nguồn và quyền sử dụng</summary>
+          <div><label><span>Nguồn bản thảo</span><textarea required name="textProvenanceVi" rows={2} /></label><label><span>Nguồn ảnh bìa</span><textarea required name="coverProvenanceVi" rows={2} /></label><label className={styles.attest}><input required type="checkbox" /><span>Tôi xác nhận có quyền sử dụng nội dung và hình ảnh này.</span></label></div>
+        </details>
+        <div className={styles.stepActions}><button className={styles.secondary} type="button" onClick={() => setStep(2)}><ArrowLeft size={17} /> Bản dịch</button><button className={styles.primary} type="submit" disabled={submitting}>{submitting ? "Đang lưu…" : <><Save size={18} /> Lưu bản nháp</>}</button></div>
+      </section>}
 
       {error && <p className={styles.error} role="alert">{error}</p>}
-      {createdRevisionId && <p className={styles.success} role="status">
-        Đã tạo draft. <a href={`/studio/items/${encodeURIComponent(createdRevisionId)}`}>Mở revision để kiểm định và gửi duyệt.</a>
-      </p>}
-      <footer>
-        <div>
-          <small>TRẠNG THÁI KHI LƯU</small>
-          <strong>{lexiconScan ? "Đã quét · draft chưa hiển thị với người học" : "Chưa quét Tàng Tự Khố"}</strong>
-        </div>
-        <button type="submit" disabled={submitting || scanning || !lexiconScan}>
-          <Save size={18} /> {submitting ? "Đang tạo…" : "Tạo bản nháp sách"}
-        </button>
-      </footer>
+      {createdRevisionId && <p className={styles.success} role="status">Đã lưu bản nháp. <a href={`/studio/items/${encodeURIComponent(createdRevisionId)}`}>Mở nội dung</a></p>}
     </form>}
+
+    <details className={styles.inventory}>
+      <summary><span><LibraryBig size={19} /> Sách đang xử lý</span><strong>{revisions.length}</strong></summary>
+      {revisions.length
+        ? <div className={styles.revisionGrid}>{revisions.map((revision) => <article key={revision.id}><span>{revision.workflowState === "published" ? "Đang phát hành" : "Đang biên tập"}</span><h3>{revision.title.replace(/^Vạn Quyển Các · /u, "")}</h3><a href={`/studio/items/${encodeURIComponent(revision.id)}`}>Mở sách <ArrowRight size={15} /></a></article>)}</div>
+        : <div className={styles.empty}><LibraryBig size={28} /><p>Chưa có sách.</p></div>}
+    </details>
   </div>;
 }

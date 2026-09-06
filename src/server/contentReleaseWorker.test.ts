@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
+import { studioStarterContent } from "../content/studioContent";
 import type { D1Database, D1PreparedStatement, D1RunResult } from "./d1";
 import { ContentStudioRepository } from "./contentStudioRepository";
 import {
@@ -63,20 +64,8 @@ class SQLiteD1 implements D1Database {
 }
 
 const reviewedLesson = (objectiveVi = "Giới thiệu bản thân bằng câu ngắn.") => ({
+  ...studioStarterContent("lesson"),
   objectiveVi,
-  prerequisites: [],
-  vocabulary: ["你好", "我", "是"],
-  dialogue: [
-    { hanzi: "你好！", pinyin: "Nǐ hǎo!", meaningVi: "Xin chào!" },
-    { hanzi: "你好，我是安。", pinyin: "Nǐ hǎo, wǒ shì Ān.", meaningVi: "Xin chào, tôi là An." },
-  ],
-  grammar: [{ pattern: "A 是 B", explanationVi: "Dùng để giới thiệu danh tính." }],
-  exercises: [{
-    promptVi: "Chọn câu giới thiệu đúng.",
-    distractors: ["我很好吗？", "你是学生吗？"],
-    answer: "我是学生。",
-    explanationVi: "我是学生 dùng 是 để giới thiệu danh tính.",
-  }],
   review: {
     humanReviewed: false,
     aiSelfReview: {
@@ -214,6 +203,9 @@ describe("resilient Content Release Worker", () => {
         manifestSha256: expect.stringMatching(/^sha256:[0-9a-f]{64}$/u),
       })],
     });
+    const runtime = await studio.publishedRuntime();
+    expect(runtime.items[0]?.content.review).toBeUndefined();
+    expect(runtime.items[0]?.content.objectiveVi).toBe("Giới thiệu bản thân bằng câu ngắn.");
     expect(database.sqlite.prepare("SELECT COUNT(*) AS count FROM content_release_packages").get()).toEqual({ count: 1 });
     expect(database.sqlite.prepare("SELECT COUNT(*) AS count FROM content_release_heads").get()).toEqual({ count: 1 });
     expect(() => database.sqlite.prepare(

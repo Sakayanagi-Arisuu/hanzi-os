@@ -14,8 +14,10 @@ export const studioError = (status: number, code: string, message: string) =>
     { status, headers: noStoreJsonHeaders },
   );
 
-export const authorizeStudio = (permission: AppPermission) =>
-  authorizeAdmin(permission);
+export const authorizeStudio = (
+  permission: AppPermission,
+  options?: { stepUp?: boolean },
+) => options ? authorizeAdmin(permission, options) : authorizeAdmin(permission);
 
 export const studioMutationError = (error: unknown) => {
   if (error instanceof ContentStudioConcurrencyError) {

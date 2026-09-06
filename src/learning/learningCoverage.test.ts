@@ -256,6 +256,7 @@ describe("learner pillar signal", () => {
     };
 
     expect(deriveLocalLearnerActivityCoverage([transcript]).speaking).toEqual({
+      practiceCount: 1,
       covered: 0,
       target: 0,
       percent: null,
@@ -296,14 +297,16 @@ describe("learner pillar signal", () => {
     );
   });
 
-  it("fails closed for account V4 counts that lack item outcomes and session time", () => {
+  it("shows exact account V4 breadth but fails closed on confidence without session time", () => {
     const projected = deriveProjectedLearnerActivityCoverage(
       Object.fromEntries(Object.entries(LEARNING_COVERAGE_TARGETS)) as
         typeof LEARNING_COVERAGE_TARGETS,
     );
 
-    for (const item of Object.values(projected)) {
-      expect(item.covered).toBe(0);
+    for (const [skill, item] of Object.entries(projected)) {
+      expect(item.covered).toBe(item.supported
+        ? LEARNING_COVERAGE_TARGETS[skill as Skill]
+        : 0);
       expect(item.percent).toBeNull();
       expect(item.practiceAvailable).toBe(item.supported || item === projected.speaking);
       expect(item.state).toBe(item.supported

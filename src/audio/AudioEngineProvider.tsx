@@ -536,7 +536,11 @@ export function AudioEngineProvider({ children }: { children: ReactNode }) {
       void ensureGraph();
       playCue("system.boot");
       const prefs = preferencesRef.current;
-      if (prefs.voiceEnabled && prefs.announcementLevel !== "off") {
+      if (
+        !window.location.pathname.startsWith("/lesson/")
+        && prefs.voiceEnabled
+        && prefs.announcementLevel !== "off"
+      ) {
         void announce("Hệ thống đã thức tỉnh. Kết nối cục bộ ổn định.", {
           sourceId: "system-awakening",
           priority: 2,

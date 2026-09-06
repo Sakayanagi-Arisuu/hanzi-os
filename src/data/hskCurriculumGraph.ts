@@ -158,6 +158,18 @@ export const getHskLessonRuntimeBinding = (
 ): Readonly<HskLessonMappingRecord> | null =>
   LESSON_MAPPING_BY_ID.get(lessonId) ?? null;
 
+/**
+ * Learner catalog grouping comes from the signed runtime graph rather than
+ * naming conventions. A lesson can remain visible in the catalog even when
+ * its path is not unlocked yet.
+ */
+export const getHskLessonPathId = (
+  lessonId: string,
+): HskCurriculumPathId | null => {
+  const mapping = LESSON_MAPPING_BY_ID.get(lessonId);
+  return mapping ? UNIT_BY_ID.get(mapping.unitId)?.pathId ?? null : null;
+};
+
 const canonicalPathId = (
   startingLevel: StartingLevel,
 ): HskCurriculumPathId => startingLevel === "zero"

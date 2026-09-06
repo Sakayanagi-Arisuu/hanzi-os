@@ -6,10 +6,13 @@ export const LEARNING_OWNERSHIP_QUARANTINE_STORAGE_KEY =
 export const LEARNING_OWNER_STORAGE_KEY = "hanzi-os-learning-owner-v1";
 export const SYNC_INSTALLATION_STORAGE_KEY = "hanzi-os-sync-installation-v1";
 export const SYNC_DEVICE_STORAGE_KEY = "hanzi-os-sync-device-v1";
+export const LEARNER_SIDEBAR_STORAGE_KEY = "hanzi-os-learner-sidebar-v1";
 export const LESSON_SESSION_STORAGE_PREFIX = "hanzi-os-lesson-session-v4:";
 const LESSON_SESSION_STORAGE_FAMILY_PREFIX = "hanzi-os-lesson-session-v";
 export const ASSESSMENT_SESSION_STORAGE_KEY = "hanzi-os-assessment-session-v1";
 export const CHARACTER_FORGE_SESSION_STORAGE_KEY = "hanzi-os-character-forge-session-v1";
+export const getCharacterForgeSessionStorageKey = (ownerKey: string) =>
+  `${CHARACTER_FORGE_SESSION_STORAGE_KEY}:${encodeURIComponent(ownerKey || "anonymous:bootstrap")}`;
 export const HSK1_LEVEL_CHECK_SESSION_STORAGE_KEY =
   "hanzi-os-hsk1-level-check-session-v1";
 export const HSK2_LEVEL_CHECK_SESSION_STORAGE_KEY =

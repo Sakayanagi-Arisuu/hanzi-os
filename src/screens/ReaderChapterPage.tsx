@@ -42,6 +42,8 @@ import {
 import { READER_SERIES_BY_ID } from "../reader/library/readerManifest";
 import {
   completeReaderChapter,
+  readerComprehensionState,
+  recordReaderComprehensionAttempt,
   recordReaderSupport,
   resolveReadingMode,
   toggleReaderSavedEntry,
@@ -88,7 +90,7 @@ function ParagraphText({
 export function ReaderChapterPage() {
   const { seriesId = "", chapterId = "" } = useParams();
   const navigate = useNavigate();
-  const { sync } = useLearning();
+  const { state, actions, sync } = useLearning();
   const { progress, scopeReady, setProgress, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
@@ -96,6 +98,8 @@ export function ReaderChapterPage() {
   const staticSeries = READER_SERIES_BY_ID.get(seriesId);
   const [editorialSeries, setEditorialSeries] = useState<ReaderSeries | null>(null);
   const [editorialLoading, setEditorialLoading] = useState(!staticSeries);
+  const [editorialUnavailable, setEditorialUnavailable] = useState(false);
+  const [catalogRetry, setCatalogRetry] = useState(0);
   const series = staticSeries ?? editorialSeries ?? undefined;
   const chapters = series?.volumes.flatMap((volume) => volume.chapters) ?? [];
   const summaryIndex = chapters.findIndex((chapter) => chapter.chapterId === chapterId);
@@ -111,6 +115,7 @@ export function ReaderChapterPage() {
   const [activeParagraphId, setActiveParagraphId] = useState("");
   const [completionAnnouncement, setCompletionAnnouncement] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const comprehensionRef = useRef<HTMLElement>(null);
   const supportTriggerRef = useRef<HTMLButtonElement>(null);
   const tokenTriggerRef = useRef<HTMLElement>(null);
   const lookupSequenceRef = useRef(0);
@@ -127,19 +132,22 @@ export function ReaderChapterPage() {
 
   useEffect(() => {
     if (staticSeries) {
+      setEditorialSeries(null);
       setEditorialLoading(false);
+      setEditorialUnavailable(false);
       return;
     }
     let active = true;
     setEditorialLoading(true);
-    loadEditorialReaderCatalog()
+    setEditorialUnavailable(false);
+    loadEditorialReaderCatalog({ retry: catalogRetry > 0 })
       .then((catalog) => {
         if (active) setEditorialSeries(catalog.find((candidate) => candidate.seriesId === seriesId) ?? null);
       })
-      .catch(() => undefined)
+      .catch(() => { if (active) setEditorialUnavailable(true); })
       .finally(() => { if (active) setEditorialLoading(false); });
     return () => { active = false; };
-  }, [seriesId, staticSeries]);
+  }, [catalogRetry, seriesId, staticSeries]);
 
   useEffect(() => {
     if (!series || !summary) return;
@@ -173,6 +181,9 @@ export function ReaderChapterPage() {
 
   const chapter = loadState.phase === "ready" ? loadState.chapter : null;
   const completed = Boolean(chapter && progress.chapters[chapter.chapterId]?.completedAt);
+  const comprehensionState = chapter
+    ? readerComprehensionState(progress, chapter)
+    : null;
 
   useEffect(() => {
     if (!chapter || !scopeReady) return;
@@ -283,6 +294,7 @@ export function ReaderChapterPage() {
         ? "mega-lexicon"
         : null;
     if (!sourceType) return;
+    const wasSaved = Boolean(progress.savedEntries[entry.entryId]);
     setProgress((current) => toggleReaderSavedEntry(current, {
       entryId: entry.entryId,
       simplified: entry.simplified,
@@ -292,6 +304,13 @@ export function ReaderChapterPage() {
       contextualMeaningVi: entry.contextualMeaningVi,
       sourceType,
     }));
+    if (
+      entry.sourceType === "hanzi-os-core"
+      && entry.lexemeId
+      && wasSaved === state.savedWords.includes(entry.lexemeId)
+    ) {
+      void actions.toggleSavedWord(entry.lexemeId);
+    }
   };
   const togglePinyin = () => {
     setShowPinyin((current) => {
@@ -301,8 +320,54 @@ export function ReaderChapterPage() {
   };
   const finishChapter = () => {
     if (!chapter) return;
+    if (comprehensionState && comprehensionState.total > 0 && !comprehensionState.complete) {
+      comprehensionRef.current?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "start",
+      });
+      setCompletionAnnouncement(`Cần trả lời đúng ${comprehensionState.total} câu đọc hiểu trước khi hoàn thành bài.`);
+      return;
+    }
+    const firstAttemptScore = comprehensionState && comprehensionState.total > 0
+      ? Math.round((comprehensionState.firstAttemptCorrect / comprehensionState.total) * 100)
+      : null;
     setProgress((current) => completeReaderChapter(current, chapter));
+    actions.recordPracticeEvidence({
+      idempotencyKey: `reader-library:${progress.ownerKey}:${chapter.chapterId}:complete`,
+      activityVersion: chapter.version,
+      source: "reader",
+      method: "reading-comprehension",
+      activityId: `reader-library:${chapter.chapterId}`,
+      skill: "reading",
+      outcome: firstAttemptScore === null
+        ? "unverified"
+        : firstAttemptScore === 100 ? "correct" : "incorrect",
+      score: firstAttemptScore,
+      metadata: {
+        seriesId: chapter.seriesId,
+        chapterId: chapter.chapterId,
+        supportEventCount: progress.supportEvents.filter((event) =>
+          event.chapterId === chapter.chapterId
+        ).length,
+        questionCount: comprehensionState?.total ?? 0,
+        firstAttemptScore,
+        priorExposure: comprehensionState?.answerExposed ?? false,
+        measurementEligible: false,
+        masteryClaimed: false,
+      },
+    });
     setCompletionAnnouncement("Đã lưu hoàn thành chương. Đọc lại sẽ không cộng thêm phần thưởng hay kết quả học.");
+  };
+  const answerQuestion = (questionId: string, selectedAnswer: string) => {
+    if (!chapter) return;
+    const question = chapter.comprehension?.find((candidate) => candidate.questionId === questionId);
+    if (!question) return;
+    setProgress((current) => recordReaderComprehensionAttempt({
+      document: current,
+      chapter,
+      question,
+      selectedAnswer,
+    }));
   };
   const replay = () => {
     if (!chapter) return;
@@ -327,6 +392,22 @@ export function ReaderChapterPage() {
 
   if (editorialLoading) {
     return <section className="reader-chapter-loader" role="status" aria-live="polite"><BookOpenText size={42} aria-hidden="true" /><strong>Đang lấy chương từ gian biên tập…</strong></section>;
+  }
+
+  if (editorialUnavailable) {
+    return (
+      <section className="reader-recovery reader-recovery--immersive" role="alert">
+        <BookOpenText size={44} aria-hidden="true" />
+        <h1>Gian phát hành đang ngoại tuyến</h1>
+        <p>Phiên đọc dở và đáp án đã lưu vẫn còn trên thiết bị. Hãy thử lại khi kho nội dung sẵn sàng.</p>
+        <div>
+          <Link className="reader-button reader-button--quiet" to="/reader">Thư Khố</Link>
+          <button className="reader-button reader-button--primary" type="button" onClick={() => setCatalogRetry((value) => value + 1)}>
+            <RefreshCw size={18} aria-hidden="true" /> Thử lại
+          </button>
+        </div>
+      </section>
+    );
   }
 
   if (!series || !summary) {
@@ -424,6 +505,49 @@ export function ReaderChapterPage() {
             </section>
           ))}
           <p className="reader-end-mark"><span aria-hidden="true">终</span> Hết chương {chapter!.chapterNumber}</p>
+          {chapter!.comprehension && chapter!.comprehension.length > 0 && (
+            <section
+              ref={comprehensionRef}
+              className="reader-comprehension"
+              aria-labelledby="reader-comprehension-title"
+            >
+              <header>
+                <small>KHẢO LUYỆN ĐỌC · KHÔNG TỰ TĂNG MASTERY</small>
+                <h2 id="reader-comprehension-title">Kiểm tra điều vừa đọc</h2>
+                <p>Lần chọn đầu tiên được giữ lại để phản ánh đúng mức tự nhớ. Chọn sai vẫn có thể đọc giải thích và thử lại.</p>
+              </header>
+              {chapter!.comprehension.map((question, questionIndex) => {
+                const attempt = comprehensionState?.attempts[question.questionId];
+                return (
+                  <fieldset key={question.questionId}>
+                    <legend><span>{String(questionIndex + 1).padStart(2, "0")}</span>{question.promptVi}</legend>
+                    <div>
+                      {question.options.map((option) => (
+                        <button
+                          type="button"
+                          key={option}
+                          aria-pressed={attempt?.selectedAnswer === option}
+                          data-result={attempt?.selectedAnswer === option
+                            ? attempt.correct ? "correct" : "incorrect"
+                            : undefined}
+                          disabled={attempt?.correct === true}
+                          onClick={() => answerQuestion(question.questionId, option)}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                    {attempt && (
+                      <p className="reader-comprehension-feedback" data-result={attempt.correct ? "correct" : "incorrect"} role="status">
+                        <strong>{attempt.correct ? "Đã hiểu đúng." : "Chưa đúng, hãy đối chiếu lại đoạn đọc."}</strong>
+                        <span>{question.explanationVi}</span>
+                      </p>
+                    )}
+                  </fieldset>
+                );
+              })}
+            </section>
+          )}
         </article>
       </div>
 
@@ -453,7 +577,10 @@ export function ReaderChapterPage() {
           )
         ) : (
           <button className="reader-button reader-button--primary" type="button" onClick={finishChapter}>
-            Hoàn thành chương <CheckCircle2 size={19} aria-hidden="true" />
+            {comprehensionState && comprehensionState.total > 0 && !comprehensionState.complete
+              ? `Khảo Luyện ${comprehensionState.correct}/${comprehensionState.total}`
+              : "Hoàn thành chương"}
+            <CheckCircle2 size={19} aria-hidden="true" />
           </button>
         )}
       </footer>

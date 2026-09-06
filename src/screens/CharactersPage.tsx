@@ -20,6 +20,8 @@ import {
   serializeCharacterForgeSession,
   type CharacterForgeSource,
 } from "../characters/characterForgeSession";
+import { mergePublishedStudioCharacters } from "../content/publishedStudioClient";
+import { usePublishedStudioCharacters } from "../content/usePublishedStudioCharacters";
 import { LESSON_BY_ID, RELEASED_VOCABULARY, RELEASED_WORD_BY_ID } from "../data/curriculum";
 import {
   RELEASED_CHARACTER_PRACTICE,
@@ -27,6 +29,7 @@ import {
 } from "../learning/richLessonContent";
 import {
   CHARACTER_FORGE_SESSION_STORAGE_KEY,
+  getCharacterForgeSessionStorageKey,
   readLocalStorage,
   writeLocalStorage,
 } from "../lib/storageKeys";
@@ -34,7 +37,7 @@ import { stripPinyinMarks } from "../lib/pinyin";
 import { useLearning } from "../store/LearningStore";
 import "./CharactersPage.css";
 
-const levels = ["all", "hsk1", "hsk2", "hsk3", "hsk4"] as const;
+const levels = ["all", "hsk0", "hsk1", "hsk2", "hsk3", "hsk4"] as const;
 type CharacterLevel = typeof levels[number];
 
 const levelLabel = (level: CharacterLevel) => level === "all" ? "Tất cả" : level.toUpperCase();
@@ -87,11 +90,13 @@ export const characterEntryMatchesQuery = (
 export const legacyCharacterRequestToSession = ({
   character,
   lessonId,
+  entries = RELEASED_CHARACTER_PRACTICE,
 }: {
   character: string;
   lessonId: string | null;
+  entries?: readonly ReleasedCharacterPracticeEntry[];
 }) => createCharacterForgeSession({
-  entries: RELEASED_CHARACTER_PRACTICE,
+  entries,
   lessonId,
   requestedHanzis: [character],
   source: "legacy",
@@ -99,9 +104,18 @@ export const legacyCharacterRequestToSession = ({
 });
 
 export function CharactersPage() {
-  const { state } = useLearning();
+  const { state, sync } = useLearning();
   const location = useLocation();
   const navigate = useNavigate();
+  const publishedCharacters = usePublishedStudioCharacters();
+  const characterEntries = useMemo(() => mergePublishedStudioCharacters(
+    RELEASED_CHARACTER_PRACTICE,
+    publishedCharacters.entries,
+  ), [publishedCharacters.entries]);
+  const uniqueCharacters = useMemo(
+    () => getUniqueReleasedCharacterEntries(characterEntries),
+    [characterEntries],
+  );
   const requested = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const requestedCharacter = requested.get("char") ?? "";
   const requestedLessonId = requested.get("lesson");
@@ -110,56 +124,72 @@ export function CharactersPage() {
   const [level, setLevel] = useState<CharacterLevel>("all");
   const [pickerOpen, setPickerOpen] = useState(false);
   const [selectedHanzis, setSelectedHanzis] = useState<string[]>([]);
-  const [resume, setResume] = useState(() => parseCharacterForgeSession(readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)));
+  const forgeStorageKey = getCharacterForgeSessionStorageKey(sync.ownerKey);
+  const [resume, setResume] = useState(() => parseCharacterForgeSession(
+    readLocalStorage(forgeStorageKey)
+      ?? (sync.ownerKey.startsWith("anonymous:")
+        ? readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)
+        : null),
+  ));
+
+  useEffect(() => {
+    setResume(parseCharacterForgeSession(
+      readLocalStorage(forgeStorageKey)
+        ?? (sync.ownerKey.startsWith("anonymous:")
+          ? readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)
+          : null),
+    ));
+  }, [forgeStorageKey, sync.ownerKey]);
 
   const counts = useMemo(() => Object.fromEntries(levels.map((item) => [
     item,
     item === "all"
-      ? UNIQUE_RELEASED_CHARACTERS.length
-      : UNIQUE_RELEASED_CHARACTERS.filter((entry) => entry.level === item).length,
-  ])) as Record<CharacterLevel, number>, []);
-  const filtered = useMemo(() => UNIQUE_RELEASED_CHARACTERS.filter((entry) =>
+      ? uniqueCharacters.length
+      : uniqueCharacters.filter((entry) => entry.level === item).length,
+  ])) as Record<CharacterLevel, number>, [uniqueCharacters]);
+  const filtered = useMemo(() => uniqueCharacters.filter((entry) =>
     (level === "all" || entry.level === level)
     && characterEntryMatchesQuery(entry, query)
-  ), [level, query]);
+  ), [level, query, uniqueCharacters]);
   const lessonEntries = useMemo(() => requestedLessonId
     ? (() => {
-        const direct = getUniqueReleasedCharacterEntries(RELEASED_CHARACTER_PRACTICE.filter((entry) => entry.lessonId === requestedLessonId));
+        const direct = getUniqueReleasedCharacterEntries(characterEntries.filter((entry) => entry.lessonId === requestedLessonId));
         if (direct.length || !requestedLesson) return direct;
         const lessonHanzis = new Set(requestedLesson.wordIds.flatMap((wordId) => [...(RELEASED_WORD_BY_ID.get(wordId)?.simplified ?? "")]));
-        return UNIQUE_RELEASED_CHARACTERS.filter((entry) => lessonHanzis.has(entry.hanzi));
+        return uniqueCharacters.filter((entry) => lessonHanzis.has(entry.hanzi));
       })()
-    : [], [requestedLesson, requestedLessonId]);
+    : [], [characterEntries, requestedLesson, requestedLessonId, uniqueCharacters]);
 
   const troubledHanzis = useMemo(() => {
     const evidence = new Set<string>();
     for (const mistake of state.mistakes.filter((item) => !item.resolved)) {
       const word = mistake.wordId ? RELEASED_WORD_BY_ID.get(mistake.wordId)?.simplified : null;
       const haystack = `${word ?? ""}${mistake.prompt}${mistake.correctAnswer}`;
-      UNIQUE_RELEASED_CHARACTERS.forEach((entry) => {
+      uniqueCharacters.forEach((entry) => {
         if (haystack.includes(entry.hanzi)) evidence.add(entry.hanzi);
       });
     }
     for (const wordId of state.savedWords) {
       const word = RELEASED_WORD_BY_ID.get(wordId)?.simplified;
       if (!word) continue;
-      UNIQUE_RELEASED_CHARACTERS.forEach((entry) => {
+      uniqueCharacters.forEach((entry) => {
         if (word.includes(entry.hanzi)) evidence.add(entry.hanzi);
       });
     }
     return [...evidence].slice(0, 5);
-  }, [state.mistakes, state.savedWords]);
+  }, [state.mistakes, state.savedWords, uniqueCharacters]);
 
   useEffect(() => {
     if (!requestedCharacter) return;
     const legacySession = legacyCharacterRequestToSession({
       character: requestedCharacter,
       lessonId: requestedLesson?.id ?? null,
+      entries: characterEntries,
     });
     if (!legacySession) return;
-    writeLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY, serializeCharacterForgeSession(legacySession));
+    writeLocalStorage(forgeStorageKey, serializeCharacterForgeSession(legacySession));
     navigate(`/characters/session?source=legacy&char=${encodeURIComponent(requestedCharacter)}${requestedLesson ? `&lesson=${encodeURIComponent(requestedLesson.id)}` : ""}`, { replace: true });
-  }, [navigate, requestedCharacter, requestedLesson]);
+  }, [characterEntries, forgeStorageKey, navigate, requestedCharacter, requestedLesson]);
 
   useEffect(() => {
     if (!pickerOpen) return;
@@ -182,7 +212,7 @@ export function CharactersPage() {
     limit?: number;
   }) => {
     const session = createCharacterForgeSession({
-      entries: RELEASED_CHARACTER_PRACTICE,
+      entries: characterEntries,
       source,
       lessonId,
       requestedHanzis,
@@ -190,7 +220,7 @@ export function CharactersPage() {
       offset: new Date().getDate(),
     });
     if (!session) return;
-    writeLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY, serializeCharacterForgeSession(session));
+    writeLocalStorage(forgeStorageKey, serializeCharacterForgeSession(session));
     setResume(session);
     navigate(`/characters/session?source=${source}${lessonId ? `&lesson=${encodeURIComponent(lessonId)}` : ""}`);
   };
@@ -226,9 +256,10 @@ export function CharactersPage() {
             <ChevronRight />
           </button>
           <div className="forge-lobby-bridges">
-            <span><ShieldCheck /> {UNIQUE_RELEASED_CHARACTERS.length.toLocaleString("vi-VN")} chữ có hình học nét đã phát hành</span>
+            <span><ShieldCheck /> {uniqueCharacters.length.toLocaleString("vi-VN")} chữ có hình học nét đã phát hành</span>
             <Link to="/dictionary">Cần tra một từ? Sang Tàng Tự Khố <ChevronRight /></Link>
           </div>
+          {publishedCharacters.status === "fallback" && <p className="forge-runtime-note" role="status">Nội dung biên tập mới chưa tải được; kho chữ cốt lõi vẫn nguyên vẹn. <button type="button" onClick={publishedCharacters.retry}>Thử lại</button></p>}
         </div>
         <div className="forge-core" aria-hidden="true">
           <i className="forge-core-ring is-outer" />

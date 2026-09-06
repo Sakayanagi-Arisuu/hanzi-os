@@ -67,3 +67,10 @@ fail-closed khi production chưa được người dùng mở lại.
 Không dùng seed/fixture để cộng mastery cho người học thật. Khi cần reset dữ liệu
 test, xác định rõ target và sao lưu trước; không xóa toàn bộ `.wrangler/` như một
 bước cleanup thông thường.
+
+## 5. AI hỗ trợ Vạn Quyển Các (tùy chọn)
+
+Sao chép `GEMINI_API_KEY` từ `.dev.vars.example` sang `.dev.vars`, điền khóa rồi
+khởi động lại `npm run dev`. Khóa chỉ được đọc ở route server và không được đặt
+trong biến `NEXT_PUBLIC_*`. Khi chưa cấu hình, Biên tập viên vẫn có thể nhập
+Pinyin và nghĩa tiếng Việt thủ công.

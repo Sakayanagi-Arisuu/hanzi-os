@@ -129,13 +129,14 @@ const sanitizeRuntimeContent = (
   itemType: StudioItemType,
   content: Record<string, unknown>,
 ) => {
-  if (itemType !== "exam_item") return content;
+  const { review: _review, ...withoutReview } = content;
+  if (itemType !== "exam_item") return withoutReview;
   const {
     answerIndex: _answerIndex,
     answer: _answer,
     explanationVi: _explanation,
     ...safe
-  } = content;
+  } = withoutReview;
   return safe;
 };
 

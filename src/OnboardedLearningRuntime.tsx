@@ -8,6 +8,7 @@ import {
   NormalizedLearningProjectionProvider,
 } from "./store/NormalizedLearningProjectionStore";
 import { InteractionXpProvider } from "./store/InteractionXpStore";
+import { LearningJourneyProvider } from "./store/LearningJourneyStore";
 import { SystemUiProvider } from "./system/systemUiPreferences";
 
 function AudioRouteReset() {
@@ -29,13 +30,15 @@ export function OnboardedLearningRuntime() {
       <SystemUiProvider>
         <AudioEngineProvider>
           <NormalizedLearningProjectionProvider>
-            <InteractionXpProvider>
-              <BrowserRouter>
-                <AudioRouteReset />
-                <App />
-                <SystemVoiceBeacon />
-              </BrowserRouter>
-            </InteractionXpProvider>
+            <LearningJourneyProvider>
+              <InteractionXpProvider>
+                <BrowserRouter>
+                  <AudioRouteReset />
+                  <App />
+                  <SystemVoiceBeacon />
+                </BrowserRouter>
+              </InteractionXpProvider>
+            </LearningJourneyProvider>
           </NormalizedLearningProjectionProvider>
         </AudioEngineProvider>
       </SystemUiProvider>

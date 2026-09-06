@@ -44,26 +44,48 @@ export function ReaderSeriesPage() {
   const staticSeries = READER_SERIES_BY_ID.get(seriesId);
   const [editorialSeries, setEditorialSeries] = useState<ReaderSeries | null>(null);
   const [editorialLoading, setEditorialLoading] = useState(!staticSeries);
+  const [editorialUnavailable, setEditorialUnavailable] = useState(false);
+  const [catalogRetry, setCatalogRetry] = useState(0);
   const series = staticSeries ?? editorialSeries ?? undefined;
 
   useEffect(() => {
     if (staticSeries) {
+      setEditorialSeries(null);
       setEditorialLoading(false);
+      setEditorialUnavailable(false);
       return;
     }
     let active = true;
     setEditorialLoading(true);
-    loadEditorialReaderCatalog()
+    setEditorialUnavailable(false);
+    loadEditorialReaderCatalog({ retry: catalogRetry > 0 })
       .then((catalog) => {
         if (active) setEditorialSeries(catalog.find((candidate) => candidate.seriesId === seriesId) ?? null);
       })
-      .catch(() => undefined)
+      .catch(() => { if (active) setEditorialUnavailable(true); })
       .finally(() => { if (active) setEditorialLoading(false); });
     return () => { active = false; };
-  }, [seriesId, staticSeries]);
+  }, [catalogRetry, seriesId, staticSeries]);
 
   if (editorialLoading) {
     return <section className="reader-recovery" role="status"><BookOpenText size={44} aria-hidden="true" /><span>VẠN QUYỂN CÁC</span><h1>Đang lấy sách từ gian biên tập…</h1></section>;
+  }
+
+  if (editorialUnavailable) {
+    return (
+      <section className="reader-recovery" role="alert">
+        <BookOpenText size={44} aria-hidden="true" />
+        <span>VẠN QUYỂN CÁC</span>
+        <h1>Gian phát hành đang ngoại tuyến</h1>
+        <p>Không có tiến độ nào bị xóa. Hãy thử kết nối lại hoặc mở Thư Khố tích hợp.</p>
+        <div>
+          <Link className="reader-button reader-button--quiet" to="/reader"><ArrowLeft size={18} aria-hidden="true" /> Thư Khố</Link>
+          <button className="reader-button reader-button--primary" type="button" onClick={() => setCatalogRetry((value) => value + 1)}>
+            <RotateCcw size={18} aria-hidden="true" /> Thử lại
+          </button>
+        </div>
+      </section>
+    );
   }
 
   if (!series) {

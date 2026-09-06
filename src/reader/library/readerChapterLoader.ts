@@ -155,6 +155,26 @@ export const validateReaderChapter = (chapter: ReaderChapter) => {
       }
     });
   });
+  if (chapter.comprehension !== undefined) {
+    if (chapter.comprehension.length < 1 || chapter.comprehension.length > 20) {
+      errors.push("Chapter comprehension must contain 1–20 questions.");
+    }
+    if (new Set(chapter.comprehension.map((question) => question.questionId)).size
+      !== chapter.comprehension.length) errors.push("Comprehension question IDs are duplicated.");
+    chapter.comprehension.forEach((question) => {
+      if (!question.questionId || !question.promptVi.trim() || !question.explanationVi.trim()) {
+        errors.push("Comprehension question copy is incomplete.");
+      }
+      if (
+        question.options.length < 3
+        || new Set(question.options).size !== question.options.length
+        || question.options.some((option) => !option.trim())
+        || !Number.isInteger(question.answerIndex)
+        || question.answerIndex < 0
+        || question.answerIndex >= question.options.length
+      ) errors.push(`Comprehension options are invalid: ${question.questionId}.`);
+    });
+  }
   if (series?.discoverable) {
     const hanziCount = countHanzi(
       chapter.paragraphs.map((paragraph) => paragraph.zhHans).join(""),

@@ -10,25 +10,28 @@ import {
   Lightbulb,
   LockKeyhole,
   PenLine,
-  Play,
   RotateCcw,
   Sparkles,
-  Target,
   Volume2,
   X,
-  Zap,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router";
-import { LessonDepthDisclosure } from "../components/LessonDepthPanel";
 import { LessonQuestResult } from "../components/LessonQuestResult";
 import { LessonTheoryPanel } from "../components/LessonTheoryPanel";
 import { HanziPinyinInput } from "../components/HanziPinyinInput";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
+import { getLessonTeachingGuide } from "../learning/lessonPedagogy";
+import { learnerFacingCopy } from "../learning/lessonTeachingFlow";
+import type {
+  PublishedStudioLesson,
+  PublishedStudioLessonEnhancement,
+} from "../content/publishedStudioLessons";
+import { usePublishedStudioLessons } from "../content/usePublishedStudioLessons";
 import {
   parseLessonResume,
-  summarizeLessonResumeAnswers,
+  scoreLessonResumeAnswers,
   type LessonResumeAnswer,
   type LessonResumePhase,
   type LessonResumeV5,
@@ -52,6 +55,7 @@ import { makeIdempotencyKey } from "../lib/evidence";
 import { removeLegacyLearningResumeStorage } from "../lib/storageKeys";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
   deleteLessonResume,
@@ -76,7 +80,9 @@ const exerciseIcon = (kind: Exercise["kind"]) => {
 };
 
 export function LessonPage() {
+  const { lessonId } = useParams();
   const { sync } = useLearning();
+  const publishedLessons = usePublishedStudioLessons();
   if (sync.session === null) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
@@ -87,13 +93,34 @@ export function LessonPage() {
     );
   }
   return sync.session.authenticated
-    ? <AuthenticatedLessonPage />
-    : <LocalLessonPage />;
+    ? <AuthenticatedLessonPage
+        publishedLesson={lessonId ? publishedLessons.lessons.get(lessonId) : undefined}
+        publishedLessonEnhancement={lessonId ? publishedLessons.enhancements.get(lessonId) : undefined}
+        publishedLessonStatus={publishedLessons.status}
+        retryPublishedLesson={publishedLessons.retry}
+      />
+    : <LocalLessonPage
+        publishedLesson={lessonId ? publishedLessons.lessons.get(lessonId) : undefined}
+        publishedLessonEnhancement={lessonId ? publishedLessons.enhancements.get(lessonId) : undefined}
+        publishedLessonStatus={publishedLessons.status}
+        retryPublishedLesson={publishedLessons.retry}
+      />;
 }
 
-function LocalLessonPage() {
+function LocalLessonPage({
+  publishedLesson,
+  publishedLessonEnhancement,
+  publishedLessonStatus,
+  retryPublishedLesson,
+}: {
+  publishedLesson?: PublishedStudioLesson;
+  publishedLessonEnhancement?: PublishedStudioLessonEnhancement;
+  publishedLessonStatus: "loading" | "ready" | "fallback";
+  retryPublishedLesson: () => void;
+}) {
   const { lessonId } = useParams();
   const { state, actions, sync } = useLearning();
+  const { currentStep, recordReceipt } = useLearningJourney();
   const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
   const availableForPath = Boolean(
     requestedLesson
@@ -101,6 +128,9 @@ function LocalLessonPage() {
   );
   const unavailableLesson = Boolean(requestedLesson && !availableForPath);
   const lesson = availableForPath ? requestedLesson : undefined;
+  const presentedLesson = lesson && publishedLesson?.lesson.id === lesson.id
+    ? publishedLesson.lesson
+    : lesson;
   const lessonUnlocked = Boolean(lesson && isLessonUnlocked(lesson, state));
   const [resumeStatus, setResumeStatus] = useState<"loading" | "ready">("loading");
   const [resumeScope, setResumeScope] = useState<OwnerScopedCacheScope | null>(null);
@@ -121,7 +151,13 @@ function LocalLessonPage() {
   const [reviewingTheory, setReviewingTheory] = useState(false);
   const [theoryReady, setTheoryReady] = useState(false);
 
-  const guide = useMemo(() => getLessonGuide(lesson?.id ?? ""), [lesson?.id]);
+  const guide = useMemo(
+    () => getLessonTeachingGuide(
+      lesson?.id ?? "",
+      publishedLesson?.guide ?? getLessonGuide(lesson?.id ?? ""),
+    ),
+    [lesson?.id, publishedLesson],
+  );
   const lessonWords = useMemo(
     () => lesson?.wordIds.map((id) => WORD_BY_ID.get(id)).filter((word): word is VocabularyItem => Boolean(word)) ?? [],
     [lesson],
@@ -135,8 +171,8 @@ function LocalLessonPage() {
     );
     return result.ok ? result.runtime : null;
   }, [lesson, sessionId, state.profile.script]);
-  const { correctCount, gateCorrectCount, requiredCorrectCount } = useMemo(
-    () => summarizeLessonResumeAnswers(exercises, answers),
+  const { correctCount, gateScore, requiredPassed } = useMemo(
+    () => scoreLessonResumeAnswers(exercises, answers),
     [answers, exercises],
   );
 
@@ -315,57 +351,50 @@ function LocalLessonPage() {
   if (phase === "briefing" && !finished) {
     return (
       <div className="lesson-briefing-page">
-        <header className="briefing-topbar">
-          <Link className="icon-button" to="/path" aria-label="Trở về Thiên Lộ"><ArrowLeft size={20} /></Link>
-          <span>KNOWLEDGE TRANSFER · 01/02</span>
-          <strong>{lesson.minutes} phút · {lesson.xp} XP</strong>
-        </header>
-
         <div className="lesson-briefing-scroll">
           <section className="briefing-hero">
-            <div>
-              <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
-              <h1>{lesson.title}</h1>
-              <p className="briefing-chinese">{lesson.chineseTitle}</p>
-              <p>{lesson.objective}</p>
-            </div>
-            <div className="mastery-gate">
-              <Target size={26} />
-              <span>Ngưỡng Thông Qua Tự Kiểm</span>
-              <strong>70%</strong>
-              <small>Hiểu quy tắc rồi tự gọi lại, không học bằng đoán đáp án.</small>
+            <header className="lesson-briefing-masthead">
+              <Link className="lesson-briefing-back" to="/path" aria-label="Trở về Thiên Lộ">
+                <ArrowLeft size={18} /><span>Thiên Lộ</span>
+              </Link>
+              <strong>{lesson.minutes} phút</strong>
+            </header>
+            <div className="briefing-hero-copy">
+              <span className="system-kicker"><BrainCircuit size={16} /> MỤC TIÊU BÀI HỌC</span>
+              <h1>{presentedLesson?.title}</h1>
+              <p className="briefing-chinese">{presentedLesson?.chineseTitle}</p>
+              <p>{learnerFacingCopy(presentedLesson?.objective ?? lesson.objective)}</p>
             </div>
           </section>
 
           <LessonTheoryPanel
             guide={guide}
             lessonId={lesson.id}
+            lessonObjective={presentedLesson?.objective ?? lesson.objective}
+            preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}
             script={state.profile.script}
             practiceKinds={exercises.map((exercise) => exercise.kind)}
+            practiceWordIds={exercises.map((exercise) => exercise.wordId)}
+            contentOverride={publishedLesson?.richContent}
+            enhancement={publishedLessonEnhancement}
+            ready={theoryReady || answers.length > 0 || index > 0}
             onReadinessChange={setTheoryReady}
+            onComplete={() => {
+              emitSystemSignal({ type: "lesson.started", sourceId: `lesson:${lesson.id}` });
+              setPhase("exercise");
+            }}
+            completionLabel={answers.length > 0 || index > 0 || selected
+              ? `Tiếp tục câu ${index + 1}/${exercises.length}`
+              : "Bước vào Thử Luyện"}
           />
 
-          <LessonDepthDisclosure lessonId={lesson.id} />
+          {publishedLessonStatus === "fallback" && <p className="synthetic-audio-note" role="status">Bản biên soạn mới chưa tải được; bài cốt lõi và tiến độ vẫn hoạt động. <button className="secondary-button" type="button" onClick={retryPublishedLesson}>Thử tải lại</button></p>}
 
           <p className="synthetic-audio-note">
             Âm Mẫu Tổng Hợp · TTS của trình duyệt chỉ dùng để luyện nghe và nhại; không phải audio người thật hay bằng chứng phát âm.
           </p>
         </div>
-
-        <footer className="briefing-actions">
-          <p><Lightbulb size={17} /> Phiên làm bài sẽ tự lưu sau mỗi lựa chọn và tiếp tục đúng vị trí khi tải lại trang.</p>
-          <button className="primary-button" disabled={!theoryReady && answers.length === 0 && index === 0} type="button" onClick={() => {
-            emitSystemSignal({ type: "lesson.started", sourceId: `lesson:${lesson.id}` });
-            setPhase("exercise");
-          }}>
-            {answers.length > 0 || index > 0 || selected
-              ? `Tiếp tục câu ${index + 1}/${exercises.length}`
-              : theoryReady
-                ? "Bước vào Thử Luyện"
-                : "Hoàn tất 3 chặng học ở trên"} <Play size={17} />
-          </button>
-        </footer>
       </div>
     );
   }
@@ -382,13 +411,6 @@ function LocalLessonPage() {
   }
 
   const score = Math.round((correctCount / Math.max(1, exercises.length)) * 100);
-  const ungatedScore = Math.round(
-    (gateCorrectCount / Math.max(1, exercises.length)) * 100,
-  );
-  const requiredTotal = exercises.filter((exercise) => exercise.requiredForPass).length;
-  const requiredPassed = requiredTotal === 0
-    || requiredCorrectCount / requiredTotal >= 0.7;
-  const gateScore = requiredPassed ? ungatedScore : Math.min(ungatedScore, 69);
   const isCorrect = answersMatch(selected, current.correct);
 
   const checkAnswer = async () => {
@@ -414,17 +436,25 @@ function LocalLessonPage() {
       usedHint: selectedUsedHint,
     }, provenance);
     if (disposition === "rejected" || disposition === "conflict") return;
+    const submittedAnswer: LessonResumeAnswer = {
+      exerciseId: current.id,
+      selectedAnswer: selected,
+      usedHint: selectedUsedHint,
+    };
+    const nextAnswers = [...answers, submittedAnswer];
+    if (scoreLessonResumeAnswers(exercises, nextAnswers).gateScore >= 70) recordReceipt({
+      stage: "learn",
+      source: "lesson",
+      lessonId: lesson.id,
+      activityId: `${sessionId}:journey-learn`,
+    });
     emitSystemSignal({
       type: isCorrect ? "learning.correct" : "learning.retry",
       sourceId: `lesson:${lesson.id}:activity:${current.id}`,
       eventId: `${sessionId}:feedback:${current.id}`,
     });
     setChecked(true);
-    setAnswers((currentAnswers) => [...currentAnswers, {
-      exerciseId: current.id,
-      selectedAnswer: selected,
-      usedHint: selectedUsedHint,
-    }]);
+    setAnswers(nextAnswers);
   };
 
   const next = async () => {
@@ -499,8 +529,8 @@ function LocalLessonPage() {
     return (
       <LessonQuestResult
         lessonId={lesson.id}
-        lessonTitle={lesson.title}
-        chineseTitle={lesson.chineseTitle}
+        lessonTitle={presentedLesson?.title ?? lesson.title}
+        chineseTitle={presentedLesson?.chineseTitle ?? lesson.chineseTitle}
         passed={passed}
         correctCount={correctCount}
         totalCount={exercises.length}
@@ -514,6 +544,12 @@ function LocalLessonPage() {
         onNavigate={clearSession}
         retryDestination="/mistakes"
         retryDestinationLabel="Xem câu cần ôn"
+        continueDestination={currentStep?.stage === "learn"
+          ? undefined
+          : currentStep?.to}
+        continueDestinationLabel={currentStep?.stage === "learn"
+          ? undefined
+          : currentStep ? `Tiếp tục bước ${currentStep.stageLabel}` : undefined}
       />
     );
   }
@@ -540,12 +576,11 @@ function LocalLessonPage() {
         }} aria-pressed={reviewingTheory}>
           <BookOpenText size={17} /><span>Lý thuyết</span>
         </button>
-        <span className="lesson-xp"><Zap size={15} /> {lesson.xp} XP</span>
       </header>
 
       <div className="lesson-context">
         <span><ExerciseIcon size={16} /> {current.instruction}</span>
-        <strong>{lesson.title} · {lesson.chineseTitle}</strong>
+        <strong>{presentedLesson?.title ?? lesson.title} · {presentedLesson?.chineseTitle ?? lesson.chineseTitle}</strong>
       </div>
 
       <section className={`exercise-stage ${reviewingTheory ? "is-theory-review" : ""}`}>
@@ -554,9 +589,14 @@ function LocalLessonPage() {
             compact
             guide={guide}
             lessonId={lesson.id}
+            lessonObjective={presentedLesson?.objective ?? lesson.objective}
+            preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}
             script={state.profile.script}
             practiceKinds={exercises.map((exercise) => exercise.kind)}
+            practiceWordIds={exercises.map((exercise) => exercise.wordId)}
+            contentOverride={publishedLesson?.richContent}
+            enhancement={publishedLessonEnhancement}
           />
         ) : (
           <>

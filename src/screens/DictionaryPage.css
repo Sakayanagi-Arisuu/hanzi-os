@@ -47,6 +47,8 @@
   border-color: rgba(243, 201, 105, 0.24);
 }
 
+.dictionary-searchbar .filter-button { min-height: 44px; }
+
 .dictionary-lesson-context {
   min-height: 70px;
   margin: 0 0 12px;
@@ -233,3 +235,60 @@
   .dictionary-character-links a,
   .dictionary-related-words button { transition: none; }
 }
+
+/* Light lexicon contract: inked cards on jade mist, with no inherited dark rows. */
+html[data-theme="light"] .dictionary-page .dictionary-hero {
+  color: var(--text);
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface-base));
+  border-color: var(--line-strong);
+}
+
+html[data-theme="light"] .dictionary-page .lexicon-count {
+  color: var(--text);
+  background: var(--surface-inset);
+  border-color: var(--line-strong);
+}
+
+html[data-theme="light"] .dictionary-page .dictionary-scope-switch > a,
+html[data-theme="light"] .dictionary-page .dictionary-scope-switch > span,
+html[data-theme="light"] .dictionary-page .dictionary-searchbar,
+html[data-theme="light"] .dictionary-page .filter-button {
+  color: var(--text);
+  background: var(--surface-raised);
+  border-color: var(--line);
+}
+
+html[data-theme="light"] .dictionary-page .dictionary-searchbar input { color: var(--text); }
+html[data-theme="light"] .dictionary-page .dictionary-searchbar input::placeholder { color: var(--muted); }
+
+html[data-theme="light"] .dictionary-page :is(.dictionary-results, .dictionary-entry) {
+  color: var(--text);
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface-base));
+  border-color: var(--line);
+  box-shadow: 0 12px 30px rgba(28, 74, 65, .1), inset 0 1px rgba(246, 251, 249, .58);
+}
+
+html[data-theme="light"] .dictionary-page .dictionary-result-list > button {
+  color: var(--muted);
+  background: var(--surface-inset);
+  border-color: var(--line);
+}
+
+html[data-theme="light"] .dictionary-page .dictionary-result-list > button:hover { color: var(--text); background: var(--surface-hover); border-color: var(--line-strong); }
+html[data-theme="light"] .dictionary-page .dictionary-result-list > button.active { color: var(--jade); background: var(--jade-soft); border-color: var(--jade); }
+html[data-theme="light"] .dictionary-page .dictionary-result-list > button > strong,
+html[data-theme="light"] .dictionary-page .dictionary-entry > header h1,
+html[data-theme="light"] .dictionary-page .dictionary-entry .entry-meaning li { color: var(--text); }
+
+html[data-theme="light"] .dictionary-page :is(.entry-example, .dictionary-lesson-context, .dictionary-related-words button, .dictionary-source-details) {
+  color: var(--text);
+  background: var(--surface-inset);
+  border-color: var(--line);
+}
+
+html[data-theme="light"] .dictionary-page .dictionary-lesson-context strong { color: var(--text); }
+html[data-theme="light"] .dictionary-page :is(.dictionary-result-list small, .dictionary-lesson-context small, .dictionary-related-words button small, .dictionary-source-details p, .dictionary-source-details summary) { color: var(--muted); }
+html[data-theme="light"] .dictionary-page .save-word-button.saved { color: var(--on-well); }
+html[data-theme="light"] .dictionary-page .dictionary-character-links a { color: var(--text); background: var(--surface-inset); border-color: var(--line-strong); }
+html[data-theme="light"] .dictionary-page .dictionary-character-links a:hover,
+html[data-theme="light"] .dictionary-page .dictionary-character-links a:focus-visible { color: var(--surface-well); background: var(--jade); border-color: var(--jade); }

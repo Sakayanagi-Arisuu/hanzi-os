@@ -78,7 +78,7 @@ export const hasPermission = (
 
 export const authorizationLabel = (authorization: AppAuthorization) =>
   authorization.roles.includes("admin")
-    ? "Điều Hành Hệ Thống"
+    ? "Quản trị viên · Điều Hành Hệ Thống"
     : authorization.roles.includes("content_editor")
-      ? "Quản Khố Nội Dung"
-      : "Hành Giả";
+      ? "Biên tập viên · Quản Khố Nội Dung"
+      : "Người học · Hành Giả";

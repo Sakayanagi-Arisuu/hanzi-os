@@ -7,7 +7,7 @@ const mocks = vi.hoisted(() => {
   class LastAdminProtectionError extends Error { readonly code = "LAST_ADMIN_PROTECTED"; }
   return {
     authorizeAdmin: vi.fn(),
-    listUsers: vi.fn(),
+    listUserPage: vi.fn(),
     setRole: vi.fn(),
     AdminRoleSelfRevocationError,
     AuthorizationTargetNotFoundError,
@@ -29,7 +29,7 @@ vi.mock("./authorizationRepository", () => ({
   AuthorizationConcurrencyError: mocks.AuthorizationConcurrencyError,
   LastAdminProtectionError: mocks.LastAdminProtectionError,
   AuthorizationRepository: function AuthorizationRepository() {
-    return { listUsers: mocks.listUsers, setRole: mocks.setRole };
+    return { listUserPage: mocks.listUserPage, setRole: mocks.setRole };
   },
 }));
 
@@ -57,8 +57,8 @@ const adminContext = {
 beforeEach(() => {
   mocks.authorizeAdmin.mockReset();
   mocks.authorizeAdmin.mockResolvedValue({ ok: true, context: adminContext });
-  mocks.listUsers.mockReset();
-  mocks.listUsers.mockResolvedValue([]);
+  mocks.listUserPage.mockReset();
+  mocks.listUserPage.mockResolvedValue({ users: [], filteredTotal: 0, summary: { total: 0, active: 0, locked: 0, editors: 0, admins: 0 } });
   mocks.setRole.mockReset();
   mocks.setRole.mockResolvedValue({
     authorization: { roles: ["learner", "content_editor"], permissions: [] },
@@ -73,17 +73,22 @@ describe("admin authorization routes", () => {
       response: Response.json({ error: { code: "AUTH_REQUIRED" } }, { status: 401 }),
     });
     expect((await GET()).status).toBe(401);
-    expect(mocks.listUsers).not.toHaveBeenCalled();
+    expect(mocks.listUserPage).not.toHaveBeenCalled();
   });
 
   it("returns the account directory without caching it", async () => {
-    mocks.listUsers.mockResolvedValueOnce([{ email: "learner@example.com", roles: ["learner"] }]);
+    mocks.listUserPage.mockResolvedValueOnce({
+      users: [{ email: "learner@example.com", roles: ["learner"] }],
+      filteredTotal: 1,
+      summary: { total: 1, active: 1, locked: 0, editors: 0, admins: 0 },
+    });
     const response = await GET();
     expect(response.status).toBe(200);
     expect(response.headers.get("cache-control")).toContain("no-store");
     await expect(response.json()).resolves.toMatchObject({
       requestedBy: "admin-user",
       users: [{ email: "learner@example.com" }],
+      filteredTotal: 1,
     });
   });
 

@@ -108,4 +108,51 @@ describe("HSK1-4 Mock Exam bank", () => {
     });
     expect(definition?.bank).toHaveLength(100);
   });
+
+  it("pins published Editor questions by immutable revision inside governed forms", () => {
+    const editorialItem = {
+      stableKey: "hsk1.exam.editorial-reading-01",
+      itemType: "exam_item",
+      level: "hsk1",
+      title: "Đọc lời chào",
+      revision: 3,
+      revisionId: "revision-editorial-reading-03",
+      contentSha256: `sha256:${"b".repeat(64)}`,
+      content: {
+        skill: "reading",
+        promptVi: "Chọn nghĩa đúng.",
+        hanzi: "你好！",
+        options: ["Xin chào!", "Tạm biệt!", "Cảm ơn!"],
+        answerIndex: 0,
+        explanationVi: "你好 là lời chào phổ biến.",
+        sourceLessonIds: ["hsk1-time-place-events-01-numbers"],
+      },
+    } as const;
+    const suggestions = hskMockExamEditorialSuggestions([editorialItem]);
+    expect(suggestions.hsk1.g).toContain(editorialItem.revisionId);
+
+    const definition = createEditorialHskMockExamDefinition({
+      stableKey: "hsk1.mock.form-g-editorial",
+      title: "Mô phỏng HSK1 · Cửa G",
+      revision: 1,
+      revisionId: "revision-form-g-editorial",
+      contentSha256: `sha256:${"c".repeat(64)}`,
+      content: {
+        examLevel: "hsk1",
+        formKey: "g",
+        timeLimitMinutes: 40,
+        itemStableKeys: suggestions.hsk1.g,
+        coverage: { listening: 20, reading: 20, writing: 0 },
+      },
+    }, [editorialItem]);
+
+    expect(definition?.bank).toHaveLength(40);
+    expect(definition?.bank).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        sourceItemVersion: editorialItem.revisionId,
+        correctAnswer: "Xin chào!",
+        sourceLessonId: "hsk1-time-place-events-01-numbers",
+      }),
+    ]));
+  });
 });

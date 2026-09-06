@@ -7,7 +7,7 @@ import {
   facebookConfig,
   isLocalDevelopmentAuth,
   recentFirstPartySession,
-  roleAwareHanziReturnTo,
+  roleAwareSignInReturnTo,
 } from "./authHttp";
 
 describe("authentication HTTP boundary", () => {
@@ -116,15 +116,19 @@ describe("authentication HTTP boundary", () => {
     });
   });
 
-  it("uses role home only for the default HANZI.OS login destination", () => {
-    expect(roleAwareHanziReturnTo("/", ["learner"])).toBe("/");
-    expect(roleAwareHanziReturnTo("/", ["learner", "content_editor"]))
+  it("keeps specialist accounts in their workspace without breaking back-office deep links", () => {
+    expect(roleAwareSignInReturnTo("/path", ["learner"])).toBe("/path");
+    expect(roleAwareSignInReturnTo("/path", ["learner", "content_editor"]))
       .toBe("/studio");
-    expect(roleAwareHanziReturnTo(null, ["learner", "admin"]))
+    expect(roleAwareSignInReturnTo("/lesson/boot-1", ["learner", "admin"]))
       .toBe("/admin");
-    expect(roleAwareHanziReturnTo("/lesson/boot-1", ["learner", "admin"]))
-      .toBe("/lesson/boot-1");
-    expect(roleAwareHanziReturnTo("https://attacker.example", ["learner", "admin"]))
+    expect(roleAwareSignInReturnTo("/admin/security?filter=active", ["learner", "admin"]))
+      .toBe("/admin/security?filter=active");
+    expect(roleAwareSignInReturnTo("/studio/items/revision-1", ["learner", "content_editor"]))
+      .toBe("/studio/items/revision-1");
+    expect(roleAwareSignInReturnTo("/account/security", ["learner", "admin"]))
+      .toBe("/account/security");
+    expect(roleAwareSignInReturnTo("https://attacker.example", ["learner", "admin"]))
       .toBe("/admin");
   });
 });

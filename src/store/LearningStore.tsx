@@ -263,7 +263,12 @@ type LearningActions = {
   ) => Promise<LocalLearningMutationDisposition>;
   claimLessonReward: (lessonId: string) => Promise<boolean>;
   toggleSavedWord: (wordId: string) => Promise<void>;
-  gradeReview: (wordId: string, rating: Grade, idempotencyKey?: string) => Promise<void>;
+  gradeReview: (
+    wordId: string,
+    rating: Grade,
+    idempotencyKey?: string,
+    usedHint?: boolean,
+  ) => Promise<void>;
   resetProgress: () => Promise<boolean>;
   syncNow: () => Promise<void>;
   prepareSignOut: () => Promise<void>;
@@ -910,7 +915,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           : { ...current.fsrsCards, [wordId]: emptyStoredCard() },
       }));
     },
-    gradeReview: async (wordId, rating, idempotencyKey) => {
+    gradeReview: async (wordId, rating, idempotencyKey, usedHint = false) => {
       const { RELEASED_WORD_BY_ID, WORD_BY_ID } = await import(
         "../data/curriculum"
       );
@@ -926,7 +931,7 @@ export function LearningProvider({ children }: { children: ReactNode }) {
           skill: "vocabulary",
           outcome: rating === Rating.Again ? "incorrect" : "unverified",
           score: null,
-          metadata: { rating: Number(rating) },
+          metadata: { rating: Number(rating), usedHint },
         }, now.toISOString());
         if (!evidenceResult.inserted) return current;
         const currentWithEvidence = evidenceResult.state;

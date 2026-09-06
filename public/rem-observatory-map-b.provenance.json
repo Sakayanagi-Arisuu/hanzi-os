@@ -1,0 +1,11 @@
+{
+  "asset": "rem-observatory-map-b.png",
+  "createdAt": "2026-09-05",
+  "generator": "OpenAI built-in image generation",
+  "purpose": "Text-free celestial map atmosphere for the live REM-01 dashboard",
+  "sourceReference": "design-explorations/module-concepts/2026-09-01/nghich-canh-luc/REM-01-ban-do-diem-yeu/B-thien-van-dai.png",
+  "constraints": [
+    "Contains no learner data, labels, controls, logos, or baked-in UI",
+    "All visible REM content remains live HTML backed by the learner repository"
+  ]
+}

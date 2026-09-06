@@ -114,6 +114,9 @@
 .forge-lobby-bridges a { min-height: 44px; display: inline-flex; align-items: center; gap: 7px; }
 .forge-lobby-bridges span svg { color: var(--forge-gold); }
 .forge-lobby-bridges a { color: var(--forge-cyan); text-underline-offset: 4px; }
+.forge-runtime-note { margin: 8px 0 0; color: var(--forge-muted); font-size: 11px; line-height: 1.5; }
+.forge-runtime-note button { min-height: 44px; margin-left: 8px; padding: 0 12px; color: var(--forge-cyan); background: #071b19; border: 1px solid rgba(85, 217, 255, .42); cursor: pointer; }
+.forge-runtime-note button:focus-visible { outline: 3px solid var(--forge-cyan); outline-offset: 2px; }
 
 .forge-core {
   position: relative;
@@ -597,3 +600,21 @@
   .forge-session *,
   .forge-result * { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+html[data-theme="light"] :is(.forge-lobby, .forge-session, .forge-result, .forge-session-missing) {
+  --forge-void: var(--bg); --forge-deep: var(--panel-soft); --forge-surface: var(--light-surface-strong);
+  --forge-jade: var(--jade); --forge-cyan: var(--cyan); --forge-gold: var(--gold);
+  --forge-error: var(--danger); --forge-text: var(--text); --forge-muted: var(--muted);
+  --forge-line: var(--line-strong); --forge-soft-line: var(--line); color: var(--text);
+}
+html[data-theme="light"] .forge-lobby { background: var(--bg); }
+html[data-theme="light"] :is(.forge-lobby, .forge-session, .forge-result, .forge-picker) :is(header, section, aside, button, a, label, summary) {
+  color: var(--text);
+  background: linear-gradient(145deg, var(--surface-raised), var(--surface-base));
+  border-color: var(--line);
+  box-shadow: var(--sys-depth-1), inset 0 1px rgba(246, 251, 249, .58);
+}
+html[data-theme="light"] .forge-pathways > button:hover { background: var(--jade-soft); }
+html[data-theme="light"] .forge-core { filter: none; }
+html[data-theme="light"] .forge-core b { color: var(--on-well); }
+html[data-theme="light"] .forge-picker-scrim { background: rgba(21, 35, 31, .28); }

@@ -88,6 +88,57 @@ const DEVELOPMENT_SERVICE_WORKER_RECOVERY_SCRIPT = String.raw`
   })();
 })();`;
 
+const THEME_BOOTSTRAP_SCRIPT = String.raw`
+(() => {
+  const storageKey = "hanzi-os-color-theme-v1";
+  const root = document.documentElement;
+  const systemPrefersLight = () => window.matchMedia("(prefers-color-scheme: light)").matches;
+  const readStoredTheme = () => {
+    try {
+      const value = window.localStorage.getItem(storageKey);
+      return value === "light" || value === "dark" ? value : null;
+    } catch {
+      return null;
+    }
+  };
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    document.querySelectorAll("[data-hanzi-theme-toggle]").forEach((button) => {
+      const next = theme === "light" ? "tối" : "sáng";
+      button.dataset.currentTheme = theme;
+      button.setAttribute("aria-label", "Chuyển sang giao diện " + next);
+      button.setAttribute("title", "Giao diện " + (theme === "light" ? "sáng" : "tối"));
+    });
+  };
+  const preferredTheme = () => readStoredTheme() || (systemPrefersLight() ? "light" : "dark");
+  applyTheme(preferredTheme());
+
+  const bind = () => {
+    applyTheme(preferredTheme());
+    document.querySelectorAll("[data-hanzi-theme-toggle]").forEach((button) => {
+      if (button.dataset.themeBound === "true") return;
+      button.dataset.themeBound = "true";
+      button.addEventListener("click", () => {
+        const next = root.dataset.theme === "light" ? "dark" : "light";
+        try { window.localStorage.setItem(storageKey, next); } catch {}
+        applyTheme(next);
+      });
+    });
+  };
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bind, { once: true });
+  } else {
+    bind();
+  }
+  window.addEventListener("storage", (event) => {
+    if (event.key === storageKey) applyTheme(preferredTheme());
+  });
+  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", () => {
+    if (!readStoredTheme()) applyTheme(preferredTheme());
+  });
+})();`;
+
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   applicationName: "HANZI.OS",
@@ -136,23 +187,33 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#030708",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#edf5f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#030708" },
+  ],
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP_SCRIPT }} />
         <script
           dangerouslySetInnerHTML={{
             __html: DEVELOPMENT_SERVICE_WORKER_RECOVERY_SCRIPT,
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <button className="theme-toggle" type="button" data-hanzi-theme-toggle aria-label="Đổi giao diện" suppressHydrationWarning>
+          <svg className="theme-toggle-sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"/></svg>
+          <svg className="theme-toggle-moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20.4 15.5A8.5 8.5 0 0 1 8.5 3.6 8.5 8.5 0 1 0 20.4 15.5Z"/></svg>
+        </button>
+        {children}
+      </body>
     </html>
   );
 }

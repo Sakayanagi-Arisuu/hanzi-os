@@ -41,7 +41,7 @@ type SourceOption = { optionId: string; text: string };
 type SourceItem = {
   id: string;
   sourceItemVersion: string;
-  skill: typeof LEGACY_MOCK_EXAM_SKILLS[number];
+  skill: HskMockExamSkill;
   construct: string;
   promptVi: string;
   stimulusText: string;
@@ -371,11 +371,89 @@ const createStandardDefinition = (
 
 export type HskMockExamEditorialPublication = {
   stableKey: string;
+  itemType?: string;
+  level?: string;
   title: string;
   revision: number;
   revisionId: string;
   contentSha256: string;
   content: Record<string, unknown>;
+};
+
+const asEditorialSourceItem = (
+  publication: HskMockExamEditorialPublication,
+): { level: HskMockExamLevel; source: SourceItem } | null => {
+  const content = publication.content;
+  if (
+    publication.itemType !== "exam_item"
+    || !isHskMockExamLevel(publication.level)
+    || !HSK_MOCK_EXAM_SKILLS.includes(content.skill as HskMockExamSkill)
+    || typeof content.promptVi !== "string"
+    || typeof content.explanationVi !== "string"
+    || !Array.isArray(content.options)
+    || content.options.length < 3
+    || !content.options.every((option) => typeof option === "string" && option.trim())
+    || !Number.isInteger(content.answerIndex)
+    || Number(content.answerIndex) < 0
+    || Number(content.answerIndex) >= content.options.length
+    || !Array.isArray(content.sourceLessonIds)
+    || typeof content.sourceLessonIds[0] !== "string"
+  ) return null;
+  const stimulus = typeof content.passageHanzi === "string" && content.passageHanzi.trim()
+    ? content.passageHanzi
+    : typeof content.hanzi === "string"
+      ? content.hanzi
+      : "";
+  if (!stimulus.trim()) return null;
+  const skill = content.skill as HskMockExamSkill;
+  return {
+    level: publication.level,
+    source: {
+      id: publication.revisionId,
+      sourceItemVersion: publication.revisionId,
+      skill,
+      construct: `studio-${skill}`,
+      promptVi: content.promptVi,
+      stimulusText: stimulus,
+      syntheticTtsText: skill === "listening" ? stimulus : null,
+      options: content.options.map((option, index) => ({
+        optionId: `option-${index + 1}`,
+        text: String(option),
+      })),
+      correctOptionId: `option-${Number(content.answerIndex) + 1}`,
+      explanationVi: content.explanationVi,
+      sourceLessonId: content.sourceLessonIds[0],
+    },
+  };
+};
+
+const editorialSourcePlan = (
+  level: HskMockExamLevel,
+  formKey: HskMockExamFormKey,
+  publications: readonly HskMockExamEditorialPublication[],
+) => {
+  const plan = standardSourcePlan(level, formKey).map((entry) => ({ ...entry }));
+  const custom = publications
+    .map(asEditorialSourceItem)
+    .filter((entry): entry is NonNullable<typeof entry> => entry?.level === level)
+    .sort((left, right) => left.source.sourceItemVersion.localeCompare(
+      right.source.sourceItemVersion,
+    ));
+  const claimed = new Set<number>();
+  const formOffset = HSK_MOCK_EXAM_FORMS.indexOf(formKey);
+  for (const [customIndex, entry] of custom.entries()) {
+    const start = (formOffset + customIndex) % plan.length;
+    const position = Array.from({ length: plan.length }, (_value, offset) =>
+      (start + offset) % plan.length
+    ).find((index) => !claimed.has(index) && (
+      plan[index]!.item.skill === entry.source.skill
+      || plan[index]!.skill === entry.source.skill
+    ));
+    if (position === undefined) continue;
+    plan[position] = { ...plan[position]!, item: entry.source };
+    claimed.add(position);
+  }
+  return plan;
 };
 
 const projectedSkillAtPosition = (
@@ -392,6 +470,7 @@ const projectedSkillAtPosition = (
 
 export const createEditorialHskMockExamDefinition = (
   publication: HskMockExamEditorialPublication,
+  editorialItems: readonly HskMockExamEditorialPublication[] = [],
 ): HskMockExamDefinition | null => {
   const { content } = publication;
   if (
@@ -432,6 +511,11 @@ export const createEditorialHskMockExamDefinition = (
   for (const source of sourceByLevel[examLevel]) {
     sourceIndex.set(source.id, source);
     sourceIndex.set(source.sourceItemVersion, source);
+  }
+  for (const entry of editorialItems.map(asEditorialSourceItem)) {
+    if (!entry || entry.level !== examLevel) continue;
+    sourceIndex.set(entry.source.id, entry.source);
+    sourceIndex.set(entry.source.sourceItemVersion, entry.source);
   }
   const selected = content.itemStableKeys.map((key) => sourceIndex.get(String(key)));
   if (selected.some((item) => !item)) return null;
@@ -479,7 +563,9 @@ export type HskMockExamEditorialSuggestions = Record<
   Partial<Record<HskMockExamFormKey, readonly string[]>>
 >;
 
-export const hskMockExamEditorialSuggestions = (): HskMockExamEditorialSuggestions =>
+export const hskMockExamEditorialSuggestions = (
+  editorialItems: readonly HskMockExamEditorialPublication[] = [],
+): HskMockExamEditorialSuggestions =>
   Object.fromEntries(HSK_MOCK_EXAM_LEVELS.map((level) => [
     level,
     Object.fromEntries(HSK_MOCK_EXAM_FORMS
@@ -488,7 +574,8 @@ export const hskMockExamEditorialSuggestions = (): HskMockExamEditorialSuggestio
       ))
       .map((form) => [
         form,
-        standardSourcePlan(level, form).map(({ item }) => item.sourceItemVersion),
+        editorialSourcePlan(level, form, editorialItems)
+          .map(({ item }) => item.sourceItemVersion),
       ])),
   ])) as unknown as HskMockExamEditorialSuggestions;
 

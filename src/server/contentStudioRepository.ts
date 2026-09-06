@@ -4,12 +4,17 @@ import {
   isStudioLevel,
   isStudioWorkflowState,
   studioSha256,
+  STUDIO_ITEM_TYPES,
+  STUDIO_WORKFLOW_STATES,
   validateStudioContent,
   type StudioItemType,
   type StudioLevel,
   type StudioValidationResult,
   type StudioWorkflowState,
 } from "../content/studioContent";
+import { studioLessonMatchesLevel } from "../content/studioLessonIdentity";
+import { studioReferenceCandidates } from "../content/studioRevisionAnalysis";
+import { LESSON_BY_ID } from "../data/curriculum";
 import { AuditRepository } from "./auditRepository";
 import { encodeContentReleaseEvent } from "./contentReleaseEventContract";
 import type { EncodedContentReleaseEvent } from "./contentReleaseEventContract";
@@ -83,6 +88,51 @@ export type PublishedStudioRuntimeItem = {
   content: Record<string, unknown>;
 };
 
+export type StudioOperationalSummary = {
+  workflow: Record<StudioWorkflowState, number>;
+  release: { pending: number; processing: number; published: number; dead: number; activePackages: number };
+  assignment: { overdue: number; dueSoon: number; urgent: number; withoutReviewer: number };
+  byType: Record<StudioItemType, { total: number; published: number }>;
+  readerSeries: { total: number; published: number };
+  deadReleaseEvents: Array<{ id: string; revisionId: string; errorCode: string | null; attempts: number; createdAt: number }>;
+};
+
+export type StudioReleaseFailure = {
+  id: string;
+  revisionId: string;
+  errorCode: string | null;
+  attempts: number;
+  createdAt: number;
+};
+
+export type StudioCoordinationPage = {
+  revisions: StudioRevision[];
+  filteredTotal: number;
+};
+
+export type StudioReleaseFailurePage = {
+  events: StudioReleaseFailure[];
+  filteredTotal: number;
+};
+
+export const STUDIO_ASSIGNMENT_PRIORITIES = ["low", "normal", "high", "urgent"] as const;
+export type StudioAssignmentPriority = typeof STUDIO_ASSIGNMENT_PRIORITIES[number];
+
+export type StudioEditorialAssignment = {
+  id: string | null;
+  revisionId: string;
+  rowVersion: number;
+  ownerUserId: string;
+  reviewerUserId: string | null;
+  priority: StudioAssignmentPriority;
+  dueAt: number | null;
+  note: string | null;
+  actorUserId: string | null;
+  actorSessionId: string | null;
+  occurredAt: number | null;
+  isExplicit: boolean;
+};
+
 type RevisionRow = Omit<StudioRevision, "content" | "validation"> & {
   contentJson: string;
   validationJson: string | null;
@@ -110,6 +160,34 @@ const REVISION_SELECT = `SELECT r.id,
        r.archived_at AS archivedAt
   FROM content_revisions r
   INNER JOIN content_items i ON i.id = r.item_id`;
+
+type AssignmentRow = Omit<StudioEditorialAssignment, "isExplicit" | "id" | "actorUserId" | "occurredAt"> & {
+  id: string;
+  actorUserId: string;
+  occurredAt: number;
+};
+
+const ASSIGNMENT_SELECT = `SELECT assignment.id,
+       assignment.revision_id AS revisionId,
+       assignment.row_version AS rowVersion,
+       assignment.owner_user_id AS ownerUserId,
+       assignment.reviewer_user_id AS reviewerUserId,
+       assignment.priority,
+       assignment.due_at AS dueAt,
+       assignment.note,
+       assignment.actor_user_id AS actorUserId,
+       assignment.actor_session_id AS actorSessionId,
+       assignment.occurred_at AS occurredAt
+  FROM content_revision_assignment_events assignment`;
+
+const isAssignmentPriority = (value: unknown): value is StudioAssignmentPriority =>
+  typeof value === "string"
+  && STUDIO_ASSIGNMENT_PRIORITIES.includes(value as StudioAssignmentPriority);
+
+const parseAssignment = (row: AssignmentRow): StudioEditorialAssignment => {
+  if (!isAssignmentPriority(row.priority)) throw new Error("Stored editorial priority is invalid.");
+  return { ...row, isExplicit: true };
+};
 
 const parseRevision = (row: RevisionRow): StudioRevision => {
   if (
@@ -202,37 +280,171 @@ const eventStatement = (
   input.toState,
 );
 
+export type StudioRevisionListInput = {
+  itemType?: StudioItemType | null;
+  state?: StudioWorkflowState | null;
+  level?: StudioLevel | null;
+  ownerUserId?: string | null;
+  query?: string | null;
+  limit?: number;
+  offset?: number;
+};
+
+const revisionListFilters = (input: StudioRevisionListInput) => {
+  const clauses: string[] = [];
+  const values: unknown[] = [];
+  if (input.itemType) {
+    clauses.push("i.item_type = ?");
+    values.push(input.itemType);
+  }
+  if (input.state) {
+    clauses.push("r.workflow_state = ?");
+    values.push(input.state);
+  }
+  if (input.level) {
+    clauses.push("r.level = ?");
+    values.push(input.level);
+  }
+  if (input.ownerUserId) {
+    clauses.push(`COALESCE((
+      SELECT assignment.owner_user_id
+        FROM content_revision_assignment_events assignment
+       WHERE assignment.revision_id = r.id
+       ORDER BY assignment.row_version DESC LIMIT 1
+    ), r.author_user_id) = ?`);
+    values.push(input.ownerUserId);
+  }
+  const query = input.query?.trim().slice(0, 120) ?? "";
+  if (query) {
+    const escaped = query.replaceAll("\\", "\\\\").replaceAll("%", "\\%").replaceAll("_", "\\_");
+    clauses.push("(lower(r.title) LIKE lower(?) ESCAPE '\\' OR lower(i.stable_key) LIKE lower(?) ESCAPE '\\')");
+    values.push(`%${escaped}%`, `%${escaped}%`);
+  }
+  return {
+    where: clauses.length ? `WHERE ${clauses.join(" AND ")}` : "",
+    values,
+  };
+};
+
 export class ContentStudioRepository {
   constructor(private readonly database: D1Database) {}
 
-  async list(input: {
-    itemType?: StudioItemType | null;
-    state?: StudioWorkflowState | null;
-    level?: StudioLevel | null;
-    limit?: number;
-  } = {}): Promise<StudioRevision[]> {
-    const clauses: string[] = [];
-    const values: unknown[] = [];
-    if (input.itemType) {
-      clauses.push("i.item_type = ?");
-      values.push(input.itemType);
-    }
-    if (input.state) {
-      clauses.push("r.workflow_state = ?");
-      values.push(input.state);
-    }
-    if (input.level) {
-      clauses.push("r.level = ?");
-      values.push(input.level);
-    }
-    const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
+  async list(input: StudioRevisionListInput = {}): Promise<StudioRevision[]> {
+    const { where, values } = revisionListFilters(input);
     const limit = Math.max(1, Math.min(200, Math.trunc(input.limit ?? 100)));
+    const offset = Math.max(0, Math.min(100_000, Math.trunc(input.offset ?? 0)));
     const result = await this.database.prepare(
       `${REVISION_SELECT} ${where}
-       ORDER BY r.updated_at DESC, r.item_id, r.revision DESC LIMIT ?`,
-    ).bind(...values, limit).all<RevisionRow>();
+       ORDER BY r.updated_at DESC, r.item_id, r.revision DESC LIMIT ? OFFSET ?`,
+    ).bind(...values, limit, offset).all<RevisionRow>();
     if (!result.success) throw new Error("Unable to list Studio revisions.");
     return (result.results ?? []).map(parseRevision);
+  }
+
+  async count(input: Omit<StudioRevisionListInput, "limit" | "offset"> = {}): Promise<number> {
+    const { where, values } = revisionListFilters(input);
+    const row = await this.database.prepare(
+      `SELECT COUNT(*) AS count
+         FROM content_revisions r
+         INNER JOIN content_items i ON i.id = r.item_id
+         ${where}`,
+    ).bind(...values).first<{ count: number }>();
+    if (!row) throw new Error("Unable to count Studio revisions.");
+    return Number(row.count);
+  }
+
+  async coordinationQueuePage(input: {
+    limit?: number;
+    offset?: number;
+    query?: string;
+  } = {}): Promise<StudioCoordinationPage> {
+    const boundedLimit = Math.max(1, Math.min(100, Math.trunc(input.limit ?? 40)));
+    const boundedOffset = Math.max(0, Math.min(100_000, Math.trunc(input.offset ?? 0)));
+    const query = input.query?.trim().slice(0, 120) ?? "";
+    const escaped = query.replaceAll("\\", "\\\\").replaceAll("%", "\\%").replaceAll("_", "\\_");
+    const queryClause = query
+      ? "AND (lower(r.title) LIKE lower(?) ESCAPE '\\' OR lower(i.stable_key) LIKE lower(?) ESCAPE '\\')"
+      : "";
+    const queryValues = query ? [`%${escaped}%`, `%${escaped}%`] : [];
+    const now = Date.now();
+    const [result, count] = await Promise.all([
+      this.database.prepare(
+        `${REVISION_SELECT}
+       WHERE r.workflow_state NOT IN ('published', 'archived')
+         ${queryClause}
+       ORDER BY
+         CASE WHEN (
+           SELECT assignment.due_at
+             FROM content_revision_assignment_events assignment
+            WHERE assignment.revision_id = r.id
+            ORDER BY assignment.row_version DESC LIMIT 1
+         ) < ? THEN 0 ELSE 1 END,
+         CASE COALESCE((
+           SELECT assignment.priority
+             FROM content_revision_assignment_events assignment
+            WHERE assignment.revision_id = r.id
+            ORDER BY assignment.row_version DESC LIMIT 1
+         ), 'normal')
+           WHEN 'urgent' THEN 0 WHEN 'high' THEN 1 WHEN 'normal' THEN 2 ELSE 3 END,
+         CASE WHEN (
+           SELECT assignment.due_at
+             FROM content_revision_assignment_events assignment
+            WHERE assignment.revision_id = r.id
+            ORDER BY assignment.row_version DESC LIMIT 1
+         ) IS NULL THEN 1 ELSE 0 END,
+         (
+           SELECT assignment.due_at
+             FROM content_revision_assignment_events assignment
+            WHERE assignment.revision_id = r.id
+            ORDER BY assignment.row_version DESC LIMIT 1
+         ),
+         r.updated_at DESC
+       LIMIT ? OFFSET ?`,
+      ).bind(...queryValues, now, boundedLimit, boundedOffset).all<RevisionRow>(),
+      this.database.prepare(
+        `SELECT COUNT(*) AS total
+           FROM content_revisions r
+           INNER JOIN content_items i ON i.id = r.item_id
+          WHERE r.workflow_state NOT IN ('published', 'archived')
+            ${queryClause}`,
+      ).bind(...queryValues).first<{ total: number }>(),
+    ]);
+    if (!result.success || !count) {
+      throw new Error("Unable to list the editorial coordination queue.");
+    }
+    return {
+      revisions: (result.results ?? []).map(parseRevision),
+      filteredTotal: Number(count.total),
+    };
+  }
+
+  async coordinationQueue(limit = 40): Promise<StudioRevision[]> {
+    return (await this.coordinationQueuePage({ limit })).revisions;
+  }
+
+  async listReleaseFailurePage(input: {
+    limit?: number;
+    offset?: number;
+  } = {}): Promise<StudioReleaseFailurePage> {
+    const limit = Math.max(1, Math.min(100, Math.trunc(input.limit ?? 20)));
+    const offset = Math.max(0, Math.min(100_000, Math.trunc(input.offset ?? 0)));
+    const [events, count] = await Promise.all([
+      this.database.prepare(
+        `SELECT id, revision_id AS revisionId, last_error_code AS errorCode,
+                attempts, created_at AS createdAt
+           FROM content_release_outbox_events
+          WHERE status = 'dead' AND event_type = 'content.release.requested'
+          ORDER BY created_at DESC, id
+          LIMIT ? OFFSET ?`,
+      ).bind(limit, offset).all<StudioReleaseFailure>(),
+      this.database.prepare(
+        `SELECT COUNT(*) AS total
+           FROM content_release_outbox_events
+          WHERE status = 'dead' AND event_type = 'content.release.requested'`,
+      ).first<{ total: number }>(),
+    ]);
+    if (!events.success || !count) throw new Error("Unable to list failed content releases.");
+    return { events: events.results ?? [], filteredTotal: Number(count.total) };
   }
 
   async getRevision(revisionId: string): Promise<StudioRevision> {
@@ -241,6 +453,302 @@ export class ContentStudioRepository {
     ).bind(revisionId).first<RevisionRow>();
     if (!row) throw new ContentStudioNotFoundError("Content revision was not found.");
     return parseRevision(row);
+  }
+
+  async assignmentsFor(
+    revisions: readonly StudioRevision[],
+  ): Promise<StudioEditorialAssignment[]> {
+    if (revisions.length === 0) return [];
+    const bounded = revisions.slice(0, 200);
+    const placeholders = bounded.map(() => "?").join(", ");
+    const result = await this.database.prepare(
+      `${ASSIGNMENT_SELECT}
+        WHERE assignment.revision_id IN (${placeholders})
+          AND assignment.row_version = (
+            SELECT MAX(current.row_version)
+              FROM content_revision_assignment_events current
+             WHERE current.revision_id = assignment.revision_id
+          )`,
+    ).bind(...bounded.map((revision) => revision.id)).all<AssignmentRow>();
+    if (!result.success) throw new Error("Unable to read editorial assignments.");
+    const explicit = new Map(
+      (result.results ?? []).map((row) => [row.revisionId, parseAssignment(row)]),
+    );
+    return bounded.map((revision) => explicit.get(revision.id) ?? {
+      id: null,
+      revisionId: revision.id,
+      rowVersion: 0,
+      ownerUserId: revision.authorUserId,
+      reviewerUserId: null,
+      priority: "normal",
+      dueAt: null,
+      note: null,
+      actorUserId: null,
+      actorSessionId: null,
+      occurredAt: null,
+      isExplicit: false,
+    });
+  }
+
+  async setAssignment(input: {
+    actorUserId: string;
+    actorSessionId: string | null;
+    revisionId: string;
+    expectedRowVersion: number;
+    ownerUserId: string;
+    reviewerUserId?: string | null;
+    priority: StudioAssignmentPriority;
+    dueAt?: number | null;
+    note?: string | null;
+    idempotencyKey: string;
+    requestId?: string;
+  }): Promise<StudioEditorialAssignment> {
+    assertMutationIdentity(input);
+    const revision = await this.getRevision(input.revisionId);
+    if (!isAssignmentPriority(input.priority)) throw new TypeError("Mức ưu tiên không hợp lệ.");
+    const ownerUserId = input.ownerUserId.trim();
+    const reviewerUserId = input.reviewerUserId?.trim() || null;
+    const note = input.note?.trim().slice(0, 1_000) || null;
+    const dueAt = input.dueAt === null || input.dueAt === undefined ? null : input.dueAt;
+    if (!ownerUserId || ownerUserId.length > 128 || (reviewerUserId?.length ?? 0) > 128) {
+      throw new TypeError("Người phụ trách hoặc người duyệt không hợp lệ.");
+    }
+    if (reviewerUserId === ownerUserId || reviewerUserId === revision.authorUserId) {
+      throw new ContentStudioTransitionError(
+        "Người soạn hoặc người phụ trách không thể duyệt chính bản này.",
+      );
+    }
+    if (
+      dueAt !== null
+      && (!Number.isSafeInteger(dueAt) || dueAt < 0 || dueAt > 8_640_000_000_000_000)
+    ) {
+      throw new TypeError("Hạn xử lý không hợp lệ.");
+    }
+    const roleRows = await this.database.prepare(
+      `SELECT u.id AS userId, u.status, COALESCE(GROUP_CONCAT(ur.role), '') AS roles
+         FROM users u
+         LEFT JOIN user_roles ur ON ur.user_id = u.id
+        WHERE u.id IN (?, ?)
+        GROUP BY u.id, u.status`,
+    ).bind(ownerUserId, reviewerUserId).all<{
+      userId: string;
+      status: string;
+      roles: string;
+    }>();
+    if (!roleRows.success) throw new Error("Unable to verify editorial assignees.");
+    const roles = new Map((roleRows.results ?? []).map((row) => [row.userId, row]));
+    const owner = roles.get(ownerUserId);
+    const reviewer = reviewerUserId ? roles.get(reviewerUserId) : null;
+    if (!owner || owner.status !== "active" || !owner.roles.split(",").includes("content_editor")) {
+      throw new ContentStudioTransitionError(
+        "Người phụ trách phải là Biên tập viên đang hoạt động.",
+      );
+    }
+    if (
+      reviewerUserId
+      && (!reviewer || reviewer.status !== "active" || !reviewer.roles.split(",").includes("admin"))
+    ) {
+      throw new ContentStudioTransitionError(
+        "Người duyệt phải là Điều Hành Viên đang hoạt động.",
+      );
+    }
+    const operationSha256 = await requestDigest({
+      operation: "assign",
+      revisionId: revision.id,
+      expectedRowVersion: input.expectedRowVersion,
+      ownerUserId,
+      reviewerUserId,
+      priority: input.priority,
+      dueAt,
+      note,
+    });
+    const replay = await this.database.prepare(
+      `${ASSIGNMENT_SELECT}
+        WHERE assignment.actor_user_id = ? AND assignment.idempotency_key = ? LIMIT 1`,
+    ).bind(input.actorUserId, input.idempotencyKey).first<AssignmentRow>();
+    if (replay) {
+      const digest = await this.database.prepare(
+        "SELECT request_sha256 AS requestSha256 FROM content_revision_assignment_events WHERE id = ?",
+      ).bind(replay.id).first<{ requestSha256: string }>();
+      if (digest?.requestSha256 !== operationSha256) {
+        throw new ContentStudioIdempotencyError(
+          "Idempotency key was already used for another assignment command.",
+        );
+      }
+      return parseAssignment(replay);
+    }
+    const timestamp = Date.now();
+    const id = crypto.randomUUID();
+    const result = await this.database.prepare(
+      `INSERT INTO content_revision_assignment_events (
+        id, revision_id, row_version, owner_user_id, reviewer_user_id,
+        priority, due_at, note, actor_user_id, actor_session_id,
+        idempotency_key, request_sha256, occurred_at
+      ) SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+         WHERE COALESCE((
+           SELECT MAX(current.row_version)
+             FROM content_revision_assignment_events current
+            WHERE current.revision_id = ?
+         ), 0) = ?`,
+    ).bind(
+      id,
+      revision.id,
+      input.expectedRowVersion + 1,
+      ownerUserId,
+      reviewerUserId,
+      input.priority,
+      dueAt,
+      note,
+      input.actorUserId,
+      input.actorSessionId,
+      input.idempotencyKey,
+      operationSha256,
+      timestamp,
+      revision.id,
+      input.expectedRowVersion,
+    ).run();
+    if ((result.meta?.changes ?? 0) !== 1) {
+      throw new ContentStudioConcurrencyError("Phân công đã thay đổi ở một phiên khác.");
+    }
+    const stored = await this.database.prepare(
+      `${ASSIGNMENT_SELECT} WHERE assignment.id = ? LIMIT 1`,
+    ).bind(id).first<AssignmentRow>();
+    if (!stored) throw new Error("Unable to read stored editorial assignment.");
+    await new AuditRepository(this.database).appendBestEffort({
+      category: "approval",
+      action: "content.assignment.updated",
+      outcome: "success",
+      actorUserId: input.actorUserId,
+      actorSessionId: input.actorSessionId,
+      targetType: "content_revision",
+      targetId: revision.id,
+      requestId: input.requestId ?? input.idempotencyKey,
+      metadata: {
+        ownerUserId,
+        reviewerUserId,
+        priority: input.priority,
+        dueAt,
+        assignmentRowVersion: input.expectedRowVersion + 1,
+      },
+    });
+    return parseAssignment(stored);
+  }
+
+  async assignmentHistory(revisionId: string, limit = 50): Promise<StudioEditorialAssignment[]> {
+    const boundedLimit = Math.max(1, Math.min(100, Math.trunc(limit)));
+    const result = await this.database.prepare(
+      `${ASSIGNMENT_SELECT}
+        WHERE assignment.revision_id = ?
+        ORDER BY assignment.row_version DESC LIMIT ?`,
+    ).bind(revisionId, boundedLimit).all<AssignmentRow>();
+    if (!result.success) throw new Error("Unable to read editorial assignment history.");
+    return (result.results ?? []).map(parseAssignment);
+  }
+
+  async referencedBy(revision: StudioRevision, limit = 30): Promise<StudioRevision[]> {
+    const candidates = studioReferenceCandidates(revision.stableKey, revision.content);
+    if (candidates.length === 0) return [];
+    const placeholders = candidates.map(() => "?").join(", ");
+    const boundedLimit = Math.max(1, Math.min(50, Math.trunc(limit)));
+    const result = await this.database.prepare(
+      `${REVISION_SELECT}
+        WHERE r.id <> ?
+          AND EXISTS (
+            SELECT 1 FROM json_tree(r.content_json) reference
+             WHERE reference.type = 'text' AND reference.value IN (${placeholders})
+          )
+        ORDER BY r.updated_at DESC LIMIT ?`,
+    ).bind(revision.id, ...candidates, boundedLimit).all<RevisionRow>();
+    if (!result.success) throw new Error("Unable to analyze content references.");
+    return (result.results ?? []).map(parseRevision);
+  }
+
+  async operationalSummary(): Promise<StudioOperationalSummary> {
+    const workflowRows = await this.database.prepare(
+      "SELECT workflow_state AS state, COUNT(*) AS count FROM content_revisions GROUP BY workflow_state",
+    ).all<{ state: StudioWorkflowState; count: number }>();
+    const releaseRows = await this.database.prepare(
+      "SELECT status, COUNT(*) AS count FROM content_release_outbox_events GROUP BY status",
+    ).all<{ status: "pending" | "processing" | "published" | "dead"; count: number }>();
+    const activePackages = await this.database.prepare(
+      "SELECT COUNT(*) AS count FROM content_release_heads",
+    ).first<{ count: number }>();
+    const typeRows = await this.database.prepare(
+      `SELECT i.item_type AS itemType,
+              COUNT(*) AS total,
+              COALESCE(SUM(CASE WHEN r.workflow_state = 'published' THEN 1 ELSE 0 END), 0) AS published
+         FROM content_revisions r
+         INNER JOIN content_items i ON i.id = r.item_id
+        GROUP BY i.item_type`,
+    ).all<{ itemType: StudioItemType; total: number; published: number }>();
+    const readerSeries = await this.database.prepare(
+      `SELECT COUNT(*) AS total,
+              COALESCE(SUM(CASE WHEN r.workflow_state = 'published' THEN 1 ELSE 0 END), 0) AS published
+         FROM content_revisions r
+         INNER JOIN content_items i ON i.id = r.item_id
+        WHERE i.stable_key LIKE 'reader.series.%'`,
+    ).first<{ total: number; published: number }>();
+    const dead = await this.database.prepare(
+      `SELECT id, revision_id AS revisionId, last_error_code AS errorCode,
+              attempts, created_at AS createdAt
+         FROM content_release_outbox_events
+        WHERE status = 'dead' AND event_type = 'content.release.requested'
+        ORDER BY created_at DESC LIMIT 20`,
+    ).all<{ id: string; revisionId: string; errorCode: string | null; attempts: number; createdAt: number }>();
+    const now = Date.now();
+    const assignment = await this.database.prepare(
+      `WITH latest_assignment AS (
+        SELECT event.* FROM content_revision_assignment_events event
+         WHERE event.row_version = (
+           SELECT MAX(current.row_version)
+             FROM content_revision_assignment_events current
+            WHERE current.revision_id = event.revision_id
+         )
+      )
+      SELECT
+        COALESCE(SUM(CASE WHEN assignment.due_at IS NOT NULL AND assignment.due_at < ? THEN 1 ELSE 0 END), 0) AS overdue,
+        COALESCE(SUM(CASE WHEN assignment.due_at BETWEEN ? AND ? THEN 1 ELSE 0 END), 0) AS dueSoon,
+        COALESCE(SUM(CASE WHEN assignment.priority = 'urgent' THEN 1 ELSE 0 END), 0) AS urgent,
+        COALESCE(SUM(CASE WHEN revision.workflow_state IN ('submitted', 'approved') AND assignment.reviewer_user_id IS NULL THEN 1 ELSE 0 END), 0) AS withoutReviewer
+      FROM content_revisions revision
+      LEFT JOIN latest_assignment assignment ON assignment.revision_id = revision.id
+      WHERE revision.workflow_state NOT IN ('published', 'archived')`,
+    ).bind(now, now, now + 72 * 60 * 60 * 1_000).first<{
+      overdue: number;
+      dueSoon: number;
+      urgent: number;
+      withoutReviewer: number;
+    }>();
+    if (!workflowRows.success || !releaseRows.success || !typeRows.success || !dead.success || !assignment || !readerSeries) {
+      throw new Error("Unable to read Studio operational summary.");
+    }
+    const workflow = Object.fromEntries(STUDIO_WORKFLOW_STATES.map((state) => [state, 0])) as Record<StudioWorkflowState, number>;
+    for (const row of workflowRows.results ?? []) {
+      if (isStudioWorkflowState(row.state)) workflow[row.state] = Number(row.count);
+    }
+    const release = { pending: 0, processing: 0, published: 0, dead: 0, activePackages: Number(activePackages?.count ?? 0) };
+    for (const row of releaseRows.results ?? []) release[row.status] = Number(row.count);
+    const byType = Object.fromEntries(
+      STUDIO_ITEM_TYPES.map((itemType) => [itemType, { total: 0, published: 0 }]),
+    ) as Record<StudioItemType, { total: number; published: number }>;
+    for (const row of typeRows.results ?? []) {
+      if (isStudioItemType(row.itemType)) {
+        byType[row.itemType] = { total: Number(row.total), published: Number(row.published) };
+      }
+    }
+    return {
+      workflow,
+      release,
+      assignment: {
+        overdue: Number(assignment.overdue),
+        dueSoon: Number(assignment.dueSoon),
+        urgent: Number(assignment.urgent),
+        withoutReviewer: Number(assignment.withoutReviewer),
+      },
+      byType,
+      readerSeries: { total: Number(readerSeries.total), published: Number(readerSeries.published) },
+      deadReleaseEvents: dead.results ?? [],
+    };
   }
 
   async getLatestRevision(itemId: string): Promise<StudioRevision> {
@@ -473,6 +981,49 @@ export class ContentStudioRepository {
         message: "Cấp HSK của cửa phải trùng với cấp độ phân loại nội dung.",
       });
     }
+    if (current.itemType === "lesson") {
+      const targetLesson = typeof current.content.targetLessonId === "string"
+        ? LESSON_BY_ID.get(current.content.targetLessonId)
+        : undefined;
+      if (!targetLesson || !studioLessonMatchesLevel(targetLesson.unitId, current.level)) {
+        validated.result.valid = false;
+        validated.result.checks.structure = false;
+        validated.result.errors.push({
+          path: "targetLessonId",
+          message: "Bài học đích phải thuộc đúng cấp HSK đã phân loại.",
+        });
+      }
+    }
+    if ([
+      "vocabulary",
+      "character",
+      "grammar",
+      "pronunciation",
+      "communicative_function",
+      "graded_text",
+      "exam_item",
+    ].includes(current.itemType)) {
+      const sourceLessonIds = Array.isArray(current.content.sourceLessonIds)
+        ? current.content.sourceLessonIds
+        : [];
+      const linksMatchLevel = sourceLessonIds.length > 0
+        && sourceLessonIds.every((lessonId) => {
+          const lesson = typeof lessonId === "string"
+            ? LESSON_BY_ID.get(lessonId)
+            : undefined;
+          return Boolean(
+            lesson && studioLessonMatchesLevel(lesson.unitId, current.level),
+          );
+        });
+      if (!linksMatchLevel) {
+        validated.result.valid = false;
+        validated.result.checks.structure = false;
+        validated.result.errors.push({
+          path: "sourceLessonIds",
+          message: "Mọi bài học nguồn phải thuộc đúng cấp HSK đã phân loại.",
+        });
+      }
+    }
     if (validated.result.contentSha256 !== current.contentSha256) {
       throw new ContentStudioTransitionError("Stored content digest is inconsistent.");
     }
@@ -573,7 +1124,7 @@ export class ContentStudioRepository {
     actorSessionId: string | null;
     revisionId: string;
     expectedRowVersion: number;
-    toState: "submitted" | "approved" | "published" | "archived";
+    toState: "draft" | "submitted" | "approved" | "published" | "archived";
     idempotencyKey: string;
     requestId: string;
     note?: string;
@@ -581,12 +1132,31 @@ export class ContentStudioRepository {
     assertMutationIdentity(input);
     const current = await this.getRevision(input.revisionId);
     const expectedFrom: Record<typeof input.toState, StudioWorkflowState> = {
+      draft: "submitted",
       submitted: "validated",
       approved: "submitted",
       published: "approved",
       archived: "published",
     };
     const fromState = expectedFrom[input.toState];
+    if (input.toState === "approved" && current.authorUserId === input.actorUserId) {
+      throw new ContentStudioTransitionError(
+        "Người soạn không thể tự phê duyệt nội dung của chính mình.",
+      );
+    }
+    if (input.toState === "approved" || input.toState === "draft") {
+      const [assignment] = await this.assignmentsFor([current]);
+      if (assignment.isExplicit && !assignment.reviewerUserId) {
+        throw new ContentStudioTransitionError(
+          "Nội dung đã được điều phối nhưng chưa chỉ định người duyệt độc lập.",
+        );
+      }
+      if (assignment.reviewerUserId && assignment.reviewerUserId !== input.actorUserId) {
+        throw new ContentStudioTransitionError(
+          "Nội dung này đã được chỉ định cho một Điều Hành Viên khác duyệt.",
+        );
+      }
+    }
     if (input.toState === "published" && current.itemType === "exam_form") {
       const occupied = await this.database.prepare(
         `SELECT r.id
@@ -609,7 +1179,32 @@ export class ContentStudioRepository {
         );
       }
     }
+    if (input.toState === "published" && current.itemType === "lesson") {
+      const occupied = await this.database.prepare(
+        `SELECT r.id
+           FROM content_revisions r
+           INNER JOIN content_items i ON i.id = r.item_id
+          WHERE i.item_type = 'lesson'
+            AND r.workflow_state = 'published'
+            AND r.item_id <> ?
+            AND json_extract(r.content_json, '$.targetLessonId') = ?
+          LIMIT 1`,
+      ).bind(
+        current.itemId,
+        current.content.targetLessonId,
+      ).first<{ id: string }>();
+      if (occupied) {
+        throw new ContentStudioTransitionError(
+          "Bài Thiên Lộ này đang có một bản phát hành khác; hãy lưu trữ bản cũ trước.",
+        );
+      }
+    }
     const note = input.note?.trim().slice(0, 1_000) ?? "";
+    if (input.toState === "draft" && note.length < 3) {
+      throw new ContentStudioTransitionError(
+        "Yêu cầu chỉnh sửa cần nêu rõ lý do để biên tập viên biết cách xử lý.",
+      );
+    }
     const operationSha256 = await requestDigest({
       operation: "transition",
       revisionId: current.id,
@@ -697,11 +1292,15 @@ export class ContentStudioRepository {
       this.database.prepare(
         `UPDATE content_revisions
             SET workflow_state = ?,
+                validation_json = CASE WHEN ? = 'draft' THEN NULL ELSE validation_json END,
+                validation_sha256 = CASE WHEN ? = 'draft' THEN NULL ELSE validation_sha256 END,
                 published_at = CASE WHEN ? = 'published' THEN ? ELSE published_at END,
                 archived_at = CASE WHEN ? = 'archived' THEN ? ELSE archived_at END,
                 row_version = row_version + 1, updated_at = ?
           WHERE id = ? AND workflow_state = ? AND row_version = ?`,
       ).bind(
+        input.toState,
+        input.toState,
         input.toState,
         input.toState,
         timestamp,
@@ -769,12 +1368,14 @@ export class ContentStudioRepository {
       throw new ContentStudioConcurrencyError("Revision changed during transition.");
     }
 
-    if (input.toState === "approved" || input.toState === "published") {
+    if (input.toState === "draft" || input.toState === "approved" || input.toState === "published") {
       await new AuditRepository(this.database).append({
-        category: input.toState === "approved" ? "approval" : "publication",
-        action: input.toState === "approved"
-          ? "content.revision.approved"
-          : "content.revision.published",
+        category: input.toState === "published" ? "publication" : "approval",
+        action: input.toState === "draft"
+          ? "content.revision.changes_requested"
+          : input.toState === "approved"
+            ? "content.revision.approved"
+            : "content.revision.published",
         outcome: "success",
         actorUserId: input.actorUserId,
         actorSessionId: input.actorSessionId,
@@ -873,9 +1474,15 @@ export class ContentStudioRepository {
   async publishedRuntime(input: {
     itemType?: StudioItemType | null;
     level?: StudioLevel | null;
+    learnerSafe?: boolean;
   } = {}) {
     const clauses: string[] = [];
     const values: unknown[] = [];
+    if (input.learnerSafe) {
+      clauses.push(
+        "json_extract(package.package_json, '$.itemType') NOT IN ('exam_item', 'exam_form')",
+      );
+    }
     if (input.itemType) {
       clauses.push("json_extract(package.package_json, '$.itemType') = ?");
       values.push(input.itemType);
@@ -955,6 +1562,41 @@ export class ContentStudioRepository {
       || await studioSha256(canonicalStudioJson(manifestValue)) !== row.manifestSha256
     ) throw new Error("Released content package failed its immutable digest fence.");
     return packageValue;
+  }
+
+  async releasedRuntimeRevisions(
+    revisionIds: readonly string[],
+  ): Promise<PublishedStudioRuntimeItem[]> {
+    const uniqueIds = [...new Set(revisionIds.filter(Boolean))];
+    const released: PublishedStudioRuntimeItem[] = [];
+    for (let offset = 0; offset < uniqueIds.length; offset += 100) {
+      const chunk = uniqueIds.slice(offset, offset + 100);
+      const result = await this.database.prepare(
+        `SELECT revision_id AS revisionId,
+                package_json AS packageJson, package_sha256 AS packageSha256,
+                manifest_json AS manifestJson, manifest_sha256 AS manifestSha256
+           FROM content_release_packages
+          WHERE revision_id IN (${chunk.map(() => "?").join(", ")})`,
+      ).bind(...chunk).all<{
+        revisionId: string;
+        packageJson: string;
+        packageSha256: string;
+        manifestJson: string;
+        manifestSha256: string;
+      }>();
+      if (!result.success) throw new Error("Unable to read immutable released revisions.");
+      for (const row of result.results ?? []) {
+        const packageValue = JSON.parse(row.packageJson) as PublishedStudioRuntimeItem;
+        const manifestValue = JSON.parse(row.manifestJson) as unknown;
+        if (
+          packageValue.revisionId !== row.revisionId
+          || await studioSha256(canonicalStudioJson(packageValue)) !== row.packageSha256
+          || await studioSha256(canonicalStudioJson(manifestValue)) !== row.manifestSha256
+        ) throw new Error("Released content package failed its immutable digest fence.");
+        released.push(packageValue);
+      }
+    }
+    return released;
   }
 
   private async findIdempotentRevision(

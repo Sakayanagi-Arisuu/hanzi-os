@@ -12,7 +12,7 @@ import { noStoreJsonHeaders } from "../../../../../../src/sync/protocol";
 
 export const dynamic = "force-dynamic";
 
-const TRANSITIONS = ["submitted", "approved", "published", "archived"] as const;
+const TRANSITIONS = ["draft", "submitted", "approved", "published", "archived"] as const;
 
 export async function POST(
   request: Request,
@@ -44,11 +44,16 @@ export async function POST(
   const toState = body.toState as typeof TRANSITIONS[number];
   const permission = toState === "submitted"
     ? "content:submit" as const
-    : toState === "approved"
+    : toState === "approved" || toState === "draft"
       ? "content:approve" as const
       : "content:publish" as const;
   try {
-    const authorized = await authorizeStudio(permission);
+    const authorized = await authorizeStudio(
+      permission,
+      ["draft", "approved", "published", "archived"].includes(toState)
+        ? { stepUp: true }
+        : undefined,
+    );
     if (!authorized.ok) return authorized.response;
     const { revisionId } = await params;
     const revision = await new ContentStudioRepository(

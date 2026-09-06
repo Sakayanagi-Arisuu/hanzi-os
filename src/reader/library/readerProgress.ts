@@ -1,4 +1,8 @@
-import type { ReaderChapter, ReaderSeries } from "./readerContentModel";
+import type {
+  ReaderChapter,
+  ReaderComprehensionQuestion,
+  ReaderSeries,
+} from "./readerContentModel";
 
 export const READER_PROGRESS_SCHEMA_VERSION = 2 as const;
 export type ReaderMode = "zh-only" | "bilingual";
@@ -11,6 +15,17 @@ export type ReaderChapterProgress = {
   lastReadAt: string;
   completedAt: string | null;
   bookmarked: boolean;
+  comprehensionVersion?: string;
+  comprehensionAttempts?: Record<string, ReaderComprehensionAttempt>;
+};
+
+export type ReaderComprehensionAttempt = {
+  selectedAnswer: string;
+  correct: boolean;
+  firstAttemptCorrect: boolean;
+  attemptCount: number;
+  answerExposed: boolean;
+  answeredAt: string;
 };
 
 export type ReaderSupportEvent = {
@@ -91,13 +106,34 @@ export const createEmptyReaderProgress = (
 const validChapterProgress = (value: unknown): value is ReaderChapterProgress => {
   if (!value || typeof value !== "object") return false;
   const item = value as Partial<ReaderChapterProgress>;
+  const attempts = item.comprehensionAttempts;
+  const validAttempts = attempts === undefined || (
+    attempts !== null
+    && typeof attempts === "object"
+    && Object.keys(attempts).length <= 100
+    && Object.values(attempts).every((attempt) => {
+      if (!attempt || typeof attempt !== "object") return false;
+      const candidate = attempt as Partial<ReaderComprehensionAttempt>;
+      return safeString(candidate.selectedAnswer, 1_000)
+        && typeof candidate.correct === "boolean"
+        && typeof candidate.firstAttemptCorrect === "boolean"
+        && Number.isInteger(candidate.attemptCount)
+        && Number(candidate.attemptCount) >= 1
+        && Number(candidate.attemptCount) <= 100
+        && typeof candidate.answerExposed === "boolean"
+        && safeTimestamp(candidate.answeredAt);
+    })
+  );
   return safeString(item.seriesId)
     && safeString(item.chapterId)
     && safeString(item.paragraphId)
     && safeMode(item.readingMode)
     && safeTimestamp(item.lastReadAt)
     && (item.completedAt === null || safeTimestamp(item.completedAt))
-    && typeof item.bookmarked === "boolean";
+    && typeof item.bookmarked === "boolean"
+    && (item.comprehensionVersion === undefined || safeString(item.comprehensionVersion, 240))
+    && validAttempts
+    && ((item.comprehensionVersion === undefined) === (item.comprehensionAttempts === undefined));
 };
 
 const validSupportEvent = (value: unknown): value is ReaderSupportEvent => {
@@ -226,6 +262,7 @@ export const updateReaderPosition = ({
   chapters: {
     ...document.chapters,
     [chapterId]: {
+      ...document.chapters[chapterId],
       seriesId,
       chapterId,
       paragraphId,
@@ -260,6 +297,93 @@ export const completeReaderChapter = (
         completedAt: document.chapters[chapter.chapterId]?.completedAt ?? now,
       },
     },
+  };
+};
+
+export const recordReaderComprehensionAttempt = ({
+  document,
+  chapter,
+  question,
+  selectedAnswer,
+  now = new Date().toISOString(),
+}: {
+  document: ReaderProgressDocument;
+  chapter: ReaderChapter;
+  question: ReaderComprehensionQuestion;
+  selectedAnswer: string;
+  now?: string;
+}): ReaderProgressDocument => {
+  if (!question.options.includes(selectedAnswer)) return document;
+  const existingChapter = document.chapters[chapter.chapterId];
+  const positioned = existingChapter ?? updateReaderPosition({
+    document,
+    seriesId: chapter.seriesId,
+    chapterId: chapter.chapterId,
+    paragraphId: chapter.paragraphs[0]?.paragraphId ?? "reader-start",
+    readingMode: "zh-only",
+    now,
+  }).chapters[chapter.chapterId];
+  if (!positioned) return document;
+  const sameVersion = positioned.comprehensionVersion === chapter.version;
+  const attempts = sameVersion ? positioned.comprehensionAttempts ?? {} : {};
+  const previous = attempts[question.questionId];
+  const correct = question.options[question.answerIndex] === selectedAnswer;
+  return {
+    ...document,
+    updatedAt: now,
+    lastSeriesId: chapter.seriesId,
+    lastChapterId: chapter.chapterId,
+    chapters: {
+      ...document.chapters,
+      [chapter.chapterId]: {
+        ...positioned,
+        lastReadAt: now,
+        comprehensionVersion: chapter.version,
+        comprehensionAttempts: {
+          ...attempts,
+          [question.questionId]: {
+            selectedAnswer,
+            correct,
+            firstAttemptCorrect: previous?.firstAttemptCorrect ?? correct,
+            attemptCount: Math.min(100, (previous?.attemptCount ?? 0) + 1),
+            answerExposed: previous?.answerExposed === true || !correct,
+            answeredAt: now,
+          },
+        },
+      },
+    },
+  };
+};
+
+export const readerComprehensionState = (
+  document: ReaderProgressDocument,
+  chapter: ReaderChapter,
+) => {
+  const questions = chapter.comprehension ?? [];
+  const progress = document.chapters[chapter.chapterId];
+  const attempts = progress?.comprehensionVersion === chapter.version
+    ? progress.comprehensionAttempts ?? {}
+    : {};
+  let answered = 0;
+  let correct = 0;
+  let firstAttemptCorrect = 0;
+  let answerExposed = false;
+  questions.forEach((question) => {
+    const attempt = attempts[question.questionId];
+    if (!attempt) return;
+    answered += 1;
+    if (attempt.correct) correct += 1;
+    if (attempt.firstAttemptCorrect) firstAttemptCorrect += 1;
+    if (attempt.answerExposed) answerExposed = true;
+  });
+  return {
+    attempts,
+    answered,
+    correct,
+    firstAttemptCorrect,
+    answerExposed,
+    total: questions.length,
+    complete: questions.length > 0 && correct === questions.length,
   };
 };
 

@@ -5,6 +5,10 @@ const source = readFileSync(
   new URL("../screens/MockExamsPage.tsx", import.meta.url),
   "utf8",
 );
+const styles = readFileSync(
+  new URL("../screens/MockExamsPage.css", import.meta.url),
+  "utf8",
+);
 
 describe("Mock Exams page learner-facing boundary", () => {
   it("keeps provenance and release operations out of the learner dungeon", () => {
@@ -34,5 +38,13 @@ describe("Mock Exams page learner-facing boundary", () => {
     expect(source).toContain('className="dungeon-runner-dock"');
     expect(source).toContain("Lưu và sang câu tiếp");
     expect(source).toContain("Bài thi mô phỏng");
+  });
+
+  it("balances the exam sections and question content on one responsive rail", () => {
+    expect(source).toContain("sections-${session.definition.sections.length}");
+    expect(styles).toContain("--exam-content-width: 900px");
+    expect(styles).toContain(".exam-section-progress.sections-2");
+    expect(styles).toContain(".exam-section-progress.sections-3");
+    expect(styles).toContain("width: min(100%, var(--exam-content-width))");
   });
 });

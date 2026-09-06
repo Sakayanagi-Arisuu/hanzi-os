@@ -22,7 +22,7 @@ const permissionFor = (action: string): AppPermission | null => {
   if (["create", "update", "fork"].includes(action)) return "content:drafts:write";
   if (action === "validate") return "content:validation:run";
   if (action === "submit") return "content:submit";
-  if (action === "approve") return "content:approve";
+  if (["approve", "request_changes"].includes(action)) return "content:approve";
   if (["publish", "archive"].includes(action)) return "content:publish";
   return null;
 };
@@ -43,10 +43,12 @@ export async function POST(request: Request) {
   const fallbackPath = revisionId
     ? `/studio/items/${encodeURIComponent(revisionId)}`
     : "/studio";
-  if (!permission) return redirect(request, fallbackPath, "error", "Workflow action không hợp lệ.");
+  if (!permission) return redirect(request, fallbackPath, "error", "Thao tác quy trình không hợp lệ.");
 
   try {
-    const authorized = await authorizeStudio(permission);
+    const authorized = await authorizeStudio(permission, {
+      stepUp: ["approve", "request_changes", "publish", "archive"].includes(action),
+    });
     if (!authorized.ok) return authorized.response;
     const repository = new ContentStudioRepository(authorized.context.database);
     const common = {
@@ -113,7 +115,9 @@ export async function POST(request: Request) {
       });
       return redirect(request, `/studio/items/${encodeURIComponent(revision.id)}`, "notice", "Đã tạo một bản nháp mới từ nội dung đang phát hành.");
     }
-    const toState = action === "submit"
+    const toState = action === "request_changes"
+      ? "draft" as const
+      : action === "submit"
       ? "submitted" as const
       : action === "approve"
         ? "approved" as const
@@ -136,7 +140,9 @@ export async function POST(request: Request) {
         releaseReady = false;
       }
     }
-    const notice = toState === "published"
+    const notice = toState === "draft"
+      ? "Đã gửi yêu cầu chỉnh sửa kèm phản hồi cho biên tập viên."
+      : toState === "published"
       ? releaseReady
         ? "Đã phát hành nội dung cho người học."
         : "Đã duyệt phát hành; gói nội dung đang chờ đồng bộ lại."

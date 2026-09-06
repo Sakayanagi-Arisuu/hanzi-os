@@ -11,6 +11,7 @@
   --panel-soft: #0b1514;
   --line: #203c36;
   --line-soft: #152b27;
+  --line-strong: #315a50;
   --text: #e8f2ef;
   --muted: #8da8a1;
   --dim: #617a74;
@@ -26,6 +27,16 @@
   --magenta-soft: #35203a;
   --danger: #ff6b70;
   --success: #51f6a8;
+  --surface-canvas: #030708;
+  --surface-base: #091312;
+  --surface-raised: #0d1917;
+  --surface-inset: #0b1514;
+  --surface-hover: #10231e;
+  --surface-well: #06130f;
+  --surface-well-raised: #0d2a22;
+  --on-well: #f1fff9;
+  --on-well-muted: #a8c9bf;
+  --on-well-dim: #789b90;
   --sys-holo-950: #010807;
   --sys-holo-900: #041410;
   --sys-holo-800: #09271f;
@@ -43,6 +54,56 @@
   --mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --rail: 258px;
   color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color: #102c27;
+  background: #dbe8e4;
+  --bg: #dbe8e4;
+  --bg-raised: #e8f1ee;
+  --panel: #e3edea;
+  --panel-strong: #eef5f2;
+  --panel-soft: #c9dad4;
+  --line: #91ada5;
+  --line-soft: #b8cbc5;
+  --line-strong: #5f8e81;
+  --text: #102c27;
+  --muted: #3f5f57;
+  --dim: #49675f;
+  --jade: #056b5d;
+  --jade-soft: #c9e5dc;
+  --cyan: #09657c;
+  --cyan-soft: #cfe4e9;
+  --gold: #76520b;
+  --gold-soft: #ebdfbd;
+  --vermilion: #a43c30;
+  --vermilion-soft: #f5ded9;
+  --magenta: #7c4387;
+  --magenta-soft: #eee3f1;
+  --danger: #b4232f;
+  --success: #056b5d;
+  --surface-canvas: #dbe8e4;
+  --surface-base: #e3edea;
+  --surface-raised: #eef5f2;
+  --surface-inset: #c9dad4;
+  --surface-hover: #d3e4de;
+  --surface-well: #12372f;
+  --surface-well-raised: #1a4a40;
+  --on-well: #f4fbf8;
+  --on-well-muted: #c1d7d0;
+  --on-well-dim: #9abbb1;
+  --sys-holo-950: #c4d9d2;
+  --sys-holo-900: #d7e6e1;
+  --sys-holo-800: #acc9c0;
+  --sys-holo-surface: rgba(227, 237, 234, 0.92);
+  --sys-holo-surface-strong: rgba(238, 245, 242, 0.97);
+  --sys-holo-line: rgba(8, 117, 101, 0.45);
+  --sys-holo-line-soft: rgba(8, 117, 101, 0.2);
+  --sys-holo-text: #102c27;
+  --sys-holo-muted: #3f5f57;
+  --sys-holo-dim: #49675f;
+  --sys-holo-glow: 0 14px 38px rgba(17, 85, 73, 0.14), 0 0 0 1px rgba(246, 251, 249, 0.66) inset;
+  color-scheme: light;
 }
 
 * {
@@ -75,6 +136,39 @@ body::before {
   background-size: 48px 48px;
   pointer-events: none;
 }
+
+:root[data-theme="light"] :is(.marketing-shell, .setup-shell, .system-bootstrap) {
+  color: var(--text);
+  background-color: var(--bg);
+}
+:root[data-theme="light"] :is(.marketing-header, .setup-card, .system-bootstrap-card) { color: var(--text); }
+
+.theme-toggle {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, env(safe-area-inset-right));
+  z-index: 1200;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  color: var(--jade);
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .16);
+  backdrop-filter: blur(14px);
+}
+
+.theme-toggle:hover { border-color: var(--jade); }
+.theme-toggle svg { position: absolute; width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.theme-toggle-sun { display: none; }
+.theme-toggle[data-current-theme="light"] .theme-toggle-sun { display: block; }
+.theme-toggle[data-current-theme="light"] .theme-toggle-moon { display: none; }
+.theme-toggle[data-current-theme="dark"] .theme-toggle-moon { display: block; }
+
+:root[data-theme="light"] ::selection { color: #fff; background: var(--jade); }
 
 button,
 input {
@@ -121,6 +215,9 @@ button:disabled {
   left: 10px;
   z-index: 1000;
   padding: 10px 14px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   color: #03100d;
   background: var(--jade);
   transform: translateY(-160%);
@@ -134,24 +231,24 @@ button:disabled {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050d0b;
-  box-shadow: inset 1px 0 rgba(81, 246, 193, 0.08);
+  background: var(--bg-raised);
+  box-shadow: inset 1px 0 var(--line-soft);
 }
 
 ::-webkit-scrollbar-thumb {
   min-height: 42px;
-  background: rgba(81, 246, 193, 0.5);
+  background: color-mix(in srgb, var(--jade) 50%, transparent);
   background-clip: padding-box;
   border: 3px solid transparent;
   border-radius: 999px;
-  box-shadow: inset 0 0 0 1px rgba(3, 16, 13, 0.5);
+  box-shadow: inset 0 0 0 1px var(--line-soft);
 }
 
-::-webkit-scrollbar-thumb:hover { background-color: rgba(81, 246, 193, 0.82); }
-::-webkit-scrollbar-corner { background: #050d0b; }
+::-webkit-scrollbar-thumb:hover { background-color: color-mix(in srgb, var(--jade) 82%, transparent); }
+::-webkit-scrollbar-corner { background: var(--bg-raised); }
 
 html {
-  scrollbar-color: rgba(81, 246, 193, 0.62) #050d0b;
+  scrollbar-color: var(--jade) var(--bg-raised);
   scrollbar-width: auto;
 }
 
@@ -978,6 +1075,7 @@ html {
   .marketing-footer { width: min(100% - 28px, 1160px); }
   .marketing-header { min-height: 64px; gap: 12px; }
   .marketing-brand small { display: none; }
+  .marketing-header-actions { margin-right: 54px; }
   .marketing-signin { padding-inline: 4px; }
   .marketing-header-cta { display: none; }
   .marketing-hero { min-height: calc(100dvh - 64px); padding: 44px 0 58px; gap: 40px; }
@@ -1012,7 +1110,7 @@ html {
     grid-template-rows: 44px minmax(0, 1fr);
     gap: 6px;
   }
-  .setup-header { padding-inline: 4px; }
+  .setup-header { padding: 0 54px 0 4px; }
   .setup-brand small { display: none; }
   .setup-brand > span { width: 36px; height: 36px; }
   .setup-exit { width: 44px; padding: 0; font-size: 0; }
@@ -1073,8 +1171,8 @@ html {
 
 .recovery-status {
   position: fixed;
+  top: 14px;
   right: 14px;
-  bottom: 14px;
   z-index: 90;
   width: min(420px, calc(100vw - 28px));
   padding: 11px;
@@ -1188,4 +1286,221 @@ html {
 
   ::view-transition-old(root),
   ::view-transition-new(root) { animation: none !important; }
+}
+
+/* Light awakening deck: porcelain surfaces carry the content while jade and
+   cyan describe system energy. Dark imagery becomes a faint spatial layer. */
+:root[data-theme="light"] {
+  --sys-void: #d7e6e1;
+  --sys-glass: rgba(227, 237, 234, 0.82);
+  --sys-glass-strong: rgba(238, 245, 242, 0.95);
+  --sys-jade-glow: rgba(8, 117, 101, 0.2);
+  --sys-gold-glow: rgba(118, 82, 11, 0.16);
+  --sys-depth-1: 0 1px 2px rgba(16, 62, 54, 0.07), 0 12px 30px rgba(20, 76, 65, 0.08);
+  --sys-depth-2: 0 2px 5px rgba(16, 62, 54, 0.08), 0 24px 60px rgba(20, 76, 65, 0.12);
+  --sys-depth-3: 0 4px 10px rgba(16, 62, 54, 0.08), 0 38px 90px rgba(20, 76, 65, 0.16);
+  --light-surface: rgba(227, 237, 234, 0.88);
+  --light-surface-strong: rgba(238, 245, 242, 0.97);
+  --light-surface-inset: rgba(201, 218, 212, 0.86);
+  --light-spectral: rgba(105, 76, 156, 0.1);
+}
+
+:root[data-theme="light"] body::before {
+  opacity: 0.74;
+  background-image:
+    radial-gradient(circle at 86% 4%, rgba(8, 121, 150, 0.13), transparent 25%),
+    radial-gradient(circle at 12% 58%, rgba(8, 121, 102, 0.09), transparent 30%),
+    linear-gradient(rgba(8, 121, 102, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 121, 102, 0.045) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+}
+
+:root[data-theme="light"] .theme-toggle {
+  color: var(--jade);
+  background: rgba(252, 255, 254, 0.9);
+  border-color: rgba(8, 121, 102, 0.28);
+  box-shadow: 0 10px 28px rgba(18, 74, 64, 0.14), inset 0 1px rgba(255, 255, 255, 0.94);
+}
+
+:root[data-theme="light"] .marketing-shell {
+  background:
+    radial-gradient(circle at 82% 7%, rgba(8, 121, 150, 0.13), transparent 28%),
+    radial-gradient(circle at 18% 48%, rgba(8, 121, 102, 0.08), transparent 32%),
+    linear-gradient(180deg, #edf5f3, #f6faf8 58%, #edf5f3);
+}
+
+:root[data-theme="light"] .marketing-hero-backdrop,
+:root[data-theme="light"] .setup-shell > .hero-backdrop,
+:root[data-theme="light"] .system-bootstrap > .hero-backdrop {
+  opacity: 0.2;
+  filter: saturate(0.68) contrast(0.82) brightness(1.46);
+}
+
+:root[data-theme="light"] .marketing-hero-backdrop::after {
+  background:
+    linear-gradient(90deg, rgba(237, 245, 243, 0.99) 0%, rgba(237, 245, 243, 0.91) 46%, rgba(237, 245, 243, 0.42) 100%),
+    linear-gradient(180deg, rgba(237, 245, 243, 0.16), #edf5f3 97%);
+}
+
+:root[data-theme="light"] .marketing-header {
+  border-bottom-color: rgba(8, 121, 102, 0.2);
+  background: linear-gradient(90deg, transparent, rgba(252, 255, 254, 0.72), transparent);
+}
+
+:root[data-theme="light"] :is(.marketing-brand, .setup-brand, .system-bootstrap-brand) small,
+:root[data-theme="light"] .marketing-trust li,
+:root[data-theme="light"] .marketing-lead,
+:root[data-theme="light"] .marketing-section-heading > span,
+:root[data-theme="light"] .marketing-data > div > span,
+:root[data-theme="light"] .marketing-steps li > p,
+:root[data-theme="light"] .marketing-feature-grid article p,
+:root[data-theme="light"] .marketing-data li small,
+:root[data-theme="light"] .marketing-footer span,
+:root[data-theme="light"] .marketing-footer a { color: var(--muted); }
+
+:root[data-theme="light"] .marketing-header > nav a,
+:root[data-theme="light"] .marketing-signin { color: #365b53; }
+
+:root[data-theme="light"] :is(.marketing-header-cta, .marketing-primary-cta, .setup-primary-button) {
+  color: #fff;
+  background: linear-gradient(135deg, #087966, #087996);
+  border-color: #087966;
+  box-shadow: 0 10px 26px rgba(8, 121, 102, 0.18), inset 0 1px rgba(255, 255, 255, 0.22);
+}
+
+:root[data-theme="light"] :is(.marketing-header-cta, .marketing-primary-cta, .setup-primary-button):hover {
+  color: #fff;
+  background: linear-gradient(135deg, #066b5b, #066e88);
+}
+
+:root[data-theme="light"] :is(.marketing-secondary-cta, .setup-secondary-button, .setup-exit) {
+  color: var(--text);
+  background: var(--light-surface-strong);
+  border-color: var(--line);
+  box-shadow: 0 8px 24px rgba(18, 74, 64, 0.08);
+}
+
+:root[data-theme="light"] .marketing-hero h1,
+:root[data-theme="light"] :is(.marketing-section-heading, .marketing-data, .marketing-final-cta) h2,
+:root[data-theme="light"] .marketing-feature-grid article h3 { color: var(--text); }
+
+:root[data-theme="light"] .awakening-console {
+  background:
+    linear-gradient(rgba(8, 121, 102, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 121, 150, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 50% 42%, rgba(8, 121, 102, 0.16), transparent 38%),
+    linear-gradient(145deg, rgba(252, 255, 254, 0.94), rgba(229, 243, 238, 0.86));
+  background-size: 34px 34px, 34px 34px, auto, auto;
+  border-color: rgba(8, 121, 102, 0.5);
+  box-shadow: var(--sys-depth-3), inset 0 0 64px rgba(8, 121, 150, 0.035), inset 0 1px rgba(255, 255, 255, 0.9);
+}
+
+:root[data-theme="light"] .awakening-console::before { border-color: rgba(8, 121, 150, 0.2); }
+:root[data-theme="light"] .awakening-console > header { border-bottom-color: rgba(8, 121, 102, 0.22); }
+:root[data-theme="light"] .awakening-core {
+  background: radial-gradient(circle at 36% 28%, #f7fffc, #d5eee7 68%, #c1dfd6);
+  border-color: rgba(8, 121, 102, 0.58);
+  box-shadow: 0 0 54px rgba(8, 121, 102, 0.2), inset 0 0 26px rgba(8, 121, 150, 0.08);
+}
+:root[data-theme="light"] .awakening-core :is(small, span) { color: var(--muted); }
+:root[data-theme="light"] .awakening-core strong { text-shadow: 0 0 22px rgba(8, 121, 102, 0.25); }
+:root[data-theme="light"] .awakening-node {
+  color: var(--text);
+  background: rgba(252, 255, 254, 0.86);
+  border-color: rgba(8, 121, 102, 0.34);
+  box-shadow: 0 8px 22px rgba(17, 77, 66, 0.09), inset 0 1px rgba(255, 255, 255, 0.9);
+}
+:root[data-theme="light"] .awakening-status { border-color: rgba(8, 121, 102, 0.22); }
+:root[data-theme="light"] .awakening-status > div { border-right-color: rgba(8, 121, 102, 0.18); }
+:root[data-theme="light"] .awakening-status dt { color: var(--dim); }
+:root[data-theme="light"] .awakening-status dd { color: var(--text); }
+:root[data-theme="light"] .awakening-console > footer { color: var(--muted); }
+
+:root[data-theme="light"] .marketing-section + .marketing-section { border-top-color: rgba(8, 121, 102, 0.15); }
+:root[data-theme="light"] :is(.marketing-steps li, .marketing-feature-grid article) {
+  background:
+    linear-gradient(135deg, rgba(8, 121, 102, 0.055), transparent 44%),
+    var(--light-surface);
+  border-color: rgba(74, 121, 110, 0.27);
+  box-shadow: var(--sys-depth-1), inset 0 1px rgba(255, 255, 255, 0.86);
+}
+:root[data-theme="light"] .marketing-feature-grid article li { color: #365b53; }
+:root[data-theme="light"] .marketing-feature-grid article ul { border-top-color: rgba(8, 121, 102, 0.16); }
+:root[data-theme="light"] .marketing-data {
+  background:
+    radial-gradient(circle at 8% 18%, rgba(8, 121, 150, 0.1), transparent 34%),
+    linear-gradient(135deg, rgba(252, 255, 254, 0.94), rgba(225, 240, 235, 0.88));
+  border-color: rgba(8, 121, 102, 0.3);
+  box-shadow: var(--sys-depth-2), inset 0 1px rgba(255, 255, 255, 0.9);
+}
+:root[data-theme="light"] .marketing-data li {
+  background: rgba(252, 255, 254, 0.7);
+  border-color: rgba(74, 121, 110, 0.24);
+}
+
+:root[data-theme="light"] :is(.setup-shell, .system-bootstrap) {
+  background:
+    radial-gradient(circle at 74% 24%, rgba(8, 121, 150, 0.12), transparent 30%),
+    radial-gradient(circle at 18% 72%, rgba(8, 121, 102, 0.09), transparent 34%),
+    var(--bg);
+}
+:root[data-theme="light"] :is(.setup-shell, .system-bootstrap)::before {
+  background:
+    linear-gradient(90deg, rgba(237, 245, 243, 0.93), rgba(237, 245, 243, 0.64)),
+    radial-gradient(circle at 72% 38%, rgba(8, 121, 102, 0.1), transparent 38%);
+}
+:root[data-theme="light"] .setup-grid {
+  opacity: 0.42;
+  background-image:
+    linear-gradient(rgba(8, 121, 102, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 121, 150, 0.05) 1px, transparent 1px);
+}
+:root[data-theme="light"] :is(.setup-card, .system-bootstrap-card) {
+  background: linear-gradient(145deg, rgba(252, 255, 254, 0.96), rgba(233, 244, 240, 0.92));
+  border-color: rgba(8, 121, 102, 0.36);
+  box-shadow: var(--sys-depth-3), inset 0 1px rgba(255, 255, 255, 0.95);
+}
+:root[data-theme="light"] .setup-body h1 { color: var(--text); }
+:root[data-theme="light"] :is(.setup-description, .setup-progress > span, .setup-option-copy small, .setup-script-choice button small, .setup-script-note small, .system-bootstrap-status) { color: var(--muted); }
+:root[data-theme="light"] :is(.setup-script-choice legend, .setup-preferences legend, .setup-name-field > span) { color: #365b53; }
+:root[data-theme="light"] :is(.setup-option-copy strong, .setup-script-choice button strong, .setup-minutes button strong) { color: var(--text); }
+:root[data-theme="light"] :is(.setup-option-grid > button, .setup-script-choice button, .setup-minutes button, .setup-name-field input) {
+  color: var(--muted);
+  background: rgba(252, 255, 254, 0.84);
+  border-color: var(--line);
+  box-shadow: 0 5px 16px rgba(18, 74, 64, 0.055);
+}
+:root[data-theme="light"] .setup-name-field input::placeholder { color: var(--dim); opacity: 1; }
+:root[data-theme="light"] :is(.setup-option-grid > button, .setup-script-choice button, .setup-minutes button):hover {
+  color: var(--text);
+  background: #fff;
+  border-color: var(--line-strong);
+}
+:root[data-theme="light"] :is(.setup-option-grid > button, .setup-script-choice button, .setup-minutes button).is-selected {
+  color: var(--jade);
+  background: linear-gradient(90deg, var(--jade-soft), rgba(248, 253, 251, 0.92));
+  border-color: var(--jade);
+  box-shadow: inset 3px 0 var(--jade), 0 8px 22px rgba(8, 121, 102, 0.09);
+}
+:root[data-theme="light"] .setup-script-note { background: var(--cyan-soft); border-color: rgba(8, 121, 150, 0.3); }
+:root[data-theme="light"] .setup-actions { background: rgba(248, 253, 251, 0.92); border-top-color: var(--line); }
+:root[data-theme="light"] .route-loader--fullscreen {
+  background:
+    linear-gradient(rgba(8, 121, 102, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 121, 150, 0.04) 1px, transparent 1px),
+    var(--bg);
+  background-size: 42px 42px;
+}
+
+/* Accessible foregrounds for the darker jade accent used by light mode. */
+:root[data-theme="light"] .skip-link,
+:root[data-theme="light"] :is(.primary-button, .activate-button, .marketing-header-cta, .marketing-primary-cta, .setup-primary-button) {
+  color: var(--on-well);
+}
+:root[data-theme="light"] :is(.primary-button, .activate-button, .marketing-header-cta, .marketing-primary-cta, .setup-primary-button):hover:not(:disabled) {
+  color: var(--on-well);
+  background: #045e52;
+}
+:root[data-theme="light"] :is(.brand-hex, .marketing-brand > span, .setup-brand > span, .system-bootstrap-brand > span) {
+  color: var(--on-well);
 }

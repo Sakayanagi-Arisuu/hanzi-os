@@ -14,22 +14,22 @@
     {
       "id": "localStudyProfile",
       "relativePath": "config/hsk0-4-local-study-profile.json",
-      "sha256": "sha256:d720eb9fc08b8424f73c81dbdba7d2159e9ca7ab46bc27f968145ebf39f8b76d"
+      "sha256": "sha256:416af669058b9bed332a67a9fc036eaf74519b8050e9254caad3dd12e9260a90"
     },
     {
       "id": "unitReviewerPacket",
       "relativePath": "content/review/hsk1-time-place-events-reviewer-packet.json",
-      "sha256": "sha256:fb586d9faec7c4e857002ff8c83561923842a872548329695d6f30199064f744"
+      "sha256": "sha256:edc7b0a702916a9ae638bcfd6d521f46d8050065cd10641faea299548f3229e5"
     },
     {
       "id": "runtimeProjection",
       "relativePath": "content/drafts/hsk1-time-place-events-runtime-projection-2026.07.json",
-      "sha256": "sha256:69dd683b110ed4b21c8173bfd7e005a5462c0342e52446bdc5ca7769c6de04fd"
+      "sha256": "sha256:a1ab9f2c0ab0df78ec249fbc5a1cb9f9d439b9e15d71289497ddb4dd74b646bc"
     },
     {
       "id": "runtimeActivityProjection",
       "relativePath": "content/drafts/hsk1-time-place-events-runtime-activity-projection-2026.07.json",
-      "sha256": "sha256:0a18d5da9885b4bdb2dc55ee39a2c7768a09b7c6b8ecc63a781c753083891c63"
+      "sha256": "sha256:caf10e97db53292c2c7e78474780f7d9cacd0308b099ea6add5f244531443b40"
     }
   ],
   "unitReleaseDigest": "sha256:fe9526967aabc61b097e95fdbdea0af65f6a21234e232c82a5b2338b6c20f287",
@@ -60,7 +60,7 @@
     "authoredSemanticTargetsReviewed": 182,
     "generatedVocabularyPracticeItemsInvariantChecked": 243,
     "runtimeProjectionTargetCount": 425,
-    "runtimeProjectionDigest": "sha256:046d4cf271d5620158e420c9ee33304096ff821765e46e2c01fffbe70ace6f9b",
+    "runtimeProjectionDigest": "sha256:8abac2028a4aee7280834a87389bda9b1705baaa36f935e14b9098e0bd4ff3bc",
     "unrepresentedRuntimeTargets": 0,
     "reviewBatchCount": 27,
     "reviewBatchDigest": "sha256:4b18d43f76895a4284cc731202544c928d61ca2f5c6797443984d7d1f4b4c243"
@@ -166,5 +166,5 @@
       "productionEligible": false
     }
   },
-  "reviewSha256": "sha256:6fbcdeb04deb5dd90e389f8dddda0622aee638082096768c4ca6a92272035bcf"
+  "reviewSha256": "sha256:e99ae00d7c5a89448f214b66b0acaa5d724aee1f6c23fe1f9332f06417c12ae1"
 }

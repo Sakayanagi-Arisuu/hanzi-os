@@ -28,6 +28,8 @@ export function LessonQuestResult({
   onNavigate,
   retryDestination = "/path",
   retryDestinationLabel = "Trở về Thiên Lộ",
+  continueDestination,
+  continueDestinationLabel,
 }: {
   lessonId: string;
   lessonTitle: string;
@@ -45,6 +47,8 @@ export function LessonQuestResult({
   onNavigate?: () => void;
   retryDestination?: string;
   retryDestinationLabel?: string;
+  continueDestination?: string;
+  continueDestinationLabel?: string;
 }) {
   const resultRef = useRef<HTMLElement>(null);
   const previousRewardState = useRef(rewardState);
@@ -181,10 +185,12 @@ export function LessonQuestResult({
             </Link>
             <Link
               className="path-clear-action is-primary"
-              to={`/pronunciation?lesson=${encodeURIComponent(lessonId)}`}
+              to={continueDestination
+                ?? `/pronunciation?lesson=${encodeURIComponent(lessonId)}`}
               onClick={onNavigate}
             >
-              <Volume2 aria-hidden="true" /> Luyện tại Vạn Âm Điện <ArrowRight aria-hidden="true" />
+              <Volume2 aria-hidden="true" /> {continueDestinationLabel
+                ?? "Luyện tại Vạn Âm Điện"} <ArrowRight aria-hidden="true" />
             </Link>
           </>
         ) : (

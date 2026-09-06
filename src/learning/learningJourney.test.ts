@@ -6,6 +6,7 @@ import {
 } from "../data/curriculum";
 import type { LearningState, MistakeRecord } from "../types";
 import { buildDailyLearningJourney } from "./learningJourney";
+import { projectLearningJourneyProgress } from "./learningJourney";
 
 const completion = (
   bestScore: number,
@@ -80,6 +81,32 @@ const makeState = (
 });
 
 describe("buildDailyLearningJourney", () => {
+  it("keeps one anchor and exposes only the next unfinished stage", () => {
+    const state = makeState({
+      completedLessons: { "boot-1": completion(90) },
+    });
+    const anchored = buildDailyLearningJourney({
+      state,
+      dueWordIds: [],
+      anchorLessonId: "boot-1",
+      reinforcementWordIds: RELEASED_LESSONS.find((lesson) =>
+        lesson.id === "boot-1"
+      )!.wordIds,
+    });
+    const projected = projectLearningJourneyProgress(anchored, {
+      learn: true,
+    });
+
+    expect(projected.learnLessonId).toBe("boot-1");
+    expect(projected.steps.map((step) => step.status)).toEqual([
+      "completed",
+      "action",
+      "pending",
+      "pending",
+    ]);
+    expect(projected.steps[1].to).toBe("/review?lesson=boot-1");
+    expect(projected.steps[1].wordIds).toEqual(anchored.steps[0].wordIds);
+  });
   it("orders one bounded session as Learn → Review → Transfer → Close using real content", () => {
     const state = makeState({
       profile: {

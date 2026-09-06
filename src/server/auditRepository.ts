@@ -26,6 +26,16 @@ export type AuditEvent = {
   createdAt: number;
 };
 
+export type AuditEventPage = {
+  events: AuditEvent[];
+  filteredTotal: number;
+  summary: {
+    total: number;
+    successful: number;
+    attention: number;
+  };
+};
+
 export type AppendAuditEvent = Omit<AuditEvent, "id" | "createdAt" | "metadata"> & {
   id?: string;
   createdAt?: number;
@@ -131,5 +141,86 @@ export class AuditRepository {
       targetId: event.targetId ?? "system",
       metadata: JSON.parse(metadataJson) as Record<string, unknown>,
     }));
+  }
+
+  async listPage(input: {
+    limit?: number;
+    offset?: number;
+    category?: AuditCategory | null;
+    outcome?: AuditOutcome | null;
+    query?: string;
+  } = {}): Promise<AuditEventPage> {
+    const limit = Math.max(1, Math.min(50, Math.trunc(input.limit ?? 20)));
+    const offset = Math.max(0, Math.min(20_000, Math.trunc(input.offset ?? 0)));
+    const query = input.query?.trim().slice(0, 120) ?? "";
+    const clauses: string[] = [];
+    const values: unknown[] = [];
+    if (input.category) {
+      clauses.push("category = ?");
+      values.push(input.category);
+    }
+    if (input.outcome) {
+      clauses.push("outcome = ?");
+      values.push(input.outcome);
+    }
+    if (query) {
+      const escaped = query.toLocaleLowerCase("vi")
+        .replace(/[\\%_]/gu, (value) => `\\${value}`);
+      const pattern = `%${escaped}%`;
+      clauses.push(`(
+        LOWER(action) LIKE ? ESCAPE '\\'
+        OR LOWER(target_type) LIKE ? ESCAPE '\\'
+        OR LOWER(target_id) LIKE ? ESCAPE '\\'
+      )`);
+      values.push(pattern, pattern, pattern);
+    }
+    const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
+    const [rows, count, summary] = await Promise.all([
+      this.database
+        .prepare(
+          `SELECT id, category, action, outcome,
+                  actor_user_id AS actorUserId,
+                  actor_session_id AS actorSessionId,
+                  target_type AS targetType,
+                  target_id AS targetId,
+                  request_id AS requestId,
+                  metadata_json AS metadataJson,
+                  created_at AS createdAt
+             FROM audit_events
+             ${where}
+            ORDER BY created_at DESC, id DESC
+            LIMIT ? OFFSET ?`,
+        )
+        .bind(...values, limit, offset)
+        .all<Omit<AuditEvent, "metadata"> & { metadataJson: string }>(),
+      this.database
+        .prepare(`SELECT COUNT(*) AS total FROM audit_events ${where}`)
+        .bind(...values)
+        .first<{ total: number }>(),
+      this.database
+        .prepare(
+          `SELECT COUNT(*) AS total,
+                  COALESCE(SUM(CASE WHEN outcome = 'success' THEN 1 ELSE 0 END), 0) AS successful,
+                  COALESCE(SUM(CASE WHEN outcome <> 'success' THEN 1 ELSE 0 END), 0) AS attention
+             FROM audit_events`,
+        )
+        .first<{ total: number; successful: number; attention: number }>(),
+    ]);
+    if (!rows.success || !count || !summary) {
+      throw new Error("Unable to list audit event page.");
+    }
+    return {
+      events: (rows.results ?? []).map(({ metadataJson, ...event }) => ({
+        ...event,
+        targetId: event.targetId ?? "system",
+        metadata: JSON.parse(metadataJson) as Record<string, unknown>,
+      })),
+      filteredTotal: Number(count.total),
+      summary: {
+        total: Number(summary.total),
+        successful: Number(summary.successful),
+        attention: Number(summary.attention),
+      },
+    };
   }
 }

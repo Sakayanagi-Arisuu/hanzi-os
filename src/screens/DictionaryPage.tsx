@@ -12,7 +12,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
 import {
   getLessonExpansionPack,
@@ -24,12 +24,18 @@ import {
   type MegaVocabularyItem,
 } from "../content/megaLexicon";
 import {
+  loadPublishedStudioVocabulary,
+  mergePublishedStudioVocabulary,
+} from "../content/publishedStudioClient";
+import type { DictionaryWord } from "../content/publishedStudioVocabulary";
+import {
   LESSON_BY_ID,
   RELEASED_LESSONS,
   RELEASED_VOCABULARY,
 } from "../data/curriculum";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import "./DictionaryPage.css";
 
 const normalizeSearch = (value: string) => value
@@ -37,26 +43,6 @@ const normalizeSearch = (value: string) => value
   .replace(/[\u0300-\u036f]/g, "")
   .toLowerCase()
   .trim();
-
-export type DictionaryWord = {
-  id: string;
-  simplified: string;
-  traditional: string;
-  pinyin: string;
-  pinyinNumbered: string;
-  meaning: string;
-  senses: string[];
-  classifiers: string[];
-  partOfSpeech: string;
-  toneNumbers: number[];
-  tags: string[];
-  isCore: boolean;
-  referenceLevel?: string;
-  editorialDepth?: "reference" | "curated";
-  example?: string;
-  examplePinyin?: string;
-  exampleMeaning?: string;
-};
 
 const megaToneNumbers = (word: MegaVocabularyItem) => [...word.pinyinNumbered.matchAll(/[1-5]/gu)]
   .map((match) => Number(match[0]) % 5);
@@ -84,8 +70,14 @@ export function DictionaryPage() {
   const requested = useMemo(() => new URLSearchParams(location.search), [location.search]);
   const requestedLessonId = requested.get("lesson");
   const requestedQuery = requested.get("q") ?? "";
+  const journeyChallenge = requested.get("challenge") === "1";
   const { state, actions } = useLearning();
+  const { checkpoint, recordReceipt } = useLearningJourney();
+  const challengedWordIdsRef = useRef(new Set<string>());
   const [artifact, setArtifact] = useState<MegaLexiconArtifact | null>(null);
+  const [publishedVocabulary, setPublishedVocabulary] = useState<DictionaryWord[]>([]);
+  const [publishedVocabularyState, setPublishedVocabularyState] = useState<"loading" | "ready" | "unavailable">("loading");
+  const [showPublishedVocabularyLoading, setShowPublishedVocabularyLoading] = useState(false);
   const [deepLookupWords, setDeepLookupWords] = useState<DictionaryWord[]>([]);
   const [deepLookupPending, setDeepLookupPending] = useState(false);
   const [loadError, setLoadError] = useState("");
@@ -101,6 +93,29 @@ export function DictionaryPage() {
       .then((value) => { if (active) setArtifact(value); })
       .catch((reason: unknown) => { if (active) setLoadError(reason instanceof Error ? reason.message : "Không thể tải kho mở rộng."); });
     return () => { active = false; };
+  }, []);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const loadingTimer = window.setTimeout(() => setShowPublishedVocabularyLoading(true), 350);
+    loadPublishedStudioVocabulary(fetch, controller.signal)
+      .then((words) => {
+        window.clearTimeout(loadingTimer);
+        setShowPublishedVocabularyLoading(false);
+        setPublishedVocabulary(words);
+        setPublishedVocabularyState("ready");
+      })
+      .catch(() => {
+        window.clearTimeout(loadingTimer);
+        if (controller.signal.aborted) return;
+        setShowPublishedVocabularyLoading(false);
+        setPublishedVocabulary([]);
+        setPublishedVocabularyState("unavailable");
+      });
+    return () => {
+      window.clearTimeout(loadingTimer);
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => { setVisibleLimit(160); }, [query, savedOnly]);
@@ -129,19 +144,25 @@ export function DictionaryPage() {
     setLessonScope(Boolean(requestedLessonId));
   }, [requestedLessonId, requestedQuery]);
 
-  const allWords = useMemo(() => {
+  const baseWords = useMemo(() => {
     const base = artifact ? [...coreWords, ...artifact.vocabulary.map(megaWordView)] : coreWords;
-    const surfaces = new Set(base.map((word) => word.simplified));
-    return [...base, ...deepLookupWords.filter((word) => !surfaces.has(word.simplified))];
-  }, [artifact, deepLookupWords]);
+    return mergePublishedStudioVocabulary(base, publishedVocabulary);
+  }, [artifact, publishedVocabulary]);
+  const allWords = useMemo(() => {
+    const surfaces = new Set(baseWords.map((word) => word.simplified));
+    return [...baseWords, ...deepLookupWords.filter((word) => !surfaces.has(word.simplified))];
+  }, [baseWords, deepLookupWords]);
   const requestedLesson = requestedLessonId ? LESSON_BY_ID.get(requestedLessonId) ?? null : null;
   const lessonWordIds = useMemo(() => {
     if (!requestedLesson) return null;
     const packIds = artifact
       ? getLessonExpansionPack(artifact, requestedLesson.id)?.wordIds ?? []
       : [];
-    return new Set([...requestedLesson.wordIds, ...packIds]);
-  }, [artifact, requestedLesson]);
+    const studioIds = publishedVocabulary
+      .filter((word) => word.sourceLessonIds?.includes(requestedLesson.id))
+      .map((word) => word.id);
+    return new Set([...requestedLesson.wordIds, ...packIds, ...studioIds]);
+  }, [artifact, publishedVocabulary, requestedLesson]);
   const results = useMemo(() => {
     const normalized = normalizeSearch(query);
     return allWords.filter((word) => {
@@ -153,6 +174,18 @@ export function DictionaryPage() {
     });
   }, [allWords, lessonScope, lessonWordIds, query, savedOnly, state.savedWords]);
   const selected = results.find((word) => word.id === selectedId) ?? results[0];
+  const selectResult = (wordId: string) => {
+    setSelectedId(wordId);
+    if (!journeyChallenge || !requestedLessonId || !checkpoint) return;
+    challengedWordIdsRef.current.add(wordId);
+    if (challengedWordIdsRef.current.size < 3) return;
+    recordReceipt({
+      stage: "transfer",
+      source: "dictionary",
+      lessonId: requestedLessonId,
+      activityId: `dictionary:${checkpoint.journeyId}:three-distinct-entries`,
+    });
+  };
   const coreLessonByWordId = useMemo(() => {
     const map = new Map<string, string>();
     for (const lesson of RELEASED_LESSONS) for (const wordId of lesson.wordIds) if (!map.has(wordId)) map.set(wordId, lesson.id);
@@ -161,7 +194,7 @@ export function DictionaryPage() {
   const selectedPathLessonId = selected
     ? selected.isCore
       ? requestedLesson?.wordIds.includes(selected.id) ? requestedLesson.id : coreLessonByWordId.get(selected.id) ?? null
-      : artifact ? getLessonIdForMegaWord(artifact, selected.id) : null
+      : selected.sourceLessonIds?.[0] ?? (artifact ? getLessonIdForMegaWord(artifact, selected.id) : null)
     : null;
   const relatedWords = useMemo(() => {
     if (!selected) return [];
@@ -185,7 +218,7 @@ export function DictionaryPage() {
             <Link to="/path">Học theo Thiên Lộ <ChevronRight size={15} /></Link>
           </div>
         </div>
-        <div className="lexicon-count"><strong>{(artifact?.stats.totalSearchableVocabulary ?? MEGA_LEXICON_SEARCHABLE_COUNT).toLocaleString("vi-VN")}</strong><span>mục từ có thể tra bằng chữ Hán</span></div>
+        <div className="lexicon-count"><strong>{(artifact ? baseWords.length : MEGA_LEXICON_SEARCHABLE_COUNT + Math.max(0, baseWords.length - coreWords.length)).toLocaleString("vi-VN")}</strong><span>mục từ có thể tra bằng chữ Hán</span></div>
       </header>
 
       <div className="dictionary-searchbar">
@@ -196,6 +229,9 @@ export function DictionaryPage() {
       </div>
 
       {!artifact && !loadError && <div className="dictionary-corpus-state"><Database size={16} /> Đang nối thêm 9.077 mục mở rộng…</div>}
+      {publishedVocabularyState === "loading" && showPublishedVocabularyLoading && <div className="dictionary-corpus-state" role="status"><Database size={16} /> Đang kiểm tra mục từ mới từ Biên Tập Viện…</div>}
+      {publishedVocabularyState === "ready" && publishedVocabulary.length > 0 && <div className="dictionary-corpus-state" role="status"><Database size={16} /> Đã nối {publishedVocabulary.length.toLocaleString("vi-VN")} mục từ mới do Biên Tập Viện phát hành.</div>}
+      {publishedVocabularyState === "unavailable" && <div className="dictionary-corpus-state error" role="status"><Database size={16} /> Kho hiện tại vẫn dùng được; mục từ mới từ Biên Tập Viện đang tạm gián đoạn.</div>}
       {deepLookupPending && <div className="dictionary-corpus-state"><Database size={16} /> Đang mở mảnh từ điển chuyên sâu cho “{query.trim()}”…</div>}
       {loadError && <div className="dictionary-corpus-state error"><Database size={16} /> Kho cốt lõi vẫn dùng được; kho mở rộng chưa tải được.</div>}
 
@@ -214,7 +250,7 @@ export function DictionaryPage() {
           <header><span>{results.length.toLocaleString("vi-VN")} KẾT QUẢ</span><small>Giản thể · Phồn thể · Pinyin · Việt</small></header>
           <div className="dictionary-result-list">
             {results.slice(0, visibleLimit).map((word) => (
-              <button className={selected?.id === word.id ? "active" : ""} key={word.id} type="button" onClick={() => setSelectedId(word.id)}>
+              <button className={selected?.id === word.id ? "active" : ""} key={word.id} type="button" onClick={() => selectResult(word.id)}>
                 <span className="tone-sequence" aria-label={`Thanh từ điển ${word.toneNumbers.map((tone) => tone || "nhẹ").join(", ")}`}>
                   {word.toneNumbers.map((tone, index) => (
                     <i className={`tone-mark tone-${tone}`} key={`${word.id}-${index}`}>{tone || "·"}</i>
@@ -223,7 +259,9 @@ export function DictionaryPage() {
                 <strong>{state.profile.script === "traditional" ? word.traditional : word.simplified}</strong>
                 <span><b>{word.pinyin}</b><small>{word.meaning}</small></span>
                 {word.isCore && state.savedWords.includes(word.id) && <BookmarkCheck size={16} />}
-                {!word.isCore && <em>{word.editorialDepth === "curated" ? "SÂU" : "MỞ RỘNG"}</em>}
+                {word.sourceKind === "studio"
+                  ? <em>BIÊN TẬP</em>
+                  : !word.isCore && <em>{word.editorialDepth === "curated" ? "SÂU" : "MỞ RỘNG"}</em>}
               </button>
             ))}
             {visibleLimit < results.length && <button className="dictionary-load-more" type="button" onClick={() => setVisibleLimit((value) => value + 160)}>Hiện thêm 160 mục</button>}
@@ -235,7 +273,7 @@ export function DictionaryPage() {
           <aside className="dictionary-entry">
             <div className="entry-scanline" aria-hidden="true" />
             <header>
-              <span>{selected.isCore ? "HỒ SƠ TỪ MỤC · BÀI CỐT LÕI" : selected.editorialDepth === "curated" ? "HỒ SƠ TỪ MỤC · BIÊN TẬP SÂU" : "HỒ SƠ TỪ MỤC · KHO MỞ RỘNG"}</span>
+              <span>{selected.sourceKind === "studio" ? "HỒ SƠ TỪ MỤC · BIÊN TẬP VIỆN" : selected.isCore ? "HỒ SƠ TỪ MỤC · BÀI CỐT LÕI" : selected.editorialDepth === "curated" ? "HỒ SƠ TỪ MỤC · BIÊN TẬP SÂU" : "HỒ SƠ TỪ MỤC · KHO MỞ RỘNG"}</span>
               <div>
                 <h1>{state.profile.script === "traditional" ? selected.traditional : selected.simplified}</h1>
                 {selected.simplified !== selected.traditional && <small>{selected.simplified} / {selected.traditional}</small>}
@@ -280,7 +318,11 @@ export function DictionaryPage() {
             </section>}
             <details className="dictionary-source-details">
               <summary>Nguồn và phạm vi mục từ</summary>
-              <p>{selected.isCore ? "Mục từ nằm trong gói bài học HSK0–4 của HANZI.OS." : "Nghĩa tham chiếu Trung–Việt từ CVDICT (CC BY-SA 4.0), đối chiếu danh sách HSK đã ghim; mục chưa qua duyệt giáo viên."}</p>
+              <p>{selected.sourceKind === "studio"
+                ? `“${selected.sourceTitle}” được Biên Tập Viện phát hành ngày ${new Date(selected.sourcePublishedAt ?? 0).toLocaleDateString("vi-VN")}. Mục tra cứu này không tự tạo điểm thông thạo.`
+                : selected.isCore
+                  ? "Mục từ nằm trong gói bài học HSK0–4 của HANZI.OS."
+                  : "Nghĩa tham chiếu Trung–Việt từ CVDICT (CC BY-SA 4.0), đối chiếu danh sách HSK đã ghim; mục chưa qua duyệt giáo viên."}</p>
             </details>
             {selected.isCore ? (
               <button className={`save-word-button ${state.savedWords.includes(selected.id) ? "saved" : ""}`} type="button" onClick={() => actions.toggleSavedWord(selected.id)}>
@@ -289,6 +331,8 @@ export function DictionaryPage() {
               </button>
             ) : selectedPathLessonId ? (
               <Link className="save-word-button" to={`/lesson/${encodeURIComponent(selectedPathLessonId)}`} viewTransition>Học từ này trong Thiên Lộ <ChevronRight size={18} /></Link>
+            ) : selected.sourceKind === "studio" ? (
+              <span className="save-word-button" aria-label="Mục từ do Biên Tập Viện phát hành">Mục từ đã phát hành</span>
             ) : (
               <span className="save-word-button" aria-label="Mục tham chiếu đang mở trong Tàng Tự Khố">Mục tham chiếu đang mở</span>
             )}

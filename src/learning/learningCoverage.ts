@@ -187,6 +187,8 @@ export type LearnerActivityCoverageState =
   | "measured";
 
 export type LearnerActivityCoverageItem = {
+  /** Distinct activities observed, including explicitly unverified practice. */
+  practiceCount: number;
   covered: number;
   target: number;
   percent: number | null;
@@ -239,6 +241,7 @@ const emptyPillarSignal = (): LearnerActivityCoverage => Object.fromEntries(
     // remain unverified and therefore cannot become a skill measurement.
     const practiceAvailable = supported || skill === "speaking";
     return [skill, {
+      practiceCount: 0,
       covered: 0,
       target: supported ? PILLAR_SIGNAL_SAMPLE_TARGET : 0,
       percent: null,
@@ -293,6 +296,16 @@ const byTimeThenStableOrder = (
 export const deriveLocalLearnerActivityCoverage = (
   evidence: readonly LearningEvidence[],
 ): LearnerActivityCoverage => {
+  const observedPracticeBySkill = new Map<Skill, Set<string>>();
+  for (const item of evidence) {
+    if (
+      !item.activityId
+      || !isEvidenceCombinationAllowed(item.source, item.method, item.skill)
+    ) continue;
+    const activities = observedPracticeBySkill.get(item.skill) ?? new Set();
+    activities.add(item.activityId);
+    observedPracticeBySkill.set(item.skill, activities);
+  }
   // One activity contributes at most one independent item. Within a lesson
   // session only the first clean attempt counts, preventing an immediate retry
   // from becoming fresh evidence. A later session may update the item's latest
@@ -333,11 +346,13 @@ export const deriveLocalLearnerActivityCoverage = (
 
   const signal = emptyPillarSignal();
   for (const skill of SKILLS) {
+    signal[skill].practiceCount = observedPracticeBySkill.get(skill)?.size ?? 0;
     if (!signal[skill].supported) continue;
     const selected = selectedBySkill.get(skill) ?? [];
     const observations = observationsBySkill.get(skill) ?? [];
     const covered = selected.length;
     signal[skill].covered = covered;
+    signal[skill].practiceCount = Math.max(signal[skill].practiceCount, covered);
     if (covered < PILLAR_SIGNAL_MINIMUM_UNIQUE_ACTIVITIES) continue;
 
     const sessions = new Set(observations.map((item) => item.sessionId));
@@ -355,17 +370,22 @@ export const deriveLocalLearnerActivityCoverage = (
 };
 
 /**
- * Projection V4 only carries first-exposure correct breadth. It does not carry
- * the item outcomes, distinct sessions and server time required by the
- * confidence signal. Treating those raw counts as a skill estimate would
- * silently change their meaning, so account pillars remain insufficient until
- * a newer exact projection supplies a policy-bound aggregate.
+ * Projection V4 carries only first-exposure correct breadth. We may display
+ * that exact descriptive count, but we still fail closed on the confidence
+ * percentage because item outcomes, distinct sessions and server time are not
+ * present in this protocol.
  */
 export const deriveProjectedLearnerActivityCoverage = (
   uniqueCorrectActivityCounts: Readonly<Record<Skill, number>>,
 ): LearnerActivityCoverage => {
-  void uniqueCorrectActivityCounts;
-  return emptyPillarSignal();
+  const signal = emptyPillarSignal();
+  for (const skill of SKILLS) {
+    if (!signal[skill].supported) continue;
+    const raw = uniqueCorrectActivityCounts[skill];
+    signal[skill].covered = Number.isSafeInteger(raw) && raw > 0 ? raw : 0;
+    signal[skill].practiceCount = signal[skill].covered;
+  }
+  return signal;
 };
 
 export const formatLearnerActivityCoverage = (

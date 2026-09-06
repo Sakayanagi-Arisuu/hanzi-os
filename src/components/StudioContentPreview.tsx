@@ -32,6 +32,9 @@ const lessonPreview = (
   content: Record<string, unknown>,
 ): RichLessonContent => {
   const dialogue = dialogueTurns(content);
+  const exercises = (Array.isArray(content.exercises) ? content.exercises : [])
+    .map(asRecord)
+    .filter((entry): entry is Record<string, unknown> => entry !== null);
   const fallbackExample = dialogue[0] ?? {
     speaker: "A",
     hanzi: "你好！",
@@ -42,6 +45,8 @@ const lessonPreview = (
     .map((entry, index) => {
       const row = asRecord(entry);
       if (!row) return null;
+      const exercise = exercises[index % Math.max(1, exercises.length)];
+      const example = dialogue[index % Math.max(1, dialogue.length)] ?? fallbackExample;
       return {
         id: `${revisionId}:grammar:${index + 1}`,
         category: "CONTENT STUDIO",
@@ -49,21 +54,21 @@ const lessonPreview = (
         officialContent: text(row.pattern),
         explanationVi: text(row.explanationVi),
         modelExample: {
-          hanzi: fallbackExample.hanzi,
-          pinyin: fallbackExample.pinyin,
-          meaningVi: fallbackExample.meaningVi,
+          hanzi: example.hanzi,
+          pinyin: example.pinyin,
+          meaningVi: example.meaningVi,
         },
         guidedPractice: {
-          promptVi: text(row.promptVi, "Tự tạo một câu mới theo mẫu trước khi mở đáp án."),
-          modelAnswerHanzi: fallbackExample.hanzi,
-          modelAnswerPinyin: fallbackExample.pinyin,
-          modelAnswerMeaningVi: fallbackExample.meaningVi,
+          promptVi: text(exercise?.promptVi, "Tự tạo một câu mới theo mẫu trước khi mở đáp án."),
+          modelAnswerHanzi: text(exercise?.answer, fallbackExample.hanzi),
+          modelAnswerPinyin: text(exercise?.answerPinyin, fallbackExample.pinyin),
+          modelAnswerMeaningVi: text(exercise?.answerMeaningVi, fallbackExample.meaningVi),
         },
       };
     })
     .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
   return {
-    lessonId: revisionId,
+    lessonId: text(content.targetLessonId, revisionId),
     authoringLessonId: revisionId,
     dialogue,
     grammar,
@@ -73,7 +78,18 @@ const lessonPreview = (
       officialTopic: "Bản xem trước có kiểm soát",
       promptVi: text(content.objectiveVi),
     }],
-    tasks: [],
+    tasks: exercises.map((exercise, index) => ({
+      id: `${revisionId}:practice:${index + 1}`,
+      titleVi: text(exercise.promptVi, `Thực hành ${index + 1}`),
+      instructionVi: text(exercise.explanationVi),
+      targetFunctions: [],
+      modelDialogue: [{
+        speaker: "Mẫu",
+        hanzi: text(exercise.answer),
+        pinyin: text(exercise.answerPinyin),
+        meaningVi: text(exercise.answerMeaningVi),
+      }],
+    })),
     characters: [],
   };
 };
@@ -128,15 +144,79 @@ export function StudioContentPreview({
     );
   }
 
+  if (itemType === "graded_text") {
+    const sentences = (Array.isArray(content.sentences) ? content.sentences : [])
+      .map(asRecord)
+      .filter((entry): entry is Record<string, unknown> => entry !== null);
+    const questions = (Array.isArray(content.comprehension) ? content.comprehension : [])
+      .map(asRecord)
+      .filter((entry): entry is Record<string, unknown> => entry !== null);
+    return (
+      <article style={styles.card} aria-label="Bản xem trước bài đọc trong Vạn Quyển Các">
+        <span style={styles.label}>VẠN QUYỂN CÁC · BẢN XEM TRƯỚC KHÔNG GHI TIẾN ĐỘ</span>
+        <strong style={{ ...styles.hanzi, fontSize: "clamp(30px, 6vw, 52px)" }} lang="zh-Hans">{text(content.titleZh)}</strong>
+        <em style={styles.meaning}>{text(content.summaryVi)}</em>
+        <div style={{ display: "grid", gap: 20, marginTop: 28 }}>
+          {sentences.map((sentence, index) => (
+            <section key={`${index}:${text(sentence.hanzi)}`} style={{ paddingLeft: 14, borderLeft: "2px solid #2f6b5b" }}>
+              <strong lang="zh-Hans" style={{ display: "block", color: "#edf7f4", fontSize: 22, lineHeight: 1.65 }}>{text(sentence.hanzi)}</strong>
+              <small style={styles.pinyin}>{text(sentence.pinyin)}</small>
+              <span style={styles.meaning}>{text(sentence.meaningVi)}</span>
+            </section>
+          ))}
+        </div>
+        {questions.length > 0 && (
+          <section style={{ marginTop: 32 }} aria-label="Câu hỏi đọc hiểu trong bản xem trước">
+            <span style={styles.label}>KHẢO LUYỆN ĐỌC · {questions.length} CÂU</span>
+            {questions.map((question, index) => {
+              const distractors = Array.isArray(question.distractors)
+                ? question.distractors.filter((entry): entry is string => typeof entry === "string")
+                : [];
+              return (
+                <div key={`${index}:${text(question.promptVi)}`} style={{ marginTop: 18 }}>
+                  <strong>{index + 1}. {text(question.promptVi)}</strong>
+                  <ul style={styles.options}>
+                    {["Lựa chọn đúng được ẩn trong bản xem trước", ...distractors].map((option, optionIndex) =>
+                      <li style={styles.option} key={`${optionIndex}:${option}`}>{option}</li>
+                    )}
+                  </ul>
+                </div>
+              );
+            })}
+          </section>
+        )}
+      </article>
+    );
+  }
+
   const options = Array.isArray(content.options)
     ? content.options.filter((entry): entry is string => typeof entry === "string")
     : [];
+  const firstExample = asRecord(
+    (Array.isArray(content.examples) ? content.examples[0] : null)
+      ?? (Array.isArray(content.dialogue) ? content.dialogue[0] : null)
+      ?? (Array.isArray(content.sentences) ? content.sentences[0] : null),
+  );
   return (
     <section style={styles.card} aria-label="Bản xem trước trong giao diện học">
       <span style={styles.label}>LEARNER UI PREVIEW · {itemType.toUpperCase()}</span>
-      <strong style={styles.hanzi}>{text(content.hanzi ?? content.pattern, text(content.promptVi))}</strong>
-      {content.pinyin ? <small style={styles.pinyin}>{text(content.pinyin)}</small> : null}
-      <em style={styles.meaning}>{text(content.meaningVi ?? content.explanationVi ?? content.promptVi)}</em>
+      <strong style={styles.hanzi}>{text(
+        content.hanzi
+          ?? content.pattern
+          ?? content.titleZh
+          ?? firstExample?.hanzi,
+        text(content.functionVi ?? content.conceptVi ?? content.promptVi),
+      )}</strong>
+      {(content.pinyin || firstExample?.pinyin) ? <small style={styles.pinyin}>{text(content.pinyin ?? firstExample?.pinyin)}</small> : null}
+      <em style={styles.meaning}>{text(
+        content.meaningVi
+          ?? content.explanationVi
+          ?? content.summaryVi
+          ?? content.scenarioVi
+          ?? content.ruleVi
+          ?? firstExample?.meaningVi
+          ?? content.promptVi,
+      )}</em>
       {options.length > 0 && (
         <ol style={styles.options}>
           {options.map((option, index) => <li style={styles.option} key={`${index}:${option}`}>{option}</li>)}

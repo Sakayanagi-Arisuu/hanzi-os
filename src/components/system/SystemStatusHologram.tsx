@@ -25,6 +25,11 @@ import {
   isMistakeFromActivePathContent,
 } from "../../lib/adaptive";
 import {
+  deriveLocalLearnerActivityCoverage,
+  deriveProjectedLearnerActivityCoverage,
+} from "../../learning/learningCoverage";
+import { summarizeNormalizedObjectiveEvidence } from "../../learning/normalizedEvidenceSummary";
+import {
   deriveJourneyTitles,
   getInteractionRankProgress,
   getSystemClass,
@@ -33,6 +38,7 @@ import { useSystemUi } from "../../system/systemUiPreferences";
 import { emitSystemSignal } from "../../system/systemSignals";
 import { useLearning } from "../../store/LearningStore";
 import { useInteractionXp } from "../../store/InteractionXpStore";
+import { useNormalizedLearningProjection } from "../../store/NormalizedLearningProjectionStore";
 import type { Skill } from "../../types";
 
 const SKILL_LABELS: Record<Skill, { code: string; label: string }> = {
@@ -52,8 +58,9 @@ type SystemStatusHologramProps = {
 };
 
 export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemStatusHologramProps) {
-  const { state, dueWordIds, level } = useLearning();
+  const { state, dueWordIds, level, sync } = useLearning();
   const interactionXp = useInteractionXp();
+  const normalized = useNormalizedLearningProjection();
   const {
     preferences,
     resolvedMotion,
@@ -80,7 +87,22 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const unresolvedMistakes = state.mistakes.filter((mistake) =>
     !mistake.resolved && isMistakeFromActivePathContent(mistake, state.profile.startingLevel)
   ).length;
-  const skills = useMemo(() => Object.entries(state.skillMastery) as Array<[Skill, number]>, [state.skillMastery]);
+  const skills = useMemo(() => {
+    const projected = sync.session?.authenticated
+      ? summarizeNormalizedObjectiveEvidence(
+          normalized.coverageProjection ?? normalized.projection,
+        )
+      : null;
+    const coverage = projected
+      ? deriveProjectedLearnerActivityCoverage(
+          projected.gateEligibleCorrectActivityCounts,
+        )
+      : deriveLocalLearnerActivityCoverage(state.evidence);
+    return (Object.keys(SKILL_LABELS) as Skill[]).map((skill) => ({
+      skill,
+      ...coverage[skill],
+    }));
+  }, [normalized.coverageProjection, normalized.projection, state.evidence, sync.session]);
 
   useEffect(() => {
     if (!open) return;
@@ -274,13 +296,17 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
             <span className="sys-holo-panel-code"><CircleGauge size={14} /> OBSERVED SIGNALS</span>
             <h3>Ma trận thuộc tính</h3>
             <div className="sys-holo-skills">
-              {skills.map(([skill, value]) => (
+              {skills.map(({ skill, practiceCount, target, percent }) => {
+                const displayPercent = percent
+                  ?? (target > 0 ? Math.min(100, practiceCount / target * 100) : 0);
+                return (
                 <div key={skill}>
                   <span><b>{SKILL_LABELS[skill].code}</b><small>{SKILL_LABELS[skill].label}</small></span>
-                  <i><b style={{ width: `${value}%` }} /></i>
-                  <strong>{Math.round(value)}</strong>
+                  <i><b style={{ width: `${displayPercent}%` }} /></i>
+                  <strong>{percent === null ? practiceCount : Math.round(percent)}</strong>
                 </div>
-              ))}
+                );
+              })}
             </div>
             <div className="sys-holo-path-progress">
               <span><Map size={15} /> Thiên Lộ quan sát</span>

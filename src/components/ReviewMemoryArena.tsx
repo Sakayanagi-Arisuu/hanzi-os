@@ -1,4 +1,3 @@
-import { AudioLines, Crosshair, ScanLine, Sparkles, Volume2 } from "lucide-react";
 import { useEffect, type RefObject } from "react";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
 
@@ -9,6 +8,8 @@ type ReviewMemoryArenaProps = {
   exampleMeaning: string;
   examplePinyin: string;
   meaning: string;
+  hintUsed: boolean;
+  onUseHint: () => void;
   partOfSpeech: string;
   pinyin: string;
   revealed: boolean;
@@ -24,6 +25,8 @@ export function ReviewMemoryArena({
   exampleMeaning,
   examplePinyin,
   meaning,
+  hintUsed,
+  onUseHint,
   partOfSpeech,
   pinyin,
   revealed,
@@ -31,6 +34,8 @@ export function ReviewMemoryArena({
   titleId,
   titleRef,
 }: ReviewMemoryArenaProps) {
+  const stageNumber = revealed ? "03" : "02";
+  const stageName = revealed ? "ĐỐI CHIẾU" : "TRUY HỒI";
   const {
     playback,
     prepareMandarinSpeech,
@@ -69,12 +74,12 @@ export function ReviewMemoryArena({
 
       <header className="memory-card-head">
         <span className="memory-contract">
-          <Crosshair size={15} aria-hidden="true" />
-          <span><b>LÕI KÝ ỨC</b>{partOfSpeech} · từ vựng trong lộ trình</span>
+          <i className="memory-symbol" aria-hidden="true">◎</i>
+          <span><b>MEM-{stageNumber} · {stageName}</b>{partOfSpeech} · từ vựng trong lộ trình</span>
         </span>
-        <div className="memory-audio-channel">
+        {revealed && <div className="memory-audio-channel">
           <span role="status" aria-live="polite">
-            <AudioLines size={14} aria-hidden="true" /> {audioLabel}
+            <i className="memory-symbol" aria-hidden="true">≋</i> {audioLabel}
           </span>
           <button
             className="memory-audio-button"
@@ -86,15 +91,15 @@ export function ReviewMemoryArena({
             aria-label={`Nghe phát âm ${character}`}
             data-system-silent="true"
           >
-            <Volume2 size={20} aria-hidden="true" />
+            <span className="memory-symbol" aria-hidden="true">声</span>
             <i aria-hidden="true" />
           </button>
-        </div>
+        </div>}
       </header>
 
       <div className="memory-front">
         <div className="memory-glyph-orbit" aria-hidden="true">
-          <i /><i /><b>MEM</b><span>03</span>
+          <i /><i /><b>MEM</b><span>{stageNumber}</span>
         </div>
         <div className="memory-glyph-core">
           <span aria-hidden="true">核心 · RECALL</span>
@@ -108,15 +113,29 @@ export function ReviewMemoryArena({
           </h2>
         </div>
         <p className={revealed ? "decoded" : ""}>
-          <ScanLine size={15} aria-hidden="true" />
-          {revealed ? pinyin : "Tự gọi lại cách đọc và ý nghĩa"}
+          <span className="memory-symbol" aria-hidden="true">◇</span>
+          {revealed ? pinyin : "Bạn còn nhớ từ này không?"}
         </p>
+        {!revealed && (
+          <button
+            className="memory-hint-button"
+            type="button"
+            onClick={onUseHint}
+            disabled={hintUsed}
+            aria-pressed={hintUsed}
+          >
+            <span className="memory-symbol" aria-hidden="true">⌄</span>
+            {hintUsed
+              ? `Gợi ý: âm đầu “${pinyin.trim().slice(0, 1)}” · ${partOfSpeech}`
+              : "Gợi ý"}
+          </button>
+        )}
       </div>
 
       {revealed && (
         <div className="memory-back">
           <div className="memory-decoded-meaning">
-            <small><Sparkles size={13} aria-hidden="true" /> Mảnh nghĩa đã giải mã</small>
+            <small><span className="memory-symbol" aria-hidden="true">✦</span> Mảnh nghĩa đã giải mã</small>
             <strong>{meaning}</strong>
           </div>
           <div className="memory-example-panel">

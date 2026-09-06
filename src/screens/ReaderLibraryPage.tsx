@@ -81,7 +81,7 @@ const matchesShelf = (series: ReaderSeries, shelf: DiscoveryState["shelf"]) => {
 };
 
 export function ReaderLibraryPage() {
-  const { sync } = useLearning();
+  const { state, actions, sync } = useLearning();
   const { progress, setProgress, storageError } = useReaderProgress({
     ownerKey: sync.ownerKey,
     authenticated: Boolean(sync.session?.authenticated),
@@ -93,6 +93,7 @@ export function ReaderLibraryPage() {
   );
   const [savedWordsOpen, setSavedWordsOpen] = useState(false);
   const [editorialSeries, setEditorialSeries] = useState<ReaderSeries[]>([]);
+  const [editorialUnavailable, setEditorialUnavailable] = useState(false);
   const discoveryRef = useRef(discovery);
   const catalogRef = useRef<HTMLElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -132,8 +133,12 @@ export function ReaderLibraryPage() {
   useEffect(() => {
     let active = true;
     loadEditorialReaderCatalog()
-      .then((series) => { if (active) setEditorialSeries(series); })
-      .catch(() => undefined);
+      .then((series) => {
+        if (!active) return;
+        setEditorialSeries(series);
+        setEditorialUnavailable(false);
+      })
+      .catch(() => { if (active) setEditorialUnavailable(true); });
     return () => { active = false; };
   }, []);
 
@@ -213,7 +218,7 @@ export function ReaderLibraryPage() {
             <div>
               <small>THƯ KHỐ ĐANG MỞ · {libraryChapterCount} CHƯƠNG ĐỌC ĐƯỢC</small>
               <h1 id="reader-catalog-title">Chọn một thế giới để khai quyển</h1>
-              <p>Tu tiên, trùng sinh, ma pháp, light novel, bí ẩn, khoa huyễn, võ hiệp, triết lý và đời sống — toàn bộ là truyện nguyên bản HANZI.OS.</p>
+              <p>Tu tiên, trùng sinh, ma pháp, light novel, bí ẩn, khoa huyễn, võ hiệp, triết lý và đời sống — gồm truyện nguyên bản HANZI.OS và bài đọc có nguồn gốc rõ do Biên Tập Viện phát hành.</p>
             </div>
             <button
               type="button"
@@ -256,7 +261,7 @@ export function ReaderLibraryPage() {
               <fieldset>
                 <legend>Độ khó gợi ý</legend>
                 <div>
-                  {["Tất cả", "HSK1", "HSK2", "HSK3", "HSK4"].map((level) => (
+                  {["Tất cả", "HSK0", "HSK1", "HSK2", "HSK3", "HSK4"].map((level) => (
                     <button
                       key={level}
                       type="button"
@@ -279,6 +284,11 @@ export function ReaderLibraryPage() {
           <p className="reader-catalog-count" aria-live="polite">
             Hiển thị <strong>{filtered.length}</strong> / {seriesCatalog.length} quyển đang mở
           </p>
+          {editorialUnavailable && (
+            <p className="reader-catalog-notice" role="status">
+              Gian phát hành của Biên Tập Viện đang ngoại tuyến. {READER_DISCOVERABLE_SERIES.length} quyển tích hợp và toàn bộ tiến độ trên thiết bị vẫn nguyên vẹn.
+            </p>
+          )}
 
           {filtered.length > 0 ? (
             <div className="reader-book-grid" data-testid="reader-book-grid">
@@ -298,6 +308,7 @@ export function ReaderLibraryPage() {
                       <strong>{series.titleVi}</strong>
                       <span>{series.genreIds.slice(0, 2).join(" · ")}</span>
                       <span>{series.levelBand.min === series.levelBand.max ? series.levelBand.min : `${series.levelBand.min}–${series.levelBand.max}`} · {chapters.length} chương</span>
+                      {series.source.rightsManifestId.startsWith("studio-graded-text:") && <em className="reader-published-label">Bài đọc từ Biên Tập Viện</em>}
                       {completion.complete > 0 && <em>Đã đọc {completion.complete}/{completion.total}</em>}
                     </span>
                   </Link>
@@ -327,7 +338,17 @@ export function ReaderLibraryPage() {
         returnFocusRef={savedWordsTriggerRef}
         onClose={() => setSavedWordsOpen(false)}
         onSpeak={(text) => speakMandarin(text, 0.76)}
-        onRemove={(entryId) => setProgress((current) => removeReaderSavedEntry(current, entryId))}
+        onRemove={(entryId) => {
+          const entry = progress.savedEntries[entryId];
+          setProgress((current) => removeReaderSavedEntry(current, entryId));
+          const coreWordId = entry?.sourceType === "hanzi-os-core"
+            && entry.entryId.startsWith("reader-core:")
+            ? entry.entryId.slice("reader-core:".length)
+            : null;
+          if (coreWordId && state.savedWords.includes(coreWordId)) {
+            void actions.toggleSavedWord(coreWordId);
+          }
+        }}
       />
     </section>
   );

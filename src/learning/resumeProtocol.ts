@@ -172,6 +172,28 @@ export const summarizeLessonResumeAnswers = (
   };
 }, { correctCount: 0, requiredCorrectCount: 0, gateCorrectCount: 0 });
 
+export const scoreLessonResumeAnswers = (
+  exercises: readonly Exercise[],
+  answers: readonly LessonResumeAnswer[],
+) => {
+  const summary = summarizeLessonResumeAnswers(exercises, answers);
+  const total = Math.max(1, exercises.length);
+  const rawScore = Math.round((summary.correctCount / total) * 100);
+  const ungatedScore = Math.round((summary.gateCorrectCount / total) * 100);
+  const requiredTotal = exercises.filter(
+    (exercise) => exercise.requiredForPass,
+  ).length;
+  const requiredPassed = requiredTotal === 0
+    || summary.requiredCorrectCount / requiredTotal >= 0.7;
+
+  return {
+    ...summary,
+    rawScore,
+    requiredPassed,
+    gateScore: requiredPassed ? ungatedScore : Math.min(ungatedScore, 69),
+  };
+};
+
 const expectedActivityVersion = (lesson: Lesson, exercise: Exercise) =>
   exercise.kind === "tone-pair"
     ? `${lesson.contentVersion}:tone-sandhi:1`

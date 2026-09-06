@@ -20,7 +20,7 @@ export async function POST(
     return studioError(403, "CROSS_ORIGIN_BLOCKED", "Yêu cầu khác nguồn đã bị chặn.");
   }
   try {
-    const authorized = await authorizeStudio("content:publish");
+    const authorized = await authorizeStudio("content:publish", { stepUp: true });
     if (!authorized.ok) return authorized.response;
     const { eventId } = await params;
     if (!eventId || eventId.length > 255 || eventId.includes("\0")) {

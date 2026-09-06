@@ -2,10 +2,12 @@ import {
   AUTH_JSON_HEADERS,
   authError,
   loadAuthRuntime,
+  roleAwareSignInReturnTo,
   sameOriginMutation,
   sessionResponseHeaders,
 } from "../../../../../src/server/authHttp";
 import { AuditRepository, requestCorrelationId } from "../../../../../src/server/auditRepository";
+import { AuthorizationRepository } from "../../../../../src/server/authorizationRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -97,8 +99,16 @@ export async function POST(request: Request) {
       requestId: requestCorrelationId(request),
       metadata: { provider: "email_otp" },
     });
+    const authorization = await new AuthorizationRepository(database)
+      .getAuthorization(linked.userId);
     return Response.json(
-      { authenticated: true, linked: challenge.kind === "email_link", returnTo },
+      {
+        authenticated: true,
+        linked: challenge.kind === "email_link",
+        returnTo: challenge.kind === "email_signin"
+          ? roleAwareSignInReturnTo(returnTo, authorization.roles)
+          : returnTo,
+      },
       { headers: sessionResponseHeaders(session.token) },
     );
   } catch {

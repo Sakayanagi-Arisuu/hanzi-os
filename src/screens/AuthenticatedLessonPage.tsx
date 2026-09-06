@@ -10,10 +10,8 @@ import {
   Lightbulb,
   LockKeyhole,
   PenLine,
-  Play,
   RefreshCw,
   Sparkles,
-  Target,
   Volume2,
   X,
 } from "lucide-react";
@@ -25,7 +23,6 @@ import {
   useState,
 } from "react";
 import { Link, useParams } from "react-router";
-import { LessonDepthDisclosure } from "../components/LessonDepthPanel";
 import { LessonQuestResult } from "../components/LessonQuestResult";
 import { LessonQuestTransition } from "../components/LessonQuestTransition";
 import { LessonTheoryPanel } from "../components/LessonTheoryPanel";
@@ -34,6 +31,12 @@ import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearnin
 import { ConfirmModal } from "../components/SystemFeedback";
 import { LESSON_BY_ID, WORD_BY_ID } from "../data/curriculum";
 import { getLessonGuide } from "../data/lessonGuides";
+import { getLessonTeachingGuide } from "../learning/lessonPedagogy";
+import { learnerFacingCopy } from "../learning/lessonTeachingFlow";
+import type {
+  PublishedStudioLesson,
+  PublishedStudioLessonEnhancement,
+} from "../content/publishedStudioLessons";
 import {
   buildNormalizedLessonAbandonQueueInput,
   buildNormalizedLessonAttemptQueueInput,
@@ -52,6 +55,7 @@ import type { LessonSessionAuthorityBindingV1 } from "../learning/lessonSessionP
 import type { SubmitLessonSessionReceiptV1 } from "../learning/lessonSessionSubmissionProtocol";
 import type { ActiveLessonAttemptProjectionV1 } from "../learning/projectionProtocol";
 import { resolveExerciseSpeechText } from "../learning/exerciseSpeech";
+import { buildLessonAnswerFeedback } from "../learning/lessonFeedback";
 import { claimLessonInteractionXp } from "../learning/interactionXpClient";
 import {
   abandonmentReceiptMatchesSessionBinding,
@@ -67,6 +71,7 @@ import { makeIdempotencyKey } from "../lib/evidence";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
 import { useInteractionXp } from "../store/InteractionXpStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
@@ -152,7 +157,14 @@ const projectedAttemptsForSession = (
 const currentLessonVersion = (lesson: Lesson) =>
   `${lesson.contentVersion}:${lesson.id}:1`;
 
-export function AuthenticatedLessonPage() {
+type PublishedLessonProps = {
+  publishedLesson?: PublishedStudioLesson;
+  publishedLessonEnhancement?: PublishedStudioLessonEnhancement;
+  publishedLessonStatus: "loading" | "ready" | "fallback";
+  retryPublishedLesson: () => void;
+};
+
+export function AuthenticatedLessonPage(props: PublishedLessonProps) {
   const { lessonId } = useParams();
   const { sync } = useLearning();
   const authority = useNormalizedLearningProjection();
@@ -169,13 +181,19 @@ export function AuthenticatedLessonPage() {
     authority.projection?.manifestSha256 ?? "missing-manifest",
     authority.projection?.enrollment?.enrollmentId ?? "missing-enrollment",
   ].join("\u0000");
-  return <AuthenticatedLessonPageScope key={authorityKey} />;
+  return <AuthenticatedLessonPageScope key={authorityKey} {...props} />;
 }
 
-function AuthenticatedLessonPageScope() {
+function AuthenticatedLessonPageScope({
+  publishedLesson,
+  publishedLessonEnhancement,
+  publishedLessonStatus,
+  retryPublishedLesson,
+}: PublishedLessonProps) {
   const { lessonId } = useParams();
   const { state, actions, sync } = useLearning();
   const interactionXp = useInteractionXp();
+  const { currentStep, recordReceipt } = useLearningJourney();
   const requestedLesson = lessonId ? LESSON_BY_ID.get(lessonId) : undefined;
   const availableForPath = Boolean(
     requestedLesson
@@ -183,6 +201,9 @@ function AuthenticatedLessonPageScope() {
   );
   const unavailableLesson = Boolean(requestedLesson && !availableForPath);
   const lesson = availableForPath ? requestedLesson : undefined;
+  const presentedLesson = lesson && publishedLesson?.lesson.id === lesson.id
+    ? publishedLesson.lesson
+    : lesson;
   const authority = useNormalizedLearningProjection();
   const refreshProjection = authority.refresh;
   const [records, setRecords] = useState<LearningCommandOutboxRecord[] | null>(
@@ -218,6 +239,16 @@ function AuthenticatedLessonPageScope() {
   const [transitionActiveStep, setTransitionActiveStep] = useState<0 | 1 | 2>(0);
   const [claimingReward, setClaimingReward] = useState(false);
   const [rewardClaimedLocally, setRewardClaimedLocally] = useState(false);
+
+  useEffect(() => {
+    if (!result?.passed || !lesson) return;
+    recordReceipt({
+      stage: "learn",
+      source: "lesson",
+      lessonId: lesson.id,
+      activityId: `${result.idempotencyKey}:journey-learn`,
+    });
+  }, [lesson, recordReceipt, result]);
   const [rewardError, setRewardError] = useState<string | null>(null);
   const advanceLockRef = useRef(false);
   const submitRecoveryRef = useRef<() => Promise<void>>(async () => undefined);
@@ -250,7 +281,13 @@ function AuthenticatedLessonPageScope() {
     && lessonProgress.lessonVersion === currentLessonVersion(lesson!)
     && lessonProgress.unlocked,
   );
-  const guide = useMemo(() => getLessonGuide(lesson?.id ?? ""), [lesson?.id]);
+  const guide = useMemo(
+    () => getLessonTeachingGuide(
+      lesson?.id ?? "",
+      publishedLesson?.guide ?? getLessonGuide(lesson?.id ?? ""),
+    ),
+    [lesson?.id, publishedLesson],
+  );
   const lessonWords = useMemo(
     () => lesson?.wordIds
       .map((id) => WORD_BY_ID.get(id))
@@ -1091,7 +1128,7 @@ function AuthenticatedLessonPageScope() {
     return (
       <LessonQuestTransition
         kind="restoring"
-        lessonTitle={lesson.title}
+        lessonTitle={presentedLesson?.title ?? lesson.title}
         itemCount={runtime?.activities.length}
       />
     );
@@ -1101,7 +1138,7 @@ function AuthenticatedLessonPageScope() {
     return (
       <LessonQuestTransition
         kind={phase}
-        lessonTitle={lesson.title}
+        lessonTitle={presentedLesson?.title ?? lesson.title}
         itemCount={runtime?.activities.length}
         activeStep={phase === "submitting" ? transitionActiveStep : undefined}
         delayed={transitionDelayed}
@@ -1175,8 +1212,8 @@ function AuthenticatedLessonPageScope() {
     return (
       <LessonQuestResult
         lessonId={lesson.id}
-        lessonTitle={lesson.title}
-        chineseTitle={lesson.chineseTitle}
+        lessonTitle={presentedLesson?.title ?? lesson.title}
+        chineseTitle={presentedLesson?.chineseTitle ?? lesson.chineseTitle}
         passed={result.passed}
         correctCount={rawCorrectCount}
         totalCount={result.evidenceCount}
@@ -1195,6 +1232,12 @@ function AuthenticatedLessonPageScope() {
             setPhase("briefing");
         }}
         onNavigate={refreshProjection}
+        continueDestination={currentStep?.stage === "learn"
+          ? undefined
+          : currentStep?.to}
+        continueDestinationLabel={currentStep?.stage === "learn"
+          ? undefined
+          : currentStep ? `Tiếp tục bước ${currentStep.stageLabel}` : undefined}
       />
     );
   }
@@ -1202,50 +1245,43 @@ function AuthenticatedLessonPageScope() {
   if (phase === "briefing") {
     return (
       <div className="lesson-briefing-page">
-        <header className="briefing-topbar">
-          <Link className="icon-button" to="/path" aria-label="Trở về Thiên Lộ">
-            <ArrowLeft size={20} />
-          </Link>
-          <span>THỬ LUYỆN · 01/02</span>
-          <strong>{lesson.minutes} phút · XP chỉ là tương tác</strong>
-        </header>
         <div className="lesson-briefing-scroll">
           <section className="briefing-hero">
-            <div>
-              <span className="system-kicker"><BrainCircuit size={16} /> LĨNH HỘI TRƯỚC · TRUY HỒI SAU</span>
-              <h1>{lesson.title}</h1>
-              <p className="briefing-chinese">{lesson.chineseTitle}</p>
-              <p>{lesson.objective.replace(
-                /;\s*chưa chấm mastery trước review\./giu,
-                ".",
-              )}</p>
-            </div>
-            <div className="mastery-gate">
-              <Target size={26} />
-              <span>Ngưỡng khai mở</span>
-              <strong>70%</strong>
-              <small>Hoàn thành đầy đủ lượt thử để mở bài tiếp theo.</small>
+            <header className="lesson-briefing-masthead">
+              <Link className="lesson-briefing-back" to="/path" aria-label="Trở về Thiên Lộ">
+                <ArrowLeft size={18} /><span>Thiên Lộ</span>
+              </Link>
+              <strong>{lesson.minutes} phút</strong>
+            </header>
+            <div className="briefing-hero-copy">
+              <span className="system-kicker"><BrainCircuit size={16} /> MỤC TIÊU BÀI HỌC</span>
+              <h1>{presentedLesson?.title ?? lesson.title}</h1>
+              <p className="briefing-chinese">{presentedLesson?.chineseTitle ?? lesson.chineseTitle}</p>
+              <p>{learnerFacingCopy(presentedLesson?.objective ?? lesson.objective)}</p>
             </div>
           </section>
           <LessonTheoryPanel
             guide={guide}
             lessonId={lesson.id}
+            lessonObjective={presentedLesson?.objective ?? lesson.objective}
+            preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}
             script={state.profile.script}
             practiceKinds={runtime?.activities.map((activity) => activity.kind)}
+            practiceWordIds={runtime?.activities.map((activity) => activity.wordId)}
+            contentOverride={publishedLesson?.richContent}
+            enhancement={publishedLessonEnhancement}
+            ready={theoryReady || Boolean(runtime)}
             onReadinessChange={setTheoryReady}
+            onComplete={() => void startSession()}
+            completionLabel={busy ? "Đang mở phiên…" : runtime ? "Tiếp tục Thử Luyện" : "Bắt đầu luyện tập"}
+            completionDisabled={busy}
           />
-          <LessonDepthDisclosure lessonId={lesson.id} />
+          {publishedLessonStatus === "fallback" && <p className="synthetic-audio-note" role="status">Bản biên soạn mới chưa tải được; bài cốt lõi và tiến độ tài khoản vẫn hoạt động. <button className="secondary-button" type="button" onClick={retryPublishedLesson}>Thử tải lại</button></p>}
           <p className="synthetic-audio-note">
             Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
           </p>
         </div>
-        <footer className="briefing-actions">
-              <p><Lightbulb size={17} /> Phần luyện tập xuất hiện khi bạn đã hoàn thành bài tiên quyết.</p>
-          <button className="primary-button" disabled={busy || (!theoryReady && !runtime)} type="button" onClick={() => void startSession()}>
-            {theoryReady || runtime ? "Bắt đầu luyện tập" : "Hoàn tất 3 chặng học ở trên"} <Play size={17} />
-          </button>
-        </footer>
       </div>
     );
   }
@@ -1317,7 +1353,7 @@ function AuthenticatedLessonPageScope() {
       </header>
       <div className="lesson-context">
         <span><ExerciseIcon size={16} /> {current.instruction}</span>
-        <strong>{lesson.title} · kỹ năng {current.skill}</strong>
+        <strong>{presentedLesson?.title ?? lesson.title} · kỹ năng {current.skill}</strong>
       </div>
       <section className={`exercise-stage ${reviewingTheory ? "is-theory-review" : ""}`}>
         {reviewingTheory ? (
@@ -1325,9 +1361,14 @@ function AuthenticatedLessonPageScope() {
             compact
             guide={guide}
             lessonId={lesson.id}
+            lessonObjective={presentedLesson?.objective ?? lesson.objective}
+            preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}
             script={state.profile.script}
             practiceKinds={runtime.activities.map((activity) => activity.kind)}
+            practiceWordIds={runtime.activities.map((activity) => activity.wordId)}
+            contentOverride={publishedLesson?.richContent}
+            enhancement={publishedLessonEnhancement}
           />
         ) : (
           <>
@@ -1423,7 +1464,11 @@ function AuthenticatedLessonPageScope() {
                   ? "Đúng với hỗ trợ · không tính vào ngưỡng"
                   : "Chính xác"
                 : "Chưa chính xác"}</strong>
-              <p>Đáp án được mở sau khi câu trả lời của bạn đã được ghi nhận.</p>
+              <p>{buildLessonAnswerFeedback({
+                activity: current,
+                selected,
+                correct: isCorrect,
+              })}</p>
             </div>
           </div>
         ) : (

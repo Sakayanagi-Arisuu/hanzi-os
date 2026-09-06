@@ -9,6 +9,9 @@ export async function GET() {
     const series = await new EditorialReaderRepository(await getD1Database()).listPublishedSeries();
     return Response.json({ series }, { headers: noStoreJsonHeaders });
   } catch {
-    return Response.json({ series: [] }, { headers: noStoreJsonHeaders });
+    return Response.json(
+      { error: "reader-editorial-catalog-unavailable" },
+      { status: 503, headers: noStoreJsonHeaders },
+    );
   }
 }

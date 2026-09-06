@@ -1,5 +1,5 @@
 import { authorizeAdmin } from "../../../src/server/adminHttp";
-import { sameOriginMutation } from "../../../src/server/authHttp";
+import { boundedReturnTo, sameOriginMutation } from "../../../src/server/authHttp";
 import { requestCorrelationId } from "../../../src/server/auditRepository";
 import {
   AdminCurrentSessionRevocationError,
@@ -10,8 +10,8 @@ import { readBoundedRequestText } from "../../../src/server/boundedRequestBody";
 
 export const dynamic = "force-dynamic";
 
-const redirect = (request: Request, key: "updated" | "error", value: string) => {
-  const location = new URL("/admin", request.url);
+const redirect = (request: Request, key: "updated" | "error", value: string, returnTo?: string | null) => {
+  const location = new URL(boundedReturnTo(returnTo ?? null, "/admin"), request.url);
   location.searchParams.set(key, value);
   return Response.redirect(location, 303);
 };
@@ -25,15 +25,17 @@ export async function POST(request: Request) {
   }
   const body = await readBoundedRequestText(request, 1_024);
   if (!body.ok) return redirect(request, "error", "Biểu mẫu vượt giới hạn.");
-  const sessionId = new URLSearchParams(body.text).get("sessionId") ?? "";
+  const form = new URLSearchParams(body.text);
+  const sessionId = form.get("sessionId") ?? "";
+  const returnTo = form.get("returnTo");
   if (!sessionId || sessionId.length > 128) {
-    return redirect(request, "error", "Phiên không hợp lệ.");
+    return redirect(request, "error", "Phiên không hợp lệ.", returnTo);
   }
   try {
     const authorized = await authorizeAdmin("admin:sessions:revoke", { stepUp: true });
     if (!authorized.ok) {
       const error = await authorized.response.json() as { error?: { message?: string } };
-      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.");
+      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.", returnTo);
     }
     await new AuthorizationRepository(authorized.context.database).revokeManagedSession({
       actorUserId: authorized.context.account.userId,
@@ -41,14 +43,14 @@ export async function POST(request: Request) {
       sessionId,
       requestId: requestCorrelationId(request),
     });
-    return redirect(request, "updated", sessionId);
+    return redirect(request, "updated", sessionId, returnTo);
   } catch (error) {
     if (error instanceof AdminCurrentSessionRevocationError) {
-      return redirect(request, "error", "Dùng đăng xuất để kết thúc phiên hiện tại.");
+      return redirect(request, "error", "Dùng đăng xuất để kết thúc phiên hiện tại.", returnTo);
     }
     if (error instanceof AuthorizationTargetNotFoundError) {
-      return redirect(request, "error", "Không tìm thấy phiên.");
+      return redirect(request, "error", "Không tìm thấy phiên.", returnTo);
     }
-    return redirect(request, "error", "Không thể thu hồi phiên.");
+    return redirect(request, "error", "Không thể thu hồi phiên.", returnTo);
   }
 }

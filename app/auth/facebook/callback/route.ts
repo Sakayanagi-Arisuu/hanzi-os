@@ -2,6 +2,7 @@ import {
   boundedReturnTo,
   facebookConfig,
   loadAuthRuntime,
+  roleAwareSignInReturnTo,
   sessionResponseHeaders,
 } from "../../../../src/server/authHttp";
 import { exchangeFacebookAuthorizationCode } from "../../../../src/server/facebookIdentity";
@@ -9,6 +10,7 @@ import {
   AuditRepository,
   requestCorrelationId,
 } from "../../../../src/server/auditRepository";
+import { AuthorizationRepository } from "../../../../src/server/authorizationRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -104,11 +106,17 @@ export async function GET(request: Request) {
       requestId: requestCorrelationId(request),
       metadata: { provider: "facebook" },
     });
+    const destination = challenge.kind === "facebook_signin"
+      ? roleAwareSignInReturnTo(
+          returnTo,
+          (await new AuthorizationRepository(database).getAuthorization(linked.userId)).roles,
+        )
+      : returnTo;
     return new Response(null, {
       status: 303,
       headers: {
         ...sessionResponseHeaders(session.token),
-        location: new URL(returnTo, url.origin).toString(),
+        location: new URL(destination, url.origin).toString(),
       },
     });
   } catch {

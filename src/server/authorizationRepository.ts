@@ -9,6 +9,7 @@ import type { D1Database } from "./d1";
 import { getBootstrapAdminEmails } from "./runtimeAuthorizationConfig";
 import { SyncRepository } from "./syncRepository";
 import { AuditRepository } from "./auditRepository";
+import { normalizeAuthDeviceLabel } from "./authRepository";
 
 export type AuthorizedAccount = {
   userId: string;
@@ -28,6 +29,21 @@ export type AdminUserSummary = {
   updatedAt: number;
 };
 
+export type AdminUserRoleFilter = "all" | "learner_only" | "content_editor" | "admin";
+export type AdminUserStatusFilter = "all" | "active" | "locked";
+
+export type AdminUserPage = {
+  users: AdminUserSummary[];
+  filteredTotal: number;
+  summary: {
+    total: number;
+    active: number;
+    locked: number;
+    editors: number;
+    admins: number;
+  };
+};
+
 export type AdminSessionSummary = {
   id: string;
   userId: string;
@@ -38,6 +54,18 @@ export type AdminSessionSummary = {
   lastSeenAt: number;
   expiresAt: number;
   revokedAt: number | null;
+};
+
+export type AdminSessionFilter = "all" | "active" | "revoked";
+
+export type AdminSessionPage = {
+  sessions: AdminSessionSummary[];
+  filteredTotal: number;
+  summary: {
+    total: number;
+    active: number;
+    revoked: number;
+  };
 };
 
 export class AdminRoleSelfRevocationError extends Error {
@@ -408,7 +436,229 @@ export class AuthorizationRepository {
       .bind(boundedLimit)
       .all<AdminSessionSummary>();
     if (!result.success) throw new Error("Unable to list managed sessions.");
-    return result.results ?? [];
+    return (result.results ?? []).map((session) => ({
+      ...session,
+      deviceLabel: normalizeAuthDeviceLabel(session.deviceLabel),
+    }));
+  }
+
+  async listUserPage(input: {
+    limit?: number;
+    offset?: number;
+    role?: AdminUserRoleFilter;
+    status?: AdminUserStatusFilter;
+    query?: string;
+  } = {}): Promise<AdminUserPage> {
+    const limit = Math.max(1, Math.min(50, Math.trunc(input.limit ?? 12)));
+    const offset = Math.max(0, Math.min(10_000, Math.trunc(input.offset ?? 0)));
+    const role: AdminUserRoleFilter = input.role === "learner_only"
+      || input.role === "content_editor"
+      || input.role === "admin"
+      ? input.role
+      : "all";
+    const status: AdminUserStatusFilter = input.status === "active" || input.status === "locked"
+      ? input.status
+      : "all";
+    const query = input.query?.trim().slice(0, 120) ?? "";
+    const clauses: string[] = [];
+    const values: unknown[] = [];
+    if (status !== "all") {
+      clauses.push("u.status = ?");
+      values.push(status);
+    }
+    if (role === "learner_only") {
+      clauses.push("NOT EXISTS (SELECT 1 FROM user_roles elevated WHERE elevated.user_id = u.id AND elevated.role IN ('content_editor', 'admin'))");
+    } else if (role !== "all") {
+      clauses.push("EXISTS (SELECT 1 FROM user_roles selected_role WHERE selected_role.user_id = u.id AND selected_role.role = ?)");
+      values.push(role);
+    }
+    if (query) {
+      const escaped = query.toLocaleLowerCase("vi")
+        .replace(/[\\%_]/gu, (value) => `\\${value}`);
+      const pattern = `%${escaped}%`;
+      clauses.push(`EXISTS (
+        SELECT 1 FROM auth_identities searched_identity
+         WHERE searched_identity.user_id = u.id
+           AND searched_identity.email_verified = 1
+           AND LOWER(COALESCE(searched_identity.normalized_email, '')) LIKE ? ESCAPE '\\'
+      )`);
+      values.push(pattern);
+    }
+    const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
+    const [rows, count, summary] = await Promise.all([
+      this.database
+        .prepare(
+          `SELECT u.id AS userId,
+                  COALESCE((
+                    SELECT ai.normalized_email
+                      FROM auth_identities ai
+                     WHERE ai.user_id = u.id
+                       AND ai.email_verified = 1
+                       AND ai.normalized_email IS NOT NULL
+                     ORDER BY CASE ai.provider
+                       WHEN 'chatgpt' THEN 0 WHEN 'google' THEN 1
+                       WHEN 'email_otp' THEN 2 ELSE 3 END,
+                       ai.created_at
+                     LIMIT 1
+                  ), '') AS email,
+                  u.status AS status,
+                  u.control_revision AS controlRevision,
+                  u.locked_at AS lockedAt,
+                  u.locked_by_user_id AS lockedByUserId,
+                  u.lock_reason AS lockReason,
+                  u.created_at AS createdAt,
+                  u.updated_at AS updatedAt,
+                  COALESCE(GROUP_CONCAT(ur.role), '') AS roles
+             FROM users u
+             LEFT JOIN user_roles ur ON ur.user_id = u.id
+             ${where}
+            GROUP BY u.id, u.status, u.control_revision, u.locked_at,
+                     u.locked_by_user_id, u.lock_reason, u.created_at, u.updated_at
+            ORDER BY CASE u.status WHEN 'active' THEN 0 ELSE 1 END,
+                     u.created_at DESC, u.id
+            LIMIT ? OFFSET ?`,
+        )
+        .bind(...values, limit, offset)
+        .all<{
+          userId: string;
+          email: string;
+          status: string;
+          controlRevision: number;
+          lockedAt: number | null;
+          lockedByUserId: string | null;
+          lockReason: string | null;
+          roles: string;
+          createdAt: number;
+          updatedAt: number;
+        }>(),
+      this.database
+        .prepare(`SELECT COUNT(*) AS total FROM users u ${where}`)
+        .bind(...values)
+        .first<{ total: number }>(),
+      this.database
+        .prepare(
+          `SELECT COUNT(*) AS total,
+                  COALESCE(SUM(CASE WHEN status = 'active' THEN 1 ELSE 0 END), 0) AS active,
+                  COALESCE(SUM(CASE WHEN status = 'locked' THEN 1 ELSE 0 END), 0) AS locked,
+                  (SELECT COUNT(*) FROM user_roles WHERE role = 'content_editor') AS editors,
+                  (SELECT COUNT(*) FROM user_roles WHERE role = 'admin') AS admins
+             FROM users`,
+        )
+        .first<{ total: number; active: number; locked: number; editors: number; admins: number }>(),
+    ]);
+    if (!rows.success || !count || !summary) {
+      throw new Error("Unable to list authorized account page.");
+    }
+    return {
+      users: (rows.results ?? []).map((row) => ({
+        userId: row.userId,
+        email: row.email,
+        status: row.status,
+        roles: createAuthorization(normalizeRoles(row.roles.split(","))).roles,
+        controlRevision: row.controlRevision,
+        lockedAt: row.lockedAt,
+        lockedByUserId: row.lockedByUserId,
+        lockReason: row.lockReason,
+        createdAt: row.createdAt,
+        updatedAt: row.updatedAt,
+      })),
+      filteredTotal: Number(count.total),
+      summary: {
+        total: Number(summary.total),
+        active: Number(summary.active),
+        locked: Number(summary.locked),
+        editors: Number(summary.editors),
+        admins: Number(summary.admins),
+      },
+    };
+  }
+
+  async listSessionPage(input: {
+    limit?: number;
+    offset?: number;
+    status?: AdminSessionFilter;
+    query?: string;
+  } = {}): Promise<AdminSessionPage> {
+    const limit = Math.max(1, Math.min(50, Math.trunc(input.limit ?? 12)));
+    const offset = Math.max(0, Math.min(10_000, Math.trunc(input.offset ?? 0)));
+    const status: AdminSessionFilter = input.status === "active" || input.status === "revoked"
+      ? input.status
+      : "all";
+    const query = input.query?.trim().slice(0, 120) ?? "";
+    const clauses: string[] = [];
+    const values: unknown[] = [];
+    if (status === "active") clauses.push("s.revoked_at IS NULL");
+    if (status === "revoked") clauses.push("s.revoked_at IS NOT NULL");
+    if (query) {
+      const escaped = query.toLocaleLowerCase("vi")
+        .replace(/[\\%_]/gu, (value) => `\\${value}`);
+      const pattern = `%${escaped}%`;
+      clauses.push(`(
+        LOWER(COALESCE(s.device_label, '')) LIKE ? ESCAPE '\\'
+        OR LOWER(s.auth_method) LIKE ? ESCAPE '\\'
+        OR EXISTS (
+          SELECT 1 FROM auth_identities ai
+           WHERE ai.user_id = s.user_id
+             AND ai.email_verified = 1
+             AND LOWER(COALESCE(ai.normalized_email, '')) LIKE ? ESCAPE '\\'
+        )
+      )`);
+      values.push(pattern, pattern, pattern);
+    }
+    const where = clauses.length ? `WHERE ${clauses.join(" AND ")}` : "";
+    const [rows, count, summary] = await Promise.all([
+      this.database
+        .prepare(
+          `SELECT s.id, s.user_id AS userId,
+                  COALESCE((
+                    SELECT ai.normalized_email FROM auth_identities ai
+                     WHERE ai.user_id = s.user_id
+                       AND ai.email_verified = 1
+                       AND ai.normalized_email IS NOT NULL
+                     ORDER BY ai.created_at LIMIT 1
+                  ), '') AS email,
+                  s.auth_method AS authMethod,
+                  s.device_label AS deviceLabel,
+                  s.authenticated_at AS authenticatedAt,
+                  s.last_seen_at AS lastSeenAt,
+                  s.expires_at AS expiresAt,
+                  s.revoked_at AS revokedAt
+             FROM auth_sessions s
+             ${where}
+            ORDER BY CASE WHEN s.revoked_at IS NULL THEN 0 ELSE 1 END,
+                     s.last_seen_at DESC, s.id
+            LIMIT ? OFFSET ?`,
+        )
+        .bind(...values, limit, offset)
+        .all<AdminSessionSummary>(),
+      this.database
+        .prepare(`SELECT COUNT(*) AS total FROM auth_sessions s ${where}`)
+        .bind(...values)
+        .first<{ total: number }>(),
+      this.database
+        .prepare(
+          `SELECT COUNT(*) AS total,
+                  COALESCE(SUM(CASE WHEN revoked_at IS NULL THEN 1 ELSE 0 END), 0) AS active,
+                  COALESCE(SUM(CASE WHEN revoked_at IS NOT NULL THEN 1 ELSE 0 END), 0) AS revoked
+             FROM auth_sessions`,
+        )
+        .first<{ total: number; active: number; revoked: number }>(),
+    ]);
+    if (!rows.success || !count || !summary) {
+      throw new Error("Unable to list managed session page.");
+    }
+    return {
+      sessions: (rows.results ?? []).map((session) => ({
+        ...session,
+        deviceLabel: normalizeAuthDeviceLabel(session.deviceLabel),
+      })),
+      filteredTotal: Number(count.total),
+      summary: {
+        total: Number(summary.total),
+        active: Number(summary.active),
+        revoked: Number(summary.revoked),
+      },
+    };
   }
 
   async revokeManagedSession(input: {

@@ -1,5 +1,3 @@
-import { Check, Gauge } from "lucide-react";
-
 export type ReviewRatingOption<RatingValue extends number> = {
   rating: RatingValue;
   key: string;
@@ -33,7 +31,7 @@ export function ReviewRatingConsole<RatingValue extends number>({
     >
       <div className="review-action-inner">
         <div className="rating-heading">
-          <span className="review-command-sigil" aria-hidden="true"><Gauge size={19} /></span>
+          <span className="review-command-sigil" aria-hidden="true">衡</span>
           <span>
             <b>PHÁN ĐỊNH KÝ ỨC</b>
             <strong id={headingId}>{heading}</strong>
@@ -56,7 +54,7 @@ export function ReviewRatingConsole<RatingValue extends number>({
                 <strong>{option.label}</strong>
                 <small>{option.hint}</small>
               </span>
-              {option.className === "good" && <Check aria-hidden="true" size={17} />}
+              {option.className === "good" && <span aria-hidden="true">✓</span>}
             </button>
           ))}
         </div>

@@ -85,15 +85,33 @@ export function boundedReturnTo(value: string | null, fallback = "/") {
   }
 }
 
-export function roleAwareHanziReturnTo(
+const routeIsWithin = (path: string, base: string) =>
+  path === base || path.startsWith(`${base}/`) || path.startsWith(`${base}?`) || path.startsWith(`${base}#`);
+
+/**
+ * Specialist accounts open in their own workspace after authentication.
+ * Back-office deep links survive step-up verification, while a learner route
+ * captured before sign-in cannot pull an admin/editor into the learning shell.
+ */
+export function roleAwareSignInReturnTo(
   value: string | null,
   roles: readonly string[],
 ) {
   const returnTo = boundedReturnTo(value, "/");
-  if (returnTo !== "/") return returnTo;
-  if (roles.includes("admin")) return "/admin";
-  if (roles.includes("content_editor")) return "/studio";
-  return "/";
+  if (roles.includes("admin")) {
+    return routeIsWithin(returnTo, "/admin")
+      || routeIsWithin(returnTo, "/studio")
+      || routeIsWithin(returnTo, "/account")
+      ? returnTo
+      : "/admin";
+  }
+  if (roles.includes("content_editor")) {
+    return routeIsWithin(returnTo, "/studio")
+      || routeIsWithin(returnTo, "/account")
+      ? returnTo
+      : "/studio";
+  }
+  return returnTo;
 }
 
 export async function loadAuthRuntime() {

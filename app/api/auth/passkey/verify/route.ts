@@ -3,6 +3,7 @@ import {
   authError,
   loadAuthRuntime,
   relyingPartyConfig,
+  roleAwareSignInReturnTo,
   sameOriginMutation,
   sessionResponseHeaders,
 } from "../../../../../src/server/authHttp";
@@ -13,6 +14,7 @@ import {
   type PasskeyRegistrationResponse,
 } from "../../../../../src/server/webauthn";
 import { AuditRepository, requestCorrelationId } from "../../../../../src/server/auditRepository";
+import { AuthorizationRepository } from "../../../../../src/server/authorizationRepository";
 
 export const dynamic = "force-dynamic";
 
@@ -170,12 +172,17 @@ export async function POST(request: Request) {
       requestId: requestCorrelationId(request),
       metadata: { provider: "passkey" },
     });
+    const authorization = await new AuthorizationRepository(database)
+      .getAuthorization(storedCredential.userId);
     return Response.json(
       {
         authenticated: true,
-        returnTo: typeof storedChallenge.payload.returnTo === "string"
-          ? storedChallenge.payload.returnTo
-          : "/",
+        returnTo: roleAwareSignInReturnTo(
+          typeof storedChallenge.payload.returnTo === "string"
+            ? storedChallenge.payload.returnTo
+            : null,
+          authorization.roles,
+        ),
       },
       { headers: sessionResponseHeaders(session.token) },
     );

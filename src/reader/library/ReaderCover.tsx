@@ -34,7 +34,7 @@ export function ReaderCover({ series, compact = false, catalog = false }: {
               decoding="async"
             />
           )}
-          <span className="reader-cover-art__eyebrow">HANZI.OS · ORIGINAL</span>
+          <span className="reader-cover-art__eyebrow">HANZI.OS · {series.source.sourceType === "licensed-third-party" ? "LICENSED" : series.source.sourceType === "legacy-hanzi-os" ? "LEGACY" : "ORIGINAL"}</span>
           <span className="reader-cover-art__zh" lang="zh-Hans">{series.titleZh}</span>
           <strong>{series.titleVi}</strong>
           <span className="reader-cover-art__seal" aria-hidden="true">阅</span>

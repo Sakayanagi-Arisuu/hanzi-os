@@ -4,3 +4,8 @@
 HANZI_OS_AZURE_PRONUNCIATION_LOCAL_ENABLED=true
 AZURE_SPEECH_SUBSCRIPTION_KEY=replace-with-server-only-f0-resource-key
 AZURE_SPEECH_REGION=eastasia
+
+# Optional AI enrichment for Vạn Quyển Các. The key is read only by the server.
+GEMINI_API_KEY=replace-with-server-only-gemini-key
+# Optional override. Defaults to gemini-2.5-flash.
+GEMINI_TEXT_MODEL=gemini-2.5-flash

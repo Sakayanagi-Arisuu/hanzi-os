@@ -15,7 +15,7 @@ export const DEFERRED_PRODUCTION_CONTENT_TESTS = [
 export default defineConfig({
   test: {
     environment: "node",
-    include: ["src/**/*.test.ts"],
+    include: ["src/**/*.test.ts", "app/**/*.test.tsx"],
     exclude: [...configDefaults.exclude, ...DEFERRED_PRODUCTION_CONTENT_TESTS],
     passWithNoTests: false,
     restoreMocks: true,

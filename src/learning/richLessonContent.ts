@@ -107,7 +107,7 @@ const lessonById = new Map(
 );
 
 export type ReleasedCharacterPracticeEntry = RichLessonCharacter & {
-  level: "hsk1" | "hsk2" | "hsk3" | "hsk4";
+  level: "hsk0" | "hsk1" | "hsk2" | "hsk3" | "hsk4";
   lessonId: string;
 };
 

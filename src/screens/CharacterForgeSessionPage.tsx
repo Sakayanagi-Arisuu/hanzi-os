@@ -18,26 +18,34 @@ import {
   createCharacterForgeSession,
   createStrokeDirectionOptions,
   getAdaptiveAssistance,
+  getUniqueReleasedCharacterEntries,
   getSessionAssistance,
   parseCharacterForgeSession,
   serializeCharacterForgeSession,
   type CharacterForgePhase,
   type CharacterForgeSession,
 } from "../characters/characterForgeSession";
+import { mergePublishedStudioCharacters } from "../content/publishedStudioClient";
+import { usePublishedStudioCharacters } from "../content/usePublishedStudioCharacters";
 import { loadHanziStrokeData, type HanziStrokeData } from "../characters/hanziStrokeData";
 import { CharacterContextChallenge } from "../components/CharacterContextChallenge";
 import { CharacterStructurePanel } from "../components/CharacterStructurePanel";
 import { StrokeOrderPractice, type StrokePracticeResult } from "../components/StrokeOrderPractice";
 import { LESSON_BY_ID, RELEASED_WORD_BY_ID } from "../data/curriculum";
-import { RELEASED_CHARACTER_PRACTICE } from "../learning/richLessonContent";
+import {
+  RELEASED_CHARACTER_PRACTICE,
+  type ReleasedCharacterPracticeEntry,
+} from "../learning/richLessonContent";
 import {
   CHARACTER_FORGE_SESSION_STORAGE_KEY,
+  getCharacterForgeSessionStorageKey,
   readLocalStorage,
   writeLocalStorage,
 } from "../lib/storageKeys";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
-import { getCharacterScriptPresentation, UNIQUE_RELEASED_CHARACTERS } from "./CharactersPage";
+import { useLearningJourney } from "../store/LearningJourneyStore";
+import { getCharacterScriptPresentation } from "./CharactersPage";
 import "./CharactersPage.css";
 import "./CharacterForgeSessionPage.css";
 
@@ -51,14 +59,23 @@ const phaseMeta: Record<CharacterForgePhase, { index: number; label: string; ins
 
 type DrawingAlternative = "canvas" | "paper" | "choice";
 
-const initialSessionFromStorage = (search: string) => {
-  const stored = parseCharacterForgeSession(readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY));
+const initialSessionFromStorage = (
+  search: string,
+  ownerKey: string,
+  entries: readonly ReleasedCharacterPracticeEntry[] = RELEASED_CHARACTER_PRACTICE,
+) => {
+  const stored = parseCharacterForgeSession(
+    readLocalStorage(getCharacterForgeSessionStorageKey(ownerKey))
+      ?? (ownerKey.startsWith("anonymous:")
+        ? readLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY)
+        : null),
+  );
   if (stored) return stored;
   const params = new URLSearchParams(search);
   const requested = (params.get("chars") ?? "").split("").filter(Boolean).slice(0, 5);
   if (!requested.length) return null;
   return createCharacterForgeSession({
-    entries: RELEASED_CHARACTER_PRACTICE,
+    entries,
     source: "custom",
     lessonId: params.get("lesson"),
     requestedHanzis: requested,
@@ -151,23 +168,36 @@ function DrawingFallbackStage({
 }
 
 export function CharacterForgeSessionPage() {
-  const { state } = useLearning();
+  const { state, actions, sync } = useLearning();
+  const { recordReceipt } = useLearningJourney();
   const location = useLocation();
   const navigate = useNavigate();
-  const [session, setSession] = useState<CharacterForgeSession | null>(() => initialSessionFromStorage(location.search));
+  const publishedCharacters = usePublishedStudioCharacters();
+  const characterEntries = useMemo(() => mergePublishedStudioCharacters(
+    RELEASED_CHARACTER_PRACTICE,
+    publishedCharacters.entries,
+  ), [publishedCharacters.entries]);
+  const uniqueCharacters = useMemo(
+    () => getUniqueReleasedCharacterEntries(characterEntries),
+    [characterEntries],
+  );
+  const forgeStorageKey = getCharacterForgeSessionStorageKey(sync.ownerKey);
+  const [session, setSession] = useState<CharacterForgeSession | null>(() =>
+    initialSessionFromStorage(location.search, sync.ownerKey, characterEntries)
+  );
   const [stageReady, setStageReady] = useState(false);
   const [strokeData, setStrokeData] = useState<HanziStrokeData | null>(null);
   const [drawingAlternative, setDrawingAlternative] = useState<DrawingAlternative>("canvas");
   const [currentNeedsReplay, setCurrentNeedsReplay] = useState(false);
   const [usedPaper, setUsedPaper] = useState(false);
 
-  const entryByHanzi = useMemo(() => new Map(UNIQUE_RELEASED_CHARACTERS.map((entry) => [entry.hanzi, entry])), []);
+  const entryByHanzi = useMemo(() => new Map(uniqueCharacters.map((entry) => [entry.hanzi, entry])), [uniqueCharacters]);
   const currentHanzi = session?.hanzis[session.currentIndex] ?? "";
   const lesson = session?.lessonId ? LESSON_BY_ID.get(session.lessonId) ?? null : null;
   const currentEntry = useMemo(() => {
     if (!currentHanzi) return null;
     const exact = session?.lessonId
-      ? RELEASED_CHARACTER_PRACTICE.find((entry) => entry.lessonId === session.lessonId && entry.hanzi === currentHanzi)
+      ? characterEntries.find((entry) => entry.lessonId === session.lessonId && entry.hanzi === currentHanzi)
       : null;
     if (exact) return exact;
     const base = entryByHanzi.get(currentHanzi) ?? null;
@@ -181,13 +211,13 @@ export function CharacterForgeSessionPage() {
       contextPinyin: contextWord.pinyin,
       contextMeaningVi: contextWord.meaning,
     } : base;
-  }, [currentHanzi, entryByHanzi, lesson, session?.lessonId]);
+  }, [characterEntries, currentHanzi, entryByHanzi, lesson, session?.lessonId]);
   const currentView = currentEntry ? getCharacterScriptPresentation(currentEntry, state.profile.script) : null;
   const routeSource = session?.source;
   const routeIndex = session?.currentIndex;
   const routePhase = session?.phase;
   const routeLessonId = session?.lessonId;
-  const challengeEntries = useMemo(() => UNIQUE_RELEASED_CHARACTERS.map((entry) => {
+  const challengeEntries = useMemo(() => uniqueCharacters.map((entry) => {
     const presentation = getCharacterScriptPresentation(entry, state.profile.script);
     return {
       id: entry.id,
@@ -197,12 +227,17 @@ export function CharacterForgeSessionPage() {
       contextPinyin: entry.contextPinyin,
       contextMeaningVi: entry.contextMeaningVi,
     };
-  }), [state.profile.script]);
+  }), [state.profile.script, uniqueCharacters]);
+
+  useEffect(() => {
+    if (session || publishedCharacters.status !== "ready") return;
+    setSession(initialSessionFromStorage(location.search, sync.ownerKey, characterEntries));
+  }, [characterEntries, location.search, publishedCharacters.status, session, sync.ownerKey]);
 
   useEffect(() => {
     if (!session) return;
-    writeLocalStorage(CHARACTER_FORGE_SESSION_STORAGE_KEY, serializeCharacterForgeSession(session));
-  }, [session]);
+    writeLocalStorage(forgeStorageKey, serializeCharacterForgeSession(session));
+  }, [forgeStorageKey, session]);
 
   useEffect(() => {
     if (!routeSource || routeIndex === undefined || !routePhase) return;
@@ -225,6 +260,35 @@ export function CharacterForgeSessionPage() {
       .catch(() => { if (active) setStrokeData(null); });
     return () => { active = false; };
   }, [currentHanzi, session?.phase]);
+
+  useEffect(() => {
+    if (!session || session.phase !== "result") return;
+    for (const hanzi of session.completedHanzis) {
+      actions.recordPracticeEvidence({
+        idempotencyKey: `character-forge:${session.updatedAt}:${hanzi}`,
+        activityVersion: `${state.contentVersion}:character-forge:1`,
+        source: "writing",
+        method: "stroke-quiz",
+        activityId: `character-forge:${session.lessonId ?? "free"}:${hanzi}`,
+        skill: "writing",
+        outcome: "unverified",
+        score: null,
+        metadata: {
+          hanzi,
+          sourceLessonId: session.lessonId,
+          assistanceLevel: session.assistanceByHanzi[hanzi] ?? 0,
+          needsReplay: session.needsReplay.includes(hanzi),
+          usedPaper: session.paperHanzis.includes(hanzi),
+        },
+      });
+    }
+    recordReceipt({
+      stage: "transfer",
+      source: "writing",
+      lessonId: session.lessonId,
+      activityId: `character-forge:${session.updatedAt}:journey-transfer`,
+    });
+  }, [actions, recordReceipt, session, state.contentVersion]);
 
   const recordAssistance = useCallback((level: number) => {
     setSession((current) => current && currentHanzi ? {
@@ -266,7 +330,7 @@ export function CharacterForgeSessionPage() {
         <div className="forge-result-actions">
           {lesson && <Link className="primary" to={`/lesson/${encodeURIComponent(lesson.id)}`}><BookOpenText /> Trở về bài {lesson.title} <ChevronRight /></Link>}
           <button className={lesson ? "" : "primary"} type="button" onClick={() => {
-            const next = createCharacterForgeSession({ entries: RELEASED_CHARACTER_PRACTICE, source: session.source, lessonId: session.lessonId, requestedHanzis: session.needsReplay.length ? session.needsReplay : session.hanzis, limit: session.hanzis.length });
+            const next = createCharacterForgeSession({ entries: characterEntries, source: session.source, lessonId: session.lessonId, requestedHanzis: session.needsReplay.length ? session.needsReplay : session.hanzis, limit: session.hanzis.length });
             setSession(next);
           }}><RotateCcw /> {session.needsReplay.length ? "Luyện lại chữ đang vướng" : "Tôi luyện thêm một vòng"}</button>
           <Link to="/characters">Về Sảnh</Link>

@@ -9,6 +9,7 @@ import {
   isMistakeFromActivePathContent,
 } from "../lib/adaptive";
 import type { LearningGoal, LearningState, Lesson } from "../types";
+import { selectReaderJourneyDestination } from "../reader/library/readerJourney";
 
 export type LearningJourneyStage = "learn" | "review" | "transfer" | "close";
 
@@ -27,10 +28,12 @@ export type LearningJourneyRoute =
   | `/lesson/${string}`
   | "/path"
   | "/review"
+  | `/review?lesson=${string}`
   | "/mistakes"
   | `/pronunciation?lesson=${string}`
   | "/assessment"
   | `/reader?lesson=${string}`
+  | `/reader/series/${string}/chapter/${string}?lesson=${string}`
   | `/characters?lesson=${string}`
   | `/dictionary?lesson=${string}&challenge=1`;
 
@@ -44,7 +47,7 @@ export type LearningJourneyStep = {
   reason: string;
   to: LearningJourneyRoute;
   minutes: number;
-  status: "action" | "clear";
+  status: "action" | "clear" | "completed" | "pending";
   sourceLessonId: string | null;
   wordIds: readonly string[];
 };
@@ -69,7 +72,15 @@ export type DailyLearningJourney = {
 export type BuildDailyLearningJourneyInput = {
   state: LearningState;
   dueWordIds: readonly string[];
+  /** Keeps one lesson as the stable anchor while its four-stage cycle runs. */
+  anchorLessonId?: string | null;
+  /** Immediate recall targets from the anchored lesson; not a mastery claim. */
+  reinforcementWordIds?: readonly string[];
 };
+
+export type LearningJourneyStageProgress = Readonly<
+  Partial<Record<LearningJourneyStage, boolean>>
+>;
 
 const uniqueReleasedWordIds = (wordIds: readonly string[]) =>
   [...new Set(wordIds)]
@@ -149,6 +160,7 @@ const buildReviewStep = (
   goal: LearningGoal,
   state: LearningState,
   dueWordIds: readonly string[],
+  reinforcementWordIds: readonly string[],
   minutes: number,
   anchorLesson: Lesson | undefined,
 ): LearningJourneyStep => {
@@ -194,6 +206,23 @@ const buildReviewStep = (
       status: "action",
       sourceLessonId: anchorLesson?.id ?? null,
       wordIds: dueWordIds,
+    };
+  }
+
+  if (reinforcementWordIds.length > 0 && anchorLesson) {
+    return {
+      id: `journey:${goal}:review`,
+      sequence: 2,
+      stage: "review",
+      stageLabel: "Ôn",
+      kind: "fsrs",
+      title: "Gọi lại từ của chặng vừa học",
+      reason: `Tự gọi lại ${reinforcementWordIds.length} từ của bài “${anchorLesson.title}” trước khi dùng chúng trong ngữ cảnh mới; lượt ôn ngay không tự chứng minh ghi nhớ dài hạn.`,
+      to: `/review?lesson=${anchorLesson.id}`,
+      minutes,
+      status: "action",
+      sourceLessonId: anchorLesson.id,
+      wordIds: reinforcementWordIds,
     };
   }
 
@@ -260,6 +289,9 @@ const hskTransfer = (
     state.profile.startingLevel,
   ).some((releasedLesson) => isLessonPassed(releasedLesson, state));
   const canUseReader = state.diagnostic.completed && hasPassedLesson && Boolean(lesson);
+  const readerDestination = lesson
+    ? selectReaderJourneyDestination(lesson)
+    : null;
 
   return {
     id: "journey:hsk:transfer",
@@ -274,7 +306,9 @@ const hskTransfer = (
         : "Điểm khởi hành đã được định tuyến; đọc một ngữ cảnh trong phạm vi nội dung đã phát hành."
       : "Chưa có cả kết quả định tuyến và một bài đã qua ngưỡng mở khóa; Khảo Nghiệm Căn Cơ giúp tránh chọn bài quá xa nền hiện có.",
     to: canUseReader && lesson
-      ? `/reader?lesson=${lesson.id}`
+      ? readerDestination
+        ? `/reader/series/${readerDestination.seriesId}/chapter/${readerDestination.chapterId}?lesson=${lesson.id}`
+        : `/reader?lesson=${lesson.id}`
       : "/assessment",
     minutes,
     status: "action",
@@ -296,6 +330,9 @@ const careerTransfer = (
     )
   );
   const useWriting = hasOpenWritingMistake || Boolean(lesson?.skills.includes("writing"));
+  const readerDestination = lesson
+    ? selectReaderJourneyDestination(lesson)
+    : null;
 
   if (!lesson) {
     return {
@@ -330,7 +367,9 @@ const careerTransfer = (
         : "Đọc một ngữ cảnh trong phạm vi nội dung đã phát hành để luyện lấy thông tin.",
     to: useWriting
       ? `/characters?lesson=${lesson.id}`
-      : `/reader?lesson=${lesson.id}`,
+      : readerDestination
+        ? `/reader/series/${readerDestination.seriesId}/chapter/${readerDestination.chapterId}?lesson=${lesson.id}`
+        : `/reader?lesson=${lesson.id}`,
     minutes,
     status: "action",
     ...lessonSource(lesson),
@@ -375,14 +414,23 @@ const buildCloseStep = (
 export const buildDailyLearningJourney = ({
   state,
   dueWordIds,
+  anchorLessonId,
+  reinforcementWordIds = [],
 }: BuildDailyLearningJourneyInput): DailyLearningJourney => {
-  const nextLesson = getNextLesson(state);
-  const releasedNextLesson = nextLesson
-    ? RELEASED_LESSONS.find((lesson) => lesson.id === nextLesson.id)
+  const nextLesson = anchorLessonId === undefined ? getNextLesson(state) : null;
+  const anchoredLesson = anchorLessonId
+    ? RELEASED_LESSONS.find((lesson) => lesson.id === anchorLessonId)
     : undefined;
-  const transferSourceLesson = getMostRecentPassedLesson(state)
+  const releasedNextLesson = anchoredLesson ?? (nextLesson
+    ? RELEASED_LESSONS.find((lesson) => lesson.id === nextLesson.id)
+    : undefined);
+  const transferSourceLesson = anchoredLesson
+    ?? getMostRecentPassedLesson(state)
     ?? releasedNextLesson;
   const releasedDueWordIds = uniqueReleasedWordIds(dueWordIds);
+  const releasedReinforcementWordIds = uniqueReleasedWordIds(
+    reinforcementWordIds,
+  );
   const unresolvedMistakeCount = state.mistakes.filter((mistake) =>
     !mistake.resolved
     && isMistakeFromActivePathContent(
@@ -392,7 +440,9 @@ export const buildDailyLearningJourney = ({
   ).length;
   const minutes = getStepMinutes(
     state.profile.dailyMinutes,
-    unresolvedMistakeCount > 0 || releasedDueWordIds.length > 0,
+    unresolvedMistakeCount > 0
+      || releasedDueWordIds.length > 0
+      || releasedReinforcementWordIds.length > 0,
   );
   const steps = [
     buildLearnStep(state.profile.goal, releasedNextLesson, minutes.learn),
@@ -400,6 +450,7 @@ export const buildDailyLearningJourney = ({
       state.profile.goal,
       state,
       releasedDueWordIds,
+      releasedReinforcementWordIds,
       minutes.review,
       transferSourceLesson,
     ),
@@ -417,5 +468,36 @@ export const buildDailyLearningJourney = ({
     unresolvedMistakeCount,
     steps,
     evidenceNotice: "Lộ trình sắp xếp hoạt động từ dữ liệu đã phát hành. Hoàn thành bước, XP hay transcript không tự tạo kết luận thành thạo.",
+  };
+};
+
+/**
+ * Projects persisted orchestration progress onto the existing four cards.
+ * This changes only routing state: it never manufactures learning evidence.
+ */
+export const projectLearningJourneyProgress = (
+  journey: DailyLearningJourney,
+  progress: LearningJourneyStageProgress,
+): DailyLearningJourney => {
+  const completed = new Set<LearningJourneyStage>(
+    journey.steps
+      .filter((step) => progress[step.stage] === true || step.status === "clear")
+      .map((step) => step.stage),
+  );
+  const current = journey.steps.find((step) => !completed.has(step.stage));
+  const projectStep = (step: LearningJourneyStep): LearningJourneyStep => ({
+    ...step,
+    status: completed.has(step.stage)
+      ? step.status === "clear" ? "clear" : "completed"
+      : step.stage === current?.stage ? "action" : "pending",
+  });
+  return {
+    ...journey,
+    steps: [
+      projectStep(journey.steps[0]),
+      projectStep(journey.steps[1]),
+      projectStep(journey.steps[2]),
+      projectStep(journey.steps[3]),
+    ],
   };
 };

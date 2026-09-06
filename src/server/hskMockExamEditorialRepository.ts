@@ -12,11 +12,21 @@ const EDITORIAL_BLUEPRINT_PREFIX = "hsk-mock-editorial-";
 export const loadPublishedEditorialHskMockExamDefinitions = async (
   database: D1Database,
 ) => {
-  const runtime = await new ContentStudioRepository(database).publishedRuntime({
+  const repository = new ContentStudioRepository(database);
+  const runtime = await repository.publishedRuntime({
     itemType: "exam_form",
   });
+  const pinnedRevisionIds = runtime.items.flatMap((publication) =>
+    Array.isArray(publication.content.itemStableKeys)
+      ? publication.content.itemStableKeys.filter(
+        (key): key is string => typeof key === "string",
+      )
+      : []
+  );
+  const editorialItems = (await repository.releasedRuntimeRevisions(pinnedRevisionIds))
+    .filter((publication) => publication.itemType === "exam_item");
   return runtime.items.map((publication) =>
-    createEditorialHskMockExamDefinition(publication)
+    createEditorialHskMockExamDefinition(publication, editorialItems)
   ).filter((definition): definition is HskMockExamDefinition => definition !== null);
 };
 
@@ -45,7 +55,14 @@ export const resolveHskMockExamDefinitionByBlueprint = async (
   if (!revisionId) return null;
   const publication = await new ContentStudioRepository(database)
     .releasedRuntimeRevision(revisionId);
-  return publication
-    ? createEditorialHskMockExamDefinition(publication)
-    : null;
+  if (!publication) return null;
+  const itemRevisionIds = Array.isArray(publication.content.itemStableKeys)
+    ? publication.content.itemStableKeys.filter(
+      (key): key is string => typeof key === "string",
+    )
+    : [];
+  const editorialItems = (await new ContentStudioRepository(database)
+    .releasedRuntimeRevisions(itemRevisionIds))
+    .filter((item) => item.itemType === "exam_item");
+  return createEditorialHskMockExamDefinition(publication, editorialItems);
 };

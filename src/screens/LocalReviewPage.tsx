@@ -1,21 +1,22 @@
-import {
-  BrainCircuit,
-  CalendarClock,
-  ChevronRight,
-  CircleCheck,
-  RotateCcw,
-  ScanLine,
-  Sparkles,
-  Zap,
-} from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useLocation } from "react-router";
 import { Rating, type Grade } from "ts-fsrs";
 import { ReviewRatingConsole } from "../components/ReviewRatingConsole";
 import { ReviewMemoryArena } from "../components/ReviewMemoryArena";
-import { RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { MemoryReviewLobby } from "../components/MemoryReviewLobby";
+import { MemoryReviewComplete } from "../components/MemoryReviewComplete";
+import { LESSON_BY_ID, RELEASED_WORD_BY_ID } from "../data/curriculum";
 import { makeIdempotencyKey } from "../lib/evidence";
+import {
+  buildReviewForecast,
+  buildReviewMemoryDistribution,
+  countReviewsToday,
+  getNextReviewDate,
+  summarizeReviewSession,
+  type ReviewSessionEntry,
+} from "../learning/reviewPresentation";
 import { useLearning } from "../store/LearningStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import { emitSystemSignal } from "../system/systemSignals";
 
 const ratingOptions = [
@@ -36,7 +37,7 @@ const ratingOptions = [
   {
     rating: Rating.Good,
     key: "3",
-    label: "Nhớ",
+    label: "Ổn",
     hint: "Lịch chuẩn FSRS",
     className: "good",
   },
@@ -51,14 +52,29 @@ const ratingOptions = [
 
 export function LocalReviewPage() {
   const { state, actions, dueWordIds } = useLearning();
+  const { checkpoint, recordReceipt } = useLearningJourney();
+  const location = useLocation();
+  const requestedLessonId = useMemo(
+    () => new URLSearchParams(location.search).get("lesson"),
+    [location.search],
+  );
+  const reinforcementWordIds = useMemo(() =>
+    (requestedLessonId ? LESSON_BY_ID.get(requestedLessonId)?.wordIds ?? [] : [])
+      .filter((wordId) => Boolean(state.fsrsCards[wordId])),
+  [requestedLessonId, state.fsrsCards]);
   const vocabularyEvidenceCount = state.evidence.filter((item) =>
     item.masteryEligible && item.skill === "vocabulary"
   ).length;
-  const defaultQueue = () => [...dueWordIds];
+  const defaultQueue = () => [...new Set([
+    ...reinforcementWordIds,
+    ...dueWordIds,
+  ])];
   const [queue, setQueue] = useState(defaultQueue);
+  const [started, setStarted] = useState(false);
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
-  const [ratings, setRatings] = useState<Record<number, number>>({});
+  const [hintUsed, setHintUsed] = useState(false);
+  const [sessionEntries, setSessionEntries] = useState<ReviewSessionEntry[]>([]);
   const [reviewKey, setReviewKey] = useState(() =>
     makeIdempotencyKey("review-card")
   );
@@ -70,12 +86,22 @@ export function LocalReviewPage() {
   const complete = index >= queue.length;
 
   useEffect(() => {
+    if (!complete || queue.length === 0 || !checkpoint?.completedStages.learn) return;
+    recordReceipt({
+      stage: "review",
+      source: "review",
+      lessonId: checkpoint.anchorLessonId,
+      activityId: `review:${checkpoint.journeyId}:${queue.join(",")}`,
+    });
+  }, [checkpoint, complete, queue, recordReceipt]);
+
+  useEffect(() => {
     if (currentId) cardHeadingRef.current?.focus();
   }, [currentId]);
 
   const grade = async (rating: Grade) => {
     if (!word) return;
-    await actions.gradeReview(word.id, rating, reviewKey);
+    await actions.gradeReview(word.id, rating, reviewKey, hintUsed);
     emitSystemSignal({
       type: "review.recalled",
       sourceId: `review:${word.id}`,
@@ -86,69 +112,63 @@ export function LocalReviewPage() {
       sourceId: "review:local-queue",
       eventId: `${reviewKey}:queue-cleared`,
     });
-    setRatings((current) => ({
-      ...current,
-      [rating]: (current[rating] ?? 0) + 1,
-    }));
+    setSessionEntries((current) => [...current, {
+      hintUsed,
+      rating: Number(rating),
+      wordId: word.id,
+    }]);
     setIndex((current) => current + 1);
     setRevealed(false);
+    setHintUsed(false);
     setReviewKey(makeIdempotencyKey("review-card"));
   };
 
-  const restart = () => {
-    setQueue(defaultQueue());
+  const startQueue = (wordIds = defaultQueue()) => {
+    setQueue(wordIds);
     setIndex(0);
     setRevealed(false);
-    setRatings({});
+    setHintUsed(false);
+    setSessionEntries([]);
     setReviewKey(makeIdempotencyKey("review-card"));
+    setStarted(true);
   };
 
-  if (complete || !word) {
+  const forecast = useMemo(
+    () => buildReviewForecast(state.fsrsCards),
+    [state.fsrsCards],
+  );
+  const distribution = useMemo(
+    () => buildReviewMemoryDistribution(state.fsrsCards),
+    [state.fsrsCards],
+  );
+
+  if (!started) {
     return (
-      <div className="review-complete-screen">
-        <div className="memory-complete-core">
-          <BrainCircuit size={42} />
-          <span />
-        </div>
-        <span className="system-kicker">
-          KÝ ỨC TRẬN · {queue.length ? "ĐÃ KHÉP VÒNG" : "ĐANG CHỜ"}
-        </span>
-        <h1>
-          {queue.length
-            ? "Ký ức đã tái đồng bộ"
-            : "Chưa có ký ức đến hạn"}
-        </h1>
-        <p>
-          {queue.length
-            ? "FSRS đã điều chỉnh lịch xuất hiện tiếp theo theo mức bạn tự đánh giá."
-            : "Từ chỉ đi vào Ký Ức Trận sau khi bạn gặp chúng trong bài học hoặc chủ động lưu. Hãy lĩnh hội trước, truy hồi sau."}
-        </p>
-        <div className="review-summary-grid">
-          <div><small>Tổng thẻ</small><strong>{queue.length}</strong></div>
-          <div>
-            <small>Quên / Khó</small>
-            <strong>
-              {(ratings[Rating.Again] ?? 0) + (ratings[Rating.Hard] ?? 0)}
-            </strong>
-          </div>
-          <div>
-            <small>Nhớ / Dễ</small>
-            <strong>
-              {(ratings[Rating.Good] ?? 0) + (ratings[Rating.Easy] ?? 0)}
-            </strong>
-          </div>
-          <div><small>Năng lượng tương tác</small><strong>+{queue.length * 5} XP</strong></div>
-        </div>
-        {queue.length ? (
-          <button className="secondary-button" type="button" onClick={restart}>
-            <RotateCcw size={17} /> Mở lượt ôn mới
-          </button>
-        ) : (
-          <Link className="primary-button" to="/path" viewTransition>
-            <Sparkles size={17} /> Học bài để kích hoạt ký ức
-          </Link>
-        )}
-      </div>
+      <MemoryReviewLobby
+        activatedCount={Object.keys(state.fsrsCards).length}
+        dueCount={defaultQueue().length}
+        forecast={forecast}
+        distribution={distribution}
+        reviewedToday={countReviewsToday(state.evidence)}
+        onStart={() => startQueue()}
+      />
+    );
+  }
+
+  if (complete || !word) {
+    const summary = summarizeReviewSession(sessionEntries);
+    const weakWordIds = sessionEntries
+      .filter((entry) => entry.rating <= Number(Rating.Hard))
+      .map((entry) => entry.wordId);
+    return (
+      <MemoryReviewComplete
+        independent={summary.independent}
+        needsReview={summary.needsReview}
+        nextReview={getNextReviewDate(state.fsrsCards)}
+        onReviewWeak={weakWordIds.length ? () => startQueue([...new Set(weakWordIds)]) : undefined}
+        total={summary.total}
+        withHint={summary.withHint}
+      />
     );
   }
 
@@ -158,37 +178,15 @@ export function LocalReviewPage() {
   const progress = Math.round((index / queue.length) * 100);
 
   return (
-    <div className="content-page review-page">
-      <div className="review-session-header">
-        <header className="page-hero review-hero">
-          <div className="review-hero-identity">
-            <span className="review-hero-sigil" aria-hidden="true">
-              <BrainCircuit size={24} /><i /><b>03</b>
-            </span>
-            <div className="review-hero-copy">
-              <span className="system-kicker">
-                KÝ ỨC TRẬN · LỊCH FSRS
-              </span>
-              <h1>Ký Ức Trận</h1>
-              <p>Triệu hồi · tự nhớ · phán định. Mỗi mảnh ký ức được tái đồng bộ ngay trên thiết bị.</p>
-            </div>
-          </div>
-          <div className="review-live-stats">
-            <span><strong>{queue.length - index}</strong><small>đang chờ</small></span>
-            <span><strong>{state.reviewCount}</strong><small>lượt đã ôn</small></span>
-            <span>
-              <strong>{vocabularyEvidenceCount}</strong>
-              <small>bằng chứng từ vựng</small>
-            </span>
-          </div>
-        </header>
-
+    <div className="memory-experience memory-session review-page">
+      <header className="memory-session-toolbar">
         <div className="review-session-bar">
-          <span><ScanLine size={14} /> MẢNH KÝ ỨC {String(index + 1).padStart(2, "0")}</span>
+          <span><i className="memory-symbol" aria-hidden="true">阵</i> MEM-{revealed ? "03 · ĐỐI CHIẾU" : "02 · TRUY HỒI"}</span>
           <div className="review-progress-rail"><i style={{ width: `${progress}%` }} /><b aria-hidden="true" /></div>
           <strong><b>{index + 1}</b> / {queue.length}</strong>
         </div>
-      </div>
+        <button type="button" onClick={() => setStarted(false)}><span aria-hidden="true">×</span> Thoát</button>
+      </header>
 
       <div className="review-card-scroll">
         <ReviewMemoryArena
@@ -198,6 +196,8 @@ export function LocalReviewPage() {
           exampleMeaning={word.exampleMeaning}
           examplePinyin={word.examplePinyin}
           meaning={word.meaning}
+          hintUsed={hintUsed}
+          onUseHint={() => setHintUsed(true)}
           partOfSpeech={word.partOfSpeech}
           pinyin={word.pinyin}
           revealed={revealed}
@@ -208,13 +208,13 @@ export function LocalReviewPage() {
 
         <footer className="fsrs-status-line">
           <span>
-            <CalendarClock size={15} />
+            <i className="memory-symbol" aria-hidden="true">历</i>
             Lần ôn trước: {card?.last_review
               ? new Date(card.last_review).toLocaleDateString("vi-VN")
               : "thẻ mới"}
           </span>
-          <span><Zap size={15} /> +5 XP tương tác mỗi phán định</span>
-          <span><CircleCheck size={15} /> Tự động lưu sau mỗi thẻ</span>
+          <span><i className="memory-symbol" aria-hidden="true">⚡</i> {vocabularyEvidenceCount} bằng chứng từ vựng</span>
+          <span><i className="memory-symbol" aria-hidden="true">✓</i> Tự động lưu sau mỗi thẻ</span>
         </footer>
       </div>
 
@@ -234,7 +234,7 @@ export function LocalReviewPage() {
         >
           <div className="review-action-inner">
             <div className="rating-heading">
-              <span className="review-command-sigil" aria-hidden="true"><Sparkles size={19} /></span>
+              <span className="review-command-sigil" aria-hidden="true">✦</span>
               <span>
                 <b>GIAO THỨC TRUY HỒI</b>
                 <strong>Tự gọi lại trước khi xem đáp án</strong>
@@ -246,7 +246,7 @@ export function LocalReviewPage() {
               type="button"
               onClick={() => setRevealed(true)}
             >
-              <span><small>GIẢI MÃ</small>Hiện đáp án</span> <ChevronRight size={18} />
+              <span><small>GIẢI MÃ</small>Hiện đáp án</span> <i className="memory-symbol" aria-hidden="true">›</i>
             </button>
           </div>
         </section>

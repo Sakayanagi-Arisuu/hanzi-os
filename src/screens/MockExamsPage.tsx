@@ -45,6 +45,7 @@ import { makeIdempotencyKey } from "../lib/evidence";
 import { handleRadioGroupKeyDown } from "../lib/radioGroupKeyboard";
 import { speakMandarin } from "../lib/speech";
 import { useLearning } from "../store/LearningStore";
+import { emitLearningJourneyReceipt } from "../learning/journeyReceiptEvent";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { allocateDeviceSequence } from "../sync/indexedDb";
 import { readExactNormalizedLessonEnvironment } from "../sync/normalizedLessonEnvironment";
@@ -581,6 +582,15 @@ function MockExamRunner() {
   const sessionId = session?.binding.sessionId ?? null;
   const remainingMs = session ? Math.max(0, Date.parse(session.expiresAt) - now) : 0;
 
+  useEffect(() => {
+    if (!result) return;
+    emitLearningJourneyReceipt({
+      stage: "transfer",
+      source: "assessment",
+      activityId: `mock-exam:${result.sessionId}:journey-transfer`,
+    });
+  }, [result]);
+
   const commandEnvironment = useCallback(async () => {
     const accountKey = sync.session?.authenticated ? sync.session.accountKey : null;
     if (
@@ -1053,7 +1063,7 @@ function MockExamRunner() {
       <header className="dungeon-runner-hud">
         <Link className="icon-button" to="/exams" aria-label="Rời bài thi"><ArrowLeft size={20} /></Link>
         <div className="dungeon-runner-identity"><span>HSK{levelNumber(session.definition.examLevel)} · ĐỀ {session.definition.formKey.toUpperCase()}</span><strong>Bài thi mô phỏng</strong></div>
-        <div className="dungeon-route-progress exam-section-progress" role="progressbar" aria-label={`${session.recorded.length} trên ${session.binding.expectedItemCount} câu đã lưu`} aria-valuemin={0} aria-valuemax={session.binding.expectedItemCount} aria-valuenow={session.recorded.length}>
+        <div className={`dungeon-route-progress exam-section-progress sections-${session.definition.sections.length}`} role="progressbar" aria-label={`${session.recorded.length} trên ${session.binding.expectedItemCount} câu đã lưu`} aria-valuemin={0} aria-valuemax={session.binding.expectedItemCount} aria-valuenow={session.recorded.length}>
           {session.definition.sections.map((section, index) => (
             <span className={index < sectionIndex ? "cleared" : index === sectionIndex ? "current" : ""} key={section.skill}>
               <b>{index + 1}</b>{section.label}<small>{section.itemCount} câu</small>

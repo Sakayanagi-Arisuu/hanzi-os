@@ -1,5 +1,5 @@
 import { authorizeAdmin } from "../../../src/server/adminHttp";
-import { sameOriginMutation } from "../../../src/server/authHttp";
+import { boundedReturnTo, sameOriginMutation } from "../../../src/server/authHttp";
 import { requestCorrelationId } from "../../../src/server/auditRepository";
 import { readBoundedRequestText } from "../../../src/server/boundedRequestBody";
 import {
@@ -11,8 +11,8 @@ import {
 
 export const dynamic = "force-dynamic";
 
-const redirect = (request: Request, key: "updated" | "error", value: string) => {
-  const location = new URL("/admin", request.url);
+const redirect = (request: Request, key: "updated" | "error", value: string, returnTo?: string | null) => {
+  const location = new URL(boundedReturnTo(returnTo ?? null, "/admin"), request.url);
   location.searchParams.set(key, value);
   return Response.redirect(location, 303);
 };
@@ -36,14 +36,15 @@ export async function POST(request: Request) {
   const key = form.get("key");
   const rawValue = form.get("value") ?? "";
   const expectedRevision = Number(form.get("expectedRevision"));
+  const returnTo = form.get("returnTo");
   if (!isSystemSettingKey(key) || !Number.isInteger(expectedRevision)) {
-    return redirect(request, "error", "Biểu mẫu cấu hình không hợp lệ.");
+    return redirect(request, "error", "Biểu mẫu cấu hình không hợp lệ.", returnTo);
   }
   try {
     const authorized = await authorizeAdmin("admin:settings:write", { stepUp: true });
     if (!authorized.ok) {
       const error = await authorized.response.json() as { error?: { message?: string } };
-      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.");
+      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.", returnTo);
     }
     await new SystemSettingsRepository(authorized.context.database).update({
       actorUserId: authorized.context.account.userId,
@@ -53,15 +54,16 @@ export async function POST(request: Request) {
       expectedRevision,
       requestId: requestCorrelationId(request),
     });
-    return redirect(request, "updated", key);
+    return redirect(request, "updated", key, returnTo);
   } catch (error) {
     if (error instanceof SettingConcurrencyError) {
-      return redirect(request, "error", "Cấu hình đã đổi ở phiên khác; hãy tải lại.");
+      return redirect(request, "error", "Cấu hình đã đổi ở phiên khác; hãy tải lại.", returnTo);
     }
     return redirect(
       request,
       "error",
       error instanceof Error ? error.message : "Không thể cập nhật cấu hình.",
+      returnTo,
     );
   }
 }

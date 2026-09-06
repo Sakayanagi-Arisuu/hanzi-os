@@ -88,6 +88,7 @@ beforeEach(() => {
   mocks.publishedRuntime.mockResolvedValue({
     schemaVersion: 1,
     policy: "published-only",
+    releaseBoundary: "content-release-worker-v1",
     manifestSha256: `sha256:${"a".repeat(64)}`,
     items: [],
   });
@@ -131,6 +132,7 @@ describe("Content Studio permission boundaries", () => {
 
     for (const [toState, permission] of [
       ["submitted", "content:submit"],
+      ["draft", "content:approve"],
       ["approved", "content:approve"],
       ["published", "content:publish"],
       ["archived", "content:publish"],
@@ -140,7 +142,11 @@ describe("Content Studio permission boundaries", () => {
         { expectedRowVersion: 2, toState },
       ), params);
       expect(response.status).toBe(200);
-      expect(mocks.authorizeAdmin).toHaveBeenLastCalledWith(permission);
+      if (toState === "submitted") {
+        expect(mocks.authorizeAdmin).toHaveBeenLastCalledWith(permission);
+      } else {
+        expect(mocks.authorizeAdmin).toHaveBeenLastCalledWith(permission, { stepUp: true });
+      }
     }
   });
 
@@ -150,6 +156,39 @@ describe("Content Studio permission boundaries", () => {
     expect(await response.json()).toMatchObject({ policy: "published-only", items: [] });
     expect(mocks.authorizeAdmin).not.toHaveBeenCalled();
     expect(mocks.publishedRuntime).toHaveBeenCalledOnce();
+    expect(mocks.publishedRuntime).toHaveBeenCalledWith(expect.objectContaining({
+      learnerSafe: true,
+    }));
+  });
+
+  it("serves a compact server-sanitized learning projection", async () => {
+    const response = await readRuntime(new Request(
+      "https://hanzi.test/api/content/runtime?projection=learning",
+    ));
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({
+      schemaVersion: 1,
+      projection: "learning",
+      items: [[], []],
+    });
+    expect(response.headers.get("cache-control")).toContain("no-store");
+    expect(mocks.publishedRuntime).toHaveBeenCalledWith(expect.objectContaining({
+      itemType: null,
+      learnerSafe: true,
+    }));
+  });
+
+  it("never exposes confidential exam answers through the public content projection", async () => {
+    const itemResponse = await readRuntime(new Request(
+      "https://hanzi.test/api/content/runtime?type=exam_item",
+    ));
+    const formResponse = await readRuntime(new Request(
+      "https://hanzi.test/api/content/runtime?type=exam_form",
+    ));
+
+    expect(itemResponse.status).toBe(403);
+    expect(formResponse.status).toBe(403);
+    expect(mocks.publishedRuntime).not.toHaveBeenCalled();
   });
 
   it("keeps controlled replay behind admin publication authorization", async () => {
@@ -162,7 +201,7 @@ describe("Content Studio permission boundaries", () => {
       },
     ), params);
     expect(response.status).toBe(202);
-    expect(mocks.authorizeAdmin).toHaveBeenLastCalledWith("content:publish");
+    expect(mocks.authorizeAdmin).toHaveBeenLastCalledWith("content:publish", { stepUp: true });
     expect(mocks.replayDeadRelease).toHaveBeenCalledWith(expect.objectContaining({
       eventId: "dead-release-event",
       actorUserId: "editor",

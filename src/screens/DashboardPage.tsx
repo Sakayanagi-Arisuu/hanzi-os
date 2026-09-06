@@ -36,7 +36,6 @@ import {
 } from "../learning/learningCoverage";
 import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
-  buildDailyLearningJourney,
   type LearningJourneyStep,
   type LearningJourneyStepKind,
 } from "../learning/learningJourney";
@@ -49,6 +48,7 @@ import {
 } from "../lib/adaptive";
 import { useLearning } from "../store/LearningStore";
 import { useInteractionXp } from "../store/InteractionXpStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
@@ -167,6 +167,7 @@ export function DashboardPage() {
   const pillarDetailsTriggerRef = useRef<HTMLButtonElement>(null);
   const pillarDetailsCloseRef = useRef<HTMLButtonElement>(null);
   const { state, dueWordIds, level, sync } = useLearning();
+  const { journey: integratedJourney } = useLearningJourney();
   const interactionXp = useInteractionXp();
   const { uniqueActivityCount: localSpeechPracticeCount } =
     summarizePronunciationPractice(state.evidence);
@@ -292,7 +293,7 @@ export function DashboardPage() {
     const breadth = contentCoverage[skill];
     return {
       skill,
-      count: breadth.covered,
+      count: breadth.practiceCount,
       target: breadth.target,
       coverage: breadth.percent,
       practiceAvailable: breadth.practiceAvailable,
@@ -358,9 +359,7 @@ export function DashboardPage() {
         }] : []),
       ]
     : [];
-  const localJourney = authenticated
-    ? null
-    : buildDailyLearningJourney({ state, dueWordIds });
+  const localJourney = integratedJourney;
   const primaryJourneyStep = localJourney?.steps.find((step) => step.status === "action")
     ?? localJourney?.steps[0]
     ?? null;
@@ -657,11 +656,19 @@ export function DashboardPage() {
                         <Icon size={18} aria-hidden="true" />
                         <span>
                           <strong>{step.stageLabel} · {step.title}</strong>
-                          <small>{journeyDestinationLabels[step.kind]} · {step.status === "clear" ? "chưa có mục đến hạn" : `${step.minutes} phút`}</small>
+                          <small>{journeyDestinationLabels[step.kind]} · {
+                            step.status === "clear"
+                              ? "chưa có mục đến hạn"
+                              : step.status === "completed"
+                                ? "đã hoàn tất"
+                                : `${step.minutes} phút`
+                          }</small>
                           <em>{step.reason}</em>
                         </span>
                         <span className="mission-journey-state">
-                          {step.status === "clear" ? "ĐÃ RÕ" : "KẾ TIẾP"}
+                          {step.status === "clear"
+                            ? "ĐÃ RÕ"
+                            : step.status === "completed" ? "ĐÃ XONG" : "KẾ TIẾP"}
                         </span>
                       </div>
                     );

@@ -23,14 +23,14 @@ export type ReaderCoverTone =
   | "slate";
 
 export type ReaderLevelBand = {
-  min: "HSK1" | "HSK2" | "HSK3" | "HSK4";
-  max: "HSK1" | "HSK2" | "HSK3" | "HSK4";
+  min: "HSK0" | "HSK1" | "HSK2" | "HSK3" | "HSK4";
+  max: "HSK0" | "HSK1" | "HSK2" | "HSK3" | "HSK4";
   label: string;
 };
 
 export type ReaderRightsReference = {
   rightsManifestId: string;
-  sourceType: "original-hanzi-os" | "legacy-hanzi-os";
+  sourceType: "original-hanzi-os" | "licensed-third-party" | "legacy-hanzi-os";
   provenanceNote: string;
 };
 
@@ -67,6 +67,14 @@ export type ReaderParagraph = {
   segments: ReaderParagraphSegment[];
 };
 
+export type ReaderComprehensionQuestion = {
+  questionId: string;
+  promptVi: string;
+  options: string[];
+  answerIndex: number;
+  explanationVi: string;
+};
+
 export type ReaderChapter = {
   chapterId: string;
   version: string;
@@ -77,6 +85,7 @@ export type ReaderChapter = {
   estimatedMinutes: number;
   backgroundAsset?: ReaderChapterBackgroundAsset;
   paragraphs: ReaderParagraph[];
+  comprehension?: ReaderComprehensionQuestion[];
   relatedLessonIds: string[];
   publicationStatus: "released-local";
   reviewStatus: "ai-assisted-draft" | "legacy-local";
@@ -86,11 +95,12 @@ export type ReaderChapter = {
 
 export type ReaderChapterSummary = Omit<
   ReaderChapter,
-  "paragraphs" | "relatedLessonIds" | "rights"
+  "paragraphs" | "comprehension" | "relatedLessonIds" | "rights"
 > & {
   hookVi: string;
   relatedLessonIds: string[];
   rightsManifestId: string;
+  comprehensionCount?: number;
 };
 
 export type ReaderSeries = {

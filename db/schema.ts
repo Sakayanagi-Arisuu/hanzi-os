@@ -560,7 +560,10 @@ export const contentItems = sqliteTable(
     index("content_items_type_updated_idx").on(table.itemType, table.updatedAt),
     check(
       "content_items_type_check",
-      sql`${table.itemType} IN ('vocabulary', 'character', 'grammar', 'lesson', 'exam_item', 'exam_form')`,
+      sql`${table.itemType} IN (
+        'vocabulary', 'character', 'grammar', 'pronunciation',
+        'communicative_function', 'graded_text', 'lesson', 'exam_item', 'exam_form'
+      )`,
     ),
     check(
       "content_items_stable_key_check",
@@ -732,6 +735,85 @@ export const contentWorkflowEvents = sqliteTable(
       "content_workflow_metadata_check",
       sql`json_valid(${table.metadataJson})
         AND length(CAST(${table.metadataJson} AS BLOB)) <= 131072`,
+    ),
+  ],
+);
+
+/**
+ * Append-only operational assignments for Studio revisions. A missing event
+ * means the revision author remains the implicit owner; every explicit change
+ * is retained as a new row so SLA and reviewer decisions stay auditable.
+ */
+export const contentRevisionAssignmentEvents = sqliteTable(
+  "content_revision_assignment_events",
+  {
+    id: text("id").primaryKey(),
+    revisionId: text("revision_id")
+      .notNull()
+      .references(() => contentRevisions.id, { onDelete: "restrict" }),
+    rowVersion: integer("row_version").notNull(),
+    ownerUserId: text("owner_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "restrict" }),
+    reviewerUserId: text("reviewer_user_id")
+      .references(() => users.id, { onDelete: "restrict" }),
+    priority: text("priority").notNull().default("normal"),
+    dueAt: integer("due_at"),
+    note: text("note"),
+    actorUserId: text("actor_user_id")
+      .notNull()
+      .references(() => users.id, { onDelete: "restrict" }),
+    actorSessionId: text("actor_session_id"),
+    idempotencyKey: text("idempotency_key").notNull(),
+    requestSha256: text("request_sha256").notNull(),
+    occurredAt: integer("occurred_at").notNull(),
+  },
+  (table) => [
+    uniqueIndex("content_revision_assignment_revision_version_uidx").on(
+      table.revisionId,
+      table.rowVersion,
+    ),
+    uniqueIndex("content_revision_assignment_actor_idempotency_uidx").on(
+      table.actorUserId,
+      table.idempotencyKey,
+    ),
+    index("content_revision_assignment_owner_due_idx").on(
+      table.ownerUserId,
+      table.dueAt,
+    ),
+    index("content_revision_assignment_reviewer_due_idx").on(
+      table.reviewerUserId,
+      table.dueAt,
+    ),
+    check(
+      "content_revision_assignment_row_version_check",
+      sql`${table.rowVersion} >= 1`,
+    ),
+    check(
+      "content_revision_assignment_priority_check",
+      sql`${table.priority} IN ('low', 'normal', 'high', 'urgent')`,
+    ),
+    check(
+      "content_revision_assignment_due_check",
+      sql`${table.dueAt} IS NULL OR ${table.dueAt} BETWEEN 0 AND 8640000000000000`,
+    ),
+    check(
+      "content_revision_assignment_note_check",
+      sql`${table.note} IS NULL OR length(${table.note}) BETWEEN 1 AND 1000`,
+    ),
+    check(
+      "content_revision_assignment_idempotency_check",
+      sql`length(${table.idempotencyKey}) BETWEEN 8 AND 160`,
+    ),
+    check(
+      "content_revision_assignment_request_digest_check",
+      sql`length(${table.requestSha256}) = 71
+        AND substr(${table.requestSha256}, 1, 7) = 'sha256:'
+        AND substr(${table.requestSha256}, 8) NOT GLOB '*[^0-9a-f]*'`,
+    ),
+    check(
+      "content_revision_assignment_distinct_roles_check",
+      sql`${table.reviewerUserId} IS NULL OR ${table.reviewerUserId} <> ${table.ownerUserId}`,
     ),
   ],
 );

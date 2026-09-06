@@ -1,17 +1,4 @@
 import {
-  AlertTriangle,
-  BrainCircuit,
-  CalendarClock,
-  ChevronRight,
-  CircleCheck,
-  Cloud,
-  CloudOff,
-  RefreshCw,
-  ScanLine,
-  ShieldAlert,
-  Sparkles,
-} from "lucide-react";
-import {
   useCallback,
   useEffect,
   useMemo,
@@ -21,6 +8,8 @@ import {
 import { Link } from "react-router";
 import { ReviewRatingConsole } from "../components/ReviewRatingConsole";
 import { ReviewMemoryArena } from "../components/ReviewMemoryArena";
+import { MemoryReviewComplete } from "../components/MemoryReviewComplete";
+import { MemoryReviewLobby } from "../components/MemoryReviewLobby";
 import { CURRENT_CONTENT_MANIFEST_SHA256 } from "../content/currentPackage";
 import {
   CONTENT_VERSION,
@@ -35,7 +24,15 @@ import {
 import { REVIEW_INTERACTION_XP } from "../learning/interactionXp";
 import { notifyInteractionXpChanged } from "../learning/interactionXpClient";
 import { makeIdempotencyKey } from "../lib/evidence";
+import {
+  buildReviewForecast,
+  buildReviewMemoryDistribution,
+  getNextReviewDate,
+  summarizeReviewSession,
+  type ReviewSessionEntry,
+} from "../learning/reviewPresentation";
 import { useLearning } from "../store/LearningStore";
+import { useLearningJourney } from "../store/LearningJourneyStore";
 import { emitSystemSignal } from "../system/systemSignals";
 import {
   useNormalizedLearningProjection,
@@ -79,7 +76,7 @@ const ratingOptions: ReadonlyArray<{
   {
     rating: 3,
     key: "3",
-    label: "Nhớ",
+    label: "Ổn",
     hint: "Gọi lại đúng với nỗ lực vừa phải",
     className: "good",
   },
@@ -226,6 +223,7 @@ export function AuthenticatedReviewPage() {
 
 function AuthenticatedReviewPageScope() {
   const { state, actions, sync } = useLearning();
+  const { checkpoint, recordReceipt } = useLearningJourney();
   const authority = useNormalizedLearningProjection();
   const accountKey = sync.session?.authenticated
     ? sync.session.accountKey
@@ -248,9 +246,12 @@ function AuthenticatedReviewPageScope() {
     typeof navigator === "undefined" ? true : navigator.onLine
   );
   const [revealed, setRevealed] = useState(false);
+  const [hintUsed, setHintUsed] = useState(false);
+  const [started, setStarted] = useState(false);
   const [busy, setBusy] = useState(false);
   const [actionError, setActionError] = useState<string | null>(null);
   const [ratings, setRatings] = useState<Record<number, number>>({});
+  const [sessionEntries, setSessionEntries] = useState<ReviewSessionEntry[]>([]);
   const gradeKeyRef = useRef<{
     offer: string;
     idempotencyKey: string;
@@ -440,9 +441,6 @@ function AuthenticatedReviewPageScope() {
     () => queue?.cards.filter((card) => !handledKeys.has(offerKey(card))) ?? [],
     [handledKeys, queue],
   );
-  const allPendingRecords = reviewRecords.filter(
-    (record) => record.status === "pending",
-  );
   const acknowledgedRecords = relevantRecords.filter(
     (record) => record.status === "acknowledged",
   );
@@ -457,8 +455,25 @@ function AuthenticatedReviewPageScope() {
   const currentOfferKey = current ? offerKey(current) : null;
 
   useEffect(() => {
+    if (
+      queuePhase !== "ready"
+      || !queue
+      || availableCards.length > 0
+      || !checkpoint?.completedStages.learn
+      || checkpoint.completedStages.review
+    ) return;
+    recordReceipt({
+      stage: "review",
+      source: "review",
+      lessonId: checkpoint.anchorLessonId,
+      activityId: `review:${checkpoint.journeyId}:${queue.generatedAt}`,
+    });
+  }, [availableCards.length, checkpoint, queue, queuePhase, recordReceipt]);
+
+  useEffect(() => {
     gradeKeyRef.current = null;
     setRevealed(false);
+    setHintUsed(false);
     setActionError(null);
     if (currentOfferKey) cardHeadingRef.current?.focus();
   }, [currentOfferKey]);
@@ -558,6 +573,11 @@ function AuthenticatedReviewPageScope() {
         ...existing,
         [rating]: (existing[rating] ?? 0) + 1,
       }));
+      setSessionEntries((existing) => [...existing, {
+        hintUsed,
+        rating,
+        wordId: current.wordId,
+      }]);
       setRevealed(false);
       setQueueNotice(
         online
@@ -583,6 +603,21 @@ function AuthenticatedReviewPageScope() {
     }
   };
 
+  const localForecast = useMemo(
+    () => buildReviewForecast(state.fsrsCards),
+    [state.fsrsCards],
+  );
+  const memoryDistribution = useMemo(
+    () => buildReviewMemoryDistribution(state.fsrsCards),
+    [state.fsrsCards],
+  );
+  const reviewedToday = useMemo(() => {
+    const today = new Date().toLocaleDateString("sv-SE");
+    return reviewRecords.filter((record) =>
+      new Date(record.enqueuedAt).toLocaleDateString("sv-SE") === today
+    ).length;
+  }, [reviewRecords]);
+
   if (!exactAuthority) {
     return (
       <NormalizedLearningAuthorityGate
@@ -596,11 +631,11 @@ function AuthenticatedReviewPageScope() {
   if (recordsError) {
     return (
       <div className="lesson-state-screen" role="alert">
-        <ShieldAlert size={44} />
+        <span className="memory-state-symbol" aria-hidden="true">盾</span>
         <h1>Đã dừng ôn tập an toàn</h1>
         <p>{recordsError} Hệ thống không thể lọc lệnh pending một cách đáng tin cậy.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
-          <RefreshCw size={17} /> Kiểm tra lại
+          <span aria-hidden="true">↻</span> Kiểm tra lại
         </button>
         <Link className="secondary-button" to="/profile">
           Kiểm tra tài khoản
@@ -613,7 +648,7 @@ function AuthenticatedReviewPageScope() {
     const reason = quarantinedRecords[0]?.quarantineReason;
     return (
       <div className="lesson-state-screen" role="alert">
-        <AlertTriangle size={44} />
+        <span className="memory-state-symbol" aria-hidden="true">!</span>
           <span>LƯỢT ÔN · CẦN KIỂM TRA</span>
         <h1>Một đánh giá cần được xử lý</h1>
         <p>
@@ -622,7 +657,7 @@ function AuthenticatedReviewPageScope() {
           {reason ? ` Chi tiết: ${reason}` : ""}
         </p>
         <button className="primary-button" type="button" onClick={syncAndRefresh}>
-          <RefreshCw size={17} /> Đồng bộ và kiểm tra lại
+          <span aria-hidden="true">↻</span> Đồng bộ và kiểm tra lại
         </button>
         <Link className="secondary-button" to="/profile">
           Mở kiểm soát dữ liệu
@@ -634,7 +669,7 @@ function AuthenticatedReviewPageScope() {
   if (queuePhase === "loading" || records === null) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
-        <BrainCircuit size={44} />
+        <span className="memory-state-symbol" aria-hidden="true">忆</span>
           <h1>Đang xác minh hàng đợi ôn tập</h1>
           <p>Hệ thống đang khôi phục đúng thẻ ôn và tiến độ mới nhất của bạn.</p>
       </div>
@@ -644,11 +679,11 @@ function AuthenticatedReviewPageScope() {
   if (queuePhase === "retryable" || queuePhase === "error") {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
-        {online ? <Cloud size={44} /> : <CloudOff size={44} />}
+        <span className="memory-state-symbol" aria-hidden="true">{online ? "云" : "断"}</span>
         <h1>Chưa thể xác minh lượt ôn</h1>
         <p>{online ? "Chưa thể tải lượt ôn lúc này." : "Thiết bị đang ngoại tuyến."}{formatRetry(retryAfterMs)}</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
-          <RefreshCw size={17} /> Thử lại
+          <span aria-hidden="true">↻</span> Thử lại
         </button>
         <Link className="secondary-button" to="/path">
           Trở về Thiên Lộ
@@ -660,11 +695,11 @@ function AuthenticatedReviewPageScope() {
   if (queuePhase === "unavailable" || !queue) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
-        <ShieldAlert size={44} />
+        <span className="memory-state-symbol" aria-hidden="true">盾</span>
           <h1>Chưa thể tải thẻ ôn</h1>
         <p>Chưa có lượt ôn phù hợp với tiến độ hiện tại. Hãy thử tải lại hoặc kiểm tra tài khoản.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
-          <RefreshCw size={17} /> Xác minh lại
+          <span aria-hidden="true">↻</span> Xác minh lại
         </button>
         <Link className="secondary-button" to="/profile">
           Kiểm tra tài khoản
@@ -676,12 +711,12 @@ function AuthenticatedReviewPageScope() {
   if (!networkVerified) {
     return (
       <div className="lesson-state-screen" role="status" aria-live="polite">
-        <CloudOff size={44} />
+        <span className="memory-state-symbol" aria-hidden="true">断</span>
           <span>ĐANG KHÔI PHỤC THẺ ÔN</span>
           <h1>Đang kiểm tra lượt ôn</h1>
         <p>Thẻ ôn đã được khôi phục trên thiết bị. Hệ thống đang xác nhận lại dữ liệu trước khi cho phép đánh giá.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
-          <RefreshCw size={17} /> Xác minh qua mạng
+          <span aria-hidden="true">↻</span> Xác minh qua mạng
         </button>
         <Link className="secondary-button" to="/path">
           Trở về Thiên Lộ
@@ -692,72 +727,66 @@ function AuthenticatedReviewPageScope() {
 
   if (queue.cards.length === 0) {
     return (
-      <div className="review-complete-screen">
-        <div className="memory-complete-core">
-          <BrainCircuit size={42} />
-          <span />
-        </div>
-          <span className="system-kicker">KÝ ỨC TRẬN · SẴN SÀNG</span>
-          <h1>Chưa có thẻ đến hạn</h1>
-          <p>Hiện chưa có từ nào cần ôn. Hãy quay lại sau một phiên học mới.</p>
-        <div className="review-summary-grid">
-              <div><small>Thẻ đến hạn</small><strong>0</strong></div>
-          <div><small>Đang chờ gửi</small><strong>{allPendingRecords.length}</strong></div>
-              <div><small>Lượt đã ghi nhận</small><strong>0</strong></div>
-        </div>
-        <button className="secondary-button" type="button" onClick={retryEverything}>
-          <RefreshCw size={17} /> Kiểm tra lại
-        </button>
-        <Link className="primary-button" to="/path">
-          <Sparkles size={17} /> Tiếp tục học
-        </Link>
-      </div>
+      <MemoryReviewLobby
+        activatedCount={Object.keys(state.fsrsCards).length}
+        dueCount={0}
+        forecast={localForecast}
+        distribution={memoryDistribution}
+        reviewedToday={reviewedToday}
+      />
     );
   }
 
   if (availableCards.length === 0) {
-    const pending = pendingRecords.length > 0;
+    const sessionSummary = summarizeReviewSession(sessionEntries);
+    const persistedNeedsReview = relevantRecords.filter((record) =>
+      record.command.rating <= 2
+    ).length;
+    const nextReceiptDate = acknowledgedRecords
+      .map((record) => record.receipt?.nextDueAt)
+      .filter((value): value is string => Boolean(value))
+      .map((value) => new Date(value))
+      .filter((value) => !Number.isNaN(value.getTime()))
+      .sort((left, right) => left.getTime() - right.getTime())[0] ?? null;
     return (
-      <div className="review-complete-screen" role="status" aria-live="polite">
-        <div className="memory-complete-core">
-          {pending ? <Cloud size={42} /> : <CircleCheck size={42} />}
-          <span />
-        </div>
-        <span className="system-kicker">
-          KÝ ỨC TRẬN · {pending ? "ĐANG ĐỒNG BỘ" : "ĐÃ LƯU"}
-        </span>
-        <h1>{pending ? "Lượt ôn đã được giữ an toàn" : "Lượt ôn đã được lưu"}</h1>
-        <p>
-          {pending
-            ? online
-              ? "Các đánh giá đang được đồng bộ để cập nhật lịch ôn mới."
-              : "Bạn có thể đóng trang; các đánh giá sẽ tự gửi khi có mạng trở lại."
-            : "Đánh giá đã được xác nhận và lịch ôn đang được làm mới."}
-        </p>
-        <div className="review-summary-grid">
-          <div><small>Đã xử lý</small><strong>{relevantRecords.length}</strong></div>
-          <div><small>Đang chờ gửi</small><strong>{pendingRecords.length}</strong></div>
-          <div><small>Đã xác nhận</small><strong>{acknowledgedRecords.length}</strong></div>
-          <div><small>EXP đã cộng</small><strong>+{acknowledgedRecords.length * REVIEW_INTERACTION_XP}</strong></div>
-        </div>
-        <button className="primary-button" type="button" onClick={syncAndRefresh}>
-          <RefreshCw size={17} /> Đồng bộ và làm mới
-        </button>
-        <Link className="secondary-button" to="/path">
-          Trở về Thiên Lộ
-        </Link>
-      </div>
+      <MemoryReviewComplete
+        independent={sessionSummary.independent}
+        needsReview={sessionEntries.length ? sessionSummary.needsReview : persistedNeedsReview}
+        nextReview={nextReceiptDate ?? getNextReviewDate(state.fsrsCards)}
+        pending={pendingRecords.length}
+        total={sessionEntries.length ? sessionSummary.total : relevantRecords.length}
+        withHint={sessionSummary.withHint}
+      />
+    );
+  }
+
+  if (!started) {
+    const forecast = localForecast.map((day, index) =>
+      index === 0 ? { ...day, count: availableCards.length } : day
+    );
+    return (
+      <MemoryReviewLobby
+        activatedCount={Math.max(Object.keys(state.fsrsCards).length, queue.cards.length)}
+        dueCount={availableCards.length}
+        forecast={forecast}
+        distribution={memoryDistribution}
+        reviewedToday={reviewedToday}
+        onStart={() => {
+          setSessionEntries([]);
+          setStarted(true);
+        }}
+      />
     );
   }
 
   if (!current || !word) {
     return (
       <div className="lesson-state-screen" role="alert">
-        <ShieldAlert size={44} />
+        <span className="memory-state-symbol" aria-hidden="true">盾</span>
           <h1>Thẻ ôn không còn phù hợp</h1>
           <p>Thẻ này đã được bỏ qua để tránh ghi sai tiến độ. Hãy tải lại hàng ôn.</p>
         <button className="primary-button" type="button" onClick={retryEverything}>
-          <RefreshCw size={17} /> Tải lại hàng đợi
+          <span aria-hidden="true">↻</span> Tải lại hàng đợi
         </button>
       </div>
     );
@@ -770,32 +799,27 @@ function AuthenticatedReviewPageScope() {
   const progress = Math.round((handledCount / queue.cards.length) * 100);
 
   return (
-    <div className="content-page review-page" aria-busy={busy}>
-      <div className="review-session-header">
-        <header className="page-hero review-hero">
-          <div className="review-hero-identity">
-            <span className="review-hero-sigil" aria-hidden="true">
-              <BrainCircuit size={24} /><i /><b>03</b>
-            </span>
-            <div className="review-hero-copy">
-              <span className="system-kicker">
-                KÝ ỨC TRẬN · TỰ ĐÁNH GIÁ
-              </span>
-              <h1>Ký Ức Trận</h1>
-              <p>Triệu hồi · tự nhớ · phán định. Lịch ôn tài khoản được đồng bộ sau mỗi mảnh ký ức.</p>
-            </div>
-          </div>
-          <div className="review-live-stats">
-            <span><strong>{availableCards.length}</strong><small>thẻ còn lại</small></span>
-            <span><strong>{allPendingRecords.length}</strong><small>đang chờ lưu</small></span>
-            <span><strong>+{acknowledgedRecords.length * REVIEW_INTERACTION_XP}</strong><small>EXP đã cộng</small></span>
-          </div>
-        </header>
+    <div className="memory-experience memory-session review-page" aria-busy={busy}>
+      <header className="memory-session-toolbar">
+        <div
+          className="review-session-bar"
+          role="progressbar"
+          aria-label="Tiến độ hàng đợi ôn tập"
+          aria-valuemin={0}
+          aria-valuemax={queue.cards.length}
+          aria-valuenow={handledCount}
+        >
+          <span><i className="memory-symbol" aria-hidden="true">阵</i> MEM-{revealed ? "03 · ĐỐI CHIẾU" : "02 · TRUY HỒI"}</span>
+          <div className="review-progress-rail"><i style={{ width: `${progress}%` }} /><b aria-hidden="true" /></div>
+          <strong><b>{handledCount + 1}</b> / {queue.cards.length}</strong>
+        </div>
+        <button type="button" onClick={() => setStarted(false)}><span aria-hidden="true">×</span> Thoát</button>
+      </header>
 
         {(queueNotice || actionError || !online) && (
           <div className="review-session-notice" role={actionError ? "alert" : "status"} aria-live="polite">
             <span>
-              {online ? <Cloud size={15} /> : <CloudOff size={15} />}
+              <i className="memory-symbol" aria-hidden="true">{online ? "云" : "断"}</i>
               {actionError
                 ? "Chưa thể lưu đánh giá lúc này. Hãy kiểm tra kết nối rồi thử lại."
                 : queueNotice
@@ -805,20 +829,6 @@ function AuthenticatedReviewPageScope() {
           </div>
         )}
 
-        <div
-          className="review-session-bar"
-          role="progressbar"
-          aria-label="Tiến độ hàng đợi ôn tập"
-          aria-valuemin={0}
-          aria-valuemax={queue.cards.length}
-          aria-valuenow={handledCount}
-        >
-          <span><ScanLine size={14} /> MẢNH KÝ ỨC {String(handledCount + 1).padStart(2, "0")}</span>
-          <div className="review-progress-rail"><i style={{ width: `${progress}%` }} /><b aria-hidden="true" /></div>
-          <strong><b>{handledCount + 1}</b> / {queue.cards.length}</strong>
-        </div>
-      </div>
-
       <div className="review-card-scroll">
         <ReviewMemoryArena
           audioSourceId={`review:account:${word.id}`}
@@ -827,6 +837,8 @@ function AuthenticatedReviewPageScope() {
           exampleMeaning={word.exampleMeaning}
           examplePinyin={word.examplePinyin}
           meaning={word.meaning}
+          hintUsed={hintUsed}
+          onUseHint={() => setHintUsed(true)}
           partOfSpeech={word.partOfSpeech}
           pinyin={word.pinyin}
           revealed={revealed}
@@ -837,15 +849,15 @@ function AuthenticatedReviewPageScope() {
 
         <footer className="fsrs-status-line">
           <span>
-            <CalendarClock size={15} />
+            <i className="memory-symbol" aria-hidden="true">历</i>
             Lịch ôn: {new Date(current.dueAt).toLocaleString("vi-VN")}
           </span>
           <span>
-            <ShieldAlert size={15} />
+            <i className="memory-symbol" aria-hidden="true">盾</i>
             Tự đánh giá dùng để xếp lịch ôn
           </span>
           <span>
-            <CircleCheck size={15} />
+            <i className="memory-symbol" aria-hidden="true">✓</i>
             Lịch mới xuất hiện sau khi lưu
           </span>
           <span aria-live="polite">
@@ -872,7 +884,7 @@ function AuthenticatedReviewPageScope() {
         >
           <div className="review-action-inner">
             <div className="rating-heading">
-              <span className="review-command-sigil" aria-hidden="true"><Sparkles size={19} /></span>
+              <span className="review-command-sigil" aria-hidden="true">✦</span>
               <span>
                 <b>GIAO THỨC TRUY HỒI</b>
                 <strong>Tự gọi lại trước khi xem đáp án</strong>
@@ -885,7 +897,7 @@ function AuthenticatedReviewPageScope() {
               type="button"
               onClick={() => setRevealed(true)}
             >
-              <span><small>GIẢI MÃ</small>Hiện đáp án</span> <ChevronRight size={18} />
+              <span><small>GIẢI MÃ</small>Hiện đáp án</span> <i className="memory-symbol" aria-hidden="true">›</i>
             </button>
           </div>
         </section>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { D1Database } from "./d1";
 import { EditorialReaderRepository } from "./editorialReaderRepository";
+import { studioGradedTextSeriesId } from "../content/gradedTextIdentity";
 
 const publishedBook = {
   schemaVersion: 1,
@@ -91,5 +92,71 @@ describe("Editorial Reader published projection", () => {
       chapterId: "thanh-pho-thu-nghiem-c01",
     });
     expect(chapter?.paragraphs).toHaveLength(2);
+  });
+
+  it("projects a published graded_text and resolves its stable Reader chapter", async () => {
+    const stableKey = "hsk1.graded_text.ngay-dau-fixture";
+    const seriesId = studioGradedTextSeriesId(stableKey);
+    const gradedRow = {
+      stableKey,
+      itemType: "graded_text",
+      title: "Ngày đầu tiên",
+      level: "hsk1",
+      contentSha256: "d".repeat(64),
+      contentJson: JSON.stringify({
+        readerSeriesId: seriesId,
+        titleZh: "第一天",
+        summaryVi: "Một cuộc gặp ngắn trong ngày đầu đi học.",
+        estimatedMinutes: 4,
+        sourceLessonIds: ["boot-2"],
+        sentences: [
+          { hanzi: "今天是第一天。", pinyin: "Jīntiān shì dì-yī tiān.", meaningVi: "Hôm nay là ngày đầu." },
+          { hanzi: "老师说你好。", pinyin: "Lǎoshī shuō nǐ hǎo.", meaningVi: "Giáo viên nói xin chào." },
+        ],
+        comprehension: [{
+          promptVi: "Ai nói xin chào?",
+          answer: "Giáo viên",
+          distractors: ["Học sinh", "Người bán hàng"],
+          explanationVi: "Câu thứ hai có 老师.",
+        }],
+        rights: {
+          sourceKind: "original-hanzi-os",
+          textProvenanceVi: "Bản thảo nguyên bản do đội HANZI.OS soạn.",
+          editorAttestsRights: true,
+        },
+        review: {
+          humanReviewed: false,
+          aiSelfReview: {
+            accuracy: true,
+            levelFit: true,
+            pedagogy: true,
+            answerIntegrity: true,
+            originality: true,
+          },
+        },
+      }),
+    };
+    const database = {
+      prepare(sql: string) {
+        return {
+          bind() { return this; },
+          async first() {
+            if (sql.includes("i.stable_key = ?")) return null;
+            if (sql.includes("json_extract(r.content_json, '$.readerSeriesId') = ?")) return gradedRow;
+            return null;
+          },
+          async all() { return { success: true, results: [] }; },
+        };
+      },
+    } as unknown as D1Database;
+
+    const chapter = await new EditorialReaderRepository(database)
+      .getPublishedChapter(seriesId, `${seriesId}-c01`);
+    expect(chapter).toMatchObject({
+      seriesId,
+      chapterId: `${seriesId}-c01`,
+      relatedLessonIds: ["boot-2"],
+    });
+    expect(chapter?.comprehension).toHaveLength(1);
   });
 });

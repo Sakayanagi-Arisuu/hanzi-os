@@ -1,5 +1,5 @@
 import { authorizeAdmin } from "../../../src/server/adminHttp";
-import { sameOriginMutation } from "../../../src/server/authHttp";
+import { boundedReturnTo, sameOriginMutation } from "../../../src/server/authHttp";
 import { requestCorrelationId } from "../../../src/server/auditRepository";
 import {
   AdminRoleSelfRevocationError,
@@ -12,8 +12,8 @@ import { readBoundedRequestText } from "../../../src/server/boundedRequestBody";
 
 export const dynamic = "force-dynamic";
 
-const redirect = (request: Request, key: "updated" | "error", value: string) => {
-  const location = new URL("/admin", request.url);
+const redirect = (request: Request, key: "updated" | "error", value: string, returnTo?: string | null) => {
+  const location = new URL(boundedReturnTo(returnTo ?? null, "/admin"), request.url);
   location.searchParams.set(key, value);
   return Response.redirect(location, 303);
 };
@@ -32,6 +32,7 @@ export async function POST(request: Request) {
   const role = form.get("role");
   const rawEnabled = form.get("enabled");
   const expectedRevision = Number(form.get("expectedRevision"));
+  const returnTo = form.get("returnTo");
   if (
     !userId
     || userId.length > 128
@@ -40,14 +41,14 @@ export async function POST(request: Request) {
     || !Number.isInteger(expectedRevision)
     || expectedRevision < 1
   ) {
-    return redirect(request, "error", "Yêu cầu phân quyền không hợp lệ.");
+    return redirect(request, "error", "Yêu cầu phân quyền không hợp lệ.", returnTo);
   }
 
   try {
     const authorized = await authorizeAdmin("admin:roles:write", { stepUp: true });
     if (!authorized.ok) {
       const error = await authorized.response.json() as { error?: { message?: string } };
-      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.");
+      return redirect(request, "error", error.error?.message ?? "Không đủ quyền.", returnTo);
     }
     await new AuthorizationRepository(authorized.context.database).setRole({
       actorUserId: authorized.context.account.userId,
@@ -58,20 +59,20 @@ export async function POST(request: Request) {
       expectedRevision,
       requestId: requestCorrelationId(request),
     });
-    return redirect(request, "updated", userId);
+    return redirect(request, "updated", userId, returnTo);
   } catch (error) {
     if (error instanceof AdminRoleSelfRevocationError) {
-      return redirect(request, "error", "Không thể tự thu quyền quản trị của tài khoản đang dùng.");
+      return redirect(request, "error", "Không thể tự thu quyền quản trị của tài khoản đang dùng.", returnTo);
     }
     if (error instanceof AuthorizationTargetNotFoundError) {
-      return redirect(request, "error", "Không tìm thấy tài khoản cần phân quyền.");
+      return redirect(request, "error", "Không tìm thấy tài khoản cần phân quyền.", returnTo);
     }
     if (error instanceof AuthorizationConcurrencyError) {
-      return redirect(request, "error", "Dữ liệu đã đổi ở phiên khác; hãy tải lại.");
+      return redirect(request, "error", "Dữ liệu đã đổi ở phiên khác; hãy tải lại.", returnTo);
     }
     if (error instanceof LastAdminProtectionError) {
-      return redirect(request, "error", "Không thể thu quyền quản trị viên cuối cùng.");
+      return redirect(request, "error", "Không thể thu quyền quản trị viên cuối cùng.", returnTo);
     }
-    return redirect(request, "error", "Không thể cập nhật quyền lúc này.");
+    return redirect(request, "error", "Không thể cập nhật quyền lúc này.", returnTo);
   }
 }
