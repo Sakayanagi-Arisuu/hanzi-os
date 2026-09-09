@@ -2,6 +2,8 @@ import { BrainCircuit } from "lucide-react";
 import { lazy, Suspense } from "react";
 import { useLearning } from "../store/LearningStore";
 import "./MistakesPage.css";
+import "./RemediationSessionLayout.css";
+import "./RemediationCelestial.css";
 
 const AuthenticatedMistakesPage = lazy(async () => ({
   default: (await import("./AuthenticatedMistakesPage"))

@@ -1,0 +1,68 @@
+/* Session geometry: header, content, actions and progress occupy separate rows.
+   Only long content scrolls; controls never overlay a hint or answer. */
+.content-page.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) {
+  display:grid; grid-template-rows:100px minmax(0,1fr) 68px 64px; gap:0;
+  height:100%; min-height:0; padding:0 24px;
+}
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-body {
+  display:flex; flex-direction:column; gap:16px; min-height:0;
+  padding:8px 12px; overflow:auto; scrollbar-width:thin; overscroll-behavior:contain;
+}
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-context-pills { position:static; inset:auto; flex:none; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-question-card { flex:none; min-height:0; width:100%; margin:0 auto; padding:0 16px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-question-card h2 { margin:8px 0; font-size:clamp(28px,3.2vw,56px); }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-question-card p { font-size:14px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-question-type { font-size:13px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-listen-action { position:static; inset:auto; margin:8px auto 0; min-height:44px; font-size:14px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-field { flex:none; width:100%; margin:0 auto; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid { gap:16px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button { min-height:106px; padding:16px 16px 16px 48px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button.is-prose strong { font-size:16px; line-height:1.5; font-weight:500; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button.is-compact strong { font-size:40px; line-height:1.3; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-hint-panel,
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-inline-error { position:static; inset:auto; flex:none; width:100%; max-width:none; margin:0; font-size:14px; line-height:1.5; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-hint-panel { order:3; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-hint-panel strong { font-size:12px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-actions { position:static; inset:auto; grid-row:3; height:auto; margin:0; padding:10px 0; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-actions button { height:48px; min-height:48px; max-width:100%; font-size:15px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-primary-action { width:250px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-statusbar { grid-row:4; width:auto; margin:0 -24px; padding:8px 24px; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,2fr) minmax(0,1fr); gap:12px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-statusbar > span { font-size:12px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-statusbar > button { min-height:44px; font-size:13px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-card { width:min(1040px,100%); min-height:0; height:auto; margin:auto; transform:none; flex:none; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-answer { padding:24px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-answer h2 { font-size:clamp(26px,2.5vw,40px); }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-answer p { font-size:14px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-comparison strong { font-size:20px; line-height:1.5; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-comparison { grid-template-columns:1fr; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button > span { position:absolute; left:12px; top:16px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button > strong { padding:0; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button { display:flex; align-items:center; justify-content:center; position:relative; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button > strong { width:100%; min-width:0; }
+@media (min-width:901px) {
+ .rem-observatory .rem-attempt-view .rem-context-pills { position:absolute; top:24px; left:24px; right:24px; pointer-events:none; }
+ .rem-observatory .rem-attempt-view .rem-question-card { display:grid; grid-template-columns:minmax(0,1fr) 112px; padding:0 16px 0 128px; column-gap:16px; }
+ .rem-observatory .rem-attempt-view .rem-question-card > :not(button) { grid-column:1; }
+ .rem-observatory .rem-attempt-view .rem-listen-action { grid-column:2; grid-row:1 / 4; align-self:center; }
+}
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-explanation { padding:12px; gap:8px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-explanation article { min-height:0; padding:8px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-explanation strong { font-size:14px; }
+.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-explanation p { margin:4px 0 0; font-size:14px; line-height:1.5; }
+@media (min-height:800px) and (min-width:1100px) {
+ .content-page.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) { grid-template-rows:150px minmax(0,1fr) 94px 90px; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-body { gap:24px; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid button { min-height:140px; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-actions button { height:64px; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-primary-action { width:330px; }
+}
+@media (max-width:900px) {
+ .content-page.rem-observatory :is(.rem-attempt-view, .rem-feedback-view) { padding:0 16px; grid-template-rows:88px minmax(0,1fr) 68px 56px; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-answer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-statusbar { margin:0 -16px; padding:4px 16px; grid-template-columns:minmax(0,1fr) auto; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-statusbar > span { display:none; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-feedback-card { grid-template-columns:1fr; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-primary-action { width:auto; min-width:0; flex:1; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-context-pills { gap:8px; flex-wrap:wrap; }
+ .rem-observatory :is(.rem-attempt-view, .rem-feedback-view) .rem-session-body { padding:8px 0; }
+}

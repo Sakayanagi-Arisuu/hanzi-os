@@ -1,3 +1,4 @@
+import { RemediationAtlas } from "./RemediationAtlas";
 import {
   AudioWaveform,
   ArrowLeft,
@@ -19,20 +20,13 @@ import {
   PenLine,
   RotateCcw,
   ShieldCheck,
-  Sparkles,
-  Telescope,
   Volume2,
   X,
   XCircle,
 } from "lucide-react";
-import { useMemo, useState, type CSSProperties } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router";
 import {
-  buildSevenDayLabels,
-  buildSevenDaySignals,
-  buildSkillSignals,
-  buildSourceSignals,
-  countActiveSignals,
   selectRemediationSession,
   summarizeRemediationResults,
   type RemediationObservatoryFeedback,
@@ -113,149 +107,6 @@ function SessionRail({
   );
 }
 
-function MapView({
-  items,
-  resolvedCount,
-  onStart,
-}: {
-  items: readonly RemediationObservatoryItem[];
-  resolvedCount: number;
-  onStart: () => void;
-}) {
-  const priority = selectRemediationSession(items);
-  const skillSignals = buildSkillSignals(items);
-  const sourceSignals = buildSourceSignals(items);
-  const trend = buildSevenDaySignals(items);
-  const trendLabels = buildSevenDayLabels();
-  const totalSignals = countActiveSignals(items);
-  const maxTrend = Math.max(1, ...trend);
-  const sourceTotal = Math.max(1, sourceSignals.reduce((sum, source) => sum + source.count, 0));
-  const lessonSignals = sourceSignals.find((source) => source.source === "lesson")?.count ?? 0;
-  const trendPoints = trend.map((count, index) => {
-    const x = 16 + index * 44.5;
-    const y = 67 - count / maxTrend * 46;
-    return `${x},${y}`;
-  }).join(" ");
-
-  return (
-    <section className="rem-map-view" aria-labelledby="rem-map-title">
-      <header className="rem-map-heading">
-        <span className="rem-map-heading-mark" aria-hidden="true"><Orbit size={29} /></span>
-        <div>
-          <h1 id="rem-map-title">Bản đồ điểm yếu</h1>
-          <p>Dấu vết được tổng hợp từ những lượt học đã chấm.</p>
-        </div>
-      </header>
-
-      <div className="rem-map-grid">
-        <section className="rem-radar-panel" aria-label="Bản đồ kỹ năng đang vướng">
-          <div className="rem-radar" aria-hidden="true">
-            <span className="rem-radar-ring rem-radar-ring--outer" />
-            <span className="rem-radar-ring rem-radar-ring--middle" />
-            <span className="rem-radar-ring rem-radar-ring--inner" />
-            <span className="rem-radar-axis rem-radar-axis--x" />
-            <span className="rem-radar-axis rem-radar-axis--y" />
-            <span className="rem-radar-orbit rem-radar-orbit--one" />
-            <span className="rem-radar-orbit rem-radar-orbit--two" />
-            <span className="rem-radar-core"><ShieldCheck size={43} /><i /></span>
-            {skillSignals.slice(0, 5).map((signal, index) => (
-              <span
-                className={`rem-skill-node rem-skill-node--${index + 1} ${signal.count >= 4 ? "is-high" : signal.count >= 3 ? "is-medium" : "is-low"}`}
-                key={signal.skill}
-              >
-                <i className="rem-node-icon"><SkillGlyph skill={signal.skill} size={27} /></i>
-                <b className="rem-node-count">{signal.count}</b>
-                <strong className="rem-node-caption">{signal.label}</strong>
-              </span>
-            ))}
-          </div>
-          <div className="rem-radar-legend">
-            <span><i className="is-cyan" /> {skillSignals.length} vùng đang phát tín hiệu</span>
-            <span><i className="is-jade" /> {resolvedCount} dấu vết đã hóa giải</span>
-          </div>
-        </section>
-
-        <aside className="rem-map-side">
-          <section className="rem-signal-summary">
-            <span className="rem-summary-compass" aria-hidden="true"><Telescope size={28} /></span>
-            <div>
-              <h2>{totalSignals} lỗi đang vướng</h2>
-              <p>Được đối chiếu liên tục từ lịch sử học thật</p>
-            </div>
-            <div
-              className="rem-signal-dial"
-              style={{ "--rem-lesson-share": `${lessonSignals / sourceTotal * 360}deg` } as CSSProperties}
-              aria-label={`${lessonSignals} lỗi từ bài học trên tổng ${sourceTotal} lỗi`}
-            >
-              <span><strong>{totalSignals}</strong><small>TỔNG</small></span>
-            </div>
-          </section>
-
-          <section className="rem-priority-panel">
-            <header><h2>{priority.length} lỗi ưu tiên hôm nay</h2><span><Sparkles size={15} /> TỰ ĐỘNG XẾP HẠNG</span></header>
-            <div className="rem-priority-list">
-              {priority.length === 0 && (
-                <div className="rem-priority-empty">
-                  <ShieldCheck size={25} />
-                  <strong>Không còn lỗi cần hóa giải</strong>
-                  <p>Dấu vết mới sẽ xuất hiện sau một lượt học được chấm.</p>
-                </div>
-              )}
-              {priority.map((item) => (
-                <article key={item.id}>
-                  <span className="rem-priority-glyph"><SkillGlyph skill={item.skill} size={21} /></span>
-                  <div>
-                    <strong>{item.skillLabel}</strong>
-                    <p>{item.prompt}</p>
-                  </div>
-                  <small><BookOpenText size={13} /> {item.originLabel} · {item.originDetail}</small>
-                  <i>{item.occurrenceCount}</i>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <div className="rem-map-metrics">
-            <section>
-              <header><span>Nguồn dấu vết</span><BookOpenText size={17} /></header>
-              <div className="rem-source-chart">
-                <span
-                  className="rem-source-orbit"
-                  style={{ "--rem-lesson-share": `${lessonSignals / sourceTotal * 360}deg` } as CSSProperties}
-                ><i /></span>
-                <div>
-                  {sourceSignals.map((source) => (
-                    <p key={source.source}><i /> {source.label}<strong>{source.count}</strong></p>
-                  ))}
-                </div>
-              </div>
-            </section>
-            <section>
-              <header><span>Dấu vết gần đây · 7 ngày</span><Sparkles size={15} /></header>
-              <div className="rem-trend-chart" aria-label="Số nhóm lỗi có lần xuất hiện gần nhất trong bảy ngày">
-                <svg viewBox="0 0 300 78" preserveAspectRatio="none" aria-hidden="true">
-                  <defs><linearGradient id="remTrendFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#4ef2c2" stopOpacity=".2" /><stop offset="1" stopColor="#4ef2c2" stopOpacity="0" /></linearGradient></defs>
-                  <polygon points={`16,72 ${trendPoints} 283,72`} fill="url(#remTrendFill)" />
-                  <polyline points={trendPoints} fill="none" stroke="#4ef2c2" strokeWidth="2" vectorEffect="non-scaling-stroke" />
-                  {trend.map((count, index) => <circle key={index} cx={16 + index * 44.5} cy={67 - count / maxTrend * 46} r="3" fill="#071821" stroke="#70f9d0" strokeWidth="2" />)}
-                </svg>
-                <div>{trendLabels.map((label) => <small key={label}>{label}</small>)}</div>
-              </div>
-            </section>
-          </div>
-        </aside>
-      </div>
-
-      <footer className="rem-map-actions">
-        <span><ShieldCheck size={17} /> Một lượt tối đa 5 lỗi · không cộng mastery khi dùng gợi ý</span>
-        <button className="rem-primary-action" type="button" disabled={priority.length === 0} onClick={onStart}>
-          Bắt đầu hóa giải <ArrowRight size={18} />
-        </button>
-      </footer>
-    </section>
-  );
-}
-
 function AttemptView({
   item,
   answer,
@@ -324,7 +175,7 @@ function AttemptView({
                 <button
                   className={[
                     answer === option ? "is-selected" : "",
-                    option.length > 18 ? "is-prose" : "is-compact",
+                    /^[\p{Script=Han}\s。，！？、]+$/u.test(option) && option.length <= 8 ? "is-compact" : "is-prose",
                   ].filter(Boolean).join(" ")}
                   key={`${item.id}:${option}`}
                   type="button"
@@ -417,8 +268,8 @@ function FeedbackView({
           </section>
           <section className="rem-feedback-explanation">
             <article><Lightbulb size={19} /><div><strong>Vì sao?</strong><p>{feedback.explanation}</p></div></article>
-            <article><CircleAlert size={19} /><div><strong>Đừng nhầm</strong><p>{positive ? "Một câu đúng có gợi ý chưa phải recall độc lập." : "Lỗi vẫn ở lại hàng đợi và sẽ trở lại trong một lượt sau."}</p></div></article>
-            <article><BookOpenText size={19} /><div><strong>Ví dụ</strong><p>{item.promptMeta || `${item.originLabel} · ${item.originDetail}`}</p></div></article>
+            <article><CircleAlert size={19} /><div><strong>Bạn đã trả lời</strong><p>{feedback.answer}</p>{!positive && displayedCorrectAnswer && <p>Đối chiếu với đáp án đúng: {displayedCorrectAnswer}</p>}</div></article>
+            <article><BookOpenText size={19} /><div><strong>Luyện lại trong ngữ cảnh</strong><p>{item.originLabel} · {item.originDetail}. Đọc lại câu hỏi và tự giải thích nghĩa trước lượt tiếp theo.</p></div></article>
           </section>
         </article>
       </div>
@@ -609,9 +460,9 @@ export function RemediationObservatory({
   };
 
   return (
-    <div className="content-page rem-observatory" data-rem-phase={phase}>
+    <div className="content-page rem-observatory rem-celestial" data-rem-phase={phase}>
       <AstralBackdrop />
-      {phase === "map" && <MapView items={items} resolvedCount={resolvedCount} onStart={start} />}
+      {phase === "map" && <RemediationAtlas items={items} resolvedCount={resolvedCount} onStart={start} />}
       {phase === "attempt" && currentItem && (
         <AttemptView
           item={currentItem}
