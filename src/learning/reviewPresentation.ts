@@ -43,7 +43,8 @@ export const buildReviewForecast = (
   Object.values(cards).forEach((card) => {
     const due = new Date(card.due);
     if (Number.isNaN(due.getTime())) return;
-    const bucket = bucketByKey.get(localDayKey(due));
+    const dueDay = localDayKey(due);
+    const bucket = bucketByKey.get(dueDay < buckets[0].key ? buckets[0].key : dueDay);
     if (bucket) bucket.count += 1;
   });
   return buckets.map(({ count, label }) => ({ count, label }));

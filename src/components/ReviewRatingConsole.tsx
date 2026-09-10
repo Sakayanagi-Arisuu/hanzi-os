@@ -1,3 +1,5 @@
+import { CircleSlash, Brain, CircleCheck, Sparkles } from "lucide-react";
+
 export type ReviewRatingOption<RatingValue extends number> = {
   rating: RatingValue;
   key: string;
@@ -49,7 +51,7 @@ export function ReviewRatingConsole<RatingValue extends number>({
               type="button"
               onClick={() => void onGrade(option.rating)}
             >
-              <i className="rating-rune" aria-hidden="true">{option.key.padStart(2, "0")}</i>
+              <i className="rating-rune" aria-hidden="true">{option.className === "again" ? <CircleSlash/> : option.className === "hard" ? <Brain/> : option.className === "good" ? <CircleCheck/> : <Sparkles/>}</i>
               <span>
                 <strong>{option.label}</strong>
                 <small>{option.hint}</small>

@@ -1,4 +1,5 @@
-import { useEffect, type RefObject } from "react";
+import { useEffect, type CSSProperties, type RefObject } from "react";
+import { Lightbulb, Volume2 } from "lucide-react";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
 
 type ReviewMemoryArenaProps = {
@@ -91,7 +92,7 @@ export function ReviewMemoryArena({
             aria-label={`Nghe phát âm ${character}`}
             data-system-silent="true"
           >
-            <span className="memory-symbol" aria-hidden="true">声</span>
+            <Volume2 size={22} aria-hidden="true"/>
             <i aria-hidden="true" />
           </button>
         </div>}
@@ -101,10 +102,12 @@ export function ReviewMemoryArena({
         <div className="memory-glyph-orbit" aria-hidden="true">
           <i /><i /><b>MEM</b><span>{stageNumber}</span>
         </div>
-        <div className="memory-glyph-core">
+        <div className="memory-glyph-core" style={{ "--memory-glyph-count": Math.max(1, Array.from(character.trim()).length) } as CSSProperties}>
+          <svg className="memory-jade-crystal" viewBox="0 0 40 90" aria-hidden="true"><path d="M20 2 36 49 20 86 4 49Z" fill="#08654e" stroke="#64fbd0"/><path d="M20 2 20 86M4 49 20 35 36 49 20 64Z" fill="none" stroke="#40cdaa"/></svg>
           <span aria-hidden="true">核心 · RECALL</span>
           <h2
             className="memory-character"
+            lang="zh-Hans"
             id={titleId}
             ref={titleRef}
             tabIndex={-1}
@@ -124,7 +127,7 @@ export function ReviewMemoryArena({
             disabled={hintUsed}
             aria-pressed={hintUsed}
           >
-            <span className="memory-symbol" aria-hidden="true">⌄</span>
+            <Lightbulb size={18} aria-hidden="true"/>
             {hintUsed
               ? `Gợi ý: âm đầu “${pinyin.trim().slice(0, 1)}” · ${partOfSpeech}`
               : "Gợi ý"}

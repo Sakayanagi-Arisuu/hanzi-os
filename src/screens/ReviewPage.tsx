@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
 import { useLearning } from "../store/LearningStore";
 import { LocalReviewPage } from "./LocalReviewPage";
+import "./MemoryJadeLayout.css";
 
 const AuthenticatedReviewPage = lazy(async () => ({
   default: (await import("./AuthenticatedReviewPage"))

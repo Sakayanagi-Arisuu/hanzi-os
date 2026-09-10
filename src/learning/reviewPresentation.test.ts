@@ -25,15 +25,16 @@ describe("review presentation", () => {
     const now = new Date(2026, 8, 2, 8);
     const forecast = buildReviewForecast({
       today: card(),
+      overdue: card({ due: new Date(2026, 7, 31, 9).toISOString() }),
       tomorrow: card({ due: new Date(2026, 8, 3, 9).toISOString() }),
       later: card({ due: new Date(2026, 8, 3, 17).toISOString() }),
       outside: card({ due: new Date(2026, 8, 12, 9).toISOString() }),
     }, now);
 
     expect(forecast).toHaveLength(7);
-    expect(forecast[0]).toMatchObject({ count: 1, label: "Hôm nay" });
+    expect(forecast[0]).toMatchObject({ count: 2, label: "Hôm nay" });
     expect(forecast[1]?.count).toBe(2);
-    expect(forecast.reduce((total, day) => total + day.count, 0)).toBe(3);
+    expect(forecast.reduce((total, day) => total + day.count, 0)).toBe(4);
   });
 
   it("describes scheduling strength without treating it as mastery", () => {

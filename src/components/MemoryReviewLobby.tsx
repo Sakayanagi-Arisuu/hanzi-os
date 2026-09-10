@@ -28,7 +28,7 @@ export function MemoryReviewLobby({
   const maximum = Math.max(1, ...forecast.map((day) => day.count));
   const stable = percent(distribution.stable, distribution.total);
   const consolidating = percent(distribution.consolidating, distribution.total);
-  const newCards = Math.max(0, 100 - stable - consolidating);
+  const newCards = distribution.total > 0 ? Math.max(0, 100 - stable - consolidating) : 0;
   const donutStyle = {
     "--memory-stable": `${stable * 3.6}deg`,
     "--memory-consolidating": `${(stable + consolidating) * 3.6}deg`,
@@ -70,7 +70,7 @@ export function MemoryReviewLobby({
         <article className="memory-stat-card memory-distribution-card">
           <h2><span className="memory-heading-symbol" aria-hidden="true">环</span> Phân bố lịch ký ức</h2>
           <div className="memory-distribution-body">
-            <div className="memory-donut" style={donutStyle} aria-hidden="true">记</div>
+            <div className={`memory-donut ${distribution.total === 0 ? "is-empty" : ""}`} style={donutStyle} aria-hidden="true">记</div>
             <dl>
               <div><dt><i className="stable" />Ổn định cao</dt><dd>{stable}%</dd></div>
               <div><dt><i className="consolidating" />Đang củng cố</dt><dd>{consolidating}%</dd></div>
@@ -92,12 +92,14 @@ export function MemoryReviewLobby({
         </button>
       ) : (
         <Link className="memory-primary-cta" to="/path" viewTransition>
-          <span aria-hidden="true">✦</span> Học để kích hoạt ký ức
+          <span aria-hidden="true">✦</span> {activatedCount > 0 ? "Tiếp tục Thiên Lộ" : "Học để kích hoạt ký ức"}
         </Link>
       )}
       {dueCount === 0 && (
         <p className="memory-empty-note" role="status">
-          Chưa có thẻ tới lịch. Ký Ức Trận sẽ mở sau khi bạn gặp từ trong bài học hoặc lưu từ cần nhớ.
+          {activatedCount > 0
+            ? "Bạn đã ôn hết thẻ đến hạn. Lịch ôn tiếp theo sẽ xuất hiện tại đây."
+            : "Chưa có thẻ tới lịch. Học hoặc lưu từ cần nhớ để bắt đầu Ký Ức Trận."}
         </p>
       )}
     </div>

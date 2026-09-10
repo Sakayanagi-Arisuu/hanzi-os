@@ -159,6 +159,7 @@ for (const viewport of [
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await installDueReviewCard(page);
     await page.goto("/review");
+  await page.getByRole("button", { name: "Bắt đầu ôn", exact: true }).click();
 
     const revealConsole = page.locator('[data-review-action="reveal"]');
     await expect(revealConsole).toBeVisible({ timeout: 30_000 });
@@ -174,9 +175,9 @@ for (const viewport of [
     await expectActionInsideViewport(page, '[data-review-action="rating"]');
     expect(await page.evaluate(() => window.scrollY)).toBe(0);
 
-    await ratingConsole.getByRole("button", { name: /^Nhớ\./u }).click();
+    await ratingConsole.getByRole("button", { name: /^Ổn\./u }).click();
     await expect(page.getByRole("heading", {
-      name: "Ký ức đã tái đồng bộ",
+      name: "Kết trận hoàn tất",
     })).toBeVisible();
     await expect.poll(() => page.evaluate(() => JSON.parse(
       localStorage.getItem("hanzi-os-learning-state-v1") ?? "{}",
@@ -188,6 +189,7 @@ test("discovers voices without queueing a silent pronunciation", async ({ page }
   await installSpeechProbe(page);
   await installDueReviewCard(page);
   await page.goto("/review");
+  await page.getByRole("button", { name: "Bắt đầu ôn", exact: true }).click();
 
   await expect(page.getByRole("heading", { name: "人" })).toBeVisible({ timeout: 30_000 });
   await expect.poll(() => page.evaluate(() => (
@@ -197,6 +199,8 @@ test("discovers voices without queueing a silent pronunciation", async ({ page }
     window as unknown as { __reviewSpeechProbe: { calls: Array<{ text: string }> } }
   ).__reviewSpeechProbe.calls)).toEqual([]);
 
+  await expect(page.getByRole("button", { name: "Nghe phát âm 人" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Hiện đáp án", exact: true }).click();
   await page.getByRole("button", { name: "Nghe phát âm 人" }).click();
   await expect.poll(() => page.evaluate(() => (
     window as unknown as {
@@ -206,15 +210,18 @@ test("discovers voices without queueing a silent pronunciation", async ({ page }
     call.text === "人" && call.lang === "zh-CN" && call.volume > 0
   )))).toBe(true);
   await expect(page.locator(".system-voice-beacon")).toHaveCount(0);
-  await expect(page.getByText("Đã phát âm")).toBeVisible();
+  await expect(page.locator(".memory-arena")).toHaveAttribute("data-audio-phase", "ended");
 });
 
 test("recovers when Chromium never starts the first pronunciation", async ({ page }) => {
   await installSpeechProbe(page, { hangFirstRequest: true });
   await installDueReviewCard(page);
   await page.goto("/review");
+  await page.getByRole("button", { name: "Bắt đầu ôn", exact: true }).click();
 
   await expect(page.getByRole("heading", { name: "人" })).toBeVisible({ timeout: 30_000 });
+  await expect(page.getByRole("button", { name: "Nghe phát âm 人" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Hiện đáp án", exact: true }).click();
   await page.getByRole("button", { name: "Nghe phát âm 人" }).click();
 
   await expect.poll(() => page.evaluate(() => (
@@ -230,5 +237,5 @@ test("recovers when Chromium never starts the first pronunciation", async ({ pag
   await expect.poll(() => page.evaluate(() => (
     window as unknown as { __reviewSpeechProbe: { cancelCount: number } }
   ).__reviewSpeechProbe.cancelCount)).toBeGreaterThan(0);
-  await expect(page.getByText("Đã phát âm")).toBeVisible();
+  await expect(page.locator(".memory-arena")).toHaveAttribute("data-audio-phase", "ended");
 });
