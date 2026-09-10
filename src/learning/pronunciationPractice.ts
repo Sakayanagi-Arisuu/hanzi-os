@@ -64,6 +64,7 @@ export type PronunciationMissionInput = {
   lessons: readonly Lesson[];
   state: LearningState;
   passedLessonIds?: ReadonlySet<string> | null;
+  unlockedLessonIds?: ReadonlySet<string> | null;
   requestedLessonId?: string | null;
   date?: Date;
 };
@@ -99,16 +100,17 @@ export const selectPronunciationLessonOptions = ({
   lessons,
   state,
   passedLessonIds = null,
+  unlockedLessonIds = null,
 }: Omit<PronunciationMissionInput, "requestedLessonId" | "date">): PronunciationLessonOption[] => {
-  const cap = hskCap(state.profile.startingLevel);
+  const cap = unlockedLessonIds ? 4 : hskCap(state.profile.startingLevel);
   const wordById = new Map(vocabulary.map((word) => [word.id, word]));
   const suppliedLessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
 
-  return getActivePathReleasedLessons(state.profile.startingLevel)
+  return (unlockedLessonIds ? lessons : getActivePathReleasedLessons(state.profile.startingLevel))
     .map((lesson) => suppliedLessonById.get(lesson.id))
     .filter((lesson): lesson is Lesson => Boolean(
       lesson
-      && (passedLessonIds
+      && (unlockedLessonIds ? unlockedLessonIds.has(lesson.id) : passedLessonIds
         ? passedLessonIds.has(lesson.id)
         : isLessonPassed(lesson, state)),
     ))
@@ -143,14 +145,18 @@ export const selectDailyPronunciationMission = ({
   lessons,
   state,
   passedLessonIds = null,
+  unlockedLessonIds = null,
   requestedLessonId = null,
   date = new Date(),
 }: PronunciationMissionInput): PronunciationDailyMission => {
-  const cap = hskCap(state.profile.startingLevel);
+  const cap = unlockedLessonIds ? 4 : hskCap(state.profile.startingLevel);
   const day = dateKey(date);
   const wordById = new Map(vocabulary.map((word) => [word.id, word]));
   const suppliedLessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
-  const activeLessons = getActivePathReleasedLessons(state.profile.startingLevel)
+  const availableLessons = unlockedLessonIds ? lessons.filter((lesson) => unlockedLessonIds.has(lesson.id)) : null;
+  // An empty path still needs the existing foundation/learn-first screen;
+  // the lesson picker stays empty and no completion is inferred.
+  const activeLessons = (availableLessons?.length ? availableLessons : getActivePathReleasedLessons(state.profile.startingLevel))
     .map((lesson) => suppliedLessonById.get(lesson.id))
     .filter((lesson): lesson is Lesson => Boolean(lesson));
   const activeLessonById = new Map(activeLessons.map((lesson) => [lesson.id, lesson]));
@@ -171,7 +177,7 @@ export const selectDailyPronunciationMission = ({
     ? activeLessonById.get(requestedLessonId) ?? null
     : null;
   const requestedLesson = requestedCandidate
-    && lessonIsPassed(requestedCandidate)
+    && (unlockedLessonIds ? unlockedLessonIds.has(requestedCandidate.id) : lessonIsPassed(requestedCandidate))
     && lessonHasPracticeContent(requestedCandidate)
     ? requestedCandidate
     : null;

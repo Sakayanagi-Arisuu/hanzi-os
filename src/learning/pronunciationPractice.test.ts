@@ -60,6 +60,31 @@ const makeState = (): LearningState => ({
   evidence: [],
 });
 
+describe("pronunciation path unlock authority", () => {
+  it("includes available lessons beyond starting level without claiming completion", () => {
+    const state = makeState();
+    state.profile.startingLevel = "zero";
+    const unlockedLessonIds = new Set(RELEASED_LESSONS.map((lesson) => lesson.id));
+    const options = selectPronunciationLessonOptions({ state, vocabulary: RELEASED_VOCABULARY,
+      lessons: RELEASED_LESSONS, passedLessonIds: new Set(), unlockedLessonIds });
+    expect(options.length).toBeGreaterThan(4);
+    const target = options.find((option) => option.id.startsWith("hsk2"))!;
+    expect(target).toBeDefined();
+    const mission = selectDailyPronunciationMission({ state, vocabulary: RELEASED_VOCABULARY,
+      lessons: RELEASED_LESSONS, passedLessonIds: new Set(), unlockedLessonIds,
+      requestedLessonId: target.id });
+    expect(mission.anchorLessonId).toBe(target.id);
+    expect(mission.relationship).toBe("learn-first");
+    expect(mission.challenges.every((challenge) => challenge.sourceLessonId === target.id)).toBe(true);
+    expect(state.completedLessons).toEqual({});
+  });
+  it("does not list lessons outside the supplied unlock authority", () => {
+    const options = selectPronunciationLessonOptions({ state: makeState(), vocabulary: RELEASED_VOCABULARY,
+      lessons: RELEASED_LESSONS, unlockedLessonIds: new Set(), passedLessonIds: new Set() });
+    expect(options).toEqual([]);
+  });
+});
+
 const makeEvidence = (
   activityId: string,
   id: string,

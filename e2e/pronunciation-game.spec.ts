@@ -36,8 +36,8 @@ const installFakeSpeechSynthesis = async (page: Page) => {
   });
 };
 
-const installFakePcmCapture = async (page: Page) => {
-  await page.addInitScript(() => {
+const installFakePcmCapture = async (page: Page, holdRecording = false) => {
+  await page.addInitScript((hold) => {
     const capture = { starts: 0, trackStops: 0 };
     Object.assign(window, { __hanziPcmCapture: capture });
     const stream = {
@@ -77,6 +77,7 @@ const installFakePcmCapture = async (page: Page) => {
           set: (next: typeof audioProcess) => {
             audioProcess = next;
             if (!next) return;
+            if (hold) return;
             const voiced = new Float32Array(9_600);
             for (let index = 0; index < voiced.length; index += 1) {
               voiced[index] = Math.sin(index / 11) * .2;
@@ -125,8 +126,26 @@ const installFakePcmCapture = async (page: Page) => {
 
     Object.defineProperty(window, "AudioContext", { configurable: true, value: FakeAudioContext });
     Object.defineProperty(window, "webkitAudioContext", { configurable: true, value: FakeAudioContext });
-  });
+  }, holdRecording);
 };
+
+test("recording fits a laptop viewport and replay cannot cancel capture", async ({ page }) => {
+  await page.setViewportSize({ width: 1321, height: 643 });
+  await installFakePcmCapture(page, true);
+  await finishOnboarding(page);
+  await followGuide(page);
+  await page.locator(".pronunciation-quest-primary").click();
+  await expect(page.locator(".pronunciation-quest-primary")).toHaveText("Dừng thu & xem phản hồi");
+  await expect(page.getByRole("button", { name: "Nghe lại", exact: true })).toBeDisabled();
+  const geometry = await page.locator(".pronunciation-quest-arena").evaluate((arena) => {
+    const copy = arena.querySelector(".jade-lesson-copy")!.getBoundingClientRect();
+    const bounds = arena.getBoundingClientRect();
+    return { overflow: arena.scrollHeight - arena.clientHeight, top: copy.top - bounds.top, bottom: bounds.bottom - copy.bottom };
+  });
+  expect(geometry.overflow).toBeLessThanOrEqual(1);
+  expect(geometry.top).toBeGreaterThanOrEqual(0);
+  expect(geometry.bottom).toBeGreaterThanOrEqual(0);
+});
 
 const finishOnboarding = async (page: Page) => {
   await installFakeSpeechSynthesis(page);
@@ -139,7 +158,7 @@ const finishOnboarding = async (page: Page) => {
     await page.getByRole("button", { name: "Bắt đầu Khảo Nghiệm Căn Cơ" }).click();
   }
   await page.goto("/pronunciation");
-  await expect(page.getByRole("heading", { name: "Vạn Âm Điện", exact: true }))
+  await expect(page.getByTestId("pronunciation-source-lesson"))
     .toBeVisible({ timeout: 20_000 });
   const closeInvite = page.getByRole("button", { name: "Đóng lời mời Khảo Nghiệm Căn Cơ" });
   if (await closeInvite.isVisible().catch(() => false)) await closeInvite.click();
@@ -221,7 +240,7 @@ for (const viewport of [
     await expect(source).toContainText("Bốn thanh điệu");
     await source.click();
     await expect(page.getByTestId("pronunciation-lesson-library")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Chọn bài đã học" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Luyện nói theo Thiên Lộ" })).toBeVisible();
     await page.getByRole("button", { name: "Đóng kho bài luyện" }).click();
     await expect(page.getByRole("progressbar", { name: "Tiến độ phiên luyện đọc" }))
       .toHaveAttribute("aria-valuemax", "4");

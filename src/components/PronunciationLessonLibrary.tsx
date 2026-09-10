@@ -1,5 +1,5 @@
 import { Check, LibraryBig, LockKeyhole, Volume2, X } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import type { PronunciationLessonOption } from "../learning/pronunciationPractice";
 
@@ -19,6 +19,9 @@ export function PronunciationLessonLibrary({
   onSelect: (lessonId: string) => void;
 }) {
   const panelRef = useRef<HTMLElement>(null);
+  const [page, setPage] = useState(0);
+  const pageCount = Math.max(1, Math.ceil(options.length / 6));
+  const currentPage = Math.min(page, pageCount - 1);
   const returnFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -77,15 +80,15 @@ export function PronunciationLessonLibrary({
           <span aria-hidden="true"><LibraryBig /></span>
           <div>
             <p>VẠN ÂM ĐIỆN · KHO BÀI LUYỆN</p>
-            <h2 id="pronunciation-library-title">Chọn bài đã học</h2>
-            <small>Mở một bài luyện đọc ngay tại đây; không cần quay về Thiên Lộ.</small>
+            <h2 id="pronunciation-library-title">Luyện nói theo Thiên Lộ</h2>
+            <small>Các bài đã mở trên Thiên Lộ có câu luyện phù hợp xuất hiện tại đây.</small>
           </div>
           <button type="button" onClick={onClose} aria-label="Đóng kho bài luyện"><X /></button>
         </header>
 
         {options.length > 0 ? (
           <div className="pronunciation-library-list">
-            {options.map((option, index) => {
+            {options.slice(currentPage * 6, currentPage * 6 + 6).map((option, index) => {
               const selected = option.id === selectedLessonId;
               return (
                 <button
@@ -95,7 +98,7 @@ export function PronunciationLessonLibrary({
                   onClick={() => onSelect(option.id)}
                   aria-current={selected ? "true" : undefined}
                 >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <span>{String(currentPage * 6 + index + 1).padStart(2, "0")}</span>
                   <div>
                     <strong>{option.title}</strong>
                     <small>{option.chineseTitle} · {option.challengeCount} câu luyện</small>
@@ -113,6 +116,11 @@ export function PronunciationLessonLibrary({
             <Link to="/path">Mở Thiên Lộ</Link>
           </div>
         )}
+        {pageCount > 1 && <nav className="jade-library-pages" aria-label="Trang kho bài luyện">
+          <button type="button" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)}>Trang trước</button>
+          <span aria-live="polite">{currentPage + 1} / {pageCount} · {options.length} bài</span>
+          <button type="button" disabled={currentPage === pageCount - 1} onClick={() => setPage(currentPage + 1)}>Trang sau</button>
+        </nav>}
       </section>
     </div>
   );

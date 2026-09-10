@@ -5,6 +5,7 @@ import {
   Info,
   LibraryBig,
   Mic2,
+  Mic,
   Radio,
   RotateCcw,
   ShieldCheck,
@@ -58,6 +59,7 @@ import { useLearning } from "../store/LearningStore";
 import { useNormalizedLearningProjection } from "../store/NormalizedLearningProjectionStore";
 import { PronunciationQuestComplete } from "../components/PronunciationQuestComplete";
 import { PronunciationLessonLibrary } from "../components/PronunciationLessonLibrary";
+import "./PronunciationJade.css";
 
 type QuestPhase =
   | "idle"
@@ -140,16 +142,25 @@ export function PronunciationQuestPage() {
         .map((lesson) => lesson.lessonId),
     );
   }, [authenticated, normalized.authoritativeProgress, normalized.projection, state]);
+  const unlockedLessonIds = useMemo<ReadonlySet<string> | null>(() => {
+    const authority = resolveLearningPathAuthority({ authenticated, localState: state,
+      projection: normalized.projection, authoritativeProgress: normalized.authoritativeProgress });
+    // Keep the existing learn-first fallback while authority is loading; never
+    // claim a lesson passed just because it is available for practice.
+    if (authority.state === "blocked") return null;
+    return new Set([...authority.view.lessons.values()].filter((lesson) => lesson.unlocked || lesson.passed).map((lesson) => lesson.lessonId));
+  }, [authenticated, state, normalized.projection, normalized.authoritativeProgress]);
   const mission = useMemo(
     () => selectDailyPronunciationMission({
       vocabulary: RELEASED_VOCABULARY,
       lessons: RELEASED_LESSONS,
       state,
       passedLessonIds,
+      unlockedLessonIds,
       requestedLessonId,
       date: new Date(),
     }),
-    [passedLessonIds, requestedLessonId, state],
+    [passedLessonIds, unlockedLessonIds, requestedLessonId, state],
   );
   const lessonOptions = useMemo(
     () => selectPronunciationLessonOptions({
@@ -157,8 +168,9 @@ export function PronunciationQuestPage() {
       lessons: RELEASED_LESSONS,
       state,
       passedLessonIds,
+      unlockedLessonIds,
     }),
-    [passedLessonIds, state],
+    [passedLessonIds, unlockedLessonIds, state],
   );
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [heardWords, setHeardWords] = useState<Set<string>>(() => new Set());
@@ -461,9 +473,7 @@ export function PronunciationQuestPage() {
       : phase === "requesting"
         ? "Đang mở microphone..."
         : phase === "recording"
-          ? speechDetected
-            ? "Đang nghe · sẽ tự dừng"
-            : "Hãy bắt đầu đọc"
+          ? "Dừng thu & xem phản hồi"
           : phase === "uploading"
             ? "Đang đối chiếu âm học..."
             : phase === "result"
@@ -491,7 +501,7 @@ export function PronunciationQuestPage() {
     .join(" + ");
 
   return (
-    <main className="pronunciation-quest-page">
+    <main className="pronunciation-quest-page jade-resonance">
       <section
         className={`pronunciation-quest-shell ${lessonLibraryOpen ? "has-library" : ""}`}
         aria-labelledby="pronunciation-quest-title"
@@ -500,7 +510,7 @@ export function PronunciationQuestPage() {
           <div className="pronunciation-quest-brand">
             <span className="pronunciation-quest-sigil" aria-hidden="true"><Radio /></span>
             <div>
-              <p>ẢI CỘNG HƯỞNG · LUYỆN ĐỌC</p>
+              <p>CỘNG HƯỞNG NGỌC · LUYỆN NÓI</p>
               <h1 id="pronunciation-quest-title">Vạn Âm Điện</h1>
             </div>
           </div>
@@ -617,9 +627,18 @@ export function PronunciationQuestPage() {
                 </section>
               ) : (
                 <div className="pronunciation-quest-target">
-                  <div className={`pronunciation-quest-reactor ${isPlaying || phase === "recording" || phase === "uploading" ? "active" : ""}`} aria-hidden="true">
-                    {Array.from({ length: 15 }, (_, index) => <i key={index} />)}
+                  <div className="jade-instrument">
+                  <div className="jade-voice-seal" data-state={phase === "recording" ? "recording" : phase === "uploading" || phase === "requesting" ? "processing" : isPlaying ? "playing" : "idle"} aria-hidden="true">
+                    <svg viewBox="0 0 240 240"><circle className="jade-seal-base" cx="120" cy="120" r="84" /><circle className="jade-seal-orbit" cx="120" cy="120" r="94" />
+                      {Array.from({length:48},(_,index)=><line key={index} x1="120" y1="12" x2="120" y2={index % 4 === 0 ? 28 : 22} transform={`rotate(${index * 7.5} 120 120)`} className={index % 4 === 0 ? "gold" : ""} />)}
+                      <circle className="jade-seal-ripple" cx="120" cy="120" r="74" />
+                      <circle className="jade-seal-ripple jade-seal-echo" cx="120" cy="120" r="74" />
+                    </svg>
+                    <Mic className="jade-seal-mic" />
                   </div>
+                  <span className="jade-instrument-caption">{phase === "recording" ? "ĐANG THU GIỌNG" : phase === "uploading" || phase === "requesting" ? "ĐANG XỬ LÝ" : isPlaying ? "ĐANG PHÁT ÂM MẪU" : "LẮNG NGHE · CẢM NHẬN · CẤT LỜI"}</span>
+                  </div>
+                  <div className="jade-lesson-copy" key={phrase.id}>
                   <p>KHẨU QUYẾT {String(phraseIndex + 1).padStart(2, "0")} · TỪ TRỌNG TÂM</p>
                   <div className="pronunciation-focus-word">
                     <strong>{phrase.focusWord}</strong>
@@ -629,6 +648,7 @@ export function PronunciationQuestPage() {
                   <h2 data-testid="practice-target-chinese">{renderSentence(phrase.chinese, phrase.focusWord)}</h2>
                   <h3>{phrase.pinyin}</h3>
                   <p className="pronunciation-quest-meaning">{phrase.meaning}</p>
+                  <div className="jade-coach-note"><Headphones aria-hidden="true" /><p>{!wordHeard ? "Bắt đầu từ một âm rõ ràng." : !sentenceHeard ? "Nối từng âm thành nhịp câu." : "Đến lượt giọng nói của bạn."}<span>{!wordHeard ? "Nghe từ trọng tâm, chú ý âm đầu và thanh điệu trước khi nghe cả câu." : !sentenceHeard ? "Nghe hết câu mẫu, rồi thử đọc liền mạch theo nhịp bạn vừa nghe." : "Đọc câu phía trên ở tốc độ tự nhiên. Không cần nói quá nhanh."}</span></p></div>
                   {phase === "recording" ? (
                     <div className="pronunciation-quest-live" role="status">
                       <span><Radio aria-hidden="true" /> {speechDetected ? "Đã nghe giọng · tự dừng sau khoảng lặng" : "Đang chờ bạn bắt đầu đọc"}</span>
@@ -645,6 +665,7 @@ export function PronunciationQuestPage() {
                       <span>{error}</span>
                     </div>
                   ) : null}
+                  </div>
                 </div>
               )}
             </section>
@@ -673,7 +694,7 @@ export function PronunciationQuestPage() {
                 {currentAssessment ? (
                   <button type="button" onClick={retry}><RotateCcw aria-hidden="true" /> Ghi lại để cải thiện</button>
                 ) : wordHeard || sentenceHeard ? (
-                  <button type="button" onClick={sentenceHeard ? playSentence : playWord}><Headphones aria-hidden="true" /> Nghe lại</button>
+                  <button type="button" disabled={phase === "recording" || isRequestBusy || isPlaying} onClick={sentenceHeard ? playSentence : playWord}><Headphones aria-hidden="true" /> Nghe lại</button>
                 ) : <span />}
                 <details>
                   <summary>Tuỳ chọn & quyền riêng tư</summary>

@@ -1,0 +1,169 @@
+@font-face {font-family:"Hanzi Editorial";src:url("/fonts/NotoSerif-Variable.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}
+.pronunciation-quest-page.jade-resonance { height: var(--learner-stage-block,calc(100dvh - 70px)); padding: 0; background: #031411; }
+.jade-resonance .pronunciation-quest-shell {container-type:size}
+.jade-resonance .pronunciation-quest-shell { width: 100%; max-width: none; border: 0; border-radius: 0; box-shadow: none; background: radial-gradient(ellipse at 55% 55%,#09382c66,transparent 58%),#031411; grid-template-columns: 180px minmax(0,1fr); grid-template-rows: 76px minmax(0,1fr) auto; }
+.jade-resonance .pronunciation-quest-hud { grid-column: 1/-1; grid-row: 1; padding: 12px 24px; background: #041b16; border-bottom: 1px solid #376254; }
+.jade-resonance .pronunciation-quest-brand h1 { font-family: "Hanzi Editorial",serif; font-size: 26px; }
+.jade-resonance .pronunciation-quest-brand p { color: #e9c779; letter-spacing: .1em; }
+.jade-resonance .pronunciation-quest-sigil { border-radius: 50%; background: transparent; }
+.jade-resonance .pronunciation-quest-steps { grid-column: 1; grid-row: 2; display: flex; flex-direction: column; justify-content: center; align-items: stretch; gap: 24px; padding: 24px 18px; border: 0; background: transparent; }
+.jade-resonance .pronunciation-quest-steps > div { display: grid; grid-template-columns: 36px 1fr; gap: 6px 10px; padding: 10px 0; border: 0; background: none; min-width: 0; }
+.jade-resonance .pronunciation-quest-steps > div > span { grid-row: 1/3; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #3b675b; border-radius: 50%; }
+.jade-resonance .pronunciation-quest-steps > div.active > span { color: #55f7cb; border-color: #55f7cb; box-shadow: 0 0 16px #42f2c833; }
+.jade-resonance .pronunciation-quest-steps strong { font-size: 14px; }
+.jade-resonance .pronunciation-quest-steps small { font-size: 11px; color: #a5c2b6; }
+.jade-resonance .pronunciation-quest-arena { grid-column: 2; grid-row: 2; min-height: 0; overflow: auto; padding: 18px 24px; background: none; scrollbar-width: thin; }
+.jade-resonance .pronunciation-quest-atmosphere { display: none; }
+.jade-resonance .pronunciation-quest-target { min-height: 0; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 0; }
+.jade-resonance .pronunciation-quest-target > p:first-of-type { order: -5; margin: 0; color: #e9c779; font-size: 11px; }
+.jade-resonance .pronunciation-quest-target h2 { order: -4; margin: 0; font-size: clamp(24px,3.4vw,48px); line-height: 1.35; font-family: 'Noto Serif SC',serif; color: #f1f2df; }
+.jade-resonance .pronunciation-quest-target h3 { order: -3; margin: 0; font-size: 18px; color: #6aefd0; }
+.jade-resonance .pronunciation-quest-target h2 mark { color: #f1d482; background: transparent; padding: 0; border: 0; box-shadow: none; }
+.jade-resonance .pronunciation-quest-arena::before,.jade-resonance .pronunciation-quest-arena::after { display: none; }
+.jade-resonance .pronunciation-quest-meaning { text-transform: none; letter-spacing: 0; }
+.jade-resonance .pronunciation-quest-primary,.jade-resonance .pronunciation-library-trigger { clip-path: none; }
+.jade-resonance .pronunciation-quest-meaning { order: -2; margin: 0; font-size: 15px; color: #c9d9ce; }
+.jade-resonance .pronunciation-focus-word { order: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 10px; margin: 0; padding: 6px 16px; background: #09271f; border: 1px solid #285447; border-radius: 4px; }
+.jade-resonance .pronunciation-focus-word strong { font-size: 22px; line-height: 1.2; }
+.jade-resonance .pronunciation-focus-word span { font-size: 16px; }
+.jade-resonance .pronunciation-focus-word small { font-size: 12px; }
+.jade-voice-seal { position: relative; width: clamp(110px,21vh,240px); aspect-ratio: 1; flex-shrink: 0; color: #59f5cd; }
+.jade-voice-seal > svg:first-child { width: 100%; height: 100%; overflow: visible; }
+.jade-voice-seal line { stroke: #48d9b4; stroke-width: 2; }
+.jade-voice-seal line.gold { stroke: #e9c779; }
+.jade-seal-base { fill: #092c23; stroke: #e9c779; stroke-width: 1; }
+.jade-seal-orbit { fill: none; stroke: #58efce; stroke-width: 1; stroke-dasharray: 220 80; transform-origin: center; }
+.jade-seal-ripple { fill: none; stroke: #45e4b9; opacity: .35; transform-origin: center; }
+.jade-voice-seal .jade-seal-mic { position: absolute; width: 32%; height: 32%; inset: 34%; filter: drop-shadow(0 0 8px #43f2c855); }
+.jade-voice-seal[data-state="playing"] .jade-seal-ripple,.jade-voice-seal[data-state="recording"] .jade-seal-ripple { animation: jade-voice-ripple 1.5s ease-out infinite; }
+.jade-voice-seal[data-state="processing"] .jade-seal-orbit { animation: jade-voice-orbit 2s linear infinite; }
+.jade-voice-seal[data-state="recording"] .jade-seal-base { stroke: #60ffca; stroke-width: 2; }
+.jade-resonance .pronunciation-quest-live { order: 3; margin: 0; padding: 4px 10px; font-size: 12px; }
+.jade-resonance .pronunciation-quest-error { order: 3; }
+.jade-resonance .pronunciation-quest-actions { grid-column: 1/-1; grid-row: 3; display: grid; grid-template-columns: 1fr minmax(260px,420px) 1fr; align-items: center; gap: 10px 20px; padding: 12px 24px 18px; background: #041b16; border-top: 1px solid #2d5143; }
+.jade-resonance .pronunciation-quest-actions > p { grid-column: 1/-1; margin: 0; font-size: 12px; line-height: 1.4; }
+.jade-resonance .pronunciation-quest-primary { grid-column: 2; min-height: 52px; width: 100%; margin: 0; border: 1px solid #f3d28a; border-radius: 7px; color: #192018; background: linear-gradient(120deg,#f3cf79,#dab258); box-shadow: 0 0 18px #e5bf5718; font-size: 18px; }
+.jade-resonance .pronunciation-quest-secondary { display: contents; }
+.jade-resonance .pronunciation-quest-secondary > button { grid-column: 1; grid-row: 2; min-height: 44px; }
+.jade-resonance .pronunciation-quest-secondary > details { grid-column: 3; grid-row: 2; position: relative; }
+.jade-resonance .pronunciation-quest-secondary summary { min-height: 44px; align-content: center; font-size: 12px; }
+.jade-resonance .pronunciation-quest-secondary details > div { position: absolute; bottom: 100%; right: 0; width: min(340px,80vw); max-height: 45vh; overflow: auto; padding: 18px; border: 1px solid #477761; background: #09251e; z-index: 5; }
+.jade-resonance .pronunciation-battle-report { width: 100%; min-height: 0; padding: 20px; background: #08271f; border-color: #426c55; }
+.jade-resonance .pronunciation-library-panel { width: min(1100px,calc(100% - 32px)); max-height: calc(100% - 32px); background: #06241c; border: 1px solid #729064; border-radius: 12px; }
+.jade-resonance .pronunciation-library-list { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.jade-resonance .pronunciation-library-list button { min-width: 0; min-height: 120px; background: linear-gradient(145deg,#123f30,#071e18); border: 1px solid #3b705b; border-radius: 8px; }
+.jade-resonance .pronunciation-library-list button.is-selected { border-color: #f2ce74; box-shadow: inset 0 0 0 1px #f2ce74; }
+.jade-library-pages { display: flex; justify-content: center; align-items: center; gap: 20px; padding: 12px; color: #cbdccf; }
+.jade-library-pages button { min-height: 44px; padding: 8px 16px; border: 1px solid #436d58; border-radius: 5px; color: #efcf7e; background: #08281e; }
+.jade-library-pages button:disabled { opacity: .4; }
+.jade-resonance .resonance-clear-screen { grid-column: 1/-1; grid-row: 2/-1; overflow: auto; }
+@keyframes jade-voice-ripple { from { transform: scale(.85); opacity: .6; } to { transform: scale(1.25); opacity: 0; } }
+@keyframes jade-voice-orbit { to { transform: rotate(360deg); } }
+/* The instrument and lesson occupy separate tracks: motion never moves the text. */
+.jade-resonance { --voice-gold: #e8c781; --voice-jade: #6ff5cf; --voice-ink: #03120f; }
+.jade-resonance .pronunciation-quest-shell { background: radial-gradient(ellipse at 43% 48%,#14584955,transparent 52%),linear-gradient(125deg,#061b17,#020c0c); isolation: isolate; }
+.jade-resonance .pronunciation-quest-hud { background: linear-gradient(110deg,#0c2922bb,#061815); border-bottom-color: #bca36340; }
+.jade-resonance .pronunciation-quest-brand h1 { color: #f3ead3; font-weight: 600; letter-spacing: -.02em; }
+.jade-resonance .pronunciation-library-trigger { border-radius: 8px; border-color: #52776780; background: linear-gradient(120deg,#173c3066,#071c19); transition: border-color 200ms,box-shadow 200ms; }
+.jade-resonance .pronunciation-library-trigger:hover { border-color: var(--voice-gold); box-shadow: 0 0 20px #e8c78115; }
+.jade-resonance .pronunciation-quest-steps { gap: 18px; padding-inline: 20px 8px; }
+.jade-resonance .pronunciation-quest-steps > div { position: relative; padding: 14px 8px; border-radius: 8px; transition: background 250ms,color 250ms; }
+.jade-resonance .pronunciation-quest-steps > div.active { background: linear-gradient(90deg,#4be5b817,transparent); }
+.jade-resonance .pronunciation-quest-steps > div:not(:last-child)::after { content: ''; position: absolute; width: 1px; height: 24px; top: calc(100% - 3px); left: 25px; background: linear-gradient(#58746380,#58746310); }
+.jade-resonance .pronunciation-quest-steps > div.active > span { border-color: var(--voice-gold); color: var(--voice-gold); background: #463d1e44; box-shadow: 0 0 18px #e8c78118; }
+.jade-resonance .pronunciation-quest-arena { border: 0; clip-path: none; padding: 24px 30px 24px 12px; }
+.jade-resonance .pronunciation-quest-target { display: grid; grid-template-columns: minmax(200px,.95fr) minmax(260px,1.05fr); gap: 24px; align-items: center; }
+.jade-instrument { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; align-self: stretch; min-width: 0; }
+.jade-instrument::before { content: ''; pointer-events: none; position: absolute; inset: 4% -8%; background: radial-gradient(ellipse,#32dda514,transparent 68%); border-radius: 50%; }
+.jade-instrument::after { content: ''; pointer-events: none; position: absolute; width: 88%; height: 15%; bottom: 4%; border-radius: 50%; border: 1px solid #72ddaf33; box-shadow: 0 0 28px #42dab518,inset 0 0 22px #42dab519; background: radial-gradient(ellipse,#67f3c330,transparent 65%); }
+.jade-voice-seal { width: min(100%,40dvh,300px); filter: drop-shadow(0 16px 24px #0009); border-radius: 50%; background: radial-gradient(circle at 40% 30%,#36836a44,transparent 48%); }
+.jade-voice-seal::before { content: ''; position: absolute; inset: 16%; border-radius: 50%; box-shadow: inset 0 2px 4px #cfffe335,inset 0 -14px 24px #0009,0 0 32px #54e6bd12; border: 1px solid #e8c78166; pointer-events: none; }
+.jade-seal-base { fill: #103a2e; stroke: #c8af76; stroke-width: .7; }
+.jade-seal-orbit { stroke-width: .8; stroke-dasharray: 180 115; }
+.jade-voice-seal line { stroke-width: 1; opacity: .75; }
+.jade-voice-seal line.gold { stroke-width: 1.5; opacity: 1; }
+.jade-voice-seal .jade-seal-mic { width: 27%; height: 27%; inset: 36.5%; stroke-width: 1.25; color: #adffe2; filter: drop-shadow(0 0 12px #5ff3c690); }
+.jade-instrument-caption { z-index: 1; color: #b8cfbe; font-size: 10px; letter-spacing: .15em; margin-top: 10px; text-align: center; }
+.jade-voice-seal[data-state="playing"] .jade-seal-echo,.jade-voice-seal[data-state="recording"] .jade-seal-echo { animation-delay: .75s; }
+.jade-voice-seal[data-state="playing"],.jade-voice-seal[data-state="recording"] { background: radial-gradient(circle,#5cf0bb26,transparent 70%); }
+.jade-resonance .jade-lesson-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 0; text-align: left; animation: jade-copy-enter 300ms ease-out both; }
+.jade-resonance .jade-lesson-copy > p:first-child { order: -5; margin: 0; font-size: 11px; color: var(--voice-gold); letter-spacing: .12em; }
+.jade-resonance .jade-lesson-copy h2 { font-size: clamp(28px,3.5vw,54px); line-height: 1.35; overflow-wrap: anywhere; text-align: left; text-shadow: 0 3px 20px #7cdea21a; }
+.jade-resonance .jade-lesson-copy h3 { font-size: 20px; font-weight: 500; text-align: left; line-height: 1.4; }
+.jade-resonance .jade-lesson-copy .pronunciation-quest-meaning { font-size: 16px; font-weight: 400; text-align: left; }
+.jade-resonance .pronunciation-focus-word { order: 0; justify-content: flex-start; border: 0; border-left: 2px solid var(--voice-gold); background: linear-gradient(90deg,#bda05d13,transparent); padding: 10px 14px; border-radius: 0; width: 100%; margin-top: 4px; }
+.jade-coach-note { display: flex; gap: 12px; padding-top: 16px; border-top: 1px solid #7fa99530; color: #d6e6dc; width: 100%; }
+.jade-coach-note > svg { flex-shrink: 0; width: 20px; height: 20px; color: var(--voice-gold); }
+.jade-coach-note p { margin: 0; font-size: 14px; line-height: 1.5; font-weight: 500; }
+.jade-coach-note span { display: block; margin-top: 4px; font-size: 12px; line-height: 1.6; font-weight: 400; color: #afc6ba; max-width: 34em; }
+.jade-resonance .pronunciation-quest-actions { background: linear-gradient(180deg,#0a282080,#071b17); border-top-color: #bca36340; }
+.jade-resonance .pronunciation-quest-primary { position: relative; overflow: hidden; background: linear-gradient(115deg,#eedaa3,#d7b469 55%,#edce85); border-color: #ffe5a6; box-shadow: inset 0 1px #fff7,0 5px 20px #0004,0 0 24px #e5bf5715; font-weight: 600; transition: box-shadow 200ms,filter 200ms; }
+.jade-resonance .pronunciation-quest-primary::after { content: ''; position: absolute; inset: -60% -30%; background: linear-gradient(110deg,transparent 40%,#fff5,transparent 60%); transform: translateX(-100%); pointer-events: none; }
+.jade-resonance .pronunciation-quest-primary:hover:not(:disabled)::after { animation: jade-action-sheen 650ms ease-out; }
+.jade-resonance .pronunciation-quest-primary:hover:not(:disabled) { box-shadow: inset 0 1px #fff9,0 5px 24px #0004,0 0 30px #e5bf5730; filter: brightness(1.07); }
+.jade-resonance .pronunciation-quest-primary:active:not(:disabled) { filter: brightness(.95); }
+.jade-resonance .pronunciation-quest-primary:focus-visible,.jade-resonance .pronunciation-library-trigger:focus-visible { outline: 2px solid var(--voice-jade); outline-offset: 4px; }
+@keyframes jade-copy-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+/* Fit the recording state to the available stage, including its live status. */
+@media(min-width:801px) and (min-height:560px) {
+ .jade-resonance .pronunciation-quest-arena:not([data-phase="result"]) {overflow:visible;min-height:0}
+ .jade-resonance .pronunciation-quest-target {height:100%;min-height:0;gap:clamp(12px,2cqh,24px)}
+ .jade-resonance .jade-lesson-copy {gap:clamp(5px,1.25cqh,12px)}
+ .jade-resonance .jade-lesson-copy h2 {font-size:clamp(26px,6.5cqh,50px);line-height:1.2}
+ .jade-resonance .jade-lesson-copy h3 {font-size:clamp(16px,2.8cqh,20px);line-height:1.3}
+ .jade-resonance .jade-lesson-copy .pronunciation-quest-meaning {font-size:14px;line-height:1.4}
+ .jade-resonance .pronunciation-focus-word {padding:6px 12px;margin-top:0}
+ .jade-resonance .jade-coach-note {padding-top:8px;gap:8px}
+ .jade-resonance .jade-coach-note p {font-size:12px}
+ .jade-resonance .jade-coach-note span {font-size:11px;line-height:1.4;margin-top:2px}
+ .jade-resonance .pronunciation-quest-live {font-size:12px;line-height:1.4;padding:6px 10px;min-height:0}
+ .jade-resonance .jade-voice-seal {width:min(100%,36cqh,280px)}
+}
+@media(min-width:801px) and (max-height:760px) {
+ .jade-resonance .pronunciation-quest-shell {grid-template-columns:158px minmax(0,1fr);grid-template-rows:68px minmax(0,1fr) auto}
+ .jade-resonance .pronunciation-quest-hud {padding:8px 20px}
+ .jade-resonance .pronunciation-quest-arena {padding:10px 24px 10px 8px}
+ .jade-resonance .pronunciation-quest-actions {padding:8px 20px 10px;gap:6px 16px}
+ .jade-resonance .pronunciation-quest-actions>p {font-size:11px}
+ .jade-resonance .pronunciation-quest-primary {min-height:48px;font-size:16px}
+ .jade-resonance .pronunciation-quest-steps {padding:12px;gap:12px}
+ .jade-resonance .pronunciation-quest-steps strong {font-size:12px}
+ .jade-resonance .pronunciation-quest-steps small {font-size:10px}
+ .jade-resonance .jade-instrument-caption {font-size:9px;margin-top:4px}
+}
+@keyframes jade-action-sheen { to { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .jade-resonance *, .jade-resonance *::before,.jade-resonance *::after { animation: none !important; transition: none !important; } }
+@media (max-width: 800px) {
+ .jade-resonance .pronunciation-quest-shell { grid-template-columns: 1fr; grid-template-rows: auto auto minmax(0,1fr) auto; }
+ .jade-resonance .pronunciation-quest-hud { padding: 10px 14px; grid-template-columns: minmax(0,1fr) 68px; gap: 8px; min-height: 0; }
+ .jade-resonance .pronunciation-quest-brand { display: none; }
+ .jade-resonance .pronunciation-quest-progress { display:block;min-width:0 }
+ .jade-resonance .pronunciation-quest-progress>span {font-size:10px}
+ .jade-resonance .pronunciation-quest-progress>strong {display:none}
+ .jade-resonance .pronunciation-quest-steps { grid-column: 1; grid-row: 2; flex-direction: row; padding: 8px; gap: 8px; }
+ .jade-resonance .pronunciation-quest-steps > div { grid-template-columns: 28px 1fr; gap: 4px; padding: 0; flex: 1; }
+ .jade-resonance .pronunciation-quest-steps > div > span { width: 26px; height: 26px; font-size: 11px; }
+ .jade-resonance .pronunciation-quest-steps small { display: none; }
+ .jade-resonance .pronunciation-quest-steps strong { font-size: 11px; }
+ .jade-resonance .pronunciation-quest-arena { grid-column: 1; grid-row: 3; padding: 12px; }
+ .jade-resonance .pronunciation-quest-target { height: auto; min-height: 100%; }
+ .jade-resonance .pronunciation-quest-target h2 { font-size: 26px; }
+ .jade-resonance .pronunciation-quest-target h3 { font-size: 16px; }
+ .jade-resonance .pronunciation-quest-actions { grid-row: 4; grid-template-columns: 1fr 1fr; padding: 10px 12px; gap: 8px; }
+ .jade-resonance .pronunciation-quest-primary { grid-column: 1/-1; grid-row: 2; }
+ .jade-resonance .pronunciation-quest-secondary > button { grid-row: 3; }
+ .jade-resonance .pronunciation-quest-secondary > details { grid-column: 2; grid-row: 3; }
+ .jade-resonance .pronunciation-library-list { grid-template-columns: 1fr; }
+ .jade-resonance .pronunciation-quest-steps > div:not(:last-child)::after { display: none; }
+ .jade-resonance .pronunciation-quest-target { display: flex; gap: 12px; }
+ .jade-instrument { align-self: center; width: 150px; flex-shrink: 0; }
+ .jade-voice-seal { width: 140px; }
+ .jade-instrument-caption { display: none; }
+ .jade-instrument::after { bottom: -4px; }
+ .jade-resonance .jade-lesson-copy { align-items: center; gap: 7px; width: 100%; }
+ .jade-resonance .jade-lesson-copy h2 { font-size: 28px; text-align: center; }
+ .jade-resonance .jade-lesson-copy h3 { font-size: 17px; text-align: center; }
+ .jade-resonance .jade-lesson-copy .pronunciation-quest-meaning { text-align: center; }
+ .jade-resonance .pronunciation-focus-word { justify-content: center; width: auto; padding: 6px 10px; }
+ .jade-coach-note { display: none; }
+}
