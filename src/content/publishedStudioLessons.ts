@@ -1,4 +1,7 @@
+import { projectStudioGrammar, validStudioGrammarExamples, type StudioLessonGrammar } from './studioLessonGrammar';
 import { LESSON_BY_ID, RELEASED_LESSONS } from "../data/curriculum";
+import { isLessonPageDocument, type LessonPageDocument } from '../learning/lessonPages';
+import { getRichLessonContent } from '../learning/richLessonContent';
 import type { LessonGuide } from "../data/lessonGuides";
 import type {
   RichDialogueTurn,
@@ -39,6 +42,7 @@ type PublishedLessonRuntimeItem = {
   contentSha256: string;
   publishedAt: number;
   content: {
+    lessonPages?: LessonPageDocument;
     targetLessonId: string;
     titleZh: string;
     objectiveVi: string;
@@ -50,7 +54,7 @@ type PublishedLessonRuntimeItem = {
     vocabulary: string[];
     skills: string[];
     dialogue: LessonTriple[];
-    grammar: Array<{ pattern: string; explanationVi: string }>;
+    grammar: StudioLessonGrammar[];
     exercises: LessonExercise[];
     review: {
       humanReviewed: false;
@@ -118,6 +122,7 @@ const parseItem = (value: unknown): PublishedLessonRuntimeItem | null => {
   const exercises = Array.isArray(content.exercises) ? content.exercises : [];
   if (
     !lesson
+    || (content.lessonPages !== undefined && !isLessonPageDocument(content.lessonPages))
     || !releasedLessonIds.has(lesson.id)
     || !studioLessonMatchesLevel(lesson.unitId, level)
     || !text(content.titleZh, 120)
@@ -138,7 +143,7 @@ const parseItem = (value: unknown): PublishedLessonRuntimeItem | null => {
     || grammar.length < 1
     || !grammar.every((entry) => isRecord(entry)
       && text(entry.pattern, 240)
-      && text(entry.explanationVi, 2_400))
+      && text(entry.explanationVi, 2_400) && validStudioGrammarExamples(entry))
     || exercises.length < 1
     || !exercises.every((entry) => isRecord(entry)
       && text(entry.promptVi, 1_200)
@@ -168,28 +173,8 @@ const projectItem = (item: PublishedLessonRuntimeItem): PublishedStudioLesson =>
     pinyin: entry.pinyin.trim(),
     meaningVi: entry.meaningVi.trim(),
   }));
-  const grammar = item.content.grammar.map((entry, index) => {
-    const model = dialogue[index % dialogue.length];
-    const practice = item.content.exercises[index % item.content.exercises.length];
-    return {
-      id: `${item.revisionId}:grammar:${index + 1}`,
-      category: "BIÊN TẬP VIỆN",
-      label: entry.pattern.trim(),
-      officialContent: entry.pattern.trim(),
-      explanationVi: entry.explanationVi.trim(),
-      modelExample: {
-        hanzi: model.hanzi,
-        pinyin: model.pinyin,
-        meaningVi: model.meaningVi,
-      },
-      guidedPractice: {
-        promptVi: practice.promptVi.trim(),
-        modelAnswerHanzi: practice.answer.trim(),
-        modelAnswerPinyin: practice.answerPinyin.trim(),
-        modelAnswerMeaningVi: practice.answerMeaningVi.trim(),
-      },
-    };
-  });
+  const grammar = item.content.grammar.map((entry, index) => projectStudioGrammar(entry, `${item.revisionId}:grammar:${index + 1}`));
+
   return {
     lesson: {
       ...core,
@@ -205,6 +190,7 @@ const projectItem = (item: PublishedLessonRuntimeItem): PublishedStudioLesson =>
       checkpoint: item.content.checkpointVi.trim(),
     },
     richContent: {
+      lessonPages: item.content.lessonPages,
       lessonId: core.id,
       authoringLessonId: item.stableKey,
       dialogue,
@@ -227,7 +213,7 @@ const projectItem = (item: PublishedLessonRuntimeItem): PublishedStudioLesson =>
           meaningVi: exercise.answerMeaningVi.trim(),
         }],
       })),
-      characters: [],
+      characters: getRichLessonContent(core.id)?.characters ?? [],
     },
     source: {
       stableKey: item.stableKey,
@@ -346,7 +332,12 @@ const parseCommunicativeEnhancement = (value: unknown) => {
       titleVi: String((task as Record<string, unknown>).promptVi).trim(),
       instructionVi: String((task as Record<string, unknown>).explanationVi).trim(),
       targetFunctions: [...content.skills as string[]],
-      modelDialogue: turns,
+      modelDialogue: text((task as Record<string, unknown>).answerPinyin, 1_200)
+        && text((task as Record<string, unknown>).answerMeaningVi, 1_200)
+        ? [{ speaker: "Mẫu", hanzi: String((task as Record<string, unknown>).answer).trim(),
+          pinyin: String((task as Record<string, unknown>).answerPinyin).trim(),
+          meaningVi: String((task as Record<string, unknown>).answerMeaningVi).trim() }]
+        : turns,
     })),
   };
 };

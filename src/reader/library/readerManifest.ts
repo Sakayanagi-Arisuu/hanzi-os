@@ -155,6 +155,17 @@ export const READER_SERIES_CATALOG: ReaderSeries[] = [
   },
 ];
 
+// This release adds two source-bound checks to every existing chapter, including
+// the legacy deep link. Stable IDs and prior completion remain untouched.
+for (const series of READER_SERIES_CATALOG) {
+  for (const volume of series.volumes) {
+    for (const chapter of volume.chapters) {
+      chapter.version = `${chapter.version}:reading-checks-2026.09.10.1`;
+      chapter.comprehensionCount = 2;
+    }
+  }
+}
+
 export const READER_DISCOVERABLE_SERIES = READER_SERIES_CATALOG.filter(
   (series) => series.discoverable,
 );

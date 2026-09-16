@@ -7,6 +7,8 @@ import {
   type EditorialReaderBook,
 } from "./editorialReaderContent";
 import { scanEditorialReaderVocabulary } from "./editorialReaderLexiconScan";
+import { validateStudioContent } from "../content/studioContent";
+import { createEmptyReaderProgress, readerComprehensionState, recordReaderComprehensionAttempt } from "./library/readerProgress";
 
 const book: EditorialReaderBook = {
   schemaVersion: 1,
@@ -44,6 +46,45 @@ const book: EditorialReaderBook = {
 };
 
 describe("Vạn Quyển Các editorial storefront", () => {
+  it("publishes authored questions and invalidates answers only when learning content changes", () => {
+    const authored = structuredClone(book);
+    authored.chapters[0]!.comprehension = [{ questionId: "map", promptVi: "Bên trong có gì?", options: ["Bản đồ", "Bức thư", "Chiếc chìa khóa"], answerIndex: 0, explanationVi: "Đoạn 2 nói có một tấm bản đồ mới." }];
+    expect(parseEditorialReaderBook(authored).ok).toBe(true);
+    const chapterId = `${book.seriesId}-c01`;
+    const chapter = editorialBookToChapter(authored, chapterId)!;
+    expect(editorialBookToSeries(authored).volumes[0]!.chapters[0]!.comprehensionCount).toBe(1);
+    const progress = recordReaderComprehensionAttempt({ document: createEmptyReaderProgress({ ownerKey: "anonymous:editor-test", ownerGeneration: 1, resetEpoch: 0 }), chapter, question: chapter.comprehension![0]!, selectedAnswer: "Bản đồ" });
+    expect(readerComprehensionState(progress, chapter).complete).toBe(true);
+    authored.chapters[0]!.background!.altVi = "Nền đã đổi mô tả";
+    expect(editorialBookToChapter(authored, chapterId)!.version).toBe(chapter.version);
+    authored.chapters[0]!.comprehension![0]!.answerIndex = 1;
+    const revised = editorialBookToChapter(authored, chapterId)!;
+    expect(revised.chapterId).toBe(chapter.chapterId);
+    expect(readerComprehensionState(progress, revised)).toMatchObject({ answered: 0, complete: false });
+    authored.chapters[0]!.paragraphs[0]!.vi += " Một chi tiết mới.";
+    expect(editorialBookToChapter(authored, chapterId)!.version).not.toBe(revised.version);
+  });
+
+  it("rejects malformed questions in both book input and the generic publication gate", async () => {
+    const invalid = structuredClone(book);
+    invalid.chapters[0]!.comprehension = [{ questionId: "q1", promptVi: "Có gì?", options: ["Bản đồ", " Bản đồ "], answerIndex: 9, explanationVi: "" }];
+    expect(parseEditorialReaderBook(invalid).errors.join(" ")).toContain("Khảo luyện");
+    const { result } = await validateStudioContent("lesson", { ...editorialBookToStudioLesson(book), readerSeries: invalid });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((error) => error.path === "readerSeries")).toBe(true);
+    invalid.chapters[0]!.comprehension = Array.from({ length: 2 }, () => ({ questionId: "same", promptVi: "Có gì?", options: ["A", "B"], answerIndex: 0, explanationVi: "Chi tiết ở đoạn 2." }));
+    expect(parseEditorialReaderBook(invalid).ok).toBe(false);
+  });
+
+  it("allows a reviewed reader book without a Thiên Lộ target and without inventing questions", async () => {
+    const lesson = editorialBookToStudioLesson(book);
+    Object.keys(lesson.review.aiSelfReview).forEach((key) => { lesson.review.aiSelfReview[key as keyof typeof lesson.review.aiSelfReview] = true; });
+    const { result } = await validateStudioContent("lesson", lesson);
+    expect(result.errors).toEqual([]);
+    expect(result.valid).toBe(true);
+    expect(lesson.exercises).toEqual([]);
+    expect(editorialBookToChapter(book, `${book.seriesId}-c01`)!.comprehension).toBeUndefined();
+  });
   it("projects a governed book into a catalog series and fully lookupable chapter", () => {
     expect(parseEditorialReaderBook(book)).toMatchObject({ ok: true });
     const series = editorialBookToSeries(book);

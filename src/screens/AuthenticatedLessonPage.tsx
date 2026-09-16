@@ -1261,8 +1261,10 @@ function AuthenticatedLessonPageScope({
             </div>
           </section>
           <LessonTheoryPanel
+            contentStatus={publishedLessonStatus}
             guide={guide}
             lessonId={lesson.id}
+            lessonTitle={presentedLesson?.title ?? lesson.title}
             lessonObjective={presentedLesson?.objective ?? lesson.objective}
             preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}
@@ -1278,9 +1280,6 @@ function AuthenticatedLessonPageScope({
             completionDisabled={busy}
           />
           {publishedLessonStatus === "fallback" && <p className="synthetic-audio-note" role="status">Bản biên soạn mới chưa tải được; bài cốt lõi và tiến độ tài khoản vẫn hoạt động. <button className="secondary-button" type="button" onClick={retryPublishedLesson}>Thử tải lại</button></p>}
-          <p className="synthetic-audio-note">
-            Âm thanh trong bài là TTS tổng hợp của trình duyệt, chỉ dùng để luyện nghe và nhại; không phải audio bản ngữ hay bằng chứng phát âm.
-          </p>
         </div>
       </div>
     );
@@ -1329,7 +1328,7 @@ function AuthenticatedLessonPageScope({
         <div
           className="lesson-progress-track"
           role="progressbar"
-          aria-label="Tiến độ form bài học"
+          aria-label="Tiến độ Thử Luyện"
           aria-valuemin={0}
           aria-valuemax={runtime.activities.length}
           aria-valuenow={index + 1}
@@ -1353,14 +1352,16 @@ function AuthenticatedLessonPageScope({
       </header>
       <div className="lesson-context">
         <span><ExerciseIcon size={16} /> {current.instruction}</span>
-        <strong>{presentedLesson?.title ?? lesson.title} · kỹ năng {current.skill}</strong>
+        <strong>{presentedLesson?.title ?? lesson.title} · Thử Luyện</strong>
       </div>
       <section className={`exercise-stage ${reviewingTheory ? "is-theory-review" : ""}`}>
         {reviewingTheory ? (
           <LessonTheoryPanel
+            contentStatus={publishedLessonStatus}
             compact
             guide={guide}
             lessonId={lesson.id}
+            lessonTitle={presentedLesson?.title ?? lesson.title}
             lessonObjective={presentedLesson?.objective ?? lesson.objective}
             preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}

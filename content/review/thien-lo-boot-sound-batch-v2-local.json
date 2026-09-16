@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-14",
+  "scope": "Two foundation sound lessons: supported rule understanding and self-observation, not pronunciation evidence.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/18-REVIEW-BOOT-SOUND.md",
+  "items": [
+    {
+      "lessonId": "boot-3",
+      "sourceContentSha256": "sha256:a8ef9fdd6410cba042e2c11c5442fd89e10a8f9b9032ba0b92f89907f8420728",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "boot-4",
+      "sourceContentSha256": "sha256:69d9eac80f79a824f33e10d59feea1f59b8086e1ace5a80019005fb93828d639",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

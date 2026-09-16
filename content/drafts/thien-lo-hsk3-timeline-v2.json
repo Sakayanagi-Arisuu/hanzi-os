@@ -1,0 +1,1753 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "hsk3-cohesion-reconstruction-lesson-01",
+  "title": "Sắp xếp đoạn theo mốc thời gian",
+  "objective": "Đọc và khôi phục trình tự thời gian, giải thích bằng chứng và tóm tắt đúng ý văn bản.",
+  "humanReviewed": false,
+  "status": "authored-draft-not-published",
+  "source": {
+    "prerequisiteIds": [
+      "hsk3-main-idea-detail-notes-lesson-03"
+    ],
+    "retainedVocabularyIds": [
+      "hsk-vocab-00510",
+      "hsk-vocab-00547",
+      "hsk-vocab-00621",
+      "hsk-vocab-00632",
+      "hsk-vocab-00724",
+      "hsk-vocab-00737",
+      "hsk-vocab-00836",
+      "hsk-vocab-00970",
+      "hsk-vocab-00976",
+      "hsk-vocab-00579",
+      "hsk-vocab-00721",
+      "hsk-vocab-00801",
+      "hsk-vocab-00832",
+      "hsk-vocab-00971",
+      "hsk-vocab-00645",
+      "hsk-vocab-00671",
+      "hsk-vocab-00908",
+      "hsk-vocab-00583",
+      "hsk-vocab-00751",
+      "hsk-vocab-00633",
+      "hsk-vocab-00746",
+      "hsk-vocab-00829",
+      "hsk-vocab-00986",
+      "hsk-vocab-00506",
+      "hsk-vocab-00614",
+      "hsk-vocab-00692",
+      "hsk-vocab-00768",
+      "hsk-vocab-00828",
+      "hsk-vocab-00885",
+      "hsk-vocab-00941",
+      "hsk-vocab-00956",
+      "hsk-vocab-00984",
+      "hsk-vocab-00807",
+      "hsk-vocab-00831",
+      "hsk-vocab-00853",
+      "hsk-vocab-00678",
+      "hsk-vocab-00710",
+      "hsk-vocab-00912",
+      "hsk-vocab-00934",
+      "hsk-vocab-00514",
+      "hsk-vocab-00587",
+      "hsk-vocab-00654",
+      "hsk-vocab-00677",
+      "hsk-vocab-00683",
+      "hsk-vocab-00771",
+      "hsk-vocab-00957",
+      "hsk-vocab-00544",
+      "hsk-vocab-00650",
+      "hsk-vocab-00745",
+      "hsk-vocab-00629",
+      "hsk-vocab-00988",
+      "hsk-vocab-00707",
+      "hsk-vocab-00764",
+      "hsk-vocab-00766",
+      "hsk-vocab-00589",
+      "hsk-vocab-00591",
+      "hsk-vocab-00616",
+      "hsk-vocab-00624",
+      "hsk-vocab-00652",
+      "hsk-vocab-00823",
+      "hsk-vocab-00554",
+      "hsk-vocab-00560",
+      "hsk-vocab-00586",
+      "hsk-vocab-00593",
+      "hsk-vocab-00775",
+      "hsk-vocab-00992",
+      "hsk-vocab-00511",
+      "hsk-vocab-00686",
+      "hsk-vocab-00695",
+      "hsk-vocab-00755",
+      "hsk-vocab-00516",
+      "hsk-vocab-00526",
+      "hsk-vocab-00528",
+      "hsk-vocab-00529",
+      "hsk-vocab-00613",
+      "hsk-vocab-00657",
+      "hsk-vocab-00680",
+      "hsk-vocab-00732",
+      "hsk-vocab-00757",
+      "hsk-vocab-00777",
+      "hsk-vocab-00805",
+      "hsk-vocab-00822",
+      "hsk-vocab-00860",
+      "hsk-vocab-00886",
+      "hsk-vocab-00904",
+      "hsk-vocab-00927",
+      "hsk-vocab-00950",
+      "hsk-vocab-00977",
+      "hsk-vocab-00997",
+      "hsk-vocab-00532",
+      "hsk-vocab-00549",
+      "hsk-vocab-00580",
+      "hsk-vocab-00611",
+      "hsk-vocab-00618",
+      "hsk-vocab-00623",
+      "hsk-vocab-00691",
+      "hsk-vocab-00725",
+      "hsk-vocab-00756",
+      "hsk-vocab-00784",
+      "hsk-vocab-00800",
+      "hsk-vocab-00824",
+      "hsk-vocab-00846",
+      "hsk-vocab-00875",
+      "hsk-vocab-00906",
+      "hsk-vocab-00925",
+      "hsk-vocab-00949",
+      "hsk-vocab-00975",
+      "hsk-vocab-00995",
+      "hsk-vocab-00530",
+      "hsk-vocab-00546",
+      "hsk-vocab-00559",
+      "hsk-vocab-00610",
+      "hsk-vocab-00628",
+      "hsk-vocab-00653",
+      "hsk-vocab-00690",
+      "hsk-vocab-00703",
+      "hsk-vocab-00731",
+      "hsk-vocab-00747",
+      "hsk-vocab-00799",
+      "hsk-vocab-00817",
+      "hsk-vocab-00851",
+      "hsk-vocab-00871",
+      "hsk-vocab-00901",
+      "hsk-vocab-00902",
+      "hsk-vocab-00929",
+      "hsk-vocab-00935",
+      "hsk-vocab-00972",
+      "hsk-vocab-00973",
+      "hsk-vocab-00646",
+      "hsk-vocab-00596",
+      "hsk-vocab-00720",
+      "hsk-vocab-00926",
+      "hsk-vocab-00504",
+      "hsk-vocab-00548",
+      "hsk-vocab-00572",
+      "hsk-vocab-00595",
+      "hsk-vocab-00641",
+      "hsk-vocab-00660",
+      "hsk-vocab-00681",
+      "hsk-vocab-00715",
+      "hsk-vocab-00740",
+      "hsk-vocab-00769",
+      "hsk-vocab-00791",
+      "hsk-vocab-00815",
+      "hsk-vocab-00850",
+      "hsk-vocab-00855",
+      "hsk-vocab-00891",
+      "hsk-vocab-00914",
+      "hsk-vocab-00937",
+      "hsk-vocab-00964",
+      "hsk-vocab-00985",
+      "hsk-vocab-00520",
+      "hsk-vocab-00551",
+      "hsk-vocab-00573",
+      "hsk-vocab-00602",
+      "hsk-vocab-00612",
+      "hsk-vocab-00619",
+      "hsk-vocab-00635",
+      "hsk-vocab-00668",
+      "hsk-vocab-00741",
+      "hsk-vocab-00778",
+      "hsk-vocab-00794",
+      "hsk-vocab-00818",
+      "hsk-vocab-00825",
+      "hsk-vocab-00869",
+      "hsk-vocab-00894",
+      "hsk-vocab-00916",
+      "hsk-vocab-00940",
+      "hsk-vocab-00965",
+      "hsk-vocab-00987",
+      "hsk-vocab-00503",
+      "hsk-vocab-00542",
+      "hsk-vocab-00570",
+      "hsk-vocab-00594",
+      "hsk-vocab-00625",
+      "hsk-vocab-00656",
+      "hsk-vocab-00659",
+      "hsk-vocab-00708",
+      "hsk-vocab-00709",
+      "hsk-vocab-00711",
+      "hsk-vocab-00748",
+      "hsk-vocab-00814",
+      "hsk-vocab-00843",
+      "hsk-vocab-00867",
+      "hsk-vocab-00890",
+      "hsk-vocab-00903",
+      "hsk-vocab-00911",
+      "hsk-vocab-00959",
+      "hsk-vocab-00983",
+      "hsk-vocab-00505",
+      "hsk-vocab-00521",
+      "hsk-vocab-00541",
+      "hsk-vocab-00578",
+      "hsk-vocab-00642",
+      "hsk-vocab-00661",
+      "hsk-vocab-00685",
+      "hsk-vocab-00719",
+      "hsk-vocab-00750",
+      "hsk-vocab-00773",
+      "hsk-vocab-00793",
+      "hsk-vocab-00816",
+      "hsk-vocab-00854",
+      "hsk-vocab-00868",
+      "hsk-vocab-00892",
+      "hsk-vocab-00915",
+      "hsk-vocab-00939",
+      "hsk-vocab-00962",
+      "hsk-vocab-00981",
+      "hsk-vocab-00592",
+      "hsk-vocab-00655",
+      "hsk-vocab-00704",
+      "hsk-vocab-00838",
+      "hsk-vocab-00865",
+      "hsk-vocab-00913",
+      "hsk-vocab-00936"
+    ]
+  },
+  "editorialNotes": {
+    "remaining": "Cần rà Pinyin/Mandarin/độ khó cả hai văn bản và payload, inventory từ đích (bài hiện gắn nhiều từ), nhập Xưởng và local release."
+  },
+  "lessonPages": {
+    "version": 1,
+    "art": "reading",
+    "pages": [
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:mission",
+        "title": "Theo dõi một thói quen thay đổi",
+        "layout": "focus",
+        "stage": "context",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:goal",
+            "kind": "explanation",
+            "title": "Đọc để làm gì?",
+            "body": "Bạn sẽ tìm các mốc thời gian, phân biệt nguyên nhân với diễn biến và giải thích vì sao các đoạn cần đứng theo một thứ tự. Sau cùng, viết bản tóm tắt ba câu không thêm thông tin ngoài văn bản.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:support",
+            "kind": "explanation",
+            "title": "Từ hỗ trợ trước khi đọc",
+            "body": "出版 (chūbǎn) — xuất bản; 使用 (shǐyòng) — sử dụng; 放大 (fàng dà) — phóng to; 代替 (dàitì) — thay thế; 仍然 (réngrán) — vẫn. Đây là hỗ trợ đọc; mở lại khi cần, không phải bài kiểm tra nhớ độc lập những từ này.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:read",
+        "title": "Một tờ báo và một chiếc điện thoại",
+        "layout": "focus",
+        "stage": "context",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:text",
+            "kind": "reading",
+            "title": "Đọc trọn văn bản",
+            "body": "",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "reading": {
+              "instruction": "Lượt đầu tìm thay đổi chính. Lượt hai chọn đoạn giải thích vì sao ông bắt đầu học dùng điện thoại. Không cần dịch từng chữ ngay.",
+              "notePrompt": "Thay đổi chính là gì? Đoạn bạn chọn giải thích nguyên nhân như thế nào?",
+              "paragraphs": [
+                {
+                  "id": "past",
+                  "hanzi": "以前，爷爷每天早上都看报纸。他不太喜欢用手机看新闻。",
+                  "pinyin": "Yǐqián, yéye měitiān zǎoshang dōu kàn bàozhǐ. Tā bú tài xǐhuan yòng shǒujī kàn xīnwén.",
+                  "meaningVi": "Trước đây, sáng nào ông cũng đọc báo. Ông không thích lắm việc dùng điện thoại xem tin tức."
+                },
+                {
+                  "id": "change",
+                  "hanzi": "后来，爷爷常看的报纸改成每周出版一次。为了每天了解新闻，他开始学习使用手机。",
+                  "pinyin": "Hòulái, yéye cháng kàn de bàozhǐ gǎi chéng měi zhōu chūbǎn yí cì. Wèile měitiān liǎojiě xīnwén, tā kāishǐ xuéxí shǐyòng shǒujī.",
+                  "meaningVi": "Sau đó, tờ báo ông thường đọc chuyển sang xuất bản mỗi tuần một lần. Để biết tin tức hằng ngày, ông bắt đầu học dùng điện thoại."
+                },
+                {
+                  "id": "difficulty",
+                  "hanzi": "刚开始，他觉得手机上的字太小，看起来很累。孙女教他把字放大，还陪他一起练习。",
+                  "pinyin": "Gāng kāishǐ, tā juéde shǒujī shàng de zì tài xiǎo, kàn qǐlái hěn lèi. Sūnnǚ jiāo tā bǎ zì fàng dà, hái péi tā yìqǐ liànxí.",
+                  "meaningVi": "Lúc mới bắt đầu, ông thấy chữ trên điện thoại quá nhỏ, đọc rất mệt. Cháu gái dạy ông phóng to chữ và còn cùng ông luyện tập."
+                },
+                {
+                  "id": "now",
+                  "hanzi": "现在，爷爷已经会用手机看新闻了，不过周末仍然喜欢读报。对他来说，新方法并没有代替旧习惯，而是多了一种选择。",
+                  "pinyin": "Xiànzài, yéye yǐjīng huì yòng shǒujī kàn xīnwén le, búguò zhōumò réngrán xǐhuan dú bào. Duì tā lái shuō, xīn fāngfǎ bìng méiyǒu dàitì jiù xíguàn, ér shì duō le yì zhǒng xuǎnzé.",
+                  "meaningVi": "Bây giờ ông đã biết dùng điện thoại xem tin tức, nhưng cuối tuần vẫn thích đọc báo. Với ông, cách mới không thay thế thói quen cũ mà mang lại thêm một lựa chọn."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:timeline",
+        "title": "Mốc thời gian cần một điểm xuất phát",
+        "layout": "focus",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:timeline-figure",
+            "kind": "diagram",
+            "title": "Bốn chặng của câu chuyện",
+            "body": "",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "diagram": {
+              "type": "timeline",
+              "description": "以前 giới thiệu thói quen cũ; 后来 mở thay đổi; 刚开始 nhìn vào đầu quá trình học dùng điện thoại; 现在 nêu kết quả hiện tại. 刚开始 ở đây không phải đầu toàn bộ cuộc đời nhân vật.",
+              "nodes": [
+                {
+                  "id": "past",
+                  "label": "以前",
+                  "pinyin": "yǐqián",
+                  "meaningVi": "trước đây",
+                  "note": "Thói quen đọc báo.",
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "id": "change",
+                  "label": "后来",
+                  "pinyin": "hòulái",
+                  "meaningVi": "sau đó",
+                  "note": "Báo đổi lịch xuất bản; ông học dùng điện thoại.",
+                  "x": 0,
+                  "y": 1
+                },
+                {
+                  "id": "difficulty",
+                  "label": "刚开始",
+                  "pinyin": "gāng kāishǐ",
+                  "meaningVi": "lúc mới bắt đầu",
+                  "note": "Khó khăn ban đầu và sự giúp đỡ.",
+                  "x": 0,
+                  "y": 2
+                },
+                {
+                  "id": "now",
+                  "label": "现在",
+                  "pinyin": "xiànzài",
+                  "meaningVi": "bây giờ",
+                  "note": "Thêm cách đọc tin; vẫn giữ thói quen cũ.",
+                  "x": 0,
+                  "y": 3
+                }
+              ]
+            }
+          },
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:reason",
+            "kind": "explanation",
+            "title": "Thời gian khác nguyên nhân",
+            "body": "后来 cho biết bước xảy ra sau, không tự giải thích vì sao. 为了每天了解新闻 nói mục đích học dùng điện thoại. Muốn giải thích lựa chọn thứ tự, hãy chỉ cả mốc thời gian lẫn nội dung nối giữa hai đoạn.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:practice",
+        "title": "Khôi phục diễn biến và kiểm điều văn bản nói",
+        "layout": "workshop",
+        "stage": "practice",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:order",
+            "kind": "activity",
+            "title": "Sắp xếp bốn ý",
+            "body": "Ghép bốn ý theo trình tự của câu chuyện. Có thể quay lại văn bản khi cần.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "order",
+              "options": [
+                {
+                  "id": "help",
+                  "text": "Cháu giúp ông vượt khó khăn ban đầu.",
+                  "feedback": ""
+                },
+                {
+                  "id": "habit",
+                  "text": "Ông đọc báo mỗi sáng.",
+                  "feedback": ""
+                },
+                {
+                  "id": "result",
+                  "text": "Ông có thêm cách xem tin và vẫn đọc báo.",
+                  "feedback": ""
+                },
+                {
+                  "id": "reason",
+                  "text": "Báo đổi lịch; ông bắt đầu học dùng điện thoại.",
+                  "feedback": ""
+                }
+              ],
+              "answerIds": [
+                "habit",
+                "reason",
+                "help",
+                "result"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Thói quen cũ → thay đổi tạo nhu cầu → quá trình học và được giúp → kết quả. Nếu đặt sự giúp đỡ trước lúc bắt đầu học, quan hệ giữa các đoạn sẽ thiếu điểm nối.",
+              "hint": "Xác định thói quen ở đầu và kết quả ở cuối trước.",
+              "rubric": []
+            }
+          },
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:claim",
+            "kind": "activity",
+            "title": "Có thể kết luận điều nào?",
+            "body": "Chọn nhận định được văn bản hỗ trợ.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "choice",
+              "options": [
+                {
+                  "id": "replace",
+                  "text": "Ông đã bỏ hẳn việc đọc báo.",
+                  "feedback": "Đoạn cuối nói ông vẫn thích đọc báo vào cuối tuần."
+                },
+                {
+                  "id": "choice",
+                  "text": "Ông có thêm một lựa chọn để xem tin.",
+                  "feedback": "Đúng: đoạn cuối nói 多了一种选择, đồng thời giữ thói quen đọc báo."
+                },
+                {
+                  "id": "all",
+                  "text": "Mọi người cao tuổi đều thích xem tin bằng điện thoại.",
+                  "feedback": "Văn bản kể về một người; không đủ bằng chứng để kết luận về mọi người cao tuổi."
+                }
+              ],
+              "answerIds": [
+                "choice"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Bám vào đoạn cuối. Không biến câu chuyện của một người thành kết luận về cả nhóm; cũng không suy “biết cách mới” thành “bỏ cách cũ”.",
+              "hint": "",
+              "rubric": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:summary",
+        "title": "Tóm tắt bằng ba câu",
+        "layout": "workshop",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:write",
+            "kind": "activity",
+            "title": "Giữ quan hệ giữa các ý",
+            "body": "Viết ba câu tiếng Trung: thói quen trước đây; lý do và cách thay đổi; kết quả hiện nay. Có thể dùng từ hỗ trợ. Tự kiểm trước khi mở gợi ý.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "rubric",
+              "options": [],
+              "answerIds": [],
+              "acceptedAnswers": [],
+              "explanation": "Một dàn ý để đối chiếu: 以前…看报纸；后来…每周出版一次…学习使用手机；现在…会…不过…仍然…。Bản tóm tắt không cần chép nguyên văn, nhưng phải giữ lý do thay đổi và kết quả có cả cách cũ lẫn cách mới.",
+              "hint": "Đặt 以前 / 后来 / 现在 ở ba điểm của dàn ý.",
+              "rubric": [
+                {
+                  "id": "before",
+                  "label": "Nêu điểm xuất phát",
+                  "guidance": "Có thói quen đọc báo trước đây, không chỉ kể việc dùng điện thoại."
+                },
+                {
+                  "id": "reason",
+                  "label": "Giữ nguyên nhân và diễn biến",
+                  "guidance": "Lịch xuất bản thay đổi tạo nhu cầu xem tin hằng ngày; cháu giúp ông học cách dùng điện thoại."
+                },
+                {
+                  "id": "result",
+                  "label": "Không suy diễn quá văn bản",
+                  "guidance": "Ông vẫn đọc báo; không viết rằng ông bỏ hẳn báo hoặc mọi người già đều đổi thói quen."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-text",
+        "title": "Thử với một câu chuyện mới",
+        "layout": "focus",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-support",
+            "kind": "explanation",
+            "title": "Từ hỗ trợ",
+            "body": "种树 (zhòng shù) — trồng cây; 报名 (bàomíng) — đăng ký; 负责人 (fùzérén) — người phụ trách; 雨衣 (yǔyī) — áo mưa. Không cần nhớ độc lập các từ được cung cấp để thực hiện nhiệm vụ về trình tự.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-text-reading",
+            "kind": "reading",
+            "title": "Bốn đoạn đang bị đảo vị trí",
+            "body": "",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "reading": {
+              "instruction": "Bốn đoạn kể về cùng một hoạt động nhưng đang xếp sai thứ tự. Đọc hết, chọn các đoạn chứa mốc giúp bạn quyết định, rồi ghi thứ tự dự kiến trước khi sang trang sắp xếp.",
+              "notePrompt": "Thứ tự dự kiến của bạn là gì? Giải thích “第二天” lấy ngày nào làm điểm xuất phát.",
+              "paragraphs": [
+                {
+                  "id": "event",
+                  "hanzi": "第二天，虽然下雨了，小林还是按时到了活动地点。他和新认识的朋友一起种了几棵树。",
+                  "pinyin": "Dì èr tiān, suīrán xià yǔ le, Xiǎo Lín háishi ànshí dào le huódòng dìdiǎn. Tā hé xīn rènshi de péngyou yìqǐ zhòng le jǐ kē shù.",
+                  "meaningVi": "Ngày hôm sau, dù trời mưa, Tiểu Lâm vẫn đến địa điểm hoạt động đúng giờ. Anh cùng những người bạn mới quen trồng vài cây."
+                },
+                {
+                  "id": "signup",
+                  "hanzi": "上周，小林在网上看到一个周末种树活动。他觉得很有意思，就报名参加了。",
+                  "pinyin": "Shàng zhōu, Xiǎo Lín zài wǎngshàng kàn dào yí ge zhōumò zhòng shù huódòng. Tā juéde hěn yǒu yìsi, jiù bàomíng cānjiā le.",
+                  "meaningVi": "Tuần trước, Tiểu Lâm thấy trên mạng một hoạt động trồng cây cuối tuần. Anh thấy rất thú vị nên đăng ký tham gia."
+                },
+                {
+                  "id": "after",
+                  "hanzi": "活动结束后，小林把照片发给了家人。他说，下次还想参加这样的活动。",
+                  "pinyin": "Huódòng jiéshù hòu, Xiǎo Lín bǎ zhàopiàn fā gěi le jiārén. Tā shuō, xià cì hái xiǎng cānjiā zhèyàng de huódòng.",
+                  "meaningVi": "Sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình. Anh nói lần sau vẫn muốn tham gia hoạt động như vậy."
+                },
+                {
+                  "id": "prepare",
+                  "hanzi": "活动前一天，负责人发来消息，提醒大家带水和雨衣。小林按照要求准备好了东西。",
+                  "pinyin": "Huódòng qián yì tiān, fùzérén fā lái xiāoxi, tíxǐng dàjiā dài shuǐ hé yǔyī. Xiǎo Lín ànzhào yāoqiú zhǔnbèi hǎo le dōngxi.",
+                  "meaningVi": "Một ngày trước hoạt động, người phụ trách gửi tin nhắc mọi người mang nước và áo mưa. Tiểu Lâm chuẩn bị đồ theo yêu cầu."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-order",
+        "title": "Ghép lại câu chuyện và giải thích",
+        "layout": "workshop",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-order-activity",
+            "kind": "activity",
+            "title": "Khôi phục thứ tự",
+            "body": "Sắp xếp bốn khối theo diễn biến của câu chuyện trồng cây.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "order",
+              "options": [
+                {
+                  "id": "event",
+                  "text": "第二天，虽然下雨了，小林还是按时到了活动地点。他和新认识的朋友一起种了几棵树。",
+                  "feedback": ""
+                },
+                {
+                  "id": "signup",
+                  "text": "上周，小林在网上看到一个周末种树活动。他觉得很有意思，就报名参加了。",
+                  "feedback": ""
+                },
+                {
+                  "id": "after",
+                  "text": "活动结束后，小林把照片发给了家人。他说，下次还想参加这样的活动。",
+                  "feedback": ""
+                },
+                {
+                  "id": "prepare",
+                  "text": "活动前一天，负责人发来消息，提醒大家带水和雨衣。小林按照要求准备好了东西。",
+                  "feedback": ""
+                }
+              ],
+              "answerIds": [
+                "signup",
+                "prepare",
+                "event",
+                "after"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "上周 đăng ký → 活动前一天 chuẩn bị → 第二天 đến tham gia → 活动结束后 gửi ảnh. 第二天 nối với “một ngày trước hoạt động”, vì vậy đó là ngày hoạt động diễn ra. Câu 下次 còn muốn tham gia nằm trong lời kể sau hoạt động, không phải một sự kiện mới đã xảy ra.",
+              "hint": "Tìm bước đăng ký trước khi chuẩn bị và mốc kết thúc trước lời dự định lần sau.",
+              "rubric": []
+            }
+          },
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-explain",
+            "kind": "activity",
+            "title": "Tự giải thích một điểm nối",
+            "body": "Giải thích vì sao đoạn “第二天” đứng sau đoạn chuẩn bị và trước đoạn gửi ảnh. Có thể dùng tiếng Việt nếu chưa đủ từ tiếng Trung để giải thích.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "rubric",
+              "options": [],
+              "answerIds": [],
+              "acceptedAnswers": [],
+              "explanation": "Đối chiếu mốc thời gian và nội dung sự kiện cùng lúc. Không chỉ đoán thứ tự theo từ đầu câu; nêu rõ hai đoạn nối với nhau ở chi tiết nào.",
+              "hint": "",
+              "rubric": [
+                {
+                  "id": "anchor",
+                  "label": "Xác định ngày làm mốc",
+                  "guidance": "第二天 được hiểu dựa vào 活动前一天 ở đoạn chuẩn bị."
+                },
+                {
+                  "id": "event",
+                  "label": "Giữ đúng sự kiện",
+                  "guidance": "Trồng cây xảy ra trong hoạt động; gửi ảnh xảy ra sau khi hoạt động kết thúc."
+                },
+                {
+                  "id": "future",
+                  "label": "Không biến dự định thành sự kiện đã xảy ra",
+                  "guidance": "下次还想参加 nói mong muốn cho lần sau, không chứng minh đã tham gia lần thứ hai."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "hsk3-cohesion-reconstruction-lesson-01:v2:recap",
+        "title": "Mang cách đọc này sang bài tiếp theo",
+        "layout": "focus",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "hsk3-cohesion-reconstruction-lesson-01:v2:recap-points",
+            "kind": "explanation",
+            "title": "Ba việc cần tự làm được",
+            "body": "1. Tìm mốc và xác định mốc đó dựa vào thời điểm nào.\n2. Dùng nội dung sự kiện để kiểm lại thứ tự; không suy từ “sau đó” ra nguyên nhân.\n3. Khi tóm tắt, giữ điều văn bản nói và phân biệt sự kiện với dự định.\nNếu còn nhầm, quay lại hai đoạn liền nhau và giải thích mối nối. Những lượt tự luyện này chưa tự chứng minh đọc hiểu bền vững; tiếp tục Thử Luyện và ôn theo cơ chế hiện có.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      }
+    ]
+  },
+  "studioContent": {
+    "targetLessonId": "hsk3-cohesion-reconstruction-lesson-01",
+    "titleZh": "HSK三级 · 44",
+    "objectiveVi": "Đọc và khôi phục trình tự thời gian, giải thích bằng chứng và tóm tắt đúng ý văn bản.",
+    "conceptVi": "Mốc thời gian giúp nối các sự kiện; mỗi mốc cần được hiểu dựa vào sự kiện và thời điểm đã nêu. Dự định chưa phải sự kiện đã xảy ra.",
+    "ruleVi": "Tìm điểm xuất phát, nối từng đoạn bằng thời gian và nội dung, rồi kiểm kết quả cuối. Khi tóm tắt, giữ nguyên nhân và diễn biến được văn bản hỗ trợ.",
+    "pitfallVi": "Không coi 后来 là từ chỉ nguyên nhân; không hiểu 第二天 nếu chưa xác định ngày làm mốc; không suy biết cách mới thành bỏ hẳn cách cũ.",
+    "checkpointVi": "Khôi phục câu chuyện trồng cây, giải thích điểm nối 第二天 và phân biệt lời dự định lần sau với hoạt động đã hoàn thành.",
+    "prerequisites": [
+      "hsk3-main-idea-detail-notes-lesson-03"
+    ],
+    "vocabulary": [
+      "hsk-vocab-00510",
+      "hsk-vocab-00547",
+      "hsk-vocab-00621",
+      "hsk-vocab-00632",
+      "hsk-vocab-00724",
+      "hsk-vocab-00737",
+      "hsk-vocab-00836",
+      "hsk-vocab-00970",
+      "hsk-vocab-00976",
+      "hsk-vocab-00579",
+      "hsk-vocab-00721",
+      "hsk-vocab-00801",
+      "hsk-vocab-00832",
+      "hsk-vocab-00971",
+      "hsk-vocab-00645",
+      "hsk-vocab-00671",
+      "hsk-vocab-00908",
+      "hsk-vocab-00583",
+      "hsk-vocab-00751",
+      "hsk-vocab-00633",
+      "hsk-vocab-00746",
+      "hsk-vocab-00829",
+      "hsk-vocab-00986",
+      "hsk-vocab-00506",
+      "hsk-vocab-00614",
+      "hsk-vocab-00692",
+      "hsk-vocab-00768",
+      "hsk-vocab-00828",
+      "hsk-vocab-00885",
+      "hsk-vocab-00941",
+      "hsk-vocab-00956",
+      "hsk-vocab-00984",
+      "hsk-vocab-00807",
+      "hsk-vocab-00831",
+      "hsk-vocab-00853",
+      "hsk-vocab-00678",
+      "hsk-vocab-00710",
+      "hsk-vocab-00912",
+      "hsk-vocab-00934",
+      "hsk-vocab-00514",
+      "hsk-vocab-00587",
+      "hsk-vocab-00654",
+      "hsk-vocab-00677",
+      "hsk-vocab-00683",
+      "hsk-vocab-00771",
+      "hsk-vocab-00957",
+      "hsk-vocab-00544",
+      "hsk-vocab-00650",
+      "hsk-vocab-00745",
+      "hsk-vocab-00629",
+      "hsk-vocab-00988",
+      "hsk-vocab-00707",
+      "hsk-vocab-00764",
+      "hsk-vocab-00766",
+      "hsk-vocab-00589",
+      "hsk-vocab-00591",
+      "hsk-vocab-00616",
+      "hsk-vocab-00624",
+      "hsk-vocab-00652",
+      "hsk-vocab-00823",
+      "hsk-vocab-00554",
+      "hsk-vocab-00560",
+      "hsk-vocab-00586",
+      "hsk-vocab-00593",
+      "hsk-vocab-00775",
+      "hsk-vocab-00992",
+      "hsk-vocab-00511",
+      "hsk-vocab-00686",
+      "hsk-vocab-00695",
+      "hsk-vocab-00755",
+      "hsk-vocab-00516",
+      "hsk-vocab-00526",
+      "hsk-vocab-00528",
+      "hsk-vocab-00529",
+      "hsk-vocab-00613",
+      "hsk-vocab-00657",
+      "hsk-vocab-00680",
+      "hsk-vocab-00732",
+      "hsk-vocab-00757",
+      "hsk-vocab-00777",
+      "hsk-vocab-00805",
+      "hsk-vocab-00822",
+      "hsk-vocab-00860",
+      "hsk-vocab-00886",
+      "hsk-vocab-00904",
+      "hsk-vocab-00927",
+      "hsk-vocab-00950",
+      "hsk-vocab-00977",
+      "hsk-vocab-00997",
+      "hsk-vocab-00532",
+      "hsk-vocab-00549",
+      "hsk-vocab-00580",
+      "hsk-vocab-00611",
+      "hsk-vocab-00618",
+      "hsk-vocab-00623",
+      "hsk-vocab-00691",
+      "hsk-vocab-00725",
+      "hsk-vocab-00756",
+      "hsk-vocab-00784",
+      "hsk-vocab-00800",
+      "hsk-vocab-00824",
+      "hsk-vocab-00846",
+      "hsk-vocab-00875",
+      "hsk-vocab-00906",
+      "hsk-vocab-00925",
+      "hsk-vocab-00949",
+      "hsk-vocab-00975",
+      "hsk-vocab-00995",
+      "hsk-vocab-00530",
+      "hsk-vocab-00546",
+      "hsk-vocab-00559",
+      "hsk-vocab-00610",
+      "hsk-vocab-00628",
+      "hsk-vocab-00653",
+      "hsk-vocab-00690",
+      "hsk-vocab-00703",
+      "hsk-vocab-00731",
+      "hsk-vocab-00747",
+      "hsk-vocab-00799",
+      "hsk-vocab-00817",
+      "hsk-vocab-00851",
+      "hsk-vocab-00871",
+      "hsk-vocab-00901",
+      "hsk-vocab-00902",
+      "hsk-vocab-00929",
+      "hsk-vocab-00935",
+      "hsk-vocab-00972",
+      "hsk-vocab-00973",
+      "hsk-vocab-00646",
+      "hsk-vocab-00596",
+      "hsk-vocab-00720",
+      "hsk-vocab-00926",
+      "hsk-vocab-00504",
+      "hsk-vocab-00548",
+      "hsk-vocab-00572",
+      "hsk-vocab-00595",
+      "hsk-vocab-00641",
+      "hsk-vocab-00660",
+      "hsk-vocab-00681",
+      "hsk-vocab-00715",
+      "hsk-vocab-00740",
+      "hsk-vocab-00769",
+      "hsk-vocab-00791",
+      "hsk-vocab-00815",
+      "hsk-vocab-00850",
+      "hsk-vocab-00855",
+      "hsk-vocab-00891",
+      "hsk-vocab-00914",
+      "hsk-vocab-00937",
+      "hsk-vocab-00964",
+      "hsk-vocab-00985",
+      "hsk-vocab-00520",
+      "hsk-vocab-00551",
+      "hsk-vocab-00573",
+      "hsk-vocab-00602",
+      "hsk-vocab-00612",
+      "hsk-vocab-00619",
+      "hsk-vocab-00635",
+      "hsk-vocab-00668",
+      "hsk-vocab-00741",
+      "hsk-vocab-00778",
+      "hsk-vocab-00794",
+      "hsk-vocab-00818",
+      "hsk-vocab-00825",
+      "hsk-vocab-00869",
+      "hsk-vocab-00894",
+      "hsk-vocab-00916",
+      "hsk-vocab-00940",
+      "hsk-vocab-00965",
+      "hsk-vocab-00987",
+      "hsk-vocab-00503",
+      "hsk-vocab-00542",
+      "hsk-vocab-00570",
+      "hsk-vocab-00594",
+      "hsk-vocab-00625",
+      "hsk-vocab-00656",
+      "hsk-vocab-00659",
+      "hsk-vocab-00708",
+      "hsk-vocab-00709",
+      "hsk-vocab-00711",
+      "hsk-vocab-00748",
+      "hsk-vocab-00814",
+      "hsk-vocab-00843",
+      "hsk-vocab-00867",
+      "hsk-vocab-00890",
+      "hsk-vocab-00903",
+      "hsk-vocab-00911",
+      "hsk-vocab-00959",
+      "hsk-vocab-00983",
+      "hsk-vocab-00505",
+      "hsk-vocab-00521",
+      "hsk-vocab-00541",
+      "hsk-vocab-00578",
+      "hsk-vocab-00642",
+      "hsk-vocab-00661",
+      "hsk-vocab-00685",
+      "hsk-vocab-00719",
+      "hsk-vocab-00750",
+      "hsk-vocab-00773",
+      "hsk-vocab-00793",
+      "hsk-vocab-00816",
+      "hsk-vocab-00854",
+      "hsk-vocab-00868",
+      "hsk-vocab-00892",
+      "hsk-vocab-00915",
+      "hsk-vocab-00939",
+      "hsk-vocab-00962",
+      "hsk-vocab-00981",
+      "hsk-vocab-00592",
+      "hsk-vocab-00655",
+      "hsk-vocab-00704",
+      "hsk-vocab-00838",
+      "hsk-vocab-00865",
+      "hsk-vocab-00913",
+      "hsk-vocab-00936"
+    ],
+    "skills": [
+      "vocabulary",
+      "listening",
+      "reading",
+      "speaking",
+      "writing"
+    ],
+    "dialogue": [
+      {
+        "speaker": "Đoạn 1",
+        "id": "past",
+        "hanzi": "以前，爷爷每天早上都看报纸。他不太喜欢用手机看新闻。",
+        "pinyin": "Yǐqián, yéye měitiān zǎoshang dōu kàn bàozhǐ. Tā bú tài xǐhuan yòng shǒujī kàn xīnwén.",
+        "meaningVi": "Trước đây, sáng nào ông cũng đọc báo. Ông không thích lắm việc dùng điện thoại xem tin tức."
+      },
+      {
+        "speaker": "Đoạn 2",
+        "id": "change",
+        "hanzi": "后来，爷爷常看的报纸改成每周出版一次。为了每天了解新闻，他开始学习使用手机。",
+        "pinyin": "Hòulái, yéye cháng kàn de bàozhǐ gǎi chéng měi zhōu chūbǎn yí cì. Wèile měitiān liǎojiě xīnwén, tā kāishǐ xuéxí shǐyòng shǒujī.",
+        "meaningVi": "Sau đó, tờ báo ông thường đọc chuyển sang xuất bản mỗi tuần một lần. Để biết tin tức hằng ngày, ông bắt đầu học dùng điện thoại."
+      },
+      {
+        "speaker": "Đoạn 3",
+        "id": "difficulty",
+        "hanzi": "刚开始，他觉得手机上的字太小，看起来很累。孙女教他把字放大，还陪他一起练习。",
+        "pinyin": "Gāng kāishǐ, tā juéde shǒujī shàng de zì tài xiǎo, kàn qǐlái hěn lèi. Sūnnǚ jiāo tā bǎ zì fàng dà, hái péi tā yìqǐ liànxí.",
+        "meaningVi": "Lúc mới bắt đầu, ông thấy chữ trên điện thoại quá nhỏ, đọc rất mệt. Cháu gái dạy ông phóng to chữ và còn cùng ông luyện tập."
+      },
+      {
+        "speaker": "Đoạn 4",
+        "id": "now",
+        "hanzi": "现在，爷爷已经会用手机看新闻了，不过周末仍然喜欢读报。对他来说，新方法并没有代替旧习惯，而是多了一种选择。",
+        "pinyin": "Xiànzài, yéye yǐjīng huì yòng shǒujī kàn xīnwén le, búguò zhōumò réngrán xǐhuan dú bào. Duì tā lái shuō, xīn fāngfǎ bìng méiyǒu dàitì jiù xíguàn, ér shì duō le yì zhǒng xuǎnzé.",
+        "meaningVi": "Bây giờ ông đã biết dùng điện thoại xem tin tức, nhưng cuối tuần vẫn thích đọc báo. Với ông, cách mới không thay thế thói quen cũ mà mang lại thêm một lựa chọn."
+      }
+    ],
+    "grammar": [
+      {
+        "pattern": "以前…后来…现在…",
+        "explanationVi": "Nối thói quen cũ, giai đoạn thay đổi và hiện trạng. 后来 chỉ trình tự, chưa tự giải thích nguyên nhân.",
+        "modelExample": {
+          "hanzi": "以前爷爷看报纸，现在他也会用手机看新闻了。",
+          "pinyin": "Yǐqián yéye kàn bàozhǐ, xiànzài tā yě huì yòng shǒujī kàn xīnwén le.",
+          "meaningVi": "Trước đây ông đọc báo, bây giờ ông cũng biết dùng điện thoại xem tin tức."
+        },
+        "guidedPractice": {
+          "promptVi": "Nói rằng trước đây ông không thích dùng điện thoại xem tin tức, sau đó ông bắt đầu học dùng điện thoại.",
+          "modelAnswerHanzi": "以前爷爷不太喜欢用手机看新闻，后来他开始学习使用手机。",
+          "modelAnswerPinyin": "Yǐqián yéye bú tài xǐhuan yòng shǒujī kàn xīnwén, hòulái tā kāishǐ xuéxí shǐyòng shǒujī.",
+          "modelAnswerMeaningVi": "Trước đây ông không thích lắm việc dùng điện thoại xem tin tức, sau đó ông bắt đầu học dùng điện thoại."
+        }
+      },
+      {
+        "pattern": "…前一天…第二天…结束后…",
+        "explanationVi": "第二天 ở đây nối với ngày chuẩn bị ngay trước hoạt động. 结束后 đặt sự kiện sau khi hoạt động kết thúc.",
+        "modelExample": {
+          "hanzi": "活动前一天，小林准备好了东西。第二天，他按时到了活动地点。",
+          "pinyin": "Huódòng qián yì tiān, Xiǎo Lín zhǔnbèi hǎo le dōngxi. Dì èr tiān, tā ànshí dào le huódòng dìdiǎn.",
+          "meaningVi": "Ngày trước hoạt động, Tiểu Lâm chuẩn bị đồ xong. Ngày hôm sau, anh đến địa điểm hoạt động đúng giờ."
+        },
+        "guidedPractice": {
+          "promptVi": "Nói rằng sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình.",
+          "modelAnswerHanzi": "活动结束后，小林把照片发给了家人。",
+          "modelAnswerPinyin": "Huódòng jiéshù hòu, Xiǎo Lín bǎ zhàopiàn fā gěi le jiārén.",
+          "modelAnswerMeaningVi": "Sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình."
+        }
+      }
+    ],
+    "exercises": [
+      {
+        "promptVi": "Ông học dùng điện thoại với mục đích gì được nêu trong bài?",
+        "answer": "为了每天了解新闻。",
+        "answerPinyin": "Wèile měitiān liǎojiě xīnwén.",
+        "answerMeaningVi": "Để biết tin tức mỗi ngày.",
+        "distractors": [
+          "为了再也不看报纸。",
+          "为了教孙女使用手机。"
+        ],
+        "explanationVi": "Đoạn hai nêu 为了每天了解新闻. Ông vẫn đọc báo cuối tuần; cháu dạy ông, không phải ngược lại."
+      },
+      {
+        "promptVi": "第二天 trong câu chuyện trồng cây là ngày nào?",
+        "answer": "活动当天。",
+        "answerPinyin": "Huódòng dāngtiān.",
+        "answerMeaningVi": "Ngày diễn ra hoạt động.",
+        "distractors": [
+          "活动前一天。",
+          "活动结束后的第二天。"
+        ],
+        "explanationVi": "Đoạn trước nói 活动前一天. Ngày tiếp theo là ngày hoạt động, được xác nhận bằng việc đến địa điểm và trồng cây."
+      },
+      {
+        "promptVi": "Sau hoạt động, điều gì mới chỉ là mong muốn của Tiểu Lâm?",
+        "answer": "下次还想参加这样的活动。",
+        "answerPinyin": "Xià cì hái xiǎng cānjiā zhèyàng de huódòng.",
+        "answerMeaningVi": "Lần sau vẫn muốn tham gia hoạt động như vậy.",
+        "distractors": [
+          "已经参加了第二次活动。",
+          "已经给家人发了照片。"
+        ],
+        "explanationVi": "想 nêu mong muốn cho 下次. Văn bản không nói đã tham gia lần thứ hai; gửi ảnh là sự kiện đã xảy ra."
+      }
+    ],
+    "lessonPages": {
+      "version": 1,
+      "art": "reading",
+      "pages": [
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:mission",
+          "title": "Theo dõi một thói quen thay đổi",
+          "layout": "focus",
+          "stage": "context",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:goal",
+              "kind": "explanation",
+              "title": "Đọc để làm gì?",
+              "body": "Bạn sẽ tìm các mốc thời gian, phân biệt nguyên nhân với diễn biến và giải thích vì sao các đoạn cần đứng theo một thứ tự. Sau cùng, viết bản tóm tắt ba câu không thêm thông tin ngoài văn bản.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:support",
+              "kind": "explanation",
+              "title": "Từ hỗ trợ trước khi đọc",
+              "body": "出版 (chūbǎn) — xuất bản; 使用 (shǐyòng) — sử dụng; 放大 (fàng dà) — phóng to; 代替 (dàitì) — thay thế; 仍然 (réngrán) — vẫn. Đây là hỗ trợ đọc; mở lại khi cần, không phải bài kiểm tra nhớ độc lập những từ này.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:read",
+          "title": "Một tờ báo và một chiếc điện thoại",
+          "layout": "focus",
+          "stage": "context",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:text",
+              "kind": "reading",
+              "title": "Đọc trọn văn bản",
+              "body": "",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "reading": {
+                "instruction": "Lượt đầu tìm thay đổi chính. Lượt hai chọn đoạn giải thích vì sao ông bắt đầu học dùng điện thoại. Không cần dịch từng chữ ngay.",
+                "notePrompt": "Thay đổi chính là gì? Đoạn bạn chọn giải thích nguyên nhân như thế nào?",
+                "paragraphs": [
+                  {
+                    "id": "past",
+                    "hanzi": "以前，爷爷每天早上都看报纸。他不太喜欢用手机看新闻。",
+                    "pinyin": "Yǐqián, yéye měitiān zǎoshang dōu kàn bàozhǐ. Tā bú tài xǐhuan yòng shǒujī kàn xīnwén.",
+                    "meaningVi": "Trước đây, sáng nào ông cũng đọc báo. Ông không thích lắm việc dùng điện thoại xem tin tức."
+                  },
+                  {
+                    "id": "change",
+                    "hanzi": "后来，爷爷常看的报纸改成每周出版一次。为了每天了解新闻，他开始学习使用手机。",
+                    "pinyin": "Hòulái, yéye cháng kàn de bàozhǐ gǎi chéng měi zhōu chūbǎn yí cì. Wèile měitiān liǎojiě xīnwén, tā kāishǐ xuéxí shǐyòng shǒujī.",
+                    "meaningVi": "Sau đó, tờ báo ông thường đọc chuyển sang xuất bản mỗi tuần một lần. Để biết tin tức hằng ngày, ông bắt đầu học dùng điện thoại."
+                  },
+                  {
+                    "id": "difficulty",
+                    "hanzi": "刚开始，他觉得手机上的字太小，看起来很累。孙女教他把字放大，还陪他一起练习。",
+                    "pinyin": "Gāng kāishǐ, tā juéde shǒujī shàng de zì tài xiǎo, kàn qǐlái hěn lèi. Sūnnǚ jiāo tā bǎ zì fàng dà, hái péi tā yìqǐ liànxí.",
+                    "meaningVi": "Lúc mới bắt đầu, ông thấy chữ trên điện thoại quá nhỏ, đọc rất mệt. Cháu gái dạy ông phóng to chữ và còn cùng ông luyện tập."
+                  },
+                  {
+                    "id": "now",
+                    "hanzi": "现在，爷爷已经会用手机看新闻了，不过周末仍然喜欢读报。对他来说，新方法并没有代替旧习惯，而是多了一种选择。",
+                    "pinyin": "Xiànzài, yéye yǐjīng huì yòng shǒujī kàn xīnwén le, búguò zhōumò réngrán xǐhuan dú bào. Duì tā lái shuō, xīn fāngfǎ bìng méiyǒu dàitì jiù xíguàn, ér shì duō le yì zhǒng xuǎnzé.",
+                    "meaningVi": "Bây giờ ông đã biết dùng điện thoại xem tin tức, nhưng cuối tuần vẫn thích đọc báo. Với ông, cách mới không thay thế thói quen cũ mà mang lại thêm một lựa chọn."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:timeline",
+          "title": "Mốc thời gian cần một điểm xuất phát",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:timeline-figure",
+              "kind": "diagram",
+              "title": "Bốn chặng của câu chuyện",
+              "body": "",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "diagram": {
+                "type": "timeline",
+                "description": "以前 giới thiệu thói quen cũ; 后来 mở thay đổi; 刚开始 nhìn vào đầu quá trình học dùng điện thoại; 现在 nêu kết quả hiện tại. 刚开始 ở đây không phải đầu toàn bộ cuộc đời nhân vật.",
+                "nodes": [
+                  {
+                    "id": "past",
+                    "label": "以前",
+                    "pinyin": "yǐqián",
+                    "meaningVi": "trước đây",
+                    "note": "Thói quen đọc báo.",
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "id": "change",
+                    "label": "后来",
+                    "pinyin": "hòulái",
+                    "meaningVi": "sau đó",
+                    "note": "Báo đổi lịch xuất bản; ông học dùng điện thoại.",
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "id": "difficulty",
+                    "label": "刚开始",
+                    "pinyin": "gāng kāishǐ",
+                    "meaningVi": "lúc mới bắt đầu",
+                    "note": "Khó khăn ban đầu và sự giúp đỡ.",
+                    "x": 0,
+                    "y": 2
+                  },
+                  {
+                    "id": "now",
+                    "label": "现在",
+                    "pinyin": "xiànzài",
+                    "meaningVi": "bây giờ",
+                    "note": "Thêm cách đọc tin; vẫn giữ thói quen cũ.",
+                    "x": 0,
+                    "y": 3
+                  }
+                ]
+              }
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:reason",
+              "kind": "explanation",
+              "title": "Thời gian khác nguyên nhân",
+              "body": "后来 cho biết bước xảy ra sau, không tự giải thích vì sao. 为了每天了解新闻 nói mục đích học dùng điện thoại. Muốn giải thích lựa chọn thứ tự, hãy chỉ cả mốc thời gian lẫn nội dung nối giữa hai đoạn.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:practice",
+          "title": "Khôi phục diễn biến và kiểm điều văn bản nói",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:order",
+              "kind": "activity",
+              "title": "Sắp xếp bốn ý",
+              "body": "Ghép bốn ý theo trình tự của câu chuyện. Có thể quay lại văn bản khi cần.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "help",
+                    "text": "Cháu giúp ông vượt khó khăn ban đầu.",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "habit",
+                    "text": "Ông đọc báo mỗi sáng.",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "result",
+                    "text": "Ông có thêm cách xem tin và vẫn đọc báo.",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "reason",
+                    "text": "Báo đổi lịch; ông bắt đầu học dùng điện thoại.",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "habit",
+                  "reason",
+                  "help",
+                  "result"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Thói quen cũ → thay đổi tạo nhu cầu → quá trình học và được giúp → kết quả. Nếu đặt sự giúp đỡ trước lúc bắt đầu học, quan hệ giữa các đoạn sẽ thiếu điểm nối.",
+                "hint": "Xác định thói quen ở đầu và kết quả ở cuối trước.",
+                "rubric": []
+              }
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:claim",
+              "kind": "activity",
+              "title": "Có thể kết luận điều nào?",
+              "body": "Chọn nhận định được văn bản hỗ trợ.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "choice",
+                "options": [
+                  {
+                    "id": "replace",
+                    "text": "Ông đã bỏ hẳn việc đọc báo.",
+                    "feedback": "Đoạn cuối nói ông vẫn thích đọc báo vào cuối tuần."
+                  },
+                  {
+                    "id": "choice",
+                    "text": "Ông có thêm một lựa chọn để xem tin.",
+                    "feedback": "Đúng: đoạn cuối nói 多了一种选择, đồng thời giữ thói quen đọc báo."
+                  },
+                  {
+                    "id": "all",
+                    "text": "Mọi người cao tuổi đều thích xem tin bằng điện thoại.",
+                    "feedback": "Văn bản kể về một người; không đủ bằng chứng để kết luận về mọi người cao tuổi."
+                  }
+                ],
+                "answerIds": [
+                  "choice"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Bám vào đoạn cuối. Không biến câu chuyện của một người thành kết luận về cả nhóm; cũng không suy “biết cách mới” thành “bỏ cách cũ”.",
+                "hint": "",
+                "rubric": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:summary",
+          "title": "Tóm tắt bằng ba câu",
+          "layout": "workshop",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:write",
+              "kind": "activity",
+              "title": "Giữ quan hệ giữa các ý",
+              "body": "Viết ba câu tiếng Trung: thói quen trước đây; lý do và cách thay đổi; kết quả hiện nay. Có thể dùng từ hỗ trợ. Tự kiểm trước khi mở gợi ý.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "rubric",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [],
+                "explanation": "Một dàn ý để đối chiếu: 以前…看报纸；后来…每周出版一次…学习使用手机；现在…会…不过…仍然…。Bản tóm tắt không cần chép nguyên văn, nhưng phải giữ lý do thay đổi và kết quả có cả cách cũ lẫn cách mới.",
+                "hint": "Đặt 以前 / 后来 / 现在 ở ba điểm của dàn ý.",
+                "rubric": [
+                  {
+                    "id": "before",
+                    "label": "Nêu điểm xuất phát",
+                    "guidance": "Có thói quen đọc báo trước đây, không chỉ kể việc dùng điện thoại."
+                  },
+                  {
+                    "id": "reason",
+                    "label": "Giữ nguyên nhân và diễn biến",
+                    "guidance": "Lịch xuất bản thay đổi tạo nhu cầu xem tin hằng ngày; cháu giúp ông học cách dùng điện thoại."
+                  },
+                  {
+                    "id": "result",
+                    "label": "Không suy diễn quá văn bản",
+                    "guidance": "Ông vẫn đọc báo; không viết rằng ông bỏ hẳn báo hoặc mọi người già đều đổi thói quen."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-text",
+          "title": "Thử với một câu chuyện mới",
+          "layout": "focus",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-support",
+              "kind": "explanation",
+              "title": "Từ hỗ trợ",
+              "body": "种树 (zhòng shù) — trồng cây; 报名 (bàomíng) — đăng ký; 负责人 (fùzérén) — người phụ trách; 雨衣 (yǔyī) — áo mưa. Không cần nhớ độc lập các từ được cung cấp để thực hiện nhiệm vụ về trình tự.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-text-reading",
+              "kind": "reading",
+              "title": "Bốn đoạn đang bị đảo vị trí",
+              "body": "",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "reading": {
+                "instruction": "Bốn đoạn kể về cùng một hoạt động nhưng đang xếp sai thứ tự. Đọc hết, chọn các đoạn chứa mốc giúp bạn quyết định, rồi ghi thứ tự dự kiến trước khi sang trang sắp xếp.",
+                "notePrompt": "Thứ tự dự kiến của bạn là gì? Giải thích “第二天” lấy ngày nào làm điểm xuất phát.",
+                "paragraphs": [
+                  {
+                    "id": "event",
+                    "hanzi": "第二天，虽然下雨了，小林还是按时到了活动地点。他和新认识的朋友一起种了几棵树。",
+                    "pinyin": "Dì èr tiān, suīrán xià yǔ le, Xiǎo Lín háishi ànshí dào le huódòng dìdiǎn. Tā hé xīn rènshi de péngyou yìqǐ zhòng le jǐ kē shù.",
+                    "meaningVi": "Ngày hôm sau, dù trời mưa, Tiểu Lâm vẫn đến địa điểm hoạt động đúng giờ. Anh cùng những người bạn mới quen trồng vài cây."
+                  },
+                  {
+                    "id": "signup",
+                    "hanzi": "上周，小林在网上看到一个周末种树活动。他觉得很有意思，就报名参加了。",
+                    "pinyin": "Shàng zhōu, Xiǎo Lín zài wǎngshàng kàn dào yí ge zhōumò zhòng shù huódòng. Tā juéde hěn yǒu yìsi, jiù bàomíng cānjiā le.",
+                    "meaningVi": "Tuần trước, Tiểu Lâm thấy trên mạng một hoạt động trồng cây cuối tuần. Anh thấy rất thú vị nên đăng ký tham gia."
+                  },
+                  {
+                    "id": "after",
+                    "hanzi": "活动结束后，小林把照片发给了家人。他说，下次还想参加这样的活动。",
+                    "pinyin": "Huódòng jiéshù hòu, Xiǎo Lín bǎ zhàopiàn fā gěi le jiārén. Tā shuō, xià cì hái xiǎng cānjiā zhèyàng de huódòng.",
+                    "meaningVi": "Sau khi hoạt động kết thúc, Tiểu Lâm gửi ảnh cho gia đình. Anh nói lần sau vẫn muốn tham gia hoạt động như vậy."
+                  },
+                  {
+                    "id": "prepare",
+                    "hanzi": "活动前一天，负责人发来消息，提醒大家带水和雨衣。小林按照要求准备好了东西。",
+                    "pinyin": "Huódòng qián yì tiān, fùzérén fā lái xiāoxi, tíxǐng dàjiā dài shuǐ hé yǔyī. Xiǎo Lín ànzhào yāoqiú zhǔnbèi hǎo le dōngxi.",
+                    "meaningVi": "Một ngày trước hoạt động, người phụ trách gửi tin nhắc mọi người mang nước và áo mưa. Tiểu Lâm chuẩn bị đồ theo yêu cầu."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-order",
+          "title": "Ghép lại câu chuyện và giải thích",
+          "layout": "workshop",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-order-activity",
+              "kind": "activity",
+              "title": "Khôi phục thứ tự",
+              "body": "Sắp xếp bốn khối theo diễn biến của câu chuyện trồng cây.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "event",
+                    "text": "第二天，虽然下雨了，小林还是按时到了活动地点。他和新认识的朋友一起种了几棵树。",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "signup",
+                    "text": "上周，小林在网上看到一个周末种树活动。他觉得很有意思，就报名参加了。",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "after",
+                    "text": "活动结束后，小林把照片发给了家人。他说，下次还想参加这样的活动。",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "prepare",
+                    "text": "活动前一天，负责人发来消息，提醒大家带水和雨衣。小林按照要求准备好了东西。",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "signup",
+                  "prepare",
+                  "event",
+                  "after"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "上周 đăng ký → 活动前一天 chuẩn bị → 第二天 đến tham gia → 活动结束后 gửi ảnh. 第二天 nối với “một ngày trước hoạt động”, vì vậy đó là ngày hoạt động diễn ra. Câu 下次 còn muốn tham gia nằm trong lời kể sau hoạt động, không phải một sự kiện mới đã xảy ra.",
+                "hint": "Tìm bước đăng ký trước khi chuẩn bị và mốc kết thúc trước lời dự định lần sau.",
+                "rubric": []
+              }
+            },
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:new-explain",
+              "kind": "activity",
+              "title": "Tự giải thích một điểm nối",
+              "body": "Giải thích vì sao đoạn “第二天” đứng sau đoạn chuẩn bị và trước đoạn gửi ảnh. Có thể dùng tiếng Việt nếu chưa đủ từ tiếng Trung để giải thích.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "rubric",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [],
+                "explanation": "Đối chiếu mốc thời gian và nội dung sự kiện cùng lúc. Không chỉ đoán thứ tự theo từ đầu câu; nêu rõ hai đoạn nối với nhau ở chi tiết nào.",
+                "hint": "",
+                "rubric": [
+                  {
+                    "id": "anchor",
+                    "label": "Xác định ngày làm mốc",
+                    "guidance": "第二天 được hiểu dựa vào 活动前一天 ở đoạn chuẩn bị."
+                  },
+                  {
+                    "id": "event",
+                    "label": "Giữ đúng sự kiện",
+                    "guidance": "Trồng cây xảy ra trong hoạt động; gửi ảnh xảy ra sau khi hoạt động kết thúc."
+                  },
+                  {
+                    "id": "future",
+                    "label": "Không biến dự định thành sự kiện đã xảy ra",
+                    "guidance": "下次还想参加 nói mong muốn cho lần sau, không chứng minh đã tham gia lần thứ hai."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "hsk3-cohesion-reconstruction-lesson-01:v2:recap",
+          "title": "Mang cách đọc này sang bài tiếp theo",
+          "layout": "focus",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "hsk3-cohesion-reconstruction-lesson-01:v2:recap-points",
+              "kind": "explanation",
+              "title": "Ba việc cần tự làm được",
+              "body": "1. Tìm mốc và xác định mốc đó dựa vào thời điểm nào.\n2. Dùng nội dung sự kiện để kiểm lại thứ tự; không suy từ “sau đó” ra nguyên nhân.\n3. Khi tóm tắt, giữ điều văn bản nói và phân biệt sự kiện với dự định.\nNếu còn nhầm, quay lại hai đoạn liền nhau và giải thích mối nối. Những lượt tự luyện này chưa tự chứng minh đọc hiểu bền vững; tiếp tục Thử Luyện và ôn theo cơ chế hiện có.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        }
+      ]
+    },
+    "sourceVocabularyIds": [
+      "hsk-vocab-00510",
+      "hsk-vocab-00547",
+      "hsk-vocab-00621",
+      "hsk-vocab-00632",
+      "hsk-vocab-00724",
+      "hsk-vocab-00737",
+      "hsk-vocab-00836",
+      "hsk-vocab-00970",
+      "hsk-vocab-00976",
+      "hsk-vocab-00579",
+      "hsk-vocab-00721",
+      "hsk-vocab-00801",
+      "hsk-vocab-00832",
+      "hsk-vocab-00971",
+      "hsk-vocab-00645",
+      "hsk-vocab-00671",
+      "hsk-vocab-00908",
+      "hsk-vocab-00583",
+      "hsk-vocab-00751",
+      "hsk-vocab-00633",
+      "hsk-vocab-00746",
+      "hsk-vocab-00829",
+      "hsk-vocab-00986",
+      "hsk-vocab-00506",
+      "hsk-vocab-00614",
+      "hsk-vocab-00692",
+      "hsk-vocab-00768",
+      "hsk-vocab-00828",
+      "hsk-vocab-00885",
+      "hsk-vocab-00941",
+      "hsk-vocab-00956",
+      "hsk-vocab-00984",
+      "hsk-vocab-00807",
+      "hsk-vocab-00831",
+      "hsk-vocab-00853",
+      "hsk-vocab-00678",
+      "hsk-vocab-00710",
+      "hsk-vocab-00912",
+      "hsk-vocab-00934",
+      "hsk-vocab-00514",
+      "hsk-vocab-00587",
+      "hsk-vocab-00654",
+      "hsk-vocab-00677",
+      "hsk-vocab-00683",
+      "hsk-vocab-00771",
+      "hsk-vocab-00957",
+      "hsk-vocab-00544",
+      "hsk-vocab-00650",
+      "hsk-vocab-00745",
+      "hsk-vocab-00629",
+      "hsk-vocab-00988",
+      "hsk-vocab-00707",
+      "hsk-vocab-00764",
+      "hsk-vocab-00766",
+      "hsk-vocab-00589",
+      "hsk-vocab-00591",
+      "hsk-vocab-00616",
+      "hsk-vocab-00624",
+      "hsk-vocab-00652",
+      "hsk-vocab-00823",
+      "hsk-vocab-00554",
+      "hsk-vocab-00560",
+      "hsk-vocab-00586",
+      "hsk-vocab-00593",
+      "hsk-vocab-00775",
+      "hsk-vocab-00992",
+      "hsk-vocab-00511",
+      "hsk-vocab-00686",
+      "hsk-vocab-00695",
+      "hsk-vocab-00755",
+      "hsk-vocab-00516",
+      "hsk-vocab-00526",
+      "hsk-vocab-00528",
+      "hsk-vocab-00529",
+      "hsk-vocab-00613",
+      "hsk-vocab-00657",
+      "hsk-vocab-00680",
+      "hsk-vocab-00732",
+      "hsk-vocab-00757",
+      "hsk-vocab-00777",
+      "hsk-vocab-00805",
+      "hsk-vocab-00822",
+      "hsk-vocab-00860",
+      "hsk-vocab-00886",
+      "hsk-vocab-00904",
+      "hsk-vocab-00927",
+      "hsk-vocab-00950",
+      "hsk-vocab-00977",
+      "hsk-vocab-00997",
+      "hsk-vocab-00532",
+      "hsk-vocab-00549",
+      "hsk-vocab-00580",
+      "hsk-vocab-00611",
+      "hsk-vocab-00618",
+      "hsk-vocab-00623",
+      "hsk-vocab-00691",
+      "hsk-vocab-00725",
+      "hsk-vocab-00756",
+      "hsk-vocab-00784",
+      "hsk-vocab-00800",
+      "hsk-vocab-00824",
+      "hsk-vocab-00846",
+      "hsk-vocab-00875",
+      "hsk-vocab-00906",
+      "hsk-vocab-00925",
+      "hsk-vocab-00949",
+      "hsk-vocab-00975",
+      "hsk-vocab-00995",
+      "hsk-vocab-00530",
+      "hsk-vocab-00546",
+      "hsk-vocab-00559",
+      "hsk-vocab-00610",
+      "hsk-vocab-00628",
+      "hsk-vocab-00653",
+      "hsk-vocab-00690",
+      "hsk-vocab-00703",
+      "hsk-vocab-00731",
+      "hsk-vocab-00747",
+      "hsk-vocab-00799",
+      "hsk-vocab-00817",
+      "hsk-vocab-00851",
+      "hsk-vocab-00871",
+      "hsk-vocab-00901",
+      "hsk-vocab-00902",
+      "hsk-vocab-00929",
+      "hsk-vocab-00935",
+      "hsk-vocab-00972",
+      "hsk-vocab-00973",
+      "hsk-vocab-00646",
+      "hsk-vocab-00596",
+      "hsk-vocab-00720",
+      "hsk-vocab-00926",
+      "hsk-vocab-00504",
+      "hsk-vocab-00548",
+      "hsk-vocab-00572",
+      "hsk-vocab-00595",
+      "hsk-vocab-00641",
+      "hsk-vocab-00660",
+      "hsk-vocab-00681",
+      "hsk-vocab-00715",
+      "hsk-vocab-00740",
+      "hsk-vocab-00769",
+      "hsk-vocab-00791",
+      "hsk-vocab-00815",
+      "hsk-vocab-00850",
+      "hsk-vocab-00855",
+      "hsk-vocab-00891",
+      "hsk-vocab-00914",
+      "hsk-vocab-00937",
+      "hsk-vocab-00964",
+      "hsk-vocab-00985",
+      "hsk-vocab-00520",
+      "hsk-vocab-00551",
+      "hsk-vocab-00573",
+      "hsk-vocab-00602",
+      "hsk-vocab-00612",
+      "hsk-vocab-00619",
+      "hsk-vocab-00635",
+      "hsk-vocab-00668",
+      "hsk-vocab-00741",
+      "hsk-vocab-00778",
+      "hsk-vocab-00794",
+      "hsk-vocab-00818",
+      "hsk-vocab-00825",
+      "hsk-vocab-00869",
+      "hsk-vocab-00894",
+      "hsk-vocab-00916",
+      "hsk-vocab-00940",
+      "hsk-vocab-00965",
+      "hsk-vocab-00987",
+      "hsk-vocab-00503",
+      "hsk-vocab-00542",
+      "hsk-vocab-00570",
+      "hsk-vocab-00594",
+      "hsk-vocab-00625",
+      "hsk-vocab-00656",
+      "hsk-vocab-00659",
+      "hsk-vocab-00708",
+      "hsk-vocab-00709",
+      "hsk-vocab-00711",
+      "hsk-vocab-00748",
+      "hsk-vocab-00814",
+      "hsk-vocab-00843",
+      "hsk-vocab-00867",
+      "hsk-vocab-00890",
+      "hsk-vocab-00903",
+      "hsk-vocab-00911",
+      "hsk-vocab-00959",
+      "hsk-vocab-00983",
+      "hsk-vocab-00505",
+      "hsk-vocab-00521",
+      "hsk-vocab-00541",
+      "hsk-vocab-00578",
+      "hsk-vocab-00642",
+      "hsk-vocab-00661",
+      "hsk-vocab-00685",
+      "hsk-vocab-00719",
+      "hsk-vocab-00750",
+      "hsk-vocab-00773",
+      "hsk-vocab-00793",
+      "hsk-vocab-00816",
+      "hsk-vocab-00854",
+      "hsk-vocab-00868",
+      "hsk-vocab-00892",
+      "hsk-vocab-00915",
+      "hsk-vocab-00939",
+      "hsk-vocab-00962",
+      "hsk-vocab-00981",
+      "hsk-vocab-00592",
+      "hsk-vocab-00655",
+      "hsk-vocab-00704",
+      "hsk-vocab-00838",
+      "hsk-vocab-00865",
+      "hsk-vocab-00913",
+      "hsk-vocab-00936"
+    ],
+    "sourceLessonIds": [
+      "hsk3-cohesion-reconstruction-lesson-01"
+    ],
+    "sourceGrammarIds": [
+      "hsk3-pattern:hsk3-cohesion-reconstruction-lesson-01"
+    ],
+    "sourceTaskIds": [
+      "hsk3-cohesion-reconstruction-lesson-01:prompt-01"
+    ],
+    "sourceTopicIds": [],
+    "review": {
+      "humanReviewed": false,
+      "aiSelfReview": {
+        "accuracy": false,
+        "levelFit": false,
+        "pedagogy": false,
+        "answerIntegrity": false,
+        "originality": false
+      }
+    }
+  }
+}

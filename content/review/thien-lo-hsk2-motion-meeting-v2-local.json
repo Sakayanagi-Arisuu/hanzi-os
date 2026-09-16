@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-16",
+  "scope": "HSK2 explicit directional reference points and negotiated meeting details; supported practice and self-review.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/25-REVIEW-HSK2-MOTION-MEETING.md",
+  "items": [
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-02",
+      "sourceContentSha256": "sha256:68e1e235932bbf75ef4156f989a5b1ec86403f5c91a8a5aa24aa88c81ea41a39",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-05",
+      "sourceContentSha256": "sha256:807cc2322467cd11dd6e873f802c299c6c52318b41cbc1649f39387b54a17217",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

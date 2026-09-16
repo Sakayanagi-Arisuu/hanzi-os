@@ -22,6 +22,10 @@ tạo được và phải giữ `.wrangler/`, `docs/reports/`, `output/`, `conte
 
 ## 2. Chu trình nghiệm thu một module
 
+Dữ liệu cho ba tài khoản demo có sẵn: xem [DEMO_WORKSPACE.md](DEMO_WORKSPACE.md).
+Script chỉ chạy trên D1 local, có backup, rehearsal và kiểm tra chống trùng;
+không thay mật khẩu hoặc tạo thành tích học tập giả.
+
 1. Ghi module/journey đang kiểm ở `IMPLEMENTATION_CHECKPOINT.md`.
 2. Kiểm `git status` và phân biệt thay đổi của người dùng.
 3. Chạy test gần code vừa đổi; bug dữ liệu/correctness phải có regression test.

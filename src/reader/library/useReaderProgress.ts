@@ -6,7 +6,7 @@ import {
   resolveReaderProgressScope,
   writeReaderProgress,
 } from "./readerProgressStorage";
-import type { ReaderProgressDocument } from "./readerProgress";
+import { parseReaderProgress, type ReaderProgressDocument } from "./readerProgress";
 
 export const useReaderProgress = ({
   ownerKey,
@@ -29,7 +29,7 @@ export const useReaderProgress = ({
     setScopeReady(false);
     const fallback = initialReaderProgressScope(ownerKey);
     let active = true;
-    void resolveReaderProgressScope(fallback).then((scope) => {
+    void resolveReaderProgressScope(fallback).then(async (scope) => {
       if (!active) return;
       const stored = readReaderProgress(scope);
       const currentProgress = progressRef.current;
@@ -39,9 +39,23 @@ export const useReaderProgress = ({
           || Object.keys(currentProgress.savedEntries).length > 0)
         && Object.keys(stored.chapters).length === 0
         && Object.keys(stored.savedEntries).length === 0;
-      const next = canAdoptGuestProgress
+      let next = canAdoptGuestProgress
         ? adoptReaderProgressScope(currentProgress, scope)
         : stored;
+      if (process.env.NODE_ENV === 'development' && authenticated
+        && !canAdoptGuestProgress && Object.keys(stored.chapters).length === 0
+        && Object.keys(stored.savedEntries).length === 0) {
+        try {
+          const response = await fetch('/api/local-demo/reader-progress', { cache: 'no-store' });
+          if (response.ok) {
+            const data = await response.json();
+            if (data.readerProgress?.resetEpoch === scope.resetEpoch) {
+              next = parseReaderProgress({ ...data.readerProgress, ...scope }, scope);
+            }
+          }
+        } catch { /* A missing local fixture never blocks the reader. */ }
+      }
+      if (!active) return;
       previousOwnerRef.current = scope.ownerKey;
       setProgress(next);
       setScopeReady(true);

@@ -31,6 +31,8 @@ import {
 } from "../assessment/placementResume";
 import { useAudioEngine } from "../audio/AudioEngineProvider";
 import { useLearning } from "../store/LearningStore";
+import { useAccessDays } from "../learning/useAccessDays";
+import { usePageAttemptPump } from '../sync/usePageAttemptPump';
 import { useInteractionXp } from "../store/InteractionXpStore";
 import { resolveSystemPageName } from "../system/systemLexicon";
 import { emitSystemSignal } from "../system/systemSignals";
@@ -65,6 +67,8 @@ const ASSESSMENT_INVITE_SESSION_KEY = "hanzi-os-assessment-invite-v1";
 
 export function AppShell({ children }: { children: ReactNode }) {
   const { state, sync, dueWordIds, level } = useLearning();
+  usePageAttemptPump(sync.session?.authenticated && sync.ownerKey === sync.session.accountKey ? sync.ownerKey : '');
+  useAccessDays(sync.session?.authenticated ? sync.session.accountKey : null, sync.session !== null);
   const interactionXp = useInteractionXp();
   const { announce, cancelSpeech } = useAudioEngine();
   const { resolvedMotion } = useSystemUi();
@@ -100,7 +104,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       railCollapsed ? "collapsed" : "expanded",
     );
   }, [railCollapsed]);
-  const page = resolveSystemPageName(location.pathname);
+  const page = resolveSystemPageName(location.pathname, location.search);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -232,7 +236,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     >
       <a className="skip-link" href="#main-content">Bỏ qua điều hướng</a>
       <SystemAtmosphere />
-      <aside className="side-rail">
+      <aside className="side-rail" id="learner-navigation">
         <NavLink className="brand-core" to="/" viewTransition aria-label="HANZI.OS - Trang chủ">
           <span className="brand-hex"><Languages size={24} /></span>
           <span>
@@ -247,11 +251,13 @@ export function AppShell({ children }: { children: ReactNode }) {
           onClick={() => setRailCollapsed((collapsed) => !collapsed)}
           aria-label={railCollapsed ? "Mở rộng thanh điều hướng" : "Thu gọn thanh điều hướng"}
           aria-expanded={!railCollapsed}
+          aria-controls="learner-navigation"
           title={railCollapsed ? "Mở rộng thanh điều hướng" : "Thu gọn thanh điều hướng"}
         >
           {railCollapsed
             ? <PanelLeftOpen size={18} aria-hidden="true" />
             : <PanelLeftClose size={18} aria-hidden="true" />}
+          <span>{railCollapsed ? "Mở rộng" : "Thu gọn"}</span>
         </button>
 
         <div className="system-rank">

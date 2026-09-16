@@ -3,7 +3,6 @@ import {
   Bookmark,
   Compass,
   LibraryBig,
-  PenLine,
   Search,
   SlidersHorizontal,
   X,
@@ -190,9 +189,6 @@ export function ReaderLibraryPage() {
           <strong>{seriesCatalog.length} quyển đang phát hành · đọc và tra từ ngay</strong>
         </div>
         <div className="reader-topbar-actions">
-          <Link className="reader-editor-trigger" to="/studio/library">
-            <PenLine size={17} aria-hidden="true" /> Dành cho biên tập viên
-          </Link>
           <button ref={savedWordsTriggerRef} type="button" className="reader-saved-words-trigger" onClick={() => setSavedWordsOpen(true)}>
             <Bookmark size={18} aria-hidden="true" /> Sổ từ <span>{savedEntries.length}</span>
           </button>
@@ -218,7 +214,7 @@ export function ReaderLibraryPage() {
             <div>
               <small>THƯ KHỐ ĐANG MỞ · {libraryChapterCount} CHƯƠNG ĐỌC ĐƯỢC</small>
               <h1 id="reader-catalog-title">Chọn một thế giới để khai quyển</h1>
-              <p>Tu tiên, trùng sinh, ma pháp, light novel, bí ẩn, khoa huyễn, võ hiệp, triết lý và đời sống — gồm truyện nguyên bản HANZI.OS và bài đọc có nguồn gốc rõ do Biên Tập Viện phát hành.</p>
+              <p>Mỗi trang sách là một cánh cửa. Đọc truyện tiếng Trung, tra chữ trong ngữ cảnh và lưu lại những từ muốn nhớ.</p>
             </div>
             <button
               type="button"

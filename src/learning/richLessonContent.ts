@@ -45,6 +45,7 @@ export type RichLessonCharacter = {
 };
 
 export type RichLessonContent = {
+  lessonPages?: import('./lessonPages').LessonPageDocument;
   lessonId: string;
   authoringLessonId: string;
   dialogue: RichDialogueTurn[];

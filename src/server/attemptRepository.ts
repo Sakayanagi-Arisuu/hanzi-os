@@ -142,6 +142,8 @@ export class AttemptRepository {
       outcome: score.outcome,
       score: score.score,
       verification: "server-objective",
+      ...(command.source === "mistake" && score.remediationFeedback
+        ? { remediationFeedback: score.remediationFeedback } : {}),
     };
     const responseJson = JSON.stringify(receipt);
     const responsePayload = JSON.stringify(command.response);

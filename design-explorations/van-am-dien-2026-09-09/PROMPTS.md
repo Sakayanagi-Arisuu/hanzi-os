@@ -1,0 +1,19 @@
+# Built-in image_gen prompt set
+
+Each call used the shared prompt below, followed by `Art direction: ` and the corresponding direction.
+
+## Shared prompt
+
+Use case: ui-mockup. Create a polished UI design exploration board for Vietnamese Mandarin learning app HANZI.OS module "Vạn Âm Điện". Board has THREE clearly separated complete 16:9 desktop UI screenshots stacked vertically, each a FULL SCREEN UI, not a perspective monitor. High-resolution board. Top screen lesson selection linked to "Thiên Lộ", middle speaking practice, bottom feedback. All screens same visual system, compact 80px icon sidebar and 64px header, readable Vietnamese typography, CJK serif ONLY for Chinese. Dark jade existing app identity. Every visible shape must be realistically reproducible with HTML/CSS/SVG/Canvas: simple precise geometry, gradients, 1px borders, soft controlled shadows; NO painterly backgrounds, no photoreal objects, no castles, statues, smoke, 3D glass materials, elaborate ornaments, random sci-fi text. Distinct generous negative space, no overlapping widgets, NO SCROLLBARS, fixed bottom primary action visible. Main practice sentence "我想喝一杯茶。" pinyin "Wǒ xiǎng hē yì bēi chá." meaning "Tôi muốn uống một tách trà." Exactly ONE prominent microphone action "Bắt đầu thu", secondary "Nghe mẫu", tertiary "Không dùng micro". Lesson library screen heading "Luyện nói theo Thiên Lộ", cards with semantic states "Đã học", "Có thể luyện", "Chưa mở"; don't invent progress/mastery percentages. Feedback screen show "Bản thu của bạn", "Nghe lại", "Thử lại", and honest "Chưa có đánh giá phát âm" rather than fake scores. Use finite 5-lesson pagination, not long scroll. Design should feel extraordinary through intentional typography and code-renderable audio visualization, NOT busy effects.
+
+## A
+
+CỘNG HƯỞNG NGỌC. Palette near-black #031411, jade #42f2c8, warm gold #edc665. Design a stunning central radial audio visualization made of 3 precise concentric SVG arcs and 48 thin radial equalizer bars. Chinese sentence ABOVE circle, never inside crossing rings; microphone icon alone inside circle. Left understated numbered lesson rail, right compact recording status. Main form calm, premium ritual instrument. Library uses beautiful horizontally aligned dark jade lesson tiles. Feedback has wide measured-waveform placeholder and clear listen/retry. Header board title 'A · Cộng Hưởng Ngọc'.
+
+## B
+
+PHỔ ÂM QUANG. Palette midnight ink #06121d, icy cyan #55ddff, jade accents. Distinct bold asymmetric professional audio studio design: huge clean sentence upper left; central wide horizontal waveform with 64 vertical rounded equalizer bars, bright cyan center and muted ends, rectangular precision frame. Right slim timeline with 'Nghe mẫu', 'Thu âm', 'Nghe lại'. Bottom full-width transport bar with centered microphone button. Library like a refined audio track browser, generous rows with lesson origin tags; no DJ knobs. Feedback uses two stacked waveform lanes clearly labelled 'Mẫu' and 'Bản thu'. Header board title 'B · Phổ Âm Quang'.
+
+## C
+
+ĐÀI THANH VẬN. Palette charcoal emerald #071714, pale cream typography, jade and amber dual accents. Distinct editorial instrument design: large sentence broken into spaced syllable chips above a beautiful wide SVG tone-curve graph, dark subtle Cartesian baseline, four luminous continuous bezier contour segments, explicit legend 'Đường thanh minh họa' so not fake measurement. Graph as central hero, no planets/circles. Crisp flat panels, gold thin rules, small vertical numbered learning steps at left. Library a connected horizontal lesson-node path in a clean bounded panel, all nodes simple circles and cards. Feedback uses short contextual listening guidance and optional actual measured curve placeholder, no fake score. Header board title 'C · Đài Thanh Vận'.

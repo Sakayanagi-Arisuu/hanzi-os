@@ -21,6 +21,7 @@ import {
 } from "./contentReleasePolicy";
 import type { D1Database, D1RunResult } from "./d1";
 import { readCurrentLearningResetEpoch } from "./learningResetEpoch";
+import { remediationLessonSupport } from "./remediationLessonSupport";
 
 export class MistakeQueueUnavailableError extends Error {
   readonly code = "MISTAKE_QUEUE_UNAVAILABLE";
@@ -146,14 +147,23 @@ const lessonPresentation = (
     && candidate.activityVersion === signal.activityVersion
   );
   if (!exercise) return null;
+  const support = remediationLessonSupport(exercise);
+  const options = support ? [exercise.correct, ...support.distractors] : [...exercise.options];
+  if (support) {
+    const random = stableRandom(signal.activityId);
+    for (let index = options.length - 1; index > 0; index--) {
+      const other = Math.floor(random() * (index + 1));
+      [options[index], options[other]] = [options[other]!, options[index]!];
+    }
+  }
   return {
     kind: exercise.kind,
     instruction: exercise.instruction,
     prompt: exercise.prompt,
     ...(exercise.promptMeta ? { promptMeta: exercise.promptMeta } : {}),
-    options: [...exercise.options],
+    options,
     ...(exercise.spokenText ? { spokenText: exercise.spokenText } : {}),
-    hint: hintFor(signal.method),
+    hint: support?.hint ?? hintFor(signal.method),
   };
 };
 

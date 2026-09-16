@@ -21,22 +21,22 @@
     {
       "id": "localAuthorization",
       "relativePath": "content/curriculum/hsk0-4-local-study-authorizations.json",
-      "sha256": "sha256:620e30028e24c658bf272f5deef0a2cf81996f1045417bdb3bebfa6c9778f9df"
+      "sha256": "sha256:6ba40f92645e86e64dcbdc00d4a90639b8bf9cc79879ac36abf8bc9757f45f96"
     },
     {
       "id": "communicativeCollection",
       "relativePath": "content/drafts/hsk1-communicative-units-2026.07.json",
-      "sha256": "sha256:4545c1bc8bb736ae1161282ae3848a8712fd5eb5dd59658db483623c25d788c5"
+      "sha256": "sha256:954e517772688558b3b255f358b11fcef1bfbc368faa5087e057cc40a77c4db4"
     },
     {
       "id": "grammarPack",
       "relativePath": "content/drafts/hsk1-grammar-context-2026.07.json",
-      "sha256": "sha256:b5901eb63259329ae67eda79142c35fee621156d505129558085d6f947dea503"
+      "sha256": "sha256:1be88562c102dcae9fb612f375a644eabe26eb05d778fee8ac8812539a53bba0"
     },
     {
       "id": "taskPack",
       "relativePath": "content/drafts/hsk1-task-assessment-2026.07.json",
-      "sha256": "sha256:28cb955274c6ccf4dafd6e7bf65a16df452283c3a538317a7dd2314f3bdafff0"
+      "sha256": "sha256:ab1955132cbd3300dd0b252e5e56fb649261b59e5f0cf67dbfd4d854d5bb54c9"
     }
   ],
   "counts": {
@@ -518,5 +518,5 @@
       ]
     }
   ],
-  "integritySha256": "sha256:0400b2f0f868822dd24cacd932d47f8a9fb0d290ecb2382bdd39d807cda2386d"
+  "integritySha256": "sha256:38447901b55ae53b552256d6d3d85a003468e476711cf45630cd5602fa572dc3"
 }

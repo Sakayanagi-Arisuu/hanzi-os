@@ -1,0 +1,95 @@
+.signin-page.auth-guild { color:#e9eee2; background:#071713; font-family:var(--sans,Arial,sans-serif); overflow-x:clip; }
+.auth-guild::before,.auth-guild::after,.auth-guild .signin-grid,.auth-guild .signin-glyphs { display:none; }
+.auth-guild .signin-nav { height:70px; padding:0 5%; background:#071713; border-bottom:1px solid #b9a36d45; backdrop-filter:none; }
+.auth-guild .signin-nav a { color:#e1c587; font-size:13px; min-height:44px; text-decoration:none; }
+.auth-guild .signin-nav a strong { font:500 23px Georgia,serif; }
+.auth-guild .signin-mark { color:#e9cf92; background:#21392a; border:1px solid #bba06a; box-shadow:none; }
+.auth-guild .signin-shell { display:grid; grid-template-columns:minmax(300px,.85fr) minmax(440px,1.15fr); width:100%; min-height:calc(100dvh - 70px); padding:0; gap:0; align-items:stretch; }
+.auth-guild .signin-intro { position:relative; top:auto; min-height:100%; padding:60px 9%; display:flex; flex-direction:column; justify-content:flex-end; background:linear-gradient(0deg,#04140ff5,transparent 65%),url('/auth-jade-academy-v1.png') center/cover; border-right:1px solid #b9a36d70; }
+.auth-guild .signin-intro::before { content:''; position:absolute; inset:20px; border:1px solid #e4c98b55; pointer-events:none; }
+.auth-guild .signin-kicker { font-size:10px; color:#e3c78b; letter-spacing:.16em; }
+.auth-guild .signin-intro h2 { font:400 clamp(32px,3.6vw,54px)/1.18 Georgia,serif; color:#f4e9ca; margin:20px 0; }
+.auth-guild .signin-intro h2 em { font-style:normal; }
+.auth-guild .signin-intro p { color:#dae0d0; font-size:15px; line-height:1.7; max-width:320px; }
+.auth-guild .signin-console { width:100%; max-width:680px; align-self:center; justify-self:center; padding:36px clamp(28px,5vw,76px); border:0; border-radius:0; background:none; box-shadow:none; }
+.auth-guild .auth-stack { gap:18px; }
+.auth-guild-heading p { color:#cdb47b; font-size:10px; letter-spacing:.16em; margin:0 0 16px; }
+.auth-guild-heading h1 { font:400 clamp(30px,3vw,44px)/1.15 Georgia,serif; color:#f0d797; margin:0 0 14px; }
+.auth-guild-heading > span { display:block; font-size:14px; line-height:1.6; color:#c6cdbd; max-width:410px; }
+.auth-guild .auth-mode-tabs { background:none; padding:0; gap:20px; border:0; border-bottom:1px solid #b9a36d40; border-radius:0; }
+.auth-guild .auth-mode-tabs button { flex:none; min-height:44px; padding:10px 0; border:0; border-bottom:2px solid transparent; border-radius:0; font-size:14px; background:none; color:#bfcaba; box-shadow:none; }
+.auth-guild .auth-mode-tabs button[aria-pressed='true'] { color:#edd18e; border-bottom-color:#edd18e; background:none; box-shadow:none; }
+.auth-guild .auth-hanzi-card { border:0; border-radius:0; box-shadow:none; padding:0; background:none; }
+.auth-guild .auth-form-grid { gap:14px; }
+.auth-guild .auth-field { gap:7px; min-width:0; text-transform:none; letter-spacing:0; font-family:var(--sans,Arial,sans-serif); }
+.auth-guild .auth-field > span:first-child { font-size:13px; font-weight:400; color:#e0e6d7; }
+.auth-guild .auth-input { min-height:46px; height:auto; padding:11px 14px; color:#f0f2e8; font:400 16px/1.4 var(--sans,Arial,sans-serif); border:1px solid #70877580; border-radius:5px; background:linear-gradient(110deg,#182b24,#0e201b); box-shadow:none; }
+.auth-guild .auth-input::placeholder { color:#9baa9d; font-size:13px; }
+.auth-guild .auth-input:focus { outline:2px solid #dcca94; outline-offset:2px; border-color:#dcca94; box-shadow:none; }
+.auth-guild .auth-password-field button { width:44px; height:44px; color:#e6dfc5; }
+.auth-guild .auth-password-field .auth-input { padding-right:50px; }
+.auth-guild .auth-field-hint { font-size:12px; line-height:1.55; color:#b6c5b6; margin:0; }
+.auth-guild .auth-wide-button { margin-top:22px; min-height:48px; border:1px solid #edd28b; border-radius:5px; color:#f4edcd; background:linear-gradient(110deg,#6a8151,#214b35 45%,#163726); box-shadow:inset 0 1px #f2d99866,0 4px 16px #0003; font:500 16px/1.4 Georgia,serif; }
+.auth-guild .auth-wide-button:hover:not(:disabled) { filter:brightness(1.17); }
+.auth-guild .auth-wide-button:disabled { opacity:.55; cursor:not-allowed; }
+.auth-guild .auth-status { font-size:13px; line-height:1.5; margin-top:14px; border-radius:5px; }
+.auth-guild .auth-guest-link { display:flex; justify-content:center; align-items:center; gap:12px; min-height:46px; padding:10px 14px; border:1px solid #b9a36d88; border-radius:5px; color:#e5ddc6; font-size:13px; text-decoration:none; }
+.auth-guild .auth-demo-accounts { padding:0; border:0; background:none; }
+.auth-guild .auth-demo-accounts summary { display:block; min-height:44px; padding:12px 0; cursor:pointer; color:#c8c9ad; font-size:12px; }
+.auth-guild .auth-demo-accounts summary::after { content:' +'; color:#e4c787; }
+.auth-guild .auth-demo-accounts[open] summary::after { content:' −'; }
+.auth-guild .auth-demo-accounts button { min-height:52px; }
+.auth-guild-legal { display:flex; justify-content:center; align-items:center; gap:14px; font-size:11px; color:#afbcae; margin:0; }
+.auth-guild-legal a { min-height:44px; display:inline-flex; align-items:center; }
+.auth-guild :is(a,button,summary):focus-visible { outline:2px solid #dcca94; outline-offset:4px; }
+@media(min-width:1000px) { .auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-form-grid { grid-template-columns:1fr 1fr; } .auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-field-hint {grid-column:1/-1} }
+@media(max-width:760px) { .auth-guild .signin-nav {padding:0 20px;height:64px} .auth-guild .signin-nav a:last-child {font-size:11px;letter-spacing:0} .auth-guild .signin-shell {grid-template-columns:1fr;min-height:calc(100dvh - 64px)} .auth-guild .signin-intro {display:none} .auth-guild .signin-console {padding:32px 24px;max-width:500px} .auth-guild-heading h1 {font-size:34px} .auth-guild .auth-form-grid {grid-template-columns:1fr} }
+@media(prefers-reduced-motion:reduce) { .auth-guild * {animation:none!important;transition:none!important} }
+.auth-guild .signin-nav { padding-right:76px; gap:16px; }
+.auth-guild-heading h1 { letter-spacing:normal; text-transform:none; }
+.auth-guild .signin-console::before,.auth-guild .signin-console::after { display:none; }
+@media(max-width:760px) {
+  .auth-guild .signin-nav { padding-right:68px; gap:10px; }
+  .auth-guild .signin-nav a strong { font-size:18px; }
+  .auth-guild .signin-nav a:last-child { max-width:100px; text-align:right; line-height:1.4; }
+}
+/* The account concept uses one full-height painting and an inset gold frame. */
+.signin-page.auth-guild { padding:10px; background:#061613; }
+.auth-guild .signin-shell { position:static; grid-template-columns:42% 58%; min-height:calc(100dvh - 20px); border:1px solid #b6a069; }
+.auth-guild .signin-nav { position:absolute; top:22px; left:46%; right:30px; height:44px; padding:0 48px 0 0; border:0; background:none; z-index:3; }
+.auth-guild .signin-nav .signin-mark { background:none; width:30px; height:32px; border-radius:0; }
+.auth-guild .signin-nav a strong { font-size:24px; font-weight:400; }
+.auth-guild .signin-nav a:last-child { font-size:12px; letter-spacing:0; color:#d9dccf; }
+.auth-guild .signin-intro { padding:0; background:linear-gradient(0deg,#03151044,transparent 55%),url('/auth-jade-academy-v2.png') center/cover; }
+.auth-guild .signin-intro::before { display:none; }
+.auth-guild .signin-console { padding:100px clamp(30px,4vw,72px) 24px; max-width:740px; }
+.auth-guild-heading p { display:none; }
+.auth-guild-heading h1 { font-size:clamp(30px,3.2vw,46px); font-weight:400; }
+.auth-guild .auth-stack { gap:16px; }
+.auth-guild .auth-form-grid { gap:16px; grid-template-columns:1fr; }
+.auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-form-grid { grid-template-columns:1fr; }
+.auth-guild .auth-input { min-height:44px; padding:10px 14px; }
+.auth-guild .auth-wide-button { margin-top:26px; box-shadow:inset 0 0 14px #e4d49545,inset 0 1px #ffe8a7,0 0 12px #c2a75e22; background:linear-gradient(120deg,#789778,#224c39 40%,#123425); }
+.auth-switch { margin:0; text-align:center; font-size:14px; color:#e5e7dc; }
+.auth-switch button { min-height:44px; padding:0 6px; color:#efd594; text-decoration:underline; text-underline-offset:4px; background:none; border:0; font:inherit; cursor:pointer; }
+.auth-guild .auth-demo-accounts { order:5; }
+.auth-guild-legal { order:6; }
+.auth-banner-copy { position:absolute; top:10%; left:7%; width:24%; text-align:center; color:#c7a35c; }
+.auth-banner-copy strong { display:block; font:50px/1.25 'Microsoft YaHei',serif; font-weight:400; }
+.auth-banner-copy span { display:block; margin-top:24px; font-size:11px; line-height:1.8; letter-spacing:.1em; }
+.auth-guild .signin-intro .auth-art-motto { position:absolute; left:58%; top:51%; font-size:12px; line-height:1.8; letter-spacing:.08em; color:#f0f0dd; }
+.auth-guild .signin-intro .auth-art-footnote { position:absolute; bottom:7%; left:7%; font-size:10px; line-height:1.8; color:#d3bf8a; letter-spacing:.1em; }
+.signin-page.auth-guild::after { display:block; position:absolute; inset:6px; width:auto; height:auto; border:1px solid #ae9655; background:none; box-shadow:inset 0 0 0 3px #ae96551f; pointer-events:none; z-index:5; }
+.signin-page.auth-guild::before { display:block;position:absolute;inset:6px;z-index:6;transform:none;border:0;border-radius:0;width:auto;aspect-ratio:auto;opacity:1;box-shadow:none;background:url('/guild-ornate-frame.svg') left top/48px 48px no-repeat,url('/guild-ornate-frame.svg') right top/48px 48px no-repeat,url('/guild-ornate-frame.svg') left bottom/48px 48px no-repeat,url('/guild-ornate-frame.svg') right bottom/48px 48px no-repeat; }
+@media(max-width:760px) {
+  .auth-guild .signin-shell {grid-template-columns:1fr}
+  .auth-guild .signin-nav {left:28px;right:26px;top:22px;padding-right:48px;gap:12px}
+  .auth-guild .signin-nav a strong {font-size:19px}
+  .auth-guild .signin-console {padding:104px 24px 24px}
+  .auth-guild-heading h1 {font-size:29px;line-height:1.35}
+}
+@media(min-width:1000px) and (max-height:760px) {
+  .auth-guild .signin-console {padding-top:85px}
+  .auth-guild .auth-signin-stack:has(input[autocomplete='name']) .auth-form-grid {grid-template-columns:1fr}
+  .auth-guild .auth-stack {gap:12px}
+}

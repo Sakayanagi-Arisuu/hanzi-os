@@ -615,6 +615,28 @@ describe("authenticated Reader repository", () => {
     expect(graphCounts(database).xp.count).toBe(0);
   });
 
+  it("submits assisted rereading against the retained first-exposure ledger", async () => {
+    const database = new SQLiteD1();
+    seedUser(database, "user-a");
+    const readers = repository(database);
+    const initial = await readers.openSession("user-a", openCommand());
+    await readers.abandonSession("user-a", abandonCommand(initial, { reason: "support-requested" }));
+    const firstExposures = database.database.prepare("SELECT * FROM reader_item_exposures ORDER BY id").all();
+    const repeated = await readers.openSession("user-a", openCommand("user-a", {
+      idempotencyKey: "reader-repeat-open", deviceSequence: 40, supportMode: "assisted",
+    }));
+    for (const item of repeated.form.items) {
+      await readers.recordAttempt("user-a", attemptCommand(repeated, item.position, {
+        idempotencyKey: `reader-repeat-answer:${item.position}`, deviceSequence: 41 + item.position,
+      }));
+    }
+    const command = submitCommand(repeated, { idempotencyKey: "reader-repeat-submit", deviceSequence: 50 });
+    await expect(readers.submitSession("user-a", command)).resolves.toMatchObject({ status: "submitted", score: 100 });
+    await expect(readers.submitSession("user-a", command)).resolves.toMatchObject({ duplicate: true });
+    expect(database.database.prepare("SELECT * FROM reader_item_exposures ORDER BY id").all()).toEqual(firstExposures);
+    expect(database.database.prepare("SELECT COUNT(*) n FROM learning_evidence WHERE mastery_eligible=1").get()).toEqual({ n: 0 });
+  });
+
   it("abandons only the exact tenant/session/form/reason and downgrades support without fresh exposure", async () => {
     const database = new SQLiteD1();
     seedUser(database, "user-a");

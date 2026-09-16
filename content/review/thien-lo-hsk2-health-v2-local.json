@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-15",
+  "scope": "HSK2 health exchange: symptoms, onset, uncertain cause and intended care; supported practice and self-review.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/23-REVIEW-HSK2-HEALTH.md",
+  "items": [
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "sourceContentSha256": "sha256:f86462007b909d9357bdf781e82e83183f8aa159b96a56776365b74de9366c26",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

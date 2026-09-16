@@ -1,0 +1,1428 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "status": "draft-not-published",
+  "items": [
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-04",
+      "title": "Báo bệnh, hỏi thăm và đi khám",
+      "level": "hsk2",
+      "lessonPages": {
+        "version": 1,
+        "art": "campus",
+        "pages": [
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:context",
+            "title": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+            "layout": "scene",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:scene",
+                "kind": "explanation",
+                "title": "Tình huống của bạn",
+                "body": "Vai B đau đầu từ sáng nay, mắt cũng khó chịu. B không biết nguyên nhân, dự định đi khám; A hỏi thăm và đề nghị đi cùng. Tập nói rõ triệu chứng, thời điểm và bước tiếp theo.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:support",
+                "kind": "explanation",
+                "title": "Từ hỗ trợ trước khi bắt đầu",
+                "body": "早上 zǎoshang: sáng · 从 có nghĩa từ một mốc · 开始 kāishǐ: bắt đầu · 可能 kěnéng: có thể · 原因 yuányīn: nguyên nhân · 医生 yīshēng: bác sĩ · 陪 péi: đi cùng · 休息 xiūxi: nghỉ. Các câu là tình huống luyện giao tiếp, không dùng để tự chẩn đoán hoặc chọn thuốc.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:facts",
+            "title": "Phân biệt ba loại thông tin",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:facts",
+                "kind": "diagram",
+                "title": "Triệu chứng · thời gian · phỏng đoán",
+                "body": "",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "diagram": {
+                  "type": "comparison",
+                  "description": "Hai thông tin B nêu và một giả thuyết A hỏi. Không biến câu hỏi về nguyên nhân thành chẩn đoán.",
+                  "nodes": [
+                    {
+                      "id": "symptom",
+                      "label": "头疼，眼睛不舒服",
+                      "pinyin": "tóuténg, yǎnjing bù shūfu",
+                      "meaningVi": "đau đầu, mắt khó chịu",
+                      "note": "B tự mô tả cảm giác.",
+                      "x": 0,
+                      "y": 0
+                    },
+                    {
+                      "id": "onset",
+                      "label": "今天早上",
+                      "pinyin": "jīntiān zǎoshang",
+                      "meaningVi": "sáng nay",
+                      "note": "Mốc bắt đầu, không phải nguyên nhân.",
+                      "x": 1,
+                      "y": 0
+                    },
+                    {
+                      "id": "cause",
+                      "label": "可能是昨天太累了",
+                      "pinyin": "kěnéng shì zuótiān tài lèi le",
+                      "meaningVi": "có thể là hôm qua quá mệt",
+                      "note": "Chưa chắc chắn; B nói không biết.",
+                      "x": 2,
+                      "y": 0
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:dialogue",
+            "title": "Theo dõi mục đích từng lượt nói",
+            "layout": "dialogue",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-0",
+                "kind": "dialogue",
+                "title": "Lượt 1",
+                "body": "",
+                "hanzi": "你怎么了？",
+                "pinyin": "Nǐ zěnme le?",
+                "meaningVi": "Bạn bị làm sao?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-1",
+                "kind": "dialogue",
+                "title": "Lượt 2",
+                "body": "",
+                "hanzi": "我头疼，眼睛也不舒服。",
+                "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+                "meaningVi": "Tôi đau đầu, mắt cũng khó chịu.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-2",
+                "kind": "dialogue",
+                "title": "Lượt 3",
+                "body": "",
+                "hanzi": "什么时候开始的？",
+                "pinyin": "Shénme shíhou kāishǐ de?",
+                "meaningVi": "Bắt đầu từ khi nào?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-3",
+                "kind": "dialogue",
+                "title": "Lượt 4",
+                "body": "",
+                "hanzi": "从今天早上开始。",
+                "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+                "meaningVi": "Từ sáng nay.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-4",
+                "kind": "dialogue",
+                "title": "Lượt 5",
+                "body": "",
+                "hanzi": "是不是因为昨天太累了？",
+                "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+                "meaningVi": "Có phải vì hôm qua quá mệt không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-5",
+                "kind": "dialogue",
+                "title": "Lượt 6",
+                "body": "",
+                "hanzi": "可能是，但我不知道。我想去看医生。",
+                "pinyin": "Kěnéng shì, dàn wǒ bù zhīdào. Wǒ xiǎng qù kàn yīshēng.",
+                "meaningVi": "Có thể, nhưng tôi không biết. Tôi muốn đi khám.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-6",
+                "kind": "dialogue",
+                "title": "Lượt 7",
+                "body": "",
+                "hanzi": "我陪你去。",
+                "pinyin": "Wǒ péi nǐ qù.",
+                "meaningVi": "Tôi đi cùng bạn.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-7",
+                "kind": "dialogue",
+                "title": "Lượt 8",
+                "body": "",
+                "hanzi": "谢谢，看医生以后我想回家休息。",
+                "pinyin": "Xièxie, kàn yīshēng yǐhòu wǒ xiǎng huí jiā xiūxi.",
+                "meaningVi": "Cảm ơn, sau khi khám tôi muốn về nhà nghỉ.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:meaning",
+            "title": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:rule",
+                "kind": "explanation",
+                "title": "Hiểu cách dùng trong tình huống",
+                "body": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:pattern",
+                "kind": "dialogue",
+                "title": "从 + mốc thời gian + 开始",
+                "body": "",
+                "hanzi": "从今天早上开始。",
+                "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+                "meaningVi": "Bắt đầu từ sáng nay.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:pitfall",
+                "kind": "explanation",
+                "title": "Điểm dễ hiểu nhầm",
+                "body": "头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:words-0",
+            "title": "Từ dùng trong bài · nhóm 1",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-0",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00388",
+                "kind": "dialogue",
+                "title": "累 · lèi",
+                "body": "mệt",
+                "hanzi": "我今天很累。",
+                "pinyin": "Wǒ jīntiān hěn lèi.",
+                "meaningVi": "Hôm nay tôi rất mệt.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00429",
+                "kind": "dialogue",
+                "title": "身体 · shēntǐ",
+                "body": "cơ thể; sức khỏe",
+                "hanzi": "你最近身体怎么样？",
+                "pinyin": "Nǐ zuìjìn shēntǐ zěnmeyàng?",
+                "meaningVi": "Dạo này sức khỏe bạn thế nào?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00433",
+                "kind": "dialogue",
+                "title": "手 · shǒu",
+                "body": "tay",
+                "hanzi": "我的手有点儿疼。",
+                "pinyin": "Wǒ de shǒu yǒudiǎnr téng.",
+                "meaningVi": "Tay tôi hơi đau.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00436",
+                "kind": "dialogue",
+                "title": "舒服 · shūfu",
+                "body": "thoải mái; khỏe",
+                "hanzi": "我今天不太舒服。",
+                "pinyin": "Wǒ jīntiān bú tài shūfu.",
+                "meaningVi": "Hôm nay tôi không được khỏe lắm.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00440",
+                "kind": "dialogue",
+                "title": "疼 · téng",
+                "body": "đau",
+                "hanzi": "你的头还疼吗？",
+                "pinyin": "Nǐ de tóu hái téng ma?",
+                "meaningVi": "Đầu bạn còn đau không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:words-5",
+            "title": "Từ dùng trong bài · nhóm 2",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-5",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00445",
+                "kind": "dialogue",
+                "title": "头 · tóu",
+                "body": "đầu",
+                "hanzi": "我头疼，想休息一下。",
+                "pinyin": "Wǒ tóuténg, xiǎng xiūxi yíxià.",
+                "meaningVi": "Tôi đau đầu, muốn nghỉ một lát.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00456",
+                "kind": "dialogue",
+                "title": "洗 · xǐ",
+                "body": "giặt; rửa; tắm",
+                "hanzi": "吃饭以前我先洗手。",
+                "pinyin": "Chīfàn yǐqián wǒ xiān xǐ shǒu.",
+                "meaningVi": "Trước khi ăn tôi rửa tay trước.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00457",
+                "kind": "dialogue",
+                "title": "洗手间 · xǐshǒujiān",
+                "body": "nhà vệ sinh",
+                "hanzi": "请问，洗手间在哪儿？",
+                "pinyin": "Qǐngwèn, xǐshǒujiān zài nǎr?",
+                "meaningVi": "Cho hỏi nhà vệ sinh ở đâu?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00467",
+                "kind": "dialogue",
+                "title": "眼睛 · yǎnjing",
+                "body": "mắt",
+                "hanzi": "她的眼睛不舒服。",
+                "pinyin": "Tā de yǎnjing bù shūfu.",
+                "meaningVi": "Mắt cô ấy khó chịu.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00468",
+                "kind": "dialogue",
+                "title": "药 · yào",
+                "body": "thuốc",
+                "hanzi": "我想问医生，这是什么药。",
+                "pinyin": "Wǒ xiǎng wèn yīshēng, zhè shì shénme yào.",
+                "meaningVi": "Tôi muốn hỏi bác sĩ đây là thuốc gì.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:words-10",
+            "title": "Từ dùng trong bài · nhóm 3",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-10",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00469",
+                "kind": "dialogue",
+                "title": "药店 · yàodiàn",
+                "body": "hiệu thuốc",
+                "hanzi": "医院旁边有一家药店。",
+                "pinyin": "Yīyuàn pángbiān yǒu yì jiā yàodiàn.",
+                "meaningVi": "Bên cạnh bệnh viện có một hiệu thuốc.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00476",
+                "kind": "dialogue",
+                "title": "因为 · yīnwèi",
+                "body": "bởi vì",
+                "hanzi": "因为我不舒服，所以今天不去上班。",
+                "pinyin": "Yīnwèi wǒ bù shūfu, suǒyǐ jīntiān bú qù shàngbān.",
+                "meaningVi": "Vì tôi không khỏe nên hôm nay không đi làm.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:choice",
+            "title": "Quyết định theo thông tin đã cho",
+            "layout": "focus",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:choice",
+                "kind": "activity",
+                "title": "Chọn lời nói phù hợp",
+                "body": "B nói 可能是，但我不知道. Cách kể lại nào giữ đúng mức chắc chắn?",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "choice",
+                  "options": [
+                    {
+                      "id": "option-0",
+                      "text": "我不知道原因，可能是昨天太累了。",
+                      "feedback": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng."
+                    },
+                    {
+                      "id": "option-1",
+                      "text": "因为昨天太累了，所以今天头疼。",
+                      "feedback": "Câu này khẳng định quan hệ nguyên nhân; mạnh hơn điều B thực sự biết."
+                    },
+                    {
+                      "id": "option-2",
+                      "text": "我已经看过医生了。",
+                      "feedback": "Câu này nói đã khám, nhưng B mới nêu dự định đi khám."
+                    }
+                  ],
+                  "answerIds": [
+                    "option-0"
+                  ],
+                  "acceptedAnswers": [],
+                  "explanation": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng. 头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Giữ mức chưa chắc chắn khi kể lại phỏng đoán nguyên nhân.",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-task-10"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:guided",
+            "title": "Hoàn thành mẫu theo ngữ cảnh",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:guided",
+                "kind": "activity",
+                "title": "Điền và tự kiểm",
+                "body": "Điền đúng từ chỉ điểm bắt đầu theo mẫu: ___今天早上开始。 (Bắt đầu từ sáng nay.)",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "从"
+                  ],
+                  "explanation": "从 nêu mốc bắt đầu. 因为 đưa ra nguyên nhân, không trả lời từ lúc nào.",
+                  "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Dùng 从 để nêu mốc bắt đầu theo mẫu.",
+                    "sources": [
+                      {
+                        "kind": "grammar",
+                        "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-04"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:transfer",
+            "title": "Thử trong tình huống khác",
+            "layout": "workshop",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:transfer",
+                "kind": "explanation",
+                "title": "Thông tin mới dành cho vai của bạn",
+                "body": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:produce",
+                "kind": "activity",
+                "title": "Tự diễn đạt trước khi xem mẫu",
+                "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "rubric",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [],
+                  "explanation": "Một phương án để đối chiếu:\nA：你怎么了？ B：我的手疼。 A：什么时候开始的？ B：从昨天下午开始。 A：你知道原因吗？ B：不知道，我想今天下午去看医生。 A：我陪你去。 B：谢谢。\nA: Nǐ zěnme le? B: Wǒ de shǒu téng. A: Shénme shíhou kāishǐ de? B: Cóng zuótiān xiàwǔ kāishǐ. A: Nǐ zhīdào yuányīn ma? B: Bù zhīdào, wǒ xiǎng jīntiān xiàwǔ qù kàn yīshēng. A: Wǒ péi nǐ qù. B: Xièxie.\nA: Bạn sao vậy? B: Tay tôi đau. A: Bắt đầu khi nào? B: Từ chiều hôm qua. A: Bạn biết nguyên nhân không? B: Không biết, tôi muốn chiều nay đi khám. A: Tôi đi cùng bạn. B: Cảm ơn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                  "hint": "",
+                  "rubric": [
+                    {
+                      "id": "criterion-0",
+                      "label": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ.",
+                      "guidance": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ."
+                    },
+                    {
+                      "id": "criterion-1",
+                      "label": "Mốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc.",
+                      "guidance": "Mốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc."
+                    },
+                    {
+                      "id": "criterion-2",
+                      "label": "Giữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc.",
+                      "guidance": "Giữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc."
+                    },
+                    {
+                      "id": "criterion-3",
+                      "label": "Các lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn.",
+                      "guidance": "Các lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn."
+                    }
+                  ],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Tự viết chuỗi hỏi thăm với triệu chứng, thời gian và mức chắc chắn đúng; rubric tự đối chiếu.",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-task-10"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-04:v2:recap",
+            "title": "Tự kiểm trước khi vào Thử Luyện",
+            "layout": "focus",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-04:v2:block:recap",
+                "kind": "explanation",
+                "title": "Điều cần mang sang lần dùng tiếp",
+                "body": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ.\nMốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc.\nGiữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc.\nCác lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          }
+        ]
+      },
+      "studioContent": {
+        "targetLessonId": "hsk2-daily-needs-family-lesson-04",
+        "titleZh": "HSK二级 · 09",
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về báo bệnh, hỏi thăm và đi khám bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "conceptVi": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+        "ruleVi": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+        "pitfallVi": "头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+        "checkpointVi": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay.",
+        "prerequisites": [
+          "hsk2-daily-needs-family-lesson-03"
+        ],
+        "vocabulary": [
+          "hsk-vocab-00388",
+          "hsk-vocab-00429",
+          "hsk-vocab-00433",
+          "hsk-vocab-00436",
+          "hsk-vocab-00440",
+          "hsk-vocab-00445",
+          "hsk-vocab-00456",
+          "hsk-vocab-00457",
+          "hsk-vocab-00467",
+          "hsk-vocab-00468",
+          "hsk-vocab-00469",
+          "hsk-vocab-00476"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "dialogue": [
+          {
+            "speaker": "Lượt 1",
+            "hanzi": "你怎么了？",
+            "pinyin": "Nǐ zěnme le?",
+            "meaningVi": "Bạn bị làm sao?"
+          },
+          {
+            "speaker": "Lượt 2",
+            "hanzi": "我头疼，眼睛也不舒服。",
+            "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+            "meaningVi": "Tôi đau đầu, mắt cũng khó chịu."
+          },
+          {
+            "speaker": "Lượt 3",
+            "hanzi": "什么时候开始的？",
+            "pinyin": "Shénme shíhou kāishǐ de?",
+            "meaningVi": "Bắt đầu từ khi nào?"
+          },
+          {
+            "speaker": "Lượt 4",
+            "hanzi": "从今天早上开始。",
+            "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+            "meaningVi": "Từ sáng nay."
+          },
+          {
+            "speaker": "Lượt 5",
+            "hanzi": "是不是因为昨天太累了？",
+            "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+            "meaningVi": "Có phải vì hôm qua quá mệt không?"
+          },
+          {
+            "speaker": "Lượt 6",
+            "hanzi": "可能是，但我不知道。我想去看医生。",
+            "pinyin": "Kěnéng shì, dàn wǒ bù zhīdào. Wǒ xiǎng qù kàn yīshēng.",
+            "meaningVi": "Có thể, nhưng tôi không biết. Tôi muốn đi khám."
+          },
+          {
+            "speaker": "Lượt 7",
+            "hanzi": "我陪你去。",
+            "pinyin": "Wǒ péi nǐ qù.",
+            "meaningVi": "Tôi đi cùng bạn."
+          },
+          {
+            "speaker": "Lượt 8",
+            "hanzi": "谢谢，看医生以后我想回家休息。",
+            "pinyin": "Xièxie, kàn yīshēng yǐhòu wǒ xiǎng huí jiā xiūxi.",
+            "meaningVi": "Cảm ơn, sau khi khám tôi muốn về nhà nghỉ."
+          }
+        ],
+        "grammar": [
+          {
+            "pattern": "从 + mốc thời gian + 开始",
+            "explanationVi": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+            "modelExample": {
+              "hanzi": "从今天早上开始。",
+              "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+              "meaningVi": "Bắt đầu từ sáng nay."
+            },
+            "guidedPractice": {
+              "promptVi": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay.",
+              "modelAnswerHanzi": "A：你怎么了？ B：我的手疼。 A：什么时候开始的？ B：从昨天下午开始。 A：你知道原因吗？ B：不知道，我想今天下午去看医生。 A：我陪你去。 B：谢谢。",
+              "modelAnswerPinyin": "A: Nǐ zěnme le? B: Wǒ de shǒu téng. A: Shénme shíhou kāishǐ de? B: Cóng zuótiān xiàwǔ kāishǐ. A: Nǐ zhīdào yuányīn ma? B: Bù zhīdào, wǒ xiǎng jīntiān xiàwǔ qù kàn yīshēng. A: Wǒ péi nǐ qù. B: Xièxie.",
+              "modelAnswerMeaningVi": "A: Bạn sao vậy? B: Tay tôi đau. A: Bắt đầu khi nào? B: Từ chiều hôm qua. A: Bạn biết nguyên nhân không? B: Không biết, tôi muốn chiều nay đi khám. A: Tôi đi cùng bạn. B: Cảm ơn."
+            }
+          }
+        ],
+        "exercises": [
+          {
+            "promptVi": "B nói 可能是，但我不知道. Cách kể lại nào giữ đúng mức chắc chắn?",
+            "answer": "我不知道原因，可能是昨天太累了。",
+            "answerPinyin": "Wǒ bù zhīdào yuányīn, kěnéng shì zuótiān tài lèi le.",
+            "answerMeaningVi": "Tôi không biết nguyên nhân, có thể là hôm qua quá mệt.",
+            "distractors": [
+              "因为昨天太累了，所以今天头疼。",
+              "我已经看过医生了。"
+            ],
+            "explanationVi": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng."
+          }
+        ],
+        "lessonPages": {
+          "version": 1,
+          "art": "campus",
+          "pages": [
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:context",
+              "title": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+              "layout": "scene",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:scene",
+                  "kind": "explanation",
+                  "title": "Tình huống của bạn",
+                  "body": "Vai B đau đầu từ sáng nay, mắt cũng khó chịu. B không biết nguyên nhân, dự định đi khám; A hỏi thăm và đề nghị đi cùng. Tập nói rõ triệu chứng, thời điểm và bước tiếp theo.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:support",
+                  "kind": "explanation",
+                  "title": "Từ hỗ trợ trước khi bắt đầu",
+                  "body": "早上 zǎoshang: sáng · 从 có nghĩa từ một mốc · 开始 kāishǐ: bắt đầu · 可能 kěnéng: có thể · 原因 yuányīn: nguyên nhân · 医生 yīshēng: bác sĩ · 陪 péi: đi cùng · 休息 xiūxi: nghỉ. Các câu là tình huống luyện giao tiếp, không dùng để tự chẩn đoán hoặc chọn thuốc.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:facts",
+              "title": "Phân biệt ba loại thông tin",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:facts",
+                  "kind": "diagram",
+                  "title": "Triệu chứng · thời gian · phỏng đoán",
+                  "body": "",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "diagram": {
+                    "type": "comparison",
+                    "description": "Hai thông tin B nêu và một giả thuyết A hỏi. Không biến câu hỏi về nguyên nhân thành chẩn đoán.",
+                    "nodes": [
+                      {
+                        "id": "symptom",
+                        "label": "头疼，眼睛不舒服",
+                        "pinyin": "tóuténg, yǎnjing bù shūfu",
+                        "meaningVi": "đau đầu, mắt khó chịu",
+                        "note": "B tự mô tả cảm giác.",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "onset",
+                        "label": "今天早上",
+                        "pinyin": "jīntiān zǎoshang",
+                        "meaningVi": "sáng nay",
+                        "note": "Mốc bắt đầu, không phải nguyên nhân.",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "cause",
+                        "label": "可能是昨天太累了",
+                        "pinyin": "kěnéng shì zuótiān tài lèi le",
+                        "meaningVi": "có thể là hôm qua quá mệt",
+                        "note": "Chưa chắc chắn; B nói không biết.",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:dialogue",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "layout": "dialogue",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-0",
+                  "kind": "dialogue",
+                  "title": "Lượt 1",
+                  "body": "",
+                  "hanzi": "你怎么了？",
+                  "pinyin": "Nǐ zěnme le?",
+                  "meaningVi": "Bạn bị làm sao?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-1",
+                  "kind": "dialogue",
+                  "title": "Lượt 2",
+                  "body": "",
+                  "hanzi": "我头疼，眼睛也不舒服。",
+                  "pinyin": "Wǒ tóuténg, yǎnjing yě bù shūfu.",
+                  "meaningVi": "Tôi đau đầu, mắt cũng khó chịu.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-2",
+                  "kind": "dialogue",
+                  "title": "Lượt 3",
+                  "body": "",
+                  "hanzi": "什么时候开始的？",
+                  "pinyin": "Shénme shíhou kāishǐ de?",
+                  "meaningVi": "Bắt đầu từ khi nào?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-3",
+                  "kind": "dialogue",
+                  "title": "Lượt 4",
+                  "body": "",
+                  "hanzi": "从今天早上开始。",
+                  "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+                  "meaningVi": "Từ sáng nay.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-4",
+                  "kind": "dialogue",
+                  "title": "Lượt 5",
+                  "body": "",
+                  "hanzi": "是不是因为昨天太累了？",
+                  "pinyin": "Shì bú shì yīnwèi zuótiān tài lèi le?",
+                  "meaningVi": "Có phải vì hôm qua quá mệt không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-5",
+                  "kind": "dialogue",
+                  "title": "Lượt 6",
+                  "body": "",
+                  "hanzi": "可能是，但我不知道。我想去看医生。",
+                  "pinyin": "Kěnéng shì, dàn wǒ bù zhīdào. Wǒ xiǎng qù kàn yīshēng.",
+                  "meaningVi": "Có thể, nhưng tôi không biết. Tôi muốn đi khám.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-6",
+                  "kind": "dialogue",
+                  "title": "Lượt 7",
+                  "body": "",
+                  "hanzi": "我陪你去。",
+                  "pinyin": "Wǒ péi nǐ qù.",
+                  "meaningVi": "Tôi đi cùng bạn.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:turn-7",
+                  "kind": "dialogue",
+                  "title": "Lượt 8",
+                  "body": "",
+                  "hanzi": "谢谢，看医生以后我想回家休息。",
+                  "pinyin": "Xièxie, kàn yīshēng yǐhòu wǒ xiǎng huí jiā xiūxi.",
+                  "meaningVi": "Cảm ơn, sau khi khám tôi muốn về nhà nghỉ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:meaning",
+              "title": "Nói điều đang cảm thấy, không biến phỏng đoán thành chắc chắn",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:rule",
+                  "kind": "explanation",
+                  "title": "Hiểu cách dùng trong tình huống",
+                  "body": "Bộ phận + 疼: 我头疼, 我的手疼. 不舒服 rộng hơn đau, chỉ cảm giác không khỏe/khó chịu. 也 thêm một triệu chứng: 眼睛也不舒服.\n从今天早上开始 trả lời mốc bắt đầu, không phải nguyên nhân. 是不是因为…？ hỏi giả thuyết; 可能是，但我不知道 giữ mức chưa chắc chắn. 因为 giới thiệu lý do mà người nói đưa ra, không tự xác minh lý do đó.\n我想去看医生 là dự định đi khám, không phải đã khám. 看医生以后… sắp xếp việc sau khám.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:pattern",
+                  "kind": "dialogue",
+                  "title": "从 + mốc thời gian + 开始",
+                  "body": "",
+                  "hanzi": "从今天早上开始。",
+                  "pinyin": "Cóng jīntiān zǎoshang kāishǐ.",
+                  "meaningVi": "Bắt đầu từ sáng nay.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:pitfall",
+                  "kind": "explanation",
+                  "title": "Điểm dễ hiểu nhầm",
+                  "body": "头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:words-0",
+              "title": "Từ dùng trong bài · nhóm 1",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-0",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00388",
+                  "kind": "dialogue",
+                  "title": "累 · lèi",
+                  "body": "mệt",
+                  "hanzi": "我今天很累。",
+                  "pinyin": "Wǒ jīntiān hěn lèi.",
+                  "meaningVi": "Hôm nay tôi rất mệt.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00429",
+                  "kind": "dialogue",
+                  "title": "身体 · shēntǐ",
+                  "body": "cơ thể; sức khỏe",
+                  "hanzi": "你最近身体怎么样？",
+                  "pinyin": "Nǐ zuìjìn shēntǐ zěnmeyàng?",
+                  "meaningVi": "Dạo này sức khỏe bạn thế nào?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00433",
+                  "kind": "dialogue",
+                  "title": "手 · shǒu",
+                  "body": "tay",
+                  "hanzi": "我的手有点儿疼。",
+                  "pinyin": "Wǒ de shǒu yǒudiǎnr téng.",
+                  "meaningVi": "Tay tôi hơi đau.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00436",
+                  "kind": "dialogue",
+                  "title": "舒服 · shūfu",
+                  "body": "thoải mái; khỏe",
+                  "hanzi": "我今天不太舒服。",
+                  "pinyin": "Wǒ jīntiān bú tài shūfu.",
+                  "meaningVi": "Hôm nay tôi không được khỏe lắm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00440",
+                  "kind": "dialogue",
+                  "title": "疼 · téng",
+                  "body": "đau",
+                  "hanzi": "你的头还疼吗？",
+                  "pinyin": "Nǐ de tóu hái téng ma?",
+                  "meaningVi": "Đầu bạn còn đau không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:words-5",
+              "title": "Từ dùng trong bài · nhóm 2",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-5",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00445",
+                  "kind": "dialogue",
+                  "title": "头 · tóu",
+                  "body": "đầu",
+                  "hanzi": "我头疼，想休息一下。",
+                  "pinyin": "Wǒ tóuténg, xiǎng xiūxi yíxià.",
+                  "meaningVi": "Tôi đau đầu, muốn nghỉ một lát.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00456",
+                  "kind": "dialogue",
+                  "title": "洗 · xǐ",
+                  "body": "giặt; rửa; tắm",
+                  "hanzi": "吃饭以前我先洗手。",
+                  "pinyin": "Chīfàn yǐqián wǒ xiān xǐ shǒu.",
+                  "meaningVi": "Trước khi ăn tôi rửa tay trước.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00457",
+                  "kind": "dialogue",
+                  "title": "洗手间 · xǐshǒujiān",
+                  "body": "nhà vệ sinh",
+                  "hanzi": "请问，洗手间在哪儿？",
+                  "pinyin": "Qǐngwèn, xǐshǒujiān zài nǎr?",
+                  "meaningVi": "Cho hỏi nhà vệ sinh ở đâu?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00467",
+                  "kind": "dialogue",
+                  "title": "眼睛 · yǎnjing",
+                  "body": "mắt",
+                  "hanzi": "她的眼睛不舒服。",
+                  "pinyin": "Tā de yǎnjing bù shūfu.",
+                  "meaningVi": "Mắt cô ấy khó chịu.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00468",
+                  "kind": "dialogue",
+                  "title": "药 · yào",
+                  "body": "thuốc",
+                  "hanzi": "我想问医生，这是什么药。",
+                  "pinyin": "Wǒ xiǎng wèn yīshēng, zhè shì shénme yào.",
+                  "meaningVi": "Tôi muốn hỏi bác sĩ đây là thuốc gì.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:words-10",
+              "title": "Từ dùng trong bài · nhóm 3",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-note-10",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00469",
+                  "kind": "dialogue",
+                  "title": "药店 · yàodiàn",
+                  "body": "hiệu thuốc",
+                  "hanzi": "医院旁边有一家药店。",
+                  "pinyin": "Yīyuàn pángbiān yǒu yì jiā yàodiàn.",
+                  "meaningVi": "Bên cạnh bệnh viện có một hiệu thuốc.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:word-hsk-vocab-00476",
+                  "kind": "dialogue",
+                  "title": "因为 · yīnwèi",
+                  "body": "bởi vì",
+                  "hanzi": "因为我不舒服，所以今天不去上班。",
+                  "pinyin": "Yīnwèi wǒ bù shūfu, suǒyǐ jīntiān bú qù shàngbān.",
+                  "meaningVi": "Vì tôi không khỏe nên hôm nay không đi làm.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:choice",
+              "title": "Quyết định theo thông tin đã cho",
+              "layout": "focus",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:choice",
+                  "kind": "activity",
+                  "title": "Chọn lời nói phù hợp",
+                  "body": "B nói 可能是，但我不知道. Cách kể lại nào giữ đúng mức chắc chắn?",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "option-0",
+                        "text": "我不知道原因，可能是昨天太累了。",
+                        "feedback": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng."
+                      },
+                      {
+                        "id": "option-1",
+                        "text": "因为昨天太累了，所以今天头疼。",
+                        "feedback": "Câu này khẳng định quan hệ nguyên nhân; mạnh hơn điều B thực sự biết."
+                      },
+                      {
+                        "id": "option-2",
+                        "text": "我已经看过医生了。",
+                        "feedback": "Câu này nói đã khám, nhưng B mới nêu dự định đi khám."
+                      }
+                    ],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "explanation": "Đúng: vẫn giữ chưa biết nguyên nhân và chỉ coi mệt hôm qua là khả năng. 头疼 là đau đầu; 累 là mệt, không đồng nghĩa. Không nghe 可能 rồi kể lại thành chắc chắn. 买药 là mua thuốc, không thay nghĩa của 看医生. Không suy ra thuốc hoặc liều từ triệu chứng trong bài.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Giữ mức chưa chắc chắn khi kể lại phỏng đoán nguyên nhân.",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-task-10"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:guided",
+              "title": "Hoàn thành mẫu theo ngữ cảnh",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:guided",
+                  "kind": "activity",
+                  "title": "Điền và tự kiểm",
+                  "body": "Điền đúng từ chỉ điểm bắt đầu theo mẫu: ___今天早上开始。 (Bắt đầu từ sáng nay.)",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "从"
+                    ],
+                    "explanation": "从 nêu mốc bắt đầu. 因为 đưa ra nguyên nhân, không trả lời từ lúc nào.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Dùng 从 để nêu mốc bắt đầu theo mẫu.",
+                      "sources": [
+                        {
+                          "kind": "grammar",
+                          "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-04"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:transfer",
+              "title": "Thử trong tình huống khác",
+              "layout": "workshop",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:transfer",
+                  "kind": "explanation",
+                  "title": "Thông tin mới dành cho vai của bạn",
+                  "body": "Đổi vai: tay bạn đau từ chiều hôm qua; bạn không biết nguyên nhân và muốn đi khám chiều nay. Viết ít nhất sáu lượt có hỏi triệu chứng, mốc bắt đầu, nguyên nhân chưa chắc và đề nghị đi cùng. Hỗ trợ: 昨天下午 zuótiān xiàwǔ: chiều hôm qua · 今天下午 jīntiān xiàwǔ: chiều nay.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:produce",
+                  "kind": "activity",
+                  "title": "Tự diễn đạt trước khi xem mẫu",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你怎么了？ B：我的手疼。 A：什么时候开始的？ B：从昨天下午开始。 A：你知道原因吗？ B：不知道，我想今天下午去看医生。 A：我陪你去。 B：谢谢。\nA: Nǐ zěnme le? B: Wǒ de shǒu téng. A: Shénme shíhou kāishǐ de? B: Cóng zuótiān xiàwǔ kāishǐ. A: Nǐ zhīdào yuányīn ma? B: Bù zhīdào, wǒ xiǎng jīntiān xiàwǔ qù kàn yīshēng. A: Wǒ péi nǐ qù. B: Xièxie.\nA: Bạn sao vậy? B: Tay tôi đau. A: Bắt đầu khi nào? B: Từ chiều hôm qua. A: Bạn biết nguyên nhân không? B: Không biết, tôi muốn chiều nay đi khám. A: Tôi đi cùng bạn. B: Cảm ơn.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "criterion-0",
+                        "label": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ.",
+                        "guidance": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ."
+                      },
+                      {
+                        "id": "criterion-1",
+                        "label": "Mốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc.",
+                        "guidance": "Mốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc."
+                      },
+                      {
+                        "id": "criterion-2",
+                        "label": "Giữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc.",
+                        "guidance": "Giữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc."
+                      },
+                      {
+                        "id": "criterion-3",
+                        "label": "Các lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn.",
+                        "guidance": "Các lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn."
+                      }
+                    ],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Tự viết chuỗi hỏi thăm với triệu chứng, thời gian và mức chắc chắn đúng; rubric tự đối chiếu.",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-task-10"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-04:v2:recap",
+              "title": "Tự kiểm trước khi vào Thử Luyện",
+              "layout": "focus",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-04:v2:block:recap",
+                  "kind": "explanation",
+                  "title": "Điều cần mang sang lần dùng tiếp",
+                  "body": "Triệu chứng là tay đau, không đổi thành đau đầu theo mẫu cũ.\nMốc bắt đầu là chiều hôm qua, dự định khám là chiều nay; không đảo hai mốc.\nGiữ chưa biết nguyên nhân; không tự thêm kết luận hoặc chỉ dẫn dùng thuốc.\nCác lượt hỏi và đáp nối nhau, có đề nghị đi cùng và cảm ơn.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            }
+          ]
+        },
+        "sourceVocabularyIds": [
+          "hsk-vocab-00388",
+          "hsk-vocab-00429",
+          "hsk-vocab-00433",
+          "hsk-vocab-00436",
+          "hsk-vocab-00440",
+          "hsk-vocab-00445",
+          "hsk-vocab-00456",
+          "hsk-vocab-00457",
+          "hsk-vocab-00467",
+          "hsk-vocab-00468",
+          "hsk-vocab-00469",
+          "hsk-vocab-00476"
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-04"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-daily-needs-family-lesson-04"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-10"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-019",
+          "hsk2-topic-020"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "editorialStatus": "draft-needs-vocabulary-example-and-language-review"
+    }
+  ]
+}

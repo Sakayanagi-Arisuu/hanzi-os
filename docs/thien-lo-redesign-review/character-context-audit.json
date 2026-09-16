@@ -1,0 +1,2295 @@
+{
+  "schemaVersion": 1,
+  "scope": "HSK1 character lessons; exact context alignment, not pronunciation/mastery validation",
+  "lessons": [
+    {
+      "lessonId": "characters-1",
+      "characters": [
+        {
+          "id": "hsk1-character-001",
+          "hanzi": "爱",
+          "contextWord": "爱",
+          "contextPinyin": "ài",
+          "readingInContext": "ài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-003",
+          "hanzi": "爸",
+          "contextWord": "爸爸",
+          "contextPinyin": "bàba",
+          "readingInContext": "bà / ba",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-004",
+          "hanzi": "吧",
+          "contextWord": "吧",
+          "contextPinyin": "ba",
+          "readingInContext": "ba",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-015",
+          "hanzi": "不",
+          "contextWord": "不",
+          "contextPinyin": "bù",
+          "readingInContext": "bù",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-018",
+          "hanzi": "常",
+          "contextWord": "非常",
+          "contextPinyin": "fēicháng",
+          "readingInContext": "cháng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-025",
+          "hanzi": "床",
+          "contextWord": "起床",
+          "contextPinyin": "qǐchuáng",
+          "readingInContext": "chuáng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-026",
+          "hanzi": "打",
+          "contextWord": "打电话",
+          "contextPinyin": "dǎ diànhuà",
+          "readingInContext": "dǎ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-027",
+          "hanzi": "大",
+          "contextWord": "大",
+          "contextPinyin": "dà",
+          "readingInContext": "dà",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-031",
+          "hanzi": "得",
+          "contextWord": "觉得",
+          "contextPinyin": "juéde",
+          "readingInContext": "de",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-032",
+          "hanzi": "的",
+          "contextWord": "的",
+          "contextPinyin": "de",
+          "readingInContext": "de",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-033",
+          "hanzi": "弟",
+          "contextWord": "弟弟",
+          "contextPinyin": "dìdi",
+          "readingInContext": "dì / di",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-036",
+          "hanzi": "电",
+          "contextWord": "打电话",
+          "contextPinyin": "dǎ diànhuà",
+          "readingInContext": "diàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-038",
+          "hanzi": "都",
+          "contextWord": "都",
+          "contextPinyin": "dōu",
+          "readingInContext": "dōu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-040",
+          "hanzi": "对",
+          "contextWord": "对",
+          "contextPinyin": "duì",
+          "readingInContext": "duì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-042",
+          "hanzi": "儿",
+          "contextWord": "儿子",
+          "contextPinyin": "érzi",
+          "readingInContext": "ér",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-047",
+          "hanzi": "非",
+          "contextWord": "非常",
+          "contextPinyin": "fēicháng",
+          "readingInContext": "fēi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-050",
+          "hanzi": "高",
+          "contextWord": "高兴",
+          "contextPinyin": "gāoxìng",
+          "readingInContext": "gāo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-2",
+      "characters": [
+        {
+          "id": "hsk1-character-051",
+          "hanzi": "哥",
+          "contextWord": "哥哥",
+          "contextPinyin": "gēge",
+          "readingInContext": "gē / ge",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-054",
+          "hanzi": "给",
+          "contextWord": "给",
+          "contextPinyin": "gěi",
+          "readingInContext": "gěi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-057",
+          "hanzi": "狗",
+          "contextWord": "狗",
+          "contextPinyin": "gǒu",
+          "readingInContext": "gǒu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-058",
+          "hanzi": "关",
+          "contextWord": "没关系",
+          "contextPinyin": "méi guānxi",
+          "readingInContext": "guān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-060",
+          "hanzi": "国",
+          "contextWord": "国",
+          "contextPinyin": "guó",
+          "readingInContext": "guó",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-062",
+          "hanzi": "还",
+          "contextWord": "还",
+          "contextPinyin": "hái",
+          "readingInContext": "hái",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-063",
+          "hanzi": "孩",
+          "contextWord": "孩子",
+          "contextPinyin": "háizi",
+          "readingInContext": "hái",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-065",
+          "hanzi": "好",
+          "contextWord": "好",
+          "contextPinyin": "hǎo",
+          "readingInContext": "hǎo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-068",
+          "hanzi": "和",
+          "contextWord": "和",
+          "contextPinyin": "hé",
+          "readingInContext": "hé",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-069",
+          "hanzi": "很",
+          "contextWord": "很",
+          "contextPinyin": "hěn",
+          "readingInContext": "hěn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-072",
+          "hanzi": "话",
+          "contextWord": "打电话",
+          "contextPinyin": "dǎ diànhuà",
+          "readingInContext": "huà",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-073",
+          "hanzi": "欢",
+          "contextWord": "喜欢",
+          "contextPinyin": "xǐhuan",
+          "readingInContext": "huan",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-075",
+          "hanzi": "会",
+          "contextWord": "会",
+          "contextPinyin": "huì",
+          "readingInContext": "huì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-080",
+          "hanzi": "家",
+          "contextWord": "大家",
+          "contextPinyin": "dàjiā",
+          "readingInContext": "jiā",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-082",
+          "hanzi": "见",
+          "contextWord": "见",
+          "contextPinyin": "jiàn",
+          "readingInContext": "jiàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-084",
+          "hanzi": "叫",
+          "contextWord": "叫",
+          "contextPinyin": "jiào",
+          "readingInContext": "jiào",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-3",
+      "characters": [
+        {
+          "id": "hsk1-character-085",
+          "hanzi": "姐",
+          "contextWord": "姐姐",
+          "contextPinyin": "jiějie",
+          "readingInContext": "jiě / jie",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-088",
+          "hanzi": "觉",
+          "contextWord": "觉得",
+          "contextPinyin": "juéde",
+          "readingInContext": "jué",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-090",
+          "hanzi": "看",
+          "contextWord": "好看",
+          "contextPinyin": "hǎokàn",
+          "readingInContext": "kàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-091",
+          "hanzi": "可",
+          "contextWord": "可以",
+          "contextPinyin": "kěyǐ",
+          "readingInContext": "kě",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-092",
+          "hanzi": "客",
+          "contextWord": "不客气",
+          "contextPinyin": "bú kèqi",
+          "readingInContext": "kè",
+          "editorialNote": "不 đọc bú trước 客 kè (thanh 4). Âm 客 vẫn là kè; cả cụm đọc bú kèqi.",
+          "status": "explicit-editorial-context"
+        },
+        {
+          "id": "hsk1-character-098",
+          "hanzi": "了",
+          "contextWord": "了",
+          "contextPinyin": "le",
+          "readingInContext": "le",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-102",
+          "hanzi": "亮",
+          "contextWord": "漂亮",
+          "contextPinyin": "piàoliang",
+          "readingInContext": "liang",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-105",
+          "hanzi": "妈",
+          "contextWord": "妈妈",
+          "contextPinyin": "māma",
+          "readingInContext": "mā / ma",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-106",
+          "hanzi": "吗",
+          "contextWord": "吗",
+          "contextPinyin": "ma",
+          "readingInContext": "ma",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-110",
+          "hanzi": "猫",
+          "contextWord": "猫",
+          "contextPinyin": "māo",
+          "readingInContext": "māo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-111",
+          "hanzi": "么",
+          "contextWord": "什么",
+          "contextPinyin": "shénme",
+          "readingInContext": "me",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-112",
+          "hanzi": "没",
+          "contextWord": "没关系",
+          "contextPinyin": "méi guānxi",
+          "readingInContext": "méi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-113",
+          "hanzi": "妹",
+          "contextWord": "妹妹",
+          "contextPinyin": "mèimei",
+          "readingInContext": "mèi / mei",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-114",
+          "hanzi": "们",
+          "contextWord": "们",
+          "contextPinyin": "men",
+          "readingInContext": "men",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-117",
+          "hanzi": "名",
+          "contextWord": "名字",
+          "contextPinyin": "míngzi",
+          "readingInContext": "míng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-122",
+          "hanzi": "男",
+          "contextWord": "男",
+          "contextPinyin": "nán",
+          "readingInContext": "nán",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-4",
+      "characters": [
+        {
+          "id": "hsk1-character-124",
+          "hanzi": "呢",
+          "contextWord": "呢",
+          "contextPinyin": "ne",
+          "readingInContext": "ne",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-125",
+          "hanzi": "能",
+          "contextWord": "能",
+          "contextPinyin": "néng",
+          "readingInContext": "néng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-126",
+          "hanzi": "你",
+          "contextWord": "你",
+          "contextPinyin": "nǐ",
+          "readingInContext": "nǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-128",
+          "hanzi": "您",
+          "contextWord": "您",
+          "contextPinyin": "nín",
+          "readingInContext": "nín",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-130",
+          "hanzi": "女",
+          "contextWord": "女",
+          "contextPinyin": "nǚ",
+          "readingInContext": "nǚ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-131",
+          "hanzi": "朋",
+          "contextWord": "男朋友",
+          "contextPinyin": "nánpéngyou",
+          "readingInContext": "péng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-132",
+          "hanzi": "漂",
+          "contextWord": "漂亮",
+          "contextPinyin": "piàoliang",
+          "readingInContext": "piào",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-136",
+          "hanzi": "起",
+          "contextWord": "对不起",
+          "contextPinyin": "duìbuqǐ",
+          "readingInContext": "qǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-137",
+          "hanzi": "气",
+          "contextWord": "不客气",
+          "contextPinyin": "bú kèqi",
+          "readingInContext": "qi",
+          "editorialNote": "气 đọc nhẹ qi trong cụm 不客气. Âm từ điển của chữ là qì; không áp thanh nhẹ này cho mọi từ chứa 气.",
+          "status": "explicit-editorial-context"
+        },
+        {
+          "id": "hsk1-character-141",
+          "hanzi": "请",
+          "contextWord": "请",
+          "contextPinyin": "qǐng",
+          "readingInContext": "qǐng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-144",
+          "hanzi": "人",
+          "contextWord": "家人",
+          "contextPinyin": "jiārén",
+          "readingInContext": "rén",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-145",
+          "hanzi": "认",
+          "contextWord": "认识",
+          "contextPinyin": "rènshi",
+          "readingInContext": "rèn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-151",
+          "hanzi": "谁",
+          "contextWord": "谁",
+          "contextPinyin": "shéi/shuí",
+          "readingInContext": "shéi / shuí",
+          "editorialNote": "谁 có hai cách đọc shéi và shuí. Có thể dùng một trong hai; dấu / biểu thị hai cách đọc thay thế, không đọc nối thành hai âm.",
+          "status": "explicit-editorial-context"
+        },
+        {
+          "id": "hsk1-character-152",
+          "hanzi": "什",
+          "contextWord": "什么",
+          "contextPinyin": "shénme",
+          "readingInContext": "shén",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-157",
+          "hanzi": "识",
+          "contextWord": "认识",
+          "contextPinyin": "rènshi",
+          "readingInContext": "shi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-158",
+          "hanzi": "士",
+          "contextWord": "女士",
+          "contextPinyin": "nǚshì",
+          "readingInContext": "shì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-5",
+      "characters": [
+        {
+          "id": "hsk1-character-160",
+          "hanzi": "事",
+          "contextWord": "没事",
+          "contextPinyin": "méishì",
+          "readingInContext": "shì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-162",
+          "hanzi": "是",
+          "contextWord": "是",
+          "contextPinyin": "shì",
+          "readingInContext": "shì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-163",
+          "hanzi": "手",
+          "contextWord": "手机",
+          "contextPinyin": "shǒujī",
+          "readingInContext": "shǒu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-166",
+          "hanzi": "睡",
+          "contextWord": "睡",
+          "contextPinyin": "shuì",
+          "readingInContext": "shuì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-167",
+          "hanzi": "说",
+          "contextWord": "说",
+          "contextPinyin": "shuō",
+          "readingInContext": "shuō",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-170",
+          "hanzi": "岁",
+          "contextWord": "岁",
+          "contextPinyin": "suì",
+          "readingInContext": "suì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-171",
+          "hanzi": "他",
+          "contextWord": "他",
+          "contextPinyin": "tā",
+          "readingInContext": "tā",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-172",
+          "hanzi": "它",
+          "contextWord": "它",
+          "contextPinyin": "tā",
+          "readingInContext": "tā",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-173",
+          "hanzi": "她",
+          "contextWord": "她",
+          "contextPinyin": "tā",
+          "readingInContext": "tā",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-174",
+          "hanzi": "太",
+          "contextWord": "太",
+          "contextPinyin": "tài",
+          "readingInContext": "tài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-178",
+          "hanzi": "听",
+          "contextWord": "好听",
+          "contextPinyin": "hǎotīng",
+          "readingInContext": "tīng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-183",
+          "hanzi": "喂",
+          "contextWord": "喂",
+          "contextPinyin": "wèi",
+          "readingInContext": "wèi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-185",
+          "hanzi": "问",
+          "contextWord": "请问",
+          "contextPinyin": "qǐngwèn",
+          "readingInContext": "wèn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-186",
+          "hanzi": "我",
+          "contextWord": "我",
+          "contextPinyin": "wǒ",
+          "readingInContext": "wǒ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-192",
+          "hanzi": "喜",
+          "contextWord": "喜欢",
+          "contextPinyin": "xǐhuan",
+          "readingInContext": "xǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-193",
+          "hanzi": "系",
+          "contextWord": "没关系",
+          "contextPinyin": "méi guānxi",
+          "readingInContext": "xi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-6",
+      "characters": [
+        {
+          "id": "hsk1-character-195",
+          "hanzi": "先",
+          "contextWord": "先生",
+          "contextPinyin": "xiānsheng",
+          "readingInContext": "xiān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-197",
+          "hanzi": "想",
+          "contextWord": "想",
+          "contextPinyin": "xiǎng",
+          "readingInContext": "xiǎng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-198",
+          "hanzi": "小",
+          "contextWord": "小",
+          "contextPinyin": "xiǎo",
+          "readingInContext": "xiǎo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-202",
+          "hanzi": "谢",
+          "contextWord": "谢谢",
+          "contextPinyin": "xièxie",
+          "readingInContext": "xiè / xie",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-203",
+          "hanzi": "新",
+          "contextWord": "新",
+          "contextPinyin": "xīn",
+          "readingInContext": "xīn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-205",
+          "hanzi": "兴",
+          "contextWord": "高兴",
+          "contextPinyin": "gāoxìng",
+          "readingInContext": "xìng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-209",
+          "hanzi": "样",
+          "contextWord": "怎么样",
+          "contextPinyin": "zěnmeyàng",
+          "readingInContext": "yàng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-210",
+          "hanzi": "要",
+          "contextWord": "不要",
+          "contextPinyin": "búyào",
+          "readingInContext": "yào",
+          "editorialNote": "不 đọc bú trước 要 yào (thanh 4). 要 giữ âm yào trong 不要.",
+          "status": "explicit-editorial-context"
+        },
+        {
+          "id": "hsk1-character-211",
+          "hanzi": "也",
+          "contextWord": "也",
+          "contextPinyin": "yě",
+          "readingInContext": "yě",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-216",
+          "hanzi": "以",
+          "contextWord": "可以",
+          "contextPinyin": "kěyǐ",
+          "readingInContext": "yǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-219",
+          "hanzi": "友",
+          "contextWord": "男朋友",
+          "contextPinyin": "nánpéngyou",
+          "readingInContext": "you",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-220",
+          "hanzi": "有",
+          "contextWord": "没有",
+          "contextPinyin": "méiyǒu",
+          "readingInContext": "yǒu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-226",
+          "hanzi": "再",
+          "contextWord": "再",
+          "contextPinyin": "zài",
+          "readingInContext": "zài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-229",
+          "hanzi": "怎",
+          "contextWord": "怎么",
+          "contextPinyin": "zěnme",
+          "readingInContext": "zěn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-232",
+          "hanzi": "真",
+          "contextWord": "真",
+          "contextPinyin": "zhēn",
+          "readingInContext": "zhēn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-235",
+          "hanzi": "只",
+          "contextWord": "只",
+          "contextPinyin": "zhī",
+          "readingInContext": "zhī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-7",
+      "characters": [
+        {
+          "id": "hsk1-character-002",
+          "hanzi": "八",
+          "contextWord": "八",
+          "contextPinyin": "bā",
+          "readingInContext": "bā",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-005",
+          "hanzi": "白",
+          "contextWord": "白天",
+          "contextPinyin": "báitiān",
+          "readingInContext": "bái",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-006",
+          "hanzi": "百",
+          "contextWord": "百",
+          "contextPinyin": "bǎi",
+          "readingInContext": "bǎi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-008",
+          "hanzi": "半",
+          "contextWord": "半",
+          "contextPinyin": "bàn",
+          "readingInContext": "bàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-012",
+          "hanzi": "边",
+          "contextWord": "边",
+          "contextPinyin": "biān",
+          "readingInContext": "biān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-029",
+          "hanzi": "到",
+          "contextWord": "到",
+          "contextPinyin": "dào",
+          "readingInContext": "dào",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-034",
+          "hanzi": "第",
+          "contextWord": "第",
+          "contextPinyin": "dì",
+          "readingInContext": "dì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-035",
+          "hanzi": "点",
+          "contextWord": "点",
+          "contextPinyin": "diǎn",
+          "readingInContext": "diǎn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-043",
+          "hanzi": "二",
+          "contextWord": "二",
+          "contextPinyin": "èr",
+          "readingInContext": "èr",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-048",
+          "hanzi": "分",
+          "contextWord": "分",
+          "contextPinyin": "fēn",
+          "readingInContext": "fēn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-066",
+          "hanzi": "号",
+          "contextWord": "号",
+          "contextPinyin": "hào",
+          "readingInContext": "hào",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-070",
+          "hanzi": "后",
+          "contextWord": "后",
+          "contextPinyin": "hòu",
+          "readingInContext": "hòu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-071",
+          "hanzi": "候",
+          "contextWord": "时候",
+          "contextPinyin": "shíhou",
+          "readingInContext": "hou",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-086",
+          "hanzi": "今",
+          "contextWord": "今年",
+          "contextPinyin": "jīnnián",
+          "readingInContext": "jīn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-087",
+          "hanzi": "九",
+          "contextWord": "九",
+          "contextPinyin": "jiǔ",
+          "readingInContext": "jiǔ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-099",
+          "hanzi": "冷",
+          "contextWord": "冷",
+          "contextPinyin": "lěng",
+          "readingInContext": "lěng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-100",
+          "hanzi": "里",
+          "contextWord": "里",
+          "contextPinyin": "lǐ",
+          "readingInContext": "lǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-101",
+          "hanzi": "两",
+          "contextWord": "两",
+          "contextPinyin": "liǎng",
+          "readingInContext": "liǎng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-103",
+          "hanzi": "零",
+          "contextWord": "零",
+          "contextPinyin": "líng",
+          "readingInContext": "líng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-8",
+      "characters": [
+        {
+          "id": "hsk1-character-104",
+          "hanzi": "六",
+          "contextWord": "六",
+          "contextPinyin": "liù",
+          "readingInContext": "liù",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-118",
+          "hanzi": "明",
+          "contextWord": "明年",
+          "contextPinyin": "míngnián",
+          "readingInContext": "míng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-119",
+          "hanzi": "哪",
+          "contextWord": "哪",
+          "contextPinyin": "nǎ",
+          "readingInContext": "nǎ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-120",
+          "hanzi": "那",
+          "contextWord": "那",
+          "contextPinyin": "nà",
+          "readingInContext": "nà",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-127",
+          "hanzi": "年",
+          "contextWord": "今年",
+          "contextPinyin": "jīnnián",
+          "readingInContext": "nián",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-134",
+          "hanzi": "七",
+          "contextWord": "七",
+          "contextPinyin": "qī",
+          "readingInContext": "qī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-135",
+          "hanzi": "期",
+          "contextWord": "星期",
+          "contextPinyin": "xīngqī",
+          "readingInContext": "qī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-138",
+          "hanzi": "千",
+          "contextWord": "千",
+          "contextPinyin": "qiān",
+          "readingInContext": "qiān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-139",
+          "hanzi": "前",
+          "contextWord": "前",
+          "contextPinyin": "qián",
+          "readingInContext": "qián",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-143",
+          "hanzi": "热",
+          "contextWord": "热",
+          "contextPinyin": "rè",
+          "readingInContext": "rè",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-146",
+          "hanzi": "日",
+          "contextWord": "日",
+          "contextPinyin": "rì",
+          "readingInContext": "rì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-147",
+          "hanzi": "三",
+          "contextWord": "三",
+          "contextPinyin": "sān",
+          "readingInContext": "sān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-149",
+          "hanzi": "上",
+          "contextWord": "上",
+          "contextPinyin": "shàng",
+          "readingInContext": "shàng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-155",
+          "hanzi": "十",
+          "contextWord": "十",
+          "contextPinyin": "shí",
+          "readingInContext": "shí",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-156",
+          "hanzi": "时",
+          "contextWord": "时候",
+          "contextPinyin": "shíhou",
+          "readingInContext": "shí",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-169",
+          "hanzi": "四",
+          "contextWord": "四",
+          "contextPinyin": "sì",
+          "readingInContext": "sì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-176",
+          "hanzi": "天",
+          "contextWord": "白天",
+          "contextPinyin": "báitiān",
+          "readingInContext": "tiān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-180",
+          "hanzi": "外",
+          "contextWord": "外",
+          "contextPinyin": "wài",
+          "readingInContext": "wài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-9",
+      "characters": [
+        {
+          "id": "hsk1-character-182",
+          "hanzi": "晚",
+          "contextWord": "晚",
+          "contextPinyin": "wǎn",
+          "readingInContext": "wǎn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-187",
+          "hanzi": "五",
+          "contextWord": "五",
+          "contextPinyin": "wǔ",
+          "readingInContext": "wǔ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-188",
+          "hanzi": "午",
+          "contextWord": "上午",
+          "contextPinyin": "shàngwǔ",
+          "readingInContext": "wǔ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-194",
+          "hanzi": "下",
+          "contextWord": "下",
+          "contextPinyin": "xià",
+          "readingInContext": "xià",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-196",
+          "hanzi": "现",
+          "contextWord": "现在",
+          "contextPinyin": "xiànzài",
+          "readingInContext": "xiàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-200",
+          "hanzi": "些",
+          "contextWord": "哪些",
+          "contextPinyin": "nǎxiē",
+          "readingInContext": "xiē",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-204",
+          "hanzi": "星",
+          "contextWord": "星期",
+          "contextPinyin": "xīngqī",
+          "readingInContext": "xīng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-208",
+          "hanzi": "雪",
+          "contextWord": "雪",
+          "contextPinyin": "xuě",
+          "readingInContext": "xuě",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-212",
+          "hanzi": "一",
+          "contextWord": "一",
+          "contextPinyin": "yī",
+          "readingInContext": "yī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-221",
+          "hanzi": "雨",
+          "contextWord": "下雨",
+          "contextPinyin": "xià yǔ",
+          "readingInContext": "yǔ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-225",
+          "hanzi": "月",
+          "contextWord": "月",
+          "contextPinyin": "yuè",
+          "readingInContext": "yuè",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-227",
+          "hanzi": "在",
+          "contextWord": "现在",
+          "contextPinyin": "xiànzài",
+          "readingInContext": "zài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-228",
+          "hanzi": "早",
+          "contextWord": "早",
+          "contextPinyin": "zǎo",
+          "readingInContext": "zǎo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-231",
+          "hanzi": "这",
+          "contextWord": "这",
+          "contextPinyin": "zhè",
+          "readingInContext": "zhè",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-233",
+          "hanzi": "正",
+          "contextWord": "正在",
+          "contextPinyin": "zhèngzài",
+          "readingInContext": "zhèng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-237",
+          "hanzi": "钟",
+          "contextWord": "分钟",
+          "contextPinyin": "fēnzhōng",
+          "readingInContext": "zhōng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-238",
+          "hanzi": "住",
+          "contextWord": "住",
+          "contextPinyin": "zhù",
+          "readingInContext": "zhù",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-243",
+          "hanzi": "昨",
+          "contextWord": "昨天",
+          "contextPinyin": "zuótiān",
+          "readingInContext": "zuó",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-10",
+      "characters": [
+        {
+          "id": "hsk1-character-009",
+          "hanzi": "包",
+          "contextWord": "包子",
+          "contextPinyin": "bāozi",
+          "readingInContext": "bāo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-010",
+          "hanzi": "杯",
+          "contextWord": "杯子",
+          "contextPinyin": "bēizi",
+          "readingInContext": "bēi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-013",
+          "hanzi": "便",
+          "contextWord": "便宜",
+          "contextPinyin": "piányi",
+          "readingInContext": "pián",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-014",
+          "hanzi": "病",
+          "contextWord": "病",
+          "contextPinyin": "bìng",
+          "readingInContext": "bìng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-016",
+          "hanzi": "菜",
+          "contextWord": "菜",
+          "contextPinyin": "cài",
+          "readingInContext": "cài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-017",
+          "hanzi": "茶",
+          "contextWord": "茶",
+          "contextPinyin": "chá",
+          "readingInContext": "chá",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-020",
+          "hanzi": "超",
+          "contextWord": "超市",
+          "contextPinyin": "chāoshì",
+          "readingInContext": "chāo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-022",
+          "hanzi": "吃",
+          "contextWord": "吃",
+          "contextPinyin": "chī",
+          "readingInContext": "chī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-024",
+          "hanzi": "穿",
+          "contextWord": "穿",
+          "contextPinyin": "chuān",
+          "readingInContext": "chuān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-028",
+          "hanzi": "蛋",
+          "contextWord": "鸡蛋",
+          "contextPinyin": "jīdàn",
+          "readingInContext": "dàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-037",
+          "hanzi": "东",
+          "contextWord": "东西",
+          "contextPinyin": "dōngxi",
+          "readingInContext": "dōng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-041",
+          "hanzi": "多",
+          "contextWord": "多",
+          "contextPinyin": "duō",
+          "readingInContext": "duō",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-044",
+          "hanzi": "饭",
+          "contextWord": "饭",
+          "contextPinyin": "fàn",
+          "readingInContext": "fàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-045",
+          "hanzi": "房",
+          "contextWord": "房间",
+          "contextPinyin": "fángjiān",
+          "readingInContext": "fáng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-049",
+          "hanzi": "服",
+          "contextWord": "衣服",
+          "contextPinyin": "yīfu",
+          "readingInContext": "fu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-053",
+          "hanzi": "个",
+          "contextWord": "个",
+          "contextPinyin": "gè",
+          "readingInContext": "gè",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-11",
+      "characters": [
+        {
+          "id": "hsk1-character-059",
+          "hanzi": "贵",
+          "contextWord": "贵",
+          "contextPinyin": "guì",
+          "readingInContext": "guì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-061",
+          "hanzi": "果",
+          "contextWord": "苹果",
+          "contextPinyin": "píngguǒ",
+          "readingInContext": "guǒ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-067",
+          "hanzi": "喝",
+          "contextWord": "喝",
+          "contextPinyin": "hē",
+          "readingInContext": "hē",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-078",
+          "hanzi": "鸡",
+          "contextWord": "鸡蛋",
+          "contextPinyin": "jīdàn",
+          "readingInContext": "jī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-079",
+          "hanzi": "几",
+          "contextWord": "几",
+          "contextPinyin": "jǐ",
+          "readingInContext": "jǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-081",
+          "hanzi": "间",
+          "contextWord": "房间",
+          "contextPinyin": "fángjiān",
+          "readingInContext": "jiān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-083",
+          "hanzi": "件",
+          "contextWord": "件",
+          "contextPinyin": "jiàn",
+          "readingInContext": "jiàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-094",
+          "hanzi": "口",
+          "contextWord": "口",
+          "contextPinyin": "kǒu",
+          "readingInContext": "kǒu",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-095",
+          "hanzi": "块",
+          "contextWord": "块",
+          "contextPinyin": "kuài",
+          "readingInContext": "kuài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-107",
+          "hanzi": "买",
+          "contextWord": "买",
+          "contextPinyin": "mǎi",
+          "readingInContext": "mǎi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-108",
+          "hanzi": "卖",
+          "contextWord": "卖",
+          "contextPinyin": "mài",
+          "readingInContext": "mài",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-115",
+          "hanzi": "米",
+          "contextWord": "米饭",
+          "contextPinyin": "mǐfàn",
+          "readingInContext": "mǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-116",
+          "hanzi": "面",
+          "contextWord": "面包",
+          "contextPinyin": "miànbāo",
+          "readingInContext": "miàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-121",
+          "hanzi": "奶",
+          "contextWord": "牛奶",
+          "contextPinyin": "niúnǎi",
+          "readingInContext": "nǎi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-129",
+          "hanzi": "牛",
+          "contextWord": "牛奶",
+          "contextPinyin": "niúnǎi",
+          "readingInContext": "niú",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-133",
+          "hanzi": "苹",
+          "contextWord": "苹果",
+          "contextPinyin": "píngguǒ",
+          "readingInContext": "píng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-12",
+      "characters": [
+        {
+          "id": "hsk1-character-140",
+          "hanzi": "钱",
+          "contextWord": "钱",
+          "contextPinyin": "qián",
+          "readingInContext": "qián",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-148",
+          "hanzi": "商",
+          "contextWord": "商店",
+          "contextPinyin": "shāngdiàn",
+          "readingInContext": "shāng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-150",
+          "hanzi": "少",
+          "contextWord": "多少",
+          "contextPinyin": "duōshao",
+          "readingInContext": "shao",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-159",
+          "hanzi": "市",
+          "contextWord": "超市",
+          "contextPinyin": "chāoshì",
+          "readingInContext": "shì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-165",
+          "hanzi": "水",
+          "contextWord": "水",
+          "contextPinyin": "shuǐ",
+          "readingInContext": "shuǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-177",
+          "hanzi": "条",
+          "contextWord": "面条儿",
+          "contextPinyin": "miàntiáor",
+          "readingInContext": "tiáor",
+          "editorialNote": "Trong 面条儿, 儿 hóa vào âm 条 thành tiáor; không đọc thêm một âm ér riêng. Khi không có 儿化, 条 trong 面条 đọc tiáo.",
+          "status": "explicit-editorial-context"
+        },
+        {
+          "id": "hsk1-character-189",
+          "hanzi": "西",
+          "contextWord": "东西",
+          "contextPinyin": "dōngxi",
+          "readingInContext": "xi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-213",
+          "hanzi": "衣",
+          "contextWord": "衣服",
+          "contextPinyin": "yīfu",
+          "readingInContext": "yī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-214",
+          "hanzi": "医",
+          "contextWord": "医生",
+          "contextPinyin": "yīshēng",
+          "readingInContext": "yī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-215",
+          "hanzi": "宜",
+          "contextWord": "便宜",
+          "contextPinyin": "piányi",
+          "readingInContext": "yi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-217",
+          "hanzi": "椅",
+          "contextWord": "椅子",
+          "contextPinyin": "yǐzi",
+          "readingInContext": "yǐ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-223",
+          "hanzi": "元",
+          "contextWord": "元",
+          "contextPinyin": "yuán",
+          "readingInContext": "yuán",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-230",
+          "hanzi": "找",
+          "contextWord": "找",
+          "contextPinyin": "zhǎo",
+          "readingInContext": "zhǎo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-239",
+          "hanzi": "桌",
+          "contextWord": "桌子",
+          "contextPinyin": "zhuōzi",
+          "readingInContext": "zhuō",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-240",
+          "hanzi": "子",
+          "contextWord": "包子",
+          "contextPinyin": "bāozi",
+          "readingInContext": "zi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-13",
+      "characters": [
+        {
+          "id": "hsk1-character-019",
+          "hanzi": "唱",
+          "contextWord": "唱",
+          "contextPinyin": "chàng",
+          "readingInContext": "chàng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-021",
+          "hanzi": "车",
+          "contextWord": "车",
+          "contextPinyin": "chē",
+          "readingInContext": "chē",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-023",
+          "hanzi": "出",
+          "contextWord": "出租车",
+          "contextPinyin": "chūzūchē",
+          "readingInContext": "chū",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-046",
+          "hanzi": "飞",
+          "contextWord": "飞机",
+          "contextPinyin": "fēijī",
+          "readingInContext": "fēi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-052",
+          "hanzi": "歌",
+          "contextWord": "歌",
+          "contextPinyin": "gē",
+          "readingInContext": "gē",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-074",
+          "hanzi": "回",
+          "contextWord": "回",
+          "contextPinyin": "huí",
+          "readingInContext": "huí",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-076",
+          "hanzi": "火",
+          "contextWord": "火车",
+          "contextPinyin": "huǒchē",
+          "readingInContext": "huǒ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-077",
+          "hanzi": "机",
+          "contextWord": "飞机",
+          "contextPinyin": "fēijī",
+          "readingInContext": "jī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-089",
+          "hanzi": "开",
+          "contextWord": "开",
+          "contextPinyin": "kāi",
+          "readingInContext": "kāi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-096",
+          "hanzi": "来",
+          "contextWord": "来",
+          "contextPinyin": "lái",
+          "readingInContext": "lái",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-142",
+          "hanzi": "去",
+          "contextWord": "去",
+          "contextPinyin": "qù",
+          "readingInContext": "qù",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-161",
+          "hanzi": "视",
+          "contextWord": "电视",
+          "contextPinyin": "diànshì",
+          "readingInContext": "shì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-181",
+          "hanzi": "玩",
+          "contextWord": "好玩儿",
+          "contextPinyin": "hǎowánr",
+          "readingInContext": "wánr",
+          "editorialNote": "Trong 好玩儿, 儿 hóa vào âm 玩 thành wánr; không đọc 儿 thành âm tiết riêng. Dạng không 儿化 là 好玩 hǎowán.",
+          "status": "explicit-editorial-context"
+        },
+        {
+          "id": "hsk1-character-190",
+          "hanzi": "息",
+          "contextWord": "休息",
+          "contextPinyin": "xiūxi",
+          "readingInContext": "xi",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-206",
+          "hanzi": "休",
+          "contextWord": "休息",
+          "contextPinyin": "xiūxi",
+          "readingInContext": "xiū",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-218",
+          "hanzi": "影",
+          "contextWord": "电影",
+          "contextPinyin": "diànyǐng",
+          "readingInContext": "yǐng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-224",
+          "hanzi": "院",
+          "contextWord": "电影院",
+          "contextPinyin": "diànyǐngyuàn",
+          "readingInContext": "yuàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-242",
+          "hanzi": "租",
+          "contextWord": "出租车",
+          "contextPinyin": "chūzūchē",
+          "readingInContext": "zū",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-245",
+          "hanzi": "坐",
+          "contextWord": "坐",
+          "contextPinyin": "zuò",
+          "readingInContext": "zuò",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-246",
+          "hanzi": "做",
+          "contextWord": "做",
+          "contextPinyin": "zuò",
+          "readingInContext": "zuò",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-14",
+      "characters": [
+        {
+          "id": "hsk1-character-007",
+          "hanzi": "班",
+          "contextWord": "上班",
+          "contextPinyin": "shàngbān",
+          "readingInContext": "bān",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-011",
+          "hanzi": "本",
+          "contextWord": "本",
+          "contextPinyin": "běn",
+          "readingInContext": "běn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-030",
+          "hanzi": "道",
+          "contextWord": "知道",
+          "contextPinyin": "zhīdào",
+          "readingInContext": "dào",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-039",
+          "hanzi": "读",
+          "contextWord": "读",
+          "contextPinyin": "dú",
+          "readingInContext": "dú",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-055",
+          "hanzi": "工",
+          "contextWord": "工作",
+          "contextPinyin": "gōngzuò",
+          "readingInContext": "gōng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-056",
+          "hanzi": "公",
+          "contextWord": "公司",
+          "contextPinyin": "gōngsī",
+          "readingInContext": "gōng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-064",
+          "hanzi": "汉",
+          "contextWord": "汉语",
+          "contextPinyin": "Hànyǔ",
+          "readingInContext": "hàn",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-093",
+          "hanzi": "课",
+          "contextWord": "课",
+          "contextPinyin": "kè",
+          "readingInContext": "kè",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-097",
+          "hanzi": "老",
+          "contextWord": "老师",
+          "contextPinyin": "lǎoshī",
+          "readingInContext": "lǎo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-109",
+          "hanzi": "忙",
+          "contextWord": "忙",
+          "contextPinyin": "máng",
+          "readingInContext": "máng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-123",
+          "hanzi": "脑",
+          "contextWord": "电脑",
+          "contextPinyin": "diànnǎo",
+          "readingInContext": "nǎo",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-153",
+          "hanzi": "生",
+          "contextWord": "大学生",
+          "contextPinyin": "dàxuéshēng",
+          "readingInContext": "shēng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-154",
+          "hanzi": "师",
+          "contextWord": "老师",
+          "contextPinyin": "lǎoshī",
+          "readingInContext": "shī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-164",
+          "hanzi": "书",
+          "contextWord": "读书",
+          "contextPinyin": "dúshū",
+          "readingInContext": "shū",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    },
+    {
+      "lessonId": "characters-15",
+      "characters": [
+        {
+          "id": "hsk1-character-168",
+          "hanzi": "司",
+          "contextWord": "公司",
+          "contextPinyin": "gōngsī",
+          "readingInContext": "sī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-175",
+          "hanzi": "题",
+          "contextWord": "问题",
+          "contextPinyin": "wèntí",
+          "readingInContext": "tí",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-179",
+          "hanzi": "同",
+          "contextWord": "同学",
+          "contextPinyin": "tóngxué",
+          "readingInContext": "tóng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-184",
+          "hanzi": "文",
+          "contextWord": "中文",
+          "contextPinyin": "Zhōngwén",
+          "readingInContext": "wén",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-191",
+          "hanzi": "习",
+          "contextWord": "学习",
+          "contextPinyin": "xuéxí",
+          "readingInContext": "xí",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-199",
+          "hanzi": "校",
+          "contextWord": "学校",
+          "contextPinyin": "xuéxiào",
+          "readingInContext": "xiào",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-201",
+          "hanzi": "写",
+          "contextWord": "写",
+          "contextPinyin": "xiě",
+          "readingInContext": "xiě",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-207",
+          "hanzi": "学",
+          "contextWord": "大学",
+          "contextPinyin": "dàxué",
+          "readingInContext": "xué",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-222",
+          "hanzi": "语",
+          "contextWord": "汉语",
+          "contextPinyin": "Hànyǔ",
+          "readingInContext": "yǔ",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-234",
+          "hanzi": "知",
+          "contextWord": "知道",
+          "contextPinyin": "zhīdào",
+          "readingInContext": "zhī",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-236",
+          "hanzi": "中",
+          "contextWord": "中国",
+          "contextPinyin": "Zhōngguó",
+          "readingInContext": "zhōng",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-241",
+          "hanzi": "字",
+          "contextWord": "汉字",
+          "contextPinyin": "Hànzì",
+          "readingInContext": "zì",
+          "editorialNote": null,
+          "status": "source-aligned"
+        },
+        {
+          "id": "hsk1-character-244",
+          "hanzi": "作",
+          "contextWord": "工作",
+          "contextPinyin": "gōngzuò",
+          "readingInContext": "zuò",
+          "editorialNote": null,
+          "status": "source-aligned"
+        }
+      ]
+    }
+  ]
+}

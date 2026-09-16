@@ -94,8 +94,11 @@ describe("mega lexicon learner corpus", () => {
   it("exposes deep lookup through Tàng Tự Khố and every Reader token", () => {
     expect(dictionarySource).toContain("loadMegaLexicon()");
     expect(dictionarySource).toContain("searchMegaVocabularyByHanzi(query)");
-    expect(dictionarySource).toContain("results.slice(0, visibleLimit)");
-    expect(dictionarySource).toContain("Nghĩa tiếng Việt");
+    const experienceSource = readFileSync("src/screens/DictionaryExperience.tsx", "utf8");
+    expect(dictionarySource).toContain("<DictionaryExperience words={allWords} results={results}");
+    expect(experienceSource).toContain("filtered.slice(currentPage*size,(currentPage+1)*size)");
+    expect(experienceSource).toContain("Math.ceil(filtered.length / size)");
+    expect(experienceSource).toContain("Nghĩa và cách dùng");
     expect(readerLexiconSource).toContain("lookupMegaVocabulary(entry.simplified)");
     expect(readerChapterSource).toContain("hydrateReaderReferenceEntry(entry)");
   });

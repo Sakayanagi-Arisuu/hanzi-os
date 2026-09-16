@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "lessonId": "boot-1",
+  "humanReviewed": false,
+  "status": "editorial-targets-not-published",
+  "targets": {
+    "boot-1:v2:block:fall-check": {
+      "skill": "pronunciation",
+      "objective": "Nhận diện thanh 4 từ mô tả đường cao độ cao rồi rơi; đây là nhận diện quy tắc bằng chữ, không đo nghe hay chất lượng phát âm.",
+      "sources": [{"kind": "pronunciation", "id": "mandarin-tone-system"}]
+    },
+    "boot-1:v2:block:rise-check": {
+      "skill": "pronunciation",
+      "objective": "Phân biệt thanh 2 đi lên với thanh 1 ngang và thanh 4 rơi dựa trên mô tả hướng giọng.",
+      "sources": [{"kind": "pronunciation", "id": "mandarin-tone-system"}]
+    },
+    "boot-1:v2:block:transfer-check": {
+      "skill": "pronunciation",
+      "objective": "Chuyển quy tắc dấu thanh 4 từ mà sang âm tiết mới dà, chọn đúng hướng cao rồi rơi mà không dựa vào nghĩa của từ.",
+      "sources": [{"kind": "pronunciation", "id": "mandarin-tone-system"}]
+    },
+    "boot-1:v2:block:self-read": {
+      "skill": "pronunciation",
+      "objective": "Tự đọc chuỗi thanh và đối chiếu hướng giọng, sự thoải mái cùng khả năng đổi âm; kết quả chỉ là tự nhận xét, không phải chấm phát âm.",
+      "sources": [{"kind": "pronunciation", "id": "mandarin-tone-system"}]
+    }
+  }
+}

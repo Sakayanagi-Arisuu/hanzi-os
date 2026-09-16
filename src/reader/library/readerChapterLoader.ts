@@ -194,7 +194,7 @@ const applyCatalogPresentation = (chapter: ReaderChapter) => {
   const summary = series?.volumes
     .flatMap((volume) => volume.chapters)
     .find((candidate) => candidate.chapterId === chapter.chapterId);
-  if (!series?.discoverable || !summary) return chapter;
+  if (!series?.discoverable || !summary) return summary ? { ...chapter, version: summary.version } : chapter;
   return ensureReaderLongFormChapter({
     ...chapter,
     version: summary.version,
@@ -217,7 +217,10 @@ export const loadReaderChapter = async (
   const existing = cache.get(identity);
   if (existing) return existing;
   const pending = (loader
-    ? loader().then(({ default: chapter }) => applyCatalogPresentation(chapter))
+    ? loader().then(async ({ default: chapter }) => {
+      const { attachReaderComprehension } = await import("./readerComprehension");
+      return attachReaderComprehension(applyCatalogPresentation(chapter));
+    })
     : loadEditorialReaderChapter(seriesId, chapterId)
   ).then((chapter) => {
     if (!loader) return chapter;

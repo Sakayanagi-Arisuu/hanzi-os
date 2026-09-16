@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-13",
+  "scope": "Travel and leisure local-study; page activities remain self-feedback.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/15-REVIEW-JOURNEY-BATCH.md",
+  "items": [
+    {
+      "lessonId": "journey-1",
+      "sourceContentSha256": "sha256:47a0e9445dbfb62aa56a4c597f15321755bb37aa44f89803306d696eda58befa",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "journey-2",
+      "sourceContentSha256": "sha256:33cca050fecb7a5a3331fed5067b01e738d6f0c94ec0e0272a06c8dc1ea35f81",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

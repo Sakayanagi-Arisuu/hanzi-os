@@ -1,0 +1,1165 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "professional-4",
+  "title": "Công việc và lịch hằng ngày",
+  "objective": "Nói nơi làm việc, thời điểm đi làm, vào học và kết thúc.",
+  "status": "authored-draft-not-published",
+  "humanReviewed": false,
+  "source": {
+    "wordIds": [
+      "hsk-vocab-00062",
+      "hsk-vocab-00063",
+      "hsk-vocab-00118",
+      "hsk-vocab-00176",
+      "hsk-vocab-00177",
+      "hsk-vocab-00228",
+      "hsk-vocab-00229"
+    ],
+    "prerequisiteIds": [
+      "professional-3"
+    ]
+  },
+  "lessonPages": {
+    "version": 1,
+    "art": "work",
+    "pages": [
+      {
+        "id": "professional-4:v2:mission",
+        "title": "Tìm giờ gặp sau một ngày làm việc",
+        "layout": "scene",
+        "stage": "context",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:goal",
+            "kind": "explanation",
+            "title": "Dùng lịch để trả lời đúng",
+            "body": "Một người bạn muốn biết bạn làm ở đâu và tan làm lúc nào. Buổi tối bạn còn có lớp tiếng Trung. Bạn sẽ phân biệt giờ bắt đầu/kết thúc công việc và tiết học, rồi kể lại lịch của một vai giả định.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:support",
+            "kind": "explanation",
+            "title": "Từ hỗ trợ khi đọc giờ",
+            "body": "上午 (shàngwǔ) — buổi sáng; 下午 (xiàwǔ) — buổi chiều; 晚上 (wǎnshang) — buổi tối; 点 (diǎn) — giờ; 几点 (jǐ diǎn) — mấy giờ. 九 (jiǔ) — chín; 五 (wǔ) — năm; 七 (qī) — bảy; 八 (bā) — tám. Trong bài này, lịch sáng/chiều/tối đi cùng số giờ để tránh nhầm.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:place",
+        "title": "Nơi làm việc khác hoạt động làm việc",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:company",
+            "kind": "dialogue",
+            "title": "Tên một nơi/tổ chức",
+            "body": "",
+            "hanzi": "公司",
+            "pinyin": "gōngsī",
+            "meaningVi": "công ty",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:work",
+            "kind": "dialogue",
+            "title": "Hoạt động",
+            "body": "",
+            "hanzi": "我在公司工作。",
+            "pinyin": "Wǒ zài gōngsī gōngzuò.",
+            "meaningVi": "Tôi làm việc ở công ty.",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:place-rule",
+            "kind": "explanation",
+            "title": "在 + nơi + 工作",
+            "body": "我 + 在公司 + 工作. 在公司 nêu nơi làm việc, 工作 là làm việc. 工作 cũng có thể là danh từ “công việc” trong câu khác; ở đây học cách dùng như hoạt động. Không nói 我是公司工作 để diễn đạt nơi làm việc.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:busy",
+            "kind": "dialogue",
+            "title": "Nói tình trạng hôm nay",
+            "body": "",
+            "hanzi": "我今天很忙。",
+            "pinyin": "Wǒ jīntiān hěn máng.",
+            "meaningVi": "Hôm nay tôi bận.",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:busy-note",
+            "kind": "explanation",
+            "title": "忙 không phải một mốc giờ",
+            "body": "今天 (jīntiān) — hôm nay; 很 (hěn) đứng trước 忙 trong mẫu thông dụng. 我很忙 nói mình bận, không cho biết chính xác mấy giờ tan làm. Nếu người bạn hỏi 几点, cần trả lời thời điểm hoặc nói chưa biết.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:pairs",
+        "title": "Hai cặp bắt đầu và kết thúc",
+        "layout": "focus",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:pairs",
+            "kind": "diagram",
+            "title": "Chọn đúng hoạt động trước, đúng mốc sau",
+            "body": "",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "diagram": {
+              "type": "comparison",
+              "description": "上班/下班 dùng với ca hoặc ngày làm việc. 上课/下课 dùng với tiết học. 下课 kết thúc một tiết, không nhất thiết tan trường cả ngày; 上班 theo lịch là bắt đầu đi làm/ca làm, không luôn chỉ giờ rời nhà.",
+              "nodes": [
+                {
+                  "id": "work",
+                  "label": "上班 → 下班",
+                  "pinyin": "shàngbān → xiàbān",
+                  "meaningVi": "đi làm/bắt đầu ca → tan làm",
+                  "note": "公司 và 工作 liên quan công việc, nhưng lịch cụ thể mới cho biết thời gian.",
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "id": "class",
+                  "label": "上课 → 下课",
+                  "pinyin": "shàngkè → xiàkè",
+                  "meaningVi": "vào tiết học → hết tiết học",
+                  "note": "上汉语课 là học một giờ/lớp tiếng Trung.",
+                  "x": 1,
+                  "y": 0
+                }
+              ]
+            }
+          },
+          {
+            "id": "professional-4:v2:block:pair-check",
+            "kind": "activity",
+            "title": "Tiết tiếng Trung vừa kết thúc",
+            "body": "Chọn từ nói đúng việc kết thúc tiết học.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "choice",
+              "options": [
+                {
+                  "id": "class",
+                  "text": "下课",
+                  "feedback": "Đúng. 下课 kết thúc tiết học."
+                },
+                {
+                  "id": "work",
+                  "text": "下班",
+                  "feedback": "下班 nói tan làm, không phải kết thúc tiết học trong tình huống này."
+                },
+                {
+                  "id": "start",
+                  "text": "上课",
+                  "feedback": "上课 là vào/học tiết, ngược với mốc kết thúc."
+                }
+              ],
+              "answerIds": [
+                "class"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Phân biệt 班 của công việc và 课 của tiết học; sau đó chọn 上 hay 下 theo bắt đầu/kết thúc.",
+              "hint": "",
+              "rubric": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:schedule",
+        "title": "Đọc một lịch có cả đi làm và đi học",
+        "layout": "focus",
+        "stage": "context",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:timeline",
+            "kind": "diagram",
+            "title": "Lịch của vai B",
+            "body": "",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "diagram": {
+              "type": "timeline",
+              "description": "Đây là lịch giả định để luyện ngôn ngữ, không phải lịch áp dụng cho mọi công ty hoặc mọi lớp. Khoảng giữa tan làm và vào lớp chưa cho biết người đó làm gì.",
+              "nodes": [
+                {
+                  "id": "start-work",
+                  "label": "上午九点 · 上班",
+                  "pinyin": "shàngwǔ jiǔ diǎn · shàngbān",
+                  "meaningVi": "9 giờ sáng · đi làm/bắt đầu ca",
+                  "note": "Mốc công việc đầu ngày.",
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "id": "end-work",
+                  "label": "下午五点 · 下班",
+                  "pinyin": "xiàwǔ wǔ diǎn · xiàbān",
+                  "meaningVi": "5 giờ chiều · tan làm",
+                  "note": "Không phải giờ kết thúc lớp tiếng Trung.",
+                  "x": 0,
+                  "y": 1
+                },
+                {
+                  "id": "start-class",
+                  "label": "晚上七点 · 上课",
+                  "pinyin": "wǎnshang qī diǎn · shàngkè",
+                  "meaningVi": "7 giờ tối · vào lớp",
+                  "note": "Một hoạt động khác sau ca làm.",
+                  "x": 0,
+                  "y": 2
+                },
+                {
+                  "id": "end-class",
+                  "label": "晚上八点 · 下课",
+                  "pinyin": "wǎnshang bā diǎn · xiàkè",
+                  "meaningVi": "8 giờ tối · hết tiết",
+                  "note": "Chỉ khẳng định tiết học kết thúc.",
+                  "x": 0,
+                  "y": 3
+                }
+              ]
+            }
+          },
+          {
+            "id": "professional-4:v2:block:time-order",
+            "kind": "dialogue",
+            "title": "Đặt thời gian trước hoạt động",
+            "body": "",
+            "hanzi": "我上午九点上班。",
+            "pinyin": "Wǒ shàngwǔ jiǔ diǎn shàngbān.",
+            "meaningVi": "Tôi đi làm lúc chín giờ sáng.",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:time-rule",
+            "kind": "explanation",
+            "title": "Hai vị trí thời gian đều có thể đúng",
+            "body": "我上午九点上班 và 上午九点我上班 đều có thể nói cùng lịch. Trong bài luyện xếp câu này dùng mẫu chủ ngữ + thời gian + hoạt động; không coi vị trí thời gian đầu câu là sai nói chung.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:talk",
+        "title": "Nghe câu hỏi và lấy đúng thông tin",
+        "layout": "dialogue",
+        "stage": "context",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:turn-0",
+            "kind": "dialogue",
+            "title": "Bạn A",
+            "body": "",
+            "hanzi": "你在哪里工作？",
+            "pinyin": "Nǐ zài nǎlǐ gōngzuò?",
+            "meaningVi": "Bạn làm việc ở đâu?",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "speaker": "Bạn A"
+          },
+          {
+            "id": "professional-4:v2:block:turn-1",
+            "kind": "dialogue",
+            "title": "Bạn B",
+            "body": "",
+            "hanzi": "我在公司工作。",
+            "pinyin": "Wǒ zài gōngsī gōngzuò.",
+            "meaningVi": "Tôi làm việc ở công ty.",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "speaker": "Bạn B"
+          },
+          {
+            "id": "professional-4:v2:block:turn-2",
+            "kind": "dialogue",
+            "title": "Bạn A",
+            "body": "",
+            "hanzi": "你几点下班？",
+            "pinyin": "Nǐ jǐ diǎn xiàbān?",
+            "meaningVi": "Bạn mấy giờ tan làm?",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "speaker": "Bạn A"
+          },
+          {
+            "id": "professional-4:v2:block:turn-3",
+            "kind": "dialogue",
+            "title": "Bạn B",
+            "body": "",
+            "hanzi": "我下午五点下班，晚上七点上汉语课。",
+            "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān, wǎnshang qī diǎn shàng Hànyǔ kè.",
+            "meaningVi": "Tôi tan làm lúc năm giờ chiều, bảy giờ tối học tiếng Trung.",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "speaker": "Bạn B"
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:practice",
+        "title": "Tự trả lời từ lịch",
+        "layout": "workshop",
+        "stage": "practice",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:time-choice",
+            "kind": "activity",
+            "title": "Bạn mấy giờ tan làm?",
+            "body": "Dựa vào lịch vai B, trả lời 你几点下班？",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "choice",
+              "options": [
+                {
+                  "id": "right",
+                  "text": "我下午五点下班。",
+                  "feedback": "Đúng: lịch ghi tan làm lúc 5 giờ chiều."
+                },
+                {
+                  "id": "class",
+                  "text": "我晚上八点下课。",
+                  "feedback": "Đây là giờ hết tiết học, không phải giờ tan làm."
+                },
+                {
+                  "id": "busy",
+                  "text": "我很忙。",
+                  "feedback": "Nói bận chưa trả lời mấy giờ."
+                }
+              ],
+              "answerIds": [
+                "right"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Câu hỏi chứa 下班 nên tìm mốc tan làm. Không chọn một câu chỉ vì cũng có số giờ.",
+              "hint": "",
+              "rubric": []
+            }
+          },
+          {
+            "id": "professional-4:v2:block:order",
+            "kind": "activity",
+            "title": "Ghép lịch lên lớp",
+            "body": "Xếp theo mẫu “Tôi + bảy giờ tối + vào lớp”.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "order",
+              "options": [
+                {
+                  "id": "class",
+                  "text": "上课",
+                  "feedback": ""
+                },
+                {
+                  "id": "i",
+                  "text": "我",
+                  "feedback": ""
+                },
+                {
+                  "id": "time",
+                  "text": "晚上七点",
+                  "feedback": ""
+                }
+              ],
+              "answerIds": [
+                "i",
+                "time",
+                "class"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "我晚上七点上课。Wǒ wǎnshang qī diǎn shàngkè. Bài này yêu cầu chủ ngữ trước; 晚上七点我上课 cũng có thể đúng khi không bị ràng buộc mẫu.",
+              "hint": "",
+              "rubric": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:transfer",
+        "title": "Kể một lịch khác, không chép lịch B",
+        "layout": "workshop",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:role",
+            "kind": "explanation",
+            "title": "Lịch mới của vai C",
+            "body": "Vai C làm việc ở công ty: 8 giờ sáng bắt đầu ca, 4 giờ chiều tan làm; 6 giờ tối vào lớp tiếng Trung, 7 giờ tối hết tiết. Từ hỗ trợ: 四 (sì) — bốn; 六 (liù) — sáu. Hãy nói nơi làm việc và hai mốc do bạn chọn, trong đó có ít nhất một mốc của lớp học.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "professional-4:v2:block:produce",
+            "kind": "activity",
+            "title": "Viết ba câu rồi đối chiếu",
+            "body": "Không dùng lại giờ của vai B. Có thể nhìn lịch C vì mục tiêu là diễn đạt đúng thông tin, không kiểm trí nhớ lịch.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "rubric",
+              "options": [],
+              "answerIds": [],
+              "acceptedAnswers": [],
+              "explanation": "Một phương án: 我在公司工作。我下午四点下班，晚上六点上汉语课。Wǒ zài gōngsī gōngzuò. Wǒ xiàwǔ sì diǎn xiàbān, wǎnshang liù diǎn shàng Hànyǔ kè. Tôi làm ở công ty. Tôi tan làm lúc 4 giờ chiều, 6 giờ tối học tiếng Trung. Có thể tách câu hoặc chọn mốc khác đúng lịch. Tự đối chiếu chưa phải điểm nói khách quan.",
+              "hint": "",
+              "rubric": [
+                {
+                  "id": "place",
+                  "label": "Nói đúng nơi làm việc",
+                  "guidance": "我在公司工作."
+                },
+                {
+                  "id": "time",
+                  "label": "Dùng giờ trong lịch C",
+                  "guidance": "上午八点上班; 下午四点下班; 晚上六点上课; 晚上七点下课."
+                },
+                {
+                  "id": "meaning",
+                  "label": "Phân biệt ca làm và tiết học",
+                  "guidance": "Có ít nhất một câu với 上课/下课 và không dùng 下班 để nói hết tiết."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "professional-4:v2:recap",
+        "title": "Mang theo cách đọc lịch",
+        "layout": "focus",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "professional-4:v2:block:recap",
+            "kind": "explanation",
+            "title": "Kiểm loại thông tin trước khi trả lời",
+            "body": "Ở đâu? 在公司工作.\nMấy giờ đi/tan làm? 上班/下班.\nMấy giờ vào/hết tiết? 上课/下课.\nTình trạng thế nào? 忙 — bận, không thay câu trả lời về giờ.\nNếu nhầm, quay lại hai cặp hoạt động rồi đọc lại lịch. Tiếp tục Thử Luyện và ôn từ theo hệ thống hiện có; việc xem hết lịch không tự cấp bằng chứng thành thạo.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      }
+    ]
+  },
+  "studioContent": {
+    "targetLessonId": "professional-4",
+    "titleZh": "工作和日程",
+    "objectiveVi": "Nói nơi làm việc, thời điểm đi làm, vào học và kết thúc.",
+    "conceptVi": "Nói nơi làm việc và phân biệt mốc bắt đầu/kết thúc ca làm, tiết học.",
+    "ruleVi": "我在公司工作. Chủ ngữ + thời gian + 上班/下班/上课/下课; 几点 hỏi giờ. 忙 nói tình trạng bận.",
+    "pitfallVi": "下课 không nhất thiết tan trường cả ngày; 上班 không luôn là giờ rời nhà. 我很忙 không trả lời mấy giờ. Không lẫn giờ tan làm với giờ hết tiết.",
+    "checkpointVi": "Dùng lịch C nói nơi làm việc và giờ làm/học, không chép giờ của lịch mẫu B.",
+    "prerequisites": [
+      "professional-3"
+    ],
+    "vocabulary": [
+      "hsk-vocab-00062",
+      "hsk-vocab-00063",
+      "hsk-vocab-00118",
+      "hsk-vocab-00176",
+      "hsk-vocab-00177",
+      "hsk-vocab-00228",
+      "hsk-vocab-00229"
+    ],
+    "skills": [
+      "vocabulary",
+      "listening",
+      "reading",
+      "grammar",
+      "speaking"
+    ],
+    "dialogue": [
+      {
+        "speaker": "Bạn A",
+        "hanzi": "你在哪里工作？",
+        "pinyin": "Nǐ zài nǎlǐ gōngzuò?",
+        "meaningVi": "Bạn làm việc ở đâu?"
+      },
+      {
+        "speaker": "Bạn B",
+        "hanzi": "我在公司工作。",
+        "pinyin": "Wǒ zài gōngsī gōngzuò.",
+        "meaningVi": "Tôi làm việc ở công ty."
+      },
+      {
+        "speaker": "Bạn A",
+        "hanzi": "你几点下班？",
+        "pinyin": "Nǐ jǐ diǎn xiàbān?",
+        "meaningVi": "Bạn mấy giờ tan làm?"
+      },
+      {
+        "speaker": "Bạn B",
+        "hanzi": "我下午五点下班，晚上七点上汉语课。",
+        "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān, wǎnshang qī diǎn shàng Hànyǔ kè.",
+        "meaningVi": "Tôi tan làm lúc năm giờ chiều, bảy giờ tối học tiếng Trung."
+      }
+    ],
+    "grammar": [
+      {
+        "pattern": "我 + 在 + 公司 + 工作",
+        "explanationVi": "在公司 nêu nơi; 工作 là hoạt động.",
+        "modelExample": {
+          "hanzi": "我在公司工作。",
+          "pinyin": "Wǒ zài gōngsī gōngzuò.",
+          "meaningVi": "Tôi làm ở công ty."
+        },
+        "guidedPractice": {
+          "promptVi": "Hỏi người đối diện làm ở đâu.",
+          "modelAnswerHanzi": "你在哪里工作？",
+          "modelAnswerPinyin": "Nǐ zài nǎlǐ gōngzuò?",
+          "modelAnswerMeaningVi": "Bạn làm việc ở đâu?"
+        }
+      },
+      {
+        "pattern": "Chủ ngữ + thời gian + 上班/下班/上课/下课",
+        "explanationVi": "Nói thời điểm và đúng loại hoạt động; thời gian đầu câu cũng có thể đúng.",
+        "modelExample": {
+          "hanzi": "我下午五点下班。",
+          "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān.",
+          "meaningVi": "Tôi tan làm lúc năm giờ chiều."
+        },
+        "guidedPractice": {
+          "promptVi": "Theo lịch B, nói bạn hết tiết lúc tám giờ tối.",
+          "modelAnswerHanzi": "我晚上八点下课。",
+          "modelAnswerPinyin": "Wǒ wǎnshang bā diǎn xiàkè.",
+          "modelAnswerMeaningVi": "Tôi hết tiết lúc tám giờ tối."
+        }
+      }
+    ],
+    "exercises": [
+      {
+        "promptVi": "Theo lịch B, nói giờ tan làm: 5 giờ chiều.",
+        "answer": "我下午五点下班。",
+        "answerPinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān.",
+        "answerMeaningVi": "Tôi tan làm lúc năm giờ chiều.",
+        "distractors": [
+          "我下午五点下课。",
+          "我上午九点上班。"
+        ],
+        "explanationVi": "下班 là tan làm; 下课 đổi loại hoạt động, câu 上班 nói mốc bắt đầu khác."
+      },
+      {
+        "promptVi": "Nói bạn làm việc ở công ty.",
+        "answer": "我在公司工作。",
+        "answerPinyin": "Wǒ zài gōngsī gōngzuò.",
+        "answerMeaningVi": "Tôi làm ở công ty.",
+        "distractors": [
+          "我是公司工作。",
+          "我很忙。"
+        ],
+        "explanationVi": "在 + nơi + 工作; 是 không thay 在. Nói bận chưa nói nơi làm."
+      }
+    ],
+    "lessonPages": {
+      "version": 1,
+      "art": "work",
+      "pages": [
+        {
+          "id": "professional-4:v2:mission",
+          "title": "Tìm giờ gặp sau một ngày làm việc",
+          "layout": "scene",
+          "stage": "context",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:goal",
+              "kind": "explanation",
+              "title": "Dùng lịch để trả lời đúng",
+              "body": "Một người bạn muốn biết bạn làm ở đâu và tan làm lúc nào. Buổi tối bạn còn có lớp tiếng Trung. Bạn sẽ phân biệt giờ bắt đầu/kết thúc công việc và tiết học, rồi kể lại lịch của một vai giả định.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:support",
+              "kind": "explanation",
+              "title": "Từ hỗ trợ khi đọc giờ",
+              "body": "上午 (shàngwǔ) — buổi sáng; 下午 (xiàwǔ) — buổi chiều; 晚上 (wǎnshang) — buổi tối; 点 (diǎn) — giờ; 几点 (jǐ diǎn) — mấy giờ. 九 (jiǔ) — chín; 五 (wǔ) — năm; 七 (qī) — bảy; 八 (bā) — tám. Trong bài này, lịch sáng/chiều/tối đi cùng số giờ để tránh nhầm.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:place",
+          "title": "Nơi làm việc khác hoạt động làm việc",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:company",
+              "kind": "dialogue",
+              "title": "Tên một nơi/tổ chức",
+              "body": "",
+              "hanzi": "公司",
+              "pinyin": "gōngsī",
+              "meaningVi": "công ty",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:work",
+              "kind": "dialogue",
+              "title": "Hoạt động",
+              "body": "",
+              "hanzi": "我在公司工作。",
+              "pinyin": "Wǒ zài gōngsī gōngzuò.",
+              "meaningVi": "Tôi làm việc ở công ty.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:place-rule",
+              "kind": "explanation",
+              "title": "在 + nơi + 工作",
+              "body": "我 + 在公司 + 工作. 在公司 nêu nơi làm việc, 工作 là làm việc. 工作 cũng có thể là danh từ “công việc” trong câu khác; ở đây học cách dùng như hoạt động. Không nói 我是公司工作 để diễn đạt nơi làm việc.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:busy",
+              "kind": "dialogue",
+              "title": "Nói tình trạng hôm nay",
+              "body": "",
+              "hanzi": "我今天很忙。",
+              "pinyin": "Wǒ jīntiān hěn máng.",
+              "meaningVi": "Hôm nay tôi bận.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:busy-note",
+              "kind": "explanation",
+              "title": "忙 không phải một mốc giờ",
+              "body": "今天 (jīntiān) — hôm nay; 很 (hěn) đứng trước 忙 trong mẫu thông dụng. 我很忙 nói mình bận, không cho biết chính xác mấy giờ tan làm. Nếu người bạn hỏi 几点, cần trả lời thời điểm hoặc nói chưa biết.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:pairs",
+          "title": "Hai cặp bắt đầu và kết thúc",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:pairs",
+              "kind": "diagram",
+              "title": "Chọn đúng hoạt động trước, đúng mốc sau",
+              "body": "",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "diagram": {
+                "type": "comparison",
+                "description": "上班/下班 dùng với ca hoặc ngày làm việc. 上课/下课 dùng với tiết học. 下课 kết thúc một tiết, không nhất thiết tan trường cả ngày; 上班 theo lịch là bắt đầu đi làm/ca làm, không luôn chỉ giờ rời nhà.",
+                "nodes": [
+                  {
+                    "id": "work",
+                    "label": "上班 → 下班",
+                    "pinyin": "shàngbān → xiàbān",
+                    "meaningVi": "đi làm/bắt đầu ca → tan làm",
+                    "note": "公司 và 工作 liên quan công việc, nhưng lịch cụ thể mới cho biết thời gian.",
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "id": "class",
+                    "label": "上课 → 下课",
+                    "pinyin": "shàngkè → xiàkè",
+                    "meaningVi": "vào tiết học → hết tiết học",
+                    "note": "上汉语课 là học một giờ/lớp tiếng Trung.",
+                    "x": 1,
+                    "y": 0
+                  }
+                ]
+              }
+            },
+            {
+              "id": "professional-4:v2:block:pair-check",
+              "kind": "activity",
+              "title": "Tiết tiếng Trung vừa kết thúc",
+              "body": "Chọn từ nói đúng việc kết thúc tiết học.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "choice",
+                "options": [
+                  {
+                    "id": "class",
+                    "text": "下课",
+                    "feedback": "Đúng. 下课 kết thúc tiết học."
+                  },
+                  {
+                    "id": "work",
+                    "text": "下班",
+                    "feedback": "下班 nói tan làm, không phải kết thúc tiết học trong tình huống này."
+                  },
+                  {
+                    "id": "start",
+                    "text": "上课",
+                    "feedback": "上课 là vào/học tiết, ngược với mốc kết thúc."
+                  }
+                ],
+                "answerIds": [
+                  "class"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Phân biệt 班 của công việc và 课 của tiết học; sau đó chọn 上 hay 下 theo bắt đầu/kết thúc.",
+                "hint": "",
+                "rubric": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:schedule",
+          "title": "Đọc một lịch có cả đi làm và đi học",
+          "layout": "focus",
+          "stage": "context",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:timeline",
+              "kind": "diagram",
+              "title": "Lịch của vai B",
+              "body": "",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "diagram": {
+                "type": "timeline",
+                "description": "Đây là lịch giả định để luyện ngôn ngữ, không phải lịch áp dụng cho mọi công ty hoặc mọi lớp. Khoảng giữa tan làm và vào lớp chưa cho biết người đó làm gì.",
+                "nodes": [
+                  {
+                    "id": "start-work",
+                    "label": "上午九点 · 上班",
+                    "pinyin": "shàngwǔ jiǔ diǎn · shàngbān",
+                    "meaningVi": "9 giờ sáng · đi làm/bắt đầu ca",
+                    "note": "Mốc công việc đầu ngày.",
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "id": "end-work",
+                    "label": "下午五点 · 下班",
+                    "pinyin": "xiàwǔ wǔ diǎn · xiàbān",
+                    "meaningVi": "5 giờ chiều · tan làm",
+                    "note": "Không phải giờ kết thúc lớp tiếng Trung.",
+                    "x": 0,
+                    "y": 1
+                  },
+                  {
+                    "id": "start-class",
+                    "label": "晚上七点 · 上课",
+                    "pinyin": "wǎnshang qī diǎn · shàngkè",
+                    "meaningVi": "7 giờ tối · vào lớp",
+                    "note": "Một hoạt động khác sau ca làm.",
+                    "x": 0,
+                    "y": 2
+                  },
+                  {
+                    "id": "end-class",
+                    "label": "晚上八点 · 下课",
+                    "pinyin": "wǎnshang bā diǎn · xiàkè",
+                    "meaningVi": "8 giờ tối · hết tiết",
+                    "note": "Chỉ khẳng định tiết học kết thúc.",
+                    "x": 0,
+                    "y": 3
+                  }
+                ]
+              }
+            },
+            {
+              "id": "professional-4:v2:block:time-order",
+              "kind": "dialogue",
+              "title": "Đặt thời gian trước hoạt động",
+              "body": "",
+              "hanzi": "我上午九点上班。",
+              "pinyin": "Wǒ shàngwǔ jiǔ diǎn shàngbān.",
+              "meaningVi": "Tôi đi làm lúc chín giờ sáng.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:time-rule",
+              "kind": "explanation",
+              "title": "Hai vị trí thời gian đều có thể đúng",
+              "body": "我上午九点上班 và 上午九点我上班 đều có thể nói cùng lịch. Trong bài luyện xếp câu này dùng mẫu chủ ngữ + thời gian + hoạt động; không coi vị trí thời gian đầu câu là sai nói chung.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:talk",
+          "title": "Nghe câu hỏi và lấy đúng thông tin",
+          "layout": "dialogue",
+          "stage": "context",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:turn-0",
+              "kind": "dialogue",
+              "title": "Bạn A",
+              "body": "",
+              "hanzi": "你在哪里工作？",
+              "pinyin": "Nǐ zài nǎlǐ gōngzuò?",
+              "meaningVi": "Bạn làm việc ở đâu?",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "speaker": "Bạn A"
+            },
+            {
+              "id": "professional-4:v2:block:turn-1",
+              "kind": "dialogue",
+              "title": "Bạn B",
+              "body": "",
+              "hanzi": "我在公司工作。",
+              "pinyin": "Wǒ zài gōngsī gōngzuò.",
+              "meaningVi": "Tôi làm việc ở công ty.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "speaker": "Bạn B"
+            },
+            {
+              "id": "professional-4:v2:block:turn-2",
+              "kind": "dialogue",
+              "title": "Bạn A",
+              "body": "",
+              "hanzi": "你几点下班？",
+              "pinyin": "Nǐ jǐ diǎn xiàbān?",
+              "meaningVi": "Bạn mấy giờ tan làm?",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "speaker": "Bạn A"
+            },
+            {
+              "id": "professional-4:v2:block:turn-3",
+              "kind": "dialogue",
+              "title": "Bạn B",
+              "body": "",
+              "hanzi": "我下午五点下班，晚上七点上汉语课。",
+              "pinyin": "Wǒ xiàwǔ wǔ diǎn xiàbān, wǎnshang qī diǎn shàng Hànyǔ kè.",
+              "meaningVi": "Tôi tan làm lúc năm giờ chiều, bảy giờ tối học tiếng Trung.",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "speaker": "Bạn B"
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:practice",
+          "title": "Tự trả lời từ lịch",
+          "layout": "workshop",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:time-choice",
+              "kind": "activity",
+              "title": "Bạn mấy giờ tan làm?",
+              "body": "Dựa vào lịch vai B, trả lời 你几点下班？",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "choice",
+                "options": [
+                  {
+                    "id": "right",
+                    "text": "我下午五点下班。",
+                    "feedback": "Đúng: lịch ghi tan làm lúc 5 giờ chiều."
+                  },
+                  {
+                    "id": "class",
+                    "text": "我晚上八点下课。",
+                    "feedback": "Đây là giờ hết tiết học, không phải giờ tan làm."
+                  },
+                  {
+                    "id": "busy",
+                    "text": "我很忙。",
+                    "feedback": "Nói bận chưa trả lời mấy giờ."
+                  }
+                ],
+                "answerIds": [
+                  "right"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Câu hỏi chứa 下班 nên tìm mốc tan làm. Không chọn một câu chỉ vì cũng có số giờ.",
+                "hint": "",
+                "rubric": []
+              }
+            },
+            {
+              "id": "professional-4:v2:block:order",
+              "kind": "activity",
+              "title": "Ghép lịch lên lớp",
+              "body": "Xếp theo mẫu “Tôi + bảy giờ tối + vào lớp”.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "order",
+                "options": [
+                  {
+                    "id": "class",
+                    "text": "上课",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "i",
+                    "text": "我",
+                    "feedback": ""
+                  },
+                  {
+                    "id": "time",
+                    "text": "晚上七点",
+                    "feedback": ""
+                  }
+                ],
+                "answerIds": [
+                  "i",
+                  "time",
+                  "class"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "我晚上七点上课。Wǒ wǎnshang qī diǎn shàngkè. Bài này yêu cầu chủ ngữ trước; 晚上七点我上课 cũng có thể đúng khi không bị ràng buộc mẫu.",
+                "hint": "",
+                "rubric": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:transfer",
+          "title": "Kể một lịch khác, không chép lịch B",
+          "layout": "workshop",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:role",
+              "kind": "explanation",
+              "title": "Lịch mới của vai C",
+              "body": "Vai C làm việc ở công ty: 8 giờ sáng bắt đầu ca, 4 giờ chiều tan làm; 6 giờ tối vào lớp tiếng Trung, 7 giờ tối hết tiết. Từ hỗ trợ: 四 (sì) — bốn; 六 (liù) — sáu. Hãy nói nơi làm việc và hai mốc do bạn chọn, trong đó có ít nhất một mốc của lớp học.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "professional-4:v2:block:produce",
+              "kind": "activity",
+              "title": "Viết ba câu rồi đối chiếu",
+              "body": "Không dùng lại giờ của vai B. Có thể nhìn lịch C vì mục tiêu là diễn đạt đúng thông tin, không kiểm trí nhớ lịch.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "rubric",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [],
+                "explanation": "Một phương án: 我在公司工作。我下午四点下班，晚上六点上汉语课。Wǒ zài gōngsī gōngzuò. Wǒ xiàwǔ sì diǎn xiàbān, wǎnshang liù diǎn shàng Hànyǔ kè. Tôi làm ở công ty. Tôi tan làm lúc 4 giờ chiều, 6 giờ tối học tiếng Trung. Có thể tách câu hoặc chọn mốc khác đúng lịch. Tự đối chiếu chưa phải điểm nói khách quan.",
+                "hint": "",
+                "rubric": [
+                  {
+                    "id": "place",
+                    "label": "Nói đúng nơi làm việc",
+                    "guidance": "我在公司工作."
+                  },
+                  {
+                    "id": "time",
+                    "label": "Dùng giờ trong lịch C",
+                    "guidance": "上午八点上班; 下午四点下班; 晚上六点上课; 晚上七点下课."
+                  },
+                  {
+                    "id": "meaning",
+                    "label": "Phân biệt ca làm và tiết học",
+                    "guidance": "Có ít nhất một câu với 上课/下课 và không dùng 下班 để nói hết tiết."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "professional-4:v2:recap",
+          "title": "Mang theo cách đọc lịch",
+          "layout": "focus",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "professional-4:v2:block:recap",
+              "kind": "explanation",
+              "title": "Kiểm loại thông tin trước khi trả lời",
+              "body": "Ở đâu? 在公司工作.\nMấy giờ đi/tan làm? 上班/下班.\nMấy giờ vào/hết tiết? 上课/下课.\nTình trạng thế nào? 忙 — bận, không thay câu trả lời về giờ.\nNếu nhầm, quay lại hai cặp hoạt động rồi đọc lại lịch. Tiếp tục Thử Luyện và ôn từ theo hệ thống hiện có; việc xem hết lịch không tự cấp bằng chứng thành thạo.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        }
+      ]
+    },
+    "sourceVocabularyIds": [
+      "hsk-vocab-00062",
+      "hsk-vocab-00063",
+      "hsk-vocab-00118",
+      "hsk-vocab-00176",
+      "hsk-vocab-00177",
+      "hsk-vocab-00228",
+      "hsk-vocab-00229"
+    ],
+    "sourceLessonIds": [
+      "professional-4"
+    ],
+    "sourceGrammarIds": [
+      "hsk1-pattern:hsk1-study-work:04-work-and-schedule"
+    ],
+    "sourceTaskIds": [
+      "hsk1-task-14"
+    ],
+    "sourceTopicIds": [
+      "hsk1-topic-026",
+      "hsk1-topic-027",
+      "hsk1-topic-028"
+    ],
+    "review": {
+      "humanReviewed": false,
+      "aiSelfReview": {
+        "accuracy": false,
+        "levelFit": false,
+        "pedagogy": false,
+        "answerIntegrity": false,
+        "originality": false
+      }
+    }
+  }
+}

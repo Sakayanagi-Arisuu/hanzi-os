@@ -1,4 +1,5 @@
 "use client";
+import { LessonPagesEditor } from './LessonPagesEditor';
 
 import {
   BookOpenText,
@@ -44,7 +45,7 @@ import { RELEASED_LESSONS, RELEASED_VOCABULARY } from "../../src/data/curriculum
 import { studioLessonMatchesLevel } from "../../src/content/studioLessonIdentity";
 
 type Triple = { hanzi: string; pinyin: string; meaningVi: string };
-type GrammarRow = { pattern: string; explanationVi: string };
+type GrammarRow = { pattern: string; explanationVi: string; modelHanzi?:string; modelPinyin?:string; modelMeaningVi?:string; practicePrompt?:string; practiceHanzi?:string; practicePinyin?:string; practiceMeaningVi?:string };
 type ExerciseRow = {
   promptVi: string;
   answer: string;
@@ -115,8 +116,10 @@ const grammarRows = (value: unknown): GrammarRow[] => {
     return item ? {
       pattern: stringValue(item.pattern),
       explanationVi: stringValue(item.explanationVi),
+      modelHanzi:stringValue(record(item.modelExample)?.hanzi),modelPinyin:stringValue(record(item.modelExample)?.pinyin),modelMeaningVi:stringValue(record(item.modelExample)?.meaningVi),
+      practicePrompt:stringValue(record(item.guidedPractice)?.promptVi),practiceHanzi:stringValue(record(item.guidedPractice)?.modelAnswerHanzi),practicePinyin:stringValue(record(item.guidedPractice)?.modelAnswerPinyin),practiceMeaningVi:stringValue(record(item.guidedPractice)?.modelAnswerMeaningVi),
     } : null;
-  }).filter((entry): entry is GrammarRow => entry !== null);
+  }).filter((entry): entry is NonNullable<typeof entry> => entry !== null);
 };
 
 const exerciseRows = (value: unknown): ExerciseRow[] => {
@@ -371,6 +374,7 @@ const buildContent = (
     return {
       ...shared,
       targetLessonId: first(data, "targetLessonId"),
+      lessonPages: first(data, "lessonPages") ? JSON.parse(first(data, "lessonPages")) : undefined,
       titleZh: first(data, "titleZh"),
       objectiveVi: first(data, "objectiveVi"),
       conceptVi: first(data, "conceptVi"),
@@ -384,7 +388,9 @@ const buildContent = (
       grammar: patterns.map((pattern, index) => ({
         pattern,
         explanationVi: explanations[index] ?? "",
-      })).filter((entry) => entry.pattern || entry.explanationVi),
+        ...(['modelHanzi','modelPinyin','modelMeaningVi'].some(field=>values(data,`grammar.${field}`)[index])?{modelExample:{hanzi:values(data,'grammar.modelHanzi')[index]??'',pinyin:values(data,'grammar.modelPinyin')[index]??'',meaningVi:values(data,'grammar.modelMeaningVi')[index]??''}}:{}),
+        ...(['practicePrompt','practiceHanzi','practicePinyin','practiceMeaningVi'].some(field=>values(data,`grammar.${field}`)[index])?{guidedPractice:{promptVi:values(data,'grammar.practicePrompt')[index]??'',modelAnswerHanzi:values(data,'grammar.practiceHanzi')[index]??'',modelAnswerPinyin:values(data,'grammar.practicePinyin')[index]??'',modelAnswerMeaningVi:values(data,'grammar.practiceMeaningVi')[index]??''}}:{}),
+      })).filter((entry) => entry.pattern || entry.explanationVi || entry.modelExample || entry.guidedPractice),
       exercises: buildExercises(data),
     };
   }
@@ -462,7 +468,7 @@ function TripleEditor({
 }
 
 function GrammarEditor({ initialRows }: { initialRows: GrammarRow[] }) {
-  const [rows, setRows] = useState(() => initialRows.length ? initialRows : [{ pattern: "", explanationVi: "" }]);
+  const [rows, setRows] = useState<GrammarRow[]>(() => initialRows.length ? initialRows : [{ pattern: "", explanationVi: "" }]);
   return (
     <fieldset className="studio-fieldset">
       <legend>Điểm ngữ pháp</legend>
@@ -471,6 +477,9 @@ function GrammarEditor({ initialRows }: { initialRows: GrammarRow[] }) {
           <div className="studio-pair-row" key={`grammar:${index}`}>
             <label><span>Mẫu câu</span><input name="grammar.pattern" required value={row.pattern} onChange={(event) => setRows((current) => current.map((item, rowIndex) => rowIndex === index ? { ...item, pattern: event.target.value } : item))} /></label>
             <label><span>Giải thích tiếng Việt</span><textarea name="grammar.explanationVi" required value={row.explanationVi} onChange={(event) => setRows((current) => current.map((item, rowIndex) => rowIndex === index ? { ...item, explanationVi: event.target.value } : item))} /></label>
+            <fieldset className="studio-grammar-bound"><legend>Câu mẫu và bài luyện riêng · {index+1}</legend><p>Gắn trực tiếp vào điểm ngữ pháp này. Để trống sẽ không tự lấy câu từ hội thoại khác.</p>{([
+              ['modelHanzi','Câu mẫu · Hán tự'],['modelPinyin','Câu mẫu · Pinyin'],['modelMeaningVi','Câu mẫu · Nghĩa Việt'],['practicePrompt','Bài luyện riêng · Yêu cầu'],['practiceHanzi','Bài luyện riêng · Đáp án Hán tự'],['practicePinyin','Bài luyện riêng · Pinyin'],['practiceMeaningVi','Bài luyện riêng · Nghĩa Việt'],
+            ] as const).map(([field,label])=><label key={field}><span>{label}</span><textarea name={`grammar.${field}`} value={row[field]??''} onChange={event=>setRows(current=>current.map((item,rowIndex)=>rowIndex===index?{...item,[field]:event.target.value}:item))}/></label>)}</fieldset>
             <button className="studio-icon-button" type="button" disabled={rows.length === 1} onClick={() => setRows((current) => current.filter((_row, rowIndex) => rowIndex !== index))} aria-label={`Xóa điểm ngữ pháp ${index + 1}`}><Trash2 size={17} /></button>
           </div>
         ))}
@@ -626,6 +635,7 @@ function LessonFormFields({
       '[name="ruleVi"]',
       '[name="pitfallVi"]',
       '[name="checkpointVi"]',
+      '[name="lessonPages"]',
       '[name^="dialogue."]',
       '[name^="grammar."]',
       '[name^="exercises."]',
@@ -658,6 +668,7 @@ function LessonFormFields({
       <div key={`identity:${targetLessonId}`} className="studio-two-columns"><label><span>Tiêu đề tiếng Trung</span><input name="titleZh" lang="zh-Hans" required defaultValue={stringValue(contentForTarget.titleZh, target?.chineseTitle ?? "")} /></label><label><span>Mục tiêu người học</span><textarea name="objectiveVi" required defaultValue={stringValue(contentForTarget.objectiveVi, target?.objective ?? "")} /></label></div>
     </section>
     <div key={`authored:${targetLessonId}`} className="studio-editor-fields studio-lesson-content-fields">
+      <LessonPagesEditor lessonId={targetLessonId} value={contentForTarget.lessonPages} />
       <details className="studio-form-section studio-collapsible-stage" open>
         <summary><span className="studio-stage-number">02</span><span><strong>Lý thuyết trước Thử Luyện</strong><small>Khái niệm, quy tắc, lỗi thường gặp và bước tự kiểm.</small></span><ChevronDown size={18} aria-hidden="true" /></summary>
         <div className="studio-stage-body"><p className="studio-stage-guidance">Viết ngắn, rõ và giúp người học tự truy hồi trước khi mở bài chấm điểm.</p><div className="studio-two-columns"><label><span>Khái niệm cốt lõi</span><textarea name="conceptVi" required defaultValue={stringValue(contentForTarget.conceptVi)} placeholder="Người học cần hiểu điều gì trước khi luyện?" /></label><label><span>Quy tắc áp dụng</span><textarea name="ruleVi" required defaultValue={stringValue(contentForTarget.ruleVi)} placeholder="Mô tả từng bước áp dụng bằng tiếng Việt dễ hiểu." /></label><label><span>Lỗi thường gặp</span><textarea name="pitfallVi" required defaultValue={stringValue(contentForTarget.pitfallVi)} placeholder="Nêu lỗi người mới dễ mắc và cách tự sửa." /></label><label><span>Bước tự kiểm</span><textarea name="checkpointVi" required defaultValue={stringValue(contentForTarget.checkpointVi)} placeholder="Yêu cầu người học tạo một đầu ra mới mà không nhìn mẫu." /></label></div></div>
@@ -748,6 +759,8 @@ export function StudioStructuredEditor({
   const [level, setLevel] = useState<StudioLevel>(initialLevel);
   const [title, setTitle] = useState(initialTitle);
   const [dirty, setDirty] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
   const hiddenContent = useRef<HTMLInputElement>(null);
   const submitting = useRef(false);
   const content = useMemo(() => mode === "update"
@@ -775,13 +788,18 @@ export function StudioStructuredEditor({
       event.preventDefault();
       return;
     }
+    if (itemType === "lesson") {
+      const titleInput = event.currentTarget.elements.namedItem("title") as HTMLInputElement;
+      titleInput.setCustomValidity(titleInput.value.trim() ? "" : "Đặt tên để lưu và tìm lại bản nháp.");
+      if (!titleInput.reportValidity()) { event.preventDefault(); return; }
+    }
     const data = new FormData(event.currentTarget);
     hiddenContent.current.value = JSON.stringify(buildContent(itemType, data, content));
     submitting.current = true;
   };
 
   return (
-    <form className="studio-structured-editor" action="/studio/actions" method="post" onInput={() => setDirty(true)} onInvalid={(event) => {
+    <form inert={!mounted} aria-busy={!mounted} noValidate={itemType === "lesson"} className="studio-structured-editor" action="/studio/actions" method="post" onInput={() => setDirty(true)} onInvalid={(event) => {
       const disclosure = (event.target as HTMLElement).closest<HTMLDetailsElement>("details");
       if (disclosure) disclosure.open = true;
     }} onSubmit={submit}>
@@ -818,7 +836,7 @@ export function StudioStructuredEditor({
 
       <footer className="studio-editor-footer">
         <div><Sparkles size={18} /><span><strong>{dirty ? "Có thay đổi chưa lưu" : mode === "create" ? "Bản nháp mới" : "Bản nháp đã đồng bộ"}</strong><small>Người học chưa thấy nội dung cho tới khi qua kiểm định và phê duyệt.</small></span></div>
-        <button type="submit"><Save size={19} /> {mode === "create" ? "Tạo bản nháp" : "Lưu thay đổi"}</button>
+        <button type="submit" disabled={!mounted}><Save size={19} /> {mode === "create" ? "Tạo bản nháp" : "Lưu thay đổi"}</button>
       </footer>
     </form>
   );

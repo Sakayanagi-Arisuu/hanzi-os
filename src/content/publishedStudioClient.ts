@@ -94,9 +94,11 @@ export const mergePublishedStudioLessonEnhancement = (
   enhancement?: PublishedStudioLessonEnhancement,
   targetLessonId = current?.lessonId ?? "studio-enhancement",
 ) => enhancement ? {
+  lessonPages: current?.lessonPages,
   lessonId: current?.lessonId ?? targetLessonId,
   authoringLessonId: current?.authoringLessonId ?? `studio:${targetLessonId}`,
-  dialogue: [...(current?.dialogue ?? []), ...enhancement.dialogue],
+  dialogue: [...(current?.dialogue ?? []), ...enhancement.dialogue.filter(turn =>
+    !current?.dialogue.some(existing => existing.hanzi === turn.hanzi && existing.pinyin === turn.pinyin && existing.meaningVi === turn.meaningVi))],
   grammar: [...(current?.grammar ?? []), ...enhancement.grammar],
   topics: [...(current?.topics ?? []), ...enhancement.topics],
   tasks: [...(current?.tasks ?? []), ...enhancement.tasks],

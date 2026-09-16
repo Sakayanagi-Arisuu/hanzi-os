@@ -70,6 +70,7 @@ export type LearningAttemptReceiptV1 = {
   outcome: Extract<EvidenceOutcome, "correct" | "incorrect">;
   score: 0 | 100;
   verification: "server-objective";
+  remediationFeedback?: { correctAnswer: string; explanation: string };
 };
 
 export type AttemptCommandParseResult =

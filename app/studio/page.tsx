@@ -31,25 +31,15 @@ import {
   STUDIO_WORKFLOW_STATES,
   type StudioItemType,
 } from "../../src/content/studioContent";
-import {
-  LEARNER_CONTENT_INVENTORY,
-  learnerInventoryEntry,
-} from "../../src/server/learnerContentInventory";
 import { STUDIO_AUTHORING_GROUPS } from "../../src/content/studioAuthoringCatalog";
 import { resolveAuthorizedAccount } from "../../src/server/authorizationRepository";
 import { ContentStudioRepository } from "../../src/server/contentStudioRepository";
-import { hskMockExamEditorialSuggestions } from "../../src/server/hskMockExamBank";
 import { getD1Database } from "../../src/server/d1";
 import { StudioStructuredEditor } from "./StudioStructuredEditor";
 
 export const dynamic = "force-dynamic";
 
 const formatCount = (value: number) => new Intl.NumberFormat("vi-VN").format(value);
-const groupInventoryCount = (group: typeof STUDIO_AUTHORING_GROUPS[number]) =>
-  group.methods.reduce(
-    (total, method) => total + learnerInventoryEntry(method.itemType).count,
-    0,
-  );
 
 const moduleIcon: Record<StudioItemType, typeof LibraryBig> = {
   vocabulary: LibraryBig,
@@ -141,13 +131,18 @@ export default async function StudioPage({
       repository.count({ ...listFilters, state: "published" }),
     ]);
     const assignments = await repository.assignmentsFor(revisions);
+    // Load catalog projections only inside the authorized server page. Their
+    // eager module graph also ran during HTML rendering in the local runner.
+    const { LEARNER_CONTENT_INVENTORY, learnerInventoryEntry } = await import("../../src/server/learnerContentInventory");
+    const groupInventoryCount = (group: typeof STUDIO_AUTHORING_GROUPS[number]) =>
+      group.methods.reduce((total, method) => total + learnerInventoryEntry(method.itemType).count, 0);
     const assignmentByRevisionId = new Map(assignments.map((assignment) => [assignment.revisionId, assignment]));
     const canDraft = hasPermission(account.authorization, "content:drafts:write");
     const canAdminister = hasPermission(account.authorization, "content:approve");
     const canBulkValidate = hasPermission(account.authorization, "content:validation:run");
     const canBulkSubmit = hasPermission(account.authorization, "content:submit");
     const examFormSuggestions = createType === "exam_form"
-      ? hskMockExamEditorialSuggestions((await repository.publishedRuntime({
+      ? (await import("../../src/server/hskMockExamBank")).hskMockExamEditorialSuggestions((await repository.publishedRuntime({
         itemType: "exam_item",
       })).items)
       : undefined;

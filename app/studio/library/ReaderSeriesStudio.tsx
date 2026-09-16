@@ -20,6 +20,7 @@ import type {
 } from "../../../src/reader/editorialReaderContent";
 import type { StudioRevision } from "../../../src/server/contentStudioRepository";
 import styles from "./library.module.css";
+import { ReaderComprehensionEditor } from "./ReaderComprehensionEditor";
 
 const slug = (value: string) => value
   .normalize("NFD")
@@ -200,6 +201,15 @@ export function ReaderSeriesStudio({
   };
 
   const translationsAreReady = () => {
+    const invalidQuiz = chapters.findIndex((chapter) => (chapter.comprehension ?? []).some((question) =>
+      !question.promptVi.trim() || !question.explanationVi.trim()
+      || question.options.some((option) => !option.trim())
+      || new Set(question.options.map((option) => option.trim().normalize("NFC"))).size !== question.options.length));
+    if (invalidQuiz >= 0) {
+      setError(`Khảo luyện chương ${invalidQuiz + 1}: hãy điền câu hỏi, các lựa chọn khác nhau và giải thích trước khi tiếp tục.`);
+      setStep(2);
+      return false;
+    }
     const invalidChapter = chapters.findIndex((chapter) =>
       !chapter.titleVi.trim()
       || !chapter.hookVi.trim()
@@ -326,6 +336,7 @@ export function ReaderSeriesStudio({
               <label><span>Pinyin</span><textarea required rows={2} value={paragraph.pinyin} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "pinyin", event.target.value)} /></label>
               <label><span>Nghĩa tiếng Việt</span><textarea required rows={2} value={paragraph.vi} onChange={(event) => updateParagraph(chapterIndex, paragraphIndex, "vi", event.target.value)} /></label>
             </article>)}
+            <ReaderComprehensionEditor questions={chapter.comprehension ?? []} onChange={(comprehension) => updateChapter(chapterIndex, { comprehension })} />
           </div>
         </details>)}</div>
         <div className={styles.stepActions}><button className={styles.secondary} type="button" onClick={() => setStep(1)}><ArrowLeft size={17} /> Bản thảo</button><button className={styles.primary} type="button" onClick={continueToDetails}>Tiếp tục <ArrowRight size={17} /></button></div>

@@ -10,6 +10,8 @@ import {
   Volume2,
   Waves,
 } from "lucide-react";
+import { ResumableLessonReader } from './ResumableLessonReader';
+import { isLessonPageDocument, lessonPagesFromRich } from '../learning/lessonPages';
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { mergePublishedStudioLessonEnhancement } from "../content/publishedStudioClient";
 import type { PublishedStudioLessonEnhancement } from "../content/publishedStudioLessons";
@@ -204,7 +206,17 @@ function ToneLearningPrimer({
   );
 }
 
-export function LessonTheoryPanel({
+export function LessonTheoryPanel(props: Parameters<typeof LegacyLessonTheoryPanel>[0] & {lessonTitle?: string; contentStatus?: 'loading'|'ready'|'fallback'}) {
+  const rich = useMemo(() => mergePublishedStudioLessonEnhancement(props.contentOverride ?? getRichLessonContent(props.lessonId), props.enhancement, props.lessonId), [props.contentOverride, props.enhancement, props.lessonId]);
+  const pages = useMemo(() => rich?.lessonPages ?? (rich ? lessonPagesFromRich(rich) : null), [rich]);
+  // Do not present the legacy lesson while its published replacement is still
+  // loading. Fallback remains available after an actual load failure.
+  if (props.contentStatus === 'loading') return <section className="lesson-page-reader jade-lesson" aria-busy="true"><p role="status">Đang tải nội dung bài học…</p></section>;
+  if (!pages || !isLessonPageDocument(pages) || (props.lessonId.startsWith('boot-') && !isLessonPageDocument(rich?.lessonPages))) return <LegacyLessonTheoryPanel {...props} />;
+  return <ResumableLessonReader sourceStatus={props.contentStatus} key={props.lessonId} document={pages} lessonId={props.lessonId} title={props.lessonTitle} objective={props.lessonObjective} completionLabel={props.completionLabel} disabled={props.completionDisabled} onComplete={()=>{props.onReadinessChange?.(true);props.onComplete?.();}} />;
+}
+
+function LegacyLessonTheoryPanel({
   guide,
   lessonId,
   lessonObjective,
@@ -260,6 +272,7 @@ export function LessonTheoryPanel({
   const [furthestStep, setFurthestStep] = useState(compact ? lastStep : 0);
   const [activeWord, setActiveWord] = useState(0);
   const [activeGrammar, setActiveGrammar] = useState(0);
+  const [activeTask, setActiveTask] = useState(0);
   const [selectedTone, setSelectedTone] = useState<number | null>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const preparedKinds = useMemo(() => {
@@ -293,6 +306,7 @@ export function LessonTheoryPanel({
     setFurthestStep(compact ? lastStep : 0);
     setActiveWord(0);
     setActiveGrammar(0);
+    setActiveTask(0);
     setSelectedTone(null);
     onReadinessChange?.(false);
   }, [compact, lastStep, lessonId, onReadinessChange]);
@@ -303,7 +317,7 @@ export function LessonTheoryPanel({
     stage.scrollTop = 0;
     const frame = requestAnimationFrame(() => { stage.scrollTop = 0; });
     return () => cancelAnimationFrame(frame);
-  }, [activeGrammar, activeStep, activeWord, compact, lessonId]);
+  }, [activeGrammar, activeStep, activeWord, activeTask, compact, lessonId]);
 
   const goToStep = (nextStep: number) => {
     if (nextStep < 0 || nextStep > lastStep || (!compact && nextStep > furthestStep)) return;
@@ -591,6 +605,13 @@ export function LessonTheoryPanel({
               <h2 id="theory-practice-title">{teachingFlow.transferTitle}</h2>
               <p>{teachingFlow.successCheck}</p>
             </header>
+            {Boolean(richContent?.tasks.length) && <nav className="theory-task-picker" aria-label="Chọn nhiệm vụ vận dụng">
+              <button type="button" disabled={activeTask === 0} onClick={() => setActiveTask(n => n - 1)} aria-label="Nhiệm vụ trước"><ArrowLeft size={18} /></button>
+              <label>Nhiệm vụ <select value={activeTask} onChange={event => setActiveTask(Number(event.target.value))}>
+                {richContent!.tasks.map((task, index) => <option key={task.id} value={index}>{index + 1} / {richContent!.tasks.length}</option>)}
+              </select></label>
+              <button type="button" disabled={activeTask >= richContent!.tasks.length - 1} onClick={() => setActiveTask(n => n + 1)} aria-label="Nhiệm vụ sau"><ArrowRight size={18} /></button>
+            </nav>}
             <div className="theory-transfer-grid">
               {(richContent?.tasks.length ? richContent.tasks : [{
                 id: `${lessonId}:guide-task`,
@@ -598,10 +619,10 @@ export function LessonTheoryPanel({
                 instructionVi: teachingFlow.successCheck,
                 targetFunctions: [],
                 modelDialogue: [],
-              }]).map((task, taskIndex) => (
+              }]).slice(activeTask, activeTask + 1).map((task) => (
                 <article className="theory-transfer-task" key={task.id}>
                   <div>
-                    <span>NHIỆM VỤ {String(taskIndex + 1).padStart(2, "0")}</span>
+                    <span>NHIỆM VỤ {String(activeTask + 1).padStart(2, "0")}</span>
                     <h3>{learnerFacingCopy(task.titleVi)}</h3>
                     <p>{learnerFacingCopy(task.instructionVi)}</p>
                   </div>

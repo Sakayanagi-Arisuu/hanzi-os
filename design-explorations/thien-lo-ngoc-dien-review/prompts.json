@@ -1,0 +1,39 @@
+{
+  "tool": "built-in imagegen",
+  "status": "AI-assisted mockups; humanReviewed:false",
+  "reference": "codex-clipboard-82e6a811-badc-4419-ad9b-4998a15e95a4.png",
+  "prompts": [
+    [
+      "01-gap-tinh-huong",
+      "PAGE 01, first stage active. Large cinematic illustrated campus scene with warm original student figures and clearly visible library beside cafeteria; quiet right mission brief. Goal \"Hỏi nơi cần đến và hiểu câu trả lời về vị trí.\" Three compact prerequisites \"哪儿: ở đâu\", \"在: ở\", \"Địa điểm quen thuộc\" with \"Ôn nhanh\" secondary. Audio-only introduction with play \"Nghe tình huống\", optional collapsed \"Hiện lời thoại\". No Chinese answer or completed solution visible. Comprehension question \"Bạn cần hỏi điều gì?\" options \"Thư viện ở đâu\", \"Thư viện mở lúc nào\", \"Vé vào bao nhiêu\"; none selected. Footer secondary \"Về Thiên Lộ\", primary \"Kiểm tra ý chính\". Small link \"Tra từ khi cần · Tàng Tự Khố\". Small page tag \"01 · Gặp tình huống\"."
+    ],
+    [
+      "02-hieu-mau",
+      "PAGE 02 second stage active. Faithful approved reference-style two-column explanation layout. LEFT two dialogue bubbles with exact question and answer triples supplied above, avatars and per-line audio. RIGHT construction \"Địa điểm + 在 + nơi làm mốc + 旁边\" and meaning \"旁边: bên cạnh\". Word chips 图书馆 / túshūguǎn / thư viện, 食堂 / shítáng / nhà ăn, 旁边 / pángbiān / bên cạnh with dictionary links. Bottom short check \"Trong câu mẫu, nơi làm mốc là đâu?\" three buttons \"图书馆\", \"食堂\", \"学校\". Tiny caution \"在 + địa điểm, không dùng 是 thay 在 để chỉ vị trí.\" Persistent primary \"Kiểm tra cách hiểu\". page tag \"02 · Hiểu mẫu\"."
+    ],
+    [
+      "03-luyen-sua-loi",
+      "PAGE 03 third stage active; show pedagogically useful INCORRECT ANSWER feedback. Main horizontal editable word-tile sentence builder prompt \"Thư viện ở cạnh nhà ăn.\" User tiles ordered \"图书馆 / 是 / 食堂 / 旁边 / 。\", 是 has muted coral outline and error icon. Below feedback panel \"Chưa đúng ở từ chỉ vị trí\" and \"Dùng 在 để nói một nơi ở đâu. 是 dùng để xác định ai hoặc cái gì.\" Show repaired contrast \"图书馆在食堂旁边。\" with Pinyin/meaning in expandable example already open. Sidebar small accurate campus diagram with library east next to cafeteria and short one-point explanation. A replacement tile \"在\" available. Clear \"Lượt này có trợ giúp\" small label. Footer primary \"Sửa câu và thử lại\", secondary \"Xem lại mẫu\". Do not declare mastery or pass. page tag \"03 · Luyện có gợi ý — sửa lỗi\"."
+    ],
+    [
+      "04-tu-lam",
+      "PAGE 04 fourth stage active. Independent recall screen: uncluttered wide center task, NO answer models or Chinese vocabulary bank on screen. Prompt \"Bạn muốn biết thư viện ở đâu. Hãy tự viết một câu hỏi lịch sự.\" Blank input labeled \"Câu hỏi của bạn\", placeholder \"Nhập câu tiếng Trung…\". Under input optional \"Bàn phím Pinyin\" with disclosure \"Dùng hỗ trợ sẽ được ghi nhận\"; separate \"Cần gợi ý\" button and \"Mở mẫu\" collapsed. Top \"Tự làm · câu 1 / 3\" neutral count not timer. Small right panel lists observable criteria \"Hỏi đúng địa điểm\", \"Dùng từ hỏi phù hợp\", \"Giữ lời mở đầu lịch sự\" as empty bullets, no checkmarks before evaluation. Do not show 请问 or 哪儿 or complete answer anywhere. No automatic translation. Footer primary \"Kiểm tra câu trả lời\", back \"Chặng trước\". page tag \"04 · Tự làm không nhìn mẫu\"."
+    ],
+    [
+      "05-van-dung",
+      "PAGE 05 fifth stage active. Novel transfer campus mini-map: gym west, café immediately east adjacent, library separate north. Only labels in Vietnamese on map \"Nhà thể thao\", \"Quán cà phê\", \"Thư viện\", with simple accurate original 2.5D icons. Roleplay chat task \"Bạn đến khu nhà mới. Hỏi quán cà phê ở đâu, rồi trả lời bạn cùng lớp dựa vào bản đồ.\" Two stages of dialogue with first blank input active, second collapsed until turn one sent. No sample answers visible. Optional vocabulary chips only \"咖啡馆 · kāfēiguǎn · quán cà phê\" and \"体育馆 · tǐyùguǎn · nhà thể thao\", labeled \"Từ mới cho tình huống\" (not full answer). Main control \"Gõ câu trả lời\", optional \"Thu âm để tự nghe\". Clear note \"Bản thu dùng tự đối chiếu, chưa chấm phát âm.\" Footer primary \"Gửi lượt hỏi\", secondary \"Quay lại tự luyện\". Small route \"Luyện hội thoại tiếp · Vạn Âm Điện\". page tag \"05 · Vận dụng trong tình huống mới\"."
+    ],
+    [
+      "06-ket-qua-on-lai",
+      "PAGE 06 after five stages; same ribbon complete but no fictitious mastery. Lesson result heading \"Đã hoàn thành lượt học\". Warm modest gold completion seal. Three evidence rows \"Hiểu ý chính · 2/2 câu\", \"Tự làm không gợi ý · 2/3 câu\", \"Vận dụng tình huống mới · Cần luyện thêm\". Visually honest uneven result, no all-green. Main explanation \"Bạn đã hiểu mẫu vị trí. Cần luyện thêm cách tự đặt câu hỏi.\" Highlight one actionable remediation \"Luyện lại câu hỏi vị trí\" primary bottom button. Small contextual module cards: \"Nghịch Cảnh Lục · 1 điểm cần sửa\", \"Ký Ức Trận · Ôn lại theo lịch\", \"Thiên Cơ Kính · Xem bằng chứng\". Note \"Hoàn thành lượt học chưa có nghĩa đã nhớ bền; kiểm tra lại ở lần ôn.\" Secondary \"Về Thiên Lộ\". No claim native-level or mastered. page tag \"06 · Kết quả và ôn lại\"."
+    ],
+    [
+      "07-xuong-bien-tap",
+      "PAGE 07 is explicit PROPOSED lesson authoring preview INSIDE same preserved shell as a concept walkthrough, title \"Xưởng Biên Tập · Cấu trúc bài học\", badge \"ĐỀ XUẤT — cần bổ sung vào Xưởng\". Keep approved jade style. Three columns within workspace: LEFT page list with exact six pages \"01 Gặp tình huống\", \"02 Hiểu mẫu\", \"03 Luyện có gợi ý\", \"04 Tự làm\", \"05 Vận dụng\", \"06 Kết quả\"; second selected; buttons \"Thêm trang\", \"Đổi thứ tự\". CENTER miniature live learner preview of the two-line library/cafeteria dialogue and grammar blocks, label \"Xem trước bằng cùng bộ hiển thị của người học\", not code editor. RIGHT structured property form: \"Loại khối: Hội thoại\", \"Hán tự\", \"Pinyin\", \"Nghĩa Việt\", \"Ảnh minh họa\", \"Mô tả ảnh\", \"Nguồn và quyền sử dụng\", \"Mục tiêu đánh giá\", \"Liên kết từ / chữ / bài ôn\". Checkbox row \"Gợi ý phải ghi nhận trợ giúp\". Bottom actions \"Lưu bản nháp\" primary, \"Kiểm tra bài\", \"Xem trên điện thoại\". No raw JSON/code. Small editorial status \"Chưa duyệt nội dung\". This image demonstrates editor parity REQUIRED, not falsely claims feature exists."
+    ]
+  ],
+  "corrections": {
+    "page04": "Remove all answer-bearing Hanzi/Pinyin in lesson banner and illustration signs.",
+    "studio": "Flexible page count; same jade learner preview; exact library-location dialogue; AI asset unreviewed; own editorial header."
+  }
+}

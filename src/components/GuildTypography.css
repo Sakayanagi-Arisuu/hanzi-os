@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Hanzi Editorial';
+  src: url('/fonts/NotoSerif-Variable.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+.guild-landing, .signin-page.auth-guild {
+  --guild-serif: 'Hanzi Editorial', 'Times New Roman', serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.guild-landing :is(h1,h2,h3,h4), .guild-landing .guild-brand,
+.auth-guild :is(h1,h2), .auth-guild .signin-nav a strong,
+.auth-guild .auth-wide-button {
+  font-family: var(--guild-serif);
+  font-feature-settings: normal;
+  letter-spacing: normal;
+  text-rendering: auto;
+}

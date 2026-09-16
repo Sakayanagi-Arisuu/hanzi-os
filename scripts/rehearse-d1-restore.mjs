@@ -259,11 +259,13 @@ try {
     .sort();
   if (!migrations.length) throw new Error("No D1 migration was found");
   if (
-    migrations.length !== 21
+    migrations.length !== 23
     || !migrations[20]?.startsWith("0020_")
+    || migrations[21] !== "0021_sleepy_gorilla_man.sql"
+    || migrations[22] !== "0022_tearful_lady_ursula.sql"
   ) {
     throw new Error(
-      `Restore rehearsal requires 21 migrations through 0020; found ${
+      `Restore rehearsal requires 23 migrations through 0022; found ${
         migrations.length
       }`,
     );
@@ -1271,19 +1273,31 @@ try {
     "content_release_heads",
     "content_release_outbox_events",
     "content_release_packages",
+    "content_revision_assignment_events",
     "hanzi_password_credentials",
     "passkey_credentials",
     "system_settings",
   ];
   if (
-    tables.length !== 39
+    tables.length !== 40
     || requiredIdentityTables.some((table) => !tableNames.has(table))
   ) {
     throw new Error(
-      `Restore rehearsal requires 39 application tables including identity, HANZI.OS credentials, audited controls, governed content revisions, and content release worker state; found ${
+      `Restore rehearsal requires 40 application tables including identity, HANZI.OS credentials, audited controls, governed content revisions, assignments, and content release worker state; found ${
         tables.length
       }`,
     );
+  }
+  const assignmentTriggers = restored.prepare(
+    "SELECT name FROM sqlite_master WHERE type = 'trigger' AND name LIKE 'content_revision_assignment_events_%' ORDER BY name",
+  ).all().map((trigger) => trigger.name);
+  if (JSON.stringify(assignmentTriggers) !== JSON.stringify([
+    "content_revision_assignment_events_no_delete",
+    "content_revision_assignment_events_no_update",
+    "content_revision_assignment_events_roles_insert",
+    "content_revision_assignment_events_sequence_insert",
+  ])) {
+    throw new Error("Restore rehearsal is missing revision assignment integrity triggers");
   }
   const restoredHanziCredentialIndexes = restored.prepare(
     "PRAGMA index_list('hanzi_password_credentials')",

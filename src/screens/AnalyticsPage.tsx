@@ -1,3 +1,4 @@
+import { PracticeMilestone } from "../components/PracticeMilestone";
 import {
   Activity,
   ArrowRight,
@@ -21,6 +22,10 @@ import {
   UserRound,
   Zap,
 } from "lucide-react";
+import { RELEASED_LESSONS, RELEASED_VOCABULARY } from "../data/curriculum";
+import { useRef } from "react";
+import { accessDay } from "../learning/analyticsActivity";
+import { useLearnerOverview } from "../learning/useLearnerOverview";
 import { Link } from "react-router";
 import { NormalizedLearningAuthorityGate } from "../components/NormalizedLearningAuthorityGate";
 import {
@@ -28,19 +33,16 @@ import {
   buildAnalyticsGateways,
   type AnalyticsGatewayId,
 } from "../learning/analyticsJourney";
-import { resolveLearningPathAuthority } from "../learning/learningAuthority";
 import {
   deriveLocalLearnerActivityCoverage,
   deriveProjectedLearnerActivityCoverage,
   formatCoveragePercent,
-  formatLearnerActivityCoverage,
   type LearnerActivityCoverageItem,
 } from "../learning/learningCoverage";
 import { summarizeNormalizedObjectiveEvidence } from "../learning/normalizedEvidenceSummary";
 import {
   buildDailyMissions,
   GOAL_CONFIG,
-  isMistakeFromActivePathContent,
   type DailyMission,
 } from "../lib/adaptive";
 import { useLearning } from "../store/LearningStore";
@@ -75,46 +77,29 @@ const gatewayIcon: Record<AnalyticsGatewayId, typeof Map> = {
   dictionary: Search,
 };
 
-const dateKey = (date: Date) => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-};
-
 const visibleSignalState = (item: LearnerActivityCoverageItem) =>
   item.practiceAvailable && !item.supported ? "insufficient" : item.state;
 
 const signalLabel = (
   item: LearnerActivityCoverageItem,
-  authenticated: boolean,
 ) => {
   const state = visibleSignalState(item);
   if (state === "unavailable") return "Kênh luyện chưa có phép đo";
   if (state === "insufficient") {
-    return authenticated
-      ? "Đang hợp nhất bằng chứng"
-      : item.practiceCount > 0
-        ? `${item.practiceCount}/${item.target} hoạt động đã ghi nhận`
-        : "Chưa đủ bằng chứng độc lập";
+    return `${item.covered} câu độc lập · chưa đủ điều kiện đo`;
   }
   return `${formatCoveragePercent(item.percent)} tín hiệu`;
 };
 
 export function AnalyticsPage() {
-  const { state, dueWordIds, level, sync } = useLearning();
+  const detailRef = useRef<HTMLDetailsElement>(null);
+  const { state, dueWordIds, level } = useLearning();
   const interactionXp = useInteractionXp();
   const normalized = useNormalizedLearningProjection();
-  const authenticated = sync.session?.authenticated === true;
+  const { authenticated, account, activity, accessDays, authority, unresolved } = useLearnerOverview();
   const displayedLevel = interactionXp.authoritative
     ? Math.floor(interactionXp.totalXp / 500) + 1
     : level;
-  const authority = resolveLearningPathAuthority({
-    authenticated,
-    localState: state,
-    projection: normalized.projection,
-    authoritativeProgress: normalized.authoritativeProgress,
-  });
   if (authority.state === "blocked") {
     return (
       <NormalizedLearningAuthorityGate
@@ -131,23 +116,19 @@ export function AnalyticsPage() {
     progress: completionRate,
   } = authority.view;
   const week = Array.from({ length: 7 }, (_, offset) => {
-    const date = new Date();
-    date.setHours(0, 0, 0, 0);
-    date.setDate(date.getDate() - (6 - offset));
-    const key = dateKey(date);
-    const events = state.activityLog.filter((event) => dateKey(new Date(event.occurredAt)) === key);
-    const xp = events.reduce((total, event) => total + event.xp, 0);
+    const key = accessDay(Date.now() - (6 - offset) * 86_400_000);
+    const date = new Date(`${key}T12:00:00+07:00`);
+    const count = activity?.days.find(day => day.day === key)?.count ?? 0;
     return {
-      count: events.length,
-      dateLabel: date.toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit" }),
+      count,
+      dateLabel: date.toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit", timeZone: "Asia/Ho_Chi_Minh" }),
       key,
-      label: date.toLocaleDateString("vi-VN", { weekday: "short" }).replace("Th ", "T"),
-      xp,
+      label: date.toLocaleDateString("vi-VN", { weekday: "short", timeZone: "Asia/Ho_Chi_Minh" }).replace("Th ", "T"),
     };
   });
-  const chartMax = Math.max(40, ...week.map((day) => day.xp));
+  const chartMax = Math.max(10, ...week.map((day) => day.count));
   const activeDays = week.filter((day) => day.count > 0).length;
-  const weeklyXp = week.reduce((total, day) => total + day.xp, 0);
+  const weeklyAttempts = week.reduce((total, day) => total + day.count, 0);
   const normalizedEvidence = authenticated
     ? summarizeNormalizedObjectiveEvidence(
         normalized.coverageProjection ?? normalized.projection,
@@ -189,13 +170,6 @@ export function AnalyticsPage() {
   const goal = GOAL_CONFIG[
     normalized.projection?.enrollment?.goal ?? state.profile.goal
   ];
-  const unresolved = state.mistakes.filter((mistake) =>
-    !mistake.resolved
-    && isMistakeFromActivePathContent(
-      mistake,
-      state.profile.startingLevel,
-    )
-  ).length;
   const guestMission = buildDailyMissions(state, dueWordIds.length)[0]!;
   const primaryMission: DailyMission = authenticated
     ? {
@@ -222,9 +196,10 @@ export function AnalyticsPage() {
     <div className="content-page analytics-page oracle-page" data-testid="analytics-page">
       <header className="oracle-hero">
         <div className="oracle-hero-copy">
+          <span className="oracle-mirror-inscription" aria-hidden="true">天机镜</span>
           <span className="oracle-kicker"><BarChart3 size={16} aria-hidden="true" /> MIRROR-10 · TRUNG TÂM ĐIỀU PHỐI</span>
           <h1>Thiên Cơ Kính</h1>
-          <p>Quan sát tín hiệu học tập, hiểu việc cần làm tiếp theo và đi thẳng tới đúng điện luyện — không biến XP hay số lần làm bài thành Căn Cơ.</p>
+          <p>Nhìn rõ hành trình, hiểu việc cần làm tiếp theo. Mỗi dấu chân hôm nay mở một đường tiến mới.</p>
           <div className="oracle-identity-line" aria-label={`Hành giả cấp ${displayedLevel}, Thiên Mệnh ${goal.label}`}>
             <span><UserRound size={16} aria-hidden="true" /> Cấp {String(displayedLevel).padStart(2, "0")}</span>
             <span>Thiên Mệnh · {goal.label}</span>
@@ -253,7 +228,7 @@ export function AnalyticsPage() {
         </article>
         <article>
           <span className="oracle-metric-icon gold"><Flame size={19} aria-hidden="true" /></span>
-          <div><small>NHỊP TU LUYỆN</small><strong>{state.streak} ngày</strong><p>Mục tiêu {state.profile.dailyMinutes} phút/ngày</p></div>
+          <div><small>NHỊP TU LUYỆN</small><strong>{accessDays === null ? "—" : `${accessDays.length} ngày`}</strong><p>Tổng ngày truy cập · mỗi ngày tính một lần</p></div>
         </article>
         <article>
           <span className="oracle-metric-icon cyan"><BrainCircuit size={19} aria-hidden="true" /></span>
@@ -261,16 +236,82 @@ export function AnalyticsPage() {
         </article>
         <article>
           <span className="oracle-metric-icon vermilion"><Swords size={19} aria-hidden="true" /></span>
-          <div><small>NGHỊCH CẢNH</small><strong>{unresolved}</strong><p>Lỗi cục bộ đang chờ chữa</p></div>
+          <div><small>NGHỊCH CẢNH</small><strong>{unresolved ?? "—"}</strong><p>{unresolved === null ? "Chưa tải được hàng lỗi" : authenticated ? `Câu cần luyện · ${account.occurrences} dấu vết sai` : "Lỗi đang chờ phá giải"}</p></div>
         </article>
       </section>
+
+      {account.error && authenticated && <p className="oracle-data-error" role="status">Một phần dữ liệu chưa tải được. <button type="button" onClick={account.refresh}>Thử lại</button></p>}
+
+      <div className="oracle-evidence-grid">
+        <section className="oracle-section oracle-activity-panel" aria-labelledby="oracle-activity-title">
+          <header className="oracle-section-heading">
+            <div>
+              <span>NHỊP HỆ THỐNG · 7 NGÀY</span>
+              <h2 id="oracle-activity-title">Dấu chân hoạt động</h2>
+              <p>{authenticated && !activity ? "Chưa tải được lịch sử luyện tập." : activeDays > 0
+                ? `${activeDays}/7 ngày có hoạt động · ${weeklyAttempts.toLocaleString("vi-VN")} lượt luyện`
+                : "Chưa có hoạt động trong bảy ngày gần nhất."}</p>
+            </div>
+            <Activity size={24} aria-hidden="true" />
+          </header>
+          <figure className="oracle-chart">
+            <figcaption className="oracle-visually-hidden">{authenticated && !activity ? "Chưa tải được biểu đồ luyện tập." : `Biểu đồ bảy ngày: ${activeDays} ngày có hoạt động, tổng ${weeklyAttempts} lượt luyện. Múi giờ Việt Nam.`}</figcaption>
+            <ol>
+              {week.map((day) => <li
+                key={day.key}
+                aria-label={`${day.dateLabel}: ${authenticated && !activity ? "chưa có dữ liệu" : `${day.count} lượt luyện`}`}
+              >
+                <span>{authenticated && !activity ? "—" : day.count}</span>
+                <i style={{ height: `${(day.count / chartMax) * 100}%`, minHeight: day.count > 0 ? 3 : 0 }} aria-hidden="true" />
+                <small>{day.label}</small>
+              </li>)}
+            </ol>
+          </figure>
+          <div className="oracle-week-summary"><span><Zap size={18} aria-hidden="true" /><strong>{authenticated && !activity ? "—" : weeklyAttempts.toLocaleString("vi-VN")} lượt</strong><small>Luyện tập trong tuần</small></span><span><Activity size={18} aria-hidden="true" /><strong>{authenticated && !activity ? "—" : activeDays}/7 ngày</strong><small>Có luyện tập</small></span></div>
+          <p className="oracle-disclosure"><CheckCircle2 size={15} aria-hidden="true" /> Lượt luyện gồm cả lần thử lại và dùng gợi ý; không phải mức thành thạo.</p>
+          {activity?.pagePractice&&activity.pagePractice.attempts>0&&<p className="oracle-disclosure">Thiên Lộ đã lưu {activity.pagePractice.unique} hoạt động khác nhau: {activity.pagePractice.correct} lượt đúng, {activity.pagePractice.incorrect} lượt cần sửa, {activity.pagePractice.selfReview} lượt tự đối chiếu. {authenticated?'Lịch ghi theo ngày đồng bộ':'Lịch ghi theo thời gian lưu trên thiết bị'}; chưa dùng các lượt này để tăng chỉ số kỹ năng.</p>}
+        </section>
+
+        <section className="oracle-section oracle-pillar-panel" aria-labelledby="oracle-pillar-title">
+          <header className="oracle-section-heading">
+            <div>
+              <span>THẤT TRỤ · DẤU CHÂN THEO KỸ NĂNG</span>
+              <h2 id="oracle-pillar-title">Bản đồ Căn Cơ</h2>
+              <p>Mốc luyện: 1.000 câu mỗi kỹ năng · không phải điểm thành thạo.</p>
+            </div>
+            <a className="oracle-detail-link" href="#oracle-detail" onClick={() => { if (detailRef.current) detailRef.current.open = true; }}>Xem chi tiết <ArrowRight size={14} aria-hidden="true" /></a>
+          </header>
+          <div className="oracle-pillar-list">
+            {skillEvidence.map((item) => {
+              const meta = skillMeta[item.skill];
+              const Icon = meta.icon;
+              const visibleState = visibleSignalState(item);
+              const practice = activity?.skills[item.skill];
+              const valueText = practice ? `${practice.unique} câu · ${practice.attempts} lượt luyện` : "Chưa tải được lượt luyện";
+              return <article className={`is-${meta.color}`} data-state={visibleState} key={item.skill}>
+                <div className="oracle-pillar-copy">
+                  <span><Icon size={17} aria-hidden="true" /><strong>{meta.label}</strong></span>
+                  <small>{valueText}</small>
+                </div>
+                <Link to={ANALYTICS_SKILL_DESTINATION[item.skill]} aria-label={`${meta.action}: ${meta.label}`} viewTransition>
+                  <span>{meta.action}</span><ChevronRight size={16} aria-hidden="true" />
+                </Link>
+                <PracticeMilestone count={practice?.unique ?? null} label={meta.label} compact />
+              </article>;
+            })}
+          </div>
+
+          <p className="oracle-disclosure">Số câu khác nhau đã luyện; lượt luyện gồm cả thử lại.</p>
+
+        </section>
+      </div>
 
       <section className="oracle-section oracle-gateway-section" aria-labelledby="oracle-gateway-title">
         <header className="oracle-section-heading">
           <div>
             <span>MẠCH TU LUYỆN LIÊN HOÀN</span>
             <h2 id="oracle-gateway-title">Từ tín hiệu đi thẳng tới hành động</h2>
-            <p>Mỗi cửa giữ nguyên chức năng và dữ liệu riêng; Thiên Cơ Kính chỉ điều phối bạn tới đúng nơi.</p>
+            <p>Chọn một điện luyện phù hợp và tiếp nối hành trình của bạn.</p>
           </div>
           <CircleGauge size={24} aria-hidden="true" />
         </header>
@@ -296,98 +337,33 @@ export function AnalyticsPage() {
         </div>
       </section>
 
-      <div className="oracle-evidence-grid">
-        <section className="oracle-section oracle-activity-panel" aria-labelledby="oracle-activity-title">
-          <header className="oracle-section-heading">
-            <div>
-              <span>NHỊP HỆ THỐNG · 7 NGÀY</span>
-              <h2 id="oracle-activity-title">Dấu chân hoạt động</h2>
-              <p>{activeDays > 0
-                ? `${activeDays}/7 ngày có hoạt động · ${weeklyXp.toLocaleString("vi-VN")} XP tương tác`
-                : "Chưa có hoạt động trong bảy ngày gần nhất."}</p>
-            </div>
-            <Activity size={24} aria-hidden="true" />
-          </header>
-          <figure className="oracle-chart">
-            <figcaption className="oracle-visually-hidden">Biểu đồ bảy ngày: {activeDays} ngày có hoạt động, tổng {weeklyXp} XP tương tác. Mỗi cột bên dưới ghi rõ ngày, XP và số hoạt động.</figcaption>
-            <ol>
-              {week.map((day) => <li
-                key={day.key}
-                aria-label={`${day.dateLabel}: ${day.xp} XP tương tác từ ${day.count} hoạt động`}
-              >
-                <span>{day.xp || "·"}</span>
-                <i style={{ height: `${Math.max(4, (day.xp / chartMax) * 100)}%` }} aria-hidden="true" />
-                <small>{day.label}</small>
-              </li>)}
-            </ol>
-          </figure>
-          <p className="oracle-disclosure"><CheckCircle2 size={15} aria-hidden="true" /> XP chỉ phản ánh nhịp tương tác; không được dùng làm mastery hay tín hiệu Căn Cơ.</p>
-        </section>
 
-        <section className="oracle-section oracle-pillar-panel" aria-labelledby="oracle-pillar-title">
-          <header className="oracle-section-heading">
+          <details className="oracle-pillar-details" id="oracle-detail" ref={detailRef}>
+            <summary>Bản đồ Căn Cơ · Chi tiết bằng chứng</summary>
             <div>
-              <span>THẤT TRỤ · BẰNG CHỨNG ĐỦ ĐIỀU KIỆN</span>
-              <h2 id="oracle-pillar-title">Bản đồ Căn Cơ</h2>
-              <p>Thanh chỉ kết tinh khi có đủ hoạt động khác nhau, đủ phiên và đủ thời gian.</p>
-            </div>
-            <CircleGauge size={24} aria-hidden="true" />
-          </header>
-          <div className="oracle-pillar-list">
-            {skillEvidence.map((item) => {
-              const meta = skillMeta[item.skill];
-              const Icon = meta.icon;
-              const visibleState = visibleSignalState(item);
-              const valueText = signalLabel(item, authenticated);
-              return <article className={`is-${meta.color}`} data-state={visibleState} key={item.skill}>
-                <div className="oracle-pillar-copy">
-                  <span><Icon size={17} aria-hidden="true" /><strong>{meta.label}</strong></span>
-                  <small>{valueText}</small>
-                </div>
-                <div
-                  className="oracle-pillar-meter"
-                  role="progressbar"
-                  aria-label={meta.label}
-                  aria-valuemin={0}
-                  aria-valuemax={100}
-                  aria-valuenow={visibleState === "measured" ? item.percent ?? undefined : undefined}
-                  aria-valuetext={valueText}
-                >
-                  <i style={{ width: `${visibleState === "measured" ? item.percent ?? 0 : 0}%` }} />
-                </div>
-                <Link to={ANALYTICS_SKILL_DESTINATION[item.skill]} aria-label={`${meta.action}: ${meta.label}`} viewTransition>
-                  {meta.action} <ChevronRight size={16} aria-hidden="true" />
-                </Link>
-              </article>;
-            })}
-          </div>
-          <details className="oracle-pillar-details">
-            <summary>Xem số liệu bằng chứng của từng trụ</summary>
-            <div>
+              <p className="oracle-disclosure">Kho Thiên Lộ hiện có {RELEASED_LESSONS.length} bài học và {RELEASED_VOCABULARY.length.toLocaleString("vi-VN")} mục từ. Thanh tiến tới mốc luyện 1.000 câu khác nhau mỗi kỹ năng, không phải tỷ lệ thành thạo hoặc toàn bộ kho câu. Bài học và đọc hiểu theo tài khoản; luyện nói, nét chữ trên thiết bị này.</p>
               <div className="oracle-signal-summary">
                 <strong>{hasMeasuredCoverage ? formatCoveragePercent(contentPortfolioDepth) : "Chưa kết tinh"}</strong>
                 <span>{hasMeasuredCoverage
                   ? "Tổng hợp riêng các trụ đã đủ điều kiện đo."
                   : authenticated
-                    ? "Dữ liệu tài khoản đang chờ projection đủ điều kiện đo."
+                    ? "Lượt luyện được đếm ngay. Điểm thành thạo cần bằng chứng độc lập, đủ mẫu và phân tán theo thời gian."
                     : "Cần tối thiểu sáu hoạt động khác nhau qua nhiều phiên và 24 giờ."}</span>
               </div>
               <dl>
-                {skillEvidence.map((item) => <div key={item.skill}>
-                  <dt>{skillMeta[item.skill].label}</dt>
-                  <dd>{visibleSignalState(item) === "unavailable"
-                    ? "Kênh luyện mở · chưa có phép đo"
-                    : visibleSignalState(item) === "insufficient"
-                      ? authenticated
-                        ? "Đang hợp nhất bằng chứng"
-                        : formatLearnerActivityCoverage(item.practiceCount, item.target)
-                      : `${formatLearnerActivityCoverage(item.practiceCount, item.target)} · ${formatCoveragePercent(item.percent)}`}</dd>
-                </div>)}
+                {skillEvidence.map((item) => {
+                  const meta = skillMeta[item.skill];
+                  const Icon = meta.icon;
+                  return <div key={item.skill}>
+                  <dt><Icon size={21} aria-hidden="true" />{meta.label}</dt>
+                  <dd>{activity ? `${activity.skills[item.skill].unique} câu khác nhau · ${activity.skills[item.skill].attempts} lượt · ${activity.skills[item.skill].correct} lượt đúng (gồm cả gợi ý/thử lại)` : "Chưa tải được lượt luyện"}</dd>
+                  <dd>{item.skill === "speaking" ? "Chưa có phép đo nói đủ điều kiện. Bản chép lời không phải điểm phát âm." : authenticated ? `${item.covered} câu trả lời đúng lần đầu. Chưa có điểm thành thạo qua nhiều phiên.` : signalLabel(item)}</dd>
+                  <dd><Link to={ANALYTICS_SKILL_DESTINATION[item.skill]}>{meta.action}<ArrowRight size={14} aria-hidden="true" /></Link></dd>
+                </div>;
+                })}
               </dl>
             </div>
           </details>
-        </section>
-      </div>
 
       <footer className="oracle-footer-note">
         <span><BarChart3 size={17} aria-hidden="true" /> Thiên Cơ Kính chỉ quan sát và điều phối.</span>

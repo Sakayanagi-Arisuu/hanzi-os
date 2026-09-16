@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-15",
+  "scope": "Two HSK2 linked exchanges: food decisions and shopping constraints; supported practice and self-review.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/22-REVIEW-HSK2-FOOD-SHOPPING.md",
+  "items": [
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "sourceContentSha256": "sha256:c7b2eae0e1582085f50919c10399b78e6de80d739a317dcc627370ca50dc60d6",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "sourceContentSha256": "sha256:e0501d290c60960b028c05686dab4c89c6c90956cf2bc44095a6b3f9206930c0",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

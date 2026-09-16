@@ -1,0 +1,120 @@
+.jade-lesson{--jl-ink:#f2eedb;--jl-gold:#e8ce8d;--jl-line:#567362;display:flex;flex-direction:column;height:100%;max-height:80dvh;min-height:0;overflow:hidden;color:var(--jl-ink);background:radial-gradient(ellipse at top right,#254b37,transparent 70%),#0b241b;border:1px solid #779078;border-radius:14px;font-size:15px}
+.jade-lesson :is(button,select,textarea){font:inherit;min-height:44px;border:1px solid #7f977e;border-radius:7px;padding:9px 12px;background:#183d2d;color:#f3eedc}.jade-lesson button{display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}.jade-lesson button:disabled{opacity:.45;cursor:default}.jade-lesson :is(button,select,textarea,a):focus-visible{outline:3px solid #efd89b;outline-offset:3px}.jade-lesson a{color:#ecd59d}.jade-lesson p{line-height:1.65}.jade-lesson-heading{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;padding:16px 24px;background-position:center,right center;background-size:cover,55% auto;gap:16px;border-bottom:1px solid #7c8352;min-height:126px;box-sizing:border-box}.jade-lesson-heading>div{max-width:82%}.jade-lesson-heading h1{font-size:clamp(20px,2.4vw,30px);line-height:1.2;color:#f1edda;margin:5px 0}.jade-lesson-heading p{font-size:13px;color:#d5e0ce;margin:5px 0;max-width:85ch;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.jade-back{display:inline-flex;align-items:center;gap:7px;text-decoration:none;min-height:28px;font-size:12px;margin-right:20px}.jade-eyebrow{font-size:10px;letter-spacing:.12em;color:#ddc88d}.jade-seal{border:1px solid #b8a566;padding:5px 11px;font:36px serif;color:#e8ce8d;box-shadow:inset 0 0 0 3px #29442c;border-radius:4px;margin-right:8px}.jade-stages{display:flex;gap:0;margin:12px 18px 0;flex-shrink:0;border:1px solid #536f5b;border-radius:9px;background:#143428}.jade-stages button{flex:1;min-width:0;border:0;background:transparent;gap:9px;color:#c8d8c7;padding:10px}.jade-stages button>span{border:1px solid #9daf91;border-radius:50%;width:27px;height:27px;display:grid;place-items:center;flex-shrink:0}.jade-stages button strong{font-size:13px;text-align:left}.jade-stages button[aria-current]{color:#f0d699;background:#284730}.jade-stages button[aria-current]>span{background:#ead197;color:#193c26;border-color:#ead197;box-shadow:0 0 14px #ddc58030}
+.jade-lesson .lesson-page-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-content:start;scrollbar-color:#879a78 #102c21}.jade-page-title{display:flex;justify-content:space-between;align-items:center;gap:16px;grid-column:1/-1}.jade-page-title h2{font-size:21px;line-height:1.35;margin:4px 0;color:#f1e6be}.jade-page-title select{max-width:240px;width:100%;font-size:12px}.jade-page-title label{min-width:0}.jade-blocks{display:grid;align-content:start;gap:14px;min-width:0}.layout-split .jade-blocks{grid-template-columns:repeat(2,minmax(0,1fr))}.jade-lesson .layout-scene,.jade-lesson .layout-dialogue{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}.jade-lesson .layout-workshop{grid-template-columns:minmax(0,2fr) minmax(220px,.8fr)}.jade-scene{margin:0;min-width:0;position:relative;align-self:start;overflow:hidden;border:1px solid #8d936a;border-radius:10px;background:#253f2d}.jade-scene img{display:block;width:100%;aspect-ratio:1.28;object-fit:cover}.jade-scene figcaption{display:flex;align-items:center;gap:8px;padding:12px 15px;font-size:13px;background:#142c21;color:#e4d6ab}.jade-scene>button{position:absolute;bottom:60px;left:16px;right:16px;background:#f1ead7ed;color:#183829;border-color:#e7dab0}.jade-lesson .lesson-block{background:#f2eedf;color:#1b382c;padding:20px 22px;border:1px solid #d6d7bf;border-radius:11px;min-width:0;box-shadow:0 4px 14px #06191130}.jade-block-title{display:flex;align-items:center;gap:10px;color:#466949;margin-bottom:10px}.jade-block-title h3{margin:0;font-size:16px;line-height:1.4;color:#1c3a2c}.jade-lesson .lesson-block p{color:#2b4e3b;white-space:pre-line;margin:10px 0;font-size:15px}.jade-speaker{width:36px;height:36px;background:#d9e1cb;border:1px solid #99ac8a;border-radius:50%;display:grid;place-items:center;font:21px serif;flex-shrink:0}.jade-hanzi{display:block;font-size:clamp(23px,2.6vw,30px);line-height:1.65;white-space:pre-line;color:#163b2a;font-weight:650}.jade-lesson .lesson-block .jade-pinyin{color:#526c43;font-size:15px;margin:4px 0}.jade-lesson .jade-audio{background:#e1e6d4;color:#2a4b35;border-color:#b4c1a0;font-size:12px;min-height:44px;padding:6px 10px;margin-top:6px}.jade-answer-label{display:grid;gap:10px;font-size:13px;font-weight:600}.jade-lesson .lesson-block textarea{box-sizing:border-box;width:100%;min-height:130px;resize:vertical;background:#fcfaf0;color:#193a2c;border-color:#9bae91;line-height:1.6}.jade-draft-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.jade-draft-actions button{font-size:12px}.jade-lesson .jade-practice-note{display:block;color:#5b6c54;font-size:11px;line-height:1.6}.jade-reveal{padding:15px;background:#e6ead9;border-left:3px solid #668952;margin:10px 0}.jade-lesson .lesson-block .jade-draft-feedback{padding:12px;background:#e0e8cf;border-radius:7px;font-size:13px}.jade-rubric{padding:22px;background:#18382a;border:1px solid #6d805d;border-radius:10px;align-self:start}.jade-rubric h3{color:#e8d59c}.jade-rubric p{font-size:14px;border-bottom:1px solid #4d6653;padding-bottom:9px}.jade-rubric small{line-height:1.7;display:block;color:#cfdbc5}.jade-rubric button{margin-top:14px;width:100%;font-size:12px}.jade-listening-brief{padding:26px;background:#173c2b;border:1px solid #73916b;border-radius:11px;line-height:1.7;color:#e2e9d7}.jade-listening-brief h3{color:#f0da9d}.jade-listening-brief small{font-size:12px}.jade-transcript-toggle{width:100%;font-size:13px}.jade-related{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #4a654e;font-size:12px;padding-top:6px}.jade-related a{display:flex;align-items:center;gap:8px;min-height:44px}.jade-related span{color:#bacbb2}.jade-lesson>footer{flex-shrink:0;padding:11px 18px;background:#0a241b;border-top:1px solid #647955;display:flex;justify-content:space-between;align-items:center;gap:12px}.jade-lesson>footer>span{font-size:12px;color:#c4d2bd}.jade-lesson>footer>button:last-child{background:linear-gradient(#f3dfaa,#dbc185);color:#173322;border-color:#efd79a;font-weight:650}.jade-lesson .lesson-block img{width:100%;max-height:400px;object-fit:contain}.jade-lesson .lesson-block figure{margin:0}
+@media(max-width:760px){.jade-lesson-heading{padding:10px 14px;min-height:100px;background-size:cover,cover}.jade-lesson-heading>div{max-width:100%}.jade-seal{display:none}.jade-lesson-heading p{font-size:12px}.jade-stages{margin:8px 8px 0}.jade-stages button{padding:8px 3px;gap:4px;flex-direction:column}.jade-stages button strong{font-size:10px}.jade-stages button>span{height:22px;width:22px;font-size:11px}.jade-lesson .lesson-page-content{padding:12px;gap:12px}.jade-lesson .layout-scene,.jade-lesson .layout-dialogue,.jade-lesson .layout-workshop{grid-template-columns:1fr}.layout-split .jade-blocks{grid-template-columns:1fr}.jade-page-title{align-items:start;flex-direction:column;gap:8px}.jade-page-title h2{font-size:19px}.jade-page-title label,.jade-page-title select{max-width:none;width:100%}.jade-scene img{aspect-ratio:1.8}.jade-lesson .lesson-block{padding:17px}.jade-related>span{display:none}.jade-lesson>footer{padding:8px}.jade-lesson>footer button{font-size:12px;gap:5px}.jade-rubric{padding:16px}}
+@media(max-height:650px){.jade-lesson-heading{min-height:72px;padding:6px 16px}.jade-lesson-heading p,.jade-lesson-heading .jade-eyebrow,.jade-seal{display:none}.jade-lesson-heading h1{font-size:20px;margin:2px 0}.jade-back{min-height:22px;font-size:11px}.jade-stages{margin:5px 8px 0}.jade-stages button{padding:5px;min-height:44px;flex-direction:row}.jade-stages button strong{font-size:11px}.jade-stages button>span{width:23px;height:23px}.jade-lesson>footer{padding:5px 12px}.jade-page-title{flex-direction:row;align-items:center}.jade-page-title h2{font-size:18px}.jade-page-title select{max-width:220px}.jade-page-title .jade-eyebrow{display:none}.jade-lesson .lesson-page-content{padding:12px}}
+/* Keep intrinsic content rows from shrinking behind the scene in short viewports. */
+@media(max-height:500px){
+  .jade-lesson .jade-stages{display:none}
+  .jade-lesson-heading{min-height:44px;padding:2px 10px}
+  .jade-lesson-heading>div{display:flex;align-items:center;gap:10px;max-width:100%;min-width:0}
+  .jade-lesson-heading h1{font-size:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .jade-lesson .jade-back{flex-shrink:0;margin-right:0}
+}
+.jade-lesson .lesson-page-content { grid-auto-rows:max-content; }
+.jade-lesson .jade-back { min-height:44px; }
+@media(max-width:760px){.jade-scene img{max-height:170px;object-fit:cover}}
+.jade-activity [role=group]{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}.jade-activity [role=group]>button{min-height:44px}.jade-activity button[aria-pressed=true]{outline:3px solid #9b742c;outline-offset:2px;background:#e6d5a6;color:#193c2a}.jade-order-answer{min-height:58px;padding:12px;border:1px dashed #67886e;border-radius:8px}.jade-activity fieldset{border:1px solid #8fa38b;border-radius:8px;padding:12px;margin:12px 0}.jade-activity fieldset>label{display:grid;grid-template-columns:44px 1fr;align-items:center;gap:6px;margin:8px 0}.jade-activity fieldset>label>span{grid-column:2}.jade-activity input[type=checkbox]{width:24px;height:24px;min-height:24px}.jade-activity fieldset>label>strong{font-size:15px}
+.jade-diagram{margin:0}.jade-diagram figcaption{line-height:1.6;margin:0 0 16px;color:#294d38}.jade-diagram ol{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;padding:0;list-style:none}.jade-diagram li{display:flex;flex-direction:column;gap:8px;padding:16px;background:#e4e9d7;border:1px solid #899d78;border-radius:8px;min-width:0}.jade-diagram li strong{font-size:25px;color:#214530}.jade-diagram li>span{color:#4b6443}.jade-diagram li b{font-size:14px}.jade-diagram li .jade-diagram-number{font-size:12px;color:#675522}.jade-diagram-timeline ol{grid-template-columns:1fr;border-left:3px solid #768e60;padding-left:16px}.jade-diagram-map ol{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(90px,auto));background:#d2dec4;padding:10px;gap:8px}.jade-diagram-map li{padding:8px}.jade-diagram-map li strong{font-size:19px}.jade-diagram-map li .jade-diagram-number{display:none}@media(max-width:600px){.jade-diagram-map ol{min-width:540px}.jade-diagram-map{overflow-x:auto}.jade-diagram-comparison ol,.jade-diagram-sequence ol{grid-template-columns:1fr}}
+
+.jade-reading{max-width:78ch;margin-inline:auto}.jade-reading-tools{display:flex;flex-wrap:wrap;gap:8px}.jade-reading-text{list-style:none;padding:0;margin:20px 0}.jade-reading-text li{padding:16px 12px;margin:0 0 16px;border-left:3px solid transparent}.jade-reading-text li.is-selected{border-color:#557344;background:#e3e8d3}.jade-lesson .jade-reading .jade-hanzi{font-size:22px;line-height:1.9;letter-spacing:.025em}.jade-reading-text button{font-size:12px}.jade-reading .jade-answer-label{margin-top:20px}
+
+/* The lesson is a viewport workspace: media and listening controls never scroll away. */
+.jade-lesson .lesson-page-content { display:flex; flex-direction:column; overflow:hidden; gap:10px; padding:12px; }
+.jade-lesson .jade-page-title { flex:0 0 auto; }
+.jade-lesson .jade-page-workspace { display:grid; grid-template-columns:minmax(0,1fr); flex:1 1 0; min-height:0; min-width:0; gap:14px; overflow:hidden; }
+.jade-lesson :is(.layout-scene,.layout-dialogue) .jade-page-workspace { grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); }
+.jade-lesson .layout-workshop .jade-page-workspace { grid-template-columns:minmax(0,2fr) minmax(190px,.7fr); }
+.jade-lesson .jade-page-workspace > .jade-blocks { min-height:0; overflow:auto; overscroll-behavior:contain; scrollbar-gutter:stable; padding:2px 5px 2px 2px; align-content:start; }
+.jade-lesson .jade-page-workspace > .jade-rubric { min-height:0; max-height:100%; overflow:auto; box-sizing:border-box; }
+.jade-lesson .jade-page-workspace > .jade-scene { display:flex; flex-direction:column; height:100%; min-height:0; align-self:stretch; }
+.jade-lesson .jade-page-workspace .jade-scene img { flex:1 1 0; min-height:0; height:0; max-height:none; width:100%; aspect-ratio:auto; object-fit:contain; }
+.jade-lesson .jade-scene figcaption { flex:0 0 auto; padding:8px; font-size:12px; }
+.jade-lesson .jade-listening-controls { display:flex; gap:8px; flex:0 0 auto; }
+.jade-lesson .jade-listening-controls button { flex:1; min-width:0; width:auto; background:#ece3c8; color:#173d2b; font-size:13px; }
+.jade-lesson .jade-related { flex:0 0 auto; padding:0; font-size:11px; }
+.jade-lesson .jade-related a { min-height:44px; }
+.jade-lesson .jade-listening-brief { padding:16px; }
+@media(max-width:760px) {
+  .jade-lesson .jade-page-title { flex-direction:row; align-items:center; gap:8px; }
+  .jade-lesson .jade-page-title h2 { font-size:16px; }
+  .jade-lesson .jade-page-title label { width:42%; flex-shrink:0; }
+  .jade-lesson .jade-page-title .jade-eyebrow { display:none; }
+  .jade-lesson :is(.layout-scene,.layout-dialogue) .jade-page-workspace { grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(60px,.65fr) minmax(0,1fr); gap:8px; }
+  .jade-lesson .jade-scene figcaption { display:none; }
+  .jade-lesson .layout-workshop .jade-page-workspace { grid-template-columns:minmax(0,1fr); overflow:auto; }
+  .jade-lesson .layout-workshop .jade-page-workspace > .jade-blocks { overflow:visible; }
+  .jade-lesson .jade-listening-controls button { font-size:11px; padding:6px; }
+}
+@media(max-height:500px) {
+  .jade-lesson .lesson-page-content { gap:6px; padding:6px; }
+  .jade-lesson .jade-related { display:none; }
+  .jade-lesson .jade-page-title .jade-eyebrow { display:none; }
+  .jade-lesson .jade-page-title h2 { font-size:15px; margin:0; }
+  .jade-lesson .jade-scene figcaption { display:none; }
+}
+.jade-lesson .jade-lesson-heading { min-height:68px; padding:6px 16px; }
+.jade-lesson .jade-lesson-heading h1 { font-size:22px; margin:2px 0; }
+.jade-lesson .jade-lesson-heading p,.jade-lesson .jade-lesson-heading .jade-eyebrow,.jade-lesson .jade-seal { display:none; }
+.jade-lesson .jade-lesson-heading>div { display:flex; align-items:center; gap:12px; max-width:100%; }
+.jade-lesson .jade-stages { margin:6px 10px 0; }
+.jade-lesson .jade-stages button { padding:6px; min-height:44px; }
+.jade-lesson .jade-listening-brief { padding:12px 16px; }
+.jade-lesson .jade-listening-brief>svg { display:none; }
+.jade-lesson .jade-listening-brief h3 { font-size:18px; margin:0 0 8px; }
+.jade-lesson .jade-listening-brief p { margin:8px 0; font-size:14px; }
+.jade-lesson .jade-footer-dictionary { display:inline-flex; align-items:center; justify-content:center; width:44px; min-height:44px; flex-shrink:0; }
+@media(max-width:760px),(max-height:500px){
+  .jade-lesson .jade-lesson-heading { min-height:44px; padding:2px 10px; }
+  .jade-lesson .jade-lesson-heading h1 { font-size:16px; }
+  .jade-lesson .jade-back { margin:0; flex-shrink:0; }
+  .jade-lesson>footer { gap:4px; }
+}
+
+/* One authored item at a time; the same navigation is used in Studio preview. */
+.jade-lesson .jade-item-panel { display:flex; flex-direction:column; min-height:0; min-width:0; gap:6px; }
+.jade-lesson .jade-item-panel > .jade-blocks { flex:1 1 0; min-height:0; overflow:auto; overscroll-behavior:contain; scrollbar-gutter:stable; padding:2px 5px 2px 2px; grid-template-columns:minmax(0,1fr); }
+.jade-lesson .jade-item-picker { display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:12px; color:#dfd8bb; }
+.jade-lesson .jade-item-picker > span { flex-shrink:0; }
+.jade-lesson .jade-item-picker select { min-width:0; max-width:75%; font-size:12px; width:100%; padding:6px; }
+.jade-lesson .jade-more-content { flex:0 0 auto; width:100%; min-height:44px; padding:6px; font-size:12px; background:#e7dbb8; color:#1c3c2d; border-color:#b9ac7f; }
+.jade-lesson .layout-workshop .jade-page-workspace { grid-template-columns:minmax(0,1fr); overflow:hidden; }
+.jade-lesson .jade-item-panel .lesson-block { padding:16px 20px; }
+@media(max-width:760px) {
+  .jade-lesson .jade-item-panel .lesson-block { padding:12px; }
+  .jade-lesson > footer > span { font-size:10px; }
+}
+@media(min-width:1000px) {
+  .jade-lesson .layout-split .lesson-block-dialogue { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); column-gap:24px; align-content:start; }
+  .jade-lesson .layout-split .lesson-block-dialogue .jade-block-title { grid-column:1 / -1; }
+  .jade-lesson .layout-split .lesson-block-dialogue > .jade-hanzi { grid-column:1; grid-row:2 / span 4; padding:20px; align-self:center; text-align:center; }
+  .jade-lesson .layout-split .lesson-block-dialogue > :is(p,button) { grid-column:2; }
+}
+@media(max-width:760px) {
+  .jade-lesson :is(.layout-scene,.layout-dialogue) .jade-page-workspace { grid-template-rows:minmax(60px,100px) minmax(0,1fr); }
+  .jade-lesson .jade-stages button { flex-direction:row; gap:4px; }
+  .jade-lesson .jade-stages button > span { width:20px; height:20px; font-size:10px; }
+  .jade-lesson .jade-stages button strong { font-size:10px; }
+}
+@media(max-width:760px) {
+  .jade-lesson :is(.layout-scene,.layout-dialogue) .jade-page-workspace { grid-template-rows:minmax(80px,36%) minmax(0,1fr); }
+  .jade-lesson .jade-item-panel .lesson-block p { font-size:14px; margin:8px 0; }
+}
+
+/* Fill the scene edge to edge and return decorative spacing to the lesson. */
+.jade-lesson .jade-page-workspace .jade-scene img { object-fit:cover; object-position:50% 45%; }
+.jade-lesson .lesson-page-content { padding:8px; gap:8px; }
+.jade-lesson .jade-page-workspace { gap:10px; }
+.jade-lesson .jade-lesson-heading { min-height:56px; padding:4px 12px; }
+.jade-lesson .jade-stages { margin:4px 8px 0; }
+.jade-lesson > footer { padding:6px 10px; }
+@media(max-width:760px),(max-height:500px) {
+  .jade-lesson .jade-lesson-heading { min-height:44px; padding:2px 8px; }
+  .jade-lesson .lesson-page-content { padding:6px; gap:6px; }
+  .jade-lesson > footer { padding:4px 6px; }
+}
+.jade-lesson .jade-audio-source { display:block; font-size:10px; line-height:1.2; font-weight:400; opacity:.85; }
+.jade-rubric-checklist summary { min-height:44px; display:flex; align-items:center; cursor:pointer; color:#214630; font-weight:600; }
+.jade-rubric-checklist summary::before { content:'▸'; margin-right:8px; }
+.jade-rubric-checklist[open] summary::before { content:'▾'; }
+.jade-rubric-checklist summary:focus-visible { outline:3px solid #9b742c; outline-offset:2px; }

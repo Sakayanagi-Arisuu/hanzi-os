@@ -242,11 +242,17 @@ export function AuthenticatedMistakesPage() {
       pendingCommand.current = null;
       attemptStartedAt.current = Date.now();
       await loadQueue();
+      const detail = receipt.remediationFeedback;
+      const explanation = detail && typeof detail === "object"
+        && "correctAnswer" in detail && typeof detail.correctAnswer === "string"
+        && "explanation" in detail && typeof detail.explanation === "string"
+        ? { correctAnswer: detail.correctAnswer, explanation: detail.explanation } : null;
       return {
         outcome: receipt.outcome,
         resolved: receipt.outcome === "correct" && !usedHint,
         answer,
-        explanation: queueItem.hint,
+        correctAnswer: explanation?.correctAnswer,
+        explanation: explanation?.explanation ?? "Lượt này chưa có lời giải chi tiết từ nguồn bài. Mở lại bài gốc để đối chiếu ngữ cảnh.",
         usedHint,
       };
     } catch (caught) {

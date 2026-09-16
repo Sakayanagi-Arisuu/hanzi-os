@@ -1,0 +1,168 @@
+.profile-page.sys-guild {
+  --sys-surface: #091719;
+  --sys-border: #29413f;
+  --sys-text: #edf3f1;
+  --sys-muted: #a4b3af;
+  --sys-accent: #43f2d0;
+  position: relative;
+  width: 100%; max-width: none; margin: 0;
+  height: calc(100dvh - 70px);
+  min-height: 0; padding: clamp(20px, 3.4vw, 56px);
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto; gap: 24px;
+  color: var(--sys-text); background: radial-gradient(ellipse at 25% 40%, #061410, #030d10 80%);
+  overflow: hidden;
+}
+.sys-guild .profile-hero { margin: 0; padding: 0; border: 0; background: none; min-height: 0; }
+.sys-guild .profile-hero::before, .sys-guild .profile-hero::after, .sys-guild .profile-rank-badge { display: none; }
+.sys-guild .profile-hero h1 { font: 750 clamp(30px, 3.8vw, 60px)/1.12 var(--font-ui, sans-serif); letter-spacing: -.025em; margin: 20px 0 10px; color: var(--sys-text); }
+.sys-guild .profile-hero p { font-size: clamp(14px, 1.25vw, 19px); color: var(--sys-muted); margin: 0; }
+.sys-guild .system-kicker { color: var(--sys-accent); font-size: 14px; letter-spacing: .04em; }
+.sys-guild button, .sys-guild select, .sys-guild input:not([type=range]) { min-height: 44px; }
+.sys-guild :is(button, a, input, select, summary):focus-visible { outline: 2px solid #4de4ff; outline-offset: 4px; }
+.sys-back { position: absolute; right: 30px; top: 18px; display: flex; align-items: center; gap: 8px; padding: 0 12px; color: var(--sys-muted); border: 1px solid var(--sys-border); border-radius: 4px; background: var(--sys-surface); }
+.sys-overview-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; align-items: stretch; min-height: 0; overflow: auto; }
+.sys-category-list { display: grid; grid-template-rows: repeat(4, 1fr); gap: 10px; }
+.sys-category-list button { display: grid; grid-template-columns: 56px minmax(0,1fr) 24px; align-items: center; gap: 16px; padding: 18px 24px; text-align: left; color: var(--sys-accent); background: linear-gradient(115deg, #0b191a, #0a1515); border: 1px solid var(--sys-border); border-radius: 6px; }
+.sys-category-list button:first-child > svg:first-child { color: #f5c961; }
+.sys-category-list button:focus-visible { border-color: var(--sys-accent); background: linear-gradient(110deg, #15302b, #0b1c1a); }
+@media (hover: hover) and (pointer: fine) {
+  .sys-category-list button:hover { border-color: var(--sys-accent); background: linear-gradient(110deg, #15302b, #0b1c1a); }
+}
+.sys-category-list strong { display: block; color: var(--sys-text); font-size: clamp(16px, 1.45vw, 23px); }
+.sys-category-list small { display: block; margin-top: 7px; color: var(--sys-muted); font-size: 14px; line-height: 1.4; }
+.sys-overview-preview { padding: clamp(20px, 2vw, 34px); display: flex; flex-direction: column; background: #0a1819; border: 1px solid #2b5850; border-radius: 8px; }
+.sys-overview-preview p { color: var(--sys-muted); font-size: 15px; }
+.sys-overview-preview dl { flex: 1; display: grid; margin: 8px 0 24px; border: 1px solid #2b5850; }
+.sys-overview-preview dl > div { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--sys-border); gap: 12px; }
+.sys-overview-preview dl > div:last-child { border: 0; }
+.sys-overview-preview dt { display: flex; align-items: center; gap: 15px; }
+.sys-overview-preview dt svg { color: #a2d3ca; }
+.sys-overview-preview dd { margin: 0; max-width: 48%; text-align: right; overflow-wrap: anywhere; font-size: 13px; color: var(--sys-muted); }
+.sys-overview-preview dt { min-width: 0; }
+.sys-overview-preview dt svg { flex-shrink: 0; }
+.sys-gold-button { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 24px; background: linear-gradient(115deg, #f3c35a, #f4d17a); color: #10130d; border: 1px solid #ffd98b; border-radius: 4px; font-weight: 700; font-size: 17px; }
+.sys-guild .profile-layout { margin: 0; min-height: 0; display: block; overflow: auto; scrollbar-width: thin; scrollbar-color: #38675d transparent; }
+.sys-guild .profile-settings, .sys-guild .data-control-panel { padding: 0; border: 0; background: transparent; box-shadow: none; display: grid; gap: 12px; }
+.sys-guild .profile-settings > .section-heading, .sys-guild .data-control-panel > .section-heading { display: none; }
+.sys-guild .profile-fieldset { margin: 0; min-width: 0; padding: 18px; border: 1px solid var(--sys-border); border-radius: 7px; background: var(--sys-surface); }
+.sys-guild .profile-fieldset legend { float: left; width: 100%; margin: 0 0 14px; padding: 0; color: var(--sys-text); font-size: 18px; font-weight: 650; }
+.sys-guild .profile-fieldset legend + * { clear: both; }
+.sys-guild .segmented-control { display: flex; gap: 0; width: 100%; }
+.sys-guild .segmented-control button { flex: 1; font-size: 16px; border-radius: 4px; }
+.sys-guild .goal-option-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+.sys-guild .goal-option-grid strong { font-size: 16px; }
+.sys-guild .goal-option-grid small { white-space: normal; font-size: 12px; }
+.sys-guild .sys-profile-identity { margin: 0; padding: 14px 18px; background: var(--sys-surface); }
+.sys-guild .field-label { margin: 0; }
+.sys-guild .field-label input { font-size: 16px; }
+.sys-guild .sys-motion-options { grid-template-columns: 1fr; gap: 10px; }
+.sys-guild .sys-motion-options button { min-height: 64px; padding: 12px; }
+.sys-guild .sys-motion-options strong { font-size: 16px; }
+.sys-guild .sys-motion-options small { font-size: 13px; color: var(--sys-muted); }
+.sys-display .profile-settings { grid-template-columns: 1.1fr 1fr; grid-template-rows: 1fr auto; }
+.sys-accessibility-note { display: flex; gap: 14px; align-items: center; padding: 18px; border: 1px solid var(--sys-border); border-radius: 6px; background: var(--sys-surface); }
+.sys-accessibility-note p { color: var(--sys-muted); font-size: 13px; line-height: 1.5; margin-bottom: 0; }
+.sys-reading-preview { grid-column: 2; grid-row: 1 / 3; min-height: 350px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 18px; padding: 30px; border: 1px solid #358375; outline: 8px solid #091719; outline-offset: -10px; border-radius: 8px; background: radial-gradient(ellipse, #081a1b, #061215); text-align: center; }
+.sys-reading-preview > span { font-family: 'Noto Serif SC', serif; font-size: clamp(60px,6vw,100px); line-height: 1.2; }
+.sys-reading-preview strong { font-size: 28px; color: var(--sys-accent); }
+.sys-reading-preview i { color: #348d7d; font-size: 24px; }
+.sys-reading-preview b { font-size: 28px; color: #f6c568; font-family: Georgia, serif; }
+.sys-reading-preview p { max-width: 380px; font-size: 18px; line-height: 1.6; color: #c4cecb; }
+.sys-reading-preview button { padding: 12px 24px; color: var(--sys-accent); border: 1px solid var(--sys-accent); border-radius: 6px; background: #041313; }
+.sys-guild .sys-audio-console { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+.sys-guild .sys-voice-identity { grid-column: 1 / -1; }
+.sys-audio .sys-voice-identity { display: none; }
+.sys-audio .profile-fieldset > legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.sys-audio .sys-audio-test { grid-column: 1 / -1; }
+.sys-audio .sys-audio-console input[type="range"] { accent-color: var(--sys-accent); }
+.sys-guild .sys-audio-console > :is(label,button) { margin: 0; min-width: 0; border: 1px solid var(--sys-border); padding: 16px; background: #0a1a1d; border-radius: 6px; }
+.sys-guild .sys-audio-console strong { font-size: 15px; }
+.sys-guild .sys-audio-console small { font-size: 12px; color: var(--sys-muted); }
+.sys-guild .sys-audio-console select { max-width: 100%; font-size: 14px; }
+.sys-guild .sys-audio-disclosure { grid-column: 1 / -1; }
+.sys-guild .data-control-panel { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.sys-guild .data-control-panel > :is(.cloud-account-card,.data-status,.data-counters,.danger-zone) { grid-column: 1 / -1; }
+.sys-guild .cloud-account-card, .sys-guild .data-status { padding: 18px; background: var(--sys-surface); border: 1px solid var(--sys-border); border-radius: 7px; }
+.sys-guild .cloud-account-card strong { font-size: 20px; }
+.sys-guild .cloud-account-card p, .sys-guild .data-status p { font-size: 14px; color: var(--sys-muted); }
+.sys-guild .data-counters { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; padding: 14px; margin: 0; border: 1px solid var(--sys-border); border-radius: 7px; }
+.sys-guild .data-counters > div { padding: 0 10px; border: 0; }
+.sys-guild .data-counters dt { font-size: 13px; }
+.sys-account .cloud-account-card { display: grid; grid-template-columns: 28px minmax(0,1fr) auto; gap: 14px; align-items: center; }
+.sys-account .cloud-account-card > :is(button,a) { grid-column: auto; width: auto; padding: 10px 16px; margin: 0; font-size: 14px; }
+.sys-account .cloud-account-card small { font-size: 12px; }
+.sys-account .data-control-panel > .full-button { margin: 0; }
+.sys-account .data-status strong { font-size: 16px; }
+.sys-account .data-status p { margin: 5px 0 0; }
+.sys-account .data-counters dd { margin: 5px 0 0; }
+.sys-account .data-control-panel { gap: 8px; }
+.sys-guild .danger-zone { margin: 0; padding: 18px; background: var(--sys-surface); border-color: #70433d; }
+.sys-guild .danger-zone summary { min-height: 44px; cursor: pointer; color: #ff8977; font-size: 18px; font-weight: 650; }
+.sys-guild .danger-zone p { color: var(--sys-muted); font-size: 14px; }
+.sys-footer { border-top: 1px solid var(--sys-border); padding-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 20px; color: var(--sys-muted); font-size: 12px; }
+.sys-footer span { display: flex; align-items: center; gap: 8px; min-width: 0; line-height: 1.5; }
+.sys-footer svg { flex-shrink: 0; }
+.sys-footer > span:first-child { flex: 1; }
+.sys-footer > span:last-child:not(:first-child) { max-width: 40%; text-align: right; }
+.sys-footer .profile-save { margin: 0; min-width: 190px; width: auto; }
+.sys-advanced { min-width: 0; padding: 14px 18px; border: 1px solid var(--sys-border); border-radius: 7px; background: var(--sys-surface); }
+.sys-advanced summary { min-height: 44px; display: list-item; align-content: center; cursor: pointer; font-size: 18px; font-weight: 650; }
+.sys-advanced[open] > :not(summary) { margin-top: 12px; }
+.sys-journey-identity { order: 1; }
+.sys-daily-goal { order: -1; }
+.sys-reset-link { order: 2; display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--sys-surface); border: 1px solid var(--sys-border); border-radius: 7px; color: #ff8977; text-align: left; }
+@media (max-height: 760px) and (min-width: 801px) {
+  .profile-page.sys-guild { padding: 20px 24px; gap: 16px; }
+  .sys-guild .profile-hero h1 { margin: 12px 0 8px; font-size: 36px; }
+  .sys-category-list button { padding: 12px 18px; }
+  .sys-overview-preview { padding: 18px; }
+  .sys-overview-preview dl { margin-bottom: 14px; }
+  .sys-overview-preview dl > div { padding: 8px 12px; }
+  .sys-guild .sys-audio-console { gap: 10px; }
+  .sys-guild .sys-audio-console > :is(label,button) { padding: 10px; }
+  .sys-display .profile-settings { height: 100%; min-height: 0; }
+  .sys-display .sys-motion-options { grid-template-columns: 1fr 1fr; }
+  .sys-display .sys-motion-options button { min-height: 76px; }
+  .sys-display .sys-reading-preview { min-height: 0; padding: 20px; gap: 12px; }
+  .sys-display .sys-reading-preview > span { font-size: 70px; }
+  .sys-display .sys-reading-preview p { font-size: 15px; margin: 0; }
+  .sys-display .profile-fieldset { padding: 14px; }
+  .sys-display .sys-motion-options button { min-height: 60px; padding: 8px; }
+  .sys-display .sys-motion-options small { font-size: 12px; line-height: 1.3; }
+  .sys-display .sys-motion-options strong { font-size: 14px; }
+  .sys-display .sys-accessibility-note { padding: 10px; }
+  .sys-display .sys-accessibility-note p { margin: 4px 0 0; font-size: 12px; }
+  .sys-display .sys-reading-preview { gap: 8px; padding: 16px; }
+  .sys-display .sys-reading-preview > span { font-size: 58px; }
+  .sys-display .sys-reading-preview strong, .sys-display .sys-reading-preview b { font-size: 24px; }
+  .sys-journey .profile-settings { gap: 8px; }
+  .sys-journey .sys-advanced { padding: 4px 14px; }
+  .sys-journey .profile-fieldset { padding: 10px 14px; }
+  .sys-journey .profile-fieldset legend { margin-bottom: 8px; }
+  .sys-journey .sys-accessibility-note, .sys-journey .sys-reset-link { padding: 10px 14px; font-size: 13px; }
+}
+@media (max-width: 800px) {
+  .profile-page.sys-guild { height: calc(100dvh - 136px); padding: 18px 16px; gap: 16px; }
+  .sys-guild .profile-hero h1 { font-size: 30px; margin-top: 16px; }
+  .sys-guild .system-kicker { font-size: 11px; padding-right: 60px; }
+  .sys-back { top: 8px; right: 12px; font-size: 0; }
+  .sys-overview-grid { grid-template-columns: 1fr; gap: 18px; }
+  .sys-category-list button { padding: 14px; grid-template-columns: 34px 1fr 20px; gap: 12px; }
+  .sys-category-list button > svg:first-child { width: 30px; }
+  .sys-display .profile-settings, .sys-guild .sys-audio-console, .sys-guild .data-control-panel { grid-template-columns: 1fr; }
+  .sys-reading-preview { grid-column: 1; grid-row: auto; }
+  .sys-guild .goal-option-grid { grid-template-columns: 1fr 1fr; }
+  .sys-guild .segmented-control { flex-wrap: wrap; }
+  .sys-guild .segmented-control button { flex-basis: 30%; }
+  .sys-guild .data-counters { grid-template-columns: 1fr 1fr; }
+  .sys-footer { font-size: 11px; gap: 10px; }
+  .sys-footer > span:last-child:not(:first-child) { display: none; }
+  .sys-footer .profile-save { min-width: 132px; font-size: 12px; }
+}
+html[data-theme="light"] .profile-page.sys-guild { --sys-surface: #f5eee0; --sys-border: #c1b49c; --sys-text: #26362d; --sys-muted: #526158; --sys-accent: #096954; background: #eae2d2; }
+html[data-theme="light"] .sys-guild :is(.sys-category-list button,.sys-overview-preview,.sys-audio-console > label,.sys-audio-console > button) { background: var(--sys-surface); color: var(--sys-text); }
+html[data-theme="light"] .sys-guild .sys-category-list button:focus-visible { background: #d7e4d8; border-color: var(--sys-accent); }
+@media (hover: hover) and (pointer: fine) {
+  html[data-theme="light"] .sys-guild .sys-category-list button:hover { background: #d7e4d8; border-color: var(--sys-accent); }
+}
+html[data-theme="light"] .sys-guild .sys-reading-preview { color: #edf3f1; }

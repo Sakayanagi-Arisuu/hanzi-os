@@ -21,10 +21,10 @@ describe("PronunciationLessonLibrary", () => {
       }),
     ));
 
-    expect(html).toContain("Chọn bài đã học");
+    expect(html).toContain("Luyện nói theo Thiên Lộ");
     expect(html).toContain("Bốn thanh điệu");
     expect(html).toContain("Chào hỏi");
-    expect(html).toContain("không cần quay về Thiên Lộ");
+    expect(html).toContain("Các bài đã mở trên Thiên Lộ");
     expect(html).toContain('aria-current="true"');
   });
 

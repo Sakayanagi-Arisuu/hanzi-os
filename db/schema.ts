@@ -11,6 +11,37 @@ import {
   uniqueIndex,
 } from "drizzle-orm/sqlite-core";
 
+/** Supported lesson-page attempts do not participate in trial completion. */
+export const lessonPageAttempts = sqliteTable('lesson_page_attempts', {
+ id:text('id').primaryKey(),
+ userId:text('user_id').notNull().references(()=>users.id,{onDelete:'cascade'}),
+ resetEpoch:integer('reset_epoch').notNull(),
+ idempotencyKey:text('idempotency_key').notNull(),
+ requestHash:text('request_hash').notNull(),
+ activityId:text('activity_id').notNull(),
+ activityVersion:text('activity_version').notNull(),
+ lessonId:text('lesson_id').notNull(),
+ revisionId:text('revision_id').notNull(),
+ responseJson:text('response_json').notNull(),
+ outcome:text('outcome').notNull(),
+ occurredAt:text('occurred_at').notNull(),
+ createdAt:integer('created_at').notNull(),
+},table=>[
+ uniqueIndex('lesson_page_attempt_owner_key').on(table.userId,table.resetEpoch,table.idempotencyKey),
+ index('lesson_page_attempt_owner_activity').on(table.userId,table.resetEpoch,table.activityId,table.createdAt),
+ check('lesson_page_attempt_epoch',sql`${table.resetEpoch} BETWEEN 0 AND 2147483647`),
+ check('lesson_page_attempt_response',sql`json_valid(${table.responseJson})`),
+ check('lesson_page_attempt_outcome',sql`${table.outcome} IN ('correct','incorrect','self-review')`),
+]);
+
+/** Lifetime access days, separate from study streak and learning reset. */
+export const learnerAccessDays = sqliteTable("learner_access_days", {
+  userId: text("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  day: text("day").notNull(),
+  firstSeenAt: integer("first_seen_at").notNull(),
+  provenance: text("provenance").notNull().default("visit"),
+}, table => [primaryKey({ columns: [table.userId, table.day] })]);
+
 export const users = sqliteTable(
   "users",
   {
@@ -2699,3 +2730,19 @@ export const editorialAssignmentEvents = sqliteTable(
     ),
   ],
 );
+
+/** Immutable uploaded teaching media; replace with a new asset to preserve releases. */
+export const lessonMediaAssets = sqliteTable('lesson_media_assets', {
+  id: text('id').primaryKey(),
+  contentSha256: text('content_sha256').notNull(),
+  mimeType: text('mime_type').notNull(),
+  byteLength: integer('byte_length').notNull(),
+  metadataJson: text('metadata_json').notNull(),
+  createdBy: text('created_by').notNull().references(() => users.id),
+  createdAt: integer('created_at').notNull(),
+}, table => [check('lesson_media_metadata_valid', sql`json_valid(${table.metadataJson})`), check('lesson_media_size_valid', sql`${table.byteLength} BETWEEN 1 AND 8388608`)]);
+export const lessonMediaChunks = sqliteTable('lesson_media_chunks', {
+  assetId: text('asset_id').notNull().references(() => lessonMediaAssets.id, { onDelete: 'cascade' }),
+  sequence: integer('sequence').notNull(),
+  dataBase64: text('data_base64').notNull(),
+}, table => [primaryKey({columns:[table.assetId,table.sequence]})]);

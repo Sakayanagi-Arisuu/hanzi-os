@@ -1,0 +1,2484 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "status": "draft-not-published",
+  "items": [
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-02",
+      "title": "Món ăn, đồ uống và thói quen ăn uống",
+      "level": "hsk2",
+      "lessonPages": {
+        "version": 1,
+        "art": "campus",
+        "pages": [
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:context",
+            "title": "Từ thói quen đến quyết định bữa tối",
+            "layout": "scene",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:scene",
+                "kind": "explanation",
+                "title": "Tình huống của bạn",
+                "body": "Hai bạn chọn bữa tối hôm nay. Một người thường ăn ở nhà nhưng hôm nay chưa chuẩn bị cơm. Cần chốt nơi ăn, món, đồ uống và giờ gặp; đừng lấy thói quen làm quyết định hôm nay.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:support",
+                "kind": "explanation",
+                "title": "Từ hỗ trợ trước khi bắt đầu",
+                "body": "晚饭 wǎnfàn: bữa tối · 今天 jīntiān: hôm nay · 家 jiā: nhà · 六点 liù diǎn: sáu giờ · 鸡肉 jīròu: thịt gà. Có Pinyin và nghĩa để hỗ trợ; giọng nghe là tổng hợp.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:facts",
+            "title": "Tách ba lớp thông tin",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:facts",
+                "kind": "diagram",
+                "title": "Dữ kiện để quyết định",
+                "body": "",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "diagram": {
+                  "type": "sequence",
+                  "description": "Thói quen không quyết định mọi ngày; nối lý do hôm nay với lịch đã chốt.",
+                  "nodes": [
+                    {
+                      "id": "fact-0",
+                      "label": "经常在家吃饭",
+                      "pinyin": "jīngcháng zài jiā chīfàn",
+                      "meaningVi": "Thường ăn ở nhà",
+                      "note": "Thói quen",
+                      "x": 0,
+                      "y": 0
+                    },
+                    {
+                      "id": "fact-1",
+                      "label": "没准备晚饭",
+                      "pinyin": "méi zhǔnbèi wǎnfàn",
+                      "meaningVi": "Chưa chuẩn bị bữa tối",
+                      "note": "Hôm nay",
+                      "x": 1,
+                      "y": 0
+                    },
+                    {
+                      "id": "fact-2",
+                      "label": "六点在饭馆见",
+                      "pinyin": "liù diǎn zài fànguǎn jiàn",
+                      "meaningVi": "Gặp ở nhà hàng lúc sáu giờ",
+                      "note": "Quyết định",
+                      "x": 2,
+                      "y": 0
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:dialogue",
+            "title": "Theo dõi mục đích từng lượt nói",
+            "layout": "dialogue",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-0",
+                "kind": "dialogue",
+                "title": "Lượt 1",
+                "body": "",
+                "hanzi": "你经常在饭馆吃晚饭吗？",
+                "pinyin": "Nǐ jīngcháng zài fànguǎn chī wǎnfàn ma?",
+                "meaningVi": "Bạn có thường ăn tối ở nhà hàng không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-1",
+                "kind": "dialogue",
+                "title": "Lượt 2",
+                "body": "",
+                "hanzi": "不，我经常在家吃。今天没准备晚饭。",
+                "pinyin": "Bù, wǒ jīngcháng zài jiā chī. Jīntiān méi zhǔnbèi wǎnfàn.",
+                "meaningVi": "Không, tôi thường ăn ở nhà. Hôm nay tôi chưa chuẩn bị bữa tối.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-2",
+                "kind": "dialogue",
+                "title": "Lượt 3",
+                "body": "",
+                "hanzi": "那我们去饭馆吧。你想吃肉还是鱼？",
+                "pinyin": "Nà wǒmen qù fànguǎn ba. Nǐ xiǎng chī ròu háishi yú?",
+                "meaningVi": "Vậy chúng ta ra nhà hàng nhé. Bạn muốn ăn thịt hay cá?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-3",
+                "kind": "dialogue",
+                "title": "Lượt 4",
+                "body": "",
+                "hanzi": "我想吃鱼。喝绿茶还是奶茶？",
+                "pinyin": "Wǒ xiǎng chī yú. Hē lǜchá háishi nǎichá?",
+                "meaningVi": "Tôi muốn ăn cá. Uống trà xanh hay trà sữa?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-4",
+                "kind": "dialogue",
+                "title": "Lượt 5",
+                "body": "",
+                "hanzi": "绿茶吧。我们六点在饭馆见，好吗？",
+                "pinyin": "Lǜchá ba. Wǒmen liù diǎn zài fànguǎn jiàn, hǎo ma?",
+                "meaningVi": "Trà xanh nhé. Sáu giờ chúng ta gặp ở nhà hàng, được không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-5",
+                "kind": "dialogue",
+                "title": "Lượt 6",
+                "body": "",
+                "hanzi": "好，六点见。",
+                "pinyin": "Hǎo, liù diǎn jiàn.",
+                "meaningVi": "Được, sáu giờ gặp nhé.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:meaning",
+            "title": "Từ thói quen đến quyết định bữa tối",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:rule",
+                "kind": "explanation",
+                "title": "Hiểu cách dùng trong tình huống",
+                "body": "经常 + hành động nêu thói quen: 我经常在家吃饭. 没准备晚饭 nói chưa chuẩn bị bữa tối trong tình huống hôm nay; không có nghĩa chẳng bao giờ nấu ăn.\nĐộng từ + 过 nói trải nghiệm: 我喝过红茶 (từng uống hồng trà), không đồng nghĩa 经常喝 (thường uống). Phủ định trải nghiệm: 没喝过. A 还是 B hỏi lựa chọn; hãy xác nhận một món hoặc đồ uống rồi chốt giờ/nơi.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:pattern",
+                "kind": "dialogue",
+                "title": "没 + động từ + 过",
+                "body": "",
+                "hanzi": "我没喝过红茶。",
+                "pinyin": "Wǒ méi hē guo hóngchá.",
+                "meaningVi": "Tôi chưa từng uống hồng trà.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:pitfall",
+                "kind": "explanation",
+                "title": "Điểm dễ hiểu nhầm",
+                "body": "Không suy ra thói quen từ một lần đã từng làm. 不吃鱼 nói không ăn cá trong ngữ cảnh này; 没吃过鱼 nói chưa từng ăn cá. Khi người kia hỏi đồ uống, trả lời món cá chưa giải quyết câu hỏi.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:words-0",
+            "title": "Từ dùng trong bài · nhóm 1",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-note-0",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00339",
+                "kind": "dialogue",
+                "title": "饭馆 · fànguǎn",
+                "body": "quán ăn; nhà hàng",
+                "hanzi": "这家饭馆很近。",
+                "pinyin": "Zhè jiā fànguǎn hěn jìn.",
+                "meaningVi": "Nhà hàng này rất gần.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00347",
+                "kind": "dialogue",
+                "title": "过 · guò",
+                "body": "qua; vượt qua",
+                "hanzi": "我喝过红茶。",
+                "pinyin": "Wǒ hē guo hóngchá.",
+                "meaningVi": "Tôi từng uống hồng trà.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00354",
+                "kind": "dialogue",
+                "title": "红茶 · hóngchá",
+                "body": "trà đen",
+                "hanzi": "我想喝一杯红茶。",
+                "pinyin": "Wǒ xiǎng hē yì bēi hóngchá.",
+                "meaningVi": "Tôi muốn uống một cốc hồng trà.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00374",
+                "kind": "dialogue",
+                "title": "经常 · jīngcháng",
+                "body": "thường xuyên",
+                "hanzi": "我经常在家吃饭。",
+                "pinyin": "Wǒ jīngcháng zài jiā chīfàn.",
+                "meaningVi": "Tôi thường ăn ở nhà.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00377",
+                "kind": "dialogue",
+                "title": "咖啡 · kāfēi",
+                "body": "cà phê",
+                "hanzi": "这杯咖啡很热。",
+                "pinyin": "Zhè bēi kāfēi hěn rè.",
+                "meaningVi": "Cốc cà phê này nóng.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:words-5",
+            "title": "Từ dùng trong bài · nhóm 2",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-note-5",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00395",
+                "kind": "dialogue",
+                "title": "绿茶 · lǜchá",
+                "body": "trà xanh",
+                "hanzi": "你喝绿茶吗？",
+                "pinyin": "Nǐ hē lǜchá ma?",
+                "meaningVi": "Bạn uống trà xanh không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00408",
+                "kind": "dialogue",
+                "title": "奶茶 · nǎichá",
+                "body": "trà sữa",
+                "hanzi": "她想喝奶茶。",
+                "pinyin": "Tā xiǎng hē nǎichá.",
+                "meaningVi": "Cô ấy muốn uống trà sữa.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00423",
+                "kind": "dialogue",
+                "title": "肉 · ròu",
+                "body": "thịt",
+                "hanzi": "我今天不想吃肉。",
+                "pinyin": "Wǒ jīntiān bù xiǎng chī ròu.",
+                "meaningVi": "Hôm nay tôi không muốn ăn thịt.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00483",
+                "kind": "dialogue",
+                "title": "鱼 · yú",
+                "body": "cá",
+                "hanzi": "这条鱼很大。",
+                "pinyin": "Zhè tiáo yú hěn dà.",
+                "meaningVi": "Con cá này rất to.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00493",
+                "kind": "dialogue",
+                "title": "准备 · zhǔnbèi",
+                "body": "chuẩn bị",
+                "hanzi": "我在准备晚饭。",
+                "pinyin": "Wǒ zài zhǔnbèi wǎnfàn.",
+                "meaningVi": "Tôi đang chuẩn bị bữa tối.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:choice",
+            "title": "Quyết định theo thông tin đã cho",
+            "layout": "focus",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:choice",
+                "kind": "activity",
+                "title": "Chọn lời nói phù hợp",
+                "body": "Vai B thường ăn ở nhà, hôm nay chưa chuẩn bị cơm và đã đồng ý ra nhà hàng. Chọn câu nói đúng hôm nay.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "choice",
+                  "options": [
+                    {
+                      "id": "option-0",
+                      "text": "我今天在饭馆吃晚饭。",
+                      "feedback": "Đúng: đây là quyết định hôm nay, không phủ nhận thói quen ở nhà."
+                    },
+                    {
+                      "id": "option-1",
+                      "text": "我每天都在饭馆吃饭。",
+                      "feedback": "每天都 nói ngày nào cũng ăn nhà hàng, trái thói quen đã cho."
+                    },
+                    {
+                      "id": "option-2",
+                      "text": "我没喝过绿茶。",
+                      "feedback": "Câu này nói chưa từng uống trà xanh, không xác nhận nơi ăn tối."
+                    }
+                  ],
+                  "answerIds": [
+                    "option-0"
+                  ],
+                  "acceptedAnswers": [],
+                  "explanation": "Đúng: đây là quyết định hôm nay, không phủ nhận thói quen ở nhà. Không suy ra thói quen từ một lần đã từng làm. 不吃鱼 nói không ăn cá trong ngữ cảnh này; 没吃过鱼 nói chưa từng ăn cá. Khi người kia hỏi đồ uống, trả lời món cá chưa giải quyết câu hỏi.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Vai B thường ăn ở nhà, hôm nay chưa chuẩn bị cơm và đã đồng ý ra nhà hàng. Chọn câu nói đúng hôm nay.",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-task-07"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:guided",
+            "title": "Hoàn thành mẫu theo ngữ cảnh",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:guided",
+                "kind": "activity",
+                "title": "Điền và tự kiểm",
+                "body": "Điền đúng từ phủ định trải nghiệm theo mẫu: 我___喝过红茶。 (Tôi chưa từng uống hồng trà.)",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "没",
+                    "没有"
+                  ],
+                  "explanation": "没/没有 + 喝过 diễn tả chưa từng uống. 不喝 thường là không uống, không mang nghĩa chưa từng.",
+                  "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Điền đúng từ phủ định trải nghiệm theo mẫu: 我___喝过红茶。 (Tôi chưa từng uống hồng trà.)",
+                    "sources": [
+                      {
+                        "kind": "grammar",
+                        "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-02"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:transfer",
+            "title": "Thử trong tình huống khác",
+            "layout": "workshop",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:transfer",
+                "kind": "explanation",
+                "title": "Thông tin mới dành cho vai của bạn",
+                "body": "Đổi vai: bạn thường ăn ở nhà, hôm nay muốn ăn thịt gà và uống hồng trà tại nhà hàng lúc bảy giờ. Viết ít nhất sáu lượt: hỏi thói quen, giải thích hôm nay, hỏi/chọn món, hỏi/chọn đồ uống, đề xuất và xác nhận giờ/nơi.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:produce",
+                "kind": "activity",
+                "title": "Tự diễn đạt trước khi xem mẫu",
+                "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "rubric",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [],
+                  "explanation": "Một phương án để đối chiếu:\nA：你经常在家吃饭吗？ B：是，今天我想去饭馆。 A：吃鱼还是鸡肉？ B：鸡肉。 A：喝绿茶还是红茶？ B：红茶。 A：七点在饭馆见，好吗？ B：好，七点见。\nA: Nǐ jīngcháng zài jiā chīfàn ma? B: Shì, jīntiān wǒ xiǎng qù fànguǎn. A: Chī yú háishi jīròu? B: Jīròu. A: Hē lǜchá háishi hóngchá? B: Hóngchá. A: Qī diǎn zài fànguǎn jiàn, hǎo ma? B: Hǎo, qī diǎn jiàn.\nA: Bạn thường ăn ở nhà không? B: Đúng, hôm nay tôi muốn ra nhà hàng. A: Cá hay thịt gà? B: Thịt gà. A: Trà xanh hay hồng trà? B: Hồng trà. A: Gặp ở nhà hàng lúc bảy giờ nhé? B: Được, bảy giờ gặp.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                  "hint": "",
+                  "rubric": [
+                    {
+                      "id": "criterion-0",
+                      "label": "Phân biệt 经常 với quyết định 今天, không biến thành 每天都 ở nhà hàng.",
+                      "guidance": "Phân biệt 经常 với quyết định 今天, không biến thành 每天都 ở nhà hàng."
+                    },
+                    {
+                      "id": "criterion-1",
+                      "label": "Món là thịt gà, đồ uống là hồng trà; câu trả lời khớp câu hỏi.",
+                      "guidance": "Món là thịt gà, đồ uống là hồng trà; câu trả lời khớp câu hỏi."
+                    },
+                    {
+                      "id": "criterion-2",
+                      "label": "Chốt bảy giờ tại nhà hàng và có xác nhận; chuỗi vai nhất quán.",
+                      "guidance": "Chốt bảy giờ tại nhà hàng và có xác nhận; chuỗi vai nhất quán."
+                    }
+                  ],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Tự viết chuỗi trao đổi theo dữ kiện mới; rubric tự đối chiếu, không chấm nói/viết độc lập.",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-task-07"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-02:v2:recap",
+            "title": "Tự kiểm trước khi vào Thử Luyện",
+            "layout": "focus",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-02:v2:block:recap",
+                "kind": "explanation",
+                "title": "Điều cần mang sang lần dùng tiếp",
+                "body": "Phân biệt 经常 với quyết định 今天, không biến thành 每天都 ở nhà hàng.\nMón là thịt gà, đồ uống là hồng trà; câu trả lời khớp câu hỏi.\nChốt bảy giờ tại nhà hàng và có xác nhận; chuỗi vai nhất quán.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          }
+        ]
+      },
+      "studioContent": {
+        "targetLessonId": "hsk2-daily-needs-family-lesson-02",
+        "titleZh": "HSK二级 · 07",
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về món ăn, đồ uống và thói quen ăn uống bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "conceptVi": "Từ thói quen đến quyết định bữa tối",
+        "ruleVi": "经常 + hành động nêu thói quen: 我经常在家吃饭. 没准备晚饭 nói chưa chuẩn bị bữa tối trong tình huống hôm nay; không có nghĩa chẳng bao giờ nấu ăn.\nĐộng từ + 过 nói trải nghiệm: 我喝过红茶 (từng uống hồng trà), không đồng nghĩa 经常喝 (thường uống). Phủ định trải nghiệm: 没喝过. A 还是 B hỏi lựa chọn; hãy xác nhận một món hoặc đồ uống rồi chốt giờ/nơi.",
+        "pitfallVi": "Không suy ra thói quen từ một lần đã từng làm. 不吃鱼 nói không ăn cá trong ngữ cảnh này; 没吃过鱼 nói chưa từng ăn cá. Khi người kia hỏi đồ uống, trả lời món cá chưa giải quyết câu hỏi.",
+        "checkpointVi": "Đổi vai: bạn thường ăn ở nhà, hôm nay muốn ăn thịt gà và uống hồng trà tại nhà hàng lúc bảy giờ. Viết ít nhất sáu lượt: hỏi thói quen, giải thích hôm nay, hỏi/chọn món, hỏi/chọn đồ uống, đề xuất và xác nhận giờ/nơi.",
+        "prerequisites": [
+          "hsk2-daily-needs-family-lesson-01"
+        ],
+        "vocabulary": [
+          "hsk-vocab-00339",
+          "hsk-vocab-00347",
+          "hsk-vocab-00354",
+          "hsk-vocab-00374",
+          "hsk-vocab-00377",
+          "hsk-vocab-00395",
+          "hsk-vocab-00408",
+          "hsk-vocab-00423",
+          "hsk-vocab-00483",
+          "hsk-vocab-00493"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "dialogue": [
+          {
+            "speaker": "Lượt 1",
+            "hanzi": "你经常在饭馆吃晚饭吗？",
+            "pinyin": "Nǐ jīngcháng zài fànguǎn chī wǎnfàn ma?",
+            "meaningVi": "Bạn có thường ăn tối ở nhà hàng không?"
+          },
+          {
+            "speaker": "Lượt 2",
+            "hanzi": "不，我经常在家吃。今天没准备晚饭。",
+            "pinyin": "Bù, wǒ jīngcháng zài jiā chī. Jīntiān méi zhǔnbèi wǎnfàn.",
+            "meaningVi": "Không, tôi thường ăn ở nhà. Hôm nay tôi chưa chuẩn bị bữa tối."
+          },
+          {
+            "speaker": "Lượt 3",
+            "hanzi": "那我们去饭馆吧。你想吃肉还是鱼？",
+            "pinyin": "Nà wǒmen qù fànguǎn ba. Nǐ xiǎng chī ròu háishi yú?",
+            "meaningVi": "Vậy chúng ta ra nhà hàng nhé. Bạn muốn ăn thịt hay cá?"
+          },
+          {
+            "speaker": "Lượt 4",
+            "hanzi": "我想吃鱼。喝绿茶还是奶茶？",
+            "pinyin": "Wǒ xiǎng chī yú. Hē lǜchá háishi nǎichá?",
+            "meaningVi": "Tôi muốn ăn cá. Uống trà xanh hay trà sữa?"
+          },
+          {
+            "speaker": "Lượt 5",
+            "hanzi": "绿茶吧。我们六点在饭馆见，好吗？",
+            "pinyin": "Lǜchá ba. Wǒmen liù diǎn zài fànguǎn jiàn, hǎo ma?",
+            "meaningVi": "Trà xanh nhé. Sáu giờ chúng ta gặp ở nhà hàng, được không?"
+          },
+          {
+            "speaker": "Lượt 6",
+            "hanzi": "好，六点见。",
+            "pinyin": "Hǎo, liù diǎn jiàn.",
+            "meaningVi": "Được, sáu giờ gặp nhé."
+          }
+        ],
+        "grammar": [
+          {
+            "pattern": "没 + động từ + 过",
+            "explanationVi": "经常 + hành động nêu thói quen: 我经常在家吃饭. 没准备晚饭 nói chưa chuẩn bị bữa tối trong tình huống hôm nay; không có nghĩa chẳng bao giờ nấu ăn.\nĐộng từ + 过 nói trải nghiệm: 我喝过红茶 (từng uống hồng trà), không đồng nghĩa 经常喝 (thường uống). Phủ định trải nghiệm: 没喝过. A 还是 B hỏi lựa chọn; hãy xác nhận một món hoặc đồ uống rồi chốt giờ/nơi.",
+            "modelExample": {
+              "hanzi": "我没喝过红茶。",
+              "pinyin": "Wǒ méi hē guo hóngchá.",
+              "meaningVi": "Tôi chưa từng uống hồng trà."
+            },
+            "guidedPractice": {
+              "promptVi": "Đổi vai: bạn thường ăn ở nhà, hôm nay muốn ăn thịt gà và uống hồng trà tại nhà hàng lúc bảy giờ. Viết ít nhất sáu lượt: hỏi thói quen, giải thích hôm nay, hỏi/chọn món, hỏi/chọn đồ uống, đề xuất và xác nhận giờ/nơi.",
+              "modelAnswerHanzi": "A：你经常在家吃饭吗？ B：是，今天我想去饭馆。 A：吃鱼还是鸡肉？ B：鸡肉。 A：喝绿茶还是红茶？ B：红茶。 A：七点在饭馆见，好吗？ B：好，七点见。",
+              "modelAnswerPinyin": "A: Nǐ jīngcháng zài jiā chīfàn ma? B: Shì, jīntiān wǒ xiǎng qù fànguǎn. A: Chī yú háishi jīròu? B: Jīròu. A: Hē lǜchá háishi hóngchá? B: Hóngchá. A: Qī diǎn zài fànguǎn jiàn, hǎo ma? B: Hǎo, qī diǎn jiàn.",
+              "modelAnswerMeaningVi": "A: Bạn thường ăn ở nhà không? B: Đúng, hôm nay tôi muốn ra nhà hàng. A: Cá hay thịt gà? B: Thịt gà. A: Trà xanh hay hồng trà? B: Hồng trà. A: Gặp ở nhà hàng lúc bảy giờ nhé? B: Được, bảy giờ gặp."
+            }
+          }
+        ],
+        "exercises": [
+          {
+            "promptVi": "Vai B thường ăn ở nhà, hôm nay chưa chuẩn bị cơm và đã đồng ý ra nhà hàng. Chọn câu nói đúng hôm nay.",
+            "answer": "我今天在饭馆吃晚饭。",
+            "answerPinyin": "Wǒ jīntiān zài fànguǎn chī wǎnfàn.",
+            "answerMeaningVi": "Hôm nay tôi ăn tối ở nhà hàng.",
+            "distractors": [
+              "我每天都在饭馆吃饭。",
+              "我没喝过绿茶。"
+            ],
+            "explanationVi": "Đúng: đây là quyết định hôm nay, không phủ nhận thói quen ở nhà."
+          }
+        ],
+        "lessonPages": {
+          "version": 1,
+          "art": "campus",
+          "pages": [
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:context",
+              "title": "Từ thói quen đến quyết định bữa tối",
+              "layout": "scene",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:scene",
+                  "kind": "explanation",
+                  "title": "Tình huống của bạn",
+                  "body": "Hai bạn chọn bữa tối hôm nay. Một người thường ăn ở nhà nhưng hôm nay chưa chuẩn bị cơm. Cần chốt nơi ăn, món, đồ uống và giờ gặp; đừng lấy thói quen làm quyết định hôm nay.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:support",
+                  "kind": "explanation",
+                  "title": "Từ hỗ trợ trước khi bắt đầu",
+                  "body": "晚饭 wǎnfàn: bữa tối · 今天 jīntiān: hôm nay · 家 jiā: nhà · 六点 liù diǎn: sáu giờ · 鸡肉 jīròu: thịt gà. Có Pinyin và nghĩa để hỗ trợ; giọng nghe là tổng hợp.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:facts",
+              "title": "Tách ba lớp thông tin",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:facts",
+                  "kind": "diagram",
+                  "title": "Dữ kiện để quyết định",
+                  "body": "",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "diagram": {
+                    "type": "sequence",
+                    "description": "Thói quen không quyết định mọi ngày; nối lý do hôm nay với lịch đã chốt.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "经常在家吃饭",
+                        "pinyin": "jīngcháng zài jiā chīfàn",
+                        "meaningVi": "Thường ăn ở nhà",
+                        "note": "Thói quen",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "没准备晚饭",
+                        "pinyin": "méi zhǔnbèi wǎnfàn",
+                        "meaningVi": "Chưa chuẩn bị bữa tối",
+                        "note": "Hôm nay",
+                        "x": 1,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-2",
+                        "label": "六点在饭馆见",
+                        "pinyin": "liù diǎn zài fànguǎn jiàn",
+                        "meaningVi": "Gặp ở nhà hàng lúc sáu giờ",
+                        "note": "Quyết định",
+                        "x": 2,
+                        "y": 0
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:dialogue",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "layout": "dialogue",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-0",
+                  "kind": "dialogue",
+                  "title": "Lượt 1",
+                  "body": "",
+                  "hanzi": "你经常在饭馆吃晚饭吗？",
+                  "pinyin": "Nǐ jīngcháng zài fànguǎn chī wǎnfàn ma?",
+                  "meaningVi": "Bạn có thường ăn tối ở nhà hàng không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-1",
+                  "kind": "dialogue",
+                  "title": "Lượt 2",
+                  "body": "",
+                  "hanzi": "不，我经常在家吃。今天没准备晚饭。",
+                  "pinyin": "Bù, wǒ jīngcháng zài jiā chī. Jīntiān méi zhǔnbèi wǎnfàn.",
+                  "meaningVi": "Không, tôi thường ăn ở nhà. Hôm nay tôi chưa chuẩn bị bữa tối.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-2",
+                  "kind": "dialogue",
+                  "title": "Lượt 3",
+                  "body": "",
+                  "hanzi": "那我们去饭馆吧。你想吃肉还是鱼？",
+                  "pinyin": "Nà wǒmen qù fànguǎn ba. Nǐ xiǎng chī ròu háishi yú?",
+                  "meaningVi": "Vậy chúng ta ra nhà hàng nhé. Bạn muốn ăn thịt hay cá?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-3",
+                  "kind": "dialogue",
+                  "title": "Lượt 4",
+                  "body": "",
+                  "hanzi": "我想吃鱼。喝绿茶还是奶茶？",
+                  "pinyin": "Wǒ xiǎng chī yú. Hē lǜchá háishi nǎichá?",
+                  "meaningVi": "Tôi muốn ăn cá. Uống trà xanh hay trà sữa?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-4",
+                  "kind": "dialogue",
+                  "title": "Lượt 5",
+                  "body": "",
+                  "hanzi": "绿茶吧。我们六点在饭馆见，好吗？",
+                  "pinyin": "Lǜchá ba. Wǒmen liù diǎn zài fànguǎn jiàn, hǎo ma?",
+                  "meaningVi": "Trà xanh nhé. Sáu giờ chúng ta gặp ở nhà hàng, được không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:turn-5",
+                  "kind": "dialogue",
+                  "title": "Lượt 6",
+                  "body": "",
+                  "hanzi": "好，六点见。",
+                  "pinyin": "Hǎo, liù diǎn jiàn.",
+                  "meaningVi": "Được, sáu giờ gặp nhé.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:meaning",
+              "title": "Từ thói quen đến quyết định bữa tối",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:rule",
+                  "kind": "explanation",
+                  "title": "Hiểu cách dùng trong tình huống",
+                  "body": "经常 + hành động nêu thói quen: 我经常在家吃饭. 没准备晚饭 nói chưa chuẩn bị bữa tối trong tình huống hôm nay; không có nghĩa chẳng bao giờ nấu ăn.\nĐộng từ + 过 nói trải nghiệm: 我喝过红茶 (từng uống hồng trà), không đồng nghĩa 经常喝 (thường uống). Phủ định trải nghiệm: 没喝过. A 还是 B hỏi lựa chọn; hãy xác nhận một món hoặc đồ uống rồi chốt giờ/nơi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:pattern",
+                  "kind": "dialogue",
+                  "title": "没 + động từ + 过",
+                  "body": "",
+                  "hanzi": "我没喝过红茶。",
+                  "pinyin": "Wǒ méi hē guo hóngchá.",
+                  "meaningVi": "Tôi chưa từng uống hồng trà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:pitfall",
+                  "kind": "explanation",
+                  "title": "Điểm dễ hiểu nhầm",
+                  "body": "Không suy ra thói quen từ một lần đã từng làm. 不吃鱼 nói không ăn cá trong ngữ cảnh này; 没吃过鱼 nói chưa từng ăn cá. Khi người kia hỏi đồ uống, trả lời món cá chưa giải quyết câu hỏi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:words-0",
+              "title": "Từ dùng trong bài · nhóm 1",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-note-0",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00339",
+                  "kind": "dialogue",
+                  "title": "饭馆 · fànguǎn",
+                  "body": "quán ăn; nhà hàng",
+                  "hanzi": "这家饭馆很近。",
+                  "pinyin": "Zhè jiā fànguǎn hěn jìn.",
+                  "meaningVi": "Nhà hàng này rất gần.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00347",
+                  "kind": "dialogue",
+                  "title": "过 · guò",
+                  "body": "qua; vượt qua",
+                  "hanzi": "我喝过红茶。",
+                  "pinyin": "Wǒ hē guo hóngchá.",
+                  "meaningVi": "Tôi từng uống hồng trà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00354",
+                  "kind": "dialogue",
+                  "title": "红茶 · hóngchá",
+                  "body": "trà đen",
+                  "hanzi": "我想喝一杯红茶。",
+                  "pinyin": "Wǒ xiǎng hē yì bēi hóngchá.",
+                  "meaningVi": "Tôi muốn uống một cốc hồng trà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00374",
+                  "kind": "dialogue",
+                  "title": "经常 · jīngcháng",
+                  "body": "thường xuyên",
+                  "hanzi": "我经常在家吃饭。",
+                  "pinyin": "Wǒ jīngcháng zài jiā chīfàn.",
+                  "meaningVi": "Tôi thường ăn ở nhà.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00377",
+                  "kind": "dialogue",
+                  "title": "咖啡 · kāfēi",
+                  "body": "cà phê",
+                  "hanzi": "这杯咖啡很热。",
+                  "pinyin": "Zhè bēi kāfēi hěn rè.",
+                  "meaningVi": "Cốc cà phê này nóng.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:words-5",
+              "title": "Từ dùng trong bài · nhóm 2",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-note-5",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00395",
+                  "kind": "dialogue",
+                  "title": "绿茶 · lǜchá",
+                  "body": "trà xanh",
+                  "hanzi": "你喝绿茶吗？",
+                  "pinyin": "Nǐ hē lǜchá ma?",
+                  "meaningVi": "Bạn uống trà xanh không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00408",
+                  "kind": "dialogue",
+                  "title": "奶茶 · nǎichá",
+                  "body": "trà sữa",
+                  "hanzi": "她想喝奶茶。",
+                  "pinyin": "Tā xiǎng hē nǎichá.",
+                  "meaningVi": "Cô ấy muốn uống trà sữa.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00423",
+                  "kind": "dialogue",
+                  "title": "肉 · ròu",
+                  "body": "thịt",
+                  "hanzi": "我今天不想吃肉。",
+                  "pinyin": "Wǒ jīntiān bù xiǎng chī ròu.",
+                  "meaningVi": "Hôm nay tôi không muốn ăn thịt.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00483",
+                  "kind": "dialogue",
+                  "title": "鱼 · yú",
+                  "body": "cá",
+                  "hanzi": "这条鱼很大。",
+                  "pinyin": "Zhè tiáo yú hěn dà.",
+                  "meaningVi": "Con cá này rất to.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:word-hsk-vocab-00493",
+                  "kind": "dialogue",
+                  "title": "准备 · zhǔnbèi",
+                  "body": "chuẩn bị",
+                  "hanzi": "我在准备晚饭。",
+                  "pinyin": "Wǒ zài zhǔnbèi wǎnfàn.",
+                  "meaningVi": "Tôi đang chuẩn bị bữa tối.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:choice",
+              "title": "Quyết định theo thông tin đã cho",
+              "layout": "focus",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:choice",
+                  "kind": "activity",
+                  "title": "Chọn lời nói phù hợp",
+                  "body": "Vai B thường ăn ở nhà, hôm nay chưa chuẩn bị cơm và đã đồng ý ra nhà hàng. Chọn câu nói đúng hôm nay.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "option-0",
+                        "text": "我今天在饭馆吃晚饭。",
+                        "feedback": "Đúng: đây là quyết định hôm nay, không phủ nhận thói quen ở nhà."
+                      },
+                      {
+                        "id": "option-1",
+                        "text": "我每天都在饭馆吃饭。",
+                        "feedback": "每天都 nói ngày nào cũng ăn nhà hàng, trái thói quen đã cho."
+                      },
+                      {
+                        "id": "option-2",
+                        "text": "我没喝过绿茶。",
+                        "feedback": "Câu này nói chưa từng uống trà xanh, không xác nhận nơi ăn tối."
+                      }
+                    ],
+                    "answerIds": [
+                      "option-0"
+                    ],
+                    "acceptedAnswers": [],
+                    "explanation": "Đúng: đây là quyết định hôm nay, không phủ nhận thói quen ở nhà. Không suy ra thói quen từ một lần đã từng làm. 不吃鱼 nói không ăn cá trong ngữ cảnh này; 没吃过鱼 nói chưa từng ăn cá. Khi người kia hỏi đồ uống, trả lời món cá chưa giải quyết câu hỏi.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Vai B thường ăn ở nhà, hôm nay chưa chuẩn bị cơm và đã đồng ý ra nhà hàng. Chọn câu nói đúng hôm nay.",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-task-07"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:guided",
+              "title": "Hoàn thành mẫu theo ngữ cảnh",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:guided",
+                  "kind": "activity",
+                  "title": "Điền và tự kiểm",
+                  "body": "Điền đúng từ phủ định trải nghiệm theo mẫu: 我___喝过红茶。 (Tôi chưa từng uống hồng trà.)",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "没",
+                      "没有"
+                    ],
+                    "explanation": "没/没有 + 喝过 diễn tả chưa từng uống. 不喝 thường là không uống, không mang nghĩa chưa từng.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Điền đúng từ phủ định trải nghiệm theo mẫu: 我___喝过红茶。 (Tôi chưa từng uống hồng trà.)",
+                      "sources": [
+                        {
+                          "kind": "grammar",
+                          "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-02"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:transfer",
+              "title": "Thử trong tình huống khác",
+              "layout": "workshop",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:transfer",
+                  "kind": "explanation",
+                  "title": "Thông tin mới dành cho vai của bạn",
+                  "body": "Đổi vai: bạn thường ăn ở nhà, hôm nay muốn ăn thịt gà và uống hồng trà tại nhà hàng lúc bảy giờ. Viết ít nhất sáu lượt: hỏi thói quen, giải thích hôm nay, hỏi/chọn món, hỏi/chọn đồ uống, đề xuất và xác nhận giờ/nơi.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:produce",
+                  "kind": "activity",
+                  "title": "Tự diễn đạt trước khi xem mẫu",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你经常在家吃饭吗？ B：是，今天我想去饭馆。 A：吃鱼还是鸡肉？ B：鸡肉。 A：喝绿茶还是红茶？ B：红茶。 A：七点在饭馆见，好吗？ B：好，七点见。\nA: Nǐ jīngcháng zài jiā chīfàn ma? B: Shì, jīntiān wǒ xiǎng qù fànguǎn. A: Chī yú háishi jīròu? B: Jīròu. A: Hē lǜchá háishi hóngchá? B: Hóngchá. A: Qī diǎn zài fànguǎn jiàn, hǎo ma? B: Hǎo, qī diǎn jiàn.\nA: Bạn thường ăn ở nhà không? B: Đúng, hôm nay tôi muốn ra nhà hàng. A: Cá hay thịt gà? B: Thịt gà. A: Trà xanh hay hồng trà? B: Hồng trà. A: Gặp ở nhà hàng lúc bảy giờ nhé? B: Được, bảy giờ gặp.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "criterion-0",
+                        "label": "Phân biệt 经常 với quyết định 今天, không biến thành 每天都 ở nhà hàng.",
+                        "guidance": "Phân biệt 经常 với quyết định 今天, không biến thành 每天都 ở nhà hàng."
+                      },
+                      {
+                        "id": "criterion-1",
+                        "label": "Món là thịt gà, đồ uống là hồng trà; câu trả lời khớp câu hỏi.",
+                        "guidance": "Món là thịt gà, đồ uống là hồng trà; câu trả lời khớp câu hỏi."
+                      },
+                      {
+                        "id": "criterion-2",
+                        "label": "Chốt bảy giờ tại nhà hàng và có xác nhận; chuỗi vai nhất quán.",
+                        "guidance": "Chốt bảy giờ tại nhà hàng và có xác nhận; chuỗi vai nhất quán."
+                      }
+                    ],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Tự viết chuỗi trao đổi theo dữ kiện mới; rubric tự đối chiếu, không chấm nói/viết độc lập.",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-task-07"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-02:v2:recap",
+              "title": "Tự kiểm trước khi vào Thử Luyện",
+              "layout": "focus",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-02:v2:block:recap",
+                  "kind": "explanation",
+                  "title": "Điều cần mang sang lần dùng tiếp",
+                  "body": "Phân biệt 经常 với quyết định 今天, không biến thành 每天都 ở nhà hàng.\nMón là thịt gà, đồ uống là hồng trà; câu trả lời khớp câu hỏi.\nChốt bảy giờ tại nhà hàng và có xác nhận; chuỗi vai nhất quán.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            }
+          ]
+        },
+        "sourceVocabularyIds": [
+          "hsk-vocab-00339",
+          "hsk-vocab-00347",
+          "hsk-vocab-00354",
+          "hsk-vocab-00374",
+          "hsk-vocab-00377",
+          "hsk-vocab-00395",
+          "hsk-vocab-00408",
+          "hsk-vocab-00423",
+          "hsk-vocab-00483",
+          "hsk-vocab-00493"
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-02"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-daily-needs-family-lesson-02"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-07"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-010",
+          "hsk2-topic-011",
+          "hsk2-topic-012"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "editorialStatus": "draft-needs-vocabulary-example-and-language-review"
+    },
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-03",
+      "title": "Chọn mua và mô tả sản phẩm",
+      "level": "hsk2",
+      "lessonPages": {
+        "version": 1,
+        "art": "campus",
+        "pages": [
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:context",
+            "title": "So đặc điểm và giá rồi mới quyết định",
+            "layout": "scene",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:scene",
+                "kind": "explanation",
+                "title": "Tình huống của bạn",
+                "body": "Bạn cần quần ngắn hơn chiếc đang thử, ngân sách tối đa 100 tệ. Quần A dài, giá 100; quần B ngắn hơn, giá 80. Cần hỏi, so đặc điểm, xác nhận giá rồi mới quyết định.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:support",
+                "kind": "explanation",
+                "title": "Từ hỗ trợ trước khi bắt đầu",
+                "body": "长 cháng: dài · 短 duǎn: ngắn · 颜色 yánsè: màu sắc · 黑色 hēisè: màu đen · 蓝色 lánsè: màu xanh lam · 价钱 jiàqian: giá tiền · 块 kuài: đơn vị tiền trong lời nói.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:facts",
+            "title": "So hai chiếc quần",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:facts",
+                "kind": "diagram",
+                "title": "Dữ kiện để quyết định",
+                "body": "",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "diagram": {
+                  "type": "comparison",
+                  "description": "Ngân sách tối đa 100, cần quần ngắn hơn. So đồng thời độ dài và giá.",
+                  "nodes": [
+                    {
+                      "id": "fact-0",
+                      "label": "黑色 · 长 · 一百块",
+                      "pinyin": "hēisè · cháng · yì bǎi kuai",
+                      "meaningVi": "Đen, dài, 100 tệ",
+                      "note": "A",
+                      "x": 0,
+                      "y": 0
+                    },
+                    {
+                      "id": "fact-1",
+                      "label": "蓝色 · 短一点儿 · 八十块",
+                      "pinyin": "lánsè · duǎn yìdiǎnr · bāshí kuai",
+                      "meaningVi": "Xanh lam, ngắn hơn, 80 tệ",
+                      "note": "B",
+                      "x": 1,
+                      "y": 0
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:dialogue",
+            "title": "Theo dõi mục đích từng lượt nói",
+            "layout": "dialogue",
+            "stage": "context",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-0",
+                "kind": "dialogue",
+                "title": "Lượt 1",
+                "body": "",
+                "hanzi": "这条裤子怎么样？",
+                "pinyin": "Zhè tiáo kùzi zěnmeyàng?",
+                "meaningVi": "Chiếc quần này thế nào?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-1",
+                "kind": "dialogue",
+                "title": "Lượt 2",
+                "body": "",
+                "hanzi": "颜色不错，但是有点儿长。有没有短一点儿的？",
+                "pinyin": "Yánsè búcuò, dànshì yǒudiǎnr cháng. Yǒu méiyǒu duǎn yìdiǎnr de?",
+                "meaningVi": "Màu khá đẹp nhưng hơi dài. Có chiếc ngắn hơn một chút không?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-2",
+                "kind": "dialogue",
+                "title": "Lượt 3",
+                "body": "",
+                "hanzi": "有，这条蓝色的短一点儿。",
+                "pinyin": "Yǒu, zhè tiáo lánsè de duǎn yìdiǎnr.",
+                "meaningVi": "Có, chiếc màu xanh lam này ngắn hơn một chút.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-3",
+                "kind": "dialogue",
+                "title": "Lượt 4",
+                "body": "",
+                "hanzi": "这条多少钱？",
+                "pinyin": "Zhè tiáo duōshao qián?",
+                "meaningVi": "Chiếc này bao nhiêu tiền?",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-4",
+                "kind": "dialogue",
+                "title": "Lượt 5",
+                "body": "",
+                "hanzi": "八十块。那条黑色的一百块。",
+                "pinyin": "Bāshí kuài. Nà tiáo hēisè de yì bǎi kuài.",
+                "meaningVi": "Tám mươi tệ. Chiếc màu đen kia một trăm tệ.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-5",
+                "kind": "dialogue",
+                "title": "Lượt 6",
+                "body": "",
+                "hanzi": "好，我拿这条蓝色的。",
+                "pinyin": "Hǎo, wǒ ná zhè tiáo lánsè de.",
+                "meaningVi": "Được, tôi lấy chiếc màu xanh lam này.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:meaning",
+            "title": "So đặc điểm và giá rồi mới quyết định",
+            "layout": "focus",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:rule",
+                "kind": "explanation",
+                "title": "Hiểu cách dùng trong tình huống",
+                "body": "这条裤子 có 条 làm lượng từ cho quần. 有点儿长 diễn tả hơi dài, thường hàm ý chưa phù hợp; không chỉ là đánh giá trung tính. 颜色不错，但是有点儿长 nối ưu điểm với vấn đề.\n多少钱 hỏi giá; 花 + số tiền nói khoản chi: 我花了八十块钱. 拿 trong 我拿这条吧 là chọn/lấy chiếc này ở quầy. Một món có thể đẹp nhưng không phù hợp kích thước hoặc ngân sách.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:pattern",
+                "kind": "dialogue",
+                "title": "这 + lượng từ + danh từ",
+                "body": "",
+                "hanzi": "这条裤子八十块。",
+                "pinyin": "Zhè tiáo kùzi bāshí kuai.",
+                "meaningVi": "Chiếc quần này tám mươi tệ.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:pitfall",
+                "kind": "explanation",
+                "title": "Điểm dễ hiểu nhầm",
+                "body": "Không chọn chỉ vì giá nằm trong ngân sách: còn phải đáp ứng độ dài. 花 trong 花八十块钱 là tiêu tiền, không phải hoa. 坏了 là bị hỏng; không gọi chiếc quần hơi dài là hỏng.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:words-0",
+            "title": "Từ dùng trong bài · nhóm 1",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-note-0",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00307",
+                "kind": "dialogue",
+                "title": "包 · bāo",
+                "body": "gói; bọc; bao hoặc túi",
+                "hanzi": "这个包是给朋友的。",
+                "pinyin": "Zhège bāo shì gěi péngyou de.",
+                "meaningVi": "Túi này dành cho bạn tôi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00357",
+                "kind": "dialogue",
+                "title": "花 · huā",
+                "body": "tiêu; dành tiền hoặc thời gian",
+                "hanzi": "我买这个包花了九十块钱。",
+                "pinyin": "Wǒ mǎi zhège bāo huā le jiǔshí kuài qián.",
+                "meaningVi": "Tôi mua túi này hết chín mươi tệ.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00360",
+                "kind": "dialogue",
+                "title": "坏 · huài",
+                "body": "xấu; hỏng",
+                "hanzi": "我的手表坏了。",
+                "pinyin": "Wǒ de shǒubiǎo huài le.",
+                "meaningVi": "Đồng hồ của tôi hỏng rồi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00383",
+                "kind": "dialogue",
+                "title": "裤子 · kùzi",
+                "body": "quần",
+                "hanzi": "这条裤子有点儿长。",
+                "pinyin": "Zhè tiáo kùzi yǒudiǎnr cháng.",
+                "meaningVi": "Chiếc quần này hơi dài.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00405",
+                "kind": "dialogue",
+                "title": "拿 · ná",
+                "body": "cầm; lấy",
+                "hanzi": "我拿这个黑色的包。",
+                "pinyin": "Wǒ ná zhège hēisè de bāo.",
+                "meaningVi": "Tôi lấy túi màu đen này.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:words-5",
+            "title": "Từ dùng trong bài · nhóm 2",
+            "layout": "split",
+            "stage": "understand",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-note-5",
+                "kind": "explanation",
+                "title": "Tra và nối lại với tình huống",
+                "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00424",
+                "kind": "dialogue",
+                "title": "商场 · shāngchǎng",
+                "body": "trung tâm mua sắm",
+                "hanzi": "我们去商场买衣服。",
+                "pinyin": "Wǒmen qù shāngchǎng mǎi yīfu.",
+                "meaningVi": "Chúng tôi đến trung tâm thương mại mua quần áo.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00434",
+                "kind": "dialogue",
+                "title": "手表 · shǒubiǎo",
+                "body": "đồng hồ đeo tay",
+                "hanzi": "这块手表是新的。",
+                "pinyin": "Zhè kuài shǒubiǎo shì xīn de.",
+                "meaningVi": "Chiếc đồng hồ này là đồ mới.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00437",
+                "kind": "dialogue",
+                "title": "送 · sòng",
+                "body": "gửi; tặng; tiễn",
+                "hanzi": "我想送给你一本书。",
+                "pinyin": "Wǒ xiǎng sòng gěi nǐ yì běn shū.",
+                "meaningVi": "Tôi muốn tặng bạn một cuốn sách.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00453",
+                "kind": "dialogue",
+                "title": "位 · wèi",
+                "body": "vị; lượng từ lịch sự chỉ người",
+                "hanzi": "这位老师是我的朋友。",
+                "pinyin": "Zhè wèi lǎoshī shì wǒ de péngyou.",
+                "meaningVi": "Vị giáo viên này là bạn tôi.",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:choice",
+            "title": "Quyết định theo thông tin đã cho",
+            "layout": "focus",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:choice",
+                "kind": "activity",
+                "title": "Chọn lời nói phù hợp",
+                "body": "Ngân sách 100 tệ, cần quần ngắn hơn. A: đen/dài/100 tệ. B: xanh lam/ngắn hơn/80 tệ. Chọn quyết định thỏa cả hai điều kiện.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "choice",
+                  "options": [
+                    {
+                      "id": "option-0",
+                      "text": "我拿黑色的，一百块。",
+                      "feedback": "Đủ ngân sách nhưng chiếc đen vẫn dài, chưa đáp ứng điều kiện kích thước."
+                    },
+                    {
+                      "id": "option-1",
+                      "text": "我拿蓝色的，八十块。",
+                      "feedback": "Đúng: chiếc xanh ngắn hơn và giá 80 không vượt 100."
+                    },
+                    {
+                      "id": "option-2",
+                      "text": "我的手表坏了。",
+                      "feedback": "Nói đồng hồ hỏng, chưa quyết định mua quần."
+                    }
+                  ],
+                  "answerIds": [
+                    "option-1"
+                  ],
+                  "acceptedAnswers": [],
+                  "explanation": "Đúng: chiếc xanh ngắn hơn và giá 80 không vượt 100. Không chọn chỉ vì giá nằm trong ngân sách: còn phải đáp ứng độ dài. 花 trong 花八十块钱 là tiêu tiền, không phải hoa. 坏了 là bị hỏng; không gọi chiếc quần hơi dài là hỏng.",
+                  "hint": "",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Ngân sách 100 tệ, cần quần ngắn hơn. A: đen/dài/100 tệ. B: xanh lam/ngắn hơn/80 tệ. Chọn quyết định thỏa cả hai điều kiện.",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-task-09"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:guided",
+            "title": "Hoàn thành mẫu theo ngữ cảnh",
+            "layout": "workshop",
+            "stage": "practice",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:guided",
+                "kind": "activity",
+                "title": "Điền và tự kiểm",
+                "body": "Điền đúng lượng từ cho quần trong mẫu đã học: 这___裤子八十块。",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "cloze",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [
+                    "条"
+                  ],
+                  "explanation": "这条裤子: 条 dùng với quần. 个 dùng trong mẫu 一个包 của tình huống đổi sang mua túi.",
+                  "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                  "rubric": [],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Điền đúng lượng từ cho quần trong mẫu đã học: 这___裤子八十块。",
+                    "sources": [
+                      {
+                        "kind": "grammar",
+                        "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-03"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:transfer",
+            "title": "Thử trong tình huống khác",
+            "layout": "workshop",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:transfer",
+                "kind": "explanation",
+                "title": "Thông tin mới dành cho vai của bạn",
+                "body": "Tình huống mới: chọn túi để tặng bạn. Túi đỏ đẹp nhưng 120 tệ, túi đen cũng đẹp và 90 tệ; ngân sách 100. Viết sáu lượt có hỏi món, mô tả màu và giá, hỏi lại rồi chọn túi đen. Không chép lượng từ 条 của quần; dùng 个 cho túi. 红色 hóngsè: màu đỏ.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              },
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:produce",
+                "kind": "activity",
+                "title": "Tự diễn đạt trước khi xem mẫu",
+                "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": "",
+                "activity": {
+                  "type": "rubric",
+                  "options": [],
+                  "answerIds": [],
+                  "acceptedAnswers": [],
+                  "explanation": "Một phương án để đối chiếu:\nA：你想买什么？ B：我想买一个包送给朋友。 A：这个红色的怎么样？ B：很好看，多少钱？ A：一百二十块。黑色的九十块。 B：我只有一百块，我拿黑色的吧。\nA: Nǐ xiǎng mǎi shénme? B: Wǒ xiǎng mǎi yí ge bāo sòng gěi péngyou. A: Zhège hóngsè de zěnmeyàng? B: Hěn hǎokàn, duōshao qián? A: Yì bǎi èrshí kuai. Hēisè de jiǔshí kuai. B: Wǒ zhǐ yǒu yì bǎi kuai, wǒ ná hēisè de ba.\nA: Bạn muốn mua gì? B: Tôi muốn mua túi tặng bạn. A: Túi đỏ này thế nào? B: Đẹp, giá bao nhiêu? A: 120 tệ. Túi đen 90. B: Tôi chỉ có 100 tệ, lấy túi đen nhé.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                  "hint": "",
+                  "rubric": [
+                    {
+                      "id": "criterion-0",
+                      "label": "Nói túi tặng bạn, dùng 一个包 hoặc 这个包; không dùng 条 của quần.",
+                      "guidance": "Nói túi tặng bạn, dùng 一个包 hoặc 这个包; không dùng 条 của quần."
+                    },
+                    {
+                      "id": "criterion-1",
+                      "label": "Nêu rõ đỏ 120, đen 90, ngân sách 100; lựa chọn không vượt ngân sách.",
+                      "guidance": "Nêu rõ đỏ 120, đen 90, ngân sách 100; lựa chọn không vượt ngân sách."
+                    },
+                    {
+                      "id": "criterion-2",
+                      "label": "Có hỏi giá và quyết định lấy túi đen; mô tả đẹp không đồng nghĩa đã mua.",
+                      "guidance": "Có hỏi giá và quyết định lấy túi đen; mô tả đẹp không đồng nghĩa đã mua."
+                    }
+                  ],
+                  "learningTarget": {
+                    "skill": "grammar",
+                    "objective": "Tự viết chuỗi trao đổi theo dữ kiện mới; rubric tự đối chiếu, không chấm nói/viết độc lập.",
+                    "sources": [
+                      {
+                        "kind": "task",
+                        "id": "hsk2-task-09"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": "hsk2-daily-needs-family-lesson-03:v2:recap",
+            "title": "Tự kiểm trước khi vào Thử Luyện",
+            "layout": "focus",
+            "stage": "transfer",
+            "blocks": [
+              {
+                "id": "hsk2-daily-needs-family-lesson-03:v2:block:recap",
+                "kind": "explanation",
+                "title": "Điều cần mang sang lần dùng tiếp",
+                "body": "Nói túi tặng bạn, dùng 一个包 hoặc 这个包; không dùng 条 của quần.\nNêu rõ đỏ 120, đen 90, ngân sách 100; lựa chọn không vượt ngân sách.\nCó hỏi giá và quyết định lấy túi đen; mô tả đẹp không đồng nghĩa đã mua.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                "hanzi": "",
+                "pinyin": "",
+                "meaningVi": "",
+                "imageSrc": "",
+                "alt": "",
+                "provenance": ""
+              }
+            ]
+          }
+        ]
+      },
+      "studioContent": {
+        "targetLessonId": "hsk2-daily-needs-family-lesson-03",
+        "titleZh": "HSK二级 · 08",
+        "objectiveVi": "Duy trì hội thoại nhiều lượt về chọn mua và mô tả sản phẩm bằng cách hỏi tiếp, xác nhận và phản hồi có liên kết; chưa chấm mastery trước review.",
+        "conceptVi": "So đặc điểm và giá rồi mới quyết định",
+        "ruleVi": "这条裤子 có 条 làm lượng từ cho quần. 有点儿长 diễn tả hơi dài, thường hàm ý chưa phù hợp; không chỉ là đánh giá trung tính. 颜色不错，但是有点儿长 nối ưu điểm với vấn đề.\n多少钱 hỏi giá; 花 + số tiền nói khoản chi: 我花了八十块钱. 拿 trong 我拿这条吧 là chọn/lấy chiếc này ở quầy. Một món có thể đẹp nhưng không phù hợp kích thước hoặc ngân sách.",
+        "pitfallVi": "Không chọn chỉ vì giá nằm trong ngân sách: còn phải đáp ứng độ dài. 花 trong 花八十块钱 là tiêu tiền, không phải hoa. 坏了 là bị hỏng; không gọi chiếc quần hơi dài là hỏng.",
+        "checkpointVi": "Tình huống mới: chọn túi để tặng bạn. Túi đỏ đẹp nhưng 120 tệ, túi đen cũng đẹp và 90 tệ; ngân sách 100. Viết sáu lượt có hỏi món, mô tả màu và giá, hỏi lại rồi chọn túi đen. Không chép lượng từ 条 của quần; dùng 个 cho túi. 红色 hóngsè: màu đỏ.",
+        "prerequisites": [
+          "hsk2-daily-needs-family-lesson-02"
+        ],
+        "vocabulary": [
+          "hsk-vocab-00307",
+          "hsk-vocab-00357",
+          "hsk-vocab-00360",
+          "hsk-vocab-00383",
+          "hsk-vocab-00405",
+          "hsk-vocab-00424",
+          "hsk-vocab-00434",
+          "hsk-vocab-00437",
+          "hsk-vocab-00453"
+        ],
+        "skills": [
+          "vocabulary",
+          "listening",
+          "reading",
+          "speaking"
+        ],
+        "dialogue": [
+          {
+            "speaker": "Lượt 1",
+            "hanzi": "这条裤子怎么样？",
+            "pinyin": "Zhè tiáo kùzi zěnmeyàng?",
+            "meaningVi": "Chiếc quần này thế nào?"
+          },
+          {
+            "speaker": "Lượt 2",
+            "hanzi": "颜色不错，但是有点儿长。有没有短一点儿的？",
+            "pinyin": "Yánsè búcuò, dànshì yǒudiǎnr cháng. Yǒu méiyǒu duǎn yìdiǎnr de?",
+            "meaningVi": "Màu khá đẹp nhưng hơi dài. Có chiếc ngắn hơn một chút không?"
+          },
+          {
+            "speaker": "Lượt 3",
+            "hanzi": "有，这条蓝色的短一点儿。",
+            "pinyin": "Yǒu, zhè tiáo lánsè de duǎn yìdiǎnr.",
+            "meaningVi": "Có, chiếc màu xanh lam này ngắn hơn một chút."
+          },
+          {
+            "speaker": "Lượt 4",
+            "hanzi": "这条多少钱？",
+            "pinyin": "Zhè tiáo duōshao qián?",
+            "meaningVi": "Chiếc này bao nhiêu tiền?"
+          },
+          {
+            "speaker": "Lượt 5",
+            "hanzi": "八十块。那条黑色的一百块。",
+            "pinyin": "Bāshí kuài. Nà tiáo hēisè de yì bǎi kuài.",
+            "meaningVi": "Tám mươi tệ. Chiếc màu đen kia một trăm tệ."
+          },
+          {
+            "speaker": "Lượt 6",
+            "hanzi": "好，我拿这条蓝色的。",
+            "pinyin": "Hǎo, wǒ ná zhè tiáo lánsè de.",
+            "meaningVi": "Được, tôi lấy chiếc màu xanh lam này."
+          }
+        ],
+        "grammar": [
+          {
+            "pattern": "这 + lượng từ + danh từ",
+            "explanationVi": "这条裤子 có 条 làm lượng từ cho quần. 有点儿长 diễn tả hơi dài, thường hàm ý chưa phù hợp; không chỉ là đánh giá trung tính. 颜色不错，但是有点儿长 nối ưu điểm với vấn đề.\n多少钱 hỏi giá; 花 + số tiền nói khoản chi: 我花了八十块钱. 拿 trong 我拿这条吧 là chọn/lấy chiếc này ở quầy. Một món có thể đẹp nhưng không phù hợp kích thước hoặc ngân sách.",
+            "modelExample": {
+              "hanzi": "这条裤子八十块。",
+              "pinyin": "Zhè tiáo kùzi bāshí kuai.",
+              "meaningVi": "Chiếc quần này tám mươi tệ."
+            },
+            "guidedPractice": {
+              "promptVi": "Tình huống mới: chọn túi để tặng bạn. Túi đỏ đẹp nhưng 120 tệ, túi đen cũng đẹp và 90 tệ; ngân sách 100. Viết sáu lượt có hỏi món, mô tả màu và giá, hỏi lại rồi chọn túi đen. Không chép lượng từ 条 của quần; dùng 个 cho túi. 红色 hóngsè: màu đỏ.",
+              "modelAnswerHanzi": "A：你想买什么？ B：我想买一个包送给朋友。 A：这个红色的怎么样？ B：很好看，多少钱？ A：一百二十块。黑色的九十块。 B：我只有一百块，我拿黑色的吧。",
+              "modelAnswerPinyin": "A: Nǐ xiǎng mǎi shénme? B: Wǒ xiǎng mǎi yí ge bāo sòng gěi péngyou. A: Zhège hóngsè de zěnmeyàng? B: Hěn hǎokàn, duōshao qián? A: Yì bǎi èrshí kuai. Hēisè de jiǔshí kuai. B: Wǒ zhǐ yǒu yì bǎi kuai, wǒ ná hēisè de ba.",
+              "modelAnswerMeaningVi": "A: Bạn muốn mua gì? B: Tôi muốn mua túi tặng bạn. A: Túi đỏ này thế nào? B: Đẹp, giá bao nhiêu? A: 120 tệ. Túi đen 90. B: Tôi chỉ có 100 tệ, lấy túi đen nhé."
+            }
+          }
+        ],
+        "exercises": [
+          {
+            "promptVi": "Ngân sách 100 tệ, cần quần ngắn hơn. A: đen/dài/100 tệ. B: xanh lam/ngắn hơn/80 tệ. Chọn quyết định thỏa cả hai điều kiện.",
+            "answer": "我拿蓝色的，八十块。",
+            "answerPinyin": "Wǒ ná lánsè de, bāshí kuai.",
+            "answerMeaningVi": "Tôi lấy chiếc xanh lam, tám mươi tệ.",
+            "distractors": [
+              "我拿黑色的，一百块。",
+              "我的手表坏了。"
+            ],
+            "explanationVi": "Đúng: chiếc xanh ngắn hơn và giá 80 không vượt 100."
+          }
+        ],
+        "lessonPages": {
+          "version": 1,
+          "art": "campus",
+          "pages": [
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:context",
+              "title": "So đặc điểm và giá rồi mới quyết định",
+              "layout": "scene",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:scene",
+                  "kind": "explanation",
+                  "title": "Tình huống của bạn",
+                  "body": "Bạn cần quần ngắn hơn chiếc đang thử, ngân sách tối đa 100 tệ. Quần A dài, giá 100; quần B ngắn hơn, giá 80. Cần hỏi, so đặc điểm, xác nhận giá rồi mới quyết định.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:support",
+                  "kind": "explanation",
+                  "title": "Từ hỗ trợ trước khi bắt đầu",
+                  "body": "长 cháng: dài · 短 duǎn: ngắn · 颜色 yánsè: màu sắc · 黑色 hēisè: màu đen · 蓝色 lánsè: màu xanh lam · 价钱 jiàqian: giá tiền · 块 kuài: đơn vị tiền trong lời nói.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:facts",
+              "title": "So hai chiếc quần",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:facts",
+                  "kind": "diagram",
+                  "title": "Dữ kiện để quyết định",
+                  "body": "",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "diagram": {
+                    "type": "comparison",
+                    "description": "Ngân sách tối đa 100, cần quần ngắn hơn. So đồng thời độ dài và giá.",
+                    "nodes": [
+                      {
+                        "id": "fact-0",
+                        "label": "黑色 · 长 · 一百块",
+                        "pinyin": "hēisè · cháng · yì bǎi kuai",
+                        "meaningVi": "Đen, dài, 100 tệ",
+                        "note": "A",
+                        "x": 0,
+                        "y": 0
+                      },
+                      {
+                        "id": "fact-1",
+                        "label": "蓝色 · 短一点儿 · 八十块",
+                        "pinyin": "lánsè · duǎn yìdiǎnr · bāshí kuai",
+                        "meaningVi": "Xanh lam, ngắn hơn, 80 tệ",
+                        "note": "B",
+                        "x": 1,
+                        "y": 0
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:dialogue",
+              "title": "Theo dõi mục đích từng lượt nói",
+              "layout": "dialogue",
+              "stage": "context",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-0",
+                  "kind": "dialogue",
+                  "title": "Lượt 1",
+                  "body": "",
+                  "hanzi": "这条裤子怎么样？",
+                  "pinyin": "Zhè tiáo kùzi zěnmeyàng?",
+                  "meaningVi": "Chiếc quần này thế nào?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-1",
+                  "kind": "dialogue",
+                  "title": "Lượt 2",
+                  "body": "",
+                  "hanzi": "颜色不错，但是有点儿长。有没有短一点儿的？",
+                  "pinyin": "Yánsè búcuò, dànshì yǒudiǎnr cháng. Yǒu méiyǒu duǎn yìdiǎnr de?",
+                  "meaningVi": "Màu khá đẹp nhưng hơi dài. Có chiếc ngắn hơn một chút không?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-2",
+                  "kind": "dialogue",
+                  "title": "Lượt 3",
+                  "body": "",
+                  "hanzi": "有，这条蓝色的短一点儿。",
+                  "pinyin": "Yǒu, zhè tiáo lánsè de duǎn yìdiǎnr.",
+                  "meaningVi": "Có, chiếc màu xanh lam này ngắn hơn một chút.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-3",
+                  "kind": "dialogue",
+                  "title": "Lượt 4",
+                  "body": "",
+                  "hanzi": "这条多少钱？",
+                  "pinyin": "Zhè tiáo duōshao qián?",
+                  "meaningVi": "Chiếc này bao nhiêu tiền?",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-4",
+                  "kind": "dialogue",
+                  "title": "Lượt 5",
+                  "body": "",
+                  "hanzi": "八十块。那条黑色的一百块。",
+                  "pinyin": "Bāshí kuài. Nà tiáo hēisè de yì bǎi kuài.",
+                  "meaningVi": "Tám mươi tệ. Chiếc màu đen kia một trăm tệ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:turn-5",
+                  "kind": "dialogue",
+                  "title": "Lượt 6",
+                  "body": "",
+                  "hanzi": "好，我拿这条蓝色的。",
+                  "pinyin": "Hǎo, wǒ ná zhè tiáo lánsè de.",
+                  "meaningVi": "Được, tôi lấy chiếc màu xanh lam này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:meaning",
+              "title": "So đặc điểm và giá rồi mới quyết định",
+              "layout": "focus",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:rule",
+                  "kind": "explanation",
+                  "title": "Hiểu cách dùng trong tình huống",
+                  "body": "这条裤子 có 条 làm lượng từ cho quần. 有点儿长 diễn tả hơi dài, thường hàm ý chưa phù hợp; không chỉ là đánh giá trung tính. 颜色不错，但是有点儿长 nối ưu điểm với vấn đề.\n多少钱 hỏi giá; 花 + số tiền nói khoản chi: 我花了八十块钱. 拿 trong 我拿这条吧 là chọn/lấy chiếc này ở quầy. Một món có thể đẹp nhưng không phù hợp kích thước hoặc ngân sách.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:pattern",
+                  "kind": "dialogue",
+                  "title": "这 + lượng từ + danh từ",
+                  "body": "",
+                  "hanzi": "这条裤子八十块。",
+                  "pinyin": "Zhè tiáo kùzi bāshí kuai.",
+                  "meaningVi": "Chiếc quần này tám mươi tệ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:pitfall",
+                  "kind": "explanation",
+                  "title": "Điểm dễ hiểu nhầm",
+                  "body": "Không chọn chỉ vì giá nằm trong ngân sách: còn phải đáp ứng độ dài. 花 trong 花八十块钱 là tiêu tiền, không phải hoa. 坏了 là bị hỏng; không gọi chiếc quần hơi dài là hỏng.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:words-0",
+              "title": "Từ dùng trong bài · nhóm 1",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-note-0",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00307",
+                  "kind": "dialogue",
+                  "title": "包 · bāo",
+                  "body": "gói; bọc; bao hoặc túi",
+                  "hanzi": "这个包是给朋友的。",
+                  "pinyin": "Zhège bāo shì gěi péngyou de.",
+                  "meaningVi": "Túi này dành cho bạn tôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00357",
+                  "kind": "dialogue",
+                  "title": "花 · huā",
+                  "body": "tiêu; dành tiền hoặc thời gian",
+                  "hanzi": "我买这个包花了九十块钱。",
+                  "pinyin": "Wǒ mǎi zhège bāo huā le jiǔshí kuài qián.",
+                  "meaningVi": "Tôi mua túi này hết chín mươi tệ.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00360",
+                  "kind": "dialogue",
+                  "title": "坏 · huài",
+                  "body": "xấu; hỏng",
+                  "hanzi": "我的手表坏了。",
+                  "pinyin": "Wǒ de shǒubiǎo huài le.",
+                  "meaningVi": "Đồng hồ của tôi hỏng rồi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00383",
+                  "kind": "dialogue",
+                  "title": "裤子 · kùzi",
+                  "body": "quần",
+                  "hanzi": "这条裤子有点儿长。",
+                  "pinyin": "Zhè tiáo kùzi yǒudiǎnr cháng.",
+                  "meaningVi": "Chiếc quần này hơi dài.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00405",
+                  "kind": "dialogue",
+                  "title": "拿 · ná",
+                  "body": "cầm; lấy",
+                  "hanzi": "我拿这个黑色的包。",
+                  "pinyin": "Wǒ ná zhège hēisè de bāo.",
+                  "meaningVi": "Tôi lấy túi màu đen này.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:words-5",
+              "title": "Từ dùng trong bài · nhóm 2",
+              "layout": "split",
+              "stage": "understand",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-note-5",
+                  "kind": "explanation",
+                  "title": "Tra và nối lại với tình huống",
+                  "body": "Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00424",
+                  "kind": "dialogue",
+                  "title": "商场 · shāngchǎng",
+                  "body": "trung tâm mua sắm",
+                  "hanzi": "我们去商场买衣服。",
+                  "pinyin": "Wǒmen qù shāngchǎng mǎi yīfu.",
+                  "meaningVi": "Chúng tôi đến trung tâm thương mại mua quần áo.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00434",
+                  "kind": "dialogue",
+                  "title": "手表 · shǒubiǎo",
+                  "body": "đồng hồ đeo tay",
+                  "hanzi": "这块手表是新的。",
+                  "pinyin": "Zhè kuài shǒubiǎo shì xīn de.",
+                  "meaningVi": "Chiếc đồng hồ này là đồ mới.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00437",
+                  "kind": "dialogue",
+                  "title": "送 · sòng",
+                  "body": "gửi; tặng; tiễn",
+                  "hanzi": "我想送给你一本书。",
+                  "pinyin": "Wǒ xiǎng sòng gěi nǐ yì běn shū.",
+                  "meaningVi": "Tôi muốn tặng bạn một cuốn sách.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:word-hsk-vocab-00453",
+                  "kind": "dialogue",
+                  "title": "位 · wèi",
+                  "body": "vị; lượng từ lịch sự chỉ người",
+                  "hanzi": "这位老师是我的朋友。",
+                  "pinyin": "Zhè wèi lǎoshī shì wǒ de péngyou.",
+                  "meaningVi": "Vị giáo viên này là bạn tôi.",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:choice",
+              "title": "Quyết định theo thông tin đã cho",
+              "layout": "focus",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:choice",
+                  "kind": "activity",
+                  "title": "Chọn lời nói phù hợp",
+                  "body": "Ngân sách 100 tệ, cần quần ngắn hơn. A: đen/dài/100 tệ. B: xanh lam/ngắn hơn/80 tệ. Chọn quyết định thỏa cả hai điều kiện.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "choice",
+                    "options": [
+                      {
+                        "id": "option-0",
+                        "text": "我拿黑色的，一百块。",
+                        "feedback": "Đủ ngân sách nhưng chiếc đen vẫn dài, chưa đáp ứng điều kiện kích thước."
+                      },
+                      {
+                        "id": "option-1",
+                        "text": "我拿蓝色的，八十块。",
+                        "feedback": "Đúng: chiếc xanh ngắn hơn và giá 80 không vượt 100."
+                      },
+                      {
+                        "id": "option-2",
+                        "text": "我的手表坏了。",
+                        "feedback": "Nói đồng hồ hỏng, chưa quyết định mua quần."
+                      }
+                    ],
+                    "answerIds": [
+                      "option-1"
+                    ],
+                    "acceptedAnswers": [],
+                    "explanation": "Đúng: chiếc xanh ngắn hơn và giá 80 không vượt 100. Không chọn chỉ vì giá nằm trong ngân sách: còn phải đáp ứng độ dài. 花 trong 花八十块钱 là tiêu tiền, không phải hoa. 坏了 là bị hỏng; không gọi chiếc quần hơi dài là hỏng.",
+                    "hint": "",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Ngân sách 100 tệ, cần quần ngắn hơn. A: đen/dài/100 tệ. B: xanh lam/ngắn hơn/80 tệ. Chọn quyết định thỏa cả hai điều kiện.",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-task-09"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:guided",
+              "title": "Hoàn thành mẫu theo ngữ cảnh",
+              "layout": "workshop",
+              "stage": "practice",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:guided",
+                  "kind": "activity",
+                  "title": "Điền và tự kiểm",
+                  "body": "Điền đúng lượng từ cho quần trong mẫu đã học: 这___裤子八十块。",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "cloze",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [
+                      "条"
+                    ],
+                    "explanation": "这条裤子: 条 dùng với quần. 个 dùng trong mẫu 一个包 của tình huống đổi sang mua túi.",
+                    "hint": "Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.",
+                    "rubric": [],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Điền đúng lượng từ cho quần trong mẫu đã học: 这___裤子八十块。",
+                      "sources": [
+                        {
+                          "kind": "grammar",
+                          "id": "hsk2-pattern:hsk2-daily-needs-family-lesson-03"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:transfer",
+              "title": "Thử trong tình huống khác",
+              "layout": "workshop",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:transfer",
+                  "kind": "explanation",
+                  "title": "Thông tin mới dành cho vai của bạn",
+                  "body": "Tình huống mới: chọn túi để tặng bạn. Túi đỏ đẹp nhưng 120 tệ, túi đen cũng đẹp và 90 tệ; ngân sách 100. Viết sáu lượt có hỏi món, mô tả màu và giá, hỏi lại rồi chọn túi đen. Không chép lượng từ 条 của quần; dùng 个 cho túi. 红色 hóngsè: màu đỏ.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                },
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:produce",
+                  "kind": "activity",
+                  "title": "Tự diễn đạt trước khi xem mẫu",
+                  "body": "Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": "",
+                  "activity": {
+                    "type": "rubric",
+                    "options": [],
+                    "answerIds": [],
+                    "acceptedAnswers": [],
+                    "explanation": "Một phương án để đối chiếu:\nA：你想买什么？ B：我想买一个包送给朋友。 A：这个红色的怎么样？ B：很好看，多少钱？ A：一百二十块。黑色的九十块。 B：我只有一百块，我拿黑色的吧。\nA: Nǐ xiǎng mǎi shénme? B: Wǒ xiǎng mǎi yí ge bāo sòng gěi péngyou. A: Zhège hóngsè de zěnmeyàng? B: Hěn hǎokàn, duōshao qián? A: Yì bǎi èrshí kuai. Hēisè de jiǔshí kuai. B: Wǒ zhǐ yǒu yì bǎi kuai, wǒ ná hēisè de ba.\nA: Bạn muốn mua gì? B: Tôi muốn mua túi tặng bạn. A: Túi đỏ này thế nào? B: Đẹp, giá bao nhiêu? A: 120 tệ. Túi đen 90. B: Tôi chỉ có 100 tệ, lấy túi đen nhé.\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.",
+                    "hint": "",
+                    "rubric": [
+                      {
+                        "id": "criterion-0",
+                        "label": "Nói túi tặng bạn, dùng 一个包 hoặc 这个包; không dùng 条 của quần.",
+                        "guidance": "Nói túi tặng bạn, dùng 一个包 hoặc 这个包; không dùng 条 của quần."
+                      },
+                      {
+                        "id": "criterion-1",
+                        "label": "Nêu rõ đỏ 120, đen 90, ngân sách 100; lựa chọn không vượt ngân sách.",
+                        "guidance": "Nêu rõ đỏ 120, đen 90, ngân sách 100; lựa chọn không vượt ngân sách."
+                      },
+                      {
+                        "id": "criterion-2",
+                        "label": "Có hỏi giá và quyết định lấy túi đen; mô tả đẹp không đồng nghĩa đã mua.",
+                        "guidance": "Có hỏi giá và quyết định lấy túi đen; mô tả đẹp không đồng nghĩa đã mua."
+                      }
+                    ],
+                    "learningTarget": {
+                      "skill": "grammar",
+                      "objective": "Tự viết chuỗi trao đổi theo dữ kiện mới; rubric tự đối chiếu, không chấm nói/viết độc lập.",
+                      "sources": [
+                        {
+                          "kind": "task",
+                          "id": "hsk2-task-09"
+                        }
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hsk2-daily-needs-family-lesson-03:v2:recap",
+              "title": "Tự kiểm trước khi vào Thử Luyện",
+              "layout": "focus",
+              "stage": "transfer",
+              "blocks": [
+                {
+                  "id": "hsk2-daily-needs-family-lesson-03:v2:block:recap",
+                  "kind": "explanation",
+                  "title": "Điều cần mang sang lần dùng tiếp",
+                  "body": "Nói túi tặng bạn, dùng 一个包 hoặc 这个包; không dùng 条 của quần.\nNêu rõ đỏ 120, đen 90, ngân sách 100; lựa chọn không vượt ngân sách.\nCó hỏi giá và quyết định lấy túi đen; mô tả đẹp không đồng nghĩa đã mua.\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.",
+                  "hanzi": "",
+                  "pinyin": "",
+                  "meaningVi": "",
+                  "imageSrc": "",
+                  "alt": "",
+                  "provenance": ""
+                }
+              ]
+            }
+          ]
+        },
+        "sourceVocabularyIds": [
+          "hsk-vocab-00307",
+          "hsk-vocab-00357",
+          "hsk-vocab-00360",
+          "hsk-vocab-00383",
+          "hsk-vocab-00405",
+          "hsk-vocab-00424",
+          "hsk-vocab-00434",
+          "hsk-vocab-00437",
+          "hsk-vocab-00453"
+        ],
+        "sourceLessonIds": [
+          "hsk2-daily-needs-family-lesson-03"
+        ],
+        "sourceGrammarIds": [
+          "hsk2-pattern:hsk2-daily-needs-family-lesson-03"
+        ],
+        "sourceTaskIds": [
+          "hsk2-task-09"
+        ],
+        "sourceTopicIds": [
+          "hsk2-topic-017",
+          "hsk2-topic-018"
+        ],
+        "review": {
+          "humanReviewed": false,
+          "aiSelfReview": {
+            "accuracy": false,
+            "levelFit": false,
+            "pedagogy": false,
+            "answerIntegrity": false,
+            "originality": false
+          }
+        }
+      },
+      "editorialStatus": "draft-needs-vocabulary-example-and-language-review"
+    }
+  ]
+}

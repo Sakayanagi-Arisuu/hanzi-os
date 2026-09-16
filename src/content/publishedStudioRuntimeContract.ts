@@ -15,11 +15,14 @@ export const runtimeTriple = (value: unknown): value is PublishedStudioTriple =>
   && runtimeText(value.pinyin, 1_200)
   && runtimeText(value.meaningVi, 1_200);
 
-export const runtimeReviewPassed = (value: unknown) => runtimeRecord(value)
+// The release worker validates review before publishing, then strips editorial
+// review metadata from its immutable learner package. These parsers consume only
+// that published boundary. If legacy metadata is present, it must still be valid.
+export const runtimeReviewPassed = (value: unknown) => value === undefined || (runtimeRecord(value)
   && value.humanReviewed === false
   && runtimeRecord(value.aiSelfReview)
   && ["accuracy", "levelFit", "pedagogy", "answerIntegrity", "originality"]
-    .every((key) => (value.aiSelfReview as Record<string, unknown>)[key] === true);
+    .every((key) => (value.aiSelfReview as Record<string, unknown>)[key] === true));
 
 export const publishedRuntimeItems = (value: unknown) => {
   if (

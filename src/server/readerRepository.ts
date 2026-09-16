@@ -1109,8 +1109,14 @@ export class ReaderRepository {
         submittedAt,
       },
     });
-    const exposureClauses = form.items.map(() =>
-      `AND EXISTS (
+    const exposureClauses = form.items.map((item) => item.priorExposure
+      ? `AND EXISTS (
+         SELECT 1 FROM reader_item_exposures exposure
+         WHERE exposure.user_id = session.user_id
+           AND exposure.content_version = session.content_version
+           AND (exposure.exposure_group_id = ? OR exposure.equivalent_group_id = ?)
+       )`
+      : `AND EXISTS (
          SELECT 1 FROM reader_item_exposures exposure
          WHERE exposure.user_id = session.user_id
            AND exposure.session_id = session.id
@@ -1129,6 +1135,9 @@ export class ReaderRepository {
           "Reader form lost its server-bank exposure binding.",
         );
       }
+      // Rereading retains the original exposure, which belongs to the earlier
+      // session. Never move that ledger row or turn repeat practice into recall.
+      if (formItem.priorExposure) return [bankItem.exposureGroupId, bankItem.equivalentGroupId];
       return [
         bankItem.id,
         bankItem.itemVersion,

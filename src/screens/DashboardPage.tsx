@@ -315,7 +315,9 @@ export function DashboardPage() {
     ) / 10
     : 0;
   const dailyTarget = state.profile.dailyMinutes * 6;
-  const dailyProgress = Math.min(100, Math.round((state.dailyXp / dailyTarget) * 100));
+  const dailyProgress = interactionXp.dailyXp === null
+    ? null
+    : Math.min(100, Math.round((interactionXp.dailyXp / dailyTarget) * 100));
   const authoritativeGoal = normalized.projection?.enrollment?.goal;
   const goal = GOAL_CONFIG[authoritativeGoal ?? state.profile.goal];
   const rank = getInteractionRankProgress(interactionXp.totalXp);
@@ -389,7 +391,7 @@ export function DashboardPage() {
   const signalStatus = hasMeasuredCoverage
     ? `${formatCoveragePercent(contentCoveragePercent)} tín hiệu đã xác lập`
     : authenticated
-      ? "Đang hợp nhất chiến tích"
+      ? "Cần thêm bằng chứng đủ điều kiện"
       : "Cần thêm bằng chứng học tập";
   const signalGuidance = hasMeasuredCoverage
     ? `Mở rộng tiếp trụ ${skillLabels[priorityEvidence.skill]}.`
@@ -554,7 +556,7 @@ export function DashboardPage() {
               {interactionXp.dailyXp === null ? (
                 <div><small>NĂNG LƯỢNG ĐÃ GHI NHẬN</small><strong>{interactionXp.pending ? "—" : interactionXp.totalXp} XP</strong><p>{interactionXp.pending ? "Đang hợp nhất tiến độ tài khoản" : `${interactionXp.totalXp} EXP từ các ải đã vượt`}</p></div>
               ) : (
-                <div><small>NĂNG LƯỢNG HÔM NAY</small><strong>{interactionXp.dailyXp} / {dailyTarget} XP</strong><p>{dailyProgress}% mục tiêu ngày</p></div>
+                <div><small>NĂNG LƯỢNG HÔM NAY</small><strong>{interactionXp.dailyXp ?? "—"} / {dailyTarget} XP</strong><p>{dailyProgress === null ? "Đang tải năng lượng hôm nay" : `${dailyProgress}% mục tiêu ngày`}</p></div>
               )}
               {interactionXp.dailyXp !== null && <span className="dashboard-metric-progress" aria-hidden="true"><i style={{ width: `${dailyProgress}%` }} /></span>}
             </article>
@@ -568,7 +570,7 @@ export function DashboardPage() {
                 <small>KÝ ỨC ĐẾN HẠN</small>
                 <strong>{authenticated ? "—" : dueWordIds.length} mục</strong>
                 {authenticated
-                  ? <p>Chưa có lượt ôn đến hạn</p>
+                  ? <Link to="/review" viewTransition>Xem lịch ôn tài khoản <ChevronRight size={13} /></Link>
                   : dueWordIds.length > 0
                     ? <Link to="/review" viewTransition>Vào Ký Ức Trận <ChevronRight size={13} /></Link>
                     : <p>Chưa có lượt ôn đến hạn</p>}
@@ -576,7 +578,7 @@ export function DashboardPage() {
             </article>
             <article className="dashboard-metric-card is-vermilion">
               <span className="metric-icon vermilion"><Radar size={18} /></span>
-              <div><small>TÍN HIỆU THẤT TRỤ</small><strong>{hasMeasuredCoverage ? "Đã xác lập" : authenticated ? "Đang hợp nhất" : "Đang dò xét"}</strong><p>Chỉ tính bằng chứng học đủ điều kiện</p></div>
+              <div><small>TÍN HIỆU THẤT TRỤ</small><strong>{hasMeasuredCoverage ? "Đã xác lập" : "Chưa đủ tín hiệu"}</strong><p>Chỉ tính bằng chứng học đủ điều kiện</p></div>
             </article>
           </section>
         </div>
@@ -782,7 +784,7 @@ export function DashboardPage() {
                 ? "Trụ chưa khai mở"
                 : visibleSignalState === "insufficient"
                   ? authenticated
-                    ? "Đang hợp nhất chiến tích"
+                    ? "Chưa có bằng chứng đủ điều kiện"
                     : "Căn cơ đang được dò xét"
                   : formatCoveragePercent(coverage);
               const visibleState = hasUnmeasuredSpeechPractice
@@ -790,7 +792,7 @@ export function DashboardPage() {
                 : visibleSignalState === "unavailable"
                 ? "Chưa khai mở"
                 : visibleSignalState === "insufficient"
-                  ? authenticated ? "Đang hợp nhất" : "Chưa đủ tín hiệu"
+                  ? "Chưa đủ tín hiệu"
                   : `${formatCoveragePercent(coverage)} tín hiệu`;
               return (
                 <div
@@ -892,7 +894,7 @@ export function DashboardPage() {
                     ? "Trụ chưa khai mở"
                     : visibleSignalState === "insufficient"
                       ? authenticated
-                        ? "Đang hợp nhất chiến tích"
+                        ? "Chưa có bằng chứng đủ điều kiện"
                         : "Chưa ghi nhận chiến tích"
                       : formatLearnerActivityCoverage(count, target);
                   return (

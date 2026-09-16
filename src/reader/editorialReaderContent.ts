@@ -7,6 +7,7 @@ import {
 import {
   READER_CONTENT_VERSION,
   type ReaderChapter,
+  type ReaderComprehensionQuestion,
   type ReaderCoverTone,
   type ReaderLevelBand,
   type ReaderSeries,
@@ -37,6 +38,7 @@ export type EditorialReaderChapter = {
     focalPoint: "left" | "center" | "right";
   } | undefined;
   paragraphs: EditorialReaderParagraph[];
+  comprehension?: ReaderComprehensionQuestion[];
 };
 
 export type EditorialReaderBook = {
@@ -117,6 +119,28 @@ export const parseEditorialReaderBook = (value: unknown) => {
         || !["left", "center", "right"].includes(String(background.focalPoint))
       )) errors.push(`Nền minh họa chương ${chapterIndex + 1} cần URL nội bộ/HTTPS, mô tả và điểm lấy nét hợp lệ.`);
       const paragraphs = chapter && Array.isArray(chapter.paragraphs) ? chapter.paragraphs : [];
+      if (chapter?.comprehension !== undefined) {
+        const questions = chapter.comprehension;
+        if (!Array.isArray(questions) || questions.length > 10) {
+          errors.push(`Khảo luyện chương ${chapterIndex + 1} cần tối đa 10 câu.`);
+        } else {
+          const ids = new Set<string>();
+          questions.forEach((candidateQuestion, questionIndex) => {
+            const q = asRecord(candidateQuestion);
+            if (!q || !text(q.questionId, 100) || !/^[a-zA-Z0-9_-]+$/.test(String(q.questionId))
+              || ids.has(String(q.questionId)) || !text(q.promptVi, 1000)
+              || !text(q.explanationVi, 2000) || !Array.isArray(q.options)
+              || q.options.length < 3 || q.options.length > 4
+              || !q.options.every((option) => text(option, 600))
+              || new Set(q.options.map((option) => String(option).trim().normalize("NFC"))).size !== q.options.length
+              || !Number.isInteger(q.answerIndex) || Number(q.answerIndex) < 0
+              || Number(q.answerIndex) >= q.options.length) {
+              errors.push(`Khảo luyện chương ${chapterIndex + 1}, câu ${questionIndex + 1}: cần mã riêng, câu hỏi, 3–4 lựa chọn khác nhau, đáp án đúng và giải thích dựa trên bài đọc.`);
+            }
+            if (q) ids.add(String(q.questionId));
+          });
+        }
+      }
       if (paragraphs.length < 2 || paragraphs.length > 40) errors.push(`Chương ${chapterIndex + 1} cần từ 2 đến 40 đoạn căn chỉnh.`);
       paragraphs.forEach((candidateParagraph, paragraphIndex) => {
         const paragraph = asRecord(candidateParagraph);
@@ -174,6 +198,16 @@ export const parseEditorialReaderBook = (value: unknown) => {
     : { ok: true, errors: [], book: value as EditorialReaderBook } as const;
 };
 
+// Learning-content fingerprint: cosmetic edits do not invalidate a reading attempt.
+const chapterRevision = (chapter: EditorialReaderChapter) => {
+  const content = JSON.stringify([chapter.titleZh, chapter.titleVi, chapter.paragraphs, chapter.comprehension ?? []]);
+  let hash = 2166136261;
+  for (let index = 0; index < content.length; index += 1) {
+    hash = Math.imul(hash ^ content.charCodeAt(index), 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, "0");
+};
+
 export const editorialBookToSeries = (book: EditorialReaderBook): ReaderSeries => ({
   seriesId: book.seriesId,
   version: `${READER_CONTENT_VERSION}:editorial:${book.seriesId}:1`,
@@ -206,7 +240,8 @@ export const editorialBookToSeries = (book: EditorialReaderBook): ReaderSeries =
       const chapterId = `${book.seriesId}-c${String(chapterNumber).padStart(2, "0")}`;
       return {
         chapterId,
-        version: `${READER_CONTENT_VERSION}:editorial:${chapterId}:1`,
+        version: `${READER_CONTENT_VERSION}:editorial:${chapterId}:${chapterRevision(chapter)}`,
+        comprehensionCount: chapter.comprehension?.length ?? 0,
         seriesId: book.seriesId,
         chapterNumber,
         titleZh: chapter.titleZh,
@@ -252,6 +287,7 @@ export const editorialBookToChapter = (
     titleZh: summary.titleZh,
     titleVi: summary.titleVi,
     estimatedMinutes: summary.estimatedMinutes,
+    ...(source.comprehension?.length ? { comprehension: source.comprehension } : {}),
     ...(summary.backgroundAsset ? { backgroundAsset: summary.backgroundAsset } : {}),
     paragraphs: source.paragraphs.map((paragraph, index) => authorReaderParagraph({
       paragraphId: `${chapterId}-p${String(index + 1).padStart(2, "0")}`,
@@ -286,12 +322,12 @@ export const editorialBookToStudioLesson = (book: EditorialReaderBook) => {
     vocabulary: ["阅读", "故事", "章节"],
     dialogue,
     grammar: [{ pattern: "先……然后……", explanationVi: "Dùng để theo dõi trình tự sự kiện trong truyện." }],
-    exercises: [{
-      promptVi: `Chi tiết nào mở đầu ${firstChapter.titleVi}?`,
-      distractors: ["Một sự kiện không có trong chương", "Một nhân vật chưa xuất hiện"],
-      answer: firstChapter.paragraphs[0]!.zhHans,
-      explanationVi: "Đáp án lấy từ đoạn mở đầu đã căn chỉnh của chương.",
-    }],
+    exercises: book.chapters.flatMap((chapter) => (chapter.comprehension ?? []).map((question) => ({
+      promptVi: `${chapter.titleVi} · ${question.promptVi}`,
+      distractors: question.options.filter((_, index) => index !== question.answerIndex),
+      answer: question.options[question.answerIndex],
+      explanationVi: question.explanationVi,
+    }))),
     review: {
       humanReviewed: false,
       aiSelfReview: {

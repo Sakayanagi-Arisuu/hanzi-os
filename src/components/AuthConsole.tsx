@@ -403,15 +403,7 @@ export function AuthConsole({
   if (mode === "signin") {
     return (
       <div className="auth-stack auth-signin-stack">
-        <div className="auth-mode-tabs" role="group" aria-label="Đăng nhập hoặc đăng ký">
-          <button type="button" aria-pressed={authView === "signin"} onClick={() => { setAuthView("signin"); setFeedback(null); }}>
-            Đăng nhập
-          </button>
-          <button type="button" aria-pressed={authView === "register"} onClick={() => { setAuthView("register"); setFeedback(null); }}>
-            Tạo tài khoản
-          </button>
-        </div>
-
+        <header className="auth-guild-heading"><p>HANZI.OS · CỔNG HÀNH GIẢ</p><h1>{authView === "signin" ? "Chào mừng trở lại" : "Bắt đầu hành trình"}</h1><span>{authView === "signin" ? "Tiếp tục hành trình khám phá Hán ngữ. Tri thức luôn chờ bạn ở đây." : "Tạo tài khoản để lưu và đồng bộ hành trình học của bạn."}</span></header>
         <form
           className="auth-card auth-hanzi-card"
           onSubmit={(event) => {
@@ -419,14 +411,6 @@ export function AuthConsole({
             void submitHanziAccount();
           }}
         >
-          <div className="auth-card-heading">
-            <span className="auth-method-icon">汉</span>
-            <div>
-              <span className="auth-method-state"><i /> HANZI.OS IDENTITY</span>
-              <h3 className="auth-title">{authView === "signin" ? "Tài khoản HANZI.OS" : "Đăng ký HANZI.OS"}</h3>
-            </div>
-          </div>
-          <p className="auth-copy">{authView === "signin" ? "Dùng tên tài khoản hoặc email cùng mật khẩu HANZI.OS." : "Tài khoản mới mặc định là Hành Giả; quyền biên tập và quản trị không thể tự đăng ký."}</p>
           <div className="auth-form-grid">
             {authView === "register" && (
               <label className="auth-field">
@@ -477,37 +461,21 @@ export function AuthConsole({
             type="submit"
             disabled={busy || !username.trim() || (authView === "signin" ? password.length < 1 : !hanziPasswordMeetsPolicy(password)) || (authView === "register" && (!displayName.trim() || !email.trim() || !passwordConfirmation))}
           >
-            {busy ? "Đang xác minh..." : authView === "register" ? "Tạo danh tính HANZI.OS" : "Đăng nhập HANZI.OS"}
+            {busy ? "Đang xác minh..." : authView === "register" ? "Tạo tài khoản" : "Đăng nhập"}
             {authView === "register" ? <UserRoundPlus size={17} /> : <ArrowRight size={17} />}
           </button>
           <Feedback feedback={feedback} />
         </form>
+        <p className="auth-switch">{authView === "signin" ? "Chưa có tài khoản?" : "Đã có tài khoản?"} <button type="button" disabled={busy} onClick={() => { setAuthView(authView === "signin" ? "register" : "signin"); setFeedback(null); }}>{authView === "signin" ? "Tạo tài khoản" : "Đăng nhập"}</button></p>
 
-        <div className="auth-divider"><span>hoặc dùng nhà cung cấp</span></div>
-        <section className="auth-provider-grid auth-provider-grid-two" aria-label="Google và Facebook">
-          {googleAvailable ? (
-              <a className="auth-provider" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}>
-                <Chrome size={19} /><span><strong>Google</strong><small>Tiếp tục qua tài khoản Google</small></span><ArrowRight size={16} />
-              </a>
-          ) : (
-              <button className="auth-provider" type="button" disabled>
-                <Chrome size={19} /><span><strong>Google</strong><small>Sẵn sàng cấu hình khi public web</small></span><ShieldCheck size={16} />
-              </button>
-          )}
-          {facebookAvailable ? (
-              <a className="auth-provider" href={`/auth/facebook/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}>
-                <Users size={19} /><span><strong>Facebook</strong><small>Tiếp tục qua tài khoản Facebook</small></span><ArrowRight size={16} />
-              </a>
-          ) : (
-              <button className="auth-provider" type="button" disabled>
-                <Users size={19} /><span><strong>Facebook</strong><small>Sẵn sàng cấu hình khi public web</small></span><ShieldCheck size={16} />
-              </button>
-          )}
-        </section>
+        {(googleAvailable || facebookAvailable) && <section className="auth-provider-grid" aria-label="Cách đăng nhập khác">
+          {googleAvailable && <a className="auth-provider" href={`/auth/google/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Chrome size={19} />Google<ArrowRight size={16} /></a>}
+          {facebookAvailable && <a className="auth-provider" href={`/auth/facebook/start?mode=signin&returnTo=${encodeURIComponent(returnTo)}`}><Users size={19} />Facebook<ArrowRight size={16} /></a>}
+        </section>}
 
         {localDevelopment && demoAccounts.length > 0 && (
-          <section className="auth-demo-accounts">
-            <header><span>LOCAL ROLE LAB</span><strong>Tài khoản thử theo vai trò</strong><small>Chỉ tồn tại trên localhost; không được tạo ở bản public.</small></header>
+          <details className="auth-demo-accounts">
+            <summary>Tài khoản demo có sẵn</summary>
             <div>
               {demoAccounts.map((account) => (
                 <button key={account.username} type="button" disabled={busy} onClick={() => void signInDemoAccount(account)}>
@@ -517,9 +485,10 @@ export function AuthConsole({
                 </button>
               ))}
             </div>
-          </section>
+          </details>
         )}
         <a className="auth-guest-link" href="/">Tiếp tục học trên thiết bị này <ArrowRight size={16} /></a>
+        <p className="auth-guild-legal"><a href="/terms">Điều khoản</a> · <a href="/privacy">Quyền riêng tư</a></p>
       </div>
     );
   }

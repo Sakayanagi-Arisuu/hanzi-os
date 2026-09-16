@@ -44,7 +44,10 @@ const runtimeItem = (overrides: Record<string, unknown> = {}) => ({
       { hanzi: "你好！", pinyin: "Nǐ hǎo!", meaningVi: "Xin chào!" },
       { hanzi: "你好，我是安。", pinyin: "Nǐ hǎo, wǒ shì Ān.", meaningVi: "Xin chào, tôi là An." },
     ],
-    grammar: [{ pattern: "A 是 B", explanationVi: "Dùng 是 để giới thiệu danh tính." }],
+    grammar: [{ pattern: "A 是 B", explanationVi: "Dùng 是 để giới thiệu danh tính.",
+      modelExample:{hanzi:'我是学生。',pinyin:'Wǒ shì xuésheng.',meaningVi:'Tôi là học sinh.'},
+      guidedPractice:{promptVi:'Hãy tự giới thiệu bằng một câu.',modelAnswerHanzi:'我是学生。',modelAnswerPinyin:'Wǒ shì xuésheng.',modelAnswerMeaningVi:'Tôi là học sinh.'},
+    }],
     exercises: [{
       promptVi: "Hãy tự giới thiệu bằng một câu.",
       answer: "我是学生。",
@@ -210,6 +213,16 @@ describe("published Studio lesson projection", () => {
       ...grammarItem(),
       content: { ...grammarItem().content, review: { humanReviewed: true } },
     }]))).toThrow(/invalid enhancement/u);
+  });
+
+  it("uses each contextual task's own answer instead of the shared dialogue", () => {
+    const item = communicativeItem();
+    const answer = { answer: "我是学生。", answerPinyin: "Wǒ shì xuésheng.", answerMeaningVi: "Tôi là học sinh." };
+    const projection = parsePublishedStudioLearning(manifest([{ ...item, content: { ...item.content,
+      tasks: [{ promptVi: "Diễn đạt: Tôi là học sinh.", explanationVi: "Đối chiếu mẫu.", ...answer }] } }]));
+    expect(projection.enhancements.get(target.id)!.tasks[0].modelDialogue).toEqual([
+      { speaker: "Mẫu", hanzi: answer.answer, pinyin: answer.answerPinyin, meaningVi: answer.answerMeaningVi },
+    ]);
   });
 
   it("requests only the published lesson runtime with no-store and keeps failures closed", async () => {

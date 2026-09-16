@@ -771,8 +771,48 @@ export const deleteLearningProjection = (scope: OwnerScopedCacheScope) =>
 export const readLessonResume = <T>(scope: OwnerScopedCacheScope) =>
   readOwnerScopedCache<T>(LESSON_RESUME_STORE, scope);
 
+/** Read only the active owner's current reset epoch, including archived lesson
+ * revisions. No other account's drafts enter the caller's analytics input.
+ */
+export async function listLessonResumes(scope: ActiveOwnerLearningScope): Promise<OwnerScopedCacheRecord<unknown>[]> {
+  const cacheScope={expectedOwnerGeneration:scope.ownerGeneration,resetEpoch:scope.resetEpoch,entryKey:'lesson-reading-list'};
+  assertOwnerScopedCacheScope(cacheScope);
+  const database=await openSyncDatabase();
+  const transaction=database.transaction([META_STORE,DOCUMENT_STORE,LESSON_RESUME_STORE],'readonly');
+  const done=transactionDone(transaction);
+  try{
+    await assertOwnerLearningScope(transaction,cacheScope);
+    const records=await requestResult(transaction.objectStore(LESSON_RESUME_STORE).index(OWNER_SCOPED_CACHE_OWNER_EPOCH_INDEX).getAll(IDBKeyRange.only([scope.ownerGeneration.ownerKey,scope.resetEpoch])) as IDBRequest<OwnerScopedCacheRecord<unknown>[]>);
+    await done;return records;
+  }catch(error){abortTransaction(transaction);await done.catch(()=>undefined);throw error;}
+}
+
 export const writeLessonResume = <T>(input: OwnerScopedCacheWrite<T>) =>
   writeOwnerScopedCache(LESSON_RESUME_STORE, input);
+
+/** Atomic read/modify/write for durable reading state shared across tabs.
+ * The synchronous callback cannot outlive the IndexedDB transaction.
+ */
+export async function updateLessonResume<T>(scope: OwnerScopedCacheScope, update: (previous: unknown) => T): Promise<T> {
+  assertOwnerScopedCacheScope(scope);
+  const database = await openSyncDatabase();
+  const transaction = database.transaction([META_STORE, DOCUMENT_STORE, LESSON_RESUME_STORE], 'readwrite');
+  const done = transactionDone(transaction);
+  try {
+    await assertOwnerLearningScope(transaction, scope);
+    const store = transaction.objectStore(LESSON_RESUME_STORE);
+    const recordKey = ownerScopedCacheRecordKey(scope.expectedOwnerGeneration.ownerKey, scope.resetEpoch, scope.entryKey);
+    const previous = await requestResult(store.get(recordKey) as IDBRequest<OwnerScopedCacheRecord<unknown> | undefined>);
+    const value = update(previous?.value);
+    store.put({schemaVersion: 1, recordKey, ownerKey: scope.expectedOwnerGeneration.ownerKey, resetEpoch: scope.resetEpoch, entryKey: scope.entryKey, value, updatedAt: new Date().toISOString()} satisfies OwnerScopedCacheRecord<T>);
+    await done;
+    return value;
+  } catch (error) {
+    abortTransaction(transaction);
+    await done.catch(() => undefined);
+    throw error;
+  }
+}
 
 export const deleteLessonResume = (scope: OwnerScopedCacheScope) =>
   deleteOwnerScopedCache(LESSON_RESUME_STORE, scope);

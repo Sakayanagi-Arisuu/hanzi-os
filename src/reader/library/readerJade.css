@@ -1,0 +1,65 @@
+/* Jade library: scoped to the reader; AppShell remains the shared navigation. */
+.reader-cover .reader-cover-art--generated::before {
+  background: linear-gradient(180deg, #03100c18 0%, transparent 24%, transparent 65%, #03100cb8 100%);
+}
+.reader-cover .reader-cover-art--generated::after { background: linear-gradient(135deg, #efd09a0d, transparent 40%); }
+.reader-cover .reader-cover-art__image { filter: brightness(1.23) saturate(1.16) contrast(.96); }
+.reader-cover .reader-cover-art__eyebrow { color: #fff0c7; text-shadow: 0 1px 5px #000; }
+.reader-cover .reader-cover-art__zh { color: #fff0be; text-shadow: 0 2px 7px #001a12; }
+.reader-cover.reader-cover--catalog { border-radius: 6px; }
+.reader-cover--catalog .reader-cover-art__eyebrow,
+.reader-cover--catalog .reader-cover-art > strong,
+.reader-cover--catalog .reader-cover-art__seal { display: none; }
+.reader-cover--catalog .reader-cover-art__zh { margin-top: 0; max-width: 90%; font-size: clamp(20px, 2vw, 29px); line-height: 1.45; text-shadow: 0 2px 4px #001a12, 0 0 14px #001a12; }
+.reader-cover--catalog .reader-cover-art--generated::before { background: linear-gradient(180deg, #03100c55, transparent 40%, transparent 90%, #03100c22); }
+.reader-cover--catalog .reader-cover-spine { opacity: .25; }
+.reader-library .reader-catalog-heading {
+  min-height: 260px;
+  padding: clamp(24px, 4vw, 48px);
+  position: relative;
+  align-items: flex-end;
+  border: 1px solid #7f704647;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #02100fdd, #03130a55 65%, #03130a22), url('/reader/library-jade-v1.webp') center / cover;
+  box-shadow: inset 0 0 60px #00100b55, 0 16px 48px #0005;
+}
+.reader-library .reader-catalog-heading h1 {
+  max-width: 660px;
+  font-family: 'Hanzi Editorial', Georgia, 'Times New Roman', serif;
+  font-size: clamp(30px, 3.2vw, 46px);
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #fff3d4;
+  text-wrap: balance;
+}
+.reader-library .reader-catalog-heading p { max-width: 570px; color: #d1ded5; font-size: 15px; }
+.reader-library .reader-catalog-heading small { color: #f0d08a; font-size: 10px; line-height: 1.6; }
+.reader-library .reader-shelf-tabs { padding-block: 20px 8px; gap: 9px; }
+.reader-library .reader-shelf-tabs button { border-radius: 5px; min-height: 44px; }
+.reader-library .reader-shelf-tabs button[aria-pressed="true"] { background: linear-gradient(115deg, #f4dda0, #ccaa62); color: #162016; border-color: #edcd86; box-shadow: 0 3px 15px #d7bc5822; }
+.reader-library .reader-cover { box-shadow: 0 12px 22px #0008; transition: transform 200ms ease, box-shadow 200ms ease; }
+.reader-library .reader-cover:hover { transform: translateY(-4px); box-shadow: 0 16px 30px #000a, 0 0 0 1px #e4c37688; }
+.reader-library .reader-catalog-count { color: #acc4b9; }
+.reader-series-page .reader-series-hero { padding: clamp(24px, 4vw, 48px); border: 1px solid #8d7a484f; border-radius: 12px; background: radial-gradient(ellipse at 15% 20%, #32604955, transparent 65%), linear-gradient(120deg, #102820, #04110e); box-shadow: 0 20px 60px #0004; }
+.reader-series-page .reader-series-hero h1 { color: #f5dfab; font-family: 'Hanzi Editorial', Georgia, 'Times New Roman', serif; letter-spacing: 0; }
+.reader-series-page .reader-chapter-list li { border-color: #a28d5440; border-radius: 8px; background: linear-gradient(110deg, #102820, #071813); }
+.reader-series-page .reader-chapter-list li:hover { border-color: #b29c63; background: #153429; }
+.reader-series-page .reader-chapter-number { color: #e0c17f; }
+.reader-chapter-shell .reader-reading-surface { border-inline: 1px solid #c5ad6638; background: linear-gradient(90deg, #061710f2, #0c2118ed, #061710f2); box-shadow: 0 0 80px #0008; padding-inline: clamp(20px, 4vw, 54px); }
+.reader-chapter-shell .reader-reading-surface > header { border-bottom: 1px solid #c5ad6644; padding-bottom: 28px; }
+.reader-chapter-shell .reader-comprehension { border: 1px solid #ad925b88; border-radius: 12px; padding: clamp(18px, 3vw, 30px); background: radial-gradient(ellipse at top right, #28604c44, transparent 65%), #071b15; }
+.reader-chapter-shell .reader-comprehension h2 { color: #f3d99a; font-family: 'Hanzi Editorial', Georgia, serif; font-size: 28px; }
+.reader-chapter-shell .reader-comprehension fieldset { border-color: #60866b77; padding: 18px; border-radius: 8px; }
+.reader-chapter-shell .reader-quiz-progress { color: #b5f0d5; padding: 12px 16px; background: #20453288; border-left: 3px solid #dec580; }
+.reader-dialog.reader-dialog { border: 1px solid #ab935f88; background: radial-gradient(ellipse at top right, #234d3e55, transparent 65%), #081b15; box-shadow: 0 30px 90px #000b, inset 0 0 0 5px #b49b5310; }
+@media (max-width: 600px) {
+  .reader-library .reader-catalog-heading { min-height: 270px; display: grid; gap: 18px; padding: 24px; background-position: 62% center; }
+  .reader-library .reader-catalog-heading h1 { font-size: 30px; }
+  .reader-library .reader-catalog-heading > button { justify-self: start; }
+  .reader-series-page .reader-series-hero { padding: 20px; }
+  .reader-chapter-shell .reader-reading-surface { padding-inline: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reader-library .reader-cover { transition: none; }
+  .reader-library .reader-cover:hover { transform: none; }
+}

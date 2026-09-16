@@ -1,3 +1,5 @@
+"use client";
+
 import {
   BookOpenCheck,
   Languages,
@@ -14,6 +16,8 @@ import {
 } from "../learning/richLessonContent";
 import { mergePublishedStudioLessonEnhancement } from "../content/publishedStudioClient";
 import type { PublishedStudioLessonEnhancement } from "../content/publishedStudioLessons";
+import {characterContextReading} from '../learning/characterContextReading';
+import {characterContextException} from '../learning/characterContextExceptions';
 import { speakMandarin } from "../lib/speech";
 
 const Dialogue = ({ turns }: { turns: RichDialogueTurn[] }) => (
@@ -89,7 +93,7 @@ export function LessonDepthPanel({
                     /;\s*hoạt động tự kiểm không cấp mastery\./giu,
                     ".",
                   )}</p>
-                  <button
+                  {point.modelExample.hanzi && <button
                     type="button"
                     onClick={() => speakMandarin(point.modelExample.hanzi)}
                     className="grammar-model-example"
@@ -100,8 +104,8 @@ export function LessonDepthPanel({
                       <small>{point.modelExample.pinyin}</small>
                       <em>{point.modelExample.meaningVi}</em>
                     </span>
-                  </button>
-                  <div className="guided-practice-card">
+                  </button>}
+                  {point.guidedPractice.modelAnswerHanzi && <div className="guided-practice-card">
                     <span>TỰ NÓI TRƯỚC KHI MỞ ĐÁP ÁN</span>
                     <p>{point.guidedPractice.promptVi}</p>
                     <details>
@@ -120,7 +124,7 @@ export function LessonDepthPanel({
                         </span>
                       </button>
                     </details>
-                  </div>
+                  </div>}
                 </div>
               </details>
             ))}
@@ -141,8 +145,9 @@ export function LessonDepthPanel({
                 aria-label={`Nghe từ ${character.contextWord}`}
               >
                 <strong>{character.hanzi}</strong>
-                <span>{character.pinyin}</span>
-                <small>{character.contextWord} · {character.contextPinyin}</small>
+                <span>{characterContextReading(character) ? `Âm trong từ: ${characterContextReading(character)}` : 'Đọc trong từ bên dưới'}</span>
+                {characterContextException(character)&&<small>{characterContextException(character)!.note}</small>}
+                <small>Từ: {character.contextWord} · Âm cả từ: {character.contextPinyin}</small>
                 <em>{character.contextMeaningVi}</em>
                 <Volume2 size={15} />
               </button>

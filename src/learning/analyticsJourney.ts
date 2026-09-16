@@ -43,7 +43,7 @@ export const buildAnalyticsGateways = ({
   completionRate: number;
   dueCount: number;
   totalCount: number;
-  unresolvedMistakes: number;
+  unresolvedMistakes: number | null;
 }): AnalyticsGateway[] => [{
   id: "path",
   eyebrow: "HỌC",
@@ -70,9 +70,11 @@ export const buildAnalyticsGateways = ({
   title: "Nghịch Cảnh Lục",
   plainLabel: "Luyện lại lỗi sai",
   to: "/mistakes",
-  status: unresolvedMistakes > 0
+  status: unresolvedMistakes === null
+    ? "Mở để xem lỗi đang chờ phá giải"
+    : unresolvedMistakes > 0
     ? `${unresolvedMistakes} lỗi đang chờ phá giải`
-    : "Không có lỗi cục bộ đang mở",
+    : "Không có lỗi đang chờ phá giải",
   tone: "gold",
 }, {
   id: "pronunciation",

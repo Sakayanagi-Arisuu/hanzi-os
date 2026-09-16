@@ -1,0 +1,26 @@
+@import './GuildTypography.css';
+.policy-main {min-height:100dvh;color:#d7e1d8;background:radial-gradient(ellipse at 85% 0,#28483366,transparent 40%),#071b17;font:16px/1.85 'Segoe UI',Arial,sans-serif}
+.policy-main * {box-sizing:border-box}
+.policy-layout {max-width:1260px;margin:auto;padding:48px 40px 80px;display:grid;grid-template-columns:250px minmax(0,1fr);gap:64px}
+.policy-toc {position:sticky;top:32px;align-self:start;padding-top:18px}
+.policy-toc>p {font-size:11px;letter-spacing:.15em;color:#ddc387;margin:0 0 18px}
+.policy-toc nav {display:grid;border-left:1px solid #c7ad6944}
+.policy-toc a {display:flex;gap:12px;padding:12px 16px;min-height:44px;color:#c0d0c4;font-size:14px;line-height:1.5;text-decoration:none}
+.policy-toc a span {color:#c4a76c;font-size:11px;padding-top:3px}
+.policy-toc a:hover {background:#b9d3a611;color:#f3dfaf}
+.policy-nav {display:flex;flex-wrap:wrap;gap:8px 22px;margin-bottom:38px;padding-right:28px}
+.policy-nav a {display:inline-flex;align-items:center;min-height:44px;font-size:13px}
+.policy-nav a[aria-current] {border-bottom:1px solid #e8cc8f;color:#f1d79e}
+.policy-link {color:#e5ce99;text-underline-offset:5px}
+.policy-kicker {color:#cdb582;font-size:11px;letter-spacing:.12em}
+.policy-title {font:400 clamp(34px,4vw,56px)/1.3 'Hanzi Editorial',serif;color:#f0d79f;margin:16px 0 24px}
+.policy-lead {font-size:18px;line-height:1.8;color:#d0dfd1;margin:0 0 24px}
+.policy-notice {padding:22px 24px;border:1px solid #bca76c66;border-left:3px solid #d3ba7b;border-radius:0 8px 8px 0;background:#a3ad6410;color:#ded4b2;font-size:14px;margin:30px 0 40px}
+.policy-section {padding:30px 0;border-top:1px solid #a9bd9a33;scroll-margin-top:28px}
+.policy-heading {font:400 25px/1.5 'Hanzi Editorial',serif;color:#eee1bd;margin:0 0 18px}
+.policy-copy {color:#c5d3c8;margin:12px 0;line-height:1.9}
+.policy-list {padding-left:24px;color:#c5d3c8}.policy-list li {padding-left:6px;margin:12px 0}.policy-list li::marker{color:#d5b878}
+.policy-footer {border-top:1px solid #a9bd9a33;padding:24px 0;font-size:13px;color:#a8bda9}
+.policy-main :is(a,summary):focus-visible {outline:2px solid #e6ce96;outline-offset:4px}
+.policy-main code {overflow-wrap:anywhere;color:#e5d5ae;font-size:.9em}
+@media(max-width:900px){.policy-layout{grid-template-columns:1fr;gap:24px;padding:28px 24px 48px}.policy-toc{position:static;order:1;padding:18px;background:#18342955;border:1px solid #bca76c33}.policy-article{display:contents}.policy-nav,.policy-article>header,.policy-notice{order:0}.policy-section,.policy-footer{order:2}.policy-nav{margin-bottom:4px}.policy-notice{margin:0}.policy-section{padding:24px 0}.policy-title{font-size:36px}}

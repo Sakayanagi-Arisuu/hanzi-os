@@ -5,6 +5,8 @@ import {
   isLocalDevelopmentAuth,
 } from "../../src/server/authHttp";
 import { getRuntimeEnvironment } from "../../src/server/d1";
+import "../../src/components/AuthGuild.css";
+import "../../src/components/GuildTypography.css";
 
 export const dynamic = "force-dynamic";
 
@@ -43,31 +45,18 @@ export default async function SignInPage({ searchParams }: { searchParams: Promi
     ? query.returnTo.slice(0, 500)
     : "/";
   return (
-    <main className="signin-page">
+    <main className="signin-page auth-guild">
       <div className="signin-grid" aria-hidden="true" />
       <div className="signin-glyphs" aria-hidden="true"><span>觉</span><span>学</span><span>忆</span></div>
       <nav className="signin-nav">
-        <a href="/" aria-label="Trở về HANZI.OS"><span className="signin-mark">汉</span><strong>HANZI.OS</strong></a>
-        <span>IDENTITY GATE // 01</span>
+        <a href="/welcome" aria-label="Trở về HANZI.OS"><span className="signin-mark">汉</span><strong>HANZI.OS</strong></a>
+        <a href="/welcome">← Quay lại trang giới thiệu</a>
       </nav>
       <div className="signin-shell">
         <section className="signin-intro">
-          <div className="signin-orbit" aria-hidden="true"><i /><b /><span>觉</span></div>
-          <span className="signin-kicker">CỔNG DANH TÍNH · BA PHƯƠNG THỨC</span>
-          <h1>Đánh thức<br /><em>danh tính học tập.</em></h1>
-          <p>Tạo tài khoản HANZI.OS hoặc tiếp tục bằng Google/Facebook khi bản public được cấu hình. Tiến độ local trên máy này vẫn được giữ nguyên.</p>
-          <div className="signin-trust-list">
-            <span><strong>01</strong> HANZI.OS dùng được ngay trên localhost</span>
-            <span><strong>02</strong> Mật khẩu chỉ lưu dưới dạng băm có salt</span>
-            <span><strong>03</strong> Ba vai trò có tài khoản thử riêng</span>
-          </div>
+          <div className="auth-banner-copy"><strong lang="zh-Hans">汉<br />字</strong><span>VĂN HOÁ<br />KẾT NỐI<br />CON NGƯỜI</span></div><p className="auth-art-motto">TRI THỨC<br />VƯỢT THỜI GIAN<br />KẾT NỐI<br />MUÔN PHƯƠNG</p><p className="auth-art-footnote">HỌC CHỮ<br />HIỂU NGƯỜI<br />KIẾN TẠO TƯƠNG LAI</p>
         </section>
         <section className="signin-console">
-          <header>
-            <span>AWAKENING PROTOCOL</span>
-            <h2>Xác nhận danh tính</h2>
-            <p>{localDevelopment ? "Chọn nhanh Hành Giả, Quản Khố hoặc Điều Hành ở cuối bảng." : "Đăng nhập hoặc tạo một danh tính HANZI.OS mới."}</p>
-          </header>
           {query.error && <p className="signin-alert" role="alert">Cổng vừa chọn chưa sẵn sàng. Hãy dùng tài khoản HANZI.OS hoặc thử lại sau.</p>}
           <AuthConsole
             mode="signin"

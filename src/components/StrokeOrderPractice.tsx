@@ -5,7 +5,12 @@ import {
   LoaderCircle,
   Play,
   SkipForward,
+  Undo2,
+  RotateCcw,
+  MousePointer2,
+  Volume2,
 } from "lucide-react";
+import { speakMandarin } from "../lib/speech";
 import {
   useCallback,
   useEffect,
@@ -156,12 +161,14 @@ export function StrokeOrderPractice({
   initialAssistance,
   onAssistanceChange,
   onComplete,
+  cue,
 }: {
   hanzi: string;
   variant?: "guided" | "memory";
   initialAssistance?: number;
   onAssistanceChange?: (level: number) => void;
   onComplete?: (result: StrokePracticeResult) => void;
+  cue?: { pinyin: string; meaning: string };
 }) {
   const startingAssistance = variant === "memory" ? 0 : initialAssistance ?? 3;
   const [data, setData] = useState<HanziStrokeData | null>(null);
@@ -249,11 +256,17 @@ export function StrokeOrderPractice({
   });
 
   const eventPoint = (event: ReactPointerEvent<SVGSVGElement>): TracePoint => {
-    const bounds = svgRef.current!.getBoundingClientRect();
-    return {
-      x: ((event.clientX - bounds.left) / bounds.width) * 1024,
-      y: ((event.clientY - bounds.top) / bounds.height) * 900,
-    };
+    const svg = svgRef.current!;
+    const matrix = svg.getScreenCTM();
+    if (matrix) {
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const local = point.matrixTransform(matrix.inverse());
+      return { x: local.x, y: local.y };
+    }
+    const bounds = svg.getBoundingClientRect();
+    return { x: ((event.clientX - bounds.left) / bounds.width) * 1024, y: ((event.clientY - bounds.top) / bounds.height) * 900 };
   };
 
   const begin = (event: ReactPointerEvent<SVGSVGElement>) => {
@@ -425,16 +438,31 @@ export function StrokeOrderPractice({
         </div>
 
         <aside className="stroke-coach" aria-label="Phản hồi và trợ giúp luyện nét">
+          {cue && variant === "memory" && <div className="guild-writing-prompt guild-panel"><strong>{cue.pinyin}</strong><button type="button" aria-label="Nghe chữ cần viết" onClick={() => speakMandarin(hanzi)}><Volume2 /></button><p>{cue.meaning}</p></div>}
+          {cue && variant === "guided" && <ol className="guild-stroke-steps" aria-label="Thứ tự nét đang luyện">{data.strokes.map((_, index) => <li key={index} aria-current={!complete && index === strokeIndex ? "step" : undefined}>{index < strokeIndex ? <Check size={18} /> : index + 1}</li>)}</ol>}
           <div className="stroke-coach-label"><span aria-hidden="true" />{complete ? "Đã hoàn thành chữ" : `Đang luyện nét ${strokeIndex + 1}`}</div>
           <p className="stroke-feedback" data-tone={feedbackTone} role={feedbackTone === "error" ? "alert" : "status"} aria-live={feedbackTone === "error" ? "assertive" : "polite"}>
             {feedbackTone === "error" ? <AlertCircle aria-hidden="true" /> : feedbackTone === "success" ? <Check aria-hidden="true" /> : null}
             <span>{feedback}</span>
           </p>
           {!complete && <div className="stroke-actions" aria-label="Trợ giúp luyện nét">
+            {cue && <>
+              <button type="button" disabled={strokeIndex === 0 || playing} onClick={() => {
+                setStrokeIndex((index) => Math.max(0, index - 1));
+                setCompletedTraces((traces) => traces.slice(0, -1));
+                setTrace([]); setDrawing(false); setFeedbackTone("neutral");
+                setFeedback("Đã hoàn tác nét cuối. Viết lại nét này; trợ giúp đã dùng vẫn được ghi nhận.");
+              }}><Undo2 /> Hoàn tác</button>
+              <button type="button" disabled={strokeIndex === 0 || playing} onClick={() => {
+                setStrokeIndex(0); setCompletedTraces([]); setTrace([]); setDrawing(false);
+                setFeedbackTone("neutral"); setFeedback("Bắt đầu viết lại. Trợ giúp đã dùng vẫn được ghi nhận.");
+              }}><RotateCcw /> Viết lại</button>
+            </>}
             {variant === "memory" && <button type="button" aria-pressed={memoryReferenceVisible} onClick={toggleMemoryReference}><Eye /> {memoryReferenceVisible ? "Ẩn chữ mẫu" : "Hiện chữ mẫu"}</button>}
             {variant === "guided" && <button type="button" onClick={playOrder} disabled={playing}><Play /> {playing ? "Đang phát…" : "Xem thứ tự"}</button>}
             {shouldOfferStrokeRescue(variant, currentStrokeMisses) && <button className="stroke-rescue" type="button" onClick={skipStroke}><SkipForward /> Đi nét này giúp tôi</button>}
           </div>}
+          {cue && <p className="guild-input-note"><MousePointer2 size={24} />Dùng chuột, bút hoặc cảm ứng</p>}
         </aside>
       </div>
     </section>

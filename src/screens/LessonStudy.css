@@ -1,0 +1,191 @@
+/* Thiên Lộ · Ngọc điện học. Scoped to lesson preparation, practice and result. */
+html[data-theme] .lesson-briefing-scroll > .lesson-page-reader { flex: 1 1 0; min-height: 0; max-height: none; height: auto; }
+html[data-theme] :is(.lesson-briefing-page, .lesson-live-page, .path-clear-screen) {
+  --study-ink: #edf2df;
+  --study-muted: #b1c5b7;
+  --study-jade: #b1d8b1;
+  --study-gold: #ddc58a;
+  --study-edge: #476151;
+  --study-surface: #102a21;
+  --text: #edf2df;
+  --muted: #b1c5b7;
+  --dim: #afc3b1;
+  --jade: #b1d8b1;
+  --cyan: #badace;
+  --gold: #ddc58a;
+  --surface-inset: #153225;
+  --surface-raised: #1b3b2d;
+  --surface: #102a21;
+  --line: #476151;
+  --line-strong: #789270;
+  --cyan-soft: #15352f;
+  --jade-soft: #1a392a;
+  --on-well: #122419;
+  color: var(--study-ink);
+  background: radial-gradient(ellipse at 95% 0%, #254c35 0, transparent 45%), linear-gradient(145deg,#0a211a,#06140f);
+  border: 1px solid var(--study-edge);
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 5px #0a1b15, 0 14px 40px #0003;
+}
+html[data-theme] .lesson-briefing-page { padding: 12px 16px; }
+html[data-theme] .lesson-briefing-page .lesson-briefing-scroll { display: flex; flex-direction: column; overflow: hidden; padding: 0; gap: 8px; }
+html[data-theme] .lesson-briefing-page .briefing-hero { flex: 0 0 auto; min-height: 0; padding: 0 8px 12px; display: block; background: transparent; border: 0; border-bottom: 1px solid var(--study-edge); box-shadow: none; }
+html[data-theme] .lesson-briefing-page .lesson-briefing-masthead { margin-bottom: 6px; }
+html[data-theme] .lesson-briefing-page .lesson-briefing-back { min-height: 44px; color: var(--study-jade); }
+html[data-theme] .lesson-briefing-page .briefing-hero-copy { position: relative; padding-right: 56px; }
+html[data-theme] .lesson-briefing-page .briefing-hero-copy::after { content: '学'; position: absolute; right: 2px; top: 4px; color: var(--study-gold); border: 1px solid #a58b52; padding: 5px 9px; font: 28px serif; border-radius: 3px; }
+html[data-theme] .lesson-briefing-page .briefing-hero h1 { margin: 4px 0; color: var(--study-ink); font-size: clamp(20px,2vw,28px); line-height: 1.2; }
+html[data-theme] .lesson-briefing-page .briefing-chinese { display: inline; color: var(--study-gold); font-size: 16px; }
+html[data-theme] .lesson-briefing-page .briefing-hero-copy > p:last-child { display: none; }
+html[data-theme] .lesson-briefing-page .system-kicker { color: var(--study-muted); font-size: 10px; letter-spacing: .12em; }
+html[data-theme] .lesson-briefing-page .lesson-theory-panel { flex: 1 1 0; min-height: 0; margin: 0; border-color: var(--study-edge); border-radius: 10px; background: #0a2019; }
+html[data-theme] .lesson-briefing-page .lesson-theory-stage-frame { min-height: 0; overflow: hidden; }
+html[data-theme] .lesson-briefing-page .lesson-theory-stage { height: 100%; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; padding: 20px clamp(14px,3vw,36px); scrollbar-color: #71896d #0c231b; }
+html[data-theme] .lesson-briefing-page .lesson-briefing-scroll > .synthetic-audio-note { flex: 0 0 auto; margin: 0; color: var(--study-muted); font-size: 11px; line-height: 1.4; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress { background: #152f24; border-color: var(--study-edge); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress button { min-height: 44px; color: var(--study-muted); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress button[aria-current="step"] { color: var(--study-ink); background: #284a35; border-color: var(--study-gold); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-stage :is(h2,h3,strong) { color: var(--study-ink); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-stage :is(p,li) { color: var(--study-muted); font-size: 14px; line-height: 1.65; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) :is(.theory-word-focus,.theory-dialogue-card,.theory-grammar-card,.theory-transfer-task,.theory-concept-support,.tone-concept-check) { background: linear-gradient(145deg,#163427,#0c241c); border: 1px solid var(--study-edge); border-radius: 10px; box-shadow: none; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .theory-word-identity strong { color: var(--study-ink); font-size: clamp(40px,6vw,64px); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) :is(.theory-word-picker,.theory-grammar-picker) button { min-height: 44px; border-radius: 6px; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .theory-transfer-grid { display: block; }
+html[data-theme] .theory-task-picker { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 14px 0; }
+html[data-theme] .theory-task-picker label { display: flex; align-items: center; gap: 12px; color: #dce8d8; font-size: 14px; }
+html[data-theme] .theory-task-picker :is(button,select) { min-width: 44px; min-height: 44px; padding: 8px 12px; color: #e9eedc; background: #1d3c2e; border: 1px solid #789270; border-radius: 6px; }
+html[data-theme] .theory-task-picker button:disabled { opacity: .45; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .theory-transfer-task details { margin-top: 16px; border-top: 1px solid var(--study-edge); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .theory-transfer-task summary { padding: 12px 0; min-height: 44px; color: var(--study-gold); font-size: 14px; cursor: pointer; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-navigation { padding: 10px 12px; background: #10271d; border-color: var(--study-edge); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-navigation button { min-height: 46px; border-radius: 7px; font-size: 13px; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-next { color: #142417; background: var(--study-jade); border-color: var(--study-jade); }
+html[data-theme] .lesson-live-page { padding: 16px 24px; gap: 12px; }
+html[data-theme] .lesson-live-page .lesson-live-header { border-bottom: 1px solid var(--study-edge); padding-bottom: 12px; }
+html[data-theme] .lesson-live-page :is(.lesson-return-link,.lesson-theory-button) { color: var(--study-ink); border-color: var(--study-edge); border-radius: 7px; background: var(--study-surface); }
+html[data-theme] .lesson-live-page .lesson-context { color: var(--study-muted); padding: 8px 0; }
+html[data-theme] .lesson-live-page .exercise-stage { border: 1px solid var(--study-edge); border-radius: 12px; background: linear-gradient(150deg,#142f23,#0b2119); padding: 20px; overflow-y: auto; }
+html[data-theme] .lesson-live-page .exercise-prompt h1 { color: var(--study-ink); text-shadow: none; }
+html[data-theme] .lesson-live-page .exercise-prompt p { color: var(--study-muted); font-size: 16px; }
+html[data-theme] .lesson-live-page .answer-grid { gap: 12px; }
+html[data-theme] .lesson-live-page .answer-grid > button { min-height: 64px; border: 1px solid #668166; border-radius: 10px; background: #102a20; color: var(--study-ink); box-shadow: 0 3px 0 #061910; }
+html[data-theme] .lesson-live-page .answer-grid > button.selected { background: #294d36; border-color: var(--study-gold); box-shadow: inset 0 0 0 1px var(--study-gold); }
+html[data-theme] .lesson-live-page .answer-grid > button.correct { background: #234c37; border-color: #a8d6b0; }
+html[data-theme] .lesson-live-page .answer-grid > button.wrong { background: #482c25; border-color: #e8ac93; }
+html[data-theme] .lesson-live-page .answer-console { flex-shrink: 0; padding: 12px 16px; border: 1px solid var(--study-edge); border-radius: 10px; background: #10271d; }
+html[data-theme] .lesson-live-page .answer-console :is(p,small) { color: var(--study-muted); font-size: 13px; }
+html[data-theme] .lesson-live-page .primary-button { min-height: 46px; background: var(--study-jade); color: #112519; border-color: var(--study-jade); border-radius: 7px; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) :is(button,a,summary,select,input):focus-visible { outline: 3px solid #e3ca88; outline-offset: 3px; }
+@media(max-width:760px), (max-height:650px) {
+  html[data-theme] .lesson-briefing-page { padding: 6px; border-radius: 10px; }
+  html[data-theme] .lesson-briefing-page .briefing-hero { padding: 0 6px 7px; }
+  html[data-theme] .lesson-briefing-page .briefing-hero-copy { padding-right: 40px; }
+  html[data-theme] .lesson-briefing-page .briefing-hero-copy::after { font-size: 20px; }
+  html[data-theme] .lesson-briefing-page .briefing-hero h1 { font-size: 18px; }
+  html[data-theme] .lesson-briefing-page .briefing-chinese { font-size: 13px; }
+  html[data-theme] .lesson-briefing-page .system-kicker { display: none; }
+  html[data-theme] .lesson-briefing-page .lesson-theory-stage { padding: 14px; }
+  html[data-theme] .lesson-briefing-page .lesson-briefing-scroll > .synthetic-audio-note { font-size: 10px; }
+  html[data-theme] .lesson-live-page { padding: 8px; gap: 6px; }
+  html[data-theme] .lesson-live-page .exercise-stage { padding: 12px; }
+  html[data-theme] .lesson-live-page .lesson-live-header { gap: 6px; padding-bottom: 6px; }
+  html[data-theme] .lesson-live-page .answer-console { padding: 8px; }
+  html[data-theme] .lesson-live-page .answer-grid > button { min-height: 52px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) *, :is(.lesson-briefing-page,.lesson-live-page) *::after { animation: none !important; transition: none !important; }
+}
+
+html[data-theme] .lesson-live-page .lesson-context { color: #d3e2cf; }
+html[data-theme] .lesson-live-page .lesson-context strong { color: #b1c5b7; }
+html[data-theme] .lesson-live-page .lesson-progress-track { background: #2c493a; }
+html[data-theme] .lesson-live-page .lesson-live-header > span { color: #d3e2cf; font-size: 12px; }
+html[data-theme] .lesson-live-page .answer-console .primary-button:disabled { color: #91a58c; background: #233d2b; border-color: #54705a; }
+html[data-theme] .path-clear-screen .path-clear-copy h1 { color: #edf2df; }
+html[data-theme] .path-clear-screen .path-clear-actions a { border-radius: 8px; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress-current strong { color: var(--study-ink); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress-current span { color: var(--study-jade); }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress button:disabled { color: #9fb19f; background: #1b3024; border-color: #49634e; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-theory-navigation button:disabled { color: #a3b09f; background: #21372a; border-color: #52694f; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress-track { background: #304b38; }
+html[data-theme] :is(.lesson-briefing-page,.lesson-live-page) .lesson-learning-progress-track i { background: linear-gradient(90deg,#6e9d76,#ddc58a); }
+@media(max-height:500px){html[data-theme] .lesson-briefing-page .briefing-hero{display:flex;align-items:center;gap:12px;padding-bottom:4px}html[data-theme] .lesson-briefing-page .lesson-briefing-masthead{margin:0;flex-shrink:0}html[data-theme] .lesson-briefing-page .briefing-hero :is(.system-kicker,.briefing-chinese){display:none}html[data-theme] .lesson-briefing-page .briefing-hero h1{font-size:18px}html[data-theme] .lesson-briefing-page .briefing-hero-copy::after{display:none}}
+html[data-theme] .lesson-briefing-page:has(.jade-lesson) .briefing-hero { display:none; }
+html[data-theme] .lesson-briefing-page .jade-lesson { max-height:none; }
+
+/* Shared paper-and-jade treatment through the active trial and its result. */
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) {
+  background: #f0edda; color: #203e31; border-color: #adac85;
+  box-shadow: inset 0 0 0 5px #e4e2ca;
+}
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .exercise-prompt :is(h1,p) { color: #203e31; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .synthetic-audio-note { color: #536451; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .answer-grid > button {
+  background: #faf7e8; color: #203e31; border-color: #8a9977; box-shadow: 0 3px 0 #d2d2b7;
+}
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .answer-grid > button.selected { background: #d8e4c5; border-color: #42634a; box-shadow: inset 0 0 0 1px #42634a; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .answer-grid > button.correct { background: #d5e5c7; border-color: #42634a; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .answer-grid > button.wrong { background: #f2d9c8; border-color: #994b36; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .recall-answer input { color:#203e31; background:#faf7e8; border-color:#718565; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .recall-answer :is(label,small) { color:#40553e; font-size:13px; line-height:1.5; }
+html[data-theme] .lesson-live-page .exercise-stage:not(.is-theory-review) .answer-grid > button > span { color:#203e31; background:#e1e5ce; border-color:#7c8c6d; }
+html[data-theme] .path-clear-screen {
+  --path-result-accent: #ddc58a;
+  background: linear-gradient(135deg,#193a2b,#0c221b); border-color:#8a9870;
+  border-radius:12px; clip-path:none; box-shadow: inset 0 0 0 5px #122c21;
+  animation:none;
+}
+html[data-theme] .path-clear-screen .path-clear-copy {
+  padding:clamp(16px,3vw,32px); background:#f0edda; border:1px solid #adac85;
+  border-radius:10px; color:#203e31;
+}
+html[data-theme] .path-clear-screen .path-clear-copy :is(h1,strong,p,span) { color:#203e31; }
+html[data-theme] .path-clear-screen .path-clear-copy .path-clear-reward-error { color:#8b3025; }
+html[data-theme] .path-clear-screen .path-clear-copy > span { font-size:14px; line-height:1.6; }
+html[data-theme] .path-clear-screen .path-clear-stats { color:#203e31; }
+html[data-theme] .path-clear-screen .path-clear-stats :is(dt,dd) { color:#203e31; }
+html[data-theme] .path-clear-screen .path-clear-reward { background:#e0e5cb; border-color:#8b9974; }
+html[data-theme] .path-clear-screen .path-clear-reward small { color:#40533c; }
+html[data-theme] .path-clear-screen .lesson-result-explanation { margin-top:12px; border-top:1px solid #a7af8b; font-size:14px; line-height:1.6; }
+html[data-theme] .path-clear-screen .lesson-result-explanation summary { cursor:pointer; min-height:44px; padding:10px 0; }
+html[data-theme] .path-clear-screen .lesson-result-explanation p { margin:8px 0; font-size:14px; line-height:1.6; letter-spacing:normal; }
+html[data-theme] .path-clear-screen .path-clear-action.is-primary { background:#ddc58a; color:#203526; border-color:#ddc58a; }
+html[data-theme] .path-clear-screen .path-clear-action:focus-visible { outline:3px solid #f2db9b; outline-offset:3px; }
+html[data-theme] .path-clear-screen .path-clear-content { overflow-y:auto; min-height:0; overscroll-behavior:contain; }
+html[data-theme] .path-clear-screen .path-clear-reward :is(small,div span),
+html[data-theme] .path-clear-screen .path-clear-stats dt { font-size:12px; line-height:1.5; }
+html[data-theme] .path-clear-screen .path-clear-stats dd { font-size:20px; }
+@media(max-width:760px) {
+  html[data-theme] .path-clear-screen .path-clear-content { grid-template-columns:minmax(0,1fr); align-content:start; }
+  html[data-theme] .path-clear-screen .path-clear-map { width:100%; height:80px; min-height:80px; }
+  html[data-theme] .path-clear-screen .path-clear-map > svg { display:none; }
+  html[data-theme] .path-clear-screen .path-clear-portal { top:0; right:12px; transform:none; }
+  html[data-theme] .path-clear-screen .path-clear-copy > span,
+  html[data-theme] .path-clear-screen .path-clear-stats { display:block; }
+  html[data-theme] .path-clear-screen .path-clear-stats { display:flex; }
+  html[data-theme] .path-clear-screen .path-clear-action { font-size:12px; }
+}
+@media(max-width:760px),(max-height:500px) {
+  html[data-theme] .path-clear-screen .path-clear-copy { padding:12px; }
+  html[data-theme] .path-clear-screen .path-clear-content { overflow:auto; min-height:0; overscroll-behavior:contain; }
+}
+@media(max-height:500px) {
+  html[data-theme] .path-clear-screen .path-clear-content { grid-template-columns:minmax(0,1fr); align-content:start; }
+  html[data-theme] .path-clear-screen .path-clear-map { width:100%; height:72px; min-height:72px; }
+  html[data-theme] .path-clear-screen .path-clear-map > svg { display:none; }
+  html[data-theme] .path-clear-screen .path-clear-portal { top:0; right:8px; transform:none; }
+  html[data-theme] .path-clear-screen .path-clear-map:has(.is-claimed),
+  html[data-theme] .path-clear-screen .path-clear-map:has(.is-locked) { display:none; }
+  html[data-theme] .path-clear-screen .path-clear-copy { min-width:0; }
+  html[data-theme] .path-clear-screen .path-clear-copy h1 { font-size:28px; }
+  html[data-theme] .path-clear-screen .path-clear-topline > span { display:none; }
+  html[data-theme] .path-clear-screen .path-clear-topline { justify-content:flex-end; }
+  html[data-theme] .path-clear-screen .path-clear-actions { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  html[data-theme] .path-clear-screen.is-retry .path-clear-actions { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  html[data-theme] .path-clear-screen .path-clear-action { min-width:0; font-size:11px; padding:6px; }
+}
+html[data-theme] .lesson-live-page .lesson-abandon-button { background:#173d2d; color:#f3eedc; border-color:#7f977e; }
+html[data-theme] .lesson-live-page .exercise-stage.is-theory-review { overflow:hidden; display:flex; flex-direction:column; padding:6px; }
+html[data-theme] .lesson-live-page .exercise-stage.is-theory-review .jade-lesson { flex:1 1 0; height:auto; max-height:none; min-height:0; }
+html[data-theme] .lesson-briefing-page:has(.jade-lesson) { padding:4px; box-shadow:none; }
+html[data-theme] .lesson-briefing-page:has(.jade-lesson) .lesson-briefing-scroll { gap:0; }

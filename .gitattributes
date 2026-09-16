@@ -1,3 +1,7 @@
 # This third-party license must remain byte-identical to the installed package.
 # Its upstream bytes contain two intentional trailing spaces.
 public/hanzi-data/ARPHICPL.TXT -text whitespace=-trailing-space
+
+# Content generators and source bindings hash LF bytes across Windows/Linux.
+content/**/*.json text eol=lf
+config/hsk0-4-local-study-profile.json text eol=lf

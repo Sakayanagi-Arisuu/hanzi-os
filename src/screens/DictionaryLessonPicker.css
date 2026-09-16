@@ -1,0 +1,16 @@
+.lex-filters .lex-lesson-trigger { display:flex; align-items:center; justify-content:space-between; gap:12px; flex:1.5; min-width:0; min-height:48px; padding:12px 16px; background:#08251f; color:#51eecb; border:1px solid #287b6c; text-align:left; }
+.lex-lesson-trigger span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.lex-lesson-trigger svg { flex:none; }
+.lex-lesson-picker { width:min(600px,calc(100vw - 32px)); max-width:calc(100vw - 32px); max-height:min(620px,calc(100dvh - 48px)); box-sizing:border-box; margin:auto; padding:20px; color:#edf6f2; background:#071c1a; border:1px solid #b89d5b; box-shadow:0 24px 80px #0009; }
+.lex-lesson-picker[open] { display:flex; flex-direction:column; gap:16px; }
+.lex-lesson-picker::backdrop { background:#0009; }
+.lex-lesson-picker header { display:flex; align-items:center; justify-content:space-between; gap:16px; flex:none; }
+.lex-lesson-picker h2 { font-size:20px; margin:0; }
+.lex-lesson-picker header button { width:44px; height:44px; display:grid; place-items:center; color:inherit; background:transparent; border:1px solid #34534c; flex:none; }
+.lex-lesson-search { display:flex; align-items:center; gap:12px; border:1px solid #34534c; padding:0 12px; flex:none; }
+.lex-lesson-search input { min-width:0; width:100%; height:48px; background:transparent; color:inherit; border:0; font-size:16px; }
+.lex-lesson-options { min-height:0; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:thin; scrollbar-color:#427e70 transparent; }
+.lex-lesson-options button { display:flex; align-items:center; justify-content:space-between; gap:12px; width:100%; min-height:48px; padding:12px; text-align:left; color:inherit; background:transparent; border:0; border-bottom:1px solid #254139; font:inherit; line-height:1.5; }
+.lex-lesson-options button[aria-current], .lex-lesson-options button:hover { background:#123c32; color:#62f1ca; }
+.lex-lesson-options svg { flex:none; }
+.lex-lesson-picker button:focus-visible, .lex-lesson-trigger:focus-visible { outline:2px solid #5cf5d0; outline-offset:-3px; }

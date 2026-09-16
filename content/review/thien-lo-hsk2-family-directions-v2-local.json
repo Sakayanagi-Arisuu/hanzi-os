@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "humanReviewed": false,
+  "reviewedAt": "2026-09-15",
+  "scope": "HSK2 family referents/frequency and route confirmation; supported practice and self-review.",
+  "evidenceDocument": "docs/thien-lo-redesign-review/24-REVIEW-HSK2-FAMILY-DIRECTIONS.md",
+  "items": [
+    {
+      "lessonId": "hsk2-daily-needs-family-lesson-05",
+      "sourceContentSha256": "sha256:0e2bb13bf994da822b84a2f88dfd0cf2802018e5e0481427f42cf79ddc1ce2e3",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    },
+    {
+      "lessonId": "hsk2-travel-leisure-lesson-01",
+      "sourceContentSha256": "sha256:c7bd80cd7734e447edaa4d94cb34f8fca75746b1d48767ff49553d5e881d5c8b",
+      "aiSelfReview": {
+        "accuracy": true,
+        "levelFit": true,
+        "pedagogy": true,
+        "answerIntegrity": true,
+        "originality": true
+      }
+    }
+  ]
+}

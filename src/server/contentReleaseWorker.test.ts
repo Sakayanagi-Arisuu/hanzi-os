@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
 import { studioStarterContent } from "../content/studioContent";
+import { emptyLessonBlock } from '../learning/lessonPages';
 import type { D1Database, D1PreparedStatement, D1RunResult } from "./d1";
 import { ContentStudioRepository } from "./contentStudioRepository";
 import {
@@ -66,6 +67,10 @@ class SQLiteD1 implements D1Database {
 const reviewedLesson = (objectiveVi = "Giới thiệu bản thân bằng câu ngắn.") => ({
   ...studioStarterContent("lesson"),
   objectiveVi,
+  lessonPages: { version: 1, pages: [{ id: 'editor-page', title: 'Lời chào trong lớp', layout: 'workshop', stage: 'practice', blocks: [{ ...emptyLessonBlock('editor-block'), body: 'Chào trước khi tự giới thiệu.' }, {
+    ...emptyLessonBlock('editor-activity'), kind:'activity', body:'Điền từ chào hỏi: ___！',
+    activity:{type:'cloze',options:[],answerIds:[],acceptedAnswers:['你好'],explanation:'你好 là lời chào thông dụng.',hint:'Một cách chào gồm hai chữ.',rubric:[]},
+  }] }] },
   review: {
     humanReviewed: false,
     aiSelfReview: {
@@ -205,6 +210,9 @@ describe("resilient Content Release Worker", () => {
     });
     const runtime = await studio.publishedRuntime();
     expect(runtime.items[0]?.content.review).toBeUndefined();
+    const { parsePublishedStudioLearning } = await import('../content/publishedStudioLessons');
+    expect(parsePublishedStudioLearning(runtime).lessons.size).toBe(1);
+    expect([...parsePublishedStudioLearning(runtime).lessons.values()][0].richContent.lessonPages).toEqual(reviewedLesson().lessonPages);
     expect(runtime.items[0]?.content.objectiveVi).toBe("Giới thiệu bản thân bằng câu ngắn.");
     expect(database.sqlite.prepare("SELECT COUNT(*) AS count FROM content_release_packages").get()).toEqual({ count: 1 });
     expect(database.sqlite.prepare("SELECT COUNT(*) AS count FROM content_release_heads").get()).toEqual({ count: 1 });

@@ -2,6 +2,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import { DatabaseSync, type StatementSync } from "node:sqlite";
 import { describe, expect, it } from "vitest";
 import { studioStarterContent } from "../content/studioContent";
+import { editorialBookToStudioLesson, type EditorialReaderBook } from "../reader/editorialReaderContent";
+import { EditorialReaderRepository } from "./editorialReaderRepository";
 import type { D1Database, D1PreparedStatement, D1RunResult } from "./d1";
 import {
   ContentStudioConcurrencyError,
@@ -14,6 +16,10 @@ import {
   ContentReleaseWorkerRepository,
 } from "./contentReleaseWorker";
 import { hskMockExamEditorialSuggestions } from "./hskMockExamBank";
+import bootManuscript from '../../content/drafts/thien-lo-boot-1-v2.json';
+import {publishedLessonPageActivities} from './publishedLessonPageActivities';
+import {LessonPageAttemptRepository} from './lessonPageAttemptRepository';
+import type {LessonPageDocument} from '../learning/lessonPages';
 import {
   loadPublishedEditorialHskMockExamDefinitions,
   resolveHskMockExamDefinitionByBlueprint,
@@ -104,6 +110,60 @@ const drainReleases = (database: SQLiteD1) => new ContentReleaseWorker(
 ).drain();
 
 describe("governed Content Studio revisions", () => {
+  it('resolves offline page answers only from immutable released history after publication changes',async()=>{
+    const database=new SQLiteD1();addUsers(database);
+    const repository=new ContentStudioRepository(database);
+    const publish=async(revision:StudioRevision)=>{
+      revision=await repository.validateRevision({actorUserId:'editor',actorSessionId:null,revisionId:revision.id,expectedRowVersion:revision.rowVersion,idempotencyKey:`validate:${revision.id}`});
+      expect(revision.validation?.valid).toBe(true);
+      for(const toState of ['submitted','approved','published'] as const)revision=await repository.transition({actorUserId:toState==='submitted'?'editor':'admin',actorSessionId:null,revisionId:revision.id,expectedRowVersion:revision.rowVersion,toState,idempotencyKey:`${toState}:${revision.id}`,requestId:`${toState}:${revision.id}`});
+      await drainReleases(database);return revision;
+    };
+    const source=await publish(await repository.createDraft({actorUserId:'editor',actorSessionId:null,itemType:'lesson',stableKey:'history.boot-1',title:'Bốn thanh điệu',level:'hsk0',content:{...bootManuscript.studioContent,review:reviewedLesson().review},idempotencyKey:'history:create'}));
+    const oldManifest=await repository.publishedRuntime({itemType:'lesson',learnerSafe:true});
+    const activity=[...(await publishedLessonPageActivities(oldManifest)).values()][0];
+    const command={version:1,idempotencyKey:'offline-page',resetEpoch:0,lessonId:'boot-1',activityId:activity.activityId,activityVersion:activity.activityVersion,occurredAt:'2026-09-15T00:00:00Z',response:{text:'',answerIds:activity.activity.answerIds,usedHint:false,priorFeedback:false,priorReveal:false}};
+    let next=await repository.forkRevision({actorUserId:'editor',actorSessionId:null,sourceRevisionId:source.id,idempotencyKey:'history:fork'});
+    expect((await repository.releasedLessonRuntimeRevisions('boot-1')).map(i=>i.revisionId)).toEqual([source.id]);
+    const content=structuredClone(next.content) as Record<string,unknown>&{lessonPages:LessonPageDocument};
+    const block=content.lessonPages.pages.flatMap(p=>p.blocks).find(b=>b.id===activity.blockId)!;
+    block.activity!.answerIds=[block.activity!.options.find(o=>!activity.activity.answerIds.includes(o.id))!.id];
+    next=await repository.updateDraft({actorUserId:'editor',actorSessionId:null,revisionId:next.id,expectedRowVersion:next.rowVersion,title:next.title,level:next.level,content,idempotencyKey:'history:changed-answer'});
+    next=await publish(next);
+    expect((await repository.releasedLessonRuntimeRevisions('boot-1')).map(i=>i.revisionId).sort()).toEqual([source.id,next.id].sort());
+    expect(await repository.releasedLessonRuntimeRevisions('boot-2')).toEqual([]);
+    const attemptRepository=new LessonPageAttemptRepository(database);
+    expect(await attemptRepository.record('learner',command)).toMatchObject({outcome:'correct',masteryEligible:false});
+    expect(database.sqlite.prepare('SELECT revision_id FROM lesson_page_attempts').get()?.revision_id).toBe(source.id);
+    const corruptPackage=()=>database.sqlite.prepare("UPDATE content_release_packages SET package_sha256=? WHERE revision_id=?").run(`sha256:${'0'.repeat(64)}`,source.id);
+    expect(corruptPackage).toThrow('packages are immutable');
+    // In-memory corruption injection: verify the read fence independently of
+    // the database trigger, without modifying any local persisted database.
+    database.sqlite.exec('DROP TRIGGER content_release_packages_no_update');
+    corruptPackage();
+    await expect(attemptRepository.record('learner',{...command,idempotencyKey:'tampered-package'})).rejects.toThrow('digest fence');
+    expect(database.sqlite.prepare('SELECT count(*) n FROM lesson_page_attempts').get()?.n).toBe(1);
+    database.sqlite.close();
+  });
+  it("publishes a reader quiz through review without binding it to a Thiên Lộ lesson", async () => {
+    const database = new SQLiteD1();
+    addUsers(database);
+    const repository = new ContentStudioRepository(database);
+    const book: EditorialReaderBook = {
+      schemaVersion: 1, seriesId: "reader-quiz-fixture", titleZh: "书中的地图", titleVi: "Bản đồ trong sách", synopsisVi: "Bài đọc kiểm thử nguyên bản.", hookVi: "Tìm bản đồ.", genreIds: ["Bí ẩn"], shelfId: "bi-an", levelBand: { min: "HSK1", max: "HSK2", label: "HSK1–2" }, cover: { src: "/test.webp", altVi: "Sách", tone: "jade" },
+      chapters: [{ titleZh: "地图", titleVi: "Bản đồ", hookVi: "Một cuốn sách.", estimatedMinutes: 3, paragraphs: [{ zhHans: "他打开书。", pinyin: "Tā dǎkāi shū.", vi: "Anh ấy mở sách." }, { zhHans: "书里有地图。", pinyin: "Shū lǐ yǒu dìtú.", vi: "Trong sách có bản đồ." }], comprehension: [{ questionId: "map", promptVi: "Trong sách có gì?", options: ["Bản đồ", "Thư", "Ảnh"], answerIndex: 0, explanationVi: "Đoạn hai nói có bản đồ trong sách." }] }],
+      rights: { textProvenanceVi: "Fixture nguyên bản.", coverProvenanceVi: "Fixture, không phát hành thật.", editorAttestsRights: true }, humanReviewed: false,
+    };
+    const content = { ...editorialBookToStudioLesson(book), review: reviewedLesson().review };
+    let revision = await repository.createDraft({ actorUserId: "editor", actorSessionId: "editor-session", itemType: "lesson", stableKey: `reader.series.${book.seriesId}`, title: book.titleVi, level: "hsk1", content, idempotencyKey: "reader:create" });
+    revision = await repository.validateRevision({ actorUserId: "editor", actorSessionId: "editor-session", revisionId: revision.id, expectedRowVersion: revision.rowVersion, idempotencyKey: "reader:validate" });
+    const reader = new EditorialReaderRepository(database);
+    expect(await reader.getPublishedChapter(book.seriesId, `${book.seriesId}-c01`)).toBeNull();
+    for (const toState of ["submitted", "approved", "published"] as const) {
+      revision = await repository.transition({ actorUserId: toState === "submitted" ? "editor" : "admin", actorSessionId: `${toState}-session`, revisionId: revision.id, expectedRowVersion: revision.rowVersion, toState, idempotencyKey: `reader:${toState}`, requestId: `reader:${toState}` });
+    }
+    expect(await reader.getPublishedChapter(book.seriesId, `${book.seriesId}-c01`)).toMatchObject({ comprehension: [{ questionId: "map", answerIndex: 0 }] });
+  });
   it("keeps editorial ownership, reviewer and SLA changes append-only and concurrent-safe", async () => {
     const database = new SQLiteD1();
     addUsers(database);

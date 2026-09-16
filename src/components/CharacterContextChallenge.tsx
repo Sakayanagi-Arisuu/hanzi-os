@@ -15,12 +15,15 @@ export function CharacterContextChallenge({
   entry,
   entries,
   onResolved,
+  contextWords,
 }: {
   entry: CharacterChallengeEntry;
   entries: readonly CharacterChallengeEntry[];
   onResolved?: (correct: boolean) => void;
+  contextWords?: readonly { word: string; pinyin: string; meaning: string }[];
 }) {
   const [answer, setAnswer] = useState<string | null>(null);
+  const [showMap, setShowMap] = useState(false);
   const options = useMemo(() => {
     const verifiedConfusables = getConfusableHanzis(entry.hanzi)
       .map((hanzi) => entries.find((candidate) => candidate.hanzi === hanzi)?.displayHanzi)
@@ -47,7 +50,15 @@ export function CharacterContextChallenge({
   };
 
   return (
-    <section className={`character-duel${answer !== null ? " is-resolved" : ""}`} aria-labelledby="character-duel-title">
+    <section className={`character-duel${answer !== null ? " is-resolved" : ""}${contextWords ? " guild-context" : ""}`} data-show-map={showMap} aria-label="Luyện chữ trong ngữ cảnh">
+      {contextWords && <nav className="guild-context-tabs" aria-label="Nội dung Văn Cảnh"><button type="button" aria-pressed={!showMap} onClick={() => setShowMap(false)}>Khôi phục từ</button><button type="button" aria-pressed={showMap} onClick={() => setShowMap(true)}>Bản đồ từ</button></nav>}
+      {contextWords && <div className="guild-context-map guild-panel" aria-label="Các từ cùng chữ đang luyện">
+        <div className="guild-context-center"><strong lang="zh-Hans">{answer === null ? "?" : entry.displayHanzi}</strong><span>{entry.contextPinyin}</span><small>{entry.contextMeaningVi}</small></div>
+        {contextWords.slice(0, 3).map((item, index) => <div className={`guild-context-node node-${index}`} key={item.word}>
+          <strong lang="zh-Hans">{answer === null ? item.word.replaceAll(entry.hanzi, "□") : item.word}</strong><span>{item.pinyin}</span><small>{item.meaning}</small>
+        </div>)}
+        <p>Khôi phục chữ còn thiếu để mở bản đồ từ.</p>
+      </div>}
       <div className="duel-sigil" aria-hidden="true"><Swords /><i /><i /></div>
       <header>
         <span><Swords size={15} /> KÍCH HOẠT · ĐẤU ẢNH TỰ</span>

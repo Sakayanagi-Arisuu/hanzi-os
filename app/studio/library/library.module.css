@@ -159,3 +159,11 @@
 @media (prefers-reduced-motion: reduce) {
   .page * { scroll-behavior: auto !important; transition: none !important; }
 }
+.quizEditor { display: grid; gap: 18px; margin-top: 24px; padding: 24px; border: 1px solid #567967; border-radius: 12px; background: #0b201b; }
+.quizEditor > header { display: flex; justify-content: space-between; gap: 16px; }
+.quizEditor h4 { margin: 0; color: #edcf8a; font-size: 20px; }
+.quizEditor p, .quizEditor small { color: #b8cfc6; line-height: 1.7; }
+.quizEditor fieldset { min-width: 0; display: grid; gap: 14px; padding: 20px; border: 1px solid #466657; border-radius: 8px; }
+.quizEditor legend { color: #edcf8a; padding: 0 8px; }
+.quizEditor summary { min-height: 44px; cursor: pointer; color: #9fe6cc; }
+.quizEditor button, .quizEditor input, .quizEditor select { min-height: 44px; }

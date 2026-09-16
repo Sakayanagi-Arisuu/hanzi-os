@@ -2,7 +2,7 @@ import { expect, test, type Locator, type Page } from "@playwright/test";
 
 const heroStartButton = (page: Page) =>
   page.locator("#landing-main").getByRole("button", {
-    name: "Kích hoạt HANZI.OS",
+    name: "Bắt đầu hành trình",
   });
 
 const persistedOnboardingFlag = (page: Page) => page.evaluate(() => {
@@ -77,15 +77,13 @@ test("shows the product overview before asking a fresh learner to configure a pr
 
   await expect(page.getByTestId("product-overview")).toBeVisible();
   await expect(page.getByRole("heading", {
-    name: "Đánh thức một hệ thống Hán ngữ dành riêng cho bạn.",
+    name: "Mỗi chữ Hán, một bước trưởng thành.",
   })).toBeVisible();
   const systemMap = page.locator("#he-thong");
-  await expect(systemMap.locator("article")).toHaveCount(5);
+  await expect(systemMap.locator("article")).toHaveCount(4);
   await expect(systemMap.getByRole("heading", { name: "Thiên Lộ" })).toBeVisible();
   await expect(systemMap.getByRole("heading", { name: "Vạn Âm Điện" })).toBeVisible();
-  await expect(systemMap.getByText("1.096 chữ nhận diện trong ngữ cảnh", {
-    exact: true,
-  })).toBeVisible();
+  await expect(systemMap.getByRole("heading", { name: "Thần Văn Lô" })).toBeVisible();
   await expect(page.getByTestId("onboarding-wizard")).toHaveCount(0);
   await expect(page.getByRole("radiogroup", { name: "Mục tiêu học" })).toHaveCount(0);
   expect(await persistedOnboardingFlag(page)).toBe(false);
@@ -110,7 +108,7 @@ test("shows the product overview before asking a fresh learner to configure a pr
 
   await page.goto("/welcome");
   await page.locator("#landing-main").getByRole("link", {
-    name: "Kích hoạt HANZI.OS",
+    name: "Bắt đầu hành trình",
   }).click();
   await expect(page).toHaveURL(/\/onboarding$/u);
   await expect(page.getByTestId("onboarding-wizard")).toBeVisible();

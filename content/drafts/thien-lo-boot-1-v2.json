@@ -1,0 +1,1258 @@
+{
+  "schemaVersion": 1,
+  "lessonId": "boot-1",
+  "title": "Bốn thanh điệu",
+  "objective": "Nhận ra bốn hướng thanh điệu, phân biệt dấu Pinyin và thử đọc theo hướng giọng; biết thanh nhẹ không phải thanh thứ năm.",
+  "status": "authored-draft-not-published",
+  "humanReviewed": false,
+  "source": {
+    "wordIds": [
+      "yi",
+      "ren",
+      "ni",
+      "er"
+    ],
+    "prerequisiteIds": []
+  },
+  "lessonPages": {
+    "version": 1,
+    "art": "sound",
+    "pages": [
+      {
+        "id": "boot-1:v2:mission",
+        "title": "Một âm, bốn đường giọng",
+        "layout": "scene",
+        "stage": "context",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:mission",
+            "kind": "explanation",
+            "title": "Nghe đường giọng trước, nhớ số thanh sau",
+            "body": "Cùng âm “ma”, đổi cao độ sẽ đổi từ và nghĩa. Bạn sẽ nhìn đường giọng, nghe mẫu từng âm rồi nhận diện một âm khác. Chưa cần thuộc cách viết các chữ ví dụ.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:access",
+            "kind": "explanation",
+            "title": "Học bằng mắt và tai",
+            "body": "Dùng nút nghe nếu thiết bị hỗ trợ. Âm mẫu là giọng tổng hợp; nếu không nghe được, theo mũi tên và dấu Pinyin để tiếp tục. Tự đọc không được hệ thống chấm thành điểm phát âm.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:map",
+        "title": "Bản đồ bốn thanh",
+        "layout": "focus",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:tone-map",
+            "kind": "diagram",
+            "title": "Cao độ tương đối, không phải nốt nhạc",
+            "body": "",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "diagram": {
+              "type": "comparison",
+              "description": "1 là thấp nhất, 5 là cao nhất trong quãng giọng thoải mái của bạn. Các số 55, 35, 214, 51 mô tả hướng đi; không cần bắt chước cao độ tuyệt đối của người đọc.",
+              "nodes": [
+                {
+                  "id": "tone-1",
+                  "label": "1 · → 55",
+                  "pinyin": "mā",
+                  "meaningVi": "妈 — mẹ",
+                  "note": "Bắt đầu cao, giữ ngang và đều.",
+                  "x": 0,
+                  "y": 0
+                },
+                {
+                  "id": "tone-2",
+                  "label": "2 · ↗ 35",
+                  "pinyin": "má",
+                  "meaningVi": "麻 — cây gai",
+                  "note": "Bắt đầu vừa, đi lên rõ.",
+                  "x": 1,
+                  "y": 0
+                },
+                {
+                  "id": "tone-3",
+                  "label": "3 · ↘↗ 214",
+                  "pinyin": "mǎ",
+                  "meaningVi": "马 — ngựa",
+                  "note": "Khi đọc riêng: hạ xuống thấp rồi nhấc lên. Trong lời nói liền thường chỉ giữ phần thấp.",
+                  "x": 2,
+                  "y": 0
+                },
+                {
+                  "id": "tone-4",
+                  "label": "4 · ↘ 51",
+                  "pinyin": "mà",
+                  "meaningVi": "骂 — mắng",
+                  "note": "Bắt đầu cao, rơi nhanh và dứt khoát.",
+                  "x": 3,
+                  "y": 0
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:level-rise",
+        "title": "Giữ ngang hay đi lên?",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:tone-1",
+            "kind": "dialogue",
+            "title": "Thanh 1 · giữ tay ngang",
+            "body": "",
+            "hanzi": "妈",
+            "pinyin": "mā",
+            "meaningVi": "mẹ",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:tone-2",
+            "kind": "dialogue",
+            "title": "Thanh 2 · đưa tay lên",
+            "body": "",
+            "hanzi": "麻",
+            "pinyin": "má",
+            "meaningVi": "cây gai",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:contrast-12",
+            "kind": "explanation",
+            "title": "Nghe điểm kết thúc",
+            "body": "Thanh 1 bắt đầu cao và kết thúc cao, gần như không đổi. Thanh 2 bắt đầu vừa rồi lên cao. Nghe mỗi mẫu, vẽ một đường bằng tay rồi đọc lại; không tăng âm lượng để thay cho tăng cao độ.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:low-fall",
+        "title": "Hạ thấp hay rơi từ trên cao?",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:tone-3",
+            "kind": "dialogue",
+            "title": "Thanh 3 · tìm phần thấp",
+            "body": "",
+            "hanzi": "马",
+            "pinyin": "mǎ",
+            "meaningVi": "ngựa",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:tone-4",
+            "kind": "dialogue",
+            "title": "Thanh 4 · rơi dứt khoát",
+            "body": "",
+            "hanzi": "骂",
+            "pinyin": "mà",
+            "meaningVi": "mắng",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:contrast-34",
+            "kind": "explanation",
+            "title": "Điểm xuất phát khác nhau",
+            "body": "Thanh 3 đọc riêng có đường xuống thấp rồi nhấc lên. Khi nói liền thường không nhấc đầy đủ; đừng ép mọi âm thanh 3 thành một đường uốn dài. Thanh 4 bắt đầu cao rồi rơi nhanh. Không cần gằn giọng hay hét.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:recognize",
+        "title": "Nhìn hướng, gọi đúng thanh",
+        "layout": "focus",
+        "stage": "practice",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:fall-check",
+            "kind": "activity",
+            "title": "Tự nhận diện",
+            "body": "Đường giọng bắt đầu cao rồi rơi nhanh là thanh nào?",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "choice",
+              "options": [
+                {
+                  "id": "answer-0",
+                  "text": "Thanh 1",
+                  "feedback": "Thanh 1 giữ cao và ngang; không rơi."
+                },
+                {
+                  "id": "answer-1",
+                  "text": "Thanh 2",
+                  "feedback": "Thanh 2 đi lên từ mức vừa."
+                },
+                {
+                  "id": "answer-2",
+                  "text": "Thanh 3",
+                  "feedback": "Thanh 3 chú trọng phần thấp, không bắt đầu cao rồi rơi dứt khoát."
+                },
+                {
+                  "id": "answer-3",
+                  "text": "Thanh 4",
+                  "feedback": "Đúng. Thanh 4 đi từ cao xuống thấp."
+                }
+              ],
+              "answerIds": [
+                "answer-3"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Thanh 4: 51, cao → thấp. Hãy đối chiếu mà với mǎ ở trang trước nếu còn nhầm.",
+              "hint": "",
+              "rubric": []
+            }
+          },
+          {
+            "id": "boot-1:v2:block:rise-check",
+            "kind": "activity",
+            "title": "Đổi sang một hướng khác",
+            "body": "Đường đi từ mức vừa lên cao là thanh nào?",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "choice",
+              "options": [
+                {
+                  "id": "answer-0",
+                  "text": "Thanh 2",
+                  "feedback": "Đúng: 35, từ vừa lên cao."
+                },
+                {
+                  "id": "answer-1",
+                  "text": "Thanh 4",
+                  "feedback": "Thanh 4 rơi xuống, ngược hướng cần tìm."
+                },
+                {
+                  "id": "answer-2",
+                  "text": "Thanh 1",
+                  "feedback": "Thanh 1 giữ ngang; không đi lên."
+                }
+              ],
+              "answerIds": [
+                "answer-0"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Nhận diện dựa vào hướng giọng, không dựa vào nghĩa của chữ ví dụ.",
+              "hint": "",
+              "rubric": []
+            }
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:neutral",
+        "title": "Thanh nhẹ: ngắn, nhẹ, tùy âm trước",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:mother",
+            "kind": "dialogue",
+            "title": "Hai âm trong một từ",
+            "body": "",
+            "hanzi": "妈妈",
+            "pinyin": "māma",
+            "meaningVi": "mẹ",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:neutral",
+            "kind": "explanation",
+            "title": "Âm ma thứ hai không có dấu thanh",
+            "body": "Trong 妈妈, âm thứ hai thường đọc ngắn và nhẹ hơn. Thanh nhẹ không có một đường cao độ cố định riêng, mà phụ thuộc âm đứng trước. Không gọi đây là thanh 5 và không tự thêm dấu vào mọi âm không dấu.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:listening",
+            "kind": "explanation",
+            "title": "Nghe lại rồi thử nhắc",
+            "body": "Nghe 妈妈. Chú ý âm đầu rõ, âm sau nhẹ. Nếu giọng tổng hợp chưa thể hiện rõ, dựa vào Pinyin māma; bài này không dùng chất lượng giọng máy để kết luận bạn nghe sai.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:word-0",
+        "title": "Gắn dấu với từ: 一",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:word-0",
+            "kind": "dialogue",
+            "title": "Từ trong bài",
+            "body": "",
+            "hanzi": "一",
+            "pinyin": "yī",
+            "meaningVi": "một",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:word-note-0",
+            "kind": "explanation",
+            "title": "Nhìn từng âm tiết",
+            "body": "Đọc Pinyin yī, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “một”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:word-1",
+        "title": "Gắn dấu với từ: 人",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:word-1",
+            "kind": "dialogue",
+            "title": "Từ trong bài",
+            "body": "",
+            "hanzi": "人",
+            "pinyin": "rén",
+            "meaningVi": "người",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:word-note-1",
+            "kind": "explanation",
+            "title": "Nhìn từng âm tiết",
+            "body": "Đọc Pinyin rén, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “người”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:word-2",
+        "title": "Gắn dấu với từ: 你",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:word-2",
+            "kind": "dialogue",
+            "title": "Từ trong bài",
+            "body": "",
+            "hanzi": "你",
+            "pinyin": "nǐ",
+            "meaningVi": "bạn",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:word-note-2",
+            "kind": "explanation",
+            "title": "Nhìn từng âm tiết",
+            "body": "Đọc Pinyin nǐ, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “bạn”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:word-3",
+        "title": "Gắn dấu với từ: 二",
+        "layout": "split",
+        "stage": "understand",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:word-3",
+            "kind": "dialogue",
+            "title": "Từ trong bài",
+            "body": "",
+            "hanzi": "二",
+            "pinyin": "èr",
+            "meaningVi": "hai",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:word-note-3",
+            "kind": "explanation",
+            "title": "Nhìn từng âm tiết",
+            "body": "Đọc Pinyin èr, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “hai”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:transfer",
+        "title": "Đổi âm mà giữ hướng thanh",
+        "layout": "workshop",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:new-syllable",
+            "kind": "dialogue",
+            "title": "Một âm mới để đối chiếu",
+            "body": "",
+            "hanzi": "大",
+            "pinyin": "dà",
+            "meaningVi": "to; lớn",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          },
+          {
+            "id": "boot-1:v2:block:transfer-check",
+            "kind": "activity",
+            "title": "Nhận diện trên âm mới",
+            "body": "Dấu trong dà yêu cầu hướng giọng nào?",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "choice",
+              "options": [
+                {
+                  "id": "answer-0",
+                  "text": "Cao rồi rơi xuống",
+                  "feedback": "Đúng: dấu huyền trong Pinyin là thanh 4."
+                },
+                {
+                  "id": "answer-1",
+                  "text": "Giữ ngang cao",
+                  "feedback": "Đó là thanh 1, thường mang dấu ngang."
+                },
+                {
+                  "id": "answer-2",
+                  "text": "Từ vừa đi lên",
+                  "feedback": "Đó là thanh 2, thường mang dấu sắc."
+                }
+              ],
+              "answerIds": [
+                "answer-0"
+              ],
+              "acceptedAnswers": [],
+              "explanation": "Dấu thanh vẫn chỉ cùng hướng giọng dù ma đổi thành da. Không dùng quy tắc thanh điệu tiếng Việt để thay thế Pinyin.",
+              "hint": "",
+              "rubric": []
+            }
+          },
+          {
+            "id": "boot-1:v2:block:self-read",
+            "kind": "activity",
+            "title": "Tự đọc rồi tự đối chiếu",
+            "body": "Thử đọc mā → má → mǎ → mà, rồi dà. Có thể ghi chú bằng tiếng Việt về cặp dễ nhầm. Không cần microphone.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": "",
+            "activity": {
+              "type": "rubric",
+              "options": [],
+              "answerIds": [],
+              "acceptedAnswers": [],
+              "explanation": "Đây là tự đối chiếu, chưa chứng minh phát âm đúng. Nếu chưa chắc một cặp, nghe và xem lại cặp đó trước khi làm Thử Luyện.",
+              "hint": "",
+              "rubric": [
+                {
+                  "id": "direction",
+                  "label": "Giữ đúng hướng",
+                  "guidance": "Thanh 1 ngang, thanh 2 lên, thanh 3 thấp, thanh 4 rơi."
+                },
+                {
+                  "id": "comfort",
+                  "label": "Không ép giọng",
+                  "guidance": "Dùng quãng giọng thoải mái; không gằn giọng hoặc hét."
+                },
+                {
+                  "id": "transfer",
+                  "label": "Đổi âm vẫn đọc theo dấu",
+                  "guidance": "mà và dà đều đi từ cao xuống thấp, dù phụ âm và nghĩa khác nhau."
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "id": "boot-1:v2:recap",
+        "title": "Mang bốn hướng vào Thử Luyện",
+        "layout": "focus",
+        "stage": "transfer",
+        "blocks": [
+          {
+            "id": "boot-1:v2:block:recap",
+            "kind": "explanation",
+            "title": "Nhớ hướng thay vì chỉ nhớ số",
+            "body": "mā: ngang cao · má: đi lên · mǎ: xuống thấp (đọc riêng có nhấc lên) · mà: rơi nhanh.\nThanh nhẹ ngắn, nhẹ, tùy âm trước; không phải thanh thứ năm.\nThử Luyện kiểm các câu cụ thể bằng đường ghi kết quả hiện có. Xem hết trang hay tự tích rubric không có nghĩa đã thành thạo phát âm.",
+            "hanzi": "",
+            "pinyin": "",
+            "meaningVi": "",
+            "imageSrc": "",
+            "alt": "",
+            "provenance": ""
+          }
+        ]
+      }
+    ]
+  },
+  "studioContent": {
+    "targetLessonId": "boot-1",
+    "titleZh": "四声",
+    "objectiveVi": "Nhận ra bốn hướng thanh điệu, phân biệt dấu Pinyin và thử đọc theo hướng giọng; biết thanh nhẹ không phải thanh thứ năm.",
+    "conceptVi": "Bốn thanh khác hướng giọng; thanh nhẹ không có cao độ cố định độc lập.",
+    "ruleVi": "Thanh 1 ngang cao; thanh 2 đi lên; thanh 3 có phần thấp; thanh 4 rơi từ cao xuống thấp.",
+    "pitfallVi": "Không đồng nhất Pinyin với thanh tiếng Việt. Không ép thanh 3 luôn xuống rồi lên đầy đủ trong lời nói liền.",
+    "checkpointVi": "Phân biệt bốn đường thanh, rồi nhận ra thanh 4 trên âm dà.",
+    "prerequisites": [],
+    "vocabulary": [
+      "yi",
+      "ren",
+      "ni",
+      "er"
+    ],
+    "skills": [
+      "pronunciation",
+      "listening"
+    ],
+    "dialogue": [
+      {
+        "speaker": "Âm mẫu thanh 1",
+        "hanzi": "妈",
+        "pinyin": "mā",
+        "meaningVi": "mẹ"
+      },
+      {
+        "speaker": "Âm mẫu thanh 2",
+        "hanzi": "麻",
+        "pinyin": "má",
+        "meaningVi": "cây gai"
+      },
+      {
+        "speaker": "Âm mẫu thanh 3",
+        "hanzi": "马",
+        "pinyin": "mǎ",
+        "meaningVi": "ngựa"
+      },
+      {
+        "speaker": "Âm mẫu thanh 4",
+        "hanzi": "骂",
+        "pinyin": "mà",
+        "meaningVi": "mắng"
+      }
+    ],
+    "grammar": [
+      {
+        "pattern": "mā / má / mǎ / mà",
+        "explanationVi": "Giữ nguyên phụ âm và vần, thay thanh điệu sẽ thay từ và nghĩa. Cao độ là tương đối trong quãng giọng người nói.",
+        "modelExample": {
+          "hanzi": "妈",
+          "pinyin": "mā",
+          "meaningVi": "mẹ"
+        },
+        "guidedPractice": {
+          "promptVi": "Chọn âm ma có hướng cao rồi rơi nhanh.",
+          "modelAnswerHanzi": "骂",
+          "modelAnswerPinyin": "mà",
+          "modelAnswerMeaningVi": "mắng"
+        }
+      }
+    ],
+    "exercises": [
+      {
+        "promptVi": "Chọn âm ma có hướng cao rồi rơi nhanh.",
+        "answer": "mà",
+        "answerPinyin": "mà",
+        "answerMeaningVi": "mắng",
+        "distractors": [
+          "mā",
+          "má",
+          "mǎ"
+        ],
+        "explanationVi": "Thanh 4: cao rồi rơi nhanh. Các phương án còn lại lần lượt là ngang, lên và thấp."
+      },
+      {
+        "promptVi": "Chọn âm ma có hướng từ vừa đi lên.",
+        "answer": "má",
+        "answerPinyin": "má",
+        "answerMeaningVi": "cây gai",
+        "distractors": [
+          "mā",
+          "mà"
+        ],
+        "explanationVi": "Thanh 2 đi lên; thanh 1 ngang, thanh 4 đi xuống."
+      }
+    ],
+    "lessonPages": {
+      "version": 1,
+      "art": "sound",
+      "pages": [
+        {
+          "id": "boot-1:v2:mission",
+          "title": "Một âm, bốn đường giọng",
+          "layout": "scene",
+          "stage": "context",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:mission",
+              "kind": "explanation",
+              "title": "Nghe đường giọng trước, nhớ số thanh sau",
+              "body": "Cùng âm “ma”, đổi cao độ sẽ đổi từ và nghĩa. Bạn sẽ nhìn đường giọng, nghe mẫu từng âm rồi nhận diện một âm khác. Chưa cần thuộc cách viết các chữ ví dụ.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:access",
+              "kind": "explanation",
+              "title": "Học bằng mắt và tai",
+              "body": "Dùng nút nghe nếu thiết bị hỗ trợ. Âm mẫu là giọng tổng hợp; nếu không nghe được, theo mũi tên và dấu Pinyin để tiếp tục. Tự đọc không được hệ thống chấm thành điểm phát âm.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:map",
+          "title": "Bản đồ bốn thanh",
+          "layout": "focus",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:tone-map",
+              "kind": "diagram",
+              "title": "Cao độ tương đối, không phải nốt nhạc",
+              "body": "",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "diagram": {
+                "type": "comparison",
+                "description": "1 là thấp nhất, 5 là cao nhất trong quãng giọng thoải mái của bạn. Các số 55, 35, 214, 51 mô tả hướng đi; không cần bắt chước cao độ tuyệt đối của người đọc.",
+                "nodes": [
+                  {
+                    "id": "tone-1",
+                    "label": "1 · → 55",
+                    "pinyin": "mā",
+                    "meaningVi": "妈 — mẹ",
+                    "note": "Bắt đầu cao, giữ ngang và đều.",
+                    "x": 0,
+                    "y": 0
+                  },
+                  {
+                    "id": "tone-2",
+                    "label": "2 · ↗ 35",
+                    "pinyin": "má",
+                    "meaningVi": "麻 — cây gai",
+                    "note": "Bắt đầu vừa, đi lên rõ.",
+                    "x": 1,
+                    "y": 0
+                  },
+                  {
+                    "id": "tone-3",
+                    "label": "3 · ↘↗ 214",
+                    "pinyin": "mǎ",
+                    "meaningVi": "马 — ngựa",
+                    "note": "Khi đọc riêng: hạ xuống thấp rồi nhấc lên. Trong lời nói liền thường chỉ giữ phần thấp.",
+                    "x": 2,
+                    "y": 0
+                  },
+                  {
+                    "id": "tone-4",
+                    "label": "4 · ↘ 51",
+                    "pinyin": "mà",
+                    "meaningVi": "骂 — mắng",
+                    "note": "Bắt đầu cao, rơi nhanh và dứt khoát.",
+                    "x": 3,
+                    "y": 0
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:level-rise",
+          "title": "Giữ ngang hay đi lên?",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:tone-1",
+              "kind": "dialogue",
+              "title": "Thanh 1 · giữ tay ngang",
+              "body": "",
+              "hanzi": "妈",
+              "pinyin": "mā",
+              "meaningVi": "mẹ",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:tone-2",
+              "kind": "dialogue",
+              "title": "Thanh 2 · đưa tay lên",
+              "body": "",
+              "hanzi": "麻",
+              "pinyin": "má",
+              "meaningVi": "cây gai",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:contrast-12",
+              "kind": "explanation",
+              "title": "Nghe điểm kết thúc",
+              "body": "Thanh 1 bắt đầu cao và kết thúc cao, gần như không đổi. Thanh 2 bắt đầu vừa rồi lên cao. Nghe mỗi mẫu, vẽ một đường bằng tay rồi đọc lại; không tăng âm lượng để thay cho tăng cao độ.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:low-fall",
+          "title": "Hạ thấp hay rơi từ trên cao?",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:tone-3",
+              "kind": "dialogue",
+              "title": "Thanh 3 · tìm phần thấp",
+              "body": "",
+              "hanzi": "马",
+              "pinyin": "mǎ",
+              "meaningVi": "ngựa",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:tone-4",
+              "kind": "dialogue",
+              "title": "Thanh 4 · rơi dứt khoát",
+              "body": "",
+              "hanzi": "骂",
+              "pinyin": "mà",
+              "meaningVi": "mắng",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:contrast-34",
+              "kind": "explanation",
+              "title": "Điểm xuất phát khác nhau",
+              "body": "Thanh 3 đọc riêng có đường xuống thấp rồi nhấc lên. Khi nói liền thường không nhấc đầy đủ; đừng ép mọi âm thanh 3 thành một đường uốn dài. Thanh 4 bắt đầu cao rồi rơi nhanh. Không cần gằn giọng hay hét.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:recognize",
+          "title": "Nhìn hướng, gọi đúng thanh",
+          "layout": "focus",
+          "stage": "practice",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:fall-check",
+              "kind": "activity",
+              "title": "Tự nhận diện",
+              "body": "Đường giọng bắt đầu cao rồi rơi nhanh là thanh nào?",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "choice",
+                "options": [
+                  {
+                    "id": "answer-0",
+                    "text": "Thanh 1",
+                    "feedback": "Thanh 1 giữ cao và ngang; không rơi."
+                  },
+                  {
+                    "id": "answer-1",
+                    "text": "Thanh 2",
+                    "feedback": "Thanh 2 đi lên từ mức vừa."
+                  },
+                  {
+                    "id": "answer-2",
+                    "text": "Thanh 3",
+                    "feedback": "Thanh 3 chú trọng phần thấp, không bắt đầu cao rồi rơi dứt khoát."
+                  },
+                  {
+                    "id": "answer-3",
+                    "text": "Thanh 4",
+                    "feedback": "Đúng. Thanh 4 đi từ cao xuống thấp."
+                  }
+                ],
+                "answerIds": [
+                  "answer-3"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Thanh 4: 51, cao → thấp. Hãy đối chiếu mà với mǎ ở trang trước nếu còn nhầm.",
+                "hint": "",
+                "rubric": []
+              }
+            },
+            {
+              "id": "boot-1:v2:block:rise-check",
+              "kind": "activity",
+              "title": "Đổi sang một hướng khác",
+              "body": "Đường đi từ mức vừa lên cao là thanh nào?",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "choice",
+                "options": [
+                  {
+                    "id": "answer-0",
+                    "text": "Thanh 2",
+                    "feedback": "Đúng: 35, từ vừa lên cao."
+                  },
+                  {
+                    "id": "answer-1",
+                    "text": "Thanh 4",
+                    "feedback": "Thanh 4 rơi xuống, ngược hướng cần tìm."
+                  },
+                  {
+                    "id": "answer-2",
+                    "text": "Thanh 1",
+                    "feedback": "Thanh 1 giữ ngang; không đi lên."
+                  }
+                ],
+                "answerIds": [
+                  "answer-0"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Nhận diện dựa vào hướng giọng, không dựa vào nghĩa của chữ ví dụ.",
+                "hint": "",
+                "rubric": []
+              }
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:neutral",
+          "title": "Thanh nhẹ: ngắn, nhẹ, tùy âm trước",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:mother",
+              "kind": "dialogue",
+              "title": "Hai âm trong một từ",
+              "body": "",
+              "hanzi": "妈妈",
+              "pinyin": "māma",
+              "meaningVi": "mẹ",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:neutral",
+              "kind": "explanation",
+              "title": "Âm ma thứ hai không có dấu thanh",
+              "body": "Trong 妈妈, âm thứ hai thường đọc ngắn và nhẹ hơn. Thanh nhẹ không có một đường cao độ cố định riêng, mà phụ thuộc âm đứng trước. Không gọi đây là thanh 5 và không tự thêm dấu vào mọi âm không dấu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:listening",
+              "kind": "explanation",
+              "title": "Nghe lại rồi thử nhắc",
+              "body": "Nghe 妈妈. Chú ý âm đầu rõ, âm sau nhẹ. Nếu giọng tổng hợp chưa thể hiện rõ, dựa vào Pinyin māma; bài này không dùng chất lượng giọng máy để kết luận bạn nghe sai.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:word-0",
+          "title": "Gắn dấu với từ: 一",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:word-0",
+              "kind": "dialogue",
+              "title": "Từ trong bài",
+              "body": "",
+              "hanzi": "一",
+              "pinyin": "yī",
+              "meaningVi": "một",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:word-note-0",
+              "kind": "explanation",
+              "title": "Nhìn từng âm tiết",
+              "body": "Đọc Pinyin yī, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “một”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:word-1",
+          "title": "Gắn dấu với từ: 人",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:word-1",
+              "kind": "dialogue",
+              "title": "Từ trong bài",
+              "body": "",
+              "hanzi": "人",
+              "pinyin": "rén",
+              "meaningVi": "người",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:word-note-1",
+              "kind": "explanation",
+              "title": "Nhìn từng âm tiết",
+              "body": "Đọc Pinyin rén, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “người”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:word-2",
+          "title": "Gắn dấu với từ: 你",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:word-2",
+              "kind": "dialogue",
+              "title": "Từ trong bài",
+              "body": "",
+              "hanzi": "你",
+              "pinyin": "nǐ",
+              "meaningVi": "bạn",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:word-note-2",
+              "kind": "explanation",
+              "title": "Nhìn từng âm tiết",
+              "body": "Đọc Pinyin nǐ, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “bạn”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:word-3",
+          "title": "Gắn dấu với từ: 二",
+          "layout": "split",
+          "stage": "understand",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:word-3",
+              "kind": "dialogue",
+              "title": "Từ trong bài",
+              "body": "",
+              "hanzi": "二",
+              "pinyin": "èr",
+              "meaningVi": "hai",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:word-note-3",
+              "kind": "explanation",
+              "title": "Nhìn từng âm tiết",
+              "body": "Đọc Pinyin èr, gọi hướng giọng theo từng dấu. Nghe mẫu và thử đọc lại. Nghĩa của từ là “hai”; bạn chưa cần viết thuộc chữ để hiểu thanh điệu.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:transfer",
+          "title": "Đổi âm mà giữ hướng thanh",
+          "layout": "workshop",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:new-syllable",
+              "kind": "dialogue",
+              "title": "Một âm mới để đối chiếu",
+              "body": "",
+              "hanzi": "大",
+              "pinyin": "dà",
+              "meaningVi": "to; lớn",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            },
+            {
+              "id": "boot-1:v2:block:transfer-check",
+              "kind": "activity",
+              "title": "Nhận diện trên âm mới",
+              "body": "Dấu trong dà yêu cầu hướng giọng nào?",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "choice",
+                "options": [
+                  {
+                    "id": "answer-0",
+                    "text": "Cao rồi rơi xuống",
+                    "feedback": "Đúng: dấu huyền trong Pinyin là thanh 4."
+                  },
+                  {
+                    "id": "answer-1",
+                    "text": "Giữ ngang cao",
+                    "feedback": "Đó là thanh 1, thường mang dấu ngang."
+                  },
+                  {
+                    "id": "answer-2",
+                    "text": "Từ vừa đi lên",
+                    "feedback": "Đó là thanh 2, thường mang dấu sắc."
+                  }
+                ],
+                "answerIds": [
+                  "answer-0"
+                ],
+                "acceptedAnswers": [],
+                "explanation": "Dấu thanh vẫn chỉ cùng hướng giọng dù ma đổi thành da. Không dùng quy tắc thanh điệu tiếng Việt để thay thế Pinyin.",
+                "hint": "",
+                "rubric": []
+              }
+            },
+            {
+              "id": "boot-1:v2:block:self-read",
+              "kind": "activity",
+              "title": "Tự đọc rồi tự đối chiếu",
+              "body": "Thử đọc mā → má → mǎ → mà, rồi dà. Có thể ghi chú bằng tiếng Việt về cặp dễ nhầm. Không cần microphone.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": "",
+              "activity": {
+                "type": "rubric",
+                "options": [],
+                "answerIds": [],
+                "acceptedAnswers": [],
+                "explanation": "Đây là tự đối chiếu, chưa chứng minh phát âm đúng. Nếu chưa chắc một cặp, nghe và xem lại cặp đó trước khi làm Thử Luyện.",
+                "hint": "",
+                "rubric": [
+                  {
+                    "id": "direction",
+                    "label": "Giữ đúng hướng",
+                    "guidance": "Thanh 1 ngang, thanh 2 lên, thanh 3 thấp, thanh 4 rơi."
+                  },
+                  {
+                    "id": "comfort",
+                    "label": "Không ép giọng",
+                    "guidance": "Dùng quãng giọng thoải mái; không gằn giọng hoặc hét."
+                  },
+                  {
+                    "id": "transfer",
+                    "label": "Đổi âm vẫn đọc theo dấu",
+                    "guidance": "mà và dà đều đi từ cao xuống thấp, dù phụ âm và nghĩa khác nhau."
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "boot-1:v2:recap",
+          "title": "Mang bốn hướng vào Thử Luyện",
+          "layout": "focus",
+          "stage": "transfer",
+          "blocks": [
+            {
+              "id": "boot-1:v2:block:recap",
+              "kind": "explanation",
+              "title": "Nhớ hướng thay vì chỉ nhớ số",
+              "body": "mā: ngang cao · má: đi lên · mǎ: xuống thấp (đọc riêng có nhấc lên) · mà: rơi nhanh.\nThanh nhẹ ngắn, nhẹ, tùy âm trước; không phải thanh thứ năm.\nThử Luyện kiểm các câu cụ thể bằng đường ghi kết quả hiện có. Xem hết trang hay tự tích rubric không có nghĩa đã thành thạo phát âm.",
+              "hanzi": "",
+              "pinyin": "",
+              "meaningVi": "",
+              "imageSrc": "",
+              "alt": "",
+              "provenance": ""
+            }
+          ]
+        }
+      ]
+    },
+    "sourceVocabularyIds": [
+      "yi",
+      "ren",
+      "ni",
+      "er"
+    ],
+    "sourceLessonIds": [
+      "boot-1"
+    ],
+    "review": {
+      "humanReviewed": false,
+      "aiSelfReview": {
+        "accuracy": false,
+        "levelFit": false,
+        "pedagogy": false,
+        "answerIntegrity": false,
+        "originality": false
+      }
+    }
+  }
+}

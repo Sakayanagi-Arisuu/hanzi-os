@@ -356,6 +356,10 @@ describe("normalized objective attempt repository", () => {
       outcome: "correct",
       score: 100,
     });
+    expect(receipt.remediationFeedback?.correctAnswer).toBe(remediation.response.answer);
+    expect(receipt.remediationFeedback?.explanation).toBeTruthy();
+    const retried = await repository.commitObjectiveAttempt("user-a", remediation, scoreObjectiveAttempt(remediation));
+    expect(retried).toEqual({ ...receipt, duplicate: true });
     expect(database.database.prepare(
       "SELECT source, method, session_id AS sessionId FROM learning_attempts WHERE id = ?",
     ).get(receipt.attemptId)).toEqual({

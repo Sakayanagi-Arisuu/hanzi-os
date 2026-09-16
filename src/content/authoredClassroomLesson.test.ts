@@ -1,0 +1,33 @@
+import {expect,it} from 'vitest';
+import draft from '../../content/drafts/thien-lo-professional-2-v2.json';
+import {validateStudioContent} from './studioContent';
+import {LESSON_BY_ID,WORD_BY_ID} from '../data/curriculum';
+import {isLessonPageDocument} from '../learning/lessonPages';
+import review from '../../content/review/thien-lo-professional-2-v2-local.json';
+import {canonicalStudioJson,studioSha256} from './studioContent';
+import {parsePublishedStudioLessons} from './publishedStudioLessons';
+it('preserves classroom source IDs and leaves publication blocked until review',async()=>{
+  const checked=await validateStudioContent('lesson',draft.studioContent);
+  expect(checked.result.errors.map(error=>error.path)).toEqual(['review.aiSelfReview']);
+  const base=LESSON_BY_ID.get(draft.lessonId)!;
+  expect(draft.studioContent.vocabulary).toEqual(base.wordIds);
+  expect(draft.studioContent.prerequisites).toEqual(base.prerequisiteIds);
+  expect(draft.studioContent.skills).toEqual(base.skills);
+  const text=JSON.stringify(draft.lessonPages);
+  for(const id of base.wordIds)expect(text).toContain(WORD_BY_ID.get(id)!.simplified);
+  const pages:unknown=draft.lessonPages;
+  if(!isLessonPageDocument(pages))throw new Error('Invalid authored classroom pages');
+  const recall=pages.pages.flatMap(p=>p.blocks).find(b=>b.id==='professional-2:v2:block:recall');
+  expect(recall?.activity?.acceptedAnswers).toEqual(['汉语','中文']);
+  expect(draft.humanReviewed).toBe(false);
+});
+it('binds classroom review and preserves the full authored document through release',async()=>{
+  expect(await studioSha256(canonicalStudioJson(draft.studioContent))).toBe(review.sourceContentSha256);
+  const content={...draft.studioContent,review:{humanReviewed:false,aiSelfReview:review.aiSelfReview}};
+  const validation=await validateStudioContent('lesson',content);
+  expect(validation.result.errors).toEqual([]);
+  const projected=parsePublishedStudioLessons({schemaVersion:1,policy:'published-only',releaseBoundary:'content-release-worker-v1',items:[{stableKey:'thien-lo-v2-professional-2',itemType:'lesson',level:'hsk1',title:draft.title,revision:1,revisionId:'classroom-test',schemaVersion:1,contentSha256:validation.result.contentSha256,publishedAt:1,content}]}).get(draft.lessonId)!;
+  expect(projected.richContent.lessonPages).toEqual(draft.lessonPages);
+  expect(projected.lesson.wordIds).toEqual(LESSON_BY_ID.get(draft.lessonId)!.wordIds);
+  expect(projected.lesson.prerequisiteIds).toEqual(['professional-1']);
+});

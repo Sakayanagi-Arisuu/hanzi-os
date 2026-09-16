@@ -8,10 +8,10 @@ import {
   LoaderCircle,
   PenLine,
   RotateCcw,
-  Sparkles,
+  ShieldCheck,
   Volume2,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import {
   advanceCharacterForgeSession,
@@ -31,7 +31,9 @@ import { loadHanziStrokeData, type HanziStrokeData } from "../characters/hanziSt
 import { CharacterContextChallenge } from "../components/CharacterContextChallenge";
 import { CharacterStructurePanel } from "../components/CharacterStructurePanel";
 import { StrokeOrderPractice, type StrokePracticeResult } from "../components/StrokeOrderPractice";
-import { LESSON_BY_ID, RELEASED_WORD_BY_ID } from "../data/curriculum";
+import { LESSON_BY_ID, RELEASED_WORD_BY_ID, RELEASED_VOCABULARY } from "../data/curriculum";
+import { GuildGlyph } from "../components/GuildGlyph";
+import { GuildJourney } from "../components/GuildJourney";
 import {
   RELEASED_CHARACTER_PRACTICE,
   type ReleasedCharacterPracticeEntry,
@@ -48,13 +50,15 @@ import { useLearningJourney } from "../store/LearningJourneyStore";
 import { getCharacterScriptPresentation } from "./CharactersPage";
 import "./CharactersPage.css";
 import "./CharacterForgeSessionPage.css";
+import "./GlyphGuild.css";
+import "./GuildReference.css";
 
 const phaseMeta: Record<CharacterForgePhase, { index: number; label: string; instruction: string }> = {
-  structure: { index: 1, label: "Khai Cấu", instruction: "Xem chữ được tạo bởi những phần nào" },
-  prediction: { index: 2, label: "Tiên Nét", instruction: "Đoán hướng của một nét" },
-  guided: { index: 3, label: "Rèn Nét", instruction: "Viết theo mẫu, không cần viết đẹp" },
-  recall: { index: 4, label: "Tái Tạo", instruction: "Tự viết từng nét từ trí nhớ" },
-  context: { index: 5, label: "Kích Hoạt", instruction: "Nhận diện chữ trong một từ" },
+  structure: { index: 1, label: "Nhìn Xuyên Cấu Trúc", instruction: "Hiểu cấu trúc để viết đúng ngay từ đầu" },
+  prediction: { index: 2, label: "Đoán Nét", instruction: "Quan sát và chọn hướng của nét tiếp theo" },
+  guided: { index: 3, label: "Viết Theo Mẫu", instruction: "Đi theo nét mờ, bắt đầu từ điểm sáng" },
+  recall: { index: 4, label: "Tự Viết", instruction: "Viết chữ từ trí nhớ, không có nét mờ" },
+  context: { index: 5, label: "Văn Cảnh", instruction: "Nhận diện chữ trong ngữ cảnh từ bài học" },
 };
 
 type DrawingAlternative = "canvas" | "paper" | "choice";
@@ -107,11 +111,19 @@ function StrokePredictionStage({
 
   return (
     <section className="stroke-prediction" aria-labelledby="prediction-title">
-      <div className="prediction-glyph" aria-hidden="true"><span>{displayHanzi}</span><i>{strokeIndex + 1}</i></div>
+      <div className="prediction-glyph">
+        <svg className="guild-prediction-glyph" viewBox="0 0 1024 1024" role="img" aria-label={`${strokeIndex} nét đầu của chữ ${displayHanzi}`}>
+          <path className="guild-writing-grid" d="M512 0V1024M0 512H1024M0 0L1024 1024M1024 0L0 1024" />
+          <g transform="translate(0 900) scale(1 -1)">
+            {data.strokes.slice(0, correct ? strokeIndex + 1 : strokeIndex).map((stroke, index) => <path key={index} d={stroke} />)}
+          </g>
+        </svg>
+        <i>{strokeIndex + 1}</i>
+      </div>
       <div className="prediction-copy">
         <span>TIÊN NÉT · DỰ ĐOÁN TRƯỚC KHI MỞ MẪU</span>
         <h2 id="prediction-title">Nét {strokeIndex + 1} đi theo hướng nào?</h2>
-        <p>Chọn bằng chuột, cảm ứng hoặc bàn phím. Dự đoán buộc trí nhớ hình thể hoạt động trước khi đường nét được hé lộ.</p>
+        <p>Chọn hướng của nét tiếp theo trước khi mở mẫu.</p>
         <div className="prediction-options" role="group" aria-label="Chọn hướng nét">
           {prediction!.options.map((option, index) => (
             <button
@@ -190,6 +202,7 @@ export function CharacterForgeSessionPage() {
   const [drawingAlternative, setDrawingAlternative] = useState<DrawingAlternative>("canvas");
   const [currentNeedsReplay, setCurrentNeedsReplay] = useState(false);
   const [usedPaper, setUsedPaper] = useState(false);
+  const [resultPanel, setResultPanel] = useState("summary");
 
   const entryByHanzi = useMemo(() => new Map(uniqueCharacters.map((entry) => [entry.hanzi, entry])), [uniqueCharacters]);
   const currentHanzi = session?.hanzis[session.currentIndex] ?? "";
@@ -216,6 +229,10 @@ export function CharacterForgeSessionPage() {
   const routeSource = session?.source;
   const routeIndex = session?.currentIndex;
   const routePhase = session?.phase;
+  const stageRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (stageRef.current) stageRef.current.scrollTop = 0;
+  }, [routePhase, routeIndex]);
   const routeLessonId = session?.lessonId;
   const challengeEntries = useMemo(() => uniqueCharacters.map((entry) => {
     const presentation = getCharacterScriptPresentation(entry, state.profile.script);
@@ -316,25 +333,39 @@ export function CharacterForgeSessionPage() {
   if (session.phase === "result") {
     const resultEntries = session.hanzis.map((hanzi) => entryByHanzi.get(hanzi)).filter(Boolean);
     return (
-      <div className="forge-result" aria-labelledby="forge-result-title">
-        <div className="forge-result-sigil" aria-hidden="true"><Sparkles /><i /><i /><span>{session.hanzis.at(-1)}</span></div>
+      <div className="forge-result guild-theme" data-result-panel={resultPanel} aria-label="Mạch Chữ Hoàn Thành">
+        <nav className="guild-result-tabs" aria-label="Nội dung kết quả"><button type="button" aria-pressed={resultPanel === "summary"} onClick={() => setResultPanel("summary")}>Kết quả</button><button type="button" aria-pressed={resultPanel === "journey"} onClick={() => setResultPanel("journey")}>Hành trình</button></nav>
+        <div className="guild-result-left">
         <span className="forge-kicker">PHIÊN TÔI LUYỆN · ĐÃ TÁI HỢP</span>
-        <h1 id="forge-result-title">Mạch chữ đã hoàn thành</h1>
-        <p>Bạn đã hoàn thành đủ năm pha. Những chữ còn vướng đã được đánh dấu để bạn luyện lại khi cần.</p>
+        <h1 id="forge-result-title">Mạch Chữ Hoàn Thành</h1>
+        <p>Hành trình luyện {session.completedHanzis.join(" · ")} đã đi hết năm bước.</p>
+        <GuildJourney step={6} />
+        <div className="guild-result-orbit guild-glyph-orbit"><GuildGlyph hanzi={session.hanzis.at(-1)!} /></div>
+        <p className="guild-result-completed"><ShieldCheck /> Đã hoàn thành 5/5 bước</p>
         <div className="forge-result-glyphs">{resultEntries.map((entry) => <span key={entry!.id} className={session.needsReplay.includes(entry!.hanzi) ? "needs-replay" : ""}><strong>{getCharacterScriptPresentation(entry!, state.profile.script).displayHanzi}</strong><small>{session.needsReplay.includes(entry!.hanzi) ? "Nên luyện lại" : "Đã đi trọn vòng"}</small></span>)}</div>
+        </div>
+        <div className="guild-result-right">
+        <section className="guild-result-summary guild-panel"><h2>TÓM TẮT HÀNH TRÌNH</h2>
         <dl>
           <div><dt>Chữ đã luyện</dt><dd>{session.completedHanzis.length}</dd></div>
           <div><dt>Cần luyện lại</dt><dd>{session.needsReplay.length}</dd></div>
           <div><dt>Viết trên giấy</dt><dd>{session.paperHanzis.length}</dd></div>
         </dl>
+        <p><Check /> Đã đi qua Nhìn Xuyên, Đoán Nét và Văn Cảnh.</p>
+        <p><PenLine /> Theo Mẫu và Tự Viết được ghi theo cách luyện đã chọn; hoàn tất không tự trở thành điểm thành thạo.</p>
+        <p><BookOpenText /> Từ trong bài: {resultEntries.map((entry) => entry!.contextWord).join(" · ")}</p>
+        </section>
+        <section className="guild-result-next guild-panel"><h2>BƯỚC TIẾP THEO</h2><p>{session.needsReplay.length ? `Luyện lại ${session.needsReplay.join(" · ")} để củng cố nét còn vướng.` : "Tiếp tục bài học hoặc chọn một mạch chữ mới."}</p><small>Lịch ôn và mức thành thạo phụ thuộc bằng chứng học thực tế.</small></section>
         <div className="forge-result-actions">
+          <Link className="primary" to="/characters">Về Sảnh Luyện Chữ <ChevronRight /></Link>
           {lesson && <Link className="primary" to={`/lesson/${encodeURIComponent(lesson.id)}`}><BookOpenText /> Trở về bài {lesson.title} <ChevronRight /></Link>}
           <button className={lesson ? "" : "primary"} type="button" onClick={() => {
             const next = createCharacterForgeSession({ entries: characterEntries, source: session.source, lessonId: session.lessonId, requestedHanzis: session.needsReplay.length ? session.needsReplay : session.hanzis, limit: session.hanzis.length });
             setSession(next);
           }}><RotateCcw /> {session.needsReplay.length ? "Luyện lại chữ đang vướng" : "Tôi luyện thêm một vòng"}</button>
-          <Link to="/characters">Về Sảnh</Link>
         </div>
+        </div>
+        <p className="guild-result-footnote">Hoàn thành hành trình không đồng nghĩa đã thành thạo; tiếp tục luyện trong bài học và lịch ôn.</p>
       </div>
     );
   }
@@ -345,6 +376,12 @@ export function CharacterForgeSessionPage() {
     : null;
   const isDrawingPhase = session.phase === "guided" || session.phase === "recall";
   const currentAssistance = getSessionAssistance(session, currentHanzi, session.phase === "guided" ? 3 : 0);
+  const seenContextWords = new Set<string>();
+  const relatedWords = RELEASED_VOCABULARY.filter((word) => {
+    if (word.simplified.length < 2 || !word.simplified.includes(currentHanzi) || seenContextWords.has(word.simplified)) return false;
+    seenContextWords.add(word.simplified);
+    return true;
+  }).slice(0, 3).map((word) => ({ word: word.simplified, pinyin: word.pinyin, meaning: word.meaning }));
 
   const advance = () => {
     if (!stageReady) return;
@@ -362,11 +399,11 @@ export function CharacterForgeSessionPage() {
           : "Tiếp tục: dùng trong từ";
 
   return (
-    <div className="forge-session" data-phase={session.phase}>
+    <div className="forge-session guild-theme" data-phase={session.phase}>
       <header className="forge-session-command">
         <Link to="/characters" aria-label="Rời phiên và về Sảnh"><ArrowLeft /></Link>
         <div className="forge-session-identity">
-          <strong>{meta.label} · Chữ {session.currentIndex + 1}/{session.hanzis.length}</strong>
+          <h1>{meta.label} <small>· Chữ {session.currentIndex + 1}/{session.hanzis.length}</small></h1>
           <small>{meta.instruction}</small>
         </div>
         <div className="forge-session-progress" aria-label={`Bước ${meta.index} trên 5`}>
@@ -375,7 +412,7 @@ export function CharacterForgeSessionPage() {
         </div>
       </header>
 
-      <main className={`forge-session-stage${isDrawingPhase ? " is-drawing" : ""}`} tabIndex={-1}>
+      <main ref={stageRef} className={`forge-session-stage${isDrawingPhase ? " is-drawing" : ""}`} tabIndex={-1}>
         {!isDrawingPhase && <div className="forge-stage-heading">
           <span>PHA {meta.index}/5</span>
           <h1>{meta.label}</h1>
@@ -386,14 +423,14 @@ export function CharacterForgeSessionPage() {
         <div className={`forge-stage-content${isDrawingPhase ? " is-drawing" : ""}`}>
           {session.phase === "structure" && <CharacterStructurePanel hanzi={currentHanzi} displayHanzi={currentView.displayHanzi} contextWord={currentView.displayContextWord} pinyin={currentEntry.contextPinyin} meaning={currentEntry.contextMeaningVi} onReady={acceptStrokeData} onComplete={acceptStructure} />}
           {session.phase === "prediction" && <StrokePredictionStage hanzi={currentHanzi} displayHanzi={currentView.displayHanzi} data={strokeData} onReady={() => setStageReady(true)} onMiss={() => { setCurrentNeedsReplay(true); recordAssistance(getAdaptiveAssistance(currentAssistance, "miss")); }} />}
-          {isDrawingPhase && drawingAlternative === "canvas" && <StrokeOrderPractice key={`${currentHanzi}:${session.phase}`} hanzi={currentHanzi} variant={session.phase === "recall" ? "memory" : "guided"} initialAssistance={currentAssistance} onAssistanceChange={recordAssistance} onComplete={acceptStrokeResult} />}
+          {isDrawingPhase && drawingAlternative === "canvas" && <StrokeOrderPractice key={`${currentHanzi}:${session.phase}`} hanzi={currentHanzi} cue={{ pinyin: currentEntry.pinyin, meaning: currentEntry.meaningVi }} variant={session.phase === "recall" ? "memory" : "guided"} initialAssistance={currentAssistance} onAssistanceChange={recordAssistance} onComplete={acceptStrokeResult} />}
           {isDrawingPhase && drawingAlternative !== "canvas" && <DrawingFallbackStage displayHanzi={session.phase === "recall" ? "?" : currentView.displayHanzi} contextWord={currentView.displayContextWord} mode={drawingAlternative} prediction={prediction} onReady={() => { setStageReady(true); setUsedPaper(drawingAlternative === "paper"); }} />}
-          {session.phase === "context" && <CharacterContextChallenge entry={{ id: currentEntry.id, hanzi: currentEntry.hanzi, displayHanzi: currentView.displayHanzi, contextWord: currentView.displayContextWord, contextPinyin: currentEntry.contextPinyin, contextMeaningVi: currentEntry.contextMeaningVi }} entries={challengeEntries} onResolved={(correct) => { setStageReady(true); setCurrentNeedsReplay(!correct); }} />}
+          {session.phase === "context" && <CharacterContextChallenge entry={{ id: currentEntry.id, hanzi: currentEntry.hanzi, displayHanzi: currentView.displayHanzi, contextWord: currentView.displayContextWord, contextPinyin: currentEntry.contextPinyin, contextMeaningVi: currentEntry.contextMeaningVi }} entries={challengeEntries} contextWords={relatedWords} onResolved={(correct) => { setStageReady(true); setCurrentNeedsReplay(!correct); }} />}
         </div>
       </main>
 
       <footer className="forge-action-dock">
-        {!isDrawingPhase && <div className="forge-action-note"><span><strong>{currentView.displayContextWord}</strong><small>{currentEntry.contextPinyin} · {currentEntry.contextMeaningVi}</small></span></div>}
+        {!isDrawingPhase && <div className="forge-action-note"><span><strong>{session.phase === "context" && !stageReady ? "Khôi phục từ còn thiếu" : currentView.displayContextWord}</strong><small>{currentEntry.contextPinyin} · {currentEntry.contextMeaningVi}</small></span></div>}
         {isDrawingPhase && <details className="forge-alternatives-menu">
           <summary><CircleHelp /> Cách luyện khác</summary>
           <div role="group" aria-label="Cách luyện thay thế">

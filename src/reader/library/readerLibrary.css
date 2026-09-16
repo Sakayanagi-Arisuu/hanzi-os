@@ -2,6 +2,8 @@
 /* VẠN QUYỂN CÁC · MỐC 1 — public local-first serial library                  */
 /* ========================================================================== */
 
+@import "./readerJade.css";
+
 .reader-library,
 .reader-series-page,
 .reader-recovery {

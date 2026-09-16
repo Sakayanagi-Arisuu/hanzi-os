@@ -46,6 +46,9 @@ describe("LessonQuestResult", () => {
     expect(html).toContain("THIÊN LỘ");
     expect(html).toContain("CỬA ẢI HOÀN TẤT");
     expect(html).toContain("Bốn thanh điệu");
+    expect(html).not.toContain("BOOT-1");
+    expect(html).toContain("Hiểu kết quả và bước ôn tiếp");
+    expect(html).toContain("Vượt ải chưa có nghĩa đã thành thạo lâu dài");
     expect(html).toContain("RƯƠNG THƯỞNG CỬA ẢI");
     expect(html).toContain("+10 EXP");
     expect(html).toContain("Mở rương nhận 10 EXP");

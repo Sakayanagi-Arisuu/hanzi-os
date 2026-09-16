@@ -512,9 +512,10 @@ export function ReaderChapterPage() {
               aria-labelledby="reader-comprehension-title"
             >
               <header>
-                <small>KHẢO LUYỆN ĐỌC · KHÔNG TỰ TĂNG MASTERY</small>
+                <small>KHẢO LUYỆN · ĐỌC HIỂU</small>
                 <h2 id="reader-comprehension-title">Kiểm tra điều vừa đọc</h2>
                 <p>Lần chọn đầu tiên được giữ lại để phản ánh đúng mức tự nhớ. Chọn sai vẫn có thể đọc giải thích và thử lại.</p>
+                <p className="reader-quiz-progress" aria-live="polite">Đã hiểu đúng {comprehensionState?.correct ?? 0}/{chapter!.comprehension.length} câu{comprehensionState?.complete ? " · Sẵn sàng hoàn thành chương" : ""}</p>
               </header>
               {chapter!.comprehension.map((question, questionIndex) => {
                 const attempt = comprehensionState?.attempts[question.questionId];
@@ -565,7 +566,7 @@ export function ReaderChapterPage() {
             </Link>
           ) : <span aria-hidden="true" />}
         </div>
-        {completed ? (
+        {completed && !(comprehensionState && comprehensionState.total > 0 && !comprehensionState.complete) ? (
           next ? (
             <Link className="reader-button reader-button--primary" to={`/reader/series/${series.seriesId}/chapter/${next.chapterId}`}>
               Mở chương tiếp <ArrowRight size={19} aria-hidden="true" />

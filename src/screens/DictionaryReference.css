@@ -1,0 +1,132 @@
+/* Reference composition shared by LEX-01–04. Sizes follow the usable stage,
+   not the monitor: browser chrome and an expanded rail reduce that stage. */
+.lex-experience { position:relative; isolation:isolate; container-type:inline-size; scrollbar-width:thin; scrollbar-color:#496360 transparent; }
+.lex-experience :is(.lex-results,.lex-detail-body,.lex-workspace,.lex-jade-panel) { scrollbar-width:thin; scrollbar-color:#496360 transparent; }
+.lex-experience .lex-primary,.lex-experience .lex-secondary { position:relative; clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px); }
+.lex-experience .lex-primary::after,.lex-experience .lex-secondary::after { content:""; pointer-events:none; position:absolute; inset:4px; border:1px solid #bdab6955; clip-path:inherit; }
+.lex-experience :is(.lex-primary,.lex-secondary):focus-visible { outline-offset:-6px; outline-width:3px; }
+.lex-source-link { display:flex; justify-content:space-between; align-items:center; min-height:54px; border:1px solid var(--lex-line); padding:10px 16px; margin-top:24px; color:var(--lex-muted); background:#0e1b2088; text-decoration:none; }
+.lex-selection-bar { display:flex; align-items:center; gap:14px; min-height:52px; border:1px solid var(--lex-line); border-radius:6px; padding:0 12px; }
+.lex-selection-bar > button { min-height:44px; padding:8px; border:0; background:none; color:var(--lex-muted); text-decoration:underline; }
+.lex-check { display:grid; place-items:center; width:44px; height:44px; flex-shrink:0; }
+.lex-check input { appearance:none; width:24px; height:24px; margin:0; border:1px solid #b0bec2; border-radius:4px; background:#09141a; cursor:pointer; }
+.lex-check input:checked { appearance:auto; accent-color:var(--lex-jade); }
+.lex-saved .lex-word-grid { border:0; gap:7px; overflow:visible; grid-auto-rows:minmax(74px,auto); }
+.lex-saved-row { display:flex; gap:8px; align-items:center; min-width:0; padding:8px 12px; border:1px solid var(--lex-line); border-radius:8px; background:linear-gradient(135deg,#0e1b20aa,#081216); }
+.lex-saved-row.checked { border-color:var(--lex-jade); box-shadow:inset 0 0 20px #17d2a31b; }
+.lex-saved-entry { display:grid; grid-template-columns:.75fr 1.15fr 1fr 1.4fr; gap:18px; align-items:center; flex:1; min-width:0; min-height:52px; padding:0; border:0; background:none; text-align:left; }
+.lex-saved-entry strong { font-family:var(--lex-hanzi); font-size:36px; font-weight:400; }
+.lex-saved-entry > span { display:grid; gap:4px; }
+.lex-saved-entry small { font-size:14px; line-height:1.35; }
+.lex-saved-entry .lex-row-source { color:var(--lex-muted); }
+.lex-study-dialog { box-sizing:border-box; width:min(620px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); padding:24px; border:1px solid #c5a259; border-radius:10px; color:#edf1e9; background:#041219; }
+.lex-study-dialog[open] { display:flex; flex-direction:column; gap:12px; }
+.lex-study-dialog::backdrop { background:#000b; backdrop-filter:blur(6px); }
+.lex-study-dialog header { display:flex; align-items:start; justify-content:space-between; gap:16px; }
+.lex-study-dialog header span,.lex-study-counter { color:#92bdb3; font-size:13px; }
+.lex-study-dialog header h2 { margin:8px 0 0; font:28px Cambria,serif; }
+.lex-study-dialog header button { width:44px; height:44px; background:none; border:1px solid #29433f; color:inherit; }
+.lex-study-content { overflow:auto; min-height:0; text-align:center; padding:16px; }
+.lex-study-content .lex-pronunciation { justify-content:center; }
+.lex-study-dialog footer { flex-shrink:0; display:grid; gap:12px; }
+.lex-study-dialog footer small { color:#b6c1c7; line-height:1.5; }
+@container (max-width:1100px) {
+  .lex-saved-entry { grid-template-columns:.7fr 1.2fr 1fr; gap:10px; }
+  .lex-saved-entry .lex-row-topic { display:none; }
+}
+@media (max-width:760px) {
+  .lex-saved-entry { grid-template-columns:.7fr 1fr; gap:8px; }
+  .lex-saved-entry .lex-row-source { display:none; }
+  .lex-saved-row { gap:4px; padding:6px; }
+  .lex-saved-entry strong { font-size:28px; }
+  .lex-selection-bar { gap:4px; min-height:44px; padding:0 4px; font-size:13px; }
+}
+.lex-explore { background:#020c12; }
+.lex-explore .lex-heading { max-width:70%; }
+.lex-explore .lex-heading > div > span { font-weight:600; }
+.lex-explore-grid { grid-template-columns:1.15fr 1fr 1fr 1fr 1.6fr; }
+.lex-discovery-card { background:linear-gradient(135deg,#112428b0,#09181dcc); box-shadow:inset 0 0 30px #092a2820; }
+.lex-discovery-card > div { min-height:0; }
+.lex-discovery-card > div > p { color:var(--lex-muted); line-height:1.5; font-size:14px; }
+.lex-discovery-card .lex-mini-word { gap:8px; }
+.lex-discovery-card .lex-mini-word > span:last-child { max-width:48%; }
+.lex-suggestion { background:linear-gradient(140deg,#342b1938,#0a171a); box-shadow:inset 0 0 40px #bca05508; }
+.lex-suggestion .lex-large-hanzi { color:#f8e9c9; }
+.lex-suggestion .lex-pronunciation { color:#f8e9c9; }
+.lex-suggestion .lex-primary { background:linear-gradient(105deg,#d9a947,#ffdb81,#d8a843); box-shadow:0 0 18px #dda34e25,inset 0 0 0 2px #fff4bc55; }
+.lex-suggestion .lex-secondary { min-height:48px; }
+@media (min-width:761px) and (min-height:741px) {
+  .lex-explore { gap:20px; }
+  .lex-explore-search { margin-top:0; }
+  .lex-suggestion { min-height:0; padding:20px; gap:10px; }
+  .lex-discovery-card { min-height:0; }
+}
+.lex-atlas { position:absolute; z-index:-1; top:0; right:0; width:65%; height:45%; background:url('/lex-atlas-v1.png') center/cover; mask-image:linear-gradient(90deg,transparent,#000 25%),linear-gradient(#000 70%,transparent); mask-composite:intersect; }
+.lex-atlas button { position:absolute; display:grid; place-items:center; gap:4px; width:50px; min-height:78px; padding:0; color:#71d1cd; background:none; border:0; }
+.lex-atlas button:nth-child(1) { left:28%; top:6%; }.lex-atlas button:nth-child(2) { left:38%; top:40%; }.lex-atlas button:nth-child(3) { left:61%; top:64%; }.lex-atlas button:nth-child(4) { left:70%; top:15%; color:var(--lex-gold); }.lex-atlas button:nth-child(5) { left:90%; top:44%; color:var(--lex-gold); }
+.lex-atlas strong { font:28px/1.2 var(--lex-hanzi); writing-mode:vertical-rl; padding:7px 4px; border-inline:1px solid currentColor; border-top:2px solid currentColor; background:#02191dbb; }
+.lex-atlas svg { filter:drop-shadow(0 0 5px currentColor); }
+.lex-atlas button::after { content:""; position:absolute; width:40px; height:10px; bottom:-5px; border:1px solid currentColor; border-radius:50%; box-shadow:0 0 10px currentColor; }
+@media (min-width:761px) {
+  .lex-explore-grid { overflow:visible; grid-template-columns:1.15fr 1fr 1fr 1fr 1.6fr; }
+  .lex-suggestion { grid-column:auto; }
+  .lex-explore-search { width:46%; }
+}
+@media (min-width:761px) and (max-height:740px) {
+  .lex-explore { gap:10px; padding:14px 2%; }
+  .lex-explore .lex-heading h1 { font-size:32px; margin:6px 0; }
+  .lex-explore .lex-heading p { font-size:14px; }
+  .lex-explore-search { gap:8px; }
+  .lex-explore .lex-search { min-height:48px; padding-block:1px; }
+  .lex-discovery-card { padding:12px; }
+  .lex-discovery-card h2 { min-height:36px; padding-bottom:8px; margin-bottom:4px; }
+  .lex-discovery-card .lex-mini-word { min-height:56px; }
+  .lex-discovery-card .lex-topic { min-height:48px; }
+  .lex-discovery-card > :is(button,a) { font-size:12px; }
+  .lex-suggestion { display:grid; grid-template-columns:minmax(56px,.8fr) minmax(0,1.2fr); grid-template-rows:auto minmax(44px,1fr) auto auto 44px 44px; align-items:center; padding:12px; gap:6px 10px; }
+  .lex-suggestion > span { grid-column:1/-1; }
+  .lex-suggestion .lex-large-hanzi { grid-column:1; grid-row:2/4; font-size:44px; }
+  .lex-suggestion .lex-pronunciation { grid-column:2; font-size:18px; gap:6px; flex-wrap:wrap; }
+  .lex-suggestion > p { grid-column:2; font-size:16px; }
+  .lex-suggestion > small { grid-column:1/-1; margin:0; padding:4px 0; font-size:12px; }
+  .lex-suggestion > :is(.lex-primary,.lex-secondary) { grid-column:1/-1; min-height:44px; padding:5px 8px; font-size:14px!important; }
+}
+@container (max-width:1050px) {
+  .lex-discovery-card { padding:10px; }
+  .lex-discovery-card h2 { gap:6px; font-size:12px; }
+  .lex-discovery-card .lex-mini-word { flex-wrap:wrap; gap:2px; }
+  .lex-discovery-card .lex-mini-word > span:last-child { max-width:100%; font-size:12px; }
+  .lex-discovery-card .lex-mini-word small { margin-top:0; }
+  .lex-shortcuts { gap:8px; }
+  .lex-shortcuts button { padding-inline:12px; }
+}
+@media (max-width:760px) {
+  .lex-explore .lex-heading { max-width:100%; }
+  .lex-atlas { width:100%; opacity:.35; }
+  .lex-atlas button { display:none; }
+}
+@media (min-width:761px) {
+  .lex-experience:not(.lex-explore) { display:grid; grid-template-columns:minmax(0,1.8fr) minmax(260px,1fr); grid-template-rows:auto auto minmax(0,1fr); column-gap:4%; row-gap:16px; }
+  .lex-experience:not(.lex-explore) .lex-heading { grid-area:1/1; }
+  .lex-experience:not(.lex-explore) .lex-status { grid-area:2/1; }
+  .lex-workspace { display:contents; }
+  .lex-main-panel { grid-area:3/1; }
+  .lex-jade-panel { grid-area:1/2/4/3; margin-top:26px; }
+  .lex-detail .lex-heading { gap:14px; align-items:center; }
+  .lex-detail .lex-heading h1 { font:400 18px/1.5 var(--font-body,sans-serif)!important; margin:0; }
+  .lex-detail .lex-heading p { display:none; }
+  .lex-detail .lex-panel-actions { margin-top:54px; margin-bottom:auto; }
+  .lex-detail .lex-detail-tabs { gap:18px; }
+  .lex-detail .lex-detail-tabs button { background:none; border-width:0 0 1px; border-radius:0; padding-inline:0; }
+  .lex-saved .lex-filters { max-width:70%; }
+  .lex-lesson .lex-filters select { flex:1.5; }
+}
+@media (min-width:761px) and (max-height:740px) {
+  .lex-experience:not(.lex-explore) { row-gap:10px; }
+  .lex-experience:not(.lex-explore) .lex-heading h1 { font-size:28px; }
+  .lex-detail .lex-panel-actions { margin-top:28px; }
+  .lex-filters :is(.lex-search,select) { min-height:48px; padding-block:1px; }
+  .lex-filter-tabs { gap:8px; }
+  .lex-filter-tabs button { padding-inline:12px; }
+  .lex-selection-bar { min-height:44px; }
+}

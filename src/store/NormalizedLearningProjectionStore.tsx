@@ -382,9 +382,11 @@ export function NormalizedLearningProjectionProvider({
 
   useEffect(() => {
     window.addEventListener("online", refresh);
+    window.addEventListener("focus", refresh);
     window.addEventListener(LEARNING_COMMAND_QUEUE_CHANGED_EVENT, refresh);
     return () => {
       window.removeEventListener("online", refresh);
+      window.removeEventListener("focus", refresh);
       window.removeEventListener(LEARNING_COMMAND_QUEUE_CHANGED_EVENT, refresh);
     };
   }, [refresh]);

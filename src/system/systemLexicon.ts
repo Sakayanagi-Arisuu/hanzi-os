@@ -51,9 +51,27 @@ const SYSTEM_PAGE_NAMES: Record<string, SystemPageName> = {
   "/profile": { code: "USER-11", title: "Bảng Thuộc Tính", plain: "Hồ sơ Hành Giả" },
 };
 
-export const resolveSystemPageName = (pathname: string): SystemPageName => {
+export const resolveSystemPageName = (pathname: string, search = ""): SystemPageName => {
+  if (pathname === "/dictionary") {
+    const params = new URLSearchParams(search);
+    const view = params.get("view") ?? (params.has("lesson") ? "lesson" : "explore");
+    const screens: Record<string, [string,string]> = { explore:["01","Khám Phá"],search:["01","Tra cứu"],detail:["02","Hồ Sơ Mục Từ"],lesson:["03","Tra Cứu Theo Bài"],saved:["04","Ngọc Giản Đã Lưu"] };
+    const [number,plain] = screens[view] ?? screens.explore!;
+    return {code:`LEX-${number}`,title:"Tàng Tự Khố",plain};
+  }
   if (pathname.startsWith("/exams")) return SYSTEM_PAGE_NAMES["/exams"]!;
-  if (pathname.startsWith("/characters")) return SYSTEM_PAGE_NAMES["/characters"]!;
+  if (pathname.startsWith("/characters")) {
+    const params = new URLSearchParams(search);
+    const phases: Record<string, [string, string]> = {
+      structure: ["03", "Nhìn Xuyên Cấu Trúc"], prediction: ["04", "Đoán Nét"],
+      guided: ["05", "Viết Theo Mẫu"], recall: ["06", "Tự Viết"],
+      context: ["07", "Văn Cảnh"], result: ["08", "Mạch Chữ Hoàn Thành"],
+    };
+    const [number, plain] = pathname.startsWith("/characters/session")
+      ? phases[params.get("phase") ?? "structure"] ?? phases.structure!
+      : params.get("view") === "picker" ? ["02", "Kho Chọn Chữ"] : ["01", "Sảnh Luyện Chữ"];
+    return { code: `GLYPH-${number}`, title: "Thần Văn Lô", plain };
+  }
   if (pathname.startsWith("/reader")) return SYSTEM_PAGE_NAMES["/reader"]!;
   const placementMatch = pathname.match(/^\/assessment\/placement\/hsk([1-4])$/u);
   if (placementMatch) return {

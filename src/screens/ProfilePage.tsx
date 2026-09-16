@@ -23,9 +23,16 @@ import {
   Upload,
   Volume2,
   VolumeX,
+  ArrowLeft,
+  ChevronRight,
+  Eye,
+  Route,
+  Monitor,
+  Keyboard,
 } from "lucide-react";
 import { useRef, useState } from "react";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
+import "./SystemGuild.css";
 import {
   authorizationLabel,
   hasPermission,
@@ -100,6 +107,19 @@ const announcementLevels: Array<{ id: SystemAnnouncementLevel; label: string }> 
 const MAX_RECOVERY_FILE_BYTES = 8_000_000;
 
 export function ProfilePage() {
+  const [previewView, setPreviewView] = useState("display");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const requestedView = searchParams.get("view");
+  const view = ["journey", "display", "audio", "account"].includes(requestedView ?? "") ? requestedView! : "overview";
+  const views = {
+    overview: ["Cấu hình hệ thống", "Điều chỉnh hiển thị, âm thanh, hành trình học và dữ liệu."],
+    journey: ["Hành trình học", "Chọn nhịp học phù hợp với bạn."],
+    display: ["Hiển thị & trợ năng", "Điều chỉnh giao diện để học lâu mà không mỏi."],
+    audio: ["Âm thanh & giọng", "Điều chỉnh âm phản hồi và giọng xướng lệnh."],
+    account: ["Tài khoản & dữ liệu", "Quản lý danh tính, nơi lưu tiến trình và bản sao dữ liệu."],
+  } as const;
+  const heading = views[view as keyof typeof views];
+  const openView = (next: string) => setSearchParams(next === "overview" ? {} : { view: next });
   const { state, actions, level, sync } = useLearning();
   const interactionXp = useInteractionXp();
   const authorization = sync.session?.authenticated
@@ -330,19 +350,61 @@ export function ProfilePage() {
   ].filter(Boolean).join(" · ");
 
   return (
-    <div className="content-page profile-page">
+    <div className={`content-page profile-page sys-guild sys-${view}`}>
       <header className="page-hero profile-hero">
         <div>
-          <span className="system-kicker"><CircleUserRound size={15} /> BẢNG THUỘC TÍNH · HỒ SƠ HÀNH GIẢ</span>
-          <h1>Bảng Thuộc Tính</h1>
-          <p>Điều chỉnh Thiên Mệnh, Nhịp Tu Luyện, hiệu ứng hệ thống và dữ liệu cá nhân đang lưu trên thiết bị.</p>
+          <span className="system-kicker"><CircleUserRound size={18} /> {view === "overview" ? "BẢNG THUỘC TÍNH" : `CẤU HÌNH HỆ THỐNG · ${heading[0].toUpperCase()}`}</span>
+          <h1>{heading[0]}</h1>
+          <p>{heading[1]}</p>
         </div>
         <div className="profile-rank-badge"><span>CẤP HỆ THỐNG</span><strong>{String(displayedLevel).padStart(2, "0")}</strong><small>{interactionXp.pending ? "Đang hợp nhất EXP" : `${rank.title} · ${interactionXp.totalXp} XP tương tác`}</small></div>
       </header>
-
+      {view !== "overview" && <button className="sys-back" onClick={() => openView("overview")} type="button"><ArrowLeft size={18} /> Tổng quan</button>}
+      {view === "overview" && <div className="sys-overview-grid">
+        <nav aria-label="Các mục cấu hình hệ thống" className="sys-category-list">
+          {[
+            { id: "account", label: "Tài khoản & dữ liệu", detail: `${state.profile.name} · ${syncLabel}`, Icon: CircleUserRound },
+            { id: "journey", label: "Hành trình học", detail: `${draft.dailyMinutes} phút mỗi ngày · ${goals.find((goal) => goal.id === draft.goal)?.label}`, Icon: Route },
+            { id: "display", label: "Hiển thị & trợ năng", detail: `Chuyển động · ${motionModes.find((mode) => mode.id === preferences.motionMode)?.label}`, Icon: Eye },
+            { id: "audio", label: "Âm thanh & giọng", detail: `Âm phản hồi ${preferences.soundEnabled ? "đang bật" : "đang tắt"} · ${selectedVoiceProfile.label}`, Icon: Volume2 },
+          ].map(({ id, label, detail, Icon }, index) => <button key={id} type="button" onMouseEnter={() => setPreviewView(id)} onFocus={() => setPreviewView(id)} onClick={() => openView(id)}><Icon size={38} /><span><strong>{index + 1}. {label}</strong><small>{detail}</small></span><ChevronRight size={24} /></button>)}
+        </nav>
+        <aside className="sys-overview-preview">
+          <span className="system-kicker">XEM TRƯỚC: {views[previewView as keyof typeof views][0].toUpperCase()}</span>
+          <p>{views[previewView as keyof typeof views][1]}</p>
+          <dl>
+            {previewView === "account" ? <>
+              <div><dt><CircleUserRound /> Hành Giả</dt><dd>{state.profile.name}</dd></div>
+              <div><dt><Cloud /> Đồng bộ</dt><dd>{syncLabel}</dd></div>
+              <div><dt><Database /> Từ đã lưu</dt><dd>{state.savedWords.filter((id) => RELEASED_WORD_BY_ID.has(id)).length}</dd></div>
+              <div><dt><ShieldCheck /> Bản sao</dt><dd>Xuất / phục hồi</dd></div>
+            </> : previewView === "journey" ? <>
+              <div><dt><Target /> Mục tiêu</dt><dd>{goals.find((goal) => goal.id === draft.goal)?.label}</dd></div>
+              <div><dt><Route /> Nhịp học</dt><dd>{draft.dailyMinutes} phút / ngày</dd></div>
+              <div><dt><Radar /> Khởi hành</dt><dd>{startingLevels.find((item) => item.id === draft.startingLevel)?.label}</dd></div>
+              <div><dt><Languages /> Hệ chữ</dt><dd>{draft.script === "simplified" ? "Giản thể" : "Phồn thể"}</dd></div>
+            </> : previewView === "audio" ? <>
+              <div><dt><Volume2 /> Âm phản hồi</dt><dd>{preferences.soundEnabled ? "Bật" : "Tắt"}</dd></div>
+              <div><dt><AudioLines /> Âm lượng</dt><dd>{Math.round(preferences.soundVolume * 100)}%</dd></div>
+              <div><dt><MessageCircle /> Giọng hệ thống</dt><dd>{preferences.voiceEnabled ? "Bật" : "Tắt"}</dd></div>
+              <div><dt><Sparkles /> Giọng đang chọn</dt><dd>{selectedVoiceProfile.label}</dd></div>
+            </> : <>
+              <div><dt><Monitor /> Giao diện</dt><dd>HANZI.OS</dd></div>
+              <div><dt><Eye /> Chuyển động</dt><dd>{motionModes.find((mode) => mode.id === preferences.motionMode)?.label}</dd></div>
+              <div><dt><Keyboard /> Bàn phím</dt><dd>Viền focus rõ</dd></div>
+              <div><dt><Volume2 /> Âm phản hồi</dt><dd>{preferences.soundEnabled ? "Bật" : "Tắt"}</dd></div>
+            </>}
+          </dl>
+          <button className="sys-gold-button" type="button" onClick={() => openView(previewView)}><Eye size={23} /> Mở {views[previewView as keyof typeof views][0].toLowerCase()} <ChevronRight size={22} /></button>
+        </aside>
+      </div>}
+      {view !== "overview" &&
       <div className="profile-layout">
+        {view !== "account" &&
         <section className="profile-settings">
+          {view === "journey" && <>
           <header className="section-heading"><div><span>HỒ SƠ HÀNH GIẢ</span><h2>Cấu hình hành trình</h2></div><Languages size={21} /></header>
+          <details className="sys-advanced sys-journey-identity"><summary>Danh tính & mục tiêu học</summary>
           <div className="sys-profile-identity" aria-label="Danh hiệu nội bộ HANZI.OS">
             <Award size={22} />
             <span><small>CHỨC HỆ ĐỊNH HƯỚNG</small><strong>{systemClass.title}</strong><em>{systemClass.plain}</em></span>
@@ -382,7 +444,8 @@ export function ProfilePage() {
               ))}
             </div>
           </fieldset>
-          <fieldset className="profile-fieldset inline-fieldset">
+          </details>
+          <fieldset className="profile-fieldset inline-fieldset sys-daily-goal">
             <legend id="profile-daily-minutes-legend">Nhịp Tu Luyện · thời lượng mỗi ngày</legend>
             <div
               className="segmented-control"
@@ -412,6 +475,7 @@ export function ProfilePage() {
               ))}
             </div>
           </fieldset>
+          <details className="sys-advanced"><summary>Điểm khởi hành & hệ chữ</summary>
           <fieldset className="profile-fieldset inline-fieldset">
             <legend id="profile-starting-level-legend">Căn Cơ Tự Khai · không miễn bài tiên quyết</legend>
             <div
@@ -488,17 +552,29 @@ export function ProfilePage() {
               </button>
             </div>
           </fieldset>
+          </details>
+          <div className="sys-accessibility-note"><ShieldCheck size={22} /><span>Tiến trình bài học luôn được tự động lưu. Mục tiêu thời lượng tạo nhịp học, không phải bằng chứng thành thạo.</span></div>
+          <button className="sys-reset-link" type="button" onClick={() => openView("account")}><RotateCcw size={20} /> Quản lý hoặc đặt lại hành trình học <ChevronRight size={18} /></button>
+          </>}
+          {view === "display" && <>
           <fieldset className="profile-fieldset">
-            <legend id="profile-motion-legend">Cường độ hiệu ứng hệ thống</legend>
+            <legend id="profile-motion-legend">Chuyển động</legend>
             <div className="sys-motion-options" role="radiogroup" aria-labelledby="profile-motion-legend">
-              {motionModes.map((mode) => (
+              {motionModes.map((mode, optionIndex) => (
                 <button
                   className={preferences.motionMode === mode.id ? "active" : ""}
                   key={mode.id}
                   role="radio"
                   aria-checked={preferences.motionMode === mode.id}
+                  tabIndex={preferences.motionMode === mode.id ? 0 : -1}
+                  data-radio-index={optionIndex}
                   type="button"
                   onClick={() => setMotionMode(mode.id)}
+                  onKeyDown={(event) => handleRadioGroupKeyDown(event, {
+                    currentIndex: optionIndex,
+                    itemCount: motionModes.length,
+                    onSelect: (nextIndex) => setMotionMode(motionModes[nextIndex]!.id),
+                  })}
                 >
                   <Sparkles size={17} />
                   <span><strong>{mode.label}</strong><small>{mode.description}</small></span>
@@ -513,6 +589,10 @@ export function ProfilePage() {
               <Sparkles size={16} /> Cho phép xem lại nghi thức
             </button>
           </fieldset>
+          <div className="sys-accessibility-note"><Keyboard size={22} /><span><strong>Bàn phím & focus</strong><p>Viền focus hiển thị khi dùng bàn phím. Chế độ tự động tôn trọng tùy chọn giảm chuyển động của thiết bị.</p></span><Check size={22} /></div>
+          <div className="sys-reading-preview" aria-label="Xem trước kiểu chữ"><span lang="zh-Hans">你好</span><strong>nǐ hǎo</strong><i aria-hidden="true">✦</i><b>xin chào</b><p>Học tập kiên trì mỗi ngày, tiến bộ sẽ đến một cách tự nhiên.</p><button type="button">Nút có focus</button></div>
+          </>}
+          {view === "audio" &&
           <fieldset className="profile-fieldset">
             <legend>Giao thức âm thanh hệ thống</legend>
             <div className="sys-audio-console">
@@ -645,10 +725,10 @@ export function ProfilePage() {
               <VoiceReactor sourceId="profile:voice-preview" phase={playback.sourceId === "profile:voice-preview" ? playback.phase : "idle"} compact />
               <small className="sys-audio-disclosure">Các nhân cách dùng giọng máy tổng hợp để xướng lệnh và hỗ trợ tự học trên thiết bị.</small>
             </div>
-          </fieldset>
-          <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button>
+          </fieldset>}
         </section>
-
+        }
+        {view === "account" &&
         <aside className="data-control-panel">
           <header className="section-heading"><div><span>DURABLE DATA VAULT</span><h2>Kho dữ liệu</h2></div><Database size={21} /></header>
           <div className={`cloud-account-card ${sync.session?.authenticated ? "authenticated" : "anonymous"}`}>
@@ -683,7 +763,7 @@ export function ProfilePage() {
             <ShieldCheck size={24} />
             <div>
               <strong>{sync.session?.authenticated ? "Local-first và có bản sao cloud" : "Dữ liệu nằm trên trình duyệt này"}</strong>
-              <p>{sync.session?.authenticated ? "Mỗi thao tác được ghi cục bộ trước, xếp hàng khi mất mạng và hòa giải theo idempotency khi kết nối lại." : "Bài học, XP và lịch FSRS được lưu cục bộ; đăng nhập để phục hồi trên thiết bị khác."}</p>
+              <p>{sync.session?.authenticated ? "Tiến trình được lưu trên thiết bị trước; thay đổi khi mất mạng sẽ được gửi lại khi có kết nối." : "Bài học, XP và lịch FSRS được lưu cục bộ; đăng nhập để phục hồi trên thiết bị khác."}</p>
             </div>
           </div>
           <dl className="data-counters">
@@ -709,8 +789,8 @@ export function ProfilePage() {
             onChange={(event) => void importProgress(event.target.files?.[0])}
           />
           <button className="secondary-button full-button" type="button" onClick={() => importInputRef.current?.click()}><Upload size={17} /> Phục hồi từ bản sao JSON</button>
-          <div className="danger-zone">
-            <span>RESET PROTOCOL</span>
+          <details className="danger-zone">
+            <summary>Đặt lại hoặc xóa dữ liệu</summary>
             <p>{sync.session?.authenticated ? "Đặt lại tiến độ học trên tài khoản; lệnh vẫn an toàn khi ngoại tuyến và sẽ gửi khi có mạng." : "Đưa tiến độ học trên thiết bị này về lần khởi tạo đầu tiên."}</p>
             <button type="button" onClick={() => setShowResetConfirm(true)}><RotateCcw size={17} /> Xóa toàn bộ dữ liệu HANZI.OS</button>
             {sync.session?.authenticated && (
@@ -728,9 +808,11 @@ export function ProfilePage() {
                 </button>
               </>
             )}
-          </div>
+          </details>
         </aside>
-      </div>
+        }
+      </div>}
+      <footer className="sys-footer"><span><ShieldCheck size={18} /> {view === "journey" ? "Thay đổi hành trình cần được lưu trước khi rời trang." : "Tùy chọn âm thanh và chuyển động được tự động lưu trên thiết bị."}</span>{view === "journey" ? <button className="primary-button profile-save" type="button" onClick={save}>{saved ? <Check size={18} /> : <Save size={18} />}{saved ? "Đã lưu cấu hình" : "Lưu cấu hình"}</button> : <span>Quản lý bản sao và đặt lại trong Tài khoản & dữ liệu.</span>}</footer>
       <ConfirmModal
         open={showResetConfirm}
         title="Đưa hệ thống về khởi nguyên?"

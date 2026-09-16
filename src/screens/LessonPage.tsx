@@ -1,3 +1,4 @@
+import "./LessonStudy.css";
 import {
   ArrowLeft,
   ArrowRight,
@@ -368,8 +369,10 @@ function LocalLessonPage({
           </section>
 
           <LessonTheoryPanel
+            contentStatus={publishedLessonStatus}
             guide={guide}
             lessonId={lesson.id}
+            lessonTitle={presentedLesson?.title ?? lesson.title}
             lessonObjective={presentedLesson?.objective ?? lesson.objective}
             preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}
@@ -391,9 +394,6 @@ function LocalLessonPage({
 
           {publishedLessonStatus === "fallback" && <p className="synthetic-audio-note" role="status">Bản biên soạn mới chưa tải được; bài cốt lõi và tiến độ vẫn hoạt động. <button className="secondary-button" type="button" onClick={retryPublishedLesson}>Thử tải lại</button></p>}
 
-          <p className="synthetic-audio-note">
-            Âm Mẫu Tổng Hợp · TTS của trình duyệt chỉ dùng để luyện nghe và nhại; không phải audio người thật hay bằng chứng phát âm.
-          </p>
         </div>
       </div>
     );
@@ -568,7 +568,7 @@ function LocalLessonPage({
         <Link className="lesson-return-link" to="/path" aria-label="Rời bài và trở về Thiên Lộ; tiến độ đã được tự lưu">
           <ArrowLeft size={18} /><span>Thiên Lộ</span>
         </Link>
-        <div className="lesson-progress-track"><i style={{ width: `${progress}%` }} /></div>
+        <div className="lesson-progress-track" role="progressbar" aria-label="Tiến độ Thử Luyện" aria-valuemin={0} aria-valuemax={exercises.length} aria-valuenow={index + 1}><i style={{ width: `${progress}%` }} /></div>
         <span>{index + 1} / {exercises.length}</span>
         <button className="lesson-theory-button" type="button" onClick={() => {
           if (!checked) setSelectedUsedHint(true);
@@ -586,9 +586,11 @@ function LocalLessonPage({
       <section className={`exercise-stage ${reviewingTheory ? "is-theory-review" : ""}`}>
         {reviewingTheory ? (
           <LessonTheoryPanel
+            contentStatus={publishedLessonStatus}
             compact
             guide={guide}
             lessonId={lesson.id}
+            lessonTitle={presentedLesson?.title ?? lesson.title}
             lessonObjective={presentedLesson?.objective ?? lesson.objective}
             preferGuide={Boolean(publishedLesson?.guide)}
             lessonWords={lessonWords}

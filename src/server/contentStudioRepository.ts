@@ -970,6 +970,15 @@ export class ContentStudioRepository {
     assertMutationIdentity(input);
     const current = await this.getRevision(input.revisionId);
     const validated = await validateStudioContent(current.itemType, current.content);
+    if(current.itemType==='lesson') {
+      const { LessonMediaRepository } = await import('./lessonMediaRepository');
+      const missing=await new LessonMediaRepository(this.database).missingReferences(current.content.lessonPages);
+      if(missing.length){
+        validated.result.valid=false;
+        validated.result.checks.structure=false;
+        validated.result.errors.push({path:'lessonPages.media',message:`Có ${missing.length} học liệu chưa tồn tại trong kho. Chọn hoặc tải lại tệp trước khi gửi duyệt.`});
+      }
+    }
     if (
       current.itemType === "exam_form"
       && current.content.examLevel !== current.level
@@ -981,7 +990,7 @@ export class ContentStudioRepository {
         message: "Cấp HSK của cửa phải trùng với cấp độ phân loại nội dung.",
       });
     }
-    if (current.itemType === "lesson") {
+    if (current.itemType === "lesson" && current.content.contentKind !== "reader-series") {
       const targetLesson = typeof current.content.targetLessonId === "string"
         ? LESSON_BY_ID.get(current.content.targetLessonId)
         : undefined;
@@ -1179,7 +1188,7 @@ export class ContentStudioRepository {
         );
       }
     }
-    if (input.toState === "published" && current.itemType === "lesson") {
+    if (input.toState === "published" && current.itemType === "lesson" && current.content.contentKind !== "reader-series") {
       const occupied = await this.database.prepare(
         `SELECT r.id
            FROM content_revisions r
@@ -1562,6 +1571,23 @@ export class ContentStudioRepository {
       || await studioSha256(canonicalStudioJson(manifestValue)) !== row.manifestSha256
     ) throw new Error("Released content package failed its immutable digest fence.");
     return packageValue;
+  }
+
+  /** Immutable released packages only; draft revisions are never candidates.
+   * Used to reconcile queued practice from a lesson updated while offline. */
+  async releasedLessonRuntimeRevisions(lessonId: string): Promise<PublishedStudioRuntimeItem[]> {
+    const result = await this.database.prepare(
+      `SELECT revision_id AS revisionId FROM content_release_packages
+       WHERE json_extract(package_json, '$.itemType') = 'lesson'
+         AND json_extract(package_json, '$.content.targetLessonId') = ?
+       ORDER BY revision_id`,
+    ).bind(lessonId).all<{revisionId:string}>();
+    if (!result.success) throw new Error("Unable to read released lesson history.");
+    const items = await this.releasedRuntimeRevisions((result.results ?? []).map(row=>row.revisionId));
+    if (items.some(item=>item.itemType!=='lesson'||item.content.targetLessonId!==lessonId)) {
+      throw new Error("Released lesson history identity mismatch.");
+    }
+    return items;
   }
 
   async releasedRuntimeRevisions(

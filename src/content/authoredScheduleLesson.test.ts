@@ -1,0 +1,32 @@
+import {expect,it} from 'vitest';
+import draft from '../../content/drafts/thien-lo-professional-4-v2.json';
+import {validateStudioContent} from './studioContent';
+import {LESSON_BY_ID} from '../data/curriculum';
+import {isLessonPageDocument} from '../learning/lessonPages';
+import review from '../../content/review/thien-lo-professional-4-v2-local.json';
+import {canonicalStudioJson,studioSha256} from './studioContent';
+import {parsePublishedStudioLessons} from './publishedStudioLessons';
+it('keeps the schedule manuscript and its distinct transfer task editable pending review',async()=>{
+  const checked=await validateStudioContent('lesson',draft.studioContent);
+  expect(checked.result.errors.map(e=>e.path)).toEqual(['review.aiSelfReview']);
+  const core=LESSON_BY_ID.get(draft.lessonId)!;
+  expect(draft.studioContent.vocabulary).toEqual(core.wordIds);
+  expect(draft.studioContent.prerequisites).toEqual(['professional-3']);
+  expect(draft.studioContent.skills).toEqual(core.skills);
+  const doc:unknown=draft.lessonPages;
+  if(!isLessonPageDocument(doc))throw new Error('Invalid schedule document');
+  const diagram=doc.pages.flatMap(p=>p.blocks).find(b=>b.diagram?.type==='timeline')!.diagram!;
+  expect(diagram.nodes.map(n=>n.label)).toEqual(['上午九点 · 上班','下午五点 · 下班','晚上七点 · 上课','晚上八点 · 下课']);
+  expect(doc.pages.find(p=>p.id.endsWith(':transfer'))!.blocks[0].body).toContain('4 giờ chiều');
+  expect(draft.humanReviewed).toBe(false);
+});
+it('binds schedule review and preserves all pages through publication',async()=>{
+  expect(await studioSha256(canonicalStudioJson(draft.studioContent))).toBe(review.sourceContentSha256);
+  const content={...draft.studioContent,review:{humanReviewed:false,aiSelfReview:review.aiSelfReview}};
+  const validation=await validateStudioContent('lesson',content);
+  expect(validation.result.errors).toEqual([]);
+  const projected=parsePublishedStudioLessons({schemaVersion:1,policy:'published-only',releaseBoundary:'content-release-worker-v1',items:[{stableKey:'thien-lo-v2-professional-4',itemType:'lesson',level:'hsk1',title:draft.title,revision:1,revisionId:'schedule-test',schemaVersion:1,contentSha256:validation.result.contentSha256,publishedAt:1,content}]}).get(draft.lessonId)!;
+  expect(projected.richContent.lessonPages).toEqual(draft.lessonPages);
+  expect(projected.lesson.wordIds).toEqual(LESSON_BY_ID.get(draft.lessonId)!.wordIds);
+  expect(projected.lesson.prerequisiteIds).toEqual(['professional-3']);
+});

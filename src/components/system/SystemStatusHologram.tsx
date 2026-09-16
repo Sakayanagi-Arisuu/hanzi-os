@@ -1,3 +1,4 @@
+import { PracticeMilestone } from "../PracticeMilestone";
 import {
   Activity,
   AudioLines,
@@ -16,19 +17,11 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { useEffect, useId, useMemo, useRef, type CSSProperties, type RefObject } from "react";
+import { useEffect, useId, useRef, type CSSProperties, type RefObject } from "react";
 import { Link } from "react-router";
 import { useAudioEngine } from "../../audio/AudioEngineProvider";
-import {
-  getNextLesson,
-  getReleasedLessonProgress,
-  isMistakeFromActivePathContent,
-} from "../../lib/adaptive";
-import {
-  deriveLocalLearnerActivityCoverage,
-  deriveProjectedLearnerActivityCoverage,
-} from "../../learning/learningCoverage";
-import { summarizeNormalizedObjectiveEvidence } from "../../learning/normalizedEvidenceSummary";
+import { LESSON_BY_ID } from "../../data/curriculum";
+import { useLearnerOverview } from "../../learning/useLearnerOverview";
 import {
   deriveJourneyTitles,
   getInteractionRankProgress,
@@ -38,7 +31,6 @@ import { useSystemUi } from "../../system/systemUiPreferences";
 import { emitSystemSignal } from "../../system/systemSignals";
 import { useLearning } from "../../store/LearningStore";
 import { useInteractionXp } from "../../store/InteractionXpStore";
-import { useNormalizedLearningProjection } from "../../store/NormalizedLearningProjectionStore";
 import type { Skill } from "../../types";
 
 const SKILL_LABELS: Record<Skill, { code: string; label: string }> = {
@@ -58,9 +50,9 @@ type SystemStatusHologramProps = {
 };
 
 export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemStatusHologramProps) {
-  const { state, dueWordIds, level, sync } = useLearning();
+  const { state, dueWordIds, level } = useLearning();
   const interactionXp = useInteractionXp();
-  const normalized = useNormalizedLearningProjection();
+  const overview = useLearnerOverview(open);
   const {
     preferences,
     resolvedMotion,
@@ -79,30 +71,12 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
     ? Math.floor(interactionXp.totalXp / 500) + 1
     : level;
   const systemClass = getSystemClass(state.profile.goal);
-  const progress = getReleasedLessonProgress(state);
-  const nextLesson = getNextLesson(state);
-  const journeyTitle = deriveJourneyTitles(state.completedLessons)
-    .filter((item) => item.completed)
-    .at(-1)?.title ?? "Hành Giả Sơ Khởi";
-  const unresolvedMistakes = state.mistakes.filter((mistake) =>
-    !mistake.resolved && isMistakeFromActivePathContent(mistake, state.profile.startingLevel)
-  ).length;
-  const skills = useMemo(() => {
-    const projected = sync.session?.authenticated
-      ? summarizeNormalizedObjectiveEvidence(
-          normalized.coverageProjection ?? normalized.projection,
-        )
-      : null;
-    const coverage = projected
-      ? deriveProjectedLearnerActivityCoverage(
-          projected.gateEligibleCorrectActivityCounts,
-        )
-      : deriveLocalLearnerActivityCoverage(state.evidence);
-    return (Object.keys(SKILL_LABELS) as Skill[]).map((skill) => ({
-      skill,
-      ...coverage[skill],
-    }));
-  }, [normalized.coverageProjection, normalized.projection, state.evidence, sync.session]);
+  const progress = overview.authority.state === "ready" ? overview.authority.view : null;
+  const nextLesson = progress?.nextLessonId ? LESSON_BY_ID.get(progress.nextLessonId) : null;
+  const journeyTitle = overview.authenticated
+    ? `${progress?.completedCount ?? "—"} bài đã hoàn tất`
+    : deriveJourneyTitles(state.completedLessons).filter(item => item.completed).at(-1)?.title ?? "Hành Giả Sơ Khởi";
+  const skills = Object.keys(SKILL_LABELS) as Skill[];
 
   useEffect(() => {
     if (!open) return;
@@ -260,12 +234,12 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
                 <span>{nextLesson.minutes} phút · +{nextLesson.xp} XP tương tác</span>
               </div>
             ) : (
-              <div className="sys-holo-mission"><strong>Thiên Lộ hiện tại đã hoàn tất</strong><p>Mở Thiên Lộ để chọn chặng ôn tiếp theo.</p></div>
+              <div className="sys-holo-mission"><strong>{progress ? "Thiên Lộ hiện tại đã hoàn tất" : "Đang đọc tiến độ tài khoản"}</strong><p>Mở Thiên Lộ để chọn chặng ôn tiếp theo.</p></div>
             )}
             <dl className="sys-holo-alerts">
-              <div><dt><BrainCircuit size={14} /> Mảnh ký ức đến hạn</dt><dd>{dueWordIds.length}</dd></div>
-              <div><dt><Activity size={14} /> Nghịch cảnh còn mở</dt><dd>{unresolvedMistakes}</dd></div>
-              <div><dt><Flame size={14} /> Chuỗi duy trì</dt><dd>{state.streak} ngày</dd></div>
+              <div><dt><BrainCircuit size={14} /> Mảnh ký ức đến hạn</dt><dd>{overview.authenticated ? <Link to="/review" onClick={onClose}>Xem lịch ôn</Link> : dueWordIds.length}</dd></div>
+              <div><dt><Activity size={14} /> Nghịch cảnh còn mở</dt><dd>{overview.unresolved ?? "—"}</dd></div>
+              <div><dt><Flame size={14} /> Ngày truy cập</dt><dd>{overview.accessDays?.length ?? "—"} ngày</dd></div>
             </dl>
           </aside>
 
@@ -276,7 +250,7 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
             <div className="sys-holo-card-depth" aria-hidden="true" />
             <div className="sys-holo-rank-orbit" aria-hidden="true"><i /><b /><span /></div>
             <div className="sys-holo-avatar" aria-hidden="true"><span>{displayedLevel}</span><small>境</small></div>
-            <span className="sys-holo-id">STATUS WINDOW · HZ-{state.profile.goal.toUpperCase()}-{String(progress.completedCount).padStart(3, "0")}</span>
+            <span className="sys-holo-id">STATUS WINDOW · HZ-{state.profile.goal.toUpperCase()}-{String(progress?.completedCount ?? 0).padStart(3, "0")}</span>
             <h2 id={titleId}>{state.profile.name}</h2>
             <p className="sys-holo-class">{systemClass.title}</p>
             <div className="sys-holo-title-seal"><ShieldCheck size={15} /><span>Danh hiệu</span><strong>{journeyTitle}</strong></div>
@@ -287,31 +261,27 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
             <div className="sys-holo-rank-track"><i style={{ width: `${rank.progress}%` }} /></div>
             <div className="sys-holo-core-stats">
               <div><Zap size={16} /><span><small>NĂNG LƯỢNG TƯƠNG TÁC</small><strong>{interactionXp.pending ? "ĐANG ĐỒNG BỘ" : `${interactionXp.totalXp.toLocaleString("vi-VN")} XP`}</strong></span></div>
-              <div><CircleGauge size={16} /><span><small>THỬ LUYỆN THÔNG QUA</small><strong>{progress.completedCount}/{progress.totalCount}</strong></span></div>
+              <div><CircleGauge size={16} /><span><small>THỬ LUYỆN THÔNG QUA</small><strong>{progress?.completedCount ?? "—"}/{progress?.totalCount ?? "—"}</strong></span></div>
             </div>
             <p className="sys-holo-truth" id={descriptionId}>XP, danh hiệu và chỉ số dưới đây là tín hiệu học tập nội bộ; không thay thế chứng nhận HSK hay tự suy ra năng lực nói.</p>
           </article>
 
           <aside className="sys-holo-wing sys-holo-wing-right" aria-label="Chỉ số học tập quan sát được">
             <span className="sys-holo-panel-code"><CircleGauge size={14} /> OBSERVED SIGNALS</span>
-            <h3>Ma trận thuộc tính</h3>
+            <h3>Thất Trụ · Đã luyện</h3><p className="sys-practice-note">Thanh đo mốc luyện 1.000 câu khác nhau; không phải mức thành thạo.</p>
             <div className="sys-holo-skills">
-              {skills.map(({ skill, practiceCount, target, percent }) => {
-                const displayPercent = percent
-                  ?? (target > 0 ? Math.min(100, practiceCount / target * 100) : 0);
-                return (
-                <div key={skill}>
+              {skills.map(skill => (
+                <div key={skill} className="sys-practice-count" aria-label={`${SKILL_LABELS[skill].label}: ${overview.activity?.skills[skill].unique ?? "chưa tải"} câu đã luyện`}>
                   <span><b>{SKILL_LABELS[skill].code}</b><small>{SKILL_LABELS[skill].label}</small></span>
-                  <i><b style={{ width: `${displayPercent}%` }} /></i>
-                  <strong>{percent === null ? practiceCount : Math.round(percent)}</strong>
+                  <strong>{overview.activity?.skills[skill].unique ?? "—"} câu</strong>
+                  <PracticeMilestone count={overview.activity?.skills[skill].unique ?? null} label={SKILL_LABELS[skill].label} />
                 </div>
-                );
-              })}
+              ))}
             </div>
             <div className="sys-holo-path-progress">
               <span><Map size={15} /> Thiên Lộ quan sát</span>
-              <strong>{progress.progress}%</strong>
-              <i><b style={{ width: `${progress.progress}%` }} /></i>
+              <strong>{progress?.progress ?? "—"}%</strong>
+              <i><b style={{ width: `${progress?.progress ?? 0}%` }} /></i>
             </div>
           </aside>
         </div>

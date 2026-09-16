@@ -1,3 +1,4 @@
+import { validStudioGrammarExamples } from './studioLessonGrammar';
 import {
   HSK_BUILT_IN_EXAM_FORM_KEYS,
   HSK_STANDARD_EXAM_STRUCTURE,
@@ -8,6 +9,7 @@ import {
 } from "../assessment/hskExamStructure";
 import { RELEASED_LESSONS, RELEASED_VOCABULARY } from "../data/curriculum";
 import { studioLessonMatchesLevel } from "./studioLessonIdentity";
+import { parseEditorialReaderBook } from "../reader/editorialReaderContent";
 
 export const STUDIO_ITEM_TYPES = [
   "vocabulary",
@@ -294,6 +296,11 @@ export async function validateStudioContent(
   }
 
   const reviewReady = validateReviewDisclosure(content, errors);
+  if (content.contentKind === "reader-series") {
+    const parsedBook = parseEditorialReaderBook(content.readerSeries);
+    for (const message of parsedBook.errors) addRequired(errors, false, "readerSeries", message);
+    addRequired(errors, itemType === "lesson", "contentKind", "Sách phải được lưu dưới loại bài học của thư viện.");
+  }
   let contextualChinese: boolean;
   let answerIntegrity = true;
 
@@ -415,7 +422,15 @@ export async function validateStudioContent(
       "rights",
       "Ghi rõ provenance và xác nhận quyền dùng văn bản trước khi gửi duyệt.",
     );
+  } else if (itemType === "lesson" && content.contentKind === "reader-series") {
+    const parsedBook = parseEditorialReaderBook(content.readerSeries);
+    contextualChinese = parsedBook.ok;
+    answerIntegrity = parsedBook.ok;
   } else if (itemType === "lesson") {
+    if (content.lessonPages !== undefined) {
+      for (const message of validateLessonPages(content.lessonPages)) addRequired(errors, false, 'lessonPages', message);
+      if(isLessonPageDocument(content.lessonPages)&&typeof content.targetLessonId==='string')for(const message of validateLessonActivitySources(content.targetLessonId,content.lessonPages))addRequired(errors,false,'lessonPages.learningTarget',message);
+    }
     const targetLesson = typeof content.targetLessonId === "string"
       ? RELEASED_LESSONS.find((lesson) => lesson.id === content.targetLessonId)
       : undefined;
@@ -436,8 +451,8 @@ export async function validateStudioContent(
     addRequired(errors, contextualChinese, "dialogue", "Bài học cần hội thoại/văn bản có ít nhất hai lượt.");
     addRequired(errors, Array.isArray(content.grammar) && content.grammar.length > 0 && content.grammar.every((entry) => {
       const grammar = asRecord(entry);
-      return Boolean(grammar && nonEmpty(grammar.pattern, 240) && nonEmpty(grammar.explanationVi));
-    }), "grammar", "Bài học cần điểm ngữ pháp có mẫu câu và giải thích.");
+      return Boolean(grammar && nonEmpty(grammar.pattern, 240) && nonEmpty(grammar.explanationVi) && validStudioGrammarExamples(grammar));
+    }), "grammar", "Ngữ pháp cần mẫu câu và giải thích; câu mẫu hoặc bài luyện riêng đã nhập phải đủ Hán tự, Pinyin, nghĩa Việt và yêu cầu.");
     const exercises = Array.isArray(content.exercises) ? content.exercises : [];
     answerIntegrity = exercises.length > 0 && exercises.every((exercise) => {
       const record = asRecord(exercise);
@@ -800,3 +815,5 @@ export const studioBlankDraftContent = (
 
   return { ...draft, review };
 };
+import { validateLessonPages,isLessonPageDocument } from '../learning/lessonPages';
+import {validateLessonActivitySources} from '../learning/lessonActivitySources';

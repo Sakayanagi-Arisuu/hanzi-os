@@ -1,0 +1,31 @@
+import {LESSON_BY_ID,WORD_BY_ID} from '../../src/data/curriculum';
+import {getRichLessonContent} from '../../src/learning/richLessonContent';
+import {emptyLessonBlock,validateLessonPages,type LessonBlock,type LessonPageDocument} from '../../src/learning/lessonPages';
+import {emptyLessonActivity} from '../../src/learning/lessonActivities';
+import type {SurvivalManuscript} from './survival-batch-manuscripts';
+export type BatchPractice={pattern:string;example:[string,string,string];prompt:string;answers:string[];explanation:string};
+export function buildAuthoredBatch({manuscripts,practiceByLesson,examples,answerReadings,level='hsk1'}:{manuscripts:SurvivalManuscript[];practiceByLesson:Record<string,BatchPractice>;examples:Record<string,[string,string,string]>;answerReadings:Record<string,[string,string]>;level?:'hsk1'|'hsk2'|'hsk3'|'hsk4'}) {
+const items=manuscripts.map(m=>{
+ const practice=practiceByLesson[m.id];
+ const lesson=LESSON_BY_ID.get(m.id)!;const rich=getRichLessonContent(m.id)!;
+ const b=(key:string,fields:Partial<LessonBlock>):LessonBlock=>({...emptyLessonBlock(`${m.id}:v2:block:${key}`),...fields});
+ const words=lesson.wordIds.map(id=>WORD_BY_ID.get(id)!);
+ const doc:LessonPageDocument={version:1,art:m.id==='survival-8'?'city':'campus',pages:[
+  {id:`${m.id}:v2:context`,title:m.focus,layout:'scene',stage:'context',blocks:[b('scene',{title:'Tình huống của bạn',body:m.scene}),b('support',{title:'Từ hỗ trợ trước khi bắt đầu',body:m.support})]},
+  {id:`${m.id}:v2:dialogue`,title:'Theo dõi mục đích từng lượt nói',layout:'dialogue',stage:'context',blocks:m.dialogue.map(([hanzi,pinyin,meaningVi],i)=>b(`turn-${i}`,{kind:'dialogue',title:`Lượt ${i+1}`,hanzi,pinyin,meaningVi}))},
+  {id:`${m.id}:v2:meaning`,title:m.focus,layout:'focus',stage:'understand',blocks:[b('rule',{title:'Hiểu cách dùng trong tình huống',body:m.rule}),b('pattern',{kind:'dialogue',title:practice.pattern,hanzi:practice.example[0],pinyin:practice.example[1],meaningVi:practice.example[2]}),b('pitfall',{title:'Điểm dễ hiểu nhầm',body:m.pitfall})]},
+ ]};
+ // Retained dictionary examples and explicit lesson-specific replacements preserve word IDs.
+ for(let offset=0;offset<words.length;offset+=5){const group=words.slice(offset,offset+5);doc.pages.push({id:`${m.id}:v2:words-${offset}`,title:`Từ dùng trong bài · nhóm ${Math.floor(offset/5)+1}`,layout:'split',stage:'understand',blocks:[b(`word-note-${offset}`,{title:'Tra và nối lại với tình huống',body:'Ví dụ được chọn từ từ điển hiện hành hoặc biên soạn riêng để làm rõ cách dùng trong bài. Quay lại tình huống chính để chọn cách dùng phù hợp; nhìn thấy từ trong danh sách chưa có nghĩa bạn đã nhớ hoặc dùng được.'}),...group.map(w=>b(`word-${w.id}`,{kind:'dialogue',title:`${w.simplified} · ${w.pinyin}`,body:w.meaning,hanzi:examples[w.simplified]?.[0]??w.example,pinyin:examples[w.simplified]?.[1]??w.examplePinyin,meaningVi:examples[w.simplified]?.[2]??w.exampleMeaning}))]});}
+ doc.pages.push(
+  {id:`${m.id}:v2:choice`,title:'Quyết định theo thông tin đã cho',layout:'focus',stage:'practice',blocks:[b('choice',{kind:'activity',title:'Chọn lời nói phù hợp',body:m.question,activity:{...emptyLessonActivity(),options:m.choices.map(([text,feedback],i)=>({id:`option-${i}`,text,feedback})),answerIds:[`option-${m.answer}`],explanation:m.choices[m.answer][1]+' '+m.pitfall,hint:''}})]},
+  {id:`${m.id}:v2:guided`,title:'Hoàn thành mẫu theo ngữ cảnh',layout:'workshop',stage:'practice',blocks:[b('guided',{kind:'activity',title:'Điền và tự kiểm',body:practice.prompt,activity:{...emptyLessonActivity(),type:'cloze',acceptedAnswers:practice.answers,explanation:practice.explanation,hint:'Có thể quay lại mẫu câu. Nếu xem trợ giúp, thử lại ở lần ôn sau trước khi kết luận đã nhớ.'}})]},
+  {id:`${m.id}:v2:transfer`,title:'Thử trong tình huống khác',layout:'workshop',stage:'transfer',blocks:[b('transfer',{title:'Thông tin mới dành cho vai của bạn',body:m.transfer}),b('produce',{kind:'activity',title:'Tự diễn đạt trước khi xem mẫu',body:'Viết câu hoặc các lượt thoại theo tình huống mới. Có thể mở từ hỗ trợ; dùng Pinyin nếu chưa nhập được Hán tự và ghi nhận đó là trợ giúp.',activity:{...emptyLessonActivity(),type:'rubric',rubric:m.criteria.map((label,i)=>({id:`criterion-${i}`,label,guidance:label})),explanation:`Một phương án để đối chiếu:\n${m.model[0]}\n${m.model[1]}\n${m.model[2]}\nCách diễn đạt khác giữ đúng thông tin có thể phù hợp. Tự đối chiếu chưa phải điểm nói/viết độc lập.`,hint:''}})]},
+  {id:`${m.id}:v2:recap`,title:'Tự kiểm trước khi vào Thử Luyện',layout:'focus',stage:'transfer',blocks:[b('recap',{title:'Điều cần mang sang lần dùng tiếp',body:m.criteria.join('\n')+'\nNếu còn nhầm, quay lại phần cách dùng rồi thử đổi vai một lần. Tiếp tục Thử Luyện và ôn theo hệ thống; không coi xem hết trang là thành thạo.'})]}
+ );
+ const errors=validateLessonPages(doc);if(errors.length)throw new Error(`${m.id}: ${errors.join('; ')}`);
+ const content={targetLessonId:lesson.id,titleZh:lesson.chineseTitle,objectiveVi:lesson.objective,conceptVi:m.focus,ruleVi:m.rule,pitfallVi:m.pitfall,checkpointVi:m.transfer,prerequisites:lesson.prerequisiteIds,vocabulary:lesson.wordIds,skills:lesson.skills,dialogue:m.dialogue.map(([hanzi,pinyin,meaningVi],i)=>({speaker:`Lượt ${i+1}`,hanzi,pinyin,meaningVi})),grammar:[{pattern:practice.pattern,explanationVi:m.rule,modelExample:{hanzi:practice.example[0],pinyin:practice.example[1],meaningVi:practice.example[2]},guidedPractice:{promptVi:m.transfer,modelAnswerHanzi:m.model[0],modelAnswerPinyin:m.model[1],modelAnswerMeaningVi:m.model[2]}}],exercises:[{promptVi:m.question,answer:m.choices[m.answer][0],answerPinyin:answerReadings[m.id][0],answerMeaningVi:answerReadings[m.id][1],distractors:m.choices.filter((_,i)=>i!==m.answer).map(c=>c[0]),explanationVi:m.choices[m.answer][1]}],lessonPages:doc,sourceVocabularyIds:lesson.wordIds,sourceLessonIds:[lesson.id],sourceGrammarIds:rich.grammar.map(g=>g.id),sourceTaskIds:rich.tasks.map(t=>t.id),sourceTopicIds:rich.topics.map(t=>t.id),review:{humanReviewed:false,aiSelfReview:{accuracy:false,levelFit:false,pedagogy:false,answerIntegrity:false,originality:false}}};
+ return {lessonId:m.id,title:lesson.title,level,lessonPages:doc,studioContent:content,editorialStatus:'draft-needs-vocabulary-example-and-language-review'};
+});
+return items;
+}

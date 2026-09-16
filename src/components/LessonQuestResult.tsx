@@ -90,7 +90,7 @@ export function LessonQuestResult({
       </div>
 
       <header className="path-clear-topline">
-        <span><Map aria-hidden="true" /> THIÊN LỘ · {lessonId.toUpperCase()}</span>
+        <span><Map aria-hidden="true" /> THIÊN LỘ · KẾT QUẢ THỬ LUYỆN</span>
         <strong>
           {passed ? <ShieldCheck aria-hidden="true" /> : <RotateCcw aria-hidden="true" />}
           {passed ? "CỬA ẢI HOÀN TẤT" : "CỬA ẢI CHƯA MỞ"}
@@ -171,6 +171,11 @@ export function LessonQuestResult({
             <div><dt>Câu đúng</dt><dd>{correctCount}/{totalCount}</dd></div>
             <div><dt>Dấu ấn tự lực</dt><dd>{gateScore}%</dd></div>
           </dl>
+          <details className="lesson-result-explanation">
+            <summary>Hiểu kết quả và bước ôn tiếp</summary>
+            <p>Câu đúng là kết quả lượt này. Dấu ấn tự lực chỉ tính phần đáp ứng điều kiện không trợ giúp; xem lại lý thuyết hoặc đáp án có thể ảnh hưởng kết quả đó.</p>
+            <p>{requiredPassed ? 'Phần bắt buộc đã đạt ngưỡng của lượt thử.' : 'Phần bắt buộc chưa đạt ngưỡng; xem lại kiến thức rồi thử lại trước khi mở mẫu.'} Vượt ải chưa có nghĩa đã thành thạo lâu dài. Hãy ôn lại sau một khoảng thời gian.</p>
+          </details>
         </div>
       </div>
 

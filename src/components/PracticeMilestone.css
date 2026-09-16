@@ -1,0 +1,9 @@
+.practice-milestone { min-width: 0; width: 100%; color: #b8cec2; }
+.practice-milestone-caption { display: flex; justify-content: space-between; gap: 8px; font-size: 11px; line-height: 1.5; }
+.practice-milestone-caption strong { color: #e4d8b4; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.practice-milestone-track { height: 8px; margin-top: 6px; overflow: hidden; border: 1px solid #476252; border-radius: 4px; background: #071d16; }
+.practice-milestone-track i { display: block; height: 100%; background: linear-gradient(90deg,#508f73,#b6d8a8); }
+.practice-milestone > small { font-size: 11px; }
+.oracle-pillar-list .practice-milestone { grid-column: 1 / -1; }
+.sys-holo-skills .sys-practice-count .practice-milestone { grid-column: 1 / -1; }
+.sys-holo-skills .sys-practice-count { row-gap: 4px; }

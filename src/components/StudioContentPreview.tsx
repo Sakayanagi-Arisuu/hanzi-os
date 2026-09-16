@@ -1,3 +1,4 @@
+import { projectStudioGrammar, type StudioLessonGrammar } from '../content/studioLessonGrammar';
 import type { CSSProperties } from "react";
 import type { StudioItemType } from "../content/studioContent";
 import type {
@@ -5,6 +6,8 @@ import type {
   RichLessonContent,
 } from "../learning/richLessonContent";
 import { LessonDepthPanel } from "./LessonDepthPanel";
+import { LessonPageReader } from './LessonPageReader';
+import { isEditableLessonPageDocument } from '../learning/lessonPages';
 
 const asRecord = (value: unknown): Record<string, unknown> | null =>
   value && typeof value === "object" && !Array.isArray(value)
@@ -35,38 +38,10 @@ const lessonPreview = (
   const exercises = (Array.isArray(content.exercises) ? content.exercises : [])
     .map(asRecord)
     .filter((entry): entry is Record<string, unknown> => entry !== null);
-  const fallbackExample = dialogue[0] ?? {
-    speaker: "A",
-    hanzi: "你好！",
-    pinyin: "Nǐ hǎo!",
-    meaningVi: "Xin chào!",
-  };
   const grammar = (Array.isArray(content.grammar) ? content.grammar : [])
-    .map((entry, index) => {
-      const row = asRecord(entry);
-      if (!row) return null;
-      const exercise = exercises[index % Math.max(1, exercises.length)];
-      const example = dialogue[index % Math.max(1, dialogue.length)] ?? fallbackExample;
-      return {
-        id: `${revisionId}:grammar:${index + 1}`,
-        category: "CONTENT STUDIO",
-        label: text(row.pattern, `Điểm ngữ pháp ${index + 1}`),
-        officialContent: text(row.pattern),
-        explanationVi: text(row.explanationVi),
-        modelExample: {
-          hanzi: example.hanzi,
-          pinyin: example.pinyin,
-          meaningVi: example.meaningVi,
-        },
-        guidedPractice: {
-          promptVi: text(exercise?.promptVi, "Tự tạo một câu mới theo mẫu trước khi mở đáp án."),
-          modelAnswerHanzi: text(exercise?.answer, fallbackExample.hanzi),
-          modelAnswerPinyin: text(exercise?.answerPinyin, fallbackExample.pinyin),
-          modelAnswerMeaningVi: text(exercise?.answerMeaningVi, fallbackExample.meaningVi),
-        },
-      };
-    })
-    .filter((entry): entry is NonNullable<typeof entry> => entry !== null);
+    .map((entry,index) => { const row=asRecord(entry); return row ? projectStudioGrammar({pattern:text(row.pattern),explanationVi:text(row.explanationVi),modelExample:row.modelExample as StudioLessonGrammar['modelExample'],guidedPractice:row.guidedPractice as StudioLessonGrammar['guidedPractice']}, `${revisionId}:grammar:${index+1}`) : null; })
+    .filter((entry):entry is NonNullable<typeof entry>=>entry!==null);
+
   return {
     lessonId: text(content.targetLessonId, revisionId),
     authoringLessonId: revisionId,
@@ -108,12 +83,22 @@ export function StudioContentPreview({
   revisionId,
   itemType,
   content,
+  title,
 }: {
   revisionId: string;
   itemType: StudioItemType;
   content: Record<string, unknown>;
+  title?: string;
 }) {
   if (itemType === "lesson") {
+    if (isEditableLessonPageDocument(content.lessonPages)) {
+      return <div className="studio-lesson-preview"><LessonPageReader
+        document={content.lessonPages}
+        title={title}
+        lessonId={typeof content.targetLessonId === 'string' ? content.targetLessonId : undefined}
+        objective={text(content.objectiveVi, '')}
+      /></div>;
+    }
     return (
       <div className="lesson-page">
         <LessonDepthPanel
