@@ -1,4 +1,3 @@
-const prefix='hsk4-structured-spoken-defense-lesson-';
 const fixes={
  '01':[
  ['下一步应保持记录，并比较参加与未参加相应措施的人。','陈老师可以继续记录自己的睡眠和症状，不把个人变化当作疗效证明；学院可以比较会前会后的岗位任务答案。'],

@@ -1,5 +1,13 @@
 # HANZI.OS — Implementation checkpoint
 
+## Bảng Trạng Thái · giọng ngay sau hiển thị / lint · 07/10/2026
+
+- **Module:** Status greeting / script lint — IN-REVIEW.
+- **Người học thấy gì:** Giọng chỉ chờ bốn animation xuất hiện của console/core/wings, không chờ hiệu ứng trang trí hữu hạn. Tải trước clip theo voice profile vào browser cache; giữ hai frame paint, mute và hủy khi đóng.
+- **Đã kiểm:** Lint toàn repo 0 lỗi/0 cảnh báo, typecheck, diff-check và 5 test voice-pack/entrance-selection qua, gồm hiệu ứng trang trí dài và reduced-motion. Browser kiểm thử timeout; chưa xác nhận loa Cốc Cốc. Bỏ prefix thừa và đánh dấu _review là trường chủ ý loại khỏi nội dung so sánh trong sáu script; không đổi logic xuất bản.
+- **Dữ liệu giữ được:** Không chạy script release, không đổi dữ liệu người học, .wrangler, nội dung/IDs hay inventory 4/40/40/55/78, 213 rich. Không sửa docs/reports/output.
+- **Tiếp theo:** Chờ người dùng test độ trễ giọng.
+
 ## Ký Ức Trận / Bảng Trạng Thái · phản hồi xác minh và thứ tự giọng · 07/10/2026
 
 - **Module:** Review verification / status voice — IN-REVIEW.

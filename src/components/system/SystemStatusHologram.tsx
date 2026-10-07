@@ -1,3 +1,5 @@
+import { systemVoiceClipUrl } from "../../audio/systemVoicePack";
+import { statusEntranceAnimations } from "./statusEntranceAnimations";
 import { PracticeCoverageMeter } from "../PracticeCoverageMeter";
 import { usePracticeCoverage } from "../../learning/usePracticeCoverage";
 import "./SystemStatusRefinement.css";
@@ -81,18 +83,27 @@ export function SystemStatusHologram({ open, onClose, returnFocusRef }: SystemSt
   const skills = Object.keys(SKILL_LABELS) as Skill[];
 
   useEffect(() => {
+    if (!preferences.soundEnabled) return;
+    // Warm the browser cache before opening, without playing or changing audio state.
+    const controller = new AbortController();
+    void fetch(systemVoiceClipUrl(preferences.voiceProfile, "status.summary"), {
+      cache: "force-cache", signal: controller.signal,
+    }).then(response => response.ok ? response.arrayBuffer() : undefined).catch(() => undefined);
+    return () => controller.abort();
+  }, [preferences.soundEnabled, preferences.voiceProfile]);
+
+  useEffect(() => {
     if (!open || !preferences.soundEnabled) return;
     let cancelled = false;
-    // Wait for a painted dialog and its finite entrance animations before speaking.
+    // Only the panels' reveal controls readiness, never decorative descendants.
     let frame = requestAnimationFrame(() => {
       frame = requestAnimationFrame(() => {
-      const entrances = dialogRef.current?.getAnimations({ subtree: true })
-        .filter(animation => animation.effect?.getComputedTiming().iterations !== Infinity) ?? [];
-      void Promise.allSettled(entrances.map(animation => animation.finished)).then(() => {
-        if (!cancelled) announce("Đồng bộ hồ sơ hoàn tất, bảng trạng thái sẵn sàng.", {
-          sourceId: "status:auto-open", clipId: "status.summary", force: true, priority: 2,
+        const entrances = statusEntranceAnimations(dialogRef.current?.getAnimations({ subtree: true }) ?? []);
+        void Promise.allSettled(entrances.map(animation => animation.finished)).then(() => {
+          if (!cancelled) announce("Đồng bộ hồ sơ hoàn tất, bảng trạng thái sẵn sàng.", {
+            sourceId: "status:auto-open", clipId: "status.summary", force: true, priority: 2,
+          });
         });
-      });
       });
     });
     return () => {
